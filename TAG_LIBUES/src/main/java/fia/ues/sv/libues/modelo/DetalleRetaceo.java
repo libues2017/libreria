@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
 
  @Entity
 @Table(name="detalleretaceo")
@@ -37,6 +37,16 @@ public class DetalleRetaceo implements Serializable{
 	@Column(name="CODIGORETACEO")
 	private Integer codigoretaceo;
 	
+	
+	@NotNull
+	@Column(name="CODIGOFACTURAPROVEEDOR")
+	private Integer codigofacturaproveedor;
+	
+	@NotNull
+	@Column(name="FECHAFACTURAPROVEEDOR", nullable=false)
+	// @DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date fechafacturaproveedor ;
+	
 	@NotNull
 	@Column(name="COSTOPRODUCTO")
 	private Double costoproducto;		
@@ -44,8 +54,7 @@ public class DetalleRetaceo implements Serializable{
 	
 	@NotNull
 	@Column(name="PRECIOPRODUCTO")
-	private Double precioproducto;
-	
+	private Double precioproducto;	
 	
 	@NotNull
 	@Column(name="CANTIDADPRODUCTO")
@@ -54,11 +63,21 @@ public class DetalleRetaceo implements Serializable{
 	@NotNull
 	@Column(name="EXISTENCIAANTERIOR")
 	private Integer existenciaanterior;
-
 	
+		
 	@NotNull
 	@Column(name="COSTOUNITARIOANTERIOR")
 	private Double costounitarioanterior;
+	
+	@NotNull
+	@Column(name="PRECIOANTERIOR")
+	private Double precioanterior;
+		
+	@NotNull
+	@Column(name="SUBTOTAL")   
+	private Double subtotal;
+	
+	
 	
 	@NotNull
 	@Column(name="UTILIDAD")
@@ -69,21 +88,13 @@ public class DetalleRetaceo implements Serializable{
 		return utilidad;
 	}
 
-
-
-
 	public void setUtilidad(Double utilidad) {
 		this.utilidad = utilidad;
 	}
 
-
-
-
 	public Double getCostounitarioanterior() {
 		return costounitarioanterior;
 	}
-
-
 
 
 	public void setCostounitarioanterior(Double costounitarioanterior) {
@@ -91,57 +102,23 @@ public class DetalleRetaceo implements Serializable{
 	}
 
 
-
-
-	public Integer getPrecioanterior() {
+	public Double getPrecioanterior() {
 		return precioanterior;
 	}
 
 
-
-
-	public void setPrecioanterior(Integer precioanterior) {
+	public void setPrecioanterior(Double precioanterior) {
 		this.precioanterior = precioanterior;
 	}
 
-
-
-	@NotNull
-	@Column(name="PRECIOANTERIOR")
-	private Integer precioanterior;
-
-	
-
-
-	
-	
 	public Integer getExistenciaanterior() {
 		return existenciaanterior;
 	}
 
 	
-	
-
 	public void setExistenciaanterior(Integer existenciaanterior) {
 		this.existenciaanterior = existenciaanterior;
 	}
-
-
-
-	@NotNull
-	@Column(name="SUBTOTAL")   
-	private Double subtotal;
-	
-	@NotNull
-	@Column(name="FECHAFACTURAPROVEEDOR", nullable=false)
-	// @DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date fechafacturaproveedor ;
-	
-	
-	
-	@NotNull
-	@Column(name="CODIGOFACTURAPROVEEDOR")
-	private Integer codigofacturaproveedor;
 
 
 	public Integer getCodigodetalleretaceo() {
@@ -212,8 +189,7 @@ public class DetalleRetaceo implements Serializable{
 	public void setCantidadproducto(Integer cantidadproducto) {
 		this.cantidadproducto = cantidadproducto;
 	}
-	
-	
+		
 	public Double getSubtotal() {
 		return subtotal;
 	}
@@ -223,8 +199,6 @@ public class DetalleRetaceo implements Serializable{
 		this.subtotal = subtotal;
 	}
 
-	
-	
 	public Date getFechafacturaproveedor() {
 		return fechafacturaproveedor;
 	}
@@ -251,15 +225,8 @@ public class DetalleRetaceo implements Serializable{
         return "detalleretaceo [CODIGODETALLERETACEO=" + codigodetalleretaceo + ", CODIGOPRODUCTO=" + codigoproducto 
                 + ", CODIGOPROVEEDOR=" + codigoproveedor + ",CODIGORETACEO=" + codigoretaceo + ", COSTOPRODUCTO=" + costoproducto + ", PRECIOPRODUCTO=" + precioproducto
                 + ", CANTIDADPRODUCTO=" + cantidadproducto  + ", SUBTOTA=" +subtotal 
-                + ", FECHAFACTURAPROVEEDOR=" + fechafacturaproveedor + ", CODIGOFACTURAPROVEEDOR" + codigofacturaproveedor +" ]";
+                + ", FECHAFACTURAPROVEEDOR=" + fechafacturaproveedor + ", CODIGOFACTURAPROVEEDOR=" + codigofacturaproveedor +" ]";
         
-        
-        
-        
-        
-      
-         
-          
     }
 
 
