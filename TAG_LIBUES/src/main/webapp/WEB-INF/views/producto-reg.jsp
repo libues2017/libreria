@@ -71,7 +71,7 @@
 		    <form:input type="hidden" path="codigoProducto" id="codigoProducto"/>
 		    
 		    <div class="row">
-		        	<div class="form-group col-md-12">
+		        	<div class="form-group col-md-12" style="display:none ">
 		            	<label class="col-md-3 control-lable" for="correlativo">Codigo de producto:</label>
 		                <div class="col-md-7">
 		                	<form:input type="text" path="correlativo" id="correlativo" class="form-control input-sm"/>
