@@ -1,0 +1,27 @@
+package fia.ues.sv.libues.dao;
+
+import java.util.List;
+
+import fia.ues.sv.libues.modelo.Autor;
+import fia.ues.sv.libues.modelo.Producto;
+import fia.ues.sv.libues.modelo.Busqueda;
+import fia.ues.sv.libues.modelo.Editorial;
+import fia.ues.sv.libues.modelo.Area;
+
+public interface ProductoDao {
+	
+	Producto findByCodigoProducto(int codigoProducto);
+	
+	Producto findByNombreProducto(String nombreProducto);
+	
+	void saveProducto(Producto producto);
+	
+	void deleteByCodigoProducto(int codigoProducto);
+	
+	List<Producto> findAllProductos();
+	
+	List<Producto> findAllByAutor(Autor autor);
+	
+	List<Producto> customSearch(Area area, Editorial editorial, Autor autor, Busqueda busqueda);
+
+}
