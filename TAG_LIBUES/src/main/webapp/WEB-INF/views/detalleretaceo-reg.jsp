@@ -35,8 +35,38 @@
 			    	}
 			    </Style>
 			   
-				  <script type="text/javascript">		
-							function addIt() {
+				  <script>	
+				  
+				  function validaFloat(campo)
+				  {
+					  
+					 numero=document.getElementById("utilidad").value;
+					  
+					  
+				    if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
+				     //alert("El valor " + campo + " no es un número");
+				    
+				    	    $("#glypcn"+campo).remove();
+		                    $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
+		                    $('#'+campo).parent().children('span').text("no es un numero").show();
+		                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+                            return false;
+				    }  
+                    
+                    
+                    else{
+	        				$("#glypcn"+campo).remove();
+	        				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+	        				$('#'+campo).parent().children('span').hide();
+	        				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	        				return true;
+        				}
+				  }
+				  
+				  
+				  
+				  
+							function addIt(campo) {
 							
 								/*
 								Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
@@ -57,6 +87,30 @@
 										PV=CPU+(CPU*0.20). 
 																		
 								*/
+								
+								 numero=document.getElementById(campo).value;
+								 // campo="costoproducto";
+								  
+								    if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
+								     //alert("El valor " + campo + " no es un número");
+								    
+								    	    $("#glypcn"+campo).remove();
+						                    $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
+						                    $('#'+campo).parent().children('span').text("no es un numero").show();
+						                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+				                            return false;
+								    }  
+				                    
+				                    
+				                    else{
+					        				$("#glypcn"+campo).remove();
+					        				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+					        				$('#'+campo).parent().children('span').hide();
+					        				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+					        				
+				        				
+								    
+								
 								var existencia = 0;
 	                            var costoexistencia = 0.0;
 	                            var precioventa = 0.0;
@@ -121,8 +175,13 @@
 								  
 								 /* return true;
 								  alert();	*/
+								  
+								  
+								  return true;
 							  
-			              	}
+			              	}//fin else	
+								    
+							}	    
 	
                 </script>
                 
@@ -383,12 +442,14 @@
 				       
 		    <div class="row">
                 <div class="form-group col-md-12"  >
-                    <label class="col-md-3 control-lable" for="nombr" >Utilidad</label>
+                    <label class="col-md-3 control-lable" for="utilidad" >Utilidad</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="utilidad" id="utilidad" class="form-control input-sm"  />
+                        <form:input type="text" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onkeyup="validaFloat('utilidad');" value='0'/>
+                        
                         <div class="has-error">
                             <form:errors path="utilidad" class="help-inline"/>
                         </div>
+                         <span class="help-block"></span>
                     </div>
                 </div>
              </div>			       
@@ -398,10 +459,11 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Costo Producto:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt()"/>
+                        <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto');"  value='0'/>
                         <div class="has-error">
                             <form:errors path="costoproducto" class="help-inline"/>
                         </div>
+                        <span class="help-block"></span>
                     </div>
                 </div>
              </div>
@@ -410,10 +472,11 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Cantidad de producto:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="cantidadproducto" id="cantidadproducto" class="form-control input-sm" onchange="addIt()"/>
+                        <form:input type="text" path="cantidadproducto" id="cantidadproducto" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
                         <div class="has-error">
                             <form:errors path="cantidadproducto" class="help-inline"/>
                         </div>
+                        <span class="help-block"></span>
                     </div>
                 </div>
              </div>
@@ -422,7 +485,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Precio Producto:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="precioproducto" id="precioproducto" class="form-control input-sm" onfocus="addIt()" />
+                        <form:input type="text" path="precioproducto" id="precioproducto" class="form-control input-sm"  />
                         <div class="has-error">
                             <form:errors path="precioproducto" class="help-inline"/>
                         </div>
