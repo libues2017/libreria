@@ -13,7 +13,7 @@ String user=request.getParameter("usuario");
 String grupo=request.getParameter("nombre");
 Connection conexion; 
 Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/sigues","root","root");
+conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/libues","root","root");
 /*Establecemos la ruta del reporte*/ 
 //File reportFile = new File(application.getRealPath("Reportes/VolProBode.jasper"));
 String cosa =application.getRealPath("/").replace('\\', '/');
@@ -36,4 +36,6 @@ response.setContentLength(bytes.length);
 ServletOutputStream ouputStream = response.getOutputStream(); 
 ouputStream.write(bytes, 0, bytes.length); /*Limpiamos y cerramos flujos de salida*/ 
 ouputStream.flush(); 
-ouputStream.close(); %>
+ouputStream.close();
+
+%>

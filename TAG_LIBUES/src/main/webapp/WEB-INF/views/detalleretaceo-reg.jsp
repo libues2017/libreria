@@ -305,6 +305,19 @@
 	
 <body>
 
+
+
+
+			   <div class="form-group">
+			                <div class="col-sm-offset-6 col-sm-10">
+			                   
+			                   <a class="btn btn-danger" href="<c:url value="/vol_ent" />" role="button">reporte</a>
+			                </div>
+			
+							<input type="hidden" value="${loggedinuser}" name="usuario"/>
+							<input type="hidden" value="Retaceo.jasper" name="nombre"/>
+			   </div>
+
 		  
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">

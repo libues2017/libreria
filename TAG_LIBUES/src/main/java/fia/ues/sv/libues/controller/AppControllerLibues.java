@@ -1319,5 +1319,21 @@ public class AppControllerLibues {
 
          return "redirect:/detallerequisicion-agregar";
     }
+    
+    
+    
+    @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
+	public String volumenEntrante(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "volmov_e";
+	}
+    
+   
+    
+    @RequestMapping(value={"/traslados"}, method = RequestMethod.GET)
+	public String horashombre(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReportTRASL";
+	}
 
 }

@@ -9,7 +9,7 @@ MDU4NzdjMjI5ZDtsaWJ1ZXMucHJvZHVjdG8gLDI1NiwyMCwyZjE1ZDAxMC0yNzljLTQzZjUtYmMx
 Mi1kZjNiMTM3NjM2NWU7bGlidWVzLmF1dG9yX2xpYnJvICw0NTksMjE2LDU1YTdmYzQ0LWU3MzUt
 NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 	</property>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>

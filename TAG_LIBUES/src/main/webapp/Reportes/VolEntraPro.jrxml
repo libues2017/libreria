@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VolProBode" language="groovy" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2c7fc703-a11b-47a4-a898-e43b720820e1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="fechini" class="java.util.Date"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="fenili" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select b.NOM_BODEGA,t.NOM_MOVIMIENTO,sum(m.volumen) from bodega b,movimiento m,tipo_movimiento t where
+t.ID_TIPO_MOVIMIENTO=m.ID_TIPO_MOVIMIENTO and
+m.ID_BODEGA=b.ID_BODEGA and
+t.NOM_MOVIMIENTO="ENTRANTE" and
+m.fecha between $P{fechini} and $P{fenili}
+group by b.NOM_BODEGA]]>
+	</queryString>
+	<field name="NOM_BODEGA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOM_MOVIMIENTO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sum(m.volumen)" class="java.lang.Double"/>
+	<variable name="sum(m.volumen)_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{sum(m.volumen)}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="164" splitType="Stretch">
+			<image>
+				<reportElement x="162" y="0" width="238" height="64" uuid="5da06713-fcf2-43d6-a98a-bf6931b5103f"/>
+			</image>
+			<staticText>
+				<reportElement x="1" y="2" width="100" height="20" uuid="76bfe4e5-c2cb-4266-8d14-b593ad83985d"/>
+				<text><![CDATA[FECHA EMISIoN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="64" width="238" height="40" uuid="d4bfe2e4-f0c1-4375-bd5e-6a365b4559d5"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INDICADORES DE VOLUMENES DE MOVIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="104" width="482" height="20" uuid="e09b4cd8-dae3-4b33-8c31-5c4a51bcfef0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[VOLUMEN TOTAL DE PRODUCTO ENTRANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="134" width="74" height="20" uuid="f607c036-148b-429f-a1c7-ae166bcb538c"/>
+				<text><![CDATA[FECHA INICIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="44" width="100" height="20" uuid="22fe73ed-29c0-4b04-8f16-f7728c08fe8d"/>
+				<text><![CDATA[USUARIO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="134" width="74" height="20" uuid="512cad94-d26e-418a-b878-0a424fee30aa"/>
+				<text><![CDATA[FECHA FINAL:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="16" y="24" width="74" height="20" uuid="8f57b60a-02e8-4d4f-a647-b98035e43b4e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="527" y="3" width="40" height="20" uuid="a95a1b59-d66e-4553-bb4e-9d6e34ccd3a2"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Column header" x="447" y="3" width="80" height="20" uuid="3c9bff94-95c7-43e2-bbcf-4b3e6d645c24"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="-356" y="141" width="71" height="20" uuid="e7e188ca-5b33-45c4-8f7b-8ee34b05bd4a"/>
+				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="-211" y="141" width="66" height="20" uuid="0861d7f3-9df8-4068-8dd0-f5b693485cff"/>
+				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="80" y="134" width="71" height="20" uuid="28297c61-849d-445a-99b0-bcb9c6135413"/>
+				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="225" y="134" width="100" height="20" uuid="d55fe4eb-abeb-47ea-a39d-523b36b664b1"/>
+				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="64" width="100" height="20" uuid="3c816929-7ba7-4c13-a19f-74d58d9df804"/>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="35" y="0" width="26" height="20" uuid="b4ad1809-01ff-40b2-902a-2faeb38bf269"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[N?]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="432" y="0" width="141" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="d5b68360-cdf2-47fc-aacc-ba3679214488"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE VOLUMEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="289" y="0" width="142" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="fc01dcf7-d055-4be5-a305-37fe85456c53"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[TIPO DE  MOVIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="73" y="0" width="216" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[BODEGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="21" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="572" height="1" uuid="5f01b059-340c-4c56-a9e2-e41217656472"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="35" y="1" width="26" height="20" uuid="5c1ebbfc-a890-4309-a184-1273fc431f86"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="1" width="216" height="20" uuid="05cd060a-d332-451b-b6b5-014ce2355403"/>
+				<textFieldExpression><![CDATA[$F{NOM_BODEGA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="1" width="142" height="20" uuid="9de74ee7-339a-4350-ab57-2fdfedd257c7"/>
+				<textFieldExpression><![CDATA[$F{NOM_MOVIMIENTO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="432" y="1" width="140" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textFieldExpression><![CDATA[$F{sum(m.volumen)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="331" y="1" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="887d92bd-f515-4100-b3a9-a9a2781086c2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="6" y="0" width="574" height="1" uuid="e6999c87-a11b-4f83-bfdb-d623caf3a68a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement x="432" y="1" width="107" height="20" uuid="f720df37-a630-4752-b081-2fdf6e96ec26"/>
+				<textFieldExpression><![CDATA[( $V{sum(m.volumen)_1}==null ? 0 : $V{sum(m.volumen)_1} )]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
