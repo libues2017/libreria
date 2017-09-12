@@ -11,6 +11,7 @@ String fechainicio= request.getParameter("fecha_inicio");
 String fechafin= request.getParameter("fecha_fin");
 String user=request.getParameter("usuario");
 String grupo=request.getParameter("nombre");
+//grupo="VolEntraPro.jasper";
 Connection conexion; 
 Class.forName("com.mysql.jdbc.Driver").newInstance(); 
 conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/libues","root","root");
@@ -29,7 +30,7 @@ parameters.put("fechini", fecha1);
 parameters.put("fenili", fecha2); 
 parameters.put("user", user); 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
-byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (), parameters, conexion); 
+byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (),parameters, conexion); 
 /*Indicamos que la respuesta va a ser en formato PDF*/ 
 response.setContentType("application/pdf");
 response.setContentLength(bytes.length); 

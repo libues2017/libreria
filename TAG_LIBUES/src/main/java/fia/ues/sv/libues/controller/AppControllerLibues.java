@@ -1323,7 +1323,7 @@ public class AppControllerLibues {
     
    
     
-    @RequestMapping(value={"/traslados"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
 	public String horashombre(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReportTRASL";

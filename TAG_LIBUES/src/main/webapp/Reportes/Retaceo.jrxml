@@ -148,7 +148,6 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 			</textField>
 			<image>
 				<reportElement x="0" y="-15" width="85" height="95" uuid="5792fd07-c8e5-4ab9-9e5d-aa00c80e3d20"/>
-				<imageExpression><![CDATA["src/main/webapp/Reportes/Logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="100" y="90" width="330" height="30" uuid="3515c9ab-e449-48bf-8273-be9ddbe4978c"/>
@@ -184,7 +183,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="80" height="30" forecolor="#000000" uuid="c7573ec6-7c6d-4203-b0d1-f98f9f064ce4"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Codigo de Producto]]></text>
 								</staticText>
@@ -194,7 +193,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="80" height="30" uuid="4d1c5533-01b1-4b8f-bf24-e55b4b460198"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 								</textField>
@@ -207,7 +206,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="80" height="30" forecolor="#000000" uuid="735411db-9284-434c-a515-8b22bd022518"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Producto]]></text>
 								</staticText>
@@ -217,7 +216,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="80" height="30" uuid="ff0c64db-4f92-4753-9d49-00aeea82a420"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 								</textField>
@@ -230,7 +229,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="61" height="30" forecolor="#000000" uuid="72641988-22fa-462e-8690-25490cc2e082"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Autor]]></text>
 								</staticText>
@@ -240,7 +239,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="61" height="30" uuid="124e637e-b03e-4013-8a39-4353e9a6528c"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 								</textField>
@@ -253,7 +252,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="79" height="30" forecolor="#000000" uuid="c0dfa102-e266-4e2a-95ba-7fb947e19a8e"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Cantidad]]></text>
 								</staticText>
@@ -263,7 +262,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="79" height="30" uuid="dbac786c-686d-413a-aa07-b00c587611ef"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{CANTIDADPRODUCTO}]]></textFieldExpression>
 								</textField>
@@ -276,7 +275,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="61" height="30" forecolor="#000000" uuid="cce19c12-c37e-4253-9a78-5773734f7d28"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Costo]]></text>
 								</staticText>
@@ -286,7 +285,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="61" height="30" uuid="954c32ed-62f1-4ca0-ac0f-6a3f563affd1"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{COSTOPRODUCTO}]]></textFieldExpression>
 								</textField>
@@ -299,7 +298,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="61" height="30" forecolor="#000000" uuid="2f481eaf-0bd2-41b7-ba08-43c30e4fed5b"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Subtotal]]></text>
 								</staticText>
@@ -309,7 +308,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="61" height="30" uuid="b4fc7a85-6c3d-4ad2-8626-1cc73a2f7e4b"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
 								</textField>
@@ -322,7 +321,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="61" height="30" forecolor="#000000" uuid="f4b4d524-df9e-42d5-8007-f8d32d158665"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Precio]]></text>
 								</staticText>
@@ -332,7 +331,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="61" height="30" uuid="4711828e-4163-4e4d-9874-7d6903cee108"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{PRECIOPRODUCTO}]]></textFieldExpression>
 								</textField>
@@ -345,7 +344,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement key="" style="Column header" x="0" y="0" width="72" height="30" forecolor="#000000" uuid="a11409e6-52ea-49f6-9e70-6a6605894743"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12" isBold="true"/>
+										<font fontName="Arial" size="12" isBold="true"/>
 									</textElement>
 									<text><![CDATA[Existencia Anterior]]></text>
 								</staticText>
@@ -355,7 +354,7 @@ NDE4Yy05ZmNiLTMxMDA1MjJkMWYxOTs=]]>
 									<reportElement style="Detail" x="0" y="0" width="72" height="30" uuid="8995fb3f-1c5a-4473-bde2-27a630956f45"/>
 									<box leftPadding="2"/>
 									<textElement textAlignment="Center">
-										<font fontName="DejaVu Sans" size="12"/>
+										<font fontName="Arial" size="12"/>
 									</textElement>
 									<textFieldExpression><![CDATA[$F{EXISTENCIAANTERIOR}]]></textFieldExpression>
 								</textField>

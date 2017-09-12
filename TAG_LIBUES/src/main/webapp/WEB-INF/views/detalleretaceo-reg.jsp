@@ -315,7 +315,7 @@
 			                </div>
 			
 							<input type="hidden" value="${loggedinuser}" name="usuario"/>
-							<input type="hidden" value="Retaceo.jasper" name="nombre"/>
+							<input type="hidden" value="VolEntraPro.jasper" name="nombre"/>
 			   </div>
 
 		  
