@@ -37,7 +37,7 @@ public class DetalleRequisicion implements Serializable{
 	@NotNull
 	@Column(name="CANTIDAD")
 	private Integer cantidad;
-	/*
+	
 	@NotNull
 	@Column(name="COSTO")
 	private Double costo;
@@ -49,7 +49,7 @@ public class DetalleRequisicion implements Serializable{
 	@NotNull
 	@Column(name="SUBTOTAL")
 	private Double subtotal;
-*/
+
 	
 	
 	public Integer getCodigodetalle() {
@@ -91,7 +91,7 @@ public class DetalleRequisicion implements Serializable{
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-/*
+
 	public Double getCosto() {
 		return costo;
 	}
@@ -115,7 +115,7 @@ public class DetalleRequisicion implements Serializable{
 	public void setSubtotal(Double subtotal) {
 		this.subtotal = subtotal;
 	}
-*/
+
 	
 	
 	/*

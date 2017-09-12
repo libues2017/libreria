@@ -21,7 +21,7 @@
     	}
     </Style>
 
-	<script type="text/javascript">
+	    <script type="text/javascript">
 		function label(){
 			var Id=document.getElementById("codigoproducto").value;
             var sessionId = [];
@@ -61,7 +61,7 @@
 			document.getElementById("fecharequisicion").value=p;
 			} );
 					                  
-  	</script>      
+  	</script>  
 
 
 </head>
@@ -84,7 +84,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Documento #:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" value='<%=session.getAttribute("codigo")%>' />
+                        <form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm"  />
                         <div class="has-error">
                             <form:errors path="codigorequisicion" class="help-inline"/>
                         </div>
@@ -103,7 +103,9 @@
                     </div>
                 </div>
             </div>
+           
             
+            <!--  
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Fecha Requisicion:</label>
@@ -115,7 +117,8 @@
                     </div>
                 </div>
             </div>
-            
+            -->
+        <!--      
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Codigo Producto:</label>
@@ -127,7 +130,8 @@
                     </div>
                 </div>
             </div>
-            
+            -->
+       <!--       
             <div class="row">
                      <div class="form-group col-md-12">
                    <table class="table table-striped ">
@@ -156,7 +160,7 @@
                      </div>
             </div>
             
-            
+            -->
             
             <div class="row">
                 <div class="form-actions floatRight">

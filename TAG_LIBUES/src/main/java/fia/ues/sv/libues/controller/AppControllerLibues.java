@@ -1263,9 +1263,6 @@ public class AppControllerLibues {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
-    	Object [] [] obj = new Object[10][10];
-    	  
-    	  
     	
     	if(sesion.getAttribute("codigo")!=null)
     	{
@@ -1274,23 +1271,19 @@ public class AppControllerLibues {
         List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(fecha1);
         model.addAttribute("req1", requisicionBuscar);
     	}
-    	
+    	/*
         List<Producto> productos = productoService.findAllProductos();
-                
-       //incrementar retaceo
        
 		List<Requisicion> req5 = requisicionService.findAllRequisiciones();
 		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
         HttpSession sesion1=request.getSession(true);
         sesion1.setAttribute("codigo", req6);
         Integer codigo=(Integer)sesion1.getAttribute("codigo");
-        model.addAttribute("success",codigo);
-        model.addAttribute("producto", productos);
-        model.addAttribute("message", "hello");
+        model.addAttribute("producto", productos);*/
         return "detallerequisicion-reg";
   }
     
-    
+    /*
     @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.POST)
     public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, ModelMap model) throws IOException {
   	
@@ -1319,7 +1312,7 @@ public class AppControllerLibues {
 
          return "redirect:/detallerequisicion-agregar";
     }
-    
+    */
     
     
     @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
