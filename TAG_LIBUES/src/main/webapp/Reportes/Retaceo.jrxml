@@ -66,7 +66,8 @@
 			libues.detalleretaceo.`SUBTOTAL`,
 			libues.detalleretaceo.`PRECIOPRODUCTO`,
 			libues.detalleretaceo.`EXISTENCIAANTERIOR`,
-			libues.detalleretaceo.`CODIGODETALLERETACEO`			
+			libues.detalleretaceo.`CODIGODETALLERETACEO`,
+			libues.retaceo.FECHARETACEO			
 			FROM 
 				libues.detalleretaceo,
 				libues.producto,
@@ -82,7 +83,7 @@
 			 AND
 			 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)
 			 AND
-			 (libues.retaceo.`FECHARETACEO` between "2017-09-06" and "2017-09-11")]]>
+			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})]]>
 	</queryString>
 	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
@@ -93,6 +94,7 @@
 	<field name="PRECIOPRODUCTO" class="java.math.BigDecimal"/>
 	<field name="EXISTENCIAANTERIOR" class="java.lang.Integer"/>
 	<field name="CODIGODETALLERETACEO" class="java.lang.Integer"/>
+	<field name="FECHARETACEO" class="java.util.Date"/>
 	<title>
 		<band height="134" splitType="Stretch">
 			<line>
@@ -141,6 +143,7 @@
 			</textField>
 			<image>
 				<reportElement x="0" y="-15" width="85" height="95" uuid="5792fd07-c8e5-4ab9-9e5d-aa00c80e3d20"/>
+				<imageExpression><![CDATA["Logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="100" y="90" width="330" height="30" uuid="3515c9ab-e449-48bf-8273-be9ddbe4978c"/>
@@ -227,6 +230,14 @@
 				</textElement>
 				<text><![CDATA[Subtotal]]></text>
 			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="450" y="4" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -300,11 +311,18 @@
 				<textFieldExpression><![CDATA[$F{PRECIOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="392" y="1" width="68" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<reportElement x="392" y="1" width="48" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="450" y="1" width="55" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHARETACEO}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
