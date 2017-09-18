@@ -9,6 +9,43 @@
     <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+	
+	<script type="text/javascript">
+			    var dataSet = [];
+			    var sessionId = [];
+			    var sessionId1 = [];
+			    var sessionId2 = [];
+			    var sessionId3 = [];
+			    var i=0;
+			    
+			    <c:forEach items="${areas}"   var="current">
+			    
+			     dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}" ] ;
+			     
+			     i=i+1;
+			    
+			    </c:forEach>
+			    
+			 //   dataSet =  [ "Tiger Nixon" ];
+			    
+			    $(document).ready(function() {
+			        $('#areas').DataTable( {
+			            data:  dataSet,
+			            columns: [
+			               { title: "CODIGO" },
+			               { title: "NOMBRE DEL AREA" }
+			               ]
+			        
+			        } );
+			    } );
+			    
+			   </script>
 
 </head>
 <body>
@@ -30,31 +67,8 @@
         	<div class="panel panel-default">
             <!-- Default panel contents -->
             	<div class="panel-heading"><span class="lead">Areas</span></div>
-				<table class="table table-striped ">
-					<thead>
-    					<tr >
-    						<th>Codigo</th>
-    						<th>Nombre del Area</th>
-    						<th>Opciones</th>
-    					</tr>
-    				</thead>
-    				
-    				<tbody>
-    					<c:forEach items="${area}" var="areas">
-    					<tr >
-    						<td>${areas.codigoarea}</td>
-    						<td>${areas.nombrearea}</td>
-                			
-                			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            	<td><a href="<c:url value='/edit-area-${areas.codigoarea}' />" class="btn btn-success custom-width">Editar</a></td>
-                        	</sec:authorize>
-                        	
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            	<td><a href="<c:url value='/delete-area-${areas.codigoarea}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        	</sec:authorize>
-    					</tr>
-    					</c:forEach>
-    				</tbody>
+				<table id="areas" class="table table-striped ">
+					
 				</table><br/>
 			</div>
 		</div>
@@ -65,5 +79,6 @@
 <div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 </body>
 </html>
