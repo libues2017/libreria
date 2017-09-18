@@ -286,6 +286,11 @@ public class AppControllerLibues {
     }
     
     
+    @ModelAttribute("detallerequisiciones")
+    public List<DetalleRequisicion> initializedetalleRequisiciones(){
+    	return detallerequisicionService.findAllRequisiciones();
+    }
+    
    /* @ModelAttribute("retaceos")
     public List<Retaceo> initializeRetaceos() {
         return retaceoService.findAllRetaceos();
@@ -918,13 +923,12 @@ public class AppControllerLibues {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
-    	Object [] [] obj = new Object[10][10];
+    	
     	  
     	  // populate
     	 
     	  HttpSession session = request.getSession();
     	  HttpSession sesion2=request.getSession(true);
-    	  session.setAttribute("myArray", obj);
     	 /* String data =request.getParameter("fechafacturaproveedor");
     	  Date fecha=null;
     	  
@@ -1271,11 +1275,11 @@ public class AppControllerLibues {
         List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(fecha1);
         model.addAttribute("req1", requisicionBuscar);
     	}
-    	/*
+    	
         List<Producto> productos = productoService.findAllProductos();
        
 		List<Requisicion> req5 = requisicionService.findAllRequisiciones();
-		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
+	/*	Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
         HttpSession sesion1=request.getSession(true);
         sesion1.setAttribute("codigo", req6);
         Integer codigo=(Integer)sesion1.getAttribute("codigo");

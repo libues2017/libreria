@@ -21,48 +21,7 @@
     	}
     </Style>
 
-	    <script type="text/javascript">
-		function label(){
-			var Id=document.getElementById("codigoproducto").value;
-            var sessionId = [];
-            var nombre = [];
-            
-            <c:forEach items="${producto}" var="current">
-            	if(${current.codigoProducto}==Id){
-              		nombre.push("${current.nombreProducto}");
-              		document.getElementById('lbltipAddedComment').innerHTML = nombre;
-              		sessionId.push("${current.existencia}");
-              		document.getElementById('lbl').innerHTML =sessionId;
-              	}
-            	</c:forEach>
-              	return true;
-				alert()
-		}
-		
-		function sesion(){    		
-			var fechareq=document.getElementById("fecharequisicion").value;
-			
-				var fecha="fechareq";
-				
-				sessionStorage[fecha]=fechareq;
-				
-		}
-	</script>
 	
-	 <script>
-	 	$( function() {
-	 		var p;
-			
-			for(var i=0;i<sessionStorage.length;i++){
-				//var producto=sessionStorage.key("f");
-				p=sessionStorage.getItem('fechareq');
-				
-			}
-			document.getElementById("fecharequisicion").value=p;
-			} );
-					                  
-  	</script>  
-
 
 </head>
 
@@ -76,7 +35,7 @@
 
 <div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-	  <div class="well lead">Agregar Requisicion</div>
+	  <div class="well lead">Agregar Requisición</div>
         <form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
             <form:input type="hidden" path="codigodetalle" id="codigodetalle"/>
             
@@ -84,7 +43,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Documento #:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm"  />
+                        <form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" />
                         <div class="has-error">
                             <form:errors path="codigorequisicion" class="help-inline"/>
                         </div>
@@ -96,80 +55,68 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Destino:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="destino" id="destino" class="form-control input-sm"/>
-                        <div class="has-error">
-                            <form:errors path="destino" class="help-inline"/>
-                        </div>
+                        <input type="text" id="destino" class="form-control input-sm" />
+                        
                     </div>
                 </div>
             </div>
            
             
-            <!--  
+              
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Fecha Requisicion:</label>
                     <div class="col-md-7">
-                        <form:input type="date" path="fechaquisicion" id="fechaquisicion" name="fechaquisicion" class="form-control input-sm"   onchange="sesion();" />
-                        <div class="has-error">
-                            <form:errors path="fechaquisicion" class="help-inline"/>
-                        </div>
+                        <input type="date" id="fechaquisicion" name="fechaquisicion" class="form-control input-sm" />                        
                     </div>
                 </div>
             </div>
-            -->
-        <!--      
-            <div class="row">
+            
+          <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Codigo Producto:</label>
+                    <label class="col-md-3 control-lable" for="tags">Codigo Producto:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='label();'/>
+                         <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='label();' />      
                         <div class="has-error">
                             <form:errors path="codigoproducto" class="help-inline"/>
                         </div>
                     </div>
                 </div>
-            </div>
-            -->
-       <!--       
-            <div class="row">
+               </div>                    
+     			  <div class="row">
                      <div class="form-group col-md-12">
                    <table class="table table-striped ">
                      	<thead>
-                     <tr >
-                    
+                     <tr >                    
                        <th>
                             Nombre Poducto:  
-                       </th>
-                       
+                       </th>                       
                         <th>
                             Existencia:
                         </th>
-                        
-                     </tr >
-                    
-                    	</thead>
-                    	
+                        <th>
+                            Precio:
+                        </th>                        
+                     </tr >                    
+                    	</thead>                    	
                     	<tbody>
                      <tr >  <td><label class="col-md-3 control-lable" for="proveedor" id="lbltipAddedComment" ></label></td>
                      <td> <label class="col-md-3 control-lable" for="proveedor" style="height:30px; line-height:30px; text-align:center;" id="lbl"></label></td>
                      </tr>
                      </tbody>
-                     </table>
-                  
+                     </table>                  
                      </div>
-            </div>
-            
-            -->
+                   </div> 
+			                     
             
             <div class="row">
                 <div class="form-actions floatRight">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/detalleretaceo-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar"  class="btn btn-primary btn-sm"  /> ó <a href="<c:url value='/detalleretaceo-list' />">Cancelar</a>
+                            <input type="submit" value="Registrar"  class="btn btn-primary btn-sm"  /> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
                             ó <a href="<c:url value='/finalizar' />">Finalizar</a>
                         </c:otherwise>
                        
