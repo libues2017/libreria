@@ -59,6 +59,7 @@
 	<parameter name="fenili" class="java.util.Date"/>
 	<queryString>
 		<![CDATA[SELECT libues.detalleretaceo.`CODIGOPRODUCTO`,
+		    libues.detalleretaceo.`CODIGOPROVEEDOR`,
 			libues.producto.`NOMBREPRODUCTO`,
 			libues.autor.`NOMBREAUTOR`,
 			libues.detalleretaceo.`CANTIDADPRODUCTO`,
@@ -67,13 +68,19 @@
 			libues.detalleretaceo.`PRECIOPRODUCTO`,
 			libues.detalleretaceo.`EXISTENCIAANTERIOR`,
 			libues.detalleretaceo.`CODIGODETALLERETACEO`,
-			libues.retaceo.FECHARETACEO			
+			libues.detalleretaceo.CODIGORETACEO,
+			libues.detalleretaceo.CODIGOFACTURAPROVEEDOR,
+			libues.detalleretaceo.FECHAFACTURAPROVEEDOR,
+			libues.proveedor.NOMBREPROVEEDOR,
+			libues.retaceo.FECHARETACEO
+						
 			FROM 
 				libues.detalleretaceo,
 				libues.producto,
 				libues.autor_libro,
 				libues.autor,
-				libues.retaceo
+				libues.retaceo,
+				libues.proveedor
 		    WHERE 
 			  (libues.detalleretaceo.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO`) 
 			 AND 
@@ -83,8 +90,12 @@
 			 AND
 			 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)
 			 AND
-			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})]]>
+			 (libues.detalleretaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)
+			 AND
+			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})
+			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
 	</queryString>
+	<field name="CODIGORETACEO" class="java.lang.Integer"/>
 	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
@@ -94,7 +105,83 @@
 	<field name="PRECIOPRODUCTO" class="java.math.BigDecimal"/>
 	<field name="EXISTENCIAANTERIOR" class="java.lang.Integer"/>
 	<field name="CODIGODETALLERETACEO" class="java.lang.Integer"/>
+	<field name="CODIGOFACTURAPROVEEDOR" class="java.lang.Integer"/>
+	<field name="NOMBREPROVEEDOR" class="java.lang.String"/>
+	<field name="FECHAFACTURAPROVEEDOR" class="java.util.Date"/>
 	<field name="FECHARETACEO" class="java.util.Date"/>
+	<variable name="Variable" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{SUBTOTAL}]]></initialValueExpression>
+	</variable>
+	<variable name="CODIGORETACEO1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{CODIGORETACEO}]]></variableExpression>
+	</variable>
+	<variable name="SUBTOTAL1" class="java.lang.Double" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+	</variable>
+	<group name="Group1"/>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{CODIGORETACEO}]]></groupExpression>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{CODIGORETACEO}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="60" y="10" width="40" height="20" uuid="365554c3-1e58-4bf6-8714-1baac5d51c32"/>
+					<textFieldExpression><![CDATA[$F{CODIGORETACEO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1" y="10" width="59" height="20" uuid="78561361-ca0d-43f1-8ade-c487d0cc3f7f"/>
+					<textFieldExpression><![CDATA["Retaceo #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="106" y="10" width="44" height="15" uuid="ca8aff45-036b-4caa-8b76-9a83c248580a"/>
+					<textFieldExpression><![CDATA["Fecha"]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="150" y="10" width="55" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHARETACEO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="12" width="80" height="17" uuid="00be988f-cdc9-4652-bfc1-5e5f4572cf31"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Facturas: Pedido #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="290" y="11" width="55" height="19" uuid="6c766c3b-f234-400d-8868-fb5603f5cea6"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CODIGOFACTURAPROVEEDOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="347" y="12" width="52" height="17" uuid="cc69cd50-c6a7-410e-8b07-5beb539ced60"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHAFACTURAPROVEEDOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="400" y="15" width="100" height="15" uuid="b811afa2-29be-47be-aad6-b08442c7d03f"/>
+					<textFieldExpression><![CDATA["Proveedor : "+$F{NOMBREPROVEEDOR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="61">
+				<textField>
+					<reportElement x="380" y="30" width="100" height="30" uuid="db191958-8d82-4ade-80bf-c34ed3c21e59"/>
+					<textFieldExpression><![CDATA[$V{SUBTOTAL1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
 	<title>
 		<band height="134" splitType="Stretch">
 			<line>
@@ -158,7 +245,7 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="25" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<staticText>
 				<reportElement x="-14" y="0" width="26" height="20" uuid="b4ad1809-01ff-40b2-902a-2faeb38bf269"/>
 				<textElement>
@@ -228,7 +315,7 @@
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Subtotal]]></text>
+				<text><![CDATA[Costo Total]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="450" y="4" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
@@ -317,16 +404,17 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="450" y="1" width="55" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{FECHARETACEO}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch"/>
+	</columnFooter>
 	<summary>
-		<band height="293" splitType="Stretch"/>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="400" y="27" width="67" height="30" uuid="2b571502-f926-4a6a-b705-801e04eecc9f"/>
+				<textFieldExpression><![CDATA[$V{Variable}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
