@@ -20,11 +20,7 @@
 		  
     
 	     <script type="text/javascript">
-			
-			
-			
-			    
-			    
+
 			    var dataSet = [];
 			    var sessionId = [];
 			    var sessionId1 = [];
@@ -33,10 +29,7 @@
 			    var i=0;
 			    
 			    <c:forEach items="${detalleretaceo}"   var="current">
-			    
-			 
-			  
-			    
+
 			     dataSet[i] = [ "${current.codigoproducto}", "${current.codigoproveedor}", "${current.precioproducto}", "${current.cantidadproducto}" ] ;
 			     
 			     i=i+1;
@@ -49,19 +42,11 @@
 			        $('#example').DataTable( {
 			            data:  dataSet,
 			            columns: [
-			               { title: "codigo producto" },
-			                { title: "codigo proveedor" },
-			                { title: "precio producto" },
-			               { title: "cantidad producto" }
-			                
-			               
-	                 
-			                
+			               { title: "Codigo de Producto" },
+			                { title: "Codigo de Proveedor" },
+			                { title: "Precio de Producto" },
+			               { title: "Cantidad de Producto" }
 			            ]
-			        
-			        
-			        
-			        
 			        
 			        } );
 			    } );
@@ -124,17 +109,10 @@
 			</div>
 			
 			</div>
-	
-	
-	
+
 </div>
 
-
 <br/><br/>
-
-			
-
-
 
 <div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   

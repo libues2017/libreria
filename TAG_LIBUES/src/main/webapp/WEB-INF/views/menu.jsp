@@ -57,8 +57,7 @@
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
           					<ul class="dropdown-menu">
             					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
-            					<li><a href="<c:url value="producto-busqueda" />">Busqueda de Libros</a></li>
-            					<li><a href="<c:url value="producto-busqueda2" />">Busqueda de Miscelaneos</a></li>
+            					<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
             						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="producto-agregar" />">Agregar nuevo</a></li>
