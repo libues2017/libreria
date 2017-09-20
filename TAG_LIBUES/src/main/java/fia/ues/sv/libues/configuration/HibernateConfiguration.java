@@ -62,21 +62,6 @@ public class HibernateConfiguration {
 		return txManager;
 		
 	} 
-	
-	
-	
-	/*@Bean
-    public JasperReportsViewResolver getJasperReportsViewResolver() {
-        JasperReportsViewResolver resolver = new JasperReportsViewResolver();
-        resolver.setPrefix("classpath:/Reportes/");
-        resolver.setSuffix(".jasper");
-        resolver.setReportDataKey("datasource");
-        resolver.setViewNames("*_report");
-        resolver.setViewClass(JasperReportsMultiFormatView.class);
-        resolver.setOrder(1);
-        return resolver;
-    }**/
-
 
 }
 

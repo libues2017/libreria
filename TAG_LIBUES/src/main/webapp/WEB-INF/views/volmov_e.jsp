@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Volumen de movimientos</title>
+	<title>Retaceo de Productos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -48,8 +48,8 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Departemento de Producción</small></h2></div>
-        <div class="row"><h3 class="text-center">VOLUMEN DE PRODUCTO ENTRANTE</h3></div>
+        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+        <div class="row"><h3 class="text-center">Reporte de Retaceo de Productos</h3></div>
 
         </br>
         </br>
@@ -67,20 +67,7 @@
                     <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="99/99/9999" required>
                 </div>
             </div>
-           <!-- <div class="form-group">
-                <label class="control-label col-sm-4" for="sel1">Agrupar por:</label>
-                <div class="col-sm-2">
-                     <select class="form-control" id="sel1" required>
-                     	<option value="">--SELECCIONAR--</option>
-    					<option value="ID_BODEGA">Bodega</option>
-    					<option value="ID_EMPRESA_ORGIEN">Empresa</option>
-    					<option value="ID_GRUPO_EMPRESA">Grupo de empresas</option>
-    				</select> 
-    				
-                </div>-->
-            </div>
-                        
-            
+
             <div class="form-group">
 
             </div>
