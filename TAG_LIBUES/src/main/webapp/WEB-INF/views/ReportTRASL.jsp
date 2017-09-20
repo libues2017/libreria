@@ -24,7 +24,7 @@ File reportFile = new File(cosa+"Reportes/"+grupo);
 System.out.println(reportFile.getPath ());
 SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy-MM-dd");
 
-SimpleDateFormat formateador = new SimpleDateFormat("dd 'de' MMMM 'de' yyyy", new Locale("es_ES"));
+SimpleDateFormat formateador = new SimpleDateFormat("MMMM 'de' yyyy", new Locale("es_ES"));
 Date fecha1=null;
 Date fecha2=null;
 Date fecha3=null;
