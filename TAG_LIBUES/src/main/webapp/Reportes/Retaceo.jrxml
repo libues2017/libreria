@@ -128,11 +128,17 @@
 		<groupHeader>
 			<band height="50">
 				<textField>
-					<reportElement x="60" y="10" width="40" height="20" uuid="365554c3-1e58-4bf6-8714-1baac5d51c32"/>
+					<reportElement x="60" y="10" width="40" height="15" uuid="365554c3-1e58-4bf6-8714-1baac5d51c32"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{CODIGORETACEO}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="1" y="10" width="59" height="20" uuid="78561361-ca0d-43f1-8ade-c487d0cc3f7f"/>
+					<reportElement x="1" y="10" width="59" height="15" uuid="78561361-ca0d-43f1-8ade-c487d0cc3f7f"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
 					<textFieldExpression><![CDATA["Retaceo #"]]></textFieldExpression>
 				</textField>
 				<textField>
@@ -168,7 +174,10 @@
 					<textFieldExpression><![CDATA[$F{FECHAFACTURAPROVEEDOR}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="400" y="15" width="100" height="15" uuid="b811afa2-29be-47be-aad6-b08442c7d03f"/>
+					<reportElement x="410" y="13" width="100" height="15" uuid="b811afa2-29be-47be-aad6-b08442c7d03f"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
 					<textFieldExpression><![CDATA["Proveedor : "+$F{NOMBREPROVEEDOR}]]></textFieldExpression>
 				</textField>
 			</band>
@@ -302,14 +311,6 @@
 				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="250" y="5" width="30" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
-				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<text><![CDATA[Precio]]></text>
-			</staticText>
-			<staticText>
 				<reportElement mode="Transparent" x="392" y="5" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
@@ -391,13 +392,6 @@
 				<textFieldExpression><![CDATA[$F{COSTOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="250" y="0" width="55" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{PRECIOPRODUCTO}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="392" y="1" width="48" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
@@ -412,7 +406,7 @@
 	<summary>
 		<band height="84" splitType="Stretch">
 			<textField>
-				<reportElement x="400" y="27" width="67" height="30" uuid="2b571502-f926-4a6a-b705-801e04eecc9f"/>
+				<reportElement x="390" y="30" width="67" height="30" uuid="2b571502-f926-4a6a-b705-801e04eecc9f"/>
 				<textFieldExpression><![CDATA[$V{Variable}]]></textFieldExpression>
 			</textField>
 		</band>
