@@ -16,8 +16,6 @@ public interface ProductoDao {
 	
 	Producto findByNombreProducto(String nombreProducto);
 	
-	Producto findByconsignacion(String consignacion);
-	
 	void saveProducto(Producto producto);
 	
 	void deleteByCodigoProducto(int codigoProducto);
@@ -26,6 +24,6 @@ public interface ProductoDao {
 	
 	List<Producto> findAllByAutor(Autor autor);
 	
-	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Busqueda busqueda);
+	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
 
 }

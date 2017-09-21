@@ -6,9 +6,9 @@ public class Busqueda {
 	private int codigoproveedor;
 	private int codigoarea;
 	private int codTipoProducto;
+	private int codigoautor;
 	private String nombreProducto;
-	private String consignacion;
-		
+			
 	public String getNombreProducto() {
 		return nombreProducto;
 	}
@@ -39,11 +39,13 @@ public class Busqueda {
 	public void setCodTipoProducto(int codTipoProducto) {
 		this.codTipoProducto = codTipoProducto;
 	}
-	public String getConsignacion() {
-		return consignacion;
+	public int getCodigoautor() {
+		return codigoautor;
 	}
-	public void setConsignacion(String consignacion) {
-		this.consignacion = consignacion;
+	public void setCodigoautor(int codigoautor) {
+		this.codigoautor = codigoautor;
 	}
+
+	
 
 }

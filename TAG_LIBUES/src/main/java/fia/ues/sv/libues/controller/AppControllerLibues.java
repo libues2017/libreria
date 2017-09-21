@@ -1200,9 +1200,9 @@ public class AppControllerLibues {
     	Area area = areaService.findById(busqueda.getCodigoarea());
     	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
     	TipoProducto tipoproducto = tipoProductoService.findByCodTipoProducto(busqueda.getCodTipoProducto());
-    	Producto consignacion = productoService.findByconsignacion(busqueda.getConsignacion());
+    	Autor autor = autorService.findById(busqueda.getCodigoautor());
     	
-    	List<Producto> productos = productoService.customSearch(area, editorial, proveedor, tipoproducto, busqueda);
+    	List<Producto> productos = productoService.customSearch(area, editorial, proveedor, tipoproducto, autor, busqueda);
     	/*for(Libro libro: libros){
         	libro.setImg(byteToString(libro.getImagen()));
         }*/

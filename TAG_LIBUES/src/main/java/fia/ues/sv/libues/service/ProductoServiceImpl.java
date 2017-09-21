@@ -13,6 +13,7 @@ import fia.ues.sv.libues.modelo.Editorial;
 import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.TipoProducto;
+import fia.ues.sv.libues.modelo.Autor;
 
 @Service("productoService")
 @Transactional
@@ -31,11 +32,6 @@ public class ProductoServiceImpl implements ProductoService{
 		return dao.findByNombreProducto(nombreProducto);
 	}
 	
-	@Override
-	public Producto findByconsignacion(String consignacion) {
-		return dao.findByconsignacion(consignacion);
-	}
-
 	@Override
 	public void saveProducto(Producto producto) {
 		dao.saveProducto(producto);
@@ -93,8 +89,8 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto,  Busqueda busqueda) {
-		return dao.customSearch( area,  editorial,  proveedor, tipoproducto, busqueda);
+	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda) {
+		return dao.customSearch( area,  editorial,  proveedor, tipoproducto, autor, busqueda);
 	}
 	
 }

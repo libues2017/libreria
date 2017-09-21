@@ -28,6 +28,7 @@
 	       			<form:options items="${proveedores}"  itemValue="codigoproveedor"  itemLabel="nombreproveedor" />
 	       		</form:select>
        		</div>
+       		
        		<div class="col-md-4">
        			Editorial: 
 	       		<form:select path="codigoeditorial"  multiple="false"  class="form-control input-sm" >
@@ -35,6 +36,15 @@
 	       			<form:options items="${editoriales}"  itemValue="codigoeditorial" itemLabel="nombre"  />
 	       		</form:select>
        		</div>
+       		
+       		<div class="col-md-4">
+       			Autores: 
+	       		<form:select path="codigoautor"  multiple="false"  class="form-control input-sm" >
+	       			<form:option value="0"  label="Todas los autores"/>
+	       			<form:options items="${autores}"  itemValue="codigoautor" itemLabel="nombreautor"  />
+	       		</form:select>
+       		</div>
+       		
        		<div class="col-md-4">
        			Areas: 
 	       		<form:select path="codigoarea"  multiple="false"  class="form-control input-sm" >
@@ -77,6 +87,7 @@
                         <th>Titulo</th>
                         <th>Proveedor</th>
                         <th>Editorial</th>
+                        <th>Autores</th>
                         <th>Area</th>
                         <th>Precio</th>
                         <th>Tipo Producto</th>
@@ -97,6 +108,10 @@
                         <td>${producto.nombreProducto}</td>
                         <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
+                        <td><c:forEach items="${producto.autores}" var="autor">
+                        	${autor.nombreautor}<br/> 
+                        	</c:forEach>
+                        </td>
                         <td>${producto.area.nombrearea}</td>
                         <td>${producto.precio}</td>
                         <td>${producto.tipoProducto}</td>

@@ -40,15 +40,7 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
         return producto;
 	}
 	
-	@Override
-	public Producto findByconsignacion(String consignacion) {
-		Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.like("consignacion", consignacion));
-        Producto producto = (Producto) crit.uniqueResult();
-        return producto;
-	}
-
-
+	
 	@Override
 	public void saveProducto(Producto producto) {
 		persist(producto);	
@@ -104,11 +96,11 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Busqueda busqueda) {
+	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda) {
 		List<Producto> productos = null;
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombreProducto"));
 		
-		if(busqueda.getCodigoproveedor()==0)
+		if(busqueda.getCodigoautor()==0)
 		{
 			//no restricciones de proveedor
 			if(busqueda.getCodigoeditorial()==0)
@@ -120,27 +112,61 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			    if(busqueda.getCodTipoProducto()==0)
 				 {
 				  //no restricciones tipo producto
-				 }
+				 
+			       if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			     }//Fin "IF" tipo Producto
+			    
 			    else
 				 {
 				   //restricciones tipo producto
 				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-			 	 }
+				   if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			 	 }//FIN "ELSE" tipo producto
 			  }//Fin de "if" Area					
 			 else
 			  {
 			    //Restricciones de areas
 			    criteria.add(Restrictions.eq("Area",area));
 			    if(busqueda.getCodTipoProducto()==0)
-			     {
-				   //no restricciones tipo producto
-			     }
-				else
-				{
-				  //restriccion de tipo producto
-				  criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-				}
-			  }//Fin del "ELSE" area
+				 {
+				  //no restricciones tipo producto
+				  if(busqueda.getCodigoautor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			     }//Fin "IF" tipo Producto
+			    else
+				 {
+				   //restricciones tipo producto
+				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
+				   if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones autores
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			 	 }//FIN "ELSE" tipo producto
+			  }//FIN "ELSE" area
 		   }//Fin de  "if" Editorial
 			else
 			 {	
@@ -151,11 +177,27 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			     if(busqueda.getCodTipoProducto()==0)
 				  {
 				   //no restricciones tipo producto
-				  }
+			    	 if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 {
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+				  }//Fin "IF" tipo producto
 			     else
 				  {
 				    //restricciones tipo producto
 				    criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
+				    if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 {
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
 			 	  }
 			   }//Fin "if" de Area					
 			  else
@@ -165,19 +207,35 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			     if(busqueda.getCodTipoProducto()==0)
 			      {
 				    //no restricciones tipo producto
-			      }
+			    	 if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 { 
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+			      } //FIn "ELSE" tipo producto
 				 else
 				 {
 				   //restriccion de tipo producto
 				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-				 }
+				   if(busqueda.getCodigoautor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 { 
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+				 }//Fin "ELSE" tipo producto
 			  }//Fin "ELSE" Areas
 		   }//Fin "ELSE" editoriales 
 		}// Fin "IF" proveedores 
 		else
 		{
-			criteria.createAlias("Proveedor", "ListaProveedores");
-			criteria.add(Restrictions.eq("ListaProveedores.id", proveedor.getCodigoproveedor()));
+			criteria.createAlias("autores", "ListaAutores");
+			criteria.add(Restrictions.eq("ListaAutores.id", autor.getCodigoautor()));
 			if(busqueda.getCodigoeditorial()==0)
 			{
 			 //Restricciones de Editorial
@@ -187,28 +245,63 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			    if(busqueda.getCodTipoProducto()==0)
 				 {
 				  //no restricciones tipo producto
-				 }
+				 
+			       if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			     }//Fin "IF" tipo Producto
+			    
 			    else
 				 {
 				   //restricciones tipo producto
 				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-			 	 }
+				   if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			 	 }//FIN "ELSE" tipo producto
 			  }//Fin de "if" Area					
 			 else
 			  {
 			    //Restricciones de areas
 			    criteria.add(Restrictions.eq("Area",area));
 			    if(busqueda.getCodTipoProducto()==0)
-			     {
-				   //no restricciones tipo producto
-			     }
-				else
-				{
-				  //restriccion de tipo producto
-				  criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-				}
-			  }// Fin "ELSE" area
+				 {
+				  //no restricciones tipo producto
+				  if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			     }//Fin "IF" tipo Producto
+			    else
+				 {
+				   //restricciones tipo producto
+				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
+				   if(busqueda.getCodigoproveedor()==0)
+			        {  
+			    	 //no restricciones proveedor
+			        }
+			       else
+			         {
+			    	   criteria.add(Restrictions.eq("Proveedor", proveedor));
+			         }  
+			 	 }//FIN "ELSE" tipo producto
+			  }//FIN "ELSE" area
 		   }//Fin de  "if" Editorial
+	
 			else
 			 {	
 			  criteria.add(Restrictions.eq("Editorial", editorial));
@@ -218,11 +311,27 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			     if(busqueda.getCodTipoProducto()==0)
 				  {
 				   //no restricciones tipo producto
-				  }
+			    	 if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 {
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+				  }//Fin "IF" tipo producto
 			     else
 				  {
 				    //restricciones tipo producto
 				    criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
+				    if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 {
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
 			 	  }
 			   }//Fin "if" de Area					
 			  else
@@ -232,24 +341,39 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			     if(busqueda.getCodTipoProducto()==0)
 			      {
 				    //no restricciones tipo producto
-			      }
+			    	 if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 { 
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+			      } //FIn "ELSE" tipo producto
 				 else
 				 {
 				   //restriccion de tipo producto
 				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
-				 }
+				   if(busqueda.getCodigoproveedor()==0)
+			    	 {
+			    		//no restricciones proveedor
+			    	 }
+			    	 else
+			    	 { 
+			    		 criteria.add(Restrictions.eq("Proveedor", proveedor)); 
+			    	 }
+				 }//Fin "ELSE" tipo producto
 			  }//Fin "ELSE" Areas
 		   }//Fin "ELSE" editoriales 
 		}// Fin "ELSE" proveedores 
-		
-		
-		
+
 			productos = (List<Producto>) criteria.list();
 			for(Producto producto : productos){
         	Hibernate.initialize(producto.getProveedor());
         	Hibernate.initialize(producto.getEditorial());
         	Hibernate.initialize(producto.getArea());
         	Hibernate.initialize(producto.getTipoProducto());
+        	Hibernate.initialize(producto.getAutores());
       }
 		
 		System.out.println(productos);//busqueda funciona

@@ -252,10 +252,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="0" y="-15" width="85" height="95" uuid="5792fd07-c8e5-4ab9-9e5d-aa00c80e3d20"/>
-				<imageExpression><![CDATA["Logo.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="98" y="55" width="172" height="15" uuid="fd5e675c-baff-4d7b-b99d-916fa5a34bea"/>
 				<textElement>
@@ -277,6 +273,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fec}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="-1" y="7" width="83" height="80" uuid="5ce4df58-cb9c-4446-9a87-a26ce01d0c42"/>
+				<imageExpression><![CDATA["src/main/webapp/Reportes/logo.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

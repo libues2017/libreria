@@ -8,14 +8,13 @@ import fia.ues.sv.libues.modelo.Editorial;
 import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.TipoProducto;
+import fia.ues.sv.libues.modelo.Autor;
 
 public interface ProductoService {
 	
 	Producto findByCodigoProducto(int codigoProducto);
 	
 	Producto findByNombreProducto(String nombreProducto);
-	
-	Producto findByconsignacion(String consignacion);
 	
 	void saveProducto(Producto producto);
 	
@@ -25,7 +24,7 @@ public interface ProductoService {
 	
 	List<Producto> findAllProductos();
 	
-	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto,  Busqueda busqueda);
+	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
 
 	void updateprecioProducto(Integer codigoproducto, Double precio, Double costo, Integer existencia);
 
