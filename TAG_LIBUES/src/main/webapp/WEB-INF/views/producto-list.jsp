@@ -12,6 +12,7 @@
 </head>
 <body>
 
+
 <div class="row"><%@include file="page_head.jsp" %></div>
 	<div class="container">
 
@@ -21,6 +22,7 @@
        	<sec:authorize access="hasRole('ADMINISTRADOR')">
             <div class="well">
                 <a href="<c:url value='/producto-agregar' />" class="btn btn-primary">Nuevo Producto</a> |
+                <a href="<c:url value='/existencias' />" class="btn btn-primary">Reporte</a>
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
         </sec:authorize>

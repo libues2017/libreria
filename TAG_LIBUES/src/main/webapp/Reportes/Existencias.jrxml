@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Existencias" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0fef7a60-4394-49f5-82c0-8239b7f79248">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="283"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="705"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="par_area" class="java.lang.String"/>
+	<parameter name="par_tipoprod" class="java.lang.String"/>
+	<parameter name="par_provee" class="java.lang.String"/>
+	<parameter name="par_editorial" class="java.lang.String"/>
+	<parameter name="par_consig" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT libues.producto.`CODIGOPRODUCTO`,
+	libues.producto.`CODIGOPROVEEDOR`,
+	libues.producto.`CODIGOAREA`,
+	libues.producto.`CODTIPOPRODUCTO`,
+	libues.producto.`NOMBREPRODUCTO`,
+	libues.producto.`CODIGOEDITORIAL`,
+	libues.producto.`PRECIO`,
+	libues.producto.`CONSIGNACION`,
+	libues.autor.`NOMBREAUTOR`,
+	libues.autor.`CODIGOAUTOR`,
+	libues.producto.`EXISTENCIA`,
+	libues.tipoproducto.`TIPOPRODUCTO`,
+	libues.proveedor.`NOMBREPROVEEDOR`,
+	libues.area.`NOMBREAREA`
+FROM libues.autor_libro
+	INNER JOIN libues.producto ON 
+	 libues.autor_libro.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO` 
+	INNER JOIN libues.proveedor ON 
+	 libues.producto.`CODIGOPROVEEDOR` = libues.proveedor.`CODIGOPROVEEDOR` 
+	INNER JOIN libues.area ON 
+	 libues.producto.`CODIGOAREA` = libues.area.`CODIGOAREA` 
+	INNER JOIN libues.tipoproducto ON 
+	 libues.producto.`CODTIPOPRODUCTO` = libues.tipoproducto.`CODTIPOPRODUCTO` 
+	INNER JOIN libues.editorial ON 
+	 libues.producto.`CODIGOEDITORIAL` = libues.editorial.`CODIGOEDITORIAL` 
+	INNER JOIN libues.autor ON 
+	 libues.autor_libro.`CODIGOAUTOR` = libues.autor.`CODIGOAUTOR`
+	 WHERE  
+	( libues.producto.`CODIGOAREA`= $P{par_area} ) AND
+	(libues.producto.`CODIGOEDITORIAL`= $P{par_editorial} ) AND
+	(libues.producto.`CODTIPOPRODUCTO` = $P{par_tipoprod}  ) AND
+	(libues.producto.`CODIGOPROVEEDOR`= $P{par_provee} ) AND
+	(libues.producto.`CONSIGNACION`= $P{par_consig} )]]>
+	</queryString>
+	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
+	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
+	<field name="NOMBREAUTOR" class="java.lang.String"/>
+	<field name="EXISTENCIA" class="java.lang.Integer"/>
+	<field name="PRECIO" class="java.math.BigDecimal"/>
+	<group name="NOMBREPRODUCTO">
+		<groupExpression><![CDATA[$F{NOMBREPRODUCTO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<image>
+				<reportElement x="-1" y="7" width="83" height="80" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
+				<imageExpression><![CDATA["src/main/webapp/Reportes/logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="95" y="55" width="100" height="21" uuid="6e52c7c1-55fa-4826-8157-dcff9df17bac"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Impresion]]></text>
+			</staticText>
+			<textField pattern="dd//MM/yyyy">
+				<reportElement positionType="Float" x="200" y="55" width="84" height="20" uuid="a5fe0b8e-b9ae-4484-b950-c6c36cac6124"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="1a50a39b-424f-4699-a9d8-ac1d95166e5c"/>
+				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="285" height="15" uuid="75f91e28-d39b-49b7-aa77-2c180373e221"/>
+				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="270" height="25" uuid="ac66b396-5ea6-4aee-ab3c-bc6f722128be">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libreria Universitaria]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="10" width="85" height="30" uuid="19af6523-a5c3-469f-b90e-a0165414cddf"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="10" width="73" height="30" uuid="6825be0e-e928-414f-be95-422677a5a105"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="0" width="250" height="21" uuid="46e769f9-2026-4bf7-b2e1-d868f935d2c5"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Existencias de Productos]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="0" width="112" height="30" uuid="8fb1aea7-cdab-4f6f-b6a0-d2ef314e5e6a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGOPRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="120" height="30" uuid="2e5252f7-b040-4fe9-a83b-e917d5af00ba"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBREPRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="100" height="30" uuid="d5c86518-14d1-493f-9900-2dc9df4135e3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBREAUTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="100" height="30" uuid="d2f6d4ee-512d-4454-abca-7acabe582e1f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EXISTENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="100" height="30" uuid="78436016-5b0b-4256-8cdc-888a4e3d7b2c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="-6" y="-3" width="590" height="30" forecolor="#000000" backcolor="rgba(2, 3, 15, 0.3372549)" uuid="de1ea582-7f42-458a-b598-ed55ae2b7271"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="-2" y="-11" width="100" height="30" uuid="86899d92-c246-443d-a78d-86f78b52a91d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="-10" width="100" height="30" uuid="aa4eb3b2-7d2c-4d3e-88fd-ea20532b2809"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="-9" width="100" height="30" uuid="97a5ef04-87b5-427b-830f-01276d81d1c7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="-9" width="100" height="30" uuid="907ad093-619f-48d5-98eb-d08bb7d1e7ee"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{EXISTENCIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="-9" width="100" height="30" uuid="68d74fce-c87e-42be-bc90-afcb54f52f26"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-2" y="30" width="581" height="1" uuid="4ff5b019-86b6-428e-82aa-7958975edc8a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

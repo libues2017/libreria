@@ -1176,10 +1176,7 @@ public class AppControllerLibues {
         return "localizacion-reg-succ";
     }  
     
-    
-    
-    
-    
+
     //METODOS PARA LAS BUSQUEDAS
     @RequestMapping(value = { "/producto-busqueda" }, method = RequestMethod.GET)
     public String busquedaProducto(ModelMap model ) throws IOException {
@@ -1293,19 +1290,34 @@ public class AppControllerLibues {
     }
     */
     
-    
+    //Controles para el Reporte de Retace de Producto
     @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
 	public String volumenEntrante(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "volmov_e";
 	}
     
-   
-    
+       
     @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
 	public String horashombre(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReportTRASL";
 	}
-
-}
+    
+    
+        //Controles para el Reporte de Existencias de Producto
+    @RequestMapping(value={"/existencias"}, method = RequestMethod.GET)
+  	public String existencias(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "existencias";
+  	}
+      
+           
+      @RequestMapping(value={"/repo_existencias"}, method = RequestMethod.GET)
+  	public String repoexistencias(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "ReportEXISTENCIAS";
+  	}
+    
+    
+}//Fin del Controlador
