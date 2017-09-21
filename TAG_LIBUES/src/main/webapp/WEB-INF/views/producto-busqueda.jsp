@@ -22,10 +22,10 @@
        	<div class="row">
        		
        		<div class="col-md-4">
-       			Autor: 
-	       		<form:select path="codigoautor"  multiple="false"  class="form-control input-sm" >
-	       			<form:option value="0"  label="Todos los autores"/>
-	       			<form:options items="${autores}"  itemValue="codigoautor"  />
+       			Proveedor: 
+	       		<form:select path="codigoproveedor"  multiple="false"  class="form-control input-sm" >
+	       			<form:option value="0"  label="Todos los proveedores"/>
+	       			<form:options items="${proveedores}"  itemValue="codigoproveedor"  itemLabel="nombreproveedor" />
 	       		</form:select>
        		</div>
        		<div class="col-md-4">
@@ -43,6 +43,15 @@
 	       		</form:select>
        		</div>
 	       	
+	       	<div class="col-md-4">
+       			Tipo Producto: 
+	       		<form:select path="codTipoProducto"  multiple="false"  class="form-control input-sm" >
+	       			<form:option value="0"  label="Todos los Tipos de Producto"/>
+	       			<form:options items="${tipoproductos}"  itemValue="codTipoProducto" itemLabel="tipoProducto"  />
+	       		</form:select>
+       		</div>
+	       	
+	       	       	
        	</div>
        	<br/>
        	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Libro" class="btn btn-primary btn-sm"/></div></div>
@@ -51,8 +60,7 @@
   	<c:set var="categories" value="${productos}" scope="session"/>
   	
   	<hr/>
-  
-  
+
        	<sec:authorize access="hasRole('ADMIN')">
             <div class="well">
                 <a href="<c:url value='/producto-agregar' />" class="btn btn-primary">Nuevo Libro</a> |
@@ -67,10 +75,11 @@
                     <tr>
                         <%-- <th>Imagen</th>--%>
                         <th>Titulo</th>
-                        <th>Autor</th>
+                        <th>Proveedor</th>
                         <th>Editorial</th>
                         <th>Area</th>
                         <th>Precio</th>
+                        <th>Tipo Producto</th>
                         <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                             <th width="100"></th>
                         </sec:authorize>
@@ -86,13 +95,11 @@
                     <tr>
                         <%-- <td><img  src="data:image/jpeg;base64,${libro.img}" height="100" width="75" /></td>--%>
                         <td>${producto.nombreProducto}</td>
-                        <td><c:forEach items="${producto.autores}" var="autor">
-                        	${autor.nombreautor}<br/> 
-                        	</c:forEach>
-                        </td>
+                        <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
                         <td>${producto.area.nombrearea}</td>
                         <td>${producto.precio}</td>
+                        <td>${producto.tipoProducto}</td>
                         <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
                             <td><a href="<c:url value='/edit-producto-${producto.codigoProducto}' />" class="btn btn-success custom-width">Editar</a></td>
                         </sec:authorize>

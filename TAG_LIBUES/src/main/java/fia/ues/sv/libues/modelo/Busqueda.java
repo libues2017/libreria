@@ -1,22 +1,31 @@
 package fia.ues.sv.libues.modelo;
 
 public class Busqueda {
-	private int codigoeditorial;
-	private int codigoautor;
-	private int codigoarea;
-	private String nombreProducto;
 	
+	private int codigoeditorial;
+	private int codigoproveedor;
+	private int codigoarea;
+	private int codTipoProducto;
+	private String nombreProducto;
+	private String consignacion;
+		
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
 	public int getCodigoeditorial() {
 		return codigoeditorial;
 	}
 	public void setCodigoeditorial(int codigoeditorial) {
 		this.codigoeditorial = codigoeditorial;
 	}
-	public int getCodigoautor() {
-		return codigoautor;
+	public int getCodigoproveedor() {
+		return codigoproveedor;
 	}
-	public void setCodigoautor(int codigoautor) {
-		this.codigoautor = codigoautor;
+	public void setCodigoproveedor(int codigoproveedor) {
+		this.codigoproveedor = codigoproveedor;
 	}
 	public int getCodigoarea() {
 		return codigoarea;
@@ -24,14 +33,17 @@ public class Busqueda {
 	public void setCodigoarea(int codigoarea) {
 		this.codigoarea = codigoarea;
 	}
-	public String getNombreProducto() {
-		return nombreProducto;
+	public int getCodTipoProducto() {
+		return codTipoProducto;
 	}
-	public void setNombreproducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setCodTipoProducto(int codTipoProducto) {
+		this.codTipoProducto = codTipoProducto;
+	}
+	public String getConsignacion() {
+		return consignacion;
+	}
+	public void setConsignacion(String consignacion) {
+		this.consignacion = consignacion;
 	}
 
-	
-	
-	
 }

@@ -941,8 +941,6 @@ public class AppControllerLibues {
     	  /*
     	  else
     	  {
-    		  
-    		 
         	  SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
         	  try {
     		       fecha = d.parse("02/03/2016");
@@ -964,15 +962,8 @@ public class AppControllerLibues {
     	if(sesion.getAttribute("codigo")!=null)
     	{
     	  Integer codigo=(Integer) sesion.getAttribute("codigo");
-    	  
-    	  
-    	  
-        List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
-        
-        
-        
-        
-        model.addAttribute("retaceo2", retaceoBuscar);
+    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
+    	  model.addAttribute("retaceo2", retaceoBuscar);
        }
 
    /* if(sesion2.getAttribute("mySessionAttribute")==null)
@@ -981,17 +972,15 @@ public class AppControllerLibues {
        }
       	else{
     		String fecharetaceo = request.getParameter("fecharetaceo");
-        	
-       	 //HttpSession sesion2=request.getSession(true);
+        //HttpSession sesion2=request.getSession(true);
        		sesion2.setAttribute("mySessionAttribute", fecharetaceo);	
     	}
     	*/
     	  
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
-        
-        
-       //incrementar retaceo
+
+        //incrementar retaceo
        
 		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
 		Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
@@ -1020,22 +1009,13 @@ public class AppControllerLibues {
     	detalleretaceoService.savedetalleRetaceo(detalleretaceo);
 		
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
-    	
-    	    	
-    	  HttpSession sesion2=request.getSession(true);
-  
-   	 
-   	 Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
-   	 
-   	retaceoService.updateFechaRetaceo(fecharetaceo1, codigoretaceo);
-   	
-   	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-   	String fecha = sdf.format(fecharetaceo1);
-   	
-    	
- 		   	 sesion2.setAttribute("mySessionAttribute", fecha);
-    	
-        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion2=request.getSession(true);
+    	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
+    	retaceoService.updateFechaRetaceo(fecharetaceo1, codigoretaceo);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    	String fecha = sdf.format(fecharetaceo1);
+ 		 sesion2.setAttribute("mySessionAttribute", fecha);
+    	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detalleretaceo-agregar";
       //  return "detalleretaceo-reg";
@@ -1215,14 +1195,14 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/producto-busqueda" }, method = RequestMethod.POST)
     public String enviarParametros(Busqueda busqueda, ModelMap model) throws IOException {
-    	
-    	
-    	
+    
     	Editorial editorial = editorialService.findById(busqueda.getCodigoeditorial());
     	Area area = areaService.findById(busqueda.getCodigoarea());
-    	Autor autor = autorService.findById(busqueda.getCodigoautor());
+    	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
+    	TipoProducto tipoproducto = tipoProductoService.findByCodTipoProducto(busqueda.getCodTipoProducto());
+    	Producto consignacion = productoService.findByconsignacion(busqueda.getConsignacion());
     	
-    	List<Producto> productos = productoService.customSearch(area,  editorial,  autor, busqueda);
+    	List<Producto> productos = productoService.customSearch(area, editorial, proveedor, tipoproducto, busqueda);
     	/*for(Libro libro: libros){
         	libro.setImg(byteToString(libro.getImagen()));
         }*/
@@ -1241,11 +1221,6 @@ public class AppControllerLibues {
     	model.addAttribute("loggedinuser", getPrincipal());
         return "producto-busqueda-res";
     }
-    
-    
-    
-    
-    
     
     /**
      *CONTROLES PARA LA TABLA REQUISICION
