@@ -275,7 +275,7 @@
 			</textField>
 			<image>
 				<reportElement x="-1" y="7" width="83" height="80" uuid="5ce4df58-cb9c-4446-9a87-a26ce01d0c42"/>
-				<imageExpression><![CDATA["src/main/webapp/Reportes/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
