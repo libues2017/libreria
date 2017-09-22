@@ -1291,11 +1291,10 @@ public class AppControllerLibues {
         List<Producto> productos = productoService.findAllProductos();
        
 		List<Requisicion> req5 = requisicionService.findAllRequisiciones();
-	/*	Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
+		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
         HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigo", req6);
-        Integer codigo=(Integer)sesion1.getAttribute("codigo");
-        model.addAttribute("producto", productos);*/
+        sesion1.setAttribute("codigo2", req6);        
+        model.addAttribute("producto", productos);
         return "detallerequisicion-reg";
   }
     
