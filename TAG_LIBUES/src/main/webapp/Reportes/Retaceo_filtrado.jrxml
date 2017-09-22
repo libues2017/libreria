@@ -127,7 +127,7 @@
 			<band/>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band/>
 		</groupFooter>
 	</group>
 	<title>
@@ -203,7 +203,7 @@
 				<text><![CDATA[Fecha :]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="230" y="128" width="42" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<reportElement x="230" y="128" width="70" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
@@ -215,7 +215,7 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="23" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<staticText>
 				<reportElement mode="Transparent" x="385" y="0" width="40" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
@@ -312,7 +312,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="1" y="21" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
 				<graphicElement>
@@ -412,51 +412,51 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="37" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<summary>
 		<band height="131" splitType="Stretch">
 			<textField>
-				<reportElement x="181" y="0" width="39" height="10" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
+				<reportElement x="176" y="20" width="39" height="10" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Variable_1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="0" width="130" height="20" uuid="28925832-c407-4a87-a74e-34f512091d9b"/>
+				<reportElement x="11" y="20" width="130" height="20" uuid="28925832-c407-4a87-a74e-34f512091d9b"/>
 				<text><![CDATA[Total                cantidades]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="240" y="0" width="42" height="10" uuid="2fa30206-7ff8-4702-aeba-01205a2fffc4"/>
+				<reportElement x="230" y="20" width="50" height="20" uuid="2fa30206-7ff8-4702-aeba-01205a2fffc4"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Dolares :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="280" y="0" width="56" height="10" uuid="74664efe-529a-4ad2-abef-67cf8b8d6b8b"/>
+				<reportElement x="284" y="20" width="76" height="20" uuid="74664efe-529a-4ad2-abef-67cf8b8d6b8b"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Variable_3}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="36" y="70" width="60" height="16" uuid="e9e7e026-2505-494a-8724-5286bf93bb0b"/>
-				<textElement textAlignment="Right">
+				<reportElement x="36" y="70" width="74" height="16" uuid="e9e7e026-2505-494a-8724-5286bf93bb0b"/>
+				<textElement textAlignment="Left">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[ELABORADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="208" y="70" width="50" height="16" uuid="610042cd-d41c-44a6-a9ac-c7171e23374f"/>
+				<reportElement x="208" y="70" width="64" height="16" uuid="610042cd-d41c-44a6-a9ac-c7171e23374f"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[REVISADO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="365" y="70" width="60" height="16" uuid="64bcbdfd-8e89-410c-ab50-f411dcb946ab"/>
+				<reportElement x="365" y="70" width="75" height="16" uuid="64bcbdfd-8e89-410c-ab50-f411dcb946ab"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
