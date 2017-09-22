@@ -26,45 +26,17 @@
 </Style>
 
 <script type="text/javascript">
-		
-	
-	
-          function label(){
-						
-                        	var Id=document.getElementById("codigoproducto").value;
-                            var sessionId = [];
-                            var nombre = [];
-                        	
-              		<c:forEach items="${producto}" var="current">
-              		
-              		    if(${current.codigoProducto}==Id) {
-              		    	
-              		     nombre.push("${current.nombreProducto}");
-              		     document.getElementById('lbltipAddedComment').innerHTML = nombre;
-              		   sessionId.push("${current.existencia}");
-              		   document.getElementById('lbl').innerHTML =sessionId;
-              		     
-              		    }
-              		</c:forEach>
-              		
-                      return true;
-					  alert();			  
-                        	
-				     }
-          
-          
-          function sesion(){
+
+      function sesion(){
 				
       		var fecharequisicion=document.getElementById("fecharequisicion").value;
       		var destino = document.getElementById('destino').value;
       				
       		var fecha="f";
-      		var destino="des";
-      				
+      		var destino1="dest";
       				
       		sessionStorage[fecha]=fecharequisicion;
-      		sessionStorage[destino]=destino;
-      				
+      		sessionStorage[destino1]=destino;
       	}
 	
 </script>
@@ -78,33 +50,13 @@
 										for(var i=0;i<sessionStorage.length;i++)
 										{						                
 							                p=sessionStorage.getItem('f');
-							                p1=sessionStorage.getItem('des');
+							                p1=sessionStorage.getItem('dest');
 						                }
 									   document.getElementById("fecharequisicion").value=p;
 									   document.getElementById("destino").value=p1;			    
 					           } );
 					                  
-                  </script>     
-                  
-
- 					<script>
-					 		
-					  $( function() {
-						  
-						   
-						    var sessionId1 = [];						    
-						    <c:forEach items="${producto}" var="current">								
-							  sessionId1.push("${current.codigoProducto}");						
-							</c:forEach>					    
-						    
-						    $( "#codigoproducto" ).autocomplete({
-						     /// source: availableTags
-						    	source: sessionId1
-						    });
-						  } );
-					  
-					  </script>
-
+                  </script>  
 </head>
 
 
@@ -138,7 +90,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Destino:</label>
 						<div class="col-md-7">
-							<input type="text" id="destino" class="form-control input-sm" onchange="sesion();" />
+							<input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
@@ -149,7 +101,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Fecha	Requisicion:</label>
 						<div class="col-md-7">
-							<input type="date" id="fechaquisicion" name="fechaquisicion" class="form-control input-sm" />
+							<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
