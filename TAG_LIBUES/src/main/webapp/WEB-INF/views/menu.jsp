@@ -95,6 +95,7 @@
           			
             				<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
            					<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
+           					<li><a href="<c:url value="/vol_ent" />">Reporte mensual de retaceo</a></li>
            		
           				</ul>
           	
