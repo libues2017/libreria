@@ -417,7 +417,7 @@
 	<summary>
 		<band height="131" splitType="Stretch">
 			<textField>
-				<reportElement x="176" y="20" width="39" height="10" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
+				<reportElement x="176" y="20" width="39" height="20" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>

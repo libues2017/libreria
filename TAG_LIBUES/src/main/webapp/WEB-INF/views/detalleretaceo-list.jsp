@@ -58,11 +58,7 @@
 <body>
 
 
-         <div class="well">
-                <a href="<c:url value='/vol_ent' />" class="btn btn-primary">reporte</a> 
-                
-            </div>
-       
+        
 
 
 

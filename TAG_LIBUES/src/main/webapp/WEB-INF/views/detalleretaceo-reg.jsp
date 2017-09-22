@@ -308,15 +308,7 @@
 
 
 
-			   <div class="form-group">
-			                <div class="col-sm-offset-6 col-sm-10">
-			                   
-			                   <a class="btn btn-danger" href="<c:url value="/retaceo" />" role="button">reporte</a>
-			                </div>
-			
-							<input type="hidden" value="${loggedinuser}" name="usuario"/>
-							<input type="hidden" value="Retaceo_filtrado.jasper" name="nombre"/>
-			   </div>
+			  
 
 		  
 <div class="row"><%@include file="page_head.jsp" %></div>
