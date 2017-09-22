@@ -1065,6 +1065,8 @@ public class AppControllerLibues {
     	
           Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
           
+          sesion.setAttribute("codigoultimo", codigoretaceo);
+          
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
@@ -1085,19 +1087,12 @@ public class AppControllerLibues {
           
           String fecha=(String) sesion.getAttribute("mySessionAttribute");
           
-          
-          
           Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
-          
-          
           
           Retaceo retaceo=new Retaceo();
           retaceo.setFecharetaceo(fecharetaceo1);
           
   		retaceoService.saveRetaceo(retaceo);
-  		
-  		
-  		
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
@@ -1105,6 +1100,51 @@ public class AppControllerLibues {
     	return "redirect:/detalleretaceo-list";
 
     } //////////////////Finaliza Proceso de  RETACEO
+    
+    //Controles para el Reporte de Retace de Producto
+    @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
+	public String volumenEntrante(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "volmov_e";
+	}
+    
+       
+    @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
+	public String horashombre(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReportTRASL";
+	}
+    
+    
+    @RequestMapping(value={"/retaceo"}, method = RequestMethod.GET)
+	public String reporteretaceoingreso(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteRetaceoIngreso";
+	}
+    
+    
+        //Controles para el Reporte de Existencias de Producto
+    @RequestMapping(value={"/existencias"}, method = RequestMethod.GET)
+  	public String existencias(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "existencias";
+  	}
+      
+           
+      @RequestMapping(value={"/repo_existencias"}, method = RequestMethod.GET)
+  	public String repoexistencias(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "ReportEXISTENCIAS";
+  	}
+    /////////////
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * CONTROL PARA LA TABLA LOCALIZACIONES
@@ -1290,34 +1330,6 @@ public class AppControllerLibues {
     }
     */
     
-    //Controles para el Reporte de Retace de Producto
-    @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
-	public String volumenEntrante(ModelMap model){
-		model.addAttribute("loggedinuser", getPrincipal());
-		return "volmov_e";
-	}
-    
-       
-    @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
-	public String horashombre(ModelMap model){
-		model.addAttribute("loggedinuser", getPrincipal());
-		return "ReportTRASL";
-	}
-    
-    
-        //Controles para el Reporte de Existencias de Producto
-    @RequestMapping(value={"/existencias"}, method = RequestMethod.GET)
-  	public String existencias(ModelMap model){
-  		model.addAttribute("loggedinuser", getPrincipal());
-  		return "existencias";
-  	}
-      
-           
-      @RequestMapping(value={"/repo_existencias"}, method = RequestMethod.GET)
-  	public String repoexistencias(ModelMap model){
-  		model.addAttribute("loggedinuser", getPrincipal());
-  		return "ReportEXISTENCIAS";
-  	}
-    
+
     
 }//Fin del Controlador

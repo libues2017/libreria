@@ -311,11 +311,11 @@
 			   <div class="form-group">
 			                <div class="col-sm-offset-6 col-sm-10">
 			                   
-			                   <a class="btn btn-danger" href="<c:url value="/vol_ent" />" role="button">reporte</a>
+			                   <a class="btn btn-danger" href="<c:url value="/retaceo" />" role="button">reporte</a>
 			                </div>
 			
 							<input type="hidden" value="${loggedinuser}" name="usuario"/>
-							<input type="hidden" value="Retaceo.jasper" name="nombre"/>
+							<input type="hidden" value="Retaceo_filtrado.jasper" name="nombre"/>
 			   </div>
 
 		  
