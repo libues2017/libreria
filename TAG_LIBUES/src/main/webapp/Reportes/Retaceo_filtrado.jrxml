@@ -124,14 +124,14 @@
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{CODIGORETACEO}]]></groupExpression>
 		<groupHeader>
-			<band height="50"/>
+			<band/>
 		</groupHeader>
 		<groupFooter>
 			<band height="50"/>
 		</groupFooter>
 	</group>
 	<title>
-		<band height="187" splitType="Stretch">
+		<band height="158" splitType="Stretch">
 			<line>
 				<reportElement x="0" y="80" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -185,7 +185,7 @@
 				<textElement textAlignment="Center">
 					<font size="16"/>
 				</textElement>
-				<text><![CDATA[Reporte de Retaceo de Productos]]></text>
+				<text><![CDATA[Reporte de Ingreso Retaceo de Productos]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="11" y="128" width="59" height="16" uuid="1a49217c-5046-4536-afca-ba827fc32503"/>
@@ -215,7 +215,7 @@
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="60" splitType="Stretch">
+		<band height="23" splitType="Stretch">
 			<staticText>
 				<reportElement mode="Transparent" x="385" y="0" width="40" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
