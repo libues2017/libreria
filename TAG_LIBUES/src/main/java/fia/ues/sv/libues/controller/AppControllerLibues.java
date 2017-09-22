@@ -1097,7 +1097,7 @@ public class AppControllerLibues {
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
     	
-    	return "redirect:/detalleretaceo-list";
+    	return "GenerarReporteRetaceo";
 
     } //////////////////Finaliza Proceso de  RETACEO
     
