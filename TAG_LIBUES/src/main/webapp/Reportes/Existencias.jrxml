@@ -5,10 +5,10 @@
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="283"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="705"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
-	<parameter name="par_area" class="java.lang.String"/>
-	<parameter name="par_tipoprod" class="java.lang.String"/>
-	<parameter name="par_provee" class="java.lang.String"/>
-	<parameter name="par_editorial" class="java.lang.String"/>
+	<parameter name="par_area" class="java.lang.Integer"/>
+	<parameter name="par_tipoprod" class="java.lang.Integer"/>
+	<parameter name="par_provee" class="java.lang.Integer"/>
+	<parameter name="par_editorial" class="java.lang.Integer"/>
 	<parameter name="par_consig" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT libues.producto.`CODIGOPRODUCTO`,
@@ -60,7 +60,7 @@ FROM libues.autor_libro
 		<band height="91" splitType="Stretch">
 			<image>
 				<reportElement x="-1" y="7" width="83" height="80" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
-				<imageExpression><![CDATA["src/main/webapp/Reportes/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="95" y="55" width="100" height="21" uuid="6e52c7c1-55fa-4826-8157-dcff9df17bac"/>
@@ -158,9 +158,6 @@ FROM libues.autor_libro
 				</textElement>
 				<text><![CDATA[PRECIO]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement mode="Opaque" x="-6" y="-3" width="590" height="30" forecolor="#000000" backcolor="rgba(2, 3, 15, 0.3372549)" uuid="de1ea582-7f42-458a-b598-ed55ae2b7271"/>
-			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>

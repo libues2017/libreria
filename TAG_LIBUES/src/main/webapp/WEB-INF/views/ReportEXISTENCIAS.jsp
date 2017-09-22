@@ -9,10 +9,10 @@
   
 
 <% /*Parametros para realizar la conexión*/ 
-String codarea= request.getParameter("codigoarea");
-String codprovee= request.getParameter("codigoproveedor");
-String codedito= request.getParameter("codigoeditorial");
-String codtiprod= request.getParameter("codTipoProducto");
+int codarea= (Integer.parseInt(request.getParameter("codigoarea")));
+int codprovee=(Integer.parseInt( request.getParameter("codigoproveedor")));
+int codedito= (Integer.parseInt(request.getParameter("codigoeditorial")));
+int codtiprod= (Integer.parseInt(request.getParameter("codTipoProducto")));
 String cons= request.getParameter("consignacion");
 String grupo=request.getParameter("nombre");
 Connection conexion; 
@@ -27,8 +27,8 @@ System.out.println(reportFile.getPath ());
 Map parameters = new HashMap();
 parameters.put("par_area", codarea); 
 parameters.put("par_provee", codprovee); 
-parameters.put("par_tipoprod", codtiprod); 
 parameters.put("par_editorial", codedito); 
+parameters.put("par_tipoprod", codtiprod); 
 parameters.put("par_consig", cons); 
 
 

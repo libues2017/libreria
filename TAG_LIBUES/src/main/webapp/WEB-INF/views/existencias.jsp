@@ -56,9 +56,9 @@
         <form class="form-horizontal" role="form" action="<c:url value="/repo_existencias" />" target="_blank">
 
             <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Autor:</label>
+                <label class="control-label col-sm-4" for="email">Area:</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" name="codigoautor" id="codigoautor" required>
+                    <input type="text" class="form-control" name="codigoarea" id="codigoarea" required>
                 </div>
             </div>
            
