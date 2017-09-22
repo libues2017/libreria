@@ -1280,11 +1280,11 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
     	
-    	if(sesion.getAttribute("codigo")!=null)
+    	if(sesion.getAttribute("codigo2")!=null)
     	{
-    		Integer fecha1=(Integer) sesion.getAttribute("codigo");
+    		Integer codigo2=(Integer) sesion.getAttribute("codigo2");
     	  
-        List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(fecha1);
+        List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
         model.addAttribute("req1", requisicionBuscar);
     	}
     	

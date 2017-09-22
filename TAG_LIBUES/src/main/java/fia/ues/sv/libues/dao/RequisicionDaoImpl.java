@@ -44,9 +44,9 @@ public class RequisicionDaoImpl extends AbstractDao<Integer, Requisicion> implem
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Requisicion> findRequisiciones(Integer codigo) {
+	public List<Requisicion> findRequisiciones(Integer codigo2) {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigorequisicion"));
-        criteria.add(Restrictions.eq("codigorequisicion", codigo)); 
+        criteria.add(Restrictions.eq("codigorequisicion", codigo2)); 
        // criteria.add(Restrictions.("visible", true));
         List<Requisicion> requisicion = (List<Requisicion>) criteria.list();
         return requisicion; 

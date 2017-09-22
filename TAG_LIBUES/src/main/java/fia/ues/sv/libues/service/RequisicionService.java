@@ -10,7 +10,7 @@ Requisicion findById(int codigorequisicion);
 	
 	void saveRequisicion(Requisicion requisicion);
 	
-	void updateRequisicion (Requisicion Requisicion);
+	void updateRequisicion (Requisicion requisicion);
 	
 	void updateFechaRequisicion (Date fecha, Integer codigorequisicion);
 	

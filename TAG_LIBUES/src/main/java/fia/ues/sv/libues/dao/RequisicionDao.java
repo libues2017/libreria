@@ -14,6 +14,6 @@ public interface RequisicionDao {
 	
 	List<Requisicion> findAllRequisiciones();
 	
-	List<Requisicion> findRequisiciones(Integer codigo);
+	List<Requisicion> findRequisiciones(Integer codigo2);
 
 }

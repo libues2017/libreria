@@ -2,31 +2,33 @@ package fia.ues.sv.libues.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fia.ues.sv.libues.dao.DetalleRequisicionDao;
 import fia.ues.sv.libues.modelo.DetalleRequisicion;
 
 @Service("detallerequisicionService")
 @Transactional
 public class DetalleRequisicionServiceImpl implements DetalleRequisicionService {
 
+	@Autowired
+	private DetalleRequisicionDao dao;
+	
 	@Override
 	public DetalleRequisicion findById(int codigodetalle) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findById(codigodetalle) ;
 	}
 
 	@Override
-	public DetalleRequisicion findByNombre(String nombreproducto) {
-		// TODO Auto-generated method stub
-		return null;
+	public DetalleRequisicion findByNombre(String nombrereq) {		
+		return dao.findByName(nombrereq);
 	}
 
 	@Override
-	public void saveDetalleRequisicion(DetalleRequisicion detallerequisicion) {
-		// TODO Auto-generated method stub
-		
+	public void saveDetalleRequisicion(DetalleRequisicion detallerequisicion) {		
+		dao.save(detallerequisicion);
 	}
 
 	@Override
@@ -43,14 +45,12 @@ public class DetalleRequisicionServiceImpl implements DetalleRequisicionService 
 
 	@Override
 	public List<DetalleRequisicion> findAllRequisiciones() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAllRequisiciones();
 	}
 
 	@Override
-	public List<DetalleRequisicion> findRequisiciones(Integer fecha) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<DetalleRequisicion> findRequisiciones(Integer codigo2) {
+		return dao.findRequisiciones(codigo2);
 	}
 	
 
