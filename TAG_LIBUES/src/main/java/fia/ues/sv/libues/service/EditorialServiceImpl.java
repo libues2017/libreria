@@ -38,6 +38,7 @@ public class EditorialServiceImpl implements EditorialService{
 		if(entity!=null){
 			entity.setNombre(editorial.getNombre());
 			entity.setCodigoespecifico(editorial.getCodigoespecifico());
+			entity.setEstado(editorial.getEstado());
 		}
 		
 	}

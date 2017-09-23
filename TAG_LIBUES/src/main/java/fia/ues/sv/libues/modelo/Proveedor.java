@@ -38,12 +38,23 @@ public class Proveedor implements Serializable
 	@Column(name="CONTACTOPROVEEDOR2")
 	private String contactoproveedor2;
 	
-	
+	@Column(name="ESTADO")
+	private String estado;
 		
 	
 //Metodos Set y Get
 
 	
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
 	public Integer getCodigoproveedor() {
 		return codigoproveedor;
 	}

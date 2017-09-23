@@ -25,7 +25,19 @@ public class Area implements Serializable {
 	@NotEmpty
 	@Column(name="NOMBREAREA", nullable=false)
 	private String nombrearea;
+	
+	@Column(name="ESTADO", nullable=false)
+	private String estado;
 		
+	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 	public Integer getCodigoarea() {
 		return codigoarea;
 	}

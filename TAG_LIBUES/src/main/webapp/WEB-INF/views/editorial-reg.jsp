@@ -29,7 +29,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Codigo:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" class="form-control input-sm"/>
+                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" placeholder="Digite el Codigo de la Editorial" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombre" class="help-inline"/>
                         </div>
@@ -41,13 +41,29 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Nombre:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombre" id="nombre" class="form-control input-sm"/>
+                        <form:input type="text" path="nombre" id="nombre" placeholder="Digite el Nombre de la Editorial" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombre" class="help-inline"/>
                         </div>
                     </div>
                 </div>
             </div>
+            
+          <div class="row">
+		        	<div class="form-group col-md-12">
+                    	<label class="col-md-3 control-lable" for="estado">Estado:</label>
+                    	<div class="col-md-7">
+                        	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
+                        	<SELECT name="estado" id="estado" class="form-control input-sm">
+										<OPTION VALUE="Activo">Activo</OPTION>
+										<OPTION VALUE="Inactivo">Inactivo</OPTION>
+							</SELECT>
+                        	<div class="has-error">
+                            	<form:errors path="estado" class="help-inline"/>
+                       	 	</div>
+                    	</div>
+               		</div>
+            	</div>
             
             <div class="row">
                 <div class="form-actions floatRight">

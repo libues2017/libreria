@@ -33,7 +33,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombreproveedor">Nombre:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombreproveedor" id="nombreproveedor" class="form-control input-sm"/>
+                        <form:input type="text" path="nombreproveedor" id="nombreproveedor" placeholder="Digite el Nombre del Proveedor" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombreproveedor" class="help-inline"/>
                         </div>
@@ -45,7 +45,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="telefonoproveedor">Dirección:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="direccion" id="direccion" class="form-control input-sm"/>
+                        <form:input type="text" path="direccion" id="direccion" placeholder="Digite la Direccion del Proveedor" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="telefonoproveedor" class="help-inline"/>
                         </div>
@@ -57,7 +57,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="telefonoproveedor">Telefono:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="telefonoproveedor" id="telefonoproveedor" class="input-medium bfh-phone" data-country="SV"/>
+                        <form:input type="text" path="telefonoproveedor" id="telefonoproveedor" placeholder="########" class="input-medium bfh-phone" data-country="SV"/>
                         <div class="has-error">
                             <form:errors path="telefonoproveedor" class="help-inline"/>
                         </div>
@@ -69,7 +69,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="contactoproveedor1">Contacto 1:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="contactoproveedor1" id="contactoproveedor1" class="form-control input-sm"/>
+                        <form:input type="text" path="contactoproveedor1" id="contactoproveedor1" placeholder="Digite el Nombre del Contacto" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="contactoproveedor1" class="help-inline"/>
                         </div>
@@ -81,7 +81,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="contactoproveedor2">Contacto 2:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="contactoproveedor2" id="contactoproveedor2" class="form-control input-sm"/>
+                        <form:input type="text" path="contactoproveedor2" id="contactoproveedor2" placeholder="Digite el Nombre del Contacto" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="contactoproveedor2" class="help-inline"/>
                         </div>
@@ -89,6 +89,21 @@
                 </div>
             </div>
             
+            <div class="row">
+		        	<div class="form-group col-md-12">
+                    	<label class="col-md-3 control-lable" for="estado">Estado:</label>
+                    	<div class="col-md-7">
+                        	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
+                        	<SELECT name="estado" id="estado" class="form-control input-sm">
+										<OPTION VALUE="Activo">Activo</OPTION>
+										<OPTION VALUE="Inactivo">Inactivo</OPTION>
+							</SELECT>
+                        	<div class="has-error">
+                            	<form:errors path="estado" class="help-inline"/>
+                       	 	</div>
+                    	</div>
+               		</div>
+            	</div>
              
             <div class="row">
                 <div class="form-actions floatRight">

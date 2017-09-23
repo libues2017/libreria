@@ -28,7 +28,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Tipo:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="tipoProducto" id="tipoProducto" class="form-control input-sm"/>
+                        <form:input type="text" path="tipoProducto" id="tipoProducto" placeholder="Digite el Tipo del Producto" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="tipoProducto" class="help-inline"/>
                         </div>

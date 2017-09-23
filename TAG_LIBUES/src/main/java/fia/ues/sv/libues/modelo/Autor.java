@@ -23,7 +23,23 @@ public class Autor implements Serializable{
 	@NotEmpty
 	@Column(name="nombreautor")
 	private String nombreautor;
+
 	
+	@Column(name="ESTADO")
+	private String estado;
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Integer getCodigoautor() {
 		return codigoautor;
 	}

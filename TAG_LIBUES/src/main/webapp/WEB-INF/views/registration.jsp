@@ -177,9 +177,10 @@
              
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="firstName">Nombres:</label>
+                    <label class="col-md-3 control-lable" for="firstName">Nombres</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="firstName" id="firstName" class="form-control input-sm"   onkeyup="validacion('firstName');"/>
+                     	<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                        <form:input type="text" path="firstName" id="firstName" placeholder="Digite sus Nombres" class="form-control input-sm"   onkeyup="validacion('firstName');"/>
                         <div class="has-error">
                             <form:errors path="firstName" class="help-inline"/>
                         </div>
@@ -192,7 +193,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="lastName">Apellidos:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="lastName" id="lastName" class="form-control input-sm"  onkeyup="validacion('lastName');"/>
+                        <form:input type="text" path="lastName" id="lastName" placeholder="Digite sus Apellidos" class="form-control input-sm"  onkeyup="validacion('lastName');"/>
                         <div class="has-error">
                             <form:errors path="lastName" class="help-inline"/>
                         </div>
@@ -207,10 +208,10 @@
                     <div class="col-md-7">
                         <c:choose>
                             <c:when test="${edit}">
-                                <form:input type="text" path="ssoId" id="ssoId" class="form-control input-sm" disabled="true"/>
+                                <form:input type="text" path="ssoId" id="ssoId" placeholder="Ingrese su Usuario" class="form-control input-sm"  disabled="true"/>
                             </c:when>
                             <c:otherwise>
-                                <form:input type="text" path="ssoId" id="ssoId" class="form-control input-sm" />
+                                <form:input type="text" path="ssoId" id="ssoId" placeholder="Ingrese su Usuario" class="form-control input-sm" />
                                 <div class="has-error">
                                     <form:errors path="ssoId" class="help-inline"/>
                                 </div>
@@ -224,7 +225,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="password">Contraseña:</label>
                     <div class="col-md-7">
-                    <form:input type="password" path="password" id="password" name="password" class="form-control input-sm"   onkeyup="validacion('password');" />
+                    <form:input type="password" path="password" id="password" name="password" placeholder="********" class="form-control input-sm"   onkeyup="validacion('password');" />
                     <div class="has-error">
 					<form:errors path="password" class="help-inline"/>
                     </div>
@@ -239,7 +240,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="password">Confirmar Contraseña:</label>
                     <div class="col-md-7">
-                        <input type="password" path="confirmpassword" id="confirmpassword" name="confirmpassword" class="form-control input-sm" onkeyup="validacion('confirmpassword');" />
+                        <input type="password" path="confirmpassword" id="confirmpassword" name="confirmpassword"  placeholder="********" class="form-control input-sm" onkeyup="validacion('confirmpassword');" />
                         
                         <span class="help-block"></span>
                     </div>
@@ -252,7 +253,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="email">Correo:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="email" id="email" class="form-control input-sm" onkeyup="validacion('email');" />
+                        <form:input type="email" path="email" id="email" placeholder="correo@domino" class="form-control input-sm" onkeyup="validacion('email');" />
                         <div class="has-error">
                             <form:errors path="email" class="help-inline"/>
                         </div>

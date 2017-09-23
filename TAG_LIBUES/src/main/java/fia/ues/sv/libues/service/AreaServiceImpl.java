@@ -39,6 +39,7 @@ public class AreaServiceImpl implements AreaService {
 		Area entity = dao.findById(area.getCodigoarea()); 
 		if(entity!=null){
 			entity.setNombrearea(area.getNombrearea());
+			entity.setEstado(area.getEstado());
 		}
 		
 	}

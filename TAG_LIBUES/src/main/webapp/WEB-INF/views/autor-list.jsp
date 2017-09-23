@@ -60,7 +60,7 @@
 <!--<h1>Autores</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
             <div class="well">
-                <a href="<c:url value='/autorr-agregar' />" class="btn btn-primary">Agregar Autor</a> |
+                <a href="<c:url value='/autor-agregar' />" class="btn btn-primary">Agregar Autor</a> |
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
         </sec:authorize>

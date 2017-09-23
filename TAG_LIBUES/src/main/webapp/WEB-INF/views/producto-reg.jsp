@@ -122,7 +122,7 @@
 		        	<div class="form-group col-md-12">
 		            	<label class="col-md-3 control-lable" for="nombreProducto">Nombre de Producto:</label>
 		                <div class="col-md-7">
-		                	<form:input type="text" path="nombreProducto" id="nombreProducto" class="form-control input-sm"/>
+		                	<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="Digite el Nombre del Producto" class="form-control input-sm"/>
 		                	<div class="has-error">
 		                		<form:errors path="nombreProducto" class="help-inline"/>
 		                	</div>
@@ -197,7 +197,7 @@
 		        	<div class="form-group col-md-12">
 		            	<label class="col-md-3 control-lable" for="existencia">Existencias:</label>
 		                <div class="col-md-7">
-		                	<form:input type="text" min="0" path="existencia" id="existencia" class="form-control input-sm" value="0"/>
+		                	<form:input type="text" min="0" path="existencia" id="existencia" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
 		                    
 		                    <div class="has-error">
 		                    	<form:errors path="existencia" class="help-inline"/>
@@ -212,7 +212,7 @@
 		        	<div class="form-group col-md-12">
 		            	<label class="col-md-3 control-lable" for="existencia">Unidad Minima:</label>
 		                <div class="col-md-7">
-		                	<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" class="form-control input-sm"/>
+		                	<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
 		                    <!-- 
 		                    <div class="has-error">
 		                    	<form:errors path="unidadMinima" class="help-inline"/>
@@ -226,7 +226,7 @@
 		        	<div class="form-group col-md-12">
 		            	<label class="col-md-3 control-lable" for="isbn">ISBN:</label>
 		                <div class="col-md-7">
-		                	<form:input type="text" path="isbn" id="isbn" class="form-control input-sm"/>
+		                	<form:input type="text" path="isbn" id="isbn" placeholder="Digite el Codigo ISBN del Producto" class="form-control input-sm"/>
 		                    <div class="has-error">
 		                   		<form:errors path="isbn" class="help-inline"/>
 		                    </div>
@@ -238,7 +238,7 @@
                 	<div class="form-group col-md-12">
                 		<label class="col-md-3 control-lable" for="fechaCreacion">Fecha de Creación:</label>
                 		<div class="col-md-7">
-                    		<form:input type="date" class="form-control imput-sm" path="fechaCreacion" id="fechaCreacion" value="<%=sAhora %>"/>
+                    		<form:input type="date" class="form-control imput-sm" path="fechaCreacion" id="fechaCreacion" placeholder="Digite la Fecha de la Creacion de Producto" value="<%=sAhora %>"/>
                     		<div class="has-error">
                     			<form:errors path="fechaCreacion" class="help-inline"/>
                     		</div>
@@ -248,7 +248,7 @@
 		            
 		        <div class="row">
 		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="precio">Precio:</label>
+		            	<label class="col-md-3 control-lable" for="precio">Precio: $</label>
 		                <div class="col-md-7">
 		                	<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" value="0.0"/>
 		                    <!-- 
@@ -262,7 +262,7 @@
 		         
 		          <div class="row">
 		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="costounitario">Costo Unitario:</label>
+		            	<label class="col-md-3 control-lable" for="costounitario">Costo Unitario: $</label>
 		                <div class="col-md-7">
 		                	<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" value="0.0"/>
 		                    <!--

@@ -29,6 +29,18 @@ public class Editorial implements Serializable {
 	@Column(name="nombreeditorial")
 	private String nombre;
 	
+	@Column(name="ESTADO")
+	private String estado;
+	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public Integer getCodigoeditorial() {
 		return codigoeditorial;
 	}

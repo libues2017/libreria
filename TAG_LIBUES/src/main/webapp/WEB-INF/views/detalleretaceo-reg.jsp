@@ -352,7 +352,7 @@
 						                <div class="form-group col-md-12">
 						                    <label class="col-md-3 control-lable" for="nombr">Codigo Factura:</label>
 						                    <div class="col-md-7">
-						                        <form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" class="form-control input-sm" /> 
+						                        <form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" placeholder="Digite Codigo Factura" class="form-control input-sm" /> 
 						                        <div class="has-error">
 						                            <form:errors path="codigofacturaproveedor" class="help-inline"/>
 						                        </div>
@@ -384,7 +384,7 @@
 								                <div class="form-group col-md-12">
 								                    <label class="col-md-3 control-lable" for="tags">Codigo Proveedor:</label>
 								                    <div class="col-md-7">
-								                         <form:input type="text" path="codigoproveedor" id="codigoproveedor" class="form-control input-sm" onchange='label2();' />    
+								                         <form:input type="text" path="codigoproveedor" id="codigoproveedor" placeholder="Digite Codigo Proveedor" class="form-control input-sm" onchange='label2();' />    
 								                        <div class="has-error">
 								                            <form:errors path="codigoproveedor" class="help-inline"/>
 								                        </div>
@@ -416,7 +416,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="tags">Codigo Producto:</label>
                     <div class="col-md-7">
-                         <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='label();' />      
+                         <form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="Digite el Codigo del Producto" class="form-control input-sm" onchange='label();' />      
                         <div class="has-error">
                             <form:errors path="codigoproducto" class="help-inline"/>
                         </div>
@@ -447,7 +447,7 @@
 				       
 		    <div class="row">
                 <div class="form-group col-md-12"  >
-                    <label class="col-md-3 control-lable" for="utilidad" >Utilidad</label>
+                    <label class="col-md-3 control-lable" for="utilidad" >Utilidad: </label>
                     <div class="col-md-7">
                         <form:input type="text" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onkeyup="validaFloat('utilidad');" value='0'/>
                         
@@ -462,7 +462,7 @@
              
              <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Costo Producto:</label>
+                    <label class="col-md-3 control-lable" for="nombr">Costo Producto: $</label>
                     <div class="col-md-7">
                         <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto');"  value='0'/>
                         <div class="has-error">
@@ -477,7 +477,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Cantidad de producto:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="cantidadproducto" id="cantidadproducto" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
+                        <form:input type="text" path="cantidadproducto" id="cantidadproducto" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
                         <div class="has-error">
                             <form:errors path="cantidadproducto" class="help-inline"/>
                         </div>
@@ -488,9 +488,9 @@
                         
              <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Precio Producto:</label>
+                    <label class="col-md-3 control-lable" for="nombr">Precio Producto: $</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="precioproducto" id="precioproducto" class="form-control input-sm"  />
+                        <form:input type="text" path="precioproducto" id="precioproducto" placeholder="Precio de Producto para Venta" class="form-control input-sm"  />
                         <div class="has-error">
                             <form:errors path="precioproducto" class="help-inline"/>
                         </div>
