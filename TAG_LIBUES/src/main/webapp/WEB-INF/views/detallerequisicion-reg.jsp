@@ -27,54 +27,79 @@
 
 <script type="text/javascript">
 
-      function sesion(){
-				
-      		var fecharequisicion=document.getElementById("fecharequisicion").value;
-      		var destino = document.getElementById('destino').value;
+	function producto(){
+	
+		var nombre = [];
+		var existencia = [];
+		var precio = [];
+		var costo = [];
+		
+		var Id = document.getElementById("codigoproducto").value;
+	
+		<c:forEach items="${producto}" var="current">
+		
+		  if( ${current.correlativo} == Id) {
+		    	 		  
+		      nombre.push("${current.nombreProducto}");
+		      document.getElementById('nombreproducto').value = nombre;
+		      
+		      existencia.push("${current.existencia}");
+   		      document.getElementById('existencia').innerHTML = existencia;
+   		      
+		      costo.push("${current.costounitario}");
+		      document.getElementById('costo').value = costo;
+		      precio.push("${current.precio}");
+		      document.getElementById('precio').value = precio;
+		    }
+		</c:forEach>              		
+      return true;					
+		alert();
+     }
+    
+	
+    function sesion(){
+		var fecharequisicion=document.getElementById("fecharequisicion").value;
+      	var destino = document.getElementById('destino').value;
+      	
+      	var fecha="f";
+      	var destino1="dest";
       				
-      		var fecha="f";
-      		var destino1="dest";
-      				
-      		sessionStorage[fecha]=fecharequisicion;
-      		sessionStorage[destino1]=destino;
-      	}
+      	sessionStorage[fecha]=fecharequisicion;
+      	sessionStorage[destino1]=destino;
+    }
 	
 </script>
 
- 				<script>
-                               $( function() {
-					  
-									   var p;
-									   var p1;
-									  
-										for(var i=0;i<sessionStorage.length;i++)
-										{						                
-							                p=sessionStorage.getItem('f');
-							                p1=sessionStorage.getItem('dest');
-						                }
-									   document.getElementById("fecharequisicion").value=p;
-									   document.getElementById("destino").value=p1;			    
-					           } );
-					                  
-                  </script>
-                  
-                  <script>
-					 		
-					  $( function() {
-						  
-						   
-						    var sessionId1 = [];						    
-						    <c:forEach items="${producto}" var="current">								
-							  sessionId1.push("${current.codigoProducto}");						
-							</c:forEach>					    
-						    
-						    $( "#codigoproducto" ).autocomplete({
-						     /// source: availableTags
-						    	source: sessionId1
-						    });
-						  } );
-					  
-					</script>  
+<script>
+	$( function() {
+		var p;
+		var p1;
+		
+		for(var i=0;i<sessionStorage.length;i++)
+		{						                
+			p=sessionStorage.getItem('f');
+			p1=sessionStorage.getItem('dest');
+		}
+		document.getElementById("fecharequisicion").value=p;
+		document.getElementById("destino").value=p1;			    
+	} );
+</script>
+
+<script>
+$( function() {
+	var sessionId1 = [];
+	
+	<c:forEach items="${producto}" var="current">								
+	sessionId1.push("${current.correlativo}");						
+	</c:forEach>					    
+	
+	$( "#codigoproducto" ).autocomplete({
+	// source: availableTags
+	source: sessionId1
+	});
+} );
+</script>  
+
 </head>
 
 
@@ -128,40 +153,41 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="tags">Codigo	Producto:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='label();' />
+							<form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='producto();' />
 							<div class="has-error">
 								<form:errors path="codigoproducto" class="help-inline" />
 							</div>
 						</div>
 					</div>
 				</div>
+				
 				<div class="row">
 					<div class="form-group col-md-12">
-						<table class="table table-striped ">
-							<thead>
-								<tr>
-									<th>Nombre Poducto:</th>
-									<th>Existencia:</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><label class="col-md-3 control-lable" for="proveedor" id="lbltipAddedComment"></label></td>
-									<td><label class="col-md-3 control-lable" for="proveedor" style="height: 30px; line-height: 30px; text-align: center;"
-										id="lbl"></label></td>
-								</tr>
-							</tbody>
-						</table>
+						<label class="col-md-3 control-lable" for="nombr">Nombre Producto:</label>
+						<div class="col-md-7">
+							<form:input type="text" path="nombreproducto" id="nombreproducto" class="form-control input-sm" />
+						</div>
 					</div>
 				</div>
-
-
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" >Existencia Total:</label>
+						<div class="col-md-7">  
+						<table class="table table-striped ">
+						<td><label class="col-md-3 control-lable" for="existencia" id="existencia"></label></td>					                   
+					    </table>   
+						</div>
+					</div>
+				</div>
+				
+				
+				
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Costo:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="costo" id="costo"
-								class="form-control input-sm" />
+							<form:input type="text" path="costo" id="costo"	class="form-control input-sm" />
 							<div class="has-error">
 								<form:errors path="costo" class="help-inline" />
 							</div>
@@ -173,8 +199,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Precio:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="precio" id="precio"
-								class="form-control input-sm" />
+							<form:input type="text" path="precio" id="precio" class="form-control input-sm" />
 							<div class="has-error">
 								<form:errors path="precio" class="help-inline" />
 							</div>
@@ -186,8 +211,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Cantidad:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="cantidad" id="cantidad"
-								class="form-control input-sm" />
+							<form:input type="text" path="cantidad" id="cantidad" class="form-control input-sm" />
 							<div class="has-error">
 								<form:errors path="cantidad" class="help-inline" />
 							</div>
@@ -199,15 +223,11 @@
 					<div class="form-actions floatRight">
 						<c:choose>
 							<c:when test="${edit}">
-								<input type="submit" value="Actualizar"
-									class="btn btn-primary btn-sm" /> ó <a
-									href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
+								<input type="submit" value="Actualizar"	class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
 							</c:when>
 							<c:otherwise>
-								<input type="submit" value="Registrar"
-									class="btn btn-primary btn-sm" /> ó <a
-									href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
-                            ó <a href="<c:url value='/finalizar' />">Finalizar</a>
+								<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
+									 ó <a href="<c:url value='/finalizar' />">Finalizar</a>
 							</c:otherwise>
 
 
@@ -221,7 +241,10 @@
 
 	</div>
 
-	<div class="row"><%@include file="foot.jsp"%></div>
+<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
+ <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+ <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 </body>
 </html>
