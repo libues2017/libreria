@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import fia.ues.sv.libues.modelo.Autor;
 import fia.ues.sv.libues.modelo.Book;
@@ -1318,7 +1318,7 @@ public class AppControllerLibues {
     
     
     @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
-    public String downloadExcel(ModelMap model) {
+    public ModelAndView downloadExcel(ModelMap model) {
     	  List<Book> listBooks = new ArrayList<Book>();
           listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
                   "May 28, 2008", 38.11F));
@@ -1333,13 +1333,16 @@ public class AppControllerLibues {
    
           // return a view which will be resolved by an excel view resolver
           
-          model.addAttribute("listBooks", listBooks);
+         // model.addAttribute("listBooks", listBooks);
           
-          return "Excell";
+         // return "Excell";
+         // return new ModelAndView(home, "model", model);
+          return new ModelAndView("Excell", "listBooks", listBooks);
     	
     }
     
     
+   
 
     
 }//Fin del Controlador

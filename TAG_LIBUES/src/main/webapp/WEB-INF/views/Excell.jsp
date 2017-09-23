@@ -33,7 +33,10 @@
 
 <% 
 
-HSSFWorkbook workbook=null;
+
+  
+HSSFWorkbook workbook=new HSSFWorkbook();
+//Map<String, Object> model=(Map) request.getAttribute("model");
 Map<String, Object> model=null;
 List<Book> listBooks = (List<Book>) model.get("listBooks");
 
@@ -72,14 +75,15 @@ header.getCell(4).setCellStyle(style);
  
 // create data rows
 int rowCount = 1;
+
  
-for (Book aBook : listBooks) {
+/*for (Book aBook : listBooks) {
     HSSFRow aRow = sheet.createRow(rowCount++);
     aRow.createCell(0).setCellValue(aBook.getTitle());
     aRow.createCell(1).setCellValue(aBook.getAuthor());
     aRow.createCell(2).setCellValue(aBook.getIsbn());
     aRow.createCell(3).setCellValue(aBook.getPublishedDate());
     aRow.createCell(4).setCellValue(aBook.getPrice());
-}
+}*/
 
 %>
