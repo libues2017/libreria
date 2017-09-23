@@ -1136,15 +1136,7 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReportEXISTENCIAS";
   	}
-    /////////////
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     /**
      * CONTROL PARA LA TABLA LOCALIZACIONES
