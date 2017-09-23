@@ -253,7 +253,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="email">Correo:</label>
                     <div class="col-md-7">
-                        <form:input type="email" path="email" id="email" placeholder="correo@domino" class="form-control input-sm" onkeyup="validacion('email');" />
+                        <form:input type="email" path="email" id="email" placeholder="correo@ejemplo.com" class="form-control input-sm" onkeyup="validacion('email');" />
                         <div class="has-error">
                             <form:errors path="email" class="help-inline"/>
                         </div>
