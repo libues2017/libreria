@@ -1290,36 +1290,29 @@ public class AppControllerLibues {
         return "detallerequisicion-reg";
   }
     
-    /*
-    @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.POST)
-    public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, ModelMap model) throws IOException {
-  	
+    @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.POST)   
+    public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, ModelMap model,@RequestParam(required = false) String fecharequisicion ) throws IOException, ParseException {
+         	 	
     	if (result.hasErrors()) {
-            return "detallerequisicion-reg";
+            return "detalleretaceo-reg";
         }
     	detallerequisicionService.saveDetalleRequisicion(detallerequisicion);
-    	
-    	
-   	  HttpSession sesion2=request.getSession(true);
-   	  String data =request.getParameter("fecha");
-   	  Date fecha=null;
-   	  
-   	 
-     	 SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
- 		   	  try {
- 				      fecha = d.parse("01/02/2016");
- 					  sesion2.setAttribute("my1", data);
- 				}
- 		   	  catch (ParseException e) {
- 					e.printStackTrace();
- 				}
-    	
-    
-        model.addAttribute("loggedinuser", getPrincipal());
+		
+    	Integer codigorequisicion = Integer.parseInt(request.getParameter("codigorequisicion"));
+    	HttpSession sesion2=request.getSession(true);
+    	Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharequisicion);
+    	requisicionService.updateFechaRequisicion(fecharequisicion1, codigorequisicion);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    	String fecha = sdf.format(fecharequisicion1);
+ 		sesion2.setAttribute("mySessionAttribute", fecha);
+    	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detallerequisicion-agregar";
+      //  return "detalleretaceo-reg";
+      
+       // return "retaceo-reg-succ";
     }
-    */
+    
     
 
     

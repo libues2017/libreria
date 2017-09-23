@@ -56,7 +56,25 @@
 									   document.getElementById("destino").value=p1;			    
 					           } );
 					                  
-                  </script>  
+                  </script>
+                  
+                  <script>
+					 		
+					  $( function() {
+						  
+						   
+						    var sessionId1 = [];						    
+						    <c:forEach items="${producto}" var="current">								
+							  sessionId1.push("${current.codigoProducto}");						
+							</c:forEach>					    
+						    
+						    $( "#codigoproducto" ).autocomplete({
+						     /// source: availableTags
+						    	source: sessionId1
+						    });
+						  } );
+					  
+					</script>  
 </head>
 
 
