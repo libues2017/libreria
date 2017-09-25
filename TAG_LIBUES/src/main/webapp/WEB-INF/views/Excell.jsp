@@ -30,6 +30,10 @@
 <%@ page import="org.apache.poi.poifs.filesystem.POIFSFileSystem"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="org.apache.poi.poifs.filesystem.POIFSFileSystem"%>
+<%@ page import="org.apache.poi.hssf.usermodel.HSSFRichTextString"%>
+<%@ page import="fia.ues.sv.libues.excell.excell"%>
+
+
 
 <%@ page import="java.util.Locale"%>
 <%@ page import="java.io.*" %> 
@@ -102,40 +106,22 @@ int rowCount = 1;
     aRow.createCell(3).setCellValue(aBook.getPublishedDate());
     aRow.createCell(4).setCellValue(aBook.getPrice());
 }*/
-String strNombreArchivo = "C:/libro1.xls";
-File objFile = new File(strNombreArchivo);
 
+
+
+
+    
+    
+    excell e=new excell();
    
-            //Se crea el libro Excel   
-            HSSFWorkbook wb = new HSSFWorkbook();   
+///e.comparar();
+   //e.escribirExcel();
+   
+   e.leerExcel();
+   
+   
   
-            //Se crea una nueva hoja dentro del libro   
-            HSSFSheet sheet = wb.createSheet("HojaEjemplo");   
-  
-            //Se crea una fila dentro de la hoja   
-            HSSFRow row = sheet.createRow((short)0);   
-  
-            //Creamos celdas de varios tipos   
-            row.createCell((short)0).setCellValue(1);   
-            row.createCell((short)1).setCellValue(1.2);   
-            row.createCell((short)2).setCellValue("ejemplo");   
-            row.createCell((short)3).setCellValue(true);   
-  
-            //Creamos una celda de tipo fecha y la mostramos   
-            //indicando un patrón de formato   
-            HSSFCellStyle cellStyle = wb.createCellStyle();   
-            cellStyle.setDataFormat(   
-                    HSSFDataFormat.getBuiltinFormat("d/m/yy h:mm"));   
-  
-            HSSFCell cell = row.createCell((short)4);   
-            cell.setCellValue(new Date());   
-            cell.setCellStyle(cellStyle);   
-  
-            //Escribimos los resultados a un fichero Excel   
-            FileOutputStream fileOut = new FileOutputStream("ejemplo.xls");   
-  
-            wb.write(fileOut);   
-            fileOut.close();   
+    
        
 
 %>
