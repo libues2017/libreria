@@ -32,6 +32,13 @@
 <%@ page import="org.apache.poi.poifs.filesystem.POIFSFileSystem"%>
 <%@ page import="org.apache.poi.hssf.usermodel.HSSFRichTextString"%>
 <%@ page import="fia.ues.sv.libues.excell.excell"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="java.io.IOException"%>
+<%@ page import="java.io.FileInputStream"%>
+
+ 
+
 
 
 
@@ -117,10 +124,110 @@ int rowCount = 1;
 ///e.comparar();
    //e.escribirExcel();
    
-   e.leerExcel();
+   //e.leerExcel();
    
    
-  
+   
+   
+   
+   
+   
+      String filename = "inventario.xls";
+
+        //
+
+        // Create an ArrayList to store the data read from excel sheet.
+
+        //
+
+        List sheetData = new ArrayList();
+
+        FileInputStream fis = null;
+
+        try {
+
+            //
+
+            // Create a FileInputStream that will be use to read the
+
+            // excel file.
+
+
+            fis = new FileInputStream(filename);
+
+            //
+
+            // Create an excel workbook from the file system.
+
+            //
+
+            HSSFWorkbook workbook = new HSSFWorkbook(fis);
+
+            //
+
+            // Get the first sheet on the workbook.
+
+            //
+
+            HSSFSheet sheet = workbook.getSheetAt(0);
+
+            //
+
+            // When we have a sheet object in hand we can iterator on
+
+            // each sheet's rows and on each row's cells. We store the
+
+            // data read on an ArrayList so that we can printed the
+
+            // content of the excel to the console.
+
+            //
+            
+            Iterator rows = sheet.rowIterator();
+
+            while (rows.hasNext()) {
+
+                HSSFRow row = (HSSFRow) rows.next();
+
+                 
+
+                Iterator cells = row.cellIterator();
+
+                List data = new ArrayList();
+
+                while (cells.hasNext()) {
+
+                    HSSFCell cell = (HSSFCell) cells.next();
+
+                //  System.out.println("Añadiendo Celda: " + cell.toString());
+
+                    data.add(cell);
+
+                }
+
+                sheetData.add(data);
+
+            }
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+
+        } finally {
+
+            if (fis != null) {
+
+                fis.close();
+
+            }
+
+        }
+
+   
+      // e.showExelData(sheetData);
+      
+      e.showExelData(sheetData);
+
     
        
 

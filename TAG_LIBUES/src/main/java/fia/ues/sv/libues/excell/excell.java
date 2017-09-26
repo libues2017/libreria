@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -38,6 +39,10 @@ public class excell {
 	
 	 public static void escribirExcel()   
 	    {   
+		 
+		
+		 
+		 
 	        try  
 	        {   
 	            //Se crea el libro Excel   
@@ -83,10 +88,14 @@ public class excell {
 	 
 	 public static void leerExcel()   
 	    {   
+		 
+		 
+		 int []f = null;
+		 
 	        try  
 	        {   
 	            //Se abre el fichero Excel   
-	           // POIFSFileSystem fs =new POIFSFileSystem(new FileInputStream("c:ejemplo.xls"));   
+	          // POIFSFileSystem fs =new POIFSFileSystem(new FileInputStream("c:ejemplo.xls"));   
 	            POIFSFileSystem fs =new POIFSFileSystem(new FileInputStream("c:inventario.xls"));  	
 	  
 	            //Se obtiene el libro Excel   
@@ -105,7 +114,7 @@ public class excell {
 	                HSSFCell cell = row.getCell((short)i);   
 	  
 	                //Si la celda leida no está vacía   
-	                if (cell != null)   
+	            /*    if (cell != null)   
 	                {   
 	                    //Se imprime en pantalla la celda según su tipo   
 	                    switch(cell.getCellType())   
@@ -113,7 +122,7 @@ public class excell {
 	                        case HSSFCell.CELL_TYPE_NUMERIC:   
 	                            System.out.println("Número: " + cell.getNumericCellValue());   
 	                            break;   
-	                       /* case HSSFCell.CELL_TYPE_STRING:   
+	                        case HSSFCell.CELL_TYPE_STRING:   
 	                            System.out.println("String: " + cell.getStringCellValue());   
 	                            break;   
 	                        case HSSFCell.CELL_TYPE_BOOLEAN:   
@@ -121,9 +130,38 @@ public class excell {
 	                            break;   
 	                        default:   
 	                            System.out.println("Default: " + cell.getDateCellValue());   
-	                            break;   */
+	                            break;   
 	                    }   
-	                }   
+	                }  */
+	                
+	                
+	                
+	                if (cell != null)   
+	                {   
+	                	
+	                	
+	                	f[i]=Cell.CELL_TYPE_NUMERIC;
+	                    //Se imprime en pantalla la celda según su tipo   
+	                	
+	                	 
+	                	// f[i]=(int) cell.getNumericCellValue();
+	                	
+	                   
+	                          //  System.out.println("Número: " + cell.getNumericCellValue());   
+	              // System.out.println("Número: " + f[i]);  
+	                	
+	                	 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+	                		 
+	                		                     System.out.print(cell.getNumericCellValue());
+	                		
+	                		                 }
+	                             
+	                       
+	                      
+	                }
+	                
+	                
+	                
 	            }   
 	        }   
 	        catch(IOException ex)   
@@ -178,5 +216,53 @@ public class excell {
 		 
 	 }
 	 
+	 
+	 
+	 public static void showExelData(List sheetData) {
+		 
+		         //
+		 
+		         // Iterates the data and print it out to the console.
+		 
+		         //
+		 
+		         for (int i = 0; i < sheetData.size(); i++) {
+		 
+		             List list = (List) sheetData.get(i);
+		 
+		             for (int j = 0; j < list.size(); j++) {
+		 
+		                 Cell cell = (Cell) list.get(j);
+		 
+		                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		 
+		                     System.out.print(cell.getNumericCellValue());
+		 
+		                 } else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+		 
+		                     System.out.print(cell.getRichStringCellValue());
+		 
+		                 } else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
+		 
+		                     System.out.print(cell.getBooleanCellValue());
+		 
+		                 }
+		 
+		                 if (j < list.size() - 1) {
+	
+		                     System.out.print(", ");
+		 
+		                 }
+		 
+		             }
+		
+		             System.out.println("");
+		 
+		         }
+		 
+		     }
+		 
+		 
+
 
 }
