@@ -1338,6 +1338,12 @@ public class AppControllerLibues {
           
          // return "Excell";
          // return new ModelAndView(home, "model", model);
+          List<Producto> productos = productoService.findAllProductos();
+
+          //incrementar retaceo
+   
+          model.addAttribute("producto", productos);
+          
           return new ModelAndView("Excell", "listBooks", listBooks);
     	
     }

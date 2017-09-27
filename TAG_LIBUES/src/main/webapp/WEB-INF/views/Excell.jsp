@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+    
+    <%@ page isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.util.*,java.io.*" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
    
       <%@ page import="java.util.List"%> 
         <%@ page import="java.util.Map"%> 
@@ -228,7 +236,26 @@ int rowCount = 1;
       
       e.showExelData(sheetData);
 
-    
-       
-
+  
 %>
+
+
+<html>
+<body>
+	<c:forEach items="${producto}" var="productos" >
+					    		
+ 
+ 
+		<td>${productos.codigoProducto}</td>
+		<td>${productos.Proveedor}</td>
+		<td>${productos.existencia}</td>
+	    <td>${productos.nombreProducto}</td>
+		<td>${productos.precio}</td>
+						    			
+	
+			
+
+ </c:forEach>
+       
+</body>
+</html>
