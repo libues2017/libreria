@@ -101,6 +101,10 @@ public class Producto implements Serializable{
 	private Set<Autor> autores = new HashSet<Autor>();
 
 	
+	
+	
+	
+
 	public Integer getCodigoProducto() {
 		return codigoProducto;
 	}

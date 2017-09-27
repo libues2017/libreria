@@ -52,6 +52,9 @@
 
 <%@ page import="java.util.Locale"%>
 <%@ page import="java.io.*" %> 
+<%@ page import="fia.ues.sv.libues.modelo.Producto" %> 
+
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -244,18 +247,25 @@ int rowCount = 1;
 <body>
 	<c:forEach items="${producto}" var="productos" >
 					    		
+ <%
+              List data = new ArrayList();
+             List<? extends Object> list = data;
+             List<Book> listBooks = new ArrayList<Book>();
+             //(List<Producto>) List=new ArrayList<Producto>();
+			 String resp = "abc"; 
+			// resp = resp + (String)pageContext.getAttribute("productos");   //No exception.
+			//listBooks=(String)pageContext.getAttribute("productos");
+			 out.println(resp);
+       %>
  
- 
-		<td>${productos.codigoProducto}</td>
-		<td>${productos.Proveedor}</td>
-		<td>${productos.existencia}</td>
-	    <td>${productos.nombreProducto}</td>
-		<td>${productos.precio}</td>
-						    			
-	
+		
+		
+		
 			
 
  </c:forEach>
+ 
+      
        
 </body>
 </html>

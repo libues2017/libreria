@@ -1342,7 +1342,8 @@ public class AppControllerLibues {
 
           //incrementar retaceo
    
-          model.addAttribute("producto", productos);
+         model.addAttribute("producto", productos);
+          //model.addAttribute("producto", "productos");
           
           return new ModelAndView("Excell", "listBooks", listBooks);
     	
