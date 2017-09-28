@@ -125,11 +125,6 @@ int rowCount = 1;
     aRow.createCell(4).setCellValue(aBook.getPrice());
 }*/
 
-
-
-
-    
-    
     excell e=new excell();
    
 ///e.comparar();
@@ -137,70 +132,26 @@ int rowCount = 1;
    
    //e.leerExcel();
    
-   
-   
-   
-   
-   
-   
       String filename = "inventario.xls";
-
-        //
-
-        // Create an ArrayList to store the data read from excel sheet.
-
-        //
-
+       
         List sheetData = new ArrayList();
 
         FileInputStream fis = null;
 
         try {
 
-            //
+            
+            fis = new FileInputStream(filename);         
 
-            // Create a FileInputStream that will be use to read the
+            HSSFWorkbook workbook = new HSSFWorkbook(fis);         
 
-            // excel file.
-
-
-            fis = new FileInputStream(filename);
-
-            //
-
-            // Create an excel workbook from the file system.
-
-            //
-
-            HSSFWorkbook workbook = new HSSFWorkbook(fis);
-
-            //
-
-            // Get the first sheet on the workbook.
-
-            //
-
-            HSSFSheet sheet = workbook.getSheetAt(0);
-
-            //
-
-            // When we have a sheet object in hand we can iterator on
-
-            // each sheet's rows and on each row's cells. We store the
-
-            // data read on an ArrayList so that we can printed the
-
-            // content of the excel to the console.
-
-            //
+            HSSFSheet sheet = workbook.getSheetAt(0);            
             
             Iterator rows = sheet.rowIterator();
 
             while (rows.hasNext()) {
 
-                HSSFRow row = (HSSFRow) rows.next();
-
-                 
+                HSSFRow row = (HSSFRow) rows.next();                 
 
                 Iterator cells = row.cellIterator();
 
@@ -235,8 +186,7 @@ int rowCount = 1;
         }
 
    
-      // e.showExelData(sheetData);
-      
+      // e.showExelData(sheetData);      
       e.showExelData(sheetData);
 
   
@@ -248,6 +198,7 @@ int rowCount = 1;
 	<c:forEach items="${producto}" var="productos" >
 					    		
  <%
+              /*
               List data = new ArrayList();
              List<? extends Object> list = data;
              List<Book> listBooks = new ArrayList<Book>();
@@ -255,14 +206,33 @@ int rowCount = 1;
 			 String resp = "abc"; 
 			// resp = resp + (String)pageContext.getAttribute("productos");   //No exception.
 			//listBooks=(String)pageContext.getAttribute("productos");
-			 out.println(resp);
+			 out.println(resp);*/
+			  HashMap<Integer, List<String>> map = new HashMap<>(); 
+			 
+		
+			  List<Producto> list = new ArrayList<Producto>();
+				
+			
+			java.util.Enumeration<String> reqEnum = request.getAttributeNames();
+			
+		// java.util.Enumeration<String> reqEnum =request.getParameterValues("productos");
+			 
+				while (reqEnum.hasMoreElements()) {
+					String s = reqEnum.nextElement();
+					String e1 = "101";
+					//out.print(s);
+					//out.println("==" + request.getAttribute(e1));
+					
+					 String elemento=(String)reqEnum.nextElement();
+			            if(elemento.equals(e1)){
+			            	out.println("==");
+			                //break;
+			            }
+				}
+				
        %>
  
 		
-		
-		
-			
-
  </c:forEach>
  
       

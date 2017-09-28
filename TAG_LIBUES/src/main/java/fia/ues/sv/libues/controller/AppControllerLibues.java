@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;*/
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.io.IOException;
@@ -1344,6 +1345,14 @@ public class AppControllerLibues {
    
          model.addAttribute("producto", productos);
           //model.addAttribute("producto", "productos");
+         
+         
+       /*  HashMap<Integer, List<String>> map = new HashMap<>(); 
+         List<Producto> list = new ArrayList<Producto>();
+        /* list.add("Java");
+         list.add("Primefaces");
+         list.add("JSF");*/
+       //  map.put(1,listBooks);
           
           return new ModelAndView("Excell", "listBooks", listBooks);
     	
