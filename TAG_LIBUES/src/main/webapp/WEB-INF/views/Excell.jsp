@@ -198,37 +198,43 @@ int rowCount = 1;
 	<c:forEach items="${producto}" var="productos" >
 					    		
  <%
-              /*
-              List data = new ArrayList();
-             List<? extends Object> list = data;
-             List<Book> listBooks = new ArrayList<Book>();
-             //(List<Producto>) List=new ArrayList<Producto>();
-			 String resp = "abc"; 
-			// resp = resp + (String)pageContext.getAttribute("productos");   //No exception.
-			//listBooks=(String)pageContext.getAttribute("productos");
-			 out.println(resp);*/
-			  HashMap<Integer, List<String>> map = new HashMap<>(); 
+          
+			 /* HashMap<Integer, List<String>> map = new HashMap<>(); 
 			 
-		
-			  List<Producto> list = new ArrayList<Producto>();
-				
+			 List<Producto> list = new ArrayList<Producto>();
 			
 			java.util.Enumeration<String> reqEnum = request.getAttributeNames();
 			
-		// java.util.Enumeration<String> reqEnum =request.getParameterValues("productos");
+			while (reqEnum.hasMoreElements()) {
+				String s = reqEnum.nextElement();
+				String e1 = "101";
+				//out.print(s);
+				//out.println("==" + request.getAttribute(e1));
+				
+				 String elemento=(String)reqEnum.nextElement();
+		            if(elemento.equals(e1)){
+		            	out.println("==");
+		                //break;
+		            }
+			}*/
+			
+			
+		
+		
+		List addresses = (List)request.getAttribute("productos");
+		 Iterator addressIter = addresses.iterator();
+		 
+		 while(addressIter.hasNext()) {
+			      Producto address = (Producto)addressIter.next();
+			     if( (null != address) && (null != address.getCodigoProducto()))  {
+			    	 out.println("==");
+			     
+			     }
+			     
+			     }
+		
 			 
-				while (reqEnum.hasMoreElements()) {
-					String s = reqEnum.nextElement();
-					String e1 = "101";
-					//out.print(s);
-					//out.println("==" + request.getAttribute(e1));
-					
-					 String elemento=(String)reqEnum.nextElement();
-			            if(elemento.equals(e1)){
-			            	out.println("==");
-			                //break;
-			            }
-				}
+				
 				
        %>
  
