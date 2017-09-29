@@ -135,7 +135,11 @@ int rowCount = 1;
       String filename = "inventario.xls";
        
         List sheetData = new ArrayList();
+       // List<String> sheetData = new Array.asList("ubicación","estante","codigo","cantidad");
+        //ubicación 	estante	nivel	codigo	cantidad
 
+             List<String> columnas = Arrays.asList("Apellido", "Prima");
+        
         FileInputStream fis = null;
 
         try {

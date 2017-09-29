@@ -1,11 +1,15 @@
 package fia.ues.sv.libues.excell;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -19,6 +23,8 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -232,10 +238,11 @@ public class excell {
 		 
 		             for (int j = 0; j < list.size(); j++) {
 		 
-		                 Cell cell = (Cell) list.get(j);
+		               //  Cell cell = (Cell) list.get(j);
+		            	 Cell cell = (Cell) list.get(3);
 		 
 		                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-		 
+		                     
 		                     System.out.print(cell.getNumericCellValue());
 		 
 		                 } else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
@@ -257,12 +264,18 @@ public class excell {
 		             }
 		
 		             System.out.println("");
+		             System.out.println(list.size());
 		 
 		         }
+		         
+		         
 		 
 		     }
 		 
 		 
-
+	
+		 
+		 
+	 
 
 }
