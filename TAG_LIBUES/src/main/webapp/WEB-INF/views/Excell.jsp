@@ -265,7 +265,7 @@ int rowCount = 1;
 		int er=addresses.size();
 		 int i=0;
 		// while(addressIter.hasNext()) {
-			/*
+			
 			while(addressIter.hasNext()) {
 			      Producto address = addressIter.next();
 			    // if( (null != address) && (null != address.getCodigoProducto()))  {
@@ -277,7 +277,7 @@ int rowCount = 1;
 			    	out.println(address.getCodigoProducto());
 			    	 out.println("\n");
 			    	 
-			    	 break;
+			    	// break;
 			     
 			     //}
 			     
@@ -297,7 +297,8 @@ int rowCount = 1;
 			// out.println(er);
 			
 			
-			HashMap<Integer,Producto> map=new HashMap<Integer,Producto>();
+		/*	
+		HashMap<Integer,Producto> map=new HashMap<Integer,Producto>();
 			List<Producto> lista=new ArrayList<Producto>();
 			lista=addresses;
 			
@@ -318,7 +319,7 @@ int rowCount = 1;
 				//break;
 			}
 			
-			
+			*/
 				
 			
 			
