@@ -199,7 +199,9 @@ int rowCount = 1;
 
 <html>
 <body>
-	<c:forEach items="${producto}" var="productos" >
+	<c:forEach items="${producto}" var="productos"  begin = "1" end = "1">
+	
+	
 					    		
  <%
           
@@ -229,31 +231,97 @@ int rowCount = 1;
 			
 			
 			
-		 Iterator addressIter = addresses.iterator();
+		 Iterator<Producto> addressIter = addresses.iterator();
 		 
 		/* while (addressIter.hasNext()) {
 			 
 			out.println(addressIter.next());
 			  
 			 }*/
+		
+		
+	/*
+	ListIterator<Producto> iter = addresses.listIterator(addresses.size());
+		while (iter.hasPrevious()){
+		  out.println(iter.previous().getCodigoProducto());
+		}*/
+		
+		
+		
+	
+		
+		/*
 		 
-		 int er=addresses.size();
+		 while (addressIter.hasNext()) {
+			 
+			out.println(addressIter.next().getCodigoProducto());
+			break;
+			 
+			}
+					*/
+		 
+	
+		
+		int er=addresses.size();
 		 int i=0;
-		 //while(addressIter.hasNext()) {
-			 while(i<2) {
-			      Producto address = (Producto)addressIter.next();
+		// while(addressIter.hasNext()) {
+			/*
+			while(addressIter.hasNext()) {
+			      Producto address = addressIter.next();
 			    // if( (null != address) && (null != address.getCodigoProducto()))  {
 			    	
+			    //	addresses.get(i);
+			    	
+			    	//out.println(addresses.get(i));
+			    	// out.println("\n");
 			    	out.println(address.getCodigoProducto());
 			    	 out.println("\n");
+			    	 
+			    	 break;
 			     
 			     //}
 			     
-			     i++;
+			    // i++;
 			     
 			     }
+			 
+			/*
+			while (addressIter.hasNext()) {
+				 
+					out.println(addressIter.next().getCodigoProducto());
+					break;
+					 
+					}*/
+						
 		
 			// out.println(er);
+			
+			
+			HashMap<Integer,Producto> map=new HashMap<Integer,Producto>();
+			List<Producto> lista=new ArrayList<Producto>();
+			lista=addresses;
+			
+			for(Producto producto: lista){
+				
+				
+				map.put(producto.getCodigoProducto(),producto);
+				
+				
+				
+			}
+				
+				
+			Set<Map.Entry<Integer,Producto>> set=map.entrySet();
+			for(Map.Entry<Integer,Producto> entry: set)			
+			{
+				out.println(entry.getValue().getNombreProducto());
+				//break;
+			}
+			
+			
+				
+			
+			
 				
 				
        %>
