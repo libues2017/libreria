@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty; 
 
 @Entity
@@ -22,11 +23,11 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigorequisicion;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="destinorequisicion")
 	private String destino;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="fecharequisicion")
 	private Date fecha;
 

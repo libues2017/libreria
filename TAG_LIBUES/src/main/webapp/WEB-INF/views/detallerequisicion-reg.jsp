@@ -276,7 +276,7 @@ function add(campo) {
 					</div>
 				</div>
 
- 	<table class="table table-striped ">
+ 		<table class="table table-striped ">
 				<thead>
 		    		<tr >		    			
 			      			<th>Codigo Producto</th>
@@ -290,19 +290,16 @@ function add(campo) {
 		    	<tbody>
 		    	      
 				    	<c:forEach items="${req1}" var="requisiciones" >
-				    		<tr >				    		
-				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	           <c:if test = "${salary > 2000}">
+				    		<tr >
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
-				    			<td>${requisiciones.cantidadproducto}</td>
-				    		    <td>${requisiciones.costoproducto}</td>
-				    			<td>${requisiciones.precioproducto}</td>
-				    			<td>${requisiciones.subtotal}</td>				    			
-				    		</c:if>
-				    				
+				    			<td>${requisiciones.cantidad}</td>
+				    		    <td>${requisiciones.costo}</td>
+				    			<td>${requisiciones.precio}</td>
+				    			<td>${requisiciones.subtotal}</td>	    			
+				    			
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceo-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                            <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>

@@ -6,7 +6,7 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import fia.ues.sv.libues.modelo.DetalleRequisicion;
-import fia.ues.sv.libues.modelo.DetalleRetaceo;
+
 
 @Repository("detallerequisicionDao")
 public class DetalleRequisicionDaoImpl extends AbstractDao<Integer, DetalleRequisicion> implements DetalleRequisicionDao{
@@ -54,8 +54,11 @@ public class DetalleRequisicionDaoImpl extends AbstractDao<Integer, DetalleRequi
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DetalleRequisicion> findRequisiciones(Integer codigodetalle) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigorequisicion"));
+        criteria.add(Restrictions.eq("codigorequisicion", codigodetalle)); 
+       // criteria.add(Restrictions.("visible", true));
+        List<DetalleRequisicion> detallerequisicion = (List<DetalleRequisicion>) criteria.list();
+        return detallerequisicion; 
 	}
 	
 	

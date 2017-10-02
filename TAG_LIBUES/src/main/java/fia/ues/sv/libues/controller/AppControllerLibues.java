@@ -1298,7 +1298,7 @@ public class AppControllerLibues {
     public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, ModelMap model,@RequestParam(required = false) String fecharequisicion ) throws IOException, ParseException {
          	 	
     	if (result.hasErrors()) {
-            return "detalleretaceo-reg";
+            return "detallerequisicion-reg";
         }
     	detallerequisicionService.saveDetalleRequisicion(detallerequisicion);
 		
@@ -1311,10 +1311,7 @@ public class AppControllerLibues {
  		sesion2.setAttribute("mySessionAttribute", fecha);
     	model.addAttribute("loggedinuser", getPrincipal());
 
-         return "redirect:/detallerequisicion-agregar";
-      //  return "detalleretaceo-reg";
-      
-       // return "retaceo-reg-succ";
+         return "redirect:/detallerequisicion-agregar";      
     }
     
     
