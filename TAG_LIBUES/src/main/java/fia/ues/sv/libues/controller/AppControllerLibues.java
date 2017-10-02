@@ -47,12 +47,14 @@ import org.springframework.web.servlet.ModelAndView;
 import fia.ues.sv.libues.modelo.Autor;
 import fia.ues.sv.libues.modelo.Book;
 import fia.ues.sv.libues.modelo.DetalleRetaceo;
+import fia.ues.sv.libues.modelo.DetalleTransferencia;
 import fia.ues.sv.libues.modelo.Editorial;
 import fia.ues.sv.libues.modelo.Localizacion;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.Requisicion;
 import fia.ues.sv.libues.modelo.Retaceo;
 import fia.ues.sv.libues.modelo.TipoProducto;
+import fia.ues.sv.libues.modelo.Transferencia;
 import fia.ues.sv.libues.modelo.Producto;
 import fia.ues.sv.libues.modelo.User;
 import fia.ues.sv.libues.modelo.Area;
@@ -63,11 +65,13 @@ import fia.ues.sv.libues.service.LocalizacionService;
 import fia.ues.sv.libues.service.AutorService;
 import fia.ues.sv.libues.service.DetalleRequisicionService;
 import fia.ues.sv.libues.service.DetalleRetaceoService;
+import fia.ues.sv.libues.service.DetalleTransferenciaService;
 import fia.ues.sv.libues.service.EditorialService;
 import fia.ues.sv.libues.service.ProveedorService;
 import fia.ues.sv.libues.service.RequisicionService;
 import fia.ues.sv.libues.service.RetaceoService;
 import fia.ues.sv.libues.service.TipoProductoService;
+import fia.ues.sv.libues.service.TransferenciaService;
 import fia.ues.sv.libues.service.ProductoService;
 import fia.ues.sv.libues.service.UserProfileService;
 import fia.ues.sv.libues.service.UserService;
@@ -117,11 +121,16 @@ public class AppControllerLibues {
 	
 	@Autowired
 	RetaceoService retaceoService;
+	
+	@Autowired
+	TransferenciaService transferenciaService;
 			
 	@Autowired
 	DetalleRetaceoService detalleretaceoService;
+	
+	@Autowired
+	DetalleTransferenciaService detalletransferenciaService;
 			
-		
 	@Autowired
 	PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
 	
@@ -289,6 +298,10 @@ public class AppControllerLibues {
         return detalleretaceoService.findAllRetaceos();
     }
     
+    @ModelAttribute("detalletransferencias")
+    public List<DetalleTransferencia> initializedetalleTransferencias(){
+    	return detalletransferenciaService.findAllTransferencias();
+    }
     
     @ModelAttribute("detallerequisiciones")
     public List<DetalleRequisicion> initializedetalleRequisiciones(){
@@ -1104,6 +1117,111 @@ public class AppControllerLibues {
     	return "GenerarReporteRetaceo";
 
     } //////////////////Finaliza Proceso de  RETACEO
+    
+    /********************************************************************************************************************************
+     *********************************** CONTROLES PARA LA TABLA Detalle Transferencia **********************************************
+     *******************************************************************************************************************************/
+    @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
+    public String listTransferencias(ModelMap model) throws IOException {
+        List<DetalleTransferencia> detalletransferencia = detalletransferenciaService.findAllTransferencias();
+        model.addAttribute("detalletransferencia", detalletransferencia);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "detalletransferencia-list";
+    }
+    
+  
+    @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.GET)
+    public String newdetalleTransferencia( HttpServletRequest request,ModelMap model) {
+        DetalleTransferencia detalletransferencia = new DetalleTransferencia();
+        model.addAttribute("detalletransferencia", detalletransferencia);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion = request.getSession(true);
+    	 	 
+    	//HttpSession session = request.getSession();
+    	
+    	//Producto producto = new Producto();
+    	
+    	if(sesion.getAttribute("codigo1") != null)
+    	{
+    	  Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
+    	  List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
+    	  model.addAttribute("transferencia2", transferenciaBuscar);
+       }
+  	  
+        List<Producto> productos = productoService.findAllProductos();
+
+        //Incrementar Transferencia
+       
+		List<Transferencia> transferencia5 = transferenciaService.findAllTransferencias();
+		Integer transferencia6 = transferencia5.get(transferencia5.size()-1).getCodTransferencia();
+        HttpSession sesion1 = request.getSession(true);
+        sesion1.setAttribute("codigo1", transferencia6);
+        //Integer codigo1 = (Integer)sesion1.getAttribute("codigo1");
+        //model.addAttribute("success",codigo1);
+        model.addAttribute("producto", productos);
+        //model.addAttribute("message", "hello");
+        return "detalletransferencia-reg";
+  }
+    
+    @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
+    public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia ) throws IOException, ParseException {
+         	
+  	
+    	if (result.hasErrors()) {
+            return "detalletransferencia-reg";
+        }
+    	detalletransferenciaService.savedetalleTransferencia(detalletransferencia);
+		
+    	Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
+    	HttpSession sesion2 = request.getSession(true);
+    	Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
+    	transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    	String fecha = sdf.format(fechaTransferencia1);
+ 		sesion2.setAttribute("mySessionAttribute", fecha);
+    	model.addAttribute("loggedinuser", getPrincipal());
+
+        return "redirect:/detalletransferencia-agregar";
+      
+    }
+    
+    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
+    public String editdetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) {
+
+    	//detalleTransferenciaService
+    	DetalleTransferencia detalleTransferencia = detalletransferenciaService.findById(codTransferencia);//detalleretaceoService.findById(codTransferencia);
+    	
+    	model.addAttribute("detalletransferencia", detalleTransferencia);
+        model.addAttribute("edit", true);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "detalletransferencia-reg";
+    }
+    
+    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.POST)
+    public String updateTransferencia(@Valid DetalleTransferencia detalleTransferencia, BindingResult result,
+            ModelMap model, @PathVariable Integer codTransferencia) throws IOException {
+ 
+        if (result.hasErrors()) {
+            return "detalletransferencia-reg";
+        }
+ 
+        detalletransferenciaService.updateTransferencia(detalleTransferencia);
+        model.addAttribute("success", "transferencia: <strong>" + detalleTransferencia.getCodTransferencia()+"</strong> Se ha Actualizado ");
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "detalletransferencia-reg-succ";
+    }
+    
+    @RequestMapping(value = { "/delete-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
+    public String deleteTransferencia(@PathVariable Integer codTransferencia) {
+    	
+    	detalletransferenciaService.deleteTransferenciaById(codTransferencia);
+    	return "redirect:/detalletransferencia-agregar";
+    }
+    
+ /**************************************************************************************************************************************
+  *********************************************************** Fin Transferencias ******************************************************* 
+  **************************************************************************************************************************************/
     
     //Controles para el Reporte de Retace de Producto
     @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
