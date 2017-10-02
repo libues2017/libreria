@@ -146,7 +146,11 @@ function add(campo) {
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Destino:</label>
 						<div class="col-md-7">
-							<input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" />
+						<!--  <input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" /> -->	
+							<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+										<OPTION VALUE="SALA">Sala</OPTION>
+										<OPTION VALUE="BODEGA">Bodega</OPTION>
+							</SELECT>
 						</div>
 					</div>
 				</div>
@@ -298,7 +302,7 @@ function add(campo) {
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                            <td><a href="<c:url value='/delete-detalleRetaceo-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>

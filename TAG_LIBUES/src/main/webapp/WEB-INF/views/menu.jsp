@@ -70,13 +70,7 @@
 			      		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			      		<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
-			          		<ul class="dropdown-menu">
-			            		<li><a href="<c:url value="#" />">Inventario Teorico</a></li>			            		
-			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="#" />">Inventario Fisico</a></li>
-			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="comparar-inventario"/>">Comparar</a></li>
-			            		<li role="separator" class="divider"></li>
+			          		<ul class="dropdown-menu">			            		
 			            		<li><a href="<c:url value="localizacion-list" />">Ubicacion de productos</a></li>			                 	
 			          			<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li>		                 	
