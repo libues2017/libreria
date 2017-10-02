@@ -207,6 +207,16 @@
 		                
 		            </div>
 		        </div>
+		        
+		         <div class="row">
+		        	<div class="form-group col-md-12" style="display:none ">
+		            	<label class="col-md-3 control-lable" for="existencia">Sala:</label>
+		                <div class="col-md-7">
+		                	<form:input type="text" path="sala" id="sala"  class="form-control input-sm" />		                    		                   
+		                </div>
+		                
+		            </div>
+		        </div>
 		             
 		        <div class="row">
 		        	<div class="form-group col-md-12">

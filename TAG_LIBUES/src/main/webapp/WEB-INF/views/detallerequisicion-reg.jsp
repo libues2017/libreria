@@ -31,12 +31,13 @@
 	
 		var nombre = [];
 		var existencia = [];
+		var sala = [];
 		var precio = [];
 		var costo = [];
 		
 		var Id = document.getElementById("codigoproducto").value;
 	
-		<c:forEach items="${producto}" var="current">
+		<c:forEach items="${producto}" var="current" >
 		
 		  if( ${current.correlativo} == Id) {
 		    	 		  
@@ -46,8 +47,12 @@
 		      existencia.push("${current.existencia}");
    		      document.getElementById('existencia').innerHTML = existencia;
    		      
+   		      sala.push("${current.sala}");
+		      document.getElementById('sala').innerHTML = sala;
+   		      
 		      costo.push("${current.costounitario}");
 		      document.getElementById('costo').value = costo;
+		      
 		      precio.push("${current.precio}");
 		      document.getElementById('precio').value = precio;
 		    }
@@ -98,7 +103,15 @@ $( function() {
 	source: sessionId1
 	});
 } );
-</script>  
+</script>
+
+<script>
+function add(campo) {
+	var cantidad=document.getElementById('cantidad').value;
+	var precio=document.getElementById('precio').value;
+	var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad));
+}
+</script>
 
 </head>
 
@@ -172,10 +185,21 @@ $( function() {
 				
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" >Existencia Total:</label>
+						<label class="col-md-3 control-lable" >Bodega:</label>
 						<div class="col-md-7">  
 						<table class="table table-striped ">
 						<td><label class="col-md-3 control-lable" for="existencia" id="existencia"></label></td>					                   
+					    </table>   
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" >Sala:</label>
+						<div class="col-md-7">  
+						<table class="table table-striped ">
+						<td><label class="col-md-3 control-lable" for="sala" id="sala"></label></td>					                   
 					    </table>   
 						</div>
 					</div>
@@ -211,14 +235,26 @@ $( function() {
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="nombr">Cantidad:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="cantidad" id="cantidad" class="form-control input-sm" />
+							<form:input type="text" path="cantidad" id="cantidad" class="form-control input-sm" onchange="add('cantidad')" />
 							<div class="has-error">
 								<form:errors path="cantidad" class="help-inline" />
 							</div>
 						</div>
 					</div>
 				</div>
-
+				
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" for="nombr">Subtotal:</label>
+						<div class="col-md-7">
+							<form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm" />
+							<div class="has-error">
+								<form:errors path="subtotal" class="help-inline" />
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<div class="row">
 					<div class="form-actions floatRight">
 						<c:choose>
@@ -235,6 +271,40 @@ $( function() {
 						</c:choose>
 					</div>
 				</div>
+
+ 	<table class="table table-striped ">
+				<thead>
+		    		<tr >		    			
+			      			<th>Codigo Producto</th>
+			      			<th>Nombre Producto</th>	      			
+			      			<th>Cantidad Producto</th>
+			      			<th>Costo Producto</th>
+			      			<th>Precio Producto</th>
+			      			<th>Subtotal</th>	
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    	      
+				    	<c:forEach items="${req1}" var="requisiciones" >
+				    		<tr >				    		
+				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	           <c:if test = "${salary > 2000}">
+				    			<td>${requisiciones.codigoproducto}</td>
+				    			<td>${requisiciones.nombreproducto}</td>
+				    			<td>${requisiciones.cantidadproducto}</td>
+				    		    <td>${requisiciones.costoproducto}</td>
+				    			<td>${requisiciones.precioproducto}</td>
+				    			<td>${requisiciones.subtotal}</td>				    			
+				    		</c:if>
+				    				
+                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                        </sec:authorize>
+                        </tr>
+				    	 </c:forEach>
+		    	</tbody>
+	    </table>          
+
 
 			</form:form>
 		</div>

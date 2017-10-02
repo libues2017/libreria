@@ -59,6 +59,7 @@ public class ProductoServiceImpl implements ProductoService{
 			entity.setTipoProducto(producto.getTipoProducto());
 			entity.setUnidadMedida(producto.getUnidadMedida());;
 			entity.setPais(producto.getPais());
+			entity.setSala(producto.getSala());
 		}
 		
 	}

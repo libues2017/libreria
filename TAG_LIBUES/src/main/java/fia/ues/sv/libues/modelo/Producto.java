@@ -54,6 +54,8 @@ public class Producto implements Serializable{
 	@Column(name="EXISTENCIA")
 	private Integer existencia;
 	
+	@Column(name="SALA")
+	private Integer sala;
 	
 	@Column(name="UNIDADMINIMA")
 	private Integer unidadMinima;
@@ -283,5 +285,14 @@ public class Producto implements Serializable{
 	public void setUnidadMedida(String unidadMedida) {
 		this.unidadMedida = unidadMedida;
 	}
+
+	public Integer getSala() {
+		return sala;
+	}
+
+	public void setSala(Integer sala) {
+		this.sala = sala;
+	}	
+	
 }
 
