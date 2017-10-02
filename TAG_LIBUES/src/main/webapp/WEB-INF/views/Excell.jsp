@@ -226,18 +226,34 @@ int rowCount = 1;
 		
 		
 		List addresses = (List)request.getAttribute("productos");
+			
+			
+			
 		 Iterator addressIter = addresses.iterator();
 		 
-		 while(addressIter.hasNext()) {
+		/* while (addressIter.hasNext()) {
+			 
+			out.println(addressIter.next());
+			  
+			 }*/
+		 
+		 int er=addresses.size();
+		 int i=0;
+		 //while(addressIter.hasNext()) {
+			 while(i<2) {
 			      Producto address = (Producto)addressIter.next();
-			     if( (null != address) && (null != address.getCodigoProducto()))  {
-			    	 out.println("==");
+			    // if( (null != address) && (null != address.getCodigoProducto()))  {
+			    	
+			    	out.println(address.getCodigoProducto());
+			    	 out.println("\n");
 			     
-			     }
+			     //}
+			     
+			     i++;
 			     
 			     }
 		
-			 
+			// out.println(er);
 				
 				
        %>

@@ -236,10 +236,10 @@ public class excell {
 		 
 		             List list = (List) sheetData.get(i);
 		 
-		             for (int j = 0; j < list.size(); j++) {
+		             for (int j = 4; j < list.size(); j++) {
 		 
 		               //  Cell cell = (Cell) list.get(j);
-		            	 Cell cell = (Cell) list.get(3);
+		            	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
 		 
 		                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 		                     
@@ -264,7 +264,7 @@ public class excell {
 		             }
 		
 		             System.out.println("");
-		             System.out.println(list.size());
+		             //System.out.println(list.size());
 		 
 		         }
 		         
