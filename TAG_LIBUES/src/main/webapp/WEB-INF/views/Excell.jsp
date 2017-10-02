@@ -191,7 +191,7 @@ int rowCount = 1;
 
    
       // e.showExelData(sheetData);      
-      e.showExelData(sheetData);
+    //  e.showExelData(sheetData);
 
   
 %>
@@ -205,122 +205,32 @@ int rowCount = 1;
 					    		
  <%
           
-			 /* HashMap<Integer, List<String>> map = new HashMap<>(); 
-			 
-			 List<Producto> list = new ArrayList<Producto>();
-			
-			java.util.Enumeration<String> reqEnum = request.getAttributeNames();
-			
-			while (reqEnum.hasMoreElements()) {
-				String s = reqEnum.nextElement();
-				String e1 = "101";
-				//out.print(s);
-				//out.println("==" + request.getAttribute(e1));
-				
-				 String elemento=(String)reqEnum.nextElement();
-		            if(elemento.equals(e1)){
-		            	out.println("==");
-		                //break;
-		            }
-			}*/
-			
-			
+			 		
 		
 		
 		List addresses = (List)request.getAttribute("productos");
 			
+ 
+             e.comparar(sheetData, addresses);
 			
 			
 		 Iterator<Producto> addressIter = addresses.iterator();
 		 
-		/* while (addressIter.hasNext()) {
-			 
-			out.println(addressIter.next());
-			  
-			 }*/
-		
-		
-	/*
-	ListIterator<Producto> iter = addresses.listIterator(addresses.size());
-		while (iter.hasPrevious()){
-		  out.println(iter.previous().getCodigoProducto());
-		}*/
-		
-		
-		
+		 	
+		//  e.comparar(sheetData, addressIter);
 	
-		
-		/*
-		 
-		 while (addressIter.hasNext()) {
-			 
-			out.println(addressIter.next().getCodigoProducto());
-			break;
-			 
-			}
-					*/
-		 
-	
-		
-		int er=addresses.size();
-		 int i=0;
-		// while(addressIter.hasNext()) {
-			
 			while(addressIter.hasNext()) {
-			      Producto address = addressIter.next();
-			    // if( (null != address) && (null != address.getCodigoProducto()))  {
-			    	
-			    //	addresses.get(i);
-			    	
-			    	//out.println(addresses.get(i));
-			    	// out.println("\n");
-			    	out.println(address.getCodigoProducto());
-			    	 out.println("\n");
+			      Producto address = addressIter.next();			    			    	
+			    	out.println(address.getCorrelativo());
+			    	 out.println("<br/>");
 			    	 
-			    	// break;
-			     
-			     //}
-			     
-			    // i++;
-			     
+			    
+			  
 			     }
 			 
-			/*
-			while (addressIter.hasNext()) {
-				 
-					out.println(addressIter.next().getCodigoProducto());
-					break;
-					 
-					}*/
-						
 		
-			// out.println(er);
-			
-			
-		/*	
-		HashMap<Integer,Producto> map=new HashMap<Integer,Producto>();
-			List<Producto> lista=new ArrayList<Producto>();
-			lista=addresses;
-			
-			for(Producto producto: lista){
-				
-				
-				map.put(producto.getCodigoProducto(),producto);
-				
-				
-				
-			}
-				
-				
-			Set<Map.Entry<Integer,Producto>> set=map.entrySet();
-			for(Map.Entry<Integer,Producto> entry: set)			
-			{
-				out.println(entry.getValue().getNombreProducto());
-				//break;
-			}
-			
-			*/
-				
+					
+		
 			
 			
 				

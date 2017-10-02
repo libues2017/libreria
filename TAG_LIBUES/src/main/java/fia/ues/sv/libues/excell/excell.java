@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import fia.ues.sv.libues.modelo.Producto;
 
 
 /*import org.apache.poi.ss.usermodel.Cell;
@@ -242,8 +246,13 @@ public class excell {
 		            	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
 		 
 		                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+		                	 
+		                	 int d=(int) cell.getNumericCellValue();
+		                	 
 		                     
-		                     System.out.print(cell.getNumericCellValue());
+		                    // System.out.print(cell.getNumericCellValue());
+		                     
+		                     System.out.print(d);
 		 
 		                 } else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 		 
@@ -273,6 +282,82 @@ public class excell {
 		     }
 		 
 		 
+	 
+	
+	public static  void comparar(List sheetData,List addresses) {
+		 
+         //
+ 
+         // Iterates the data and print it out to the console.
+ 
+         //
+		 
+		 Iterator<Producto> addressIter = addresses.iterator();
+		 
+		 
+		 
+ 
+         for (int i = 0; i < sheetData.size(); i++) {
+ 
+             List list = (List) sheetData.get(i);
+ 
+             for (int j = 4; j < list.size(); j++) {
+ 
+               //  Cell cell = (Cell) list.get(j);
+            	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
+ 
+                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                	 
+                	 int d=(int) cell.getNumericCellValue();
+                	 
+                	 while(addressIter.hasNext()) {
+       			      Producto address =  addressIter.next();
+       			       int g=Integer.parseInt(address.getCorrelativo());
+       			     /* if(d==g){
+       			    	 System.out.print(d);
+       			    	  
+       			      }*/
+       			      
+       			    //  System.out.print(d);
+       			     System.out.print("\n");
+       			      
+       			  
+       			     }
+                     
+                	 
+	                    // System.out.print(cell.getNumericCellValue());
+	                     
+                	 System.out.print(d);
+       			     System.out.print("\n");
+                 } 
+                
+                 /*else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+ 
+                     System.out.print(cell.getRichStringCellValue());
+ 
+                 } else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
+ 
+                     System.out.print(cell.getBooleanCellValue());
+ 
+                 }*/
+ 
+                 if (j < list.size() - 1) {
+
+                     System.out.print(", ");
+ 
+                 }
+ 
+             }
+
+             System.out.println("");
+             //System.out.println(list.size());
+ 
+         }
+         
+         
+ 
+     }
+ 
 	
 		 
 		 
