@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fia.ues.sv.libues.dao.DetalleRequisicionDao;
 import fia.ues.sv.libues.modelo.DetalleRequisicion;
+import fia.ues.sv.libues.modelo.DetalleRetaceo;
 
 @Service("detallerequisicionService")
 @Transactional
@@ -33,14 +34,21 @@ public class DetalleRequisicionServiceImpl implements DetalleRequisicionService 
 
 	@Override
 	public void updateRequisicion(DetalleRequisicion detallerequisicion) {
-		// TODO Auto-generated method stub
+		
+		DetalleRequisicion entity=dao.findById(detallerequisicion.getCodigorequisicion());		
+		
+		if(entity!=null){			
+			entity.setCodigoproducto(detallerequisicion.getCodigoproducto());
+			entity.setNombreproducto(detallerequisicion.getNombreproducto());
+			entity.setPrecio(detallerequisicion.getPrecio());
+			entity.setCantidad(detallerequisicion.getCantidad());						
+		}
 		
 	}
 
 	@Override
 	public void deleteRequisicionById(int codigodetalle) {
-		// TODO Auto-generated method stub
-		
+		dao.deleteById(codigodetalle);
 	}
 
 	@Override

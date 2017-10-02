@@ -116,12 +116,10 @@ public class DetalleRequisicion implements Serializable{
 		this.subtotal = subtotal;
 	}
 
-	
-	
-	/*
+		
 	@Override
     public String toString() {
-        return "detalle_requisicion_producto [CODIGODETALLE =" + codigodetalle + ", CODIGOREQUISICION=" + codigorequisicion + ", CODIGOPRODUCTO=" + codigoproducto 
-        		+ ", NOMBREPRODUCTO=" + nombreproducto + ", CANTIDAD=" + cantidad +" ]";
-	}*/
+        return "detalle_requisicion_producto [CODIGODETALLE=" + codigodetalle + ", CODIGOREQUISICION=" + codigorequisicion + ", CODIGOPRODUCTO=" + codigoproducto 
+        		+ ", NOMBREPRODUCTO=" + nombreproducto + ", CANTIDAD=" + cantidad +", COSTO=" + costo +", PRECIO= "+ precio +", SUBTOTAL=" + subtotal + "]";
+	}
 }

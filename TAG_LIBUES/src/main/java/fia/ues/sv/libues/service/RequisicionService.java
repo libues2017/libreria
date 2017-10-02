@@ -6,7 +6,7 @@ import fia.ues.sv.libues.modelo.Requisicion;
 
 public interface RequisicionService {
 	
-Requisicion findById(int codigorequisicion);
+	Requisicion findById(int codigorequisicion);
 	
 	void saveRequisicion(Requisicion requisicion);
 	
