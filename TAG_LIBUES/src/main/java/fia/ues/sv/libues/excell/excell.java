@@ -293,67 +293,71 @@ public class excell {
          //
 		 
 		 Iterator<Producto> addressIter = addresses.iterator();
+		  int d=0;
+          int h=0;
+          int cantidad=0;
+          int cantidadbase=0;
 		 
-		 
-		 
+		 while(addressIter.hasNext()) {
+		      Producto address =  addressIter.next();
+		       int g=Integer.parseInt(address.getCorrelativo());
+		       cantidadbase=address.getExistencia();
  
          for (int i = 0; i < sheetData.size(); i++) {
  
+        	 h=sheetData.size();
+        	 
              List list = (List) sheetData.get(i);
- 
-             for (int j = 4; j < list.size(); j++) {
+           
+             
+            // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna
  
                //  Cell cell = (Cell) list.get(j);
             	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
+            	 Cell cell1 = (Cell) list.get(4);
  
                  if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                 	 
-                	 int d=(int) cell.getNumericCellValue();
-                	 
-                	 while(addressIter.hasNext()) {
-       			      Producto address =  addressIter.next();
-       			       int g=Integer.parseInt(address.getCorrelativo());
-       			     /* if(d==g){
-       			    	 System.out.print(d);
-       			    	  
-       			      }*/
-       			      
-       			    //  System.out.print(d);
-       			     System.out.print("\n");
-       			      
-       			  
-       			     }
+                	  d=(int) cell.getNumericCellValue();   
+                	  cantidad=(int) cell1.getNumericCellValue();
+         			       			  
+         			     }
                      
-                	 
-	                    // System.out.print(cell.getNumericCellValue());
+                	                 	 
+	                    //System.out.print((int)cell.getNumericCellValue());
 	                     
-                	 System.out.print(d);
-       			     System.out.print("\n");
-                 } 
-                
-                 /*else if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
- 
-                     System.out.print(cell.getRichStringCellValue());
- 
-                 } else if (cell.getCellType() == Cell.CELL_TYPE_BOOLEAN) {
- 
-                     System.out.print(cell.getBooleanCellValue());
- 
-                 }*/
- 
-                 if (j < list.size() - 1) {
-
-                     System.out.print(", ");
- 
+                	
+       			    //System.out.print("\n");
+                // } 
+                 
+                 
+                 
+                 if(d==g && cantidad==cantidadbase){
+  			    	
+  			    	System.out.print(d);
+  			    	System.out.print("\n");
+  			    	  
+  			      }
+                 
+                 else
+                 {
+                	 
+                		System.out.print("El producto con codigo "+d +"no concuerda con el inventario teorico"); 
+                	 
                  }
- 
+                 
+               //  System.out.println(d);
+                 
              }
 
-             System.out.println("");
-             //System.out.println(list.size());
- 
-         }
-         
+            // System.out.println("");
+           
+           
+           //  h=h+1;
+                          
+             
+			      
+         }         
          
  
      }
