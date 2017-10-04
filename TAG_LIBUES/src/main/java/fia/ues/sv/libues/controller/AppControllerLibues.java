@@ -1413,7 +1413,8 @@ public class AppControllerLibues {
   }
     
     @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.POST)   
-    public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, ModelMap model,@RequestParam(required = false) String fecharequisicion ) throws IOException, ParseException {
+    public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, 
+    		ModelMap model,@RequestParam(required = false) String destino, String fecharequisicion ) throws IOException, ParseException {
          	 	
     	if (result.hasErrors()) {
             return "detallerequisicion-reg";
@@ -1422,14 +1423,21 @@ public class AppControllerLibues {
 		
     	Integer codigorequisicion = Integer.parseInt(request.getParameter("codigorequisicion"));
     	HttpSession sesion2=request.getSession(true);
-    	Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharequisicion);
-    	requisicionService.updateFechaRequisicion(fecharequisicion1, codigorequisicion);
+    	Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharequisicion);    	
+    	requisicionService.updateFechaRequisicion(fecharequisicion1, destino, codigorequisicion);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecharequisicion1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detallerequisicion-agregar";      
+    }
+    
+    @RequestMapping(value = { "/delete-detallerequisicion-{codigorequisicion}" }, method = RequestMethod.GET)
+    public String deleteRequisicion(@PathVariable Integer codigorequisicion) {
+    	
+    	detallerequisicionService.deleteRequisicionById(codigorequisicion);
+    	return "redirect:/detallerequisicion-agregar";        
     }
     
     

@@ -124,7 +124,7 @@ function add(campo) {
 	<div class="container">
 
 		<div class="row"><%@include file="menu.jsp"%></div>
-		<div class="col-xs-8">
+		<div class="col-xs-12">
 			<div class="well lead">Agregar Requisición</div>
 			<form:form method="POST" modelAttribute="detallerequisicion"
 				class="form-horizontal">
