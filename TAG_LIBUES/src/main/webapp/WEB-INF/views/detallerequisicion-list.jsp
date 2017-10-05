@@ -9,6 +9,47 @@
     <title>Libreía UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+	
+	
+		<script type="text/javascript">
+			    var dataSet = [];
+			    var sessionId = [];
+			    var sessionId1 = [];
+			    var sessionId2 = [];
+			    var sessionId3 = [];
+			    var i=0;
+			    
+			    <c:forEach items="${detallerequisiciones}"   var="current">			    
+			     dataSet[i] = [ "${current.codigodetalle}", "${current.codigorequisicion}", "${current.codigoproducto}", "${current.nombreproducto}",
+			    	 "${current.cantidad}", "${current.costo}", "${current.precio}"] ;			     
+			     i=i+1;			    
+			    </c:forEach>
+			    
+			 //   dataSet =  [ "Tiger Nixon" ];
+			    
+			    $(document).ready(function() {
+			        $('#requisiciones').DataTable( {
+			            data:  dataSet,
+			            columns: [
+			               { title: "CORRELATIVO" },
+			               { title: "DOC #" },
+			               { title: "CODIGO" },
+			               { title: "PRODUCTO"},
+			               { title: " ## "},
+			               { title: "COSTO ($)"},
+			               { title: "PRECIO ($)"}
+			               ]
+			        
+			        } );
+			    } );
+			    
+		</script>
 
 </head>
 <body>
@@ -27,50 +68,24 @@
             </div>
         </sec:authorize>
  <div class="panel panel-default">
-        <div class="panel panel-default">
+    <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">Requisiciones</span></div>
 <!--<div class="col-xs-8">-->
-	<table class="table table-striped ">
-		<thead>
-    		<tr >
-    			<th>CODIGO DETALLE</th>
-    			<th>CODIGO REQUISICION</th>
-    			<th>CODIGO PRODUCTO</th>
-    			<th>NOMBRE PRODUCTO</th>
-    			<th>CANTIDAD</th>
-    			<th>OPCIONES</th>
-    		</tr>
-    	</thead>
-    	<tbody>
-    	<c:forEach items="${detallerequisiciones}" var="requisiciones">
-    		<tr >
-    			<td>${requisiciones.codigodetalle}</td>
-    			<td>${requisiciones.codigorequisicion}</td>
-    			<td>${requisiciones.codigoproducto}</td>
-    			<td>${requisiciones.nombreproducto}</td>
-    			<td>${requisiciones.cantidad}</td>
-    			                
-                <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <td><a href="<c:url value='/edit-requisicion-${requisicion.codigodetalle}' />" class="btn btn-success custom-width">Editar</a></td>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-requisicion-${requisicion.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        </sec:authorize>
-    		</tr>
-    	</c:forEach>
-    	</tbody>
+	<table id="requisiciones" class="table table-striped ">
 	</table><br/>
 	</div>
 	</div>
-	
 </div>
-
-
 </div>
 <br/><br/>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 <div class="row"><%@include file="foot.jsp" %></div>
 </body>
 </html>
+
+
+
+

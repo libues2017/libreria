@@ -35,8 +35,14 @@ public class DetalleRequisicion implements Serializable{
 	private String nombreproducto;
 	
 	@NotNull
-	@Column(name="CANTIDAD")
+	@Column(name="CANTIDADMOV")
 	private Integer cantidad;
+	
+	@Column(name="BODEGA")
+	private Integer bodega;
+	
+	@Column(name="SALA")
+	private Integer sala;
 	
 	@NotNull
 	@Column(name="COSTO")
@@ -82,7 +88,7 @@ public class DetalleRequisicion implements Serializable{
 
 	public void setNombreproducto(String nombreproducto) {
 		this.nombreproducto = nombreproducto;
-	}
+	}	
 
 	public Integer getCantidad() {
 		return cantidad;
@@ -90,6 +96,22 @@ public class DetalleRequisicion implements Serializable{
 
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public Integer getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(Integer bodega) {
+		this.bodega = bodega;
+	}
+
+	public Integer getSala() {
+		return sala;
+	}
+
+	public void setSala(Integer sala) {
+		this.sala = sala;
 	}
 
 	public Double getCosto() {
@@ -120,6 +142,7 @@ public class DetalleRequisicion implements Serializable{
 	@Override
     public String toString() {
         return "detalle_requisicion_producto [CODIGODETALLE=" + codigodetalle + ", CODIGOREQUISICION=" + codigorequisicion + ", CODIGOPRODUCTO=" + codigoproducto 
-        		+ ", NOMBREPRODUCTO=" + nombreproducto + ", CANTIDAD=" + cantidad +", COSTO=" + costo +", PRECIO= "+ precio +", SUBTOTAL=" + subtotal + "]";
+        		+ ", NOMBREPRODUCTO=" + nombreproducto + ", CANTIDAD=" + cantidad +",BODEGA=" + bodega +",SALA=" + sala
+        		+", COSTO=" + costo +", PRECIO= "+ precio +", SUBTOTAL=" + subtotal + "]";
 	}
 }

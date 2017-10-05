@@ -1373,10 +1373,9 @@ public class AppControllerLibues {
         return "producto-busqueda-res";
     }
     
-    /**
-     *CONTROLES PARA LA TABLA REQUISICION
-     */
-    
+    //*************************************************************************
+    // ***************** REQUISICIONES ****************************************
+    //*************************************************************************
     
     @RequestMapping(value = { "/detallerequisicion-list" }, method = RequestMethod.GET)
     public String listRequisiciones(ModelMap model) throws IOException {
@@ -1440,6 +1439,42 @@ public class AppControllerLibues {
     	return "redirect:/detallerequisicion-agregar";        
     }
     
+    @RequestMapping(value = { "/guardar" }, method = RequestMethod.GET)
+    public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
+    	   String fecharequisicion )throws IOException, ParseException {
+    	
+          HttpSession sesion=request.getSession(true);
+    	
+          Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");
+          
+          sesion.setAttribute("codigoultimo", codigorequisicion);
+          
+          List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
+          for(int i=0;i<requisicionBuscar.size();i++){
+        	  Integer codigoproducto = requisicionBuscar.get(i).getCodigoproducto();
+        	  Integer bodega1 = requisicionBuscar.get(i).getBodega();        	  
+        	  Integer sala1 = requisicionBuscar.get(i).getSala();
+        	  Integer cantidad = requisicionBuscar.get(i).getCantidad();
+        	  
+        	  Integer existencia = bodega1 - cantidad;
+        	  Integer sala = sala1 + cantidad;
+        	  
+        	 productoService.updateExistencia(codigoproducto, existencia, sala);        	 
+          }          
+       
+          String fecha =(String) sesion.getAttribute("mySessionAttribute");          
+          Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);          
+          Requisicion requisicion = new Requisicion();
+          requisicion.setFecha(fecharequisicion1);          
+  		  requisicionService.saveRequisicion(requisicion);  		
+          Integer codigo2 = 0;
+		  sesion.setAttribute("codigo2", codigo2);
+    	
+		return "detallerequisicion-list";
+
+    }
+    
+    // ******************************** Finaliza REQUISICIONES
     
     
     @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)

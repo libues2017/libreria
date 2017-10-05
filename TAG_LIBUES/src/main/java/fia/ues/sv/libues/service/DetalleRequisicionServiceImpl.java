@@ -41,6 +41,8 @@ public class DetalleRequisicionServiceImpl implements DetalleRequisicionService 
 			entity.setCodigoproducto(detallerequisicion.getCodigoproducto());
 			entity.setNombreproducto(detallerequisicion.getNombreproducto());
 			entity.setPrecio(detallerequisicion.getPrecio());
+			entity.setBodega(detallerequisicion.getBodega());
+			entity.setSala(detallerequisicion.getSala());
 			entity.setCantidad(detallerequisicion.getCantidad());						
 		}
 		

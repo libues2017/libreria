@@ -30,7 +30,7 @@
 	function producto(){
 	
 		var nombre = [];
-		var existencia = [];
+		var bodega = [];
 		var sala = [];
 		var precio = [];
 		var costo = [];
@@ -44,11 +44,11 @@
 		      nombre.push("${current.nombreProducto}");
 		      document.getElementById('nombreproducto').value = nombre;
 		      
-		      existencia.push("${current.existencia}");
-   		      document.getElementById('existencia').innerHTML = existencia;
+		      bodega.push("${current.existencia}");
+   		      document.getElementById('bodega').value = bodega;
    		      
    		      sala.push("${current.sala}");
-		      document.getElementById('sala').innerHTML = sala;
+		      document.getElementById('sala').value = sala;
    		      
 		      costo.push("${current.costounitario}");
 		      document.getElementById('costo').value = costo;
@@ -130,10 +130,13 @@ function add(campo) {
 				class="form-horizontal">
 				<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
+			<table class="col-sm-12 col-md-12">
+				<tr>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Documento	#:</label>
-						<div class="col-md-7">
+						<label class="col-md-5 control-lable" for="nombr">Doc. #:</label>
+						<div class="col-md-6">
 							<form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
 							<div class="has-error">
 								<form:errors path="codigorequisicion" class="help-inline" />
@@ -141,55 +144,62 @@ function add(campo) {
 						</div>
 					</div>
 				</div>
-
+				</td>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Destino:</label>
+						<label class="col-md-4 control-lable" for="nombr">Destino:</label>
 						<div class="col-md-7">
 						<!--  <input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" /> -->	
-							<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+							<SELECT name="destino" id="destino" placeholder="SELECCIONAR" class="form-control input-sm" onchange="sesion();">
 										<OPTION VALUE="SALA">Sala</OPTION>
 										<OPTION VALUE="BODEGA">Bodega</OPTION>
 							</SELECT>
 						</div>
 					</div>
 				</div>
-
-
-
+				</td>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Fecha	Requisicion:</label>
-						<div class="col-md-7">
+						<label class="col-md-4 control-lable" for="nombr">Fecha:</label>
+						<div class="col-md-8">
 							<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
-
+				</td>
+				</tr>
+				
+				<tr>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="tags">Codigo	Producto:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange='producto();' />
+						<label class="col-md-5 control-lable" for="tags">Codigo	Producto:</label>
+						<div class="col-md-6">
+							<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
 							<div class="has-error">
 								<form:errors path="codigoproducto" class="help-inline" />
 							</div>
 						</div>
 					</div>
 				</div>
-				
+				</td>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Nombre Producto:</label>
+						<label class="col-md-4 control-lable" for="nombr">Nombre Producto:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="nombreproducto" id="nombreproducto" class="form-control input-sm" />
+							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
 						</div>
 					</div>
 				</div>
-				
+				</td>
+				<tr>
+			<!--  	
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" >Bodega:</label>
+						<label class="col-md-3 control-lable" >Existencia Total:</label>
 						<div class="col-md-7">  
 						<table class="table table-striped ">
 						<td><label class="col-md-3 control-lable" for="existencia" id="existencia"></label></td>					                   
@@ -197,93 +207,94 @@ function add(campo) {
 						</div>
 					</div>
 				</div>
-				
+			-->	
+				<tr>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" >Sala:</label>
-						<div class="col-md-7">  
-						<table class="table table-striped ">
-						<td><label class="col-md-3 control-lable" for="sala" id="sala"></label></td>					                   
-					    </table>   
+						<label class="col-md-5 control-lable" for="nombr">Bodega:</label>
+						<div class="col-md-6">
+							<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
 					</div>
 				</div>
-				
-				
-				
+				</td>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Costo:</label>
+						<label class="col-md-4 control-lable" for="nombr">Sala:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="costo" id="costo"	class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="costo" class="help-inline" />
-							</div>
+							<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"/>							
 						</div>
 					</div>
 				</div>
-
+				</td>
+				</tr>
+				
+				<tr>
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Precio:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="precio" id="precio" class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="precio" class="help-inline" />
-							</div>
+						<label class="col-md-5 control-lable" for="nombr">Costo #:</label>
+						<div class="col-md-6">
+							<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
 					</div>
 				</div>
-
+				</td>
+				
+				<td>
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Cantidad:</label>
+						<label class="col-md-4 control-lable" for="nombr">Precio $:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="cantidad" id="cantidad" class="form-control input-sm" onchange="add('cantidad')" />
+							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						</div>
+					</div>
+				</div>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-5 control-lable" for="nombr">Cant Mover:</label>
+						<div class="col-md-6">
+							<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
 							<div class="has-error">
 								<form:errors path="cantidad" class="help-inline" />
 							</div>
 						</div>
 					</div>
 				</div>
-				
+				</td>
+				<td>				
 				<div class="row">
 					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="nombr">Subtotal:</label>
+						<label class="col-md-4 control-lable" for="nombr">Subtotal:</label>
 						<div class="col-md-7">
-							<form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="subtotal" class="help-inline" />
-							</div>
+							<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
 					</div>
 				</div>
-				
-				<div class="row">
-					<div class="form-actions floatRight">
-						<c:choose>
-							<c:when test="${edit}">
-								<input type="submit" value="Actualizar"	class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
-							</c:when>
-							<c:otherwise>
-								<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detallerequisicion-list' />">Cancelar</a>
-									 ó <a href="<c:url value='/finalizar' />">Finalizar</a>
-							</c:otherwise>
-
-
-
-						</c:choose>
-					</div>
-				</div>
+				</td>
+				</tr>
+		</table> 	
+				<div class="row">					
+					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||								
+					<a href="<c:url value='/detallerequisicion-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> |||||
+					<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >Guardar Requisición</a>
+				</div> <hr>
 
  		<table class="table table-striped ">
 				<thead>
 		    		<tr >		    			
 			      			<th>Codigo Producto</th>
 			      			<th>Nombre Producto</th>	      			
-			      			<th>Cantidad Producto</th>
-			      			<th>Costo Producto</th>
-			      			<th>Precio Producto</th>
+			      			<th>Cantidad</th>
+			      			<th>Costo</th>
+			      			<th>Precio</th>
 			      			<th>Subtotal</th>	
 		    		</tr>
 		    	</thead>
@@ -294,9 +305,9 @@ function add(campo) {
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
 				    			<td>${requisiciones.cantidad}</td>
-				    		    <td>${requisiciones.costo}</td>
-				    			<td>${requisiciones.precio}</td>
-				    			<td>${requisiciones.subtotal}</td>	    			
+				    		    <td>$ ${requisiciones.costo}</td>
+				    			<td>$ ${requisiciones.precio}</td>
+				    			<td>$ ${requisiciones.subtotal}</td>	    			
 				    			
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>

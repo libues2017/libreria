@@ -21,9 +21,8 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer codigorequisicion;
+	private Integer codigorequisicion;	
 	
-	@NotNull
 	@Column(name="destinorequisicion")
 	private String destino;
 	
