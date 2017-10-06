@@ -1396,13 +1396,11 @@ public class AppControllerLibues {
     	if(sesion.getAttribute("codigo2")!=null)
     	{
     		Integer codigo2=(Integer) sesion.getAttribute("codigo2");
-    	  
-        List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
-        model.addAttribute("req1", requisicionBuscar);
+    		List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
+    		model.addAttribute("req1", requisicionBuscar);
     	}
     	
-        List<Producto> productos = productoService.findAllProductos();
-       
+        List<Producto> productos = productoService.findAllProductos();       
 		List<Requisicion> req5 = requisicionService.findAllRequisiciones();
 		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
         HttpSession sesion1=request.getSession(true);
@@ -1428,13 +1426,11 @@ public class AppControllerLibues {
     	String fecha = sdf.format(fecharequisicion1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
     	model.addAttribute("loggedinuser", getPrincipal());
-
-         return "redirect:/detallerequisicion-agregar";      
+    return "redirect:/detallerequisicion-agregar";      
     }
     
     @RequestMapping(value = { "/delete-detallerequisicion-{codigorequisicion}" }, method = RequestMethod.GET)
-    public String deleteRequisicion(@PathVariable Integer codigorequisicion) {
-    	
+    public String deleteRequisicion(@PathVariable Integer codigorequisicion) {    	
     	detallerequisicionService.deleteRequisicionById(codigorequisicion);
     	return "redirect:/detallerequisicion-agregar";        
     }
@@ -1443,10 +1439,8 @@ public class AppControllerLibues {
     public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
     	   String fecharequisicion )throws IOException, ParseException {
     	
-          HttpSession sesion=request.getSession(true);
-    	
-          Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");
-          
+          HttpSession sesion=request.getSession(true);    	
+          Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
           sesion.setAttribute("codigoultimo", codigorequisicion);
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
