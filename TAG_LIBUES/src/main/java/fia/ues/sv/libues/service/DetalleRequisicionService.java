@@ -7,6 +7,8 @@ public interface DetalleRequisicionService {
 	
 	DetalleRequisicion findById(int codigodetalle);
 	
+	DetalleRequisicion findByCodigo(int codigoreq);
+	
 	DetalleRequisicion findByNombre(String nombreproducto);
 	
 	void saveDetalleRequisicion(DetalleRequisicion detallerequisicion);

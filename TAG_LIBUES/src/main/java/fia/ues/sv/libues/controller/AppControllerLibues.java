@@ -1379,11 +1379,29 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detallerequisicion-list" }, method = RequestMethod.GET)
     public String listRequisiciones(ModelMap model) throws IOException {
-         List<DetalleRequisicion> detallerequisicion = detallerequisicionService.findAllRequisiciones();
+    	List<DetalleRequisicion> detallerequisicion = detallerequisicionService.findAllRequisiciones();
         model.addAttribute("detallerequisicion", detallerequisicion);
         model.addAttribute("loggedinuser", getPrincipal());
         return "detallerequisicion-list";
     }
+    
+    @RequestMapping(value = { "/requisicion-detalle-{codigorequisicion}" }, method = RequestMethod.GET)
+    public String listDetalleReq(@PathVariable Integer codigorequisicion, ModelMap model) throws IOException {
+    	DetalleRequisicion req = detallerequisicionService.findByCodigo(codigorequisicion);
+    	model.addAttribute("requisiciones", req);
+    	model.addAttribute("loggedinuser", getPrincipal());
+        return "requisicion-detalle";
+    }   
+    
+    @RequestMapping(value = { "/requisicion-list" }, method = RequestMethod.GET)
+    public String listReq(ModelMap model) throws IOException {
+    	List<Requisicion> requisiciones = requisicionService.findAllRequisiciones();                
+        model.addAttribute("requisiciones", requisiciones);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "requisicion-list";
+    }
+    
+    
     
     @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.GET)
     public String newdetalleRequisicion( HttpServletRequest request,ModelMap model) {

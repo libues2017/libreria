@@ -17,6 +17,13 @@ public class DetalleRequisicionDaoImpl extends AbstractDao<Integer, DetalleRequi
 		DetalleRequisicion detallerequisicion=getByKey(codigodetalle);					
 		return detallerequisicion;
 	}
+	
+	@Override
+	public DetalleRequisicion findByCodigo(int codigoreq) {
+		
+		DetalleRequisicion detallereq=getByKey(codigoreq);					
+		return detallereq;
+	}
 
 	@Override
 	public DetalleRequisicion findByName(String nombreproducto) {

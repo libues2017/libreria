@@ -75,6 +75,8 @@
 			          			<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
+			            		<li><a href="<c:url value="requisicion-list" />">Lista de Requisiciones</a></li>
+			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencia</a></li>		                 	
 			          		</ul>
 			      		</li>

@@ -5,7 +5,9 @@ import fia.ues.sv.libues.modelo.DetalleRequisicion;
 
 public interface DetalleRequisicionDao {
 	
-DetalleRequisicion findById(int codigodetalle);
+	DetalleRequisicion findById(int codigodetalle);
+	
+	DetalleRequisicion findByCodigo(int codigoreq);
 	
 	DetalleRequisicion findByName(String nombreproducto);
 	

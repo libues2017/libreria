@@ -21,6 +21,11 @@ public class DetalleRequisicionServiceImpl implements DetalleRequisicionService 
 	public DetalleRequisicion findById(int codigodetalle) {
 		return dao.findById(codigodetalle) ;
 	}
+	
+	@Override
+	public DetalleRequisicion findByCodigo(int codigoreq) {
+		return dao.findByCodigo(codigoreq) ;
+	}
 
 	@Override
 	public DetalleRequisicion findByNombre(String nombrereq) {		
