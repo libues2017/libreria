@@ -182,7 +182,7 @@ public class excell {
 	 
 	 
 	 
-	 public static void comparar()  {
+	 public static void revisar()  {
 		 
 		 XSSFWorkbook workbook = new XSSFWorkbook();
 	        XSSFSheet sheet = workbook.createSheet("Datatypes in Java");
@@ -284,7 +284,7 @@ public class excell {
 		 
 	 
 	
-	public static  void comparar(List sheetData,List addresses) {
+	public static  void comparar(List sheetData,List addresses,String nombrehoja) {
 		 
          //
  
@@ -297,29 +297,30 @@ public class excell {
           int h=0;
           int cantidad=0;
           int cantidadbase=0;
+          int g=0;
 		 
 		 while(addressIter.hasNext()) {
 		      Producto address =  addressIter.next();
-		       int g=Integer.parseInt(address.getCorrelativo());
-		       cantidadbase=address.getExistencia();
+		       g=Integer.parseInt(address.getCorrelativo()); // datos de la base
+		       cantidadbase=address.getExistencia();// existencia o sala 
  
          for (int i = 0; i < sheetData.size(); i++) {
  
         	 h=sheetData.size();
         	 
              List list = (List) sheetData.get(i);
-           
+           //  getSheetName(0);
              
             // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna
  
                //  Cell cell = (Cell) list.get(j);
             	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
-            	 Cell cell1 = (Cell) list.get(4);
+            	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
  
                  if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                 	 
-                	  d=(int) cell.getNumericCellValue();   
-                	  cantidad=(int) cell1.getNumericCellValue();
+                	  d=(int) cell.getNumericCellValue();   //datos de excell
+                	 // cantidad=(int) cell1.getNumericCellValue();
          			       			  
          			     }
                      
@@ -332,18 +333,21 @@ public class excell {
                  
                  
                  
-                 if(d==g && cantidad==cantidadbase){
+               //  if(d==g && cantidad==cantidadbase){
+                	 if(d==g){
   			    	
-  			    	System.out.print(d);
-  			    	System.out.print("\n");
+  			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
+                			System.out.print("El producto con codigo "+g +" concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
+  			    	
   			    	  
   			      }
                  
                  else
                  {
                 	 
-                		System.out.print("El producto con codigo "+d +"no concuerda con el inventario teorico"); 
+                		//System.out.print("El producto con codigo "+g +" no concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                 	 
+                	// System.out.print("No concuerdan \n"); 
                  }
                  
                //  System.out.println(d);

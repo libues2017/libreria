@@ -133,6 +133,7 @@ int rowCount = 1;
    //e.leerExcel();
    
       String filename = "inventario.xls";
+      String  nombrehoja="2";
        
         List sheetData = new ArrayList();
        // List<String> sheetData = new Array.asList("ubicación","estante","codigo","cantidad");
@@ -149,7 +150,9 @@ int rowCount = 1;
 
             HSSFWorkbook workbook = new HSSFWorkbook(fis);         
 
-            HSSFSheet sheet = workbook.getSheetAt(0);            
+            HSSFSheet sheet = workbook.getSheetAt(0);   
+            
+            nombrehoja= workbook.getSheetName(0);//Toma la primera hoja 
             
             Iterator rows = sheet.rowIterator();
 
@@ -192,6 +195,8 @@ int rowCount = 1;
    
       // e.showExelData(sheetData);      
     //  e.showExelData(sheetData);
+    
+    ///out.println(nombrehoja);
 
   
 %>
@@ -209,9 +214,10 @@ int rowCount = 1;
 		
 		
 		List addresses = (List)request.getAttribute("productos");
+ 
 			
  
-             e.comparar(sheetData, addresses);
+             e.comparar(sheetData, addresses,nombrehoja);
 			
 			
 		 Iterator<Producto> addressIter = addresses.iterator();
