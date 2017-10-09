@@ -305,18 +305,6 @@
 	
 <body>
 
-       <div class="form-group">
-                <div class="col-sm-offset-6 col-sm-10">
-                   
-                    <a class="btn btn-danger" href="<c:url value="/downloadExcel" />" role="button">Excell</a>
-                </div>
-
-				
-            </div>
-
-
-			  
-
 		  
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">

@@ -133,7 +133,8 @@ int rowCount = 1;
    //e.leerExcel();
    
       String filename = "inventario.xls";
-      String  nombrehoja="2";
+      String  nombrehoja="";
+      String  hojaexistencia="";
        
         List sheetData = new ArrayList();
        // List<String> sheetData = new Array.asList("ubicación","estante","codigo","cantidad");
@@ -150,11 +151,13 @@ int rowCount = 1;
 
             HSSFWorkbook workbook = new HSSFWorkbook(fis);         
 
-            HSSFSheet sheet = workbook.getSheetAt(0);   
+            HSSFSheet sala = workbook.getSheetAt(0); 
+            HSSFSheet bodega = workbook.getSheetAt(1);
             
-            nombrehoja= workbook.getSheetName(0);//Toma la primera hoja 
             
-            Iterator rows = sheet.rowIterator();
+            nombrehoja= workbook.getSheetName(0);//Toma la primera hoja sala
+            
+            Iterator rows = sala.rowIterator();
 
             while (rows.hasNext()) {
 
