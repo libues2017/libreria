@@ -26,4 +26,6 @@ public interface ProductoDao {
 	
 	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
 
+	Producto findByCorrelativo(String codigoproducto);
+
 }

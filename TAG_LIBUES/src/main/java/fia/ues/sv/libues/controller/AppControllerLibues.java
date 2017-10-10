@@ -1463,7 +1463,7 @@ public class AppControllerLibues {
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){
-        	  Integer codigoproducto = requisicionBuscar.get(i).getCodigoproducto();
+        	  String codigoproducto = String.valueOf(requisicionBuscar.get(i).getCodigoproducto());
         	  Integer bodega1 = requisicionBuscar.get(i).getBodega();        	  
         	  Integer sala1 = requisicionBuscar.get(i).getSala();
         	  Integer cantidad = requisicionBuscar.get(i).getCantidad();

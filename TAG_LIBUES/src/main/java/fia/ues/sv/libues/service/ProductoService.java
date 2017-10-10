@@ -28,6 +28,10 @@ public interface ProductoService {
 
 	void updateprecioProducto(Integer codigoproducto, Double precio, Double costo, Integer existencia);
 	
-	void updateExistencia(Integer codigoproducto, Integer existencia, Integer sala);
+	void updateExistencia(String codigoproducto, Integer existencia, Integer sala);
+
+	Producto findByCorrelativo(int correlativo);
+
+	Producto findByCorrelativo(String correlativo);
 
 }
