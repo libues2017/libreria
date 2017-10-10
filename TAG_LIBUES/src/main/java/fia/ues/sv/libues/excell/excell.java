@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -284,13 +285,15 @@ public class excell {
 		 
 	 
 	
-	public static  void comparar(List sheetData,List addresses,String nombrehoja) {
+	public static  void comparar(List sheetData,List sheetData1,List addresses,String sala,String bodega) {
 		 
+         // 
+         // Iterates the data and print it out to the console. 
          //
- 
-         // Iterates the data and print it out to the console.
- 
-         //
+		 
+		 List sheetDataextraer = new ArrayList();
+		 
+		
 		 
 		 Iterator<Producto> addressIter = addresses.iterator();
 		  int d=0;
@@ -309,10 +312,11 @@ public class excell {
         	 h=sheetData.size();
         	 
              List list = (List) sheetData.get(i);
+          
+             
            //  getSheetName(0);
              
-            // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna
- 
+            // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna 
                //  Cell cell = (Cell) list.get(j);
             	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
             	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
@@ -322,30 +326,28 @@ public class excell {
                 	  d=(int) cell.getNumericCellValue();   //datos de excell
                 	 // cantidad=(int) cell1.getNumericCellValue();
          			       			  
-         			     }
-                     
+         			     }                     
                 	                 	 
-	                    //System.out.print((int)cell.getNumericCellValue());
-	                     
-                	
+	                    //System.out.print((int)cell.getNumericCellValue());  
        			    //System.out.print("\n");
                 // } 
-                 
-                 
                  
                //  if(d==g && cantidad==cantidadbase){
                 	 if(d==g){
   			    	
   			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
                 			System.out.print("El producto con codigo "+g +" concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
-  			    	
-  			    	  
+                			
+                			  
+  			    	 
   			      }
                  
                  else
                  {
                 	 
                 		//System.out.print("El producto con codigo "+g +" no concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
+                	 
+                	 sheetDataextraer.add(d);
                 	 
                 	// System.out.print("No concuerdan \n"); 
                  }
@@ -357,8 +359,7 @@ public class excell {
             // System.out.println("");
            
            
-           //  h=h+1;
-                          
+           //  h=h+1;                         
              
 			      
          }         

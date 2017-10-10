@@ -71,60 +71,6 @@
 <% 
 
 
- /* 
-HSSFWorkbook workbook=new HSSFWorkbook();
-//Map<String, Object> model=(Map) request.getAttribute("model");
-Map<String, Object> model=null;
-List<Book> listBooks = (List<Book>) model.get("listBooks");
-*/
-
-// create a new Excel sheet
-/*HSSFSheet sheet = workbook.createSheet("Java Books");
-sheet.setDefaultColumnWidth(30);
- 
-// create style for header cells
-CellStyle style = workbook.createCellStyle();
-Font font = workbook.createFont();
-font.setFontName("Arial");
-style.setFillForegroundColor(HSSFColor.BLUE.index);
-style.setFillPattern(CellStyle.SOLID_FOREGROUND);
-font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-font.setColor(HSSFColor.WHITE.index);
-style.setFont(font);*/
- 
-// create header row
-/*
-
-HSSFRow header = sheet.createRow(0);
- 
-header.createCell(0).setCellValue("Book Title");
-header.getCell(0).setCellStyle(style);
- 
-header.createCell(1).setCellValue("Author");
-header.getCell(1).setCellStyle(style);
- 
-header.createCell(2).setCellValue("ISBN");
-header.getCell(2).setCellStyle(style);
- 
-header.createCell(3).setCellValue("Published Date");
-header.getCell(3).setCellStyle(style);
- 
-header.createCell(4).setCellValue("Price");
-header.getCell(4).setCellStyle(style);
- 
-// create data rows
-int rowCount = 1;
-*/
- 
-/*for (Book aBook : listBooks) {
-    HSSFRow aRow = sheet.createRow(rowCount++);
-    aRow.createCell(0).setCellValue(aBook.getTitle());
-    aRow.createCell(1).setCellValue(aBook.getAuthor());
-    aRow.createCell(2).setCellValue(aBook.getIsbn());
-    aRow.createCell(3).setCellValue(aBook.getPublishedDate());
-    aRow.createCell(4).setCellValue(aBook.getPrice());
-}*/
-
     excell e=new excell();
    
 ///e.comparar();
@@ -133,10 +79,12 @@ int rowCount = 1;
    //e.leerExcel();
    
       String filename = "inventario.xls";
-      String  nombrehoja="";
-      String  hojaexistencia="";
+      String  salahoja="";
+      String  bodegahoja="";
        
         List sheetData = new ArrayList();
+        List sheetData1 = new ArrayList();
+        
        // List<String> sheetData = new Array.asList("ubicación","estante","codigo","cantidad");
         //ubicación 	estante	nivel	codigo	cantidad
 
@@ -155,9 +103,11 @@ int rowCount = 1;
             HSSFSheet bodega = workbook.getSheetAt(1);
             
             
-            nombrehoja= workbook.getSheetName(0);//Toma la primera hoja sala
+            salahoja= workbook.getSheetName(0);//Toma la primera hoja sala
+            bodegahoja= workbook.getSheetName(1);//Toma la primera hoja bodega
             
             Iterator rows = sala.rowIterator();
+            Iterator rows1 = bodega.rowIterator();
 
             while (rows.hasNext()) {
 
@@ -178,6 +128,28 @@ int rowCount = 1;
                 }
 
                 sheetData.add(data);
+
+            }
+            
+            while (rows1.hasNext()) {
+
+                HSSFRow row = (HSSFRow) rows1.next();                 
+
+                Iterator cells = row.cellIterator();
+
+                List data = new ArrayList();
+
+                while (cells.hasNext()) {
+
+                    HSSFCell cell = (HSSFCell) cells.next();
+
+                //  System.out.println("Añadiendo Celda: " + cell.toString());
+
+                    data.add(cell);
+
+                }
+
+                sheetData1.add(data);
 
             }
 
@@ -220,7 +192,7 @@ int rowCount = 1;
  
 			
  
-             e.comparar(sheetData, addresses,nombrehoja);
+             e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
 			
 			
 		 Iterator<Producto> addressIter = addresses.iterator();
