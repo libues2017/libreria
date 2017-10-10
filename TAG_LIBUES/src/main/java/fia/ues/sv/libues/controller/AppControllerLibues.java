@@ -1165,7 +1165,8 @@ public class AppControllerLibues {
   }
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
-    public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia ) throws IOException, ParseException {
+    public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
+    		BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String origen, String destino ) throws IOException, ParseException {
          	
   	
     	if (result.hasErrors()) {
@@ -1176,7 +1177,7 @@ public class AppControllerLibues {
     	Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
     	HttpSession sesion2 = request.getSession(true);
     	Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-    	transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia);
+    	transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, origen, destino);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fechaTransferencia1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1220,7 +1221,8 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
-    public String findetalleTransferencia( HttpServletRequest request,ModelMap model,@RequestParam(required = false) String fechaTransferencia )throws IOException, ParseException {
+    public String findetalleTransferencia( HttpServletRequest request,ModelMap model,
+    	@RequestParam(required = false) String fechaTransferencia )throws IOException, ParseException {
     	
           HttpSession sesion = request.getSession(true);
           Integer codTransferencia = (Integer) sesion.getAttribute("codigo1");
