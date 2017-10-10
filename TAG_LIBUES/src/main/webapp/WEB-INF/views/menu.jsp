@@ -78,6 +78,7 @@
 			            		<li><a href="<c:url value="requisicion-list" />">Lista de Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencia</a></li>
+			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion Inventario</a></li>			                 	
 			          		</ul>
 			      		</li>

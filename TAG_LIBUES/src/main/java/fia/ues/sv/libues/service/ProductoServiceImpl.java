@@ -110,6 +110,17 @@ public class ProductoServiceImpl implements ProductoService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void updatePrecioProducto1(String codProducto, Double precio, Double costo, Integer existencia) {
+		Producto entity = dao.findByCorrelativo(codProducto);
+		if(entity !=null){			
+			entity.setCostounitario(costo);
+			entity.setPrecio(precio);
+			entity.setExistencia(existencia);	
+		}	
+		
+	}
 	
 	
 	

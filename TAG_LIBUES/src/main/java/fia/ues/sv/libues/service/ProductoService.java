@@ -34,4 +34,6 @@ public interface ProductoService {
 
 	Producto findByCorrelativo(String correlativo);
 
+	void updatePrecioProducto1(String codProducto, Double precio, Double costo, Integer existencia);
+
 }

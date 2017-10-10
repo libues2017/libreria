@@ -23,15 +23,12 @@ public class Transferencia implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codTransferencia;
 	
-	@NotEmpty
 	@Column(name="TIPOTRANSFERENCIA")
 	private String tipoTransferencia;
 	
-	@NotEmpty
 	@Column(name="ORIGEN")
 	private String origen;
 	
-	@NotEmpty
 	@Column(name="DESTINO")
 	private String destino;
 	
