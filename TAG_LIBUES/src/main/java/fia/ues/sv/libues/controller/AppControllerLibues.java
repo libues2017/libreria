@@ -1222,7 +1222,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
     public String findetalleTransferencia( HttpServletRequest request,ModelMap model,
-    	@RequestParam(required = false) String fechaTransferencia )throws IOException, ParseException {
+    	@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia )throws IOException, ParseException {
     	
           HttpSession sesion = request.getSession(true);
           Integer codTransferencia = (Integer) sesion.getAttribute("codigo1");
@@ -1231,14 +1231,19 @@ public class AppControllerLibues {
           List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
           for(int i=0;i<transferenciaBuscar.size();i++){
         	  Integer codProducto = transferenciaBuscar.get(i).getCodProducto();
-        	  //String codigoproducto = String.valueOf(requisicionBuscar.get(i).getCodigoproducto());
         	  Integer existenciaAnterior = transferenciaBuscar.get(i).getExistenciaAnterior();
         	  Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
-        	  Integer existencia = existenciaAnterior + cantidad;
         	  
-        	  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
-        	  Double costo = transferenciaBuscar.get(i).getCostoProducto();	 
-        	  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
+        	  if (tipoTransferencia == "INGRESOS"){
+        		  Integer existencia = existenciaAnterior + cantidad;
+        		  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
+        		  Double costo = transferenciaBuscar.get(i).getCostoProducto();	 
+        		  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
+        	  }
+        	  else{
+        		  Integer existencia = existenciaAnterior - cantidad;
+        		  productoService.updateExistencia1(codProducto, existencia);
+        	  }
         	 
           }
            
@@ -1254,7 +1259,7 @@ public class AppControllerLibues {
           Integer codigo1 = 0;
 		  sesion.setAttribute("codigo1", codigo1);
     	
-    	  return "GenerarReporteTransferencia";
+    	  return "detalletransferencia-list";
     }
     
  /**************************************************************************************************************************************

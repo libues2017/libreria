@@ -34,4 +34,6 @@ public interface ProductoService {
 
 	void updatePrecioProducto1(Integer codProducto, Double precio, Double costo, Integer existencia);
 
+	void updateExistencia1(Integer codProducto, Integer existencia);
+
 }
