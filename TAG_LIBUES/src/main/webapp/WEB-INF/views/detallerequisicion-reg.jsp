@@ -283,7 +283,7 @@ function add(campo) {
 		</table> 	
 				<div class="row">					
 					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||								
-					<a href="<c:url value='/detallerequisicion-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> |||||
+					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> |||||
 					<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >Guardar Requisición</a>
 				</div> <hr>
 

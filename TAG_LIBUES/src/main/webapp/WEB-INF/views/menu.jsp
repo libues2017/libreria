@@ -72,14 +72,14 @@
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">			            		
 			            		<li><a href="<c:url value="localizacion-list" />">Ubicacion de productos</a></li>			                 	
-			          			<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li>
+			          		<!--  	<li role="separator" class="divider"></li>
+			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li> -->
+			            		<li role="separator" class="divider"></li>   
+			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="requisicion-list" />">Lista de Requisiciones</a></li>
+			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencias</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencia</a></li>
-			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="downloadExcel" />">Comparacion Inventario</a></li>			                 	
+			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
 			          		</ul>
 			      		</li>
 			        	</sec:authorize>        	

@@ -17,8 +17,8 @@
 		<div class="row col-md-10">
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
             <div class="well">
-                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Agregar Requisicion</a> |
-                <a href="<c:url value='/index' />"> Regresar</a>
+                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> |||
+                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
             </div>
         </sec:authorize>
         
