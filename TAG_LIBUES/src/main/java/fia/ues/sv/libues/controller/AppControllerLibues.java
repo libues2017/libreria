@@ -1520,7 +1520,7 @@ public class AppControllerLibues {
           Integer codigo2 = 0;
 		  sesion.setAttribute("codigo2", codigo2);
     	
-		return "detallerequisicion-list";
+		return "requisicion-list";
 
     }
     

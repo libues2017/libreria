@@ -19,18 +19,14 @@
             <div class="well">
                 <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> |||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> |||
-                <a href="<c:url value='/requisicion-list' />" class="btn btn-primary" > Documentos</a> |||
+                <a href="<c:url value='/requisicion-list' />" class="btn btn-primary" > Documentos</a> 
             </div>
         </sec:authorize>
         
         <div class="panel panel-default">      
               <!-- Default panel contents -->
             <div class="panel-heading">
-            <h3>Detalle de Documento #:  
-            <c:forEach items="${detallerequisiciones}" var="detallerequisicion">
-            ${detallerequisicion.codigorequisicion}
-            </c:forEach>
-            </h3>
+            <h3>Detalle de Documento</h3>
             </div>
             <table class="table table-hover">
                 <thead>

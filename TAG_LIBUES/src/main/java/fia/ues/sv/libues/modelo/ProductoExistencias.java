@@ -37,7 +37,7 @@ public class ProductoExistencias {
             	 prod.setEditorial(result.getString(4));
             	 prod.setTipoProducto(result.getString(5));*/
             	 prod.setNombreProducto(result.getString(6));
-            	 prod.setCorrelativo(result.getString(7));
+            	 prod.setCorrelativo(result.getInt(7));
             	 prod.setExistencia(result.getInt(8));
             	 prod.setUnidadMinima(result.getInt(9));
             	 prod.setIsbn(result.getString(10));

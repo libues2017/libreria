@@ -49,12 +49,12 @@ public class Producto implements Serializable{
 	private String nombreProducto;
 	
 	@Column(name="CORRELATIVO")
-	private String correlativo;
+	private Integer correlativo;
 	
 	@Column(name="EXISTENCIA")
 	private Integer existencia;
 	
-	@Column(name="SALA")
+	@Column(name="SALA" )
 	private Integer sala;
 	
 	@Column(name="UNIDADMINIMA")
@@ -155,11 +155,11 @@ public class Producto implements Serializable{
 		this.nombreProducto = nombreProducto;
 	}
 	
-	public String getCorrelativo() {
+	public Integer getCorrelativo() {
 		return correlativo;
 	}
 
-	public void setCorrelativo(String correlativo) {
+	public void setCorrelativo(Integer correlativo) {
 		this.correlativo = correlativo;
 	}
 

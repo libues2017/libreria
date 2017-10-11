@@ -304,7 +304,7 @@ public class excell {
 		 
 		 while(addressIter.hasNext()) {
 		      Producto address =  addressIter.next();
-		       g=Integer.parseInt(address.getCorrelativo()); // datos de la base
+		       g=address.getCorrelativo(); // datos de la base
 		       cantidadbase=address.getExistencia();// existencia o sala 
  
          for (int i = 0; i < sheetData.size(); i++) {
