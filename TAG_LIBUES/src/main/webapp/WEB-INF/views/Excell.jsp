@@ -212,17 +212,18 @@
 			 
 			 int j=1;
 			
-			 for (int i = 0; i < addresses1.size(); i++) {
+			 for (int i = 0; i < addresses1.size(); i=i+4211) {
 
 		       	 
 		       	 
-				 j=j+1;
+				 
 		           // List list = (List) addresses1.get(i);
 		           
 		           
 		           int h=Integer.parseInt(addresses1.get(i).toString());
 		           out.println(j+" "+h);
 			    	 out.println("<br/>");
+			    	 j=j+1;
 		          
 			 }
 		
