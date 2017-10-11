@@ -432,7 +432,7 @@ public class excell {
                	 
                		//System.out.print("El producto con codigo "+g +" no concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                	 
-               	 sheetDataextraer.add(d);
+               	 sheetDataextraer.add(g);
                	 
                	// System.out.print("No concuerdan \n"); 
                 }
