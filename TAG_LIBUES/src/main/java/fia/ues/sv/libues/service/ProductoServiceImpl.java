@@ -28,7 +28,7 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 	
 	@Override
-	public Producto findByCorrelativo(String correlativo) {
+	public Producto findByCorrelativo(int correlativo) {
 		return dao.findByCorrelativo(correlativo);
 	}
 
@@ -81,7 +81,7 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 	
 	@Override
-	public void updateExistencia(String codigoproducto, Integer existencia, Integer sala) {		
+	public void updateExistencia(Integer codigoproducto, Integer existencia, Integer sala) {		
 		Producto entity = dao.findByCorrelativo(codigoproducto);
 		if(entity !=null){		
 			entity.setExistencia(existencia);
@@ -103,16 +103,10 @@ public class ProductoServiceImpl implements ProductoService{
 	@Override
 	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda) {
 		return dao.customSearch( area,  editorial,  proveedor, tipoproducto, autor, busqueda);
-	}
+	}	
 
 	@Override
-	public Producto findByCorrelativo(int correlativo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void updatePrecioProducto1(String codProducto, Double precio, Double costo, Integer existencia) {
+	public void updatePrecioProducto1(Integer codProducto, Double precio, Double costo, Integer existencia) {
 		Producto entity = dao.findByCorrelativo(codProducto);
 		if(entity !=null){			
 			entity.setCostounitario(costo);

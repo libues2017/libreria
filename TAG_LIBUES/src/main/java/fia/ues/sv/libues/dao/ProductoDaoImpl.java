@@ -33,7 +33,7 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 	}
 	
 	@Override
-	public Producto findByCorrelativo(String correlativo) {
+	public Producto findByCorrelativo(int correlativo) {
 		Criteria crit = createEntityCriteria();
         crit.add(Restrictions.like("correlativo", correlativo));
         Producto producto = (Producto) crit.uniqueResult();
