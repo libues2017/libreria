@@ -190,9 +190,9 @@
 		
 		List addresses = (List)request.getAttribute("productos");
  
-			
+   List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,salahoja,bodegahoja);
  
-             e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
+             //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
 			
 			
 		 Iterator<Producto> addressIter = addresses.iterator();
@@ -200,7 +200,7 @@
 		 	
 		//  e.comparar(sheetData, addressIter);
 	
-			while(addressIter.hasNext()) {
+			/*while(addressIter.hasNext()) {
 			      Producto address = addressIter.next();			    			    	
 			    	out.println(address.getCorrelativo());
 			    	 out.println("<br/>");
@@ -208,7 +208,23 @@
 			    
 			  
 			     }
+			 */
 			 
+			 int j=1;
+			
+			 for (int i = 0; i < addresses1.size(); i++) {
+
+		       	 
+		       	 
+				 j=j+1;
+		           // List list = (List) addresses1.get(i);
+		           
+		           
+		           int h=Integer.parseInt(addresses1.get(i).toString());
+		           out.println(j+" "+h);
+			    	 out.println("<br/>");
+		          
+			 }
 		
 					
 		
