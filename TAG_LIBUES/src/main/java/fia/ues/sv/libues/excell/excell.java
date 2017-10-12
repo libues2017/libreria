@@ -370,7 +370,7 @@ public class excell {
 	
 	
 	
-	public List compararretorna(List sheetData,List sheetData1,List addresses,String sala,String bodega) {
+	public List compararretorna(List sheetData,List sheetData1,List addresses,List addresses1,String sala,String bodega) {
 		 
         // 
         // Iterates the data and print it out to the console. 
@@ -379,29 +379,104 @@ public class excell {
 		 List sheetDataextraer = new ArrayList();
 		 List sheetDatamostrar = new ArrayList();
 		 
-		 
+		 List<Producto> sheetDatamostrar1 = new ArrayList();
 		
 		 
 		 Iterator<Producto> addressIter = addresses.iterator();
+		 Iterator<Producto> addressItersala = addresses1.iterator();
+		 
 		  int d=0;
          int h=0;
          int cantidad=0;
          int cantidadbase=0;
+         int cantidadsala=0;
          int g=0;
          int estante=0;
          int nivel=0;
          String nombre="";
+         
+         
+         
+         
+         while(addressItersala.hasNext()) {
+		      Producto address =  addressItersala.next();
+		       g=address.getCorrelativo(); // datos de la base
+		       cantidadbase=address.getSala();// existencia o sala 
+		       nombre=address.getNombreProducto();
+		       
+
+      for (int i = 0; i < sheetData.size(); i++) {
+
+     	// h=sheetData.size();
+     	 
+          List list = (List) sheetData.get(i);
+       
+          
+        //  getSheetName(0);
+          
+         // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna 
+            //  Cell cell = (Cell) list.get(j);
+          Cell celle = (Cell) list.get(1);//estante
+          Cell celln = (Cell) list.get(2);//nivel
+         	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
+         	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
+
+              if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+             	 
+             	  d=(int) cell.getNumericCellValue();   //datos de excell
+             	  cantidad=(int) cell1.getNumericCellValue();
+             	  estante=(int) celle.getNumericCellValue();
+             	  nivel=(int) celln.getNumericCellValue();
+      			       			  
+      			     }                     
+             	                 	 
+	                    //System.out.print((int)cell.getNumericCellValue());  
+    			    //System.out.print("\n");
+             // } 
+              
+            //  if(d==g && cantidad==cantidadbase){
+             	// if(d==g  && cantidad!=cantidadsala){
+              if(d==g ){
+			    	
+			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
+             			//System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ sala+  " \n"); 
+             			
+             		 sheetDataextraer.add(g);//codigo
+             		sheetDataextraer.add(nombre); //nombre
+             		 sheetDataextraer.add(cantidad);//cantidad
+             		 sheetDataextraer.add(estante);//estante
+             		 sheetDataextraer.add(nivel);//nivel
+             		sheetDataextraer.add(sala);//ubicacion
+             		sheetDatamostrar.add(sheetDataextraer) ;
+			    	 
+			      }
+              
+              else
+              {
+             	 
+             		
+              }
+              
+            
+              
+          }   
+      
+      
+              
+      }//fin sala
 		 
-		 while(addressIter.hasNext()) {
+		 
+		/* while(addressIter.hasNext()) {
 		      Producto address =  addressIter.next();
 		       g=address.getCorrelativo(); // datos de la base
 		       cantidadbase=address.getExistencia();// existencia o sala 
+		       cantidadsala=address.getSala();// existencia o sala 
 		       nombre=address.getNombreProducto();
 		       
 
         for (int i = 0; i < sheetData1.size(); i++) {
 
-       	 h=sheetData.size();
+       
        	 
             List list = (List) sheetData1.get(i);
          
@@ -454,7 +529,11 @@ public class excell {
                 
             }         
                 
-        }
+        }//fin bodega
+		 */
+		 
+		
+		 
 		return sheetDatamostrar;         
         
 

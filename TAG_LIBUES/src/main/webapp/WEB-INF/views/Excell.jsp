@@ -203,8 +203,9 @@
  
 		
 		List addresses = (List)request.getAttribute("productos");
+        List addressessala = addresses;
  
-        List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,salahoja,bodegahoja);
+        List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,addressessala,salahoja,bodegahoja);
  
              //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
 			
@@ -224,7 +225,8 @@
 			     }
 			 */
 			 
-			 /*int j=1;
+			/* 
+			int j=1;
 		
 			
 			 for (int i = 0; i < addresses1.size(); i++) {
@@ -236,12 +238,12 @@
 		           
 		           
 		           //int h=Integer.parseInt(addresses1.get(i).toString());
-		           out.println(j+" El producto " +list.get(0)+" que se encuentra ubicado en  "+list.get(2) +" " + " No concuerdan con el inventario teorico" );
+		           out.println(j+" El producto " +list.get(i)+" que se encuentra ubicado en  "+list.get(i+4) +" " + " No concuerdan con el inventario teorico" );
 			    	 out.println("<br/>");
 			    	 j=j+1;
 		          
-			 }*/
-		
+			 }
+		*/
 					
 		
 			
@@ -251,7 +253,7 @@
        %>
  
  
-  <table class="table table-striped ">
+   <table class="table table-striped ">
 				<thead>
 		    		<tr >		    			
 			      			<th>Codigo Producto</th>
@@ -282,11 +284,20 @@
 				    	 
 				    	 
 		    	</tbody>
-	    </table>           
+	    </table>       
  
  
+ 
+ 
+   </c:forEach>
+   
+   
+   
+      
+ 
+
 		
- </c:forEach>
+
  
  </div>
  
