@@ -211,17 +211,18 @@
 			 */
 			 
 			 int j=1;
+			 //
 			
-			 for (int i = 0; i < addresses1.size(); i=i+4211) {
+			 for (int i = 0; i < addresses1.size(); i++) {
 
-		       	 
+				 List list = (List) addresses1.get(i);
 		       	 
 				 
 		           // List list = (List) addresses1.get(i);
 		           
 		           
-		           int h=Integer.parseInt(addresses1.get(i).toString());
-		           out.println(j+" "+h);
+		           //int h=Integer.parseInt(addresses1.get(i).toString());
+		           out.println(j+" Los productos " +list.get(0)+"que estan en sala "+" " + " No concuerdan con el inventario fisico");
 			    	 out.println("<br/>");
 			    	 j=j+1;
 		          

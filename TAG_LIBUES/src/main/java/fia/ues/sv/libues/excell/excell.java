@@ -377,6 +377,8 @@ public class excell {
         //
 		 
 		 List sheetDataextraer = new ArrayList();
+		 List sheetDatamostrar = new ArrayList();
+		 
 		 
 		
 		 
@@ -392,11 +394,11 @@ public class excell {
 		       g=address.getCorrelativo(); // datos de la base
 		       cantidadbase=address.getExistencia();// existencia o sala 
 
-        for (int i = 0; i < sheetData.size(); i++) {
+        for (int i = 0; i < sheetData1.size(); i++) {
 
        	 h=sheetData.size();
        	 
-            List list = (List) sheetData.get(i);
+            List list = (List) sheetData1.get(i);
          
             
           //  getSheetName(0);
@@ -409,7 +411,7 @@ public class excell {
                 if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
                	 
                	  d=(int) cell.getNumericCellValue();   //datos de excell
-               	 // cantidad=(int) cell1.getNumericCellValue();
+               	  cantidad=(int) cell1.getNumericCellValue();
         			       			  
         			     }                     
                	                 	 
@@ -418,12 +420,15 @@ public class excell {
                // } 
                 
               //  if(d==g && cantidad==cantidadbase){
-               	 if(d==g){
+               	 if(d==g  && cantidad!=cantidadbase){
  			    	
  			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
-               			System.out.print("El producto con codigo "+g +" concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
+               			System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                			
-               			  
+               		 sheetDataextraer.add(d);
+               		 sheetDataextraer.add(cantidad);
+               		sheetDataextraer.add(bodega);
+               		sheetDatamostrar.add(sheetDataextraer) ;
  			    	 
  			      }
                 
@@ -432,7 +437,7 @@ public class excell {
                	 
                		//System.out.print("El producto con codigo "+g +" no concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                	 
-               	 sheetDataextraer.add(g);
+               	 //sheetDataextraer.add(g);
                	 
                	// System.out.print("No concuerdan \n"); 
                 }
@@ -448,7 +453,7 @@ public class excell {
             
 			      
         }
-		return sheetDataextraer;         
+		return sheetDatamostrar;         
         
 
     }
