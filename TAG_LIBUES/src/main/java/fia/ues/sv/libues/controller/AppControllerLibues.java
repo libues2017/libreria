@@ -1234,10 +1234,11 @@ public class AppControllerLibues {
         	  Integer existenciaAnterior = transferenciaBuscar.get(i).getExistenciaAnterior();
         	  Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
         	  
-        	  if (tipoTransferencia == "INGRESOS"){
-        		  Integer existencia = existenciaAnterior + cantidad;
-        		  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
-        		  Double costo = transferenciaBuscar.get(i).getCostoProducto();	 
+        	  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
+    		  Double costo = transferenciaBuscar.get(i).getCostoProducto();	
+        	  
+        	  if (tipoTransferencia == "Ingresos"){
+        		  Integer existencia = existenciaAnterior + cantidad;        		   
         		  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
         	  }
         	  else{
@@ -1502,10 +1503,13 @@ public class AppControllerLibues {
     	
           HttpSession sesion=request.getSession(true);    	
           Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
-          sesion.setAttribute("codigoultimo", codigorequisicion);
+          sesion.setAttribute("codigoultimo", codigorequisicion);     
+                   
+      //    String destino = request.getParameter("destinorequisicion");
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){
+        	  
         	  Integer codigoproducto = requisicionBuscar.get(i).getCodigoproducto();
         	  Integer bodega1 = requisicionBuscar.get(i).getBodega();        	  
         	  Integer sala1 = requisicionBuscar.get(i).getSala();
@@ -1516,11 +1520,12 @@ public class AppControllerLibues {
 	        	  Integer sala = sala1 + cantidad;
 	        	  productoService.updateExistencia(codigoproducto, existencia, sala);
         	  }
-        	  else{
+        	  else {
         		  Integer existencia = bodega1 + cantidad;
             	  Integer sala = sala1 - cantidad;
             	  productoService.updateExistencia(codigoproducto, existencia, sala);
         	  }
+        	  System.out.println(destino+ " Hola");
           }          
        
           String fecha =(String) sesion.getAttribute("mySessionAttribute");          
@@ -1536,6 +1541,19 @@ public class AppControllerLibues {
     }
     
     // ******************************** Finaliza REQUISICIONES
+    
+    // ------------------- FACTURACION ------
+    
+    @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.GET)
+    public String newDetalleFacturacion( HttpServletRequest request,ModelMap model) {
+    	
+    	
+    	
+    	return "detallefacturacion-agregar"; 
+    }
+    
+    // -----------------------------------------------------------------
+    // *****************************************************************
     
     
     @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
