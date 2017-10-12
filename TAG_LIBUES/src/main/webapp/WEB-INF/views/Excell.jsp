@@ -179,6 +179,19 @@
 
 <html>
 <body>
+<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="container">
+
+<div class="row"><%@include file="menu.jsp" %></div>
+<div class="row">
+<!--<h1>Areas</h1>-->
+<sec:authorize access="hasRole('ADMINISTRADOR')">
+            <div class="well">
+               
+                <a href="<c:url value='/index' />"> Regresar</a>
+            </div>
+        </sec:authorize>
+
 	<c:forEach items="${producto}" var="productos"  begin = "1" end = "1">
 	
 	
@@ -211,8 +224,8 @@
 			     }
 			 */
 			 
-			 int j=1;
-			 //
+			 /*int j=1;
+		
 			
 			 for (int i = 0; i < addresses1.size(); i++) {
 
@@ -227,7 +240,7 @@
 			    	 out.println("<br/>");
 			    	 j=j+1;
 		          
-			 }
+			 }*/
 		
 					
 		
@@ -242,11 +255,11 @@
 				<thead>
 		    		<tr >		    			
 			      			<th>Codigo Producto</th>
-			      			<th>Codigo Provedor</th>	      			
+			      			<th>Nombre del Producto</th>	      			
 			      			<th>Cantidad Producto</th>
-			      			<th>Costo Producto</th>
-			      			<th>Precio Producto</th>
-			      			<th>Subtotal</th>	
+			      			<th>Estante</th>
+			      			<th>Nivel</th>
+			      			<th>Ubicacion</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
@@ -256,7 +269,10 @@
 				    	
 				    			<td>${i[0]}</td>
 				    			<td>${i[1]}</td>	
-				    			<td>${i[2]}</td>			    			
+				    			<td>${i[2]}</td>	
+				    			<td>${i[3]}</td>
+				    			<td>${i[4]}</td>
+				    			<td>${i[5]}</td>		    			
 				    		
 				    				
                         
@@ -272,7 +288,7 @@
 		
  </c:forEach>
  
- 
+ </div>
  
             
        

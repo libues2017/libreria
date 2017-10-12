@@ -419,6 +419,8 @@ public class excell {
                	 
                	  d=(int) cell.getNumericCellValue();   //datos de excell
                	  cantidad=(int) cell1.getNumericCellValue();
+               	  estante=(int) celle.getNumericCellValue();
+               	  nivel=(int) celln.getNumericCellValue();
         			       			  
         			     }                     
                	                 	 
@@ -432,10 +434,12 @@ public class excell {
  			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
                			System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                			
-               		 sheetDataextraer.add(d);
-               		sheetDataextraer.add(nombre);
-               		 sheetDataextraer.add(cantidad);
-               		sheetDataextraer.add(bodega);
+               		 sheetDataextraer.add(d);//codigo
+               		sheetDataextraer.add(nombre); //nombre
+               		 sheetDataextraer.add(cantidad);//cantidad
+               		 sheetDataextraer.add(estante);//estante
+               		 sheetDataextraer.add(nivel);//nivel
+               		sheetDataextraer.add(bodega);//ubicacion
                		sheetDatamostrar.add(sheetDataextraer) ;
  			    	 
  			      }
@@ -443,23 +447,13 @@ public class excell {
                 else
                 {
                	 
-               		//System.out.print("El producto con codigo "+g +" no concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
-               	 
-               	 //sheetDataextraer.add(g);
-               	 
-               	// System.out.print("No concuerdan \n"); 
+               		
                 }
                 
-              //  System.out.println(d);
+              
                 
-            }
-
-           // System.out.println("");
-          
-          
-          //  h=h+1;                         
-            
-			      
+            }         
+                
         }
 		return sheetDatamostrar;         
         
