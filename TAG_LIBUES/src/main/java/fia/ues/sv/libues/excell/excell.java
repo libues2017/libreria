@@ -443,7 +443,7 @@ public class excell {
              			
              		 sheetDataextraer.add(g);//codigo
              		sheetDataextraer.add(nombre); //nombre
-             		 sheetDataextraer.add(cantidad);//cantidad
+             		 sheetDataextraer.add(cantidadbase);//cantidad
              		 sheetDataextraer.add(estante);//estante
              		 sheetDataextraer.add(nivel);//nivel
              		sheetDataextraer.add(sala);//ubicacion
@@ -466,7 +466,7 @@ public class excell {
       }//fin sala
 		 
 		 
-		/* while(addressIter.hasNext()) {
+		 while(addressIter.hasNext()) {
 		      Producto address =  addressIter.next();
 		       g=address.getCorrelativo(); // datos de la base
 		       cantidadbase=address.getExistencia();// existencia o sala 
@@ -511,7 +511,7 @@ public class excell {
                			
                		 sheetDataextraer.add(d);//codigo
                		sheetDataextraer.add(nombre); //nombre
-               		 sheetDataextraer.add(cantidad);//cantidad
+               		 sheetDataextraer.add(cantidadbase);//cantidad
                		 sheetDataextraer.add(estante);//estante
                		 sheetDataextraer.add(nivel);//nivel
                		sheetDataextraer.add(bodega);//ubicacion
@@ -530,7 +530,7 @@ public class excell {
             }         
                 
         }//fin bodega
-		 */
+		
 		 
 		
 		 
