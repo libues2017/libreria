@@ -186,11 +186,12 @@
  <%
           
 			 		
-		
+ 
+ 
 		
 		List addresses = (List)request.getAttribute("productos");
  
-   List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,salahoja,bodegahoja);
+        List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,salahoja,bodegahoja);
  
              //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
 			
@@ -222,7 +223,7 @@
 		           
 		           
 		           //int h=Integer.parseInt(addresses1.get(i).toString());
-		           out.println(j+" Los productos " +list.get(0)+"que estan en sala "+" " + " No concuerdan con el inventario fisico");
+		           out.println(j+" El producto " +list.get(0)+" que se encuentra ubicado en  "+list.get(2) +" " + " No concuerdan con el inventario teorico" );
 			    	 out.println("<br/>");
 			    	 j=j+1;
 		          
@@ -236,10 +237,44 @@
 				
        %>
  
+ 
+  <table class="table table-striped ">
+				<thead>
+		    		<tr >		    			
+			      			<th>Codigo Producto</th>
+			      			<th>Codigo Provedor</th>	      			
+			      			<th>Cantidad Producto</th>
+			      			<th>Costo Producto</th>
+			      			<th>Precio Producto</th>
+			      			<th>Subtotal</th>	
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    	      
+				    	<c:forEach items="<%=addresses1%>" var="i" >
+				    		<tr >				    		
+				    	
+				    			<td>${i[0]}</td>
+				    			<td>${i[1]}</td>	
+				    			<td>${i[2]}</td>			    			
+				    		
+				    				
+                        
+                        </tr>
+				    	 </c:forEach>
+				    	 
+				    	 
+				    	 
+		    	</tbody>
+	    </table>           
+ 
+ 
 		
  </c:forEach>
  
-      
+ 
+ 
+            
        
 </body>
 </html>

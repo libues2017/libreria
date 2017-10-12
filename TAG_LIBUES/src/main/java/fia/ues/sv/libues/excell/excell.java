@@ -388,11 +388,16 @@ public class excell {
          int cantidad=0;
          int cantidadbase=0;
          int g=0;
+         int estante=0;
+         int nivel=0;
+         String nombre="";
 		 
 		 while(addressIter.hasNext()) {
 		      Producto address =  addressIter.next();
 		       g=address.getCorrelativo(); // datos de la base
 		       cantidadbase=address.getExistencia();// existencia o sala 
+		       nombre=address.getNombreProducto();
+		       
 
         for (int i = 0; i < sheetData1.size(); i++) {
 
@@ -405,6 +410,8 @@ public class excell {
             
            // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna 
               //  Cell cell = (Cell) list.get(j);
+            Cell celle = (Cell) list.get(1);//estante
+            Cell celln = (Cell) list.get(2);//nivel
            	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
            	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
 
@@ -426,6 +433,7 @@ public class excell {
                			System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
                			
                		 sheetDataextraer.add(d);
+               		sheetDataextraer.add(nombre);
                		 sheetDataextraer.add(cantidad);
                		sheetDataextraer.add(bodega);
                		sheetDatamostrar.add(sheetDataextraer) ;
