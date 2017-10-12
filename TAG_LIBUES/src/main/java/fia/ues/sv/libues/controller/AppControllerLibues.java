@@ -1235,16 +1235,17 @@ public class AppControllerLibues {
         	  Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
         	  
         	  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
-    		  Double costo = transferenciaBuscar.get(i).getCostoProducto();	
+    		  Double costo = transferenciaBuscar.get(i).getCostoProducto();
+    		  Integer existencia = existenciaAnterior + cantidad;        		   
+    		  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
         	  
-        	  if (tipoTransferencia == "Ingresos"){
-        		  Integer existencia = existenciaAnterior + cantidad;        		   
-        		  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
+        	  /*if (tipoTransferencia == "Ingresos"){
+        		  
         	  }
         	  else{
         		  Integer existencia = existenciaAnterior - cantidad;
         		  productoService.updateExistencia1(codProducto, existencia);
-        	  }
+        	  }*/
         	 
           }
            

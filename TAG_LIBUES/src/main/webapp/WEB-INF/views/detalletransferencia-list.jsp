@@ -50,9 +50,9 @@
 								<td>${transferencias.codDetalleTransferencia}</td>
 								<td>${transferencias.nomProducto}</td>
 								<td>${transferencias.cantidadProducto}</td>
-								<td>${transferencias.costoProducto}</td>
-								<td>${transferencias.precioProducto}</td>
-								<td>${transferencias.subTotal}</td>
+								<td>$${transferencias.costoProducto}</td>
+								<td>$${transferencias.precioProducto}</td>
+								<td>$${transferencias.subTotal}</td>
 
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<td>

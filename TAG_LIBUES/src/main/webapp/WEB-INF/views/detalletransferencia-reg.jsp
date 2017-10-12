@@ -31,10 +31,12 @@
 		
 		var existencia1 = [];
     	var nombre1 = [];
-    	//var costo1 = [];
+    	var costo1 = [];
+    	var precio1 = [];
     	
 		
     	var Id = document.getElementById("codProducto").value;
+    	var Id1 = document.getElementById("tipoTransferencia").value;
    	 	
 		<c:forEach items="${producto}" var="current">
 
@@ -45,8 +47,14 @@
    				existencia1.push("${current.existencia}");
  				document.getElementById('existencia1').innerHTML = existencia1;
  				
- 				//costo1.push("${current.costounitario}");
- 			    //document.getElementById('costoProducto').value = costo1;
+ 				if(Id1 == "Salidas"){
+ 					costo1.push("${current.costounitario}");
+ 	 			    document.getElementById('costoProducto').value = costo1;
+ 	 			    
+ 	 				precio1.push("${current.precio}");
+ 	 			    document.getElementById('precioProducto').value = costo1;
+ 				}
+ 				
  			    
   			}
 		</c:forEach>
@@ -136,74 +144,140 @@
 	 }  
         
      else{
-			$("#glypcn"+campo).remove();
-			$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-			$('#'+campo).parent().children('span').hide();
-			$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-			var existencia = 0;
-    		var costoexistencia = 0.0;
-    		var precioventa = 0.0;
-			var Id=document.getElementById("codProducto").value;
-			var PEX; 
-			var CPEX;		
-			var CPU;
-    		var PV;
-    		var TC;
-    		var TA;
-    		var PE;
-    		var CPE;
-    		var PVA;
-	
- 			<c:forEach items="${producto}" var="current">	
-	   		    if(${current.correlativo}==Id)	
-				{
-	                existencia=${current.existencia};//2
-	          		costoexistencia=${current.costounitario};//2
-	          		precioventa=${current.precio};
-	          		PVA=parseFloat(precioventa);//2.4
-	          		PEX=parseInt(existencia);//2
-	          		//PEX=existencia;
-	          		CPEX=parseFloat(costoexistencia);//2
-	          		//PVA=parseFloat(precio);			              		
-	  		    }
-	   		</c:forEach>
-	   
-	  		// alert(PEX);
-      		var cantidad=document.getElementById('cantidadProducto').value;//2
-    		PE=parseInt(cantidad);
-    		var costo=document.getElementById('costoProducto').value;//2
-    		CPE=parseFloat(costo);
-	
-	   		if(PEX==0){
-		  		// alert();
-		   		CPEX=CPE;   
-		 		//PEX=1;
-			}
-	
-		 	TC = (PEX*CPEX) +(PE*CPE) ;//(2*2) + (2*2)=8
-	 		TA = PEX+PE ;//2+2=4	
-	 
-     		CPU=TC/TA; //8/4                             
-     
-	  		var utilidad=document.getElementById("utilidad").value;
-	  		var utilidad1=0.0;
-	      	utilidad1= parseInt(utilidad)/100;
-	  
-	 		// alert(PVA);
-	 		PV=parseFloat(CPU)+(parseFloat(CPU)*utilidad1);  //
+    	 	var comparar = document.getElementById("tipoTransferencia").value;
+    	 	if(comparar == "Ingresos"){
+	    	 	$("#glypcn"+campo).remove();
+				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+				$('#'+campo).parent().children('span').hide();
+				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				var existencia = 0;
+	    		var costoexistencia = 0.0;
+	    		var precioventa = 0.0;
+				var Id=document.getElementById("codProducto").value;
+				var PEX; 
+				var CPEX;		
+				var CPU;
+	    		var PV;
+	    		var TC;
+	    		var TA;
+	    		var PE;
+	    		var CPE;
+	    		var PVA;
+		
+	 			<c:forEach items="${producto}" var="current">	
+		   		    if(${current.correlativo}==Id)	
+					{
+		                existencia=${current.existencia};//2
+		          		costoexistencia=${current.costounitario};//2
+		          		precioventa=${current.precio};
+		          		PVA=parseFloat(precioventa);//2.4
+		          		PEX=parseInt(existencia);//2
+		          		//PEX=existencia;
+		          		CPEX=parseFloat(costoexistencia);//2
+		          		//PVA=parseFloat(precio);			              		
+		  		    }
+		   		</c:forEach>
 		   
-	  		var costoproducto = document.getElementById('costoProducto').value;
-	  		var cantidad=document.getElementById('cantidadProducto').value;								
-	  		var cla2 = document.getElementById('precioProducto').value=PV;								
-	 		var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
-	  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
-	  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
-	  		var cla6 = document.getElementById('precioAnterior').value=PVA;
-	  		//alert(CPEX);
-	  
-	 		/* return true;
-	  		alert();	*/
-	  		return true;
+		  		// alert(PEX);
+	      		var cantidad=document.getElementById('cantidadProducto').value;//2
+	    		PE=parseInt(cantidad);
+	    		var costo=document.getElementById('costoProducto').value;//2
+	    		CPE=parseFloat(costo);
+		
+		   		if(PEX==0){
+			  		// alert();
+			   		CPEX=CPE;   
+			 		//PEX=1;
+				}
+		
+			 	TC = (PEX*CPEX) +(PE*CPE) ;//(2*2) + (2*2)=8
+		 		TA = PEX+PE ;//2+2=4	
+		 
+	     		CPU=TC/TA; //8/4                             
+	     
+		  		var utilidad=document.getElementById("utilidad").value;
+		  		var utilidad1=0.0;
+		      	utilidad1= parseInt(utilidad)/100;
+		  
+		 		// alert(PVA);
+		 		PV=parseFloat(CPU)+(parseFloat(CPU)*utilidad1);  //
+			   
+		  		var costoproducto = document.getElementById('costoProducto').value;
+		  		var cantidad=document.getElementById('cantidadProducto').value;								
+		  		var cla2 = document.getElementById('precioProducto').value=PV;								
+		 		var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
+		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
+		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
+		  		//alert(CPEX);
+		  
+		 		/* return true;
+		  		alert();	*/
+		  		return true;
+     		}
+    	 	
+    	 	else{
+    	 		
+    	 		$("#glypcn"+campo).remove();
+				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+				$('#'+campo).parent().children('span').hide();
+				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				var existencia = 0;
+	    		var costoexistencia = 0.0;
+	    		var precioventa = 0.0;
+				var Id=document.getElementById("codProducto").value;
+				var PEX; 
+				var CPEX;		
+				var CPU;
+	    		var PV;
+	    		var TC;
+	    		var TA;
+	    		var PS;
+	    		var CPS;
+	    		var PVA;
+		
+	 			<c:forEach items="${producto}" var="current">	
+		   		    if(${current.correlativo}==Id)	
+					{
+		                existencia=${current.existencia};
+		          		costoexistencia=${current.costounitario};
+		          		precioventa=${current.precio};
+		          		PVA=parseFloat(precioventa);
+		          		PEX=parseInt(existencia);
+		          		CPEX=parseFloat(costoexistencia);//2			              		
+		  		    }
+		   		</c:forEach>
+		   
+	      		var cantidad = document.getElementById('cantidadProducto').value;//2
+	    		PS = parseInt(cantidad);
+	    		var costo = document.getElementById('costoProducto').value;//2
+	    		CPS = parseFloat(costo);
+		
+		   		if(PEX == 0){
+			   		CPEX = CPS;   
+				}
+		
+			 	TC = (PEX*CPEX) +(PS*CPS) ;
+		 		
+			 	TA = PEX-PE ;	
+		                             
+		  		var utilidad = document.getElementById("utilidad").value;
+		  		var utilidad1 = 0.0;
+		      	utilidad1 = parseInt(utilidad)/100;
+		  
+		 		PV=parseFloat(PVA);
+			   
+		  		var costoproducto = document.getElementById('costoProducto').value;
+		  		var cantidad=document.getElementById('cantidadProducto').value;								
+		  		var cla2 = document.getElementById('precioProducto').value=PV;								
+		 		var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
+		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
+		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
+		  		
+		  		return true;
+    	 		
+    	 	}
   
 		}//fin else
 	}
