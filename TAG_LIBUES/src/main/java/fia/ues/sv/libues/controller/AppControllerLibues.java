@@ -1515,14 +1515,14 @@ public class AppControllerLibues {
         	  Integer sala1 = requisicionBuscar.get(i).getSala();
         	  Integer cantidad = requisicionBuscar.get(i).getCantidad();
         	  
-        	  if (destino == "SALA"){
-	        	  Integer existencia = bodega1 - cantidad;
-	        	  Integer sala = sala1 + cantidad;
+        	  if (destino == "BODEGA"){
+	        	  Integer existencia = bodega1 + cantidad;
+	        	  Integer sala = sala1 - cantidad;
 	        	  productoService.updateExistencia(codigoproducto, existencia, sala);
         	  }
         	  else {
-        		  Integer existencia = bodega1 + cantidad;
-            	  Integer sala = sala1 - cantidad;
+        		  Integer existencia = bodega1 - cantidad;
+            	  Integer sala = sala1 + cantidad;
             	  productoService.updateExistencia(codigoproducto, existencia, sala);
         	  }
         	  System.out.println(destino+ " Hola");
