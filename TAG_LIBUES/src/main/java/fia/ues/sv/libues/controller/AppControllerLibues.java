@@ -83,6 +83,9 @@ import fia.ues.sv.libues.excell.excell;
 @SessionAttributes("roles")
 public class AppControllerLibues {
 	
+	//*************************************************************************
+    // ***************** DECLARACION DE BEANS ***********************************
+    //*************************************************************************
 	@Autowired
 	AreaService areaService;
 		
@@ -138,120 +141,10 @@ public class AppControllerLibues {
 	AuthenticationTrustResolver authenticationTrustResolver;
 	
 	
-	/**
-     * This method will list all existing users.
-     */
-    @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
- 
-        List<User> users = userService.findAllUsers();
-        model.addAttribute("users", users);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "userslist";
-    }
-    
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String main(ModelMap model) {
- 
-       
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "index";
-    }
- 
-    @RequestMapping(value = { "/newuser" }, method = RequestMethod.GET)
-    public String newUser(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "registration";
-    }
- 
-    /**
-     * This method will be called on form submission, handling POST request for
-     * saving user in database. It also validates the user input
-     */
-    @RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
-    public String saveUser(@Valid User user, BindingResult result,
-            ModelMap model) {
- 
-        if (result.hasErrors()) {
-            return "registration";
-        }
- 
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
-            return "registration";
-        }
-         
-        userService.saveUser(user);
- 
-        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Registrado Correctamente");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
-        return "registrationsuccess";
-    }
- 
-    /**@ModelAttribute("novedades")
-    public List<Libro> listaNovedades(){
-        return libroService.findNovedades();
-    }**/
-
- 
-    /**
-     * This method will provide the medium to update an existing user.
-     */
-    @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
-    public String editUser(@PathVariable String ssoId, ModelMap model) {
-        User user = userService.findBySSO(ssoId);
-        model.addAttribute("user", user);
-        model.addAttribute("edit", true);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "registration";
-    }
-     
-    /**
-     * This method will be called on form submission, handling POST request for
-     * updating user in database. It also validates the user input
-     */
-    @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
-    public String updateUser(@Valid User user, BindingResult result,
-            ModelMap model, @PathVariable String ssoId) {
- 
-        if (result.hasErrors()) {
-            return "registration";
-        }
- 
-        /*//Uncomment below 'if block' if you WANT TO ALLOW UPDATING SSO_ID in UI which is a unique key to a User.
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
-            return "registration";
-        }*/
- 
- 
-        userService.updateUser(user);
- 
-        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Actualizado Correctamente");
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "registrationsuccess";
-    }
- 
-     
-    /**
-     * This method will delete an user by it's SSOID value.
-     */
-    @RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
-    public String deleteUser(@PathVariable String ssoId) {
-        userService.deleteUserBySSO(ssoId);
-        return "redirect:/list";
-    }
-     
- 
-    /**
-     * This method will provide UserProfile list to views
-     */
+	 //*************************************************************************
+    // ***************** METODOS PARA LISTAR EN TABLAS**************************
+    //*************************************************************************
+	
     @ModelAttribute("roles")
     public List<UserProfile> initializeProfiles() {
         return userProfileService.findAll();
@@ -312,7 +205,120 @@ public class AppControllerLibues {
     public List<Retaceo> initializeRetaceos() {
         return retaceoService.findAllRetaceos();
     }*/
+    
+    /**@ModelAttribute("novedades")
+    public List<Libro> listaNovedades(){
+        return libroService.findNovedades();
+    }**/	
+	
+	//*************************************************************************
+    // ***************** LOGUEO DE USUARIOS************************************
+    //*************************************************************************
+	/**
+     * This method will list all existing users.
+     */
+    @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
+    public String listUsers(ModelMap model) {
+ 
+        List<User> users = userService.findAllUsers();
+        model.addAttribute("users", users);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "userslist";
+    }
+    
+    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    public String main(ModelMap model) {
+ 
+       
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "index";
+    }
+ 
+    @RequestMapping(value = { "/newuser" }, method = RequestMethod.GET)
+    public String newUser(ModelMap model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "registration";
+    }
+ 
+    /**
+     * This method will be called on form submission, handling POST request for
+     * saving user in database. It also validates the user input
+     */
+    @RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
+    public String saveUser(@Valid User user, BindingResult result,
+            ModelMap model) {
+ 
+        if (result.hasErrors()) {
+            return "registration";
+        }
+ 
+        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
+            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
+            result.addError(ssoError);
+            return "registration";
+        }
+         
+        userService.saveUser(user);
+ 
+        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Registrado Correctamente");
+        model.addAttribute("loggedinuser", getPrincipal());
+        //return "success";
+        return "registrationsuccess";
+    }
+ 
+       /**
+     * This method will provide the medium to update an existing user.
+     */
+    @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
+    public String editUser(@PathVariable String ssoId, ModelMap model) {
+        User user = userService.findBySSO(ssoId);
+        model.addAttribute("user", user);
+        model.addAttribute("edit", true);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "registration";
+    }
      
+    /**
+     * This method will be called on form submission, handling POST request for
+     * updating user in database. It also validates the user input
+     */
+    @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
+    public String updateUser(@Valid User user, BindingResult result,
+            ModelMap model, @PathVariable String ssoId) {
+ 
+        if (result.hasErrors()) {
+            return "registration";
+        }
+ 
+        /*//Uncomment below 'if block' if you WANT TO ALLOW UPDATING SSO_ID in UI which is a unique key to a User.
+        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
+            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
+            result.addError(ssoError);
+            return "registration";
+        }*/
+ 
+ 
+        userService.updateUser(user);
+ 
+        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Actualizado Correctamente");
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "registrationsuccess";
+    }
+ 
+     
+    /**
+     * This method will delete an user by it's SSOID value.
+     */
+    @RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
+    public String deleteUser(@PathVariable String ssoId) {
+        userService.deleteUserBySSO(ssoId);
+        return "redirect:/list";
+    }
+     
+
     /**
      * This method handles Access-Denied redirect.
      */
@@ -373,9 +379,10 @@ public class AppControllerLibues {
         return authenticationTrustResolver.isAnonymous(authentication);
     }
     
-    /**
-     *CONTROLES PARA LA TABLA AREA
-     */
+    //*************************************************************************
+    // ***************** CONTROLES DE AREAS ***********************************
+    //*************************************************************************
+    
     @RequestMapping(value = { "/area-list" }, method = RequestMethod.GET)
     public String listAreas(ModelMap model) throws IOException {
  
@@ -437,8 +444,6 @@ public class AppControllerLibues {
  
         areaService.updateArea(area);
 
-        
- 
         model.addAttribute("success", "Area: <strong>" + area.getNombrearea()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         return "area-reg-succ";
@@ -452,9 +457,9 @@ public class AppControllerLibues {
     }
     
     
-    /**
-     *CONTROLES PARA LA TABLA AUTORES
-     */
+    //*************************************************************************
+    // ***************** CONTROLES DE AUTORES *********************************
+    //*************************************************************************
     
     
     @RequestMapping(value = { "/autor-list" }, method = RequestMethod.GET)
@@ -533,9 +538,10 @@ public class AppControllerLibues {
     }
     
     
-    /**
-     * CONTROL PARA LA TABLA EDITORIALES
-     */
+    //*************************************************************************
+    // ***************** CONTROLES DE EDITORIALES *****************************
+    //*************************************************************************
+    
     @RequestMapping(value = { "/editorial-list" }, method = RequestMethod.GET)
     public String listEditoriales(ModelMap model) throws IOException {
  
@@ -611,9 +617,10 @@ public class AppControllerLibues {
         return "redirect:/editorial-list";
     }
     
-    /**
-     *CONTROLES PARA LA TABLA DE PROVEEDORES
-     */
+    //*************************************************************************
+    // *****************CONTROLES DE PROVEEDORES *******************************
+    //*************************************************************************
+    
     //METODO LISTAR PROVEEDORES
     @RequestMapping(value = { "/proveedor-list" }, method = RequestMethod.GET)
     public String listProveedores(ModelMap model) throws IOException {
@@ -686,9 +693,9 @@ public class AppControllerLibues {
     
     
     
-    /**
-     *CONTROLES PARA LA TABLA TIPO PRODUCTOS
-     */
+    //*************************************************************************
+    // *************CONTROLES DE CODIGO TIPO DE PRODUCTO***********************
+    //*************************************************************************
     @RequestMapping(value = { "/tipo-list" }, method = RequestMethod.GET)
     public String listTipoProductos(ModelMap model) throws IOException {
  
@@ -761,9 +768,10 @@ public class AppControllerLibues {
         return "redirect:/tipo-list";
     }
     
-    /**
-     * CONTROLES PARA LA TABLA PRODUCTO
-     */
+
+    //*************************************************************************
+    // *****************CONTROLES DE PRODUCTO *********************************
+    //*************************************************************************
     
     @RequestMapping(value = { "/producto-detalle-{codigoProducto}" }, method = RequestMethod.GET)
     public String detProductos(@PathVariable Integer codigoProducto, ModelMap model) throws IOException {
@@ -910,19 +918,9 @@ public class AppControllerLibues {
      }
     
 
-    /* INVENTARIO*/
-    
-    @RequestMapping(value = { "/comparar-inventario" }, method = RequestMethod.GET)
-    public String main2(ModelMap model) {       
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "comparar-inventario";
-    }
-    
-
-    /**
-     *CONTROLES PARA LA TABLA DetalleRetaceo
-     */
-    
+     //*************************************************************************
+    // ***************** CONTROLES DE RETACEO**********************************
+    //*************************************************************************
     
     @RequestMapping(value = { "/detalleretaceo-list" }, method = RequestMethod.GET)
     public String listRetaceos(ModelMap model) throws IOException {
@@ -1119,7 +1117,7 @@ public class AppControllerLibues {
     } //////////////////Finaliza Proceso de  RETACEO
     
     /********************************************************************************************************************************
-     *********************************** CONTROLES PARA LA TABLA Detalle Transferencia **********************************************
+     *********************************** CONTROLES PARA TRANSFERENCIAS***************************************************************
      *******************************************************************************************************************************/
     @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
     public String listTransferencias(ModelMap model) throws IOException {
@@ -1264,10 +1262,11 @@ public class AppControllerLibues {
     	  return "detalletransferencia-list";
     }
     
- /**************************************************************************************************************************************
-  *********************************************************** Fin Transferencias ******************************************************* 
-  **************************************************************************************************************************************/
+  
     
+  //***************************************************************************
+    // ***************** CONTROLES PARA LOS REPORTES***************************
+    //*************************************************************************
     //Controles para el Reporte de Retace de Producto
     @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
 	public String volumenEntrante(ModelMap model){
@@ -1304,10 +1303,25 @@ public class AppControllerLibues {
   		return "ReportEXISTENCIAS";
   	}
 
+      
+      //Controles para el Reporte de Transferencias a Sucursales
+   @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)
+ 	public String trasnferencias(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "transferencias";
+ 	}
+     
+          
+     @RequestMapping(value={"/repo_transferencias"}, method = RequestMethod.GET)
+ 	public String repotrasnferencias(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "ReportTransferencias";
+ 	}
+
     
-    /**
-     * CONTROL PARA LA TABLA LOCALIZACIONES
-     */
+     //*************************************************************************
+     // ***************** CONTROLES PARA LOCALIZACION **************************
+     //*************************************************************************
     @RequestMapping(value = { "/localizacion-list" }, method = RequestMethod.GET)
     public String listLocalizaciones(ModelMap model) throws IOException {
  
@@ -1339,8 +1353,6 @@ public class AppControllerLibues {
              	
     	localizacionService.saveLocalizacion(localizacion);
     	
-    	
- 
         model.addAttribute("success", "Lugar: <strong>" + localizacion.getNombreprod()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
@@ -1376,7 +1388,9 @@ public class AppControllerLibues {
     }  
     
 
-    //METODOS PARA LAS BUSQUEDAS
+  //**************************************************************************
+    // *****************CONTROLES PARA LAS BUSQUEDAS **************************
+    //*************************************************************************
     @RequestMapping(value = { "/producto-busqueda" }, method = RequestMethod.GET)
     public String busquedaProducto(ModelMap model ) throws IOException {
  
@@ -1419,7 +1433,7 @@ public class AppControllerLibues {
     }
     
     //*************************************************************************
-    // ***************** REQUISICIONES ****************************************
+    // ***************** CONTOLES PARA REQUISICIONES **************************
     //*************************************************************************
     
     @RequestMapping(value = { "/detallerequisicion-list" }, method = RequestMethod.GET)
@@ -1539,11 +1553,12 @@ public class AppControllerLibues {
     	
 		return "detallerequisicion-list";
 
-    }
+    }// ******************************** Finaliza REQUISICIONES
     
-    // ******************************** Finaliza REQUISICIONES
-    
-    // ------------------- FACTURACION ------
+       
+    //*************************************************************************
+    // ***************** CONTROLES PARA  FACTURACION **************************
+    //*************************************************************************
     
     @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.GET)
     public String newDetalleFacturacion( HttpServletRequest request,ModelMap model) {
@@ -1553,9 +1568,11 @@ public class AppControllerLibues {
     	return "detallefacturacion-agregar"; 
     }
     
-    // -----------------------------------------------------------------
-    // *****************************************************************
+     
     
+    //*************************************************************************
+    // ***************** CONTROLES PARA COMPARACION INVENTARIO ****************
+    //*************************************************************************
     
     @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
     public ModelAndView downloadExcel(ModelMap model) {
@@ -1594,6 +1611,13 @@ public class AppControllerLibues {
           
           return new ModelAndView("Excell", "listBooks", listBooks);
     	
+    }
+    
+ 
+    @RequestMapping(value = { "/comparar-inventario" }, method = RequestMethod.GET)
+    public String main2(ModelMap model) {       
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "comparar-inventario";
     }
     
     

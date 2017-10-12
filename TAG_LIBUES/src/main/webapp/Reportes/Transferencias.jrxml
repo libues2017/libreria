@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Retaceo" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.sql.tables"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="fechini" class="java.util.Date"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="fenili" class="java.util.Date"/>
+	<parameter name="fec" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT libues.detalleretaceo.`CODIGOPRODUCTO`,
+		    libues.detalleretaceo.`CODIGOPROVEEDOR`,
+			libues.producto.`NOMBREPRODUCTO`,
+			libues.autor.`NOMBREAUTOR`,
+			libues.detalleretaceo.`CANTIDADPRODUCTO`,
+			libues.detalleretaceo.`COSTOPRODUCTO`,
+			libues.detalleretaceo.`SUBTOTAL`,
+			libues.detalleretaceo.`PRECIOPRODUCTO`,
+			libues.detalleretaceo.`EXISTENCIAANTERIOR`,
+			libues.detalleretaceo.`CODIGODETALLERETACEO`,
+			libues.detalleretaceo.CODIGORETACEO,
+			libues.detalleretaceo.CODIGOFACTURAPROVEEDOR,
+			libues.detalleretaceo.FECHAFACTURAPROVEEDOR,
+			libues.proveedor.NOMBREPROVEEDOR,
+			libues.retaceo.FECHARETACEO,
+			libues.retaceo.FECHARETACEO as fecha
+			
+						
+			FROM 
+				libues.detalleretaceo,
+				libues.producto,
+				libues.autor_libro,
+				libues.autor,
+				libues.retaceo,
+				libues.proveedor
+		    WHERE 
+			  (libues.detalleretaceo.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO`) 
+			 AND 
+			 ( libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) 
+			 AND 
+			 (libues.autor.`CODIGOAUTOR` = libues.autor_libro.`CODIGOAUTOR`)
+			 AND
+			 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)
+			 AND
+			 (libues.detalleretaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)
+			 AND
+			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})
+			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
+	</queryString>
+	<field name="CODIGORETACEO" class="java.lang.Integer"/>
+	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
+	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
+	<field name="NOMBREAUTOR" class="java.lang.String"/>
+	<field name="CANTIDADPRODUCTO" class="java.lang.Integer"/>
+	<field name="COSTOPRODUCTO" class="java.math.BigDecimal"/>
+	<field name="SUBTOTAL" class="java.lang.Double"/>
+	<field name="PRECIOPRODUCTO" class="java.math.BigDecimal"/>
+	<field name="EXISTENCIAANTERIOR" class="java.lang.Integer"/>
+	<field name="CODIGODETALLERETACEO" class="java.lang.Integer"/>
+	<field name="CODIGOFACTURAPROVEEDOR" class="java.lang.Integer"/>
+	<field name="NOMBREPROVEEDOR" class="java.lang.String"/>
+	<field name="FECHAFACTURAPROVEEDOR" class="java.util.Date"/>
+	<field name="FECHARETACEO" class="java.util.Date"/>
+	<field name="fecha" class="java.util.Date"/>
+	<variable name="Variable" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{SUBTOTAL}]]></initialValueExpression>
+	</variable>
+	<variable name="CODIGORETACEO1" class="java.lang.Integer" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{CODIGORETACEO}]]></variableExpression>
+	</variable>
+	<variable name="SUBTOTAL1" class="java.lang.Double" resetType="Group" resetGroup="Group3" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+	</variable>
+	<group name="Group1"/>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{CODIGORETACEO}]]></groupExpression>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{CODIGORETACEO}]]></groupExpression>
+		<groupHeader>
+			<band height="72">
+				<textField>
+					<reportElement x="60" y="10" width="40" height="15" uuid="365554c3-1e58-4bf6-8714-1baac5d51c32"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CODIGORETACEO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1" y="10" width="59" height="15" uuid="78561361-ca0d-43f1-8ade-c487d0cc3f7f"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Retaceo #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="106" y="10" width="44" height="15" uuid="ca8aff45-036b-4caa-8b76-9a83c248580a"/>
+					<textFieldExpression><![CDATA["Fecha"]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="150" y="10" width="55" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHARETACEO}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="12" width="80" height="17" uuid="00be988f-cdc9-4652-bfc1-5e5f4572cf31"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Facturas: Pedido #"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="290" y="11" width="55" height="19" uuid="6c766c3b-f234-400d-8868-fb5603f5cea6"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CODIGOFACTURAPROVEEDOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="347" y="12" width="52" height="17" uuid="cc69cd50-c6a7-410e-8b07-5beb539ced60"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHAFACTURAPROVEEDOR}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="410" y="13" width="135" height="15" uuid="b811afa2-29be-47be-aad6-b08442c7d03f"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Proveedor : "+$F{NOMBREPROVEEDOR}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="61">
+				<textField>
+					<reportElement x="463" y="31" width="60" height="15" uuid="db191958-8d82-4ade-80bf-c34ed3c21e59"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SUBTOTAL1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="320" y="31" width="100" height="18" uuid="afeaad2f-95d6-4f9e-9e3c-f44f73000cd6"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Total retaceo]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="134" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="100" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField pattern="dd//MM/yyyy">
+				<reportElement positionType="Float" x="208" y="70" width="84" height="20" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="0" width="270" height="25" uuid="625f9511-0555-4b3d-903e-2bd3a17a039d">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libreria Universitaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="285" height="15" uuid="df893963-9ea8-420d-8890-b8499434340d"/>
+				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="bc649cd2-af15-4560-ba49-ca51950334ba"/>
+				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="10" width="73" height="30" uuid="60cabe99-7684-4efe-b4b4-f69043398088"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="10" width="85" height="30" uuid="58f23694-9d21-498c-9f33-b06647d11ede"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="98" y="55" width="172" height="15" uuid="fd5e675c-baff-4d7b-b99d-916fa5a34bea"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Reporte de retaceo del mes de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="70" width="100" height="21" uuid="cf21f2eb-bd2c-4197-9d77-7c592706c4cb"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Impresion]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="314" y="54" width="229" height="17" uuid="782735cf-0820-493a-94a0-6443ccff8071"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fec}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-1" y="7" width="83" height="80" uuid="5ce4df58-cb9c-4446-9a87-a26ce01d0c42"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="12" y="3" width="48" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="d5b68360-cdf2-47fc-aacc-ba3679214488"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Codigo de Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="80" y="2" width="62" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="fc01dcf7-d055-4be5-a305-37fe85456c53"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="152" y="0" width="50" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="210" y="0" width="30" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Autor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="351" y="0" width="38" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="466" y="0" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Costo Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="1" width="51" height="18" uuid="4db21f05-c87e-4308-be31-9c46e4a4ec1d"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[UNI]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="21" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="572" height="1" uuid="5f01b059-340c-4c56-a9e2-e41217656472"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="20" y="0" width="50" height="20" uuid="05cd060a-d332-451b-b6b5-014ce2355403"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="1" width="72" height="20" uuid="9de74ee7-339a-4350-ab57-2fdfedd257c7"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="50" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CANTIDADPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="51" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="353" y="1" width="40" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COSTOPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="-1" width="48" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="0" width="37" height="19" uuid="e929e946-0e0f-4c61-8c33-f9a9f7f00189"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[C/U]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="37" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="465" y="20" width="67" height="17" uuid="2b571502-f926-4a6a-b705-801e04eecc9f"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Variable}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="20" width="143" height="17" uuid="c48f07ed-8587-46d1-b6bb-a609ccc7e4c5"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Retaceo del mes de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="20" width="229" height="17" uuid="0edc667a-36d8-4b95-98bb-458c5df23c5b"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fec}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

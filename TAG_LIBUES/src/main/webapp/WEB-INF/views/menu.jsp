@@ -66,6 +66,19 @@
            						</sec:authorize>
           					</ul>
         				</li>
+        				
+        				  <li class="dropdown">
+          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
+          					<ul class="dropdown-menu">
+            					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
+            					<li><a href="<c:url value="existencias" />">Reportes de Facturacion</a></li>
+            					
+            					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+            						<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="detallefacturacion-agregar" />">Agregar nuevo</a></li>
+           						</sec:authorize>
+          					</ul>
+        				</li>
 
 			      		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			      		<li class="dropdown">
@@ -78,6 +91,7 @@
 			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencias</a></li>
+			            		<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
 			          		</ul>
@@ -103,7 +117,8 @@
           	
         	</li>
         	</sec:authorize>
-			        	
+        	
+        				        	
 			            <!--<sec:authorize access="hasRole('ADMIN')"  >
 			            	<li class="dropdown">
 			          			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos <span class="caret"></span></a>
