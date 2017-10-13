@@ -215,7 +215,7 @@ function add(campo) {
 					
 				<div class="row">					
 					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||
-					<a href="<c:url value='/facturar' />" class="btn btn-primary btn-sm" >Facturar</a>
+					<a href="<c:url value='' />" class="btn btn-primary btn-sm" >Facturar</a>
 				</div> <hr>
 
 			

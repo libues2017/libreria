@@ -44,33 +44,22 @@
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.io.IOException"%>
 <%@ page import="java.io.FileInputStream"%>
-
- 
-
-
-
-
 <%@ page import="java.util.Locale"%>
 <%@ page import="java.io.*" %> 
 <%@ page import="fia.ues.sv.libues.modelo.Producto" %> 
-
-
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Comparacion de Inventario</title>
 </head>
 <body>
-
 </body>
 </html>
 
 <% 
-
-
     excell e=new excell();
    
 ///e.comparar();
@@ -179,10 +168,13 @@
 
 <html>
 <body>
+
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
 <div class="row"><%@include file="menu.jsp" %></div>
+ <div class="panel-heading"><span class="lead">Productos que no concuerda con el Inventario Fisico</span></div>
+
 <div class="row">
 <!--<h1>Areas</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
@@ -349,18 +341,8 @@
 	    </table>       
  
  
- 
- 
    </c:forEach>
-   
-   
-   
-      
- 
-
-		
-
- 
+    
  </div>
  
             
