@@ -49,6 +49,8 @@ import fia.ues.sv.libues.modelo.Book;
 import fia.ues.sv.libues.modelo.DetalleRetaceo;
 import fia.ues.sv.libues.modelo.DetalleTransferencia;
 import fia.ues.sv.libues.modelo.Editorial;
+import fia.ues.sv.libues.modelo.Factura;
+import fia.ues.sv.libues.modelo.FacturaDetalle;
 import fia.ues.sv.libues.modelo.Localizacion;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.Requisicion;
@@ -67,6 +69,8 @@ import fia.ues.sv.libues.service.DetalleRequisicionService;
 import fia.ues.sv.libues.service.DetalleRetaceoService;
 import fia.ues.sv.libues.service.DetalleTransferenciaService;
 import fia.ues.sv.libues.service.EditorialService;
+import fia.ues.sv.libues.service.FacturaDetalleService;
+import fia.ues.sv.libues.service.FacturaService;
 import fia.ues.sv.libues.service.ProveedorService;
 import fia.ues.sv.libues.service.RequisicionService;
 import fia.ues.sv.libues.service.RetaceoService;
@@ -121,6 +125,12 @@ public class AppControllerLibues {
 	
 	@Autowired
 	RequisicionService requisicionService;
+	
+	@Autowired
+	FacturaService facturaService;
+	
+	@Autowired
+	FacturaDetalleService facturadetalleService;
 	
 	@Autowired
 	RetaceoService retaceoService;
@@ -199,6 +209,11 @@ public class AppControllerLibues {
     @ModelAttribute("detallerequisiciones")
     public List<DetalleRequisicion> initializedetalleRequisiciones(){
     	return detallerequisicionService.findAllRequisiciones();
+    }
+    
+    @ModelAttribute("facturasdetalle")
+    public List<FacturaDetalle> initializeFacturasDetalle(){
+    	return facturadetalleService.findAllFacturas();
     }
     
    /* @ModelAttribute("retaceos")
@@ -1563,9 +1578,27 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.GET)
     public String newDetalleFacturacion( HttpServletRequest request,ModelMap model) {
     	
+    	FacturaDetalle facturadetalle = new FacturaDetalle();
+        model.addAttribute("facturadetalle", facturadetalle);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion=request.getSession(true);
     	
+    	if(sesion.getAttribute("codigofact")!=null)
+    	{
+    		Integer codigofact = (Integer) sesion.getAttribute("codigofact");
+    		List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);
+    		model.addAttribute("facturas", facturaBuscar);
+    	}
     	
-    	return "detallefacturacion-agregar"; 
+        List<Producto> productos = productoService.findAllProductos();       
+		List<Factura> fact5 = facturaService.findAllFacturas();
+		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigofact", fact6);        
+        model.addAttribute("producto", productos);
+        
+    	return "facturadetalle-reg"; 
     }
     
      

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="factura_detalle")
@@ -17,29 +18,46 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idfacuradetalle;
+	private Integer idfacturadetalle;
 	
+	@NotNull
+	@Column(name="idfactura")
+	private Integer idfactura;
+	
+	@NotNull
 	@Column(name="codigoproducto")
 	private Integer codigoproducto;
 	
+	@NotNull
 	@Column(name="nombreproducto")
 	private String nombreproducto;
 	
+	@NotNull
 	@Column(name="precio")
 	private Double precio;
 	
+	@NotNull
 	@Column(name="cantidad")
 	private Integer cantidad;
 	
+	@NotNull
 	@Column(name="subtotalfactura")
 	private Double subtotalfactura;
 
-	public Integer getIdfacuradetalle() {
-		return idfacuradetalle;
+	public Integer getIdfacturadetalle() {
+		return idfacturadetalle;
 	}
 
-	public void setIdfacuradetalle(Integer idfacuradetalle) {
-		this.idfacuradetalle = idfacuradetalle;
+	public void setIdfacturadetalle(Integer idfacturadetalle) {
+		this.idfacturadetalle = idfacturadetalle;
+	}
+
+	public Integer getIdfactura() {
+		return idfactura;
+	}
+
+	public void setIdfactura(Integer idfactura) {
+		this.idfactura = idfactura;
 	}
 
 	public Integer getCodigoproducto() {
