@@ -6,7 +6,7 @@ import fia.ues.sv.libues.modelo.FacturaDetalle;
 
 public interface FacturaDetalleService {
 	
-	FacturaDetalle findById(int iddetalle);
+	FacturaDetalle findById(int idfacturadetalle);
 	
 	FacturaDetalle findByCodigo(int codigofact);
 	

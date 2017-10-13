@@ -14,8 +14,8 @@ import fia.ues.sv.libues.modelo.FacturaDetalle;
 public class FacturaDetalleDaoImpl extends AbstractDao<Integer, FacturaDetalle> implements FacturaDetalleDao{
 
 	@Override
-	public FacturaDetalle findById(int iddetalle) {
-		FacturaDetalle facturadetalle=getByKey(iddetalle);					
+	public FacturaDetalle findById(int idfacturadetalle) {
+		FacturaDetalle facturadetalle=getByKey(idfacturadetalle);					
 		return facturadetalle;
 	}
 
@@ -39,9 +39,9 @@ public class FacturaDetalleDaoImpl extends AbstractDao<Integer, FacturaDetalle> 
 	}
 
 	@Override
-	public void deleteById(int iddetalle) {
+	public void deleteById(int idfacturadetalle) {
 		Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("iddetalle", iddetalle));
+        crit.add(Restrictions.eq("iddetalle", idfacturadetalle));
         FacturaDetalle facturadetalle = (FacturaDetalle)crit.uniqueResult();
 		delete(facturadetalle);
 	}
@@ -57,9 +57,9 @@ public class FacturaDetalleDaoImpl extends AbstractDao<Integer, FacturaDetalle> 
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<FacturaDetalle> findFacturas(Integer iddetalle) {
+	public List<FacturaDetalle> findFacturas(Integer idfacturadetalle) {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("idfactura"));
-        criteria.add(Restrictions.eq("idfactura", iddetalle));        
+        criteria.add(Restrictions.eq("idfactura", idfacturadetalle));        
         List<FacturaDetalle> facturadetalle = (List<FacturaDetalle>) criteria.list();
         return facturadetalle; 
 	}

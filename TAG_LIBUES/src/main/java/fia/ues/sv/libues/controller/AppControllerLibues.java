@@ -1601,6 +1601,37 @@ public class AppControllerLibues {
     	return "facturadetalle-reg"; 
     }
     
+    @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.POST)   
+    public String saveFactura( HttpServletRequest request,@Valid FacturaDetalle facturadetalle, BindingResult result, 
+    		ModelMap model,@RequestParam(required = false)  String fechafactura, Integer numerofact, Double total, String tipo) 
+    		throws IOException, ParseException {
+         	 	
+    	if (result.hasErrors()) {
+            return "facturadetalle-reg";
+        }
+    	facturadetalleService.saveFacturaDetalle(facturadetalle);
+		/*
+    	Integer numerofact = 1000;
+    	Double total = 0.0;
+    	String tipo = "Contado"; */
+    	
+    	Integer idfactura = Integer.parseInt(request.getParameter("idfactura"));
+    	HttpSession sesion2=request.getSession(true);
+    	Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafactura);    	
+    	facturaService.updateFacturaDatos(idfactura, fecha1, numerofact, total, tipo);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    	String fecha = sdf.format(fecha1);
+ 		sesion2.setAttribute("mySessionAttribute", fecha);
+    	model.addAttribute("loggedinuser", getPrincipal());
+    	return "redirect:/detallefacturacion-agregar";      
+    }
+    
+    @RequestMapping(value = { "/delete-detallefactura-{idfacturadetalle}" }, method = RequestMethod.GET)
+    public String deleteFactura(@PathVariable Integer idfacturadetalle) {    	
+    	facturadetalleService.deleteFacturaById(idfacturadetalle);
+    	return "redirect:/detallefacturacion-agregar";        
+    }
+    
      
     
     //*************************************************************************

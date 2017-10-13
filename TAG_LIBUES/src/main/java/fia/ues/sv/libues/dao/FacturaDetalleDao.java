@@ -6,7 +6,7 @@ import fia.ues.sv.libues.modelo.FacturaDetalle;
 
 public interface FacturaDetalleDao {
 	
-	FacturaDetalle findById(int iddetalle);
+	FacturaDetalle findById(int idfacturadetalle);
 	
 	FacturaDetalle findByCodigo(int codigofactura);
 	
@@ -14,10 +14,10 @@ public interface FacturaDetalleDao {
 	
 	void save(FacturaDetalle facturadetalle);
 	
-	void deleteById(int iddetalle);
+	void deleteById(int idfacturadetalle);
 	
 	List<FacturaDetalle> findAllFacturas();
 	
-	List<FacturaDetalle> findFacturas(Integer iddetalle);
+	List<FacturaDetalle> findFacturas(Integer idfacturadetalle);
 
 }

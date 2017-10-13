@@ -19,8 +19,8 @@ public class FacturaDetalleServiceImpl implements FacturaDetalleService{
 	private FacturaDetalleDao dao;
 	
 	@Override
-	public FacturaDetalle findById(int iddetalle) {
-		return dao.findById(iddetalle) ;
+	public FacturaDetalle findById(int idfacturadetalle) {
+		return dao.findById(idfacturadetalle) ;
 	}
 
 	@Override
@@ -34,8 +34,8 @@ public class FacturaDetalleServiceImpl implements FacturaDetalleService{
 	}
 
 	@Override
-	public void saveFacturaDetalle(FacturaDetalle iddetalle) {
-		dao.save(iddetalle);
+	public void saveFacturaDetalle(FacturaDetalle idfacturadetalle) {
+		dao.save(idfacturadetalle);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class FacturaDetalleServiceImpl implements FacturaDetalleService{
 	}
 
 	@Override
-	public void deleteFacturaById(int iddetalle) {
-		dao.deleteById(iddetalle);
+	public void deleteFacturaById(int idfacturadetalle) {
+		dao.deleteById(idfacturadetalle);
 	}
 
 	@Override

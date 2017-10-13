@@ -35,10 +35,13 @@ public class FacturaServiceImpl implements FacturaService{
 	}
 
 	@Override
-	public void updateFacturaDatos(Integer idfactura, Date fecha) {
+	public void updateFacturaDatos(Integer idfactura, Date fecha, Integer numerofact, Double total, String tipo) {
 		Factura entity=dao.findById(idfactura);		
 		if(entity!=null){			
 			entity.setFechafactura(fecha);
+			entity.setNumerofactura(numerofact);
+			entity.setTotal(total);
+			entity.setTipofactura(tipo);
 		}
 	}
 

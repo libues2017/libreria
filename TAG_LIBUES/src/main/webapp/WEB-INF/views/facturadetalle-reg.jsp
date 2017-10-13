@@ -238,10 +238,10 @@ function add(campo) {
 				    			<td>${facturas.nombreproducto}</td>
 				    			<td>${facturas.cantidad}</td>				    		    
 				    			<td>$ ${facturas.precio}</td>
-				    			<td>$ ${facturas.subtotal}</td>	    			
+				    			<td>$ ${facturas.subtotalfactura}</td>	    			
 				    			
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-facturadetalle-${facturas.iddetallefactura}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                            <td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>

@@ -13,7 +13,7 @@ public interface FacturaService {
 	
 	void updateFactura (Factura factura);
 	
-	void updateFacturaDatos (Integer idfactura, Date fecha);
+	void updateFacturaDatos (Integer idfactura, Date fecha, Integer numerofact, Double total, String tipo);
 	
 	void deleteFacturaById(int idfactura);
 	
