@@ -1603,7 +1603,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.POST)   
     public String saveFactura( HttpServletRequest request,@Valid FacturaDetalle facturadetalle, BindingResult result, 
-    		ModelMap model,@RequestParam(required = false)  String fechafactura, Integer numerofact, Double total, String tipo) 
+    		ModelMap model,@RequestParam(required = false)  String fechafactura, Integer numerofactura, Double total, String tipo) 
     		throws IOException, ParseException {
          	 	
     	if (result.hasErrors()) {
@@ -1618,7 +1618,7 @@ public class AppControllerLibues {
     	Integer idfactura = Integer.parseInt(request.getParameter("idfactura"));
     	HttpSession sesion2=request.getSession(true);
     	Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafactura);    	
-    	facturaService.updateFacturaDatos(idfactura, fecha1, numerofact, total, tipo);
+    	facturaService.updateFacturaDatos(idfactura, fecha1, numerofactura, total, tipo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecha1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1626,9 +1626,9 @@ public class AppControllerLibues {
     	return "redirect:/detallefacturacion-agregar";      
     }
     
-    @RequestMapping(value = { "/delete-detallefactura-{idfacturadetalle}" }, method = RequestMethod.GET)
-    public String deleteFactura(@PathVariable Integer idfacturadetalle) {    	
-    	facturadetalleService.deleteFacturaById(idfacturadetalle);
+    @RequestMapping(value = { "/delete-detallefactura-{idfactura}" }, method = RequestMethod.GET)
+    public String deleteFactura(@PathVariable Integer idfactura) {    	
+    	facturadetalleService.deleteFacturaById(idfactura);
     	return "redirect:/detallefacturacion-agregar";        
     }
     

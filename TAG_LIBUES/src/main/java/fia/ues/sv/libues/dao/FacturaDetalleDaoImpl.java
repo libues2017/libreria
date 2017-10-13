@@ -41,7 +41,7 @@ public class FacturaDetalleDaoImpl extends AbstractDao<Integer, FacturaDetalle> 
 	@Override
 	public void deleteById(int idfacturadetalle) {
 		Criteria crit = createEntityCriteria();
-        crit.add(Restrictions.eq("iddetalle", idfacturadetalle));
+        crit.add(Restrictions.eq("idfacturadetalle", idfacturadetalle));
         FacturaDetalle facturadetalle = (FacturaDetalle)crit.uniqueResult();
 		delete(facturadetalle);
 	}
