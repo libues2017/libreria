@@ -36,9 +36,10 @@ fecha2 = formatoDeFecha.parse(fechafin);
 String fecha = formateador.format(fecha2);
 Map parameters = new HashMap();
 parameters.put("fechini", fecha1); 
-parameters.put("fenili", fecha2); 
-parameters.put("user", user); 
-parameters.put("fec", fecha); 
+parameters.put("fenili", fecha2);
+parameters.put("tipotransf", tipo); 
+//parameters.put("user", user); 
+//parameters.put("fec", fecha); 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (),parameters, conexion); 
 /*Indicamos que la respuesta va a ser en formato PDF*/ 

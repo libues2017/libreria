@@ -85,7 +85,7 @@
                 </div>
 
 <input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="Transferencia.jasper" name="nombre"/>
+<input type="hidden" value="Transferencias.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>

@@ -51,83 +51,77 @@ WHERE
 	<group name="Group1">
 		<groupExpression><![CDATA[$F{CODTRANSFERENCIA}]]></groupExpression>
 		<groupHeader>
-			<band height="44">
+			<band height="57">
 				<textField>
-					<reportElement x="70" y="0" width="28" height="15" uuid="3709b744-d20f-45ed-b6c9-484bf655027e"/>
+					<reportElement x="40" y="0" width="28" height="15" uuid="3709b744-d20f-45ed-b6c9-484bf655027e"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{CODTRANSFERENCIA}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="-17" y="0" width="100" height="15" uuid="ee0fad86-7764-480f-9449-ce1fe029f8c1"/>
+					<reportElement x="-14" y="0" width="54" height="15" uuid="ee0fad86-7764-480f-9449-ce1fe029f8c1"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
-					<text><![CDATA[CODTRANSFERENCIA]]></text>
+					<text><![CDATA[Correlativo:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="194" y="1" width="60" height="13" uuid="e3329d00-719f-422b-bd82-18b5e1dc913f"/>
+					<reportElement x="180" y="1" width="60" height="13" uuid="e3329d00-719f-422b-bd82-18b5e1dc913f"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{FECHATRANSFERENCIA}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="94" y="1" width="100" height="13" uuid="0b317fa8-660c-4435-a502-3b87206926b0"/>
+					<reportElement x="77" y="1" width="100" height="13" uuid="0b317fa8-660c-4435-a502-3b87206926b0"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
-					<text><![CDATA[FECHATRANSFERENCIA]]></text>
+					<text><![CDATA[Fecha Transferencia:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="252" y="2" width="100" height="13" uuid="341f69a9-dd8e-4ab6-bf6f-ca2ad0af69e6"/>
+					<reportElement x="280" y="2" width="41" height="13" uuid="341f69a9-dd8e-4ab6-bf6f-ca2ad0af69e6"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
-					<text><![CDATA[TIPOTRANSFERENCIA]]></text>
+					<text><![CDATA[Tipo:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="351" y="2" width="35" height="13" uuid="bbbcd904-8937-4441-983f-2139b619105a"/>
+					<reportElement x="322" y="2" width="35" height="13" uuid="bbbcd904-8937-4441-983f-2139b619105a"/>
 					<textElement>
-						<font size="8"/>
+						<font size="9"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{TIPOTRANSFERENCIA}]]></textFieldExpression>
 				</textField>
-				<staticText>
-					<reportElement x="386" y="3" width="44" height="11" uuid="d3b55f03-ea19-4f3e-ad4b-2d2893d5cc06"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<text><![CDATA[ORIGEN]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="430" y="3" width="44" height="11" uuid="756f90df-c5b0-4926-91d9-2ec136e38dfe"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ORIGEN}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="480" y="3" width="60" height="12" uuid="fc5126e0-9e27-464b-98b1-2c7a53b60cc2"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<text><![CDATA[DESTINO]]></text>
-				</staticText>
-				<textField>
-					<reportElement x="536" y="2" width="48" height="12" uuid="72d4b857-ae30-448f-902d-deeb1d0624a6"/>
-					<textElement>
-						<font size="8"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{DESTINO}]]></textFieldExpression>
-				</textField>
 				<line>
-					<reportElement positionType="FixRelativeToBottom" x="-17" y="40" width="597" height="3" uuid="53ee770b-90c1-4901-904e-44a71517d746"/>
+					<reportElement positionType="FixRelativeToBottom" x="-17" y="39" width="597" height="3" uuid="53ee770b-90c1-4901-904e-44a71517d746"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineColor="#999999"/>
 					</graphicElement>
 				</line>
+				<staticText>
+					<reportElement x="372" y="2" width="35" height="16" uuid="f3d652b7-8b01-44ec-b246-9a8615941696"/>
+					<text><![CDATA[Origen:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="413" y="3" width="44" height="14" uuid="adee38fa-7ee3-4ac4-a1e9-d84c20ee00cb"/>
+					<textFieldExpression><![CDATA[$F{ORIGEN}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="473" y="3" width="47" height="15" uuid="29f2481c-4ac2-470e-9fb5-f450114e09ab"/>
+					<text><![CDATA[Destino:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="522" y="3" width="62" height="16" uuid="f63b4e37-aeb4-4913-a34f-711b5c52da09"/>
+					<textFieldExpression><![CDATA[$F{DESTINO}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="-24" y="0" width="615" height="41" uuid="58278718-5308-47b4-b84a-1b6b2e79c55e"/>
+					<graphicElement>
+						<pen lineStyle="Solid"/>
+					</graphicElement>
+				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -138,7 +132,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="103" splitType="Stretch">
+		<band height="100" splitType="Stretch">
 			<image>
 				<reportElement x="-1" y="7" width="83" height="80" uuid="8fe1fc4e-e8c8-4e21-a3f7-bc5d97d32475"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
@@ -205,131 +199,125 @@ WHERE
 		</band>
 	</title>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<staticText>
 				<reportElement x="-13" y="10" width="70" height="30" uuid="5a65169e-b4a4-4df8-ad97-e3c429f32ff3"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[CODPRODUCTO]]></text>
+				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="59" y="11" width="87" height="30" uuid="583ebc9c-b9f3-4a9d-a168-cff914c69afb"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[NOMPRODUCTO]]></text>
+				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="145" y="11" width="87" height="30" uuid="fd5561cf-5df0-4ac1-ae97-bc3ecb0a243b"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[NOMBREAUTOR]]></text>
+				<text><![CDATA[Autor]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="232" y="11" width="87" height="30" uuid="7397cae2-9f51-4c42-ba39-c9fdcbccbc3b"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[CANTIDADPRODUCTO]]></text>
+				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="366" y="10" width="87" height="30" uuid="9fa3c74d-0d63-4330-916f-76a6e01aa088"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[COSTOPRODUCTO]]></text>
+				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="457" y="11" width="87" height="30" uuid="5811c4c8-3fac-4996-97b1-0203c7a08a70"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[PRECIOPRODUCTO]]></text>
+				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="323" y="12" width="37" height="18" uuid="f2f31523-75f0-4809-ad12-d249a7f837d3"/>
 				<textElement>
-					<font fontName="Arial" size="8"/>
+					<font fontName="Arial" size="9"/>
 				</textElement>
-				<text><![CDATA[UNI]]></text>
+				<text><![CDATA[Unidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="543" y="11" width="49" height="30" uuid="006b9f30-ba94-4e8c-b736-6a933fccfafb"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
-				<text><![CDATA[SUBTOTAL]]></text>
+				<text><![CDATA[Subtotal]]></text>
 			</staticText>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-17" y="60" width="599" height="1" uuid="e97ae681-6d8a-4821-8a44-7a8392c9e618"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="45" splitType="Stretch">
+		<band height="35" splitType="Stretch">
 			<textField>
 				<reportElement x="-15" y="0" width="87" height="30" uuid="e39d38ce-fb89-4947-a98b-6caf2c93336e"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="74" y="3" width="87" height="30" uuid="528d1edc-c98a-4f9a-acb8-99400ecdbb1f"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="162" y="1" width="87" height="30" uuid="0c2ed81d-70d8-444f-80e4-b78aa465ce16"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="253" y="0" width="87" height="30" uuid="32d2559c-6237-4474-ab5b-de6aab80c97c"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDADPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="376" y="1" width="87" height="30" uuid="9eccd813-718d-4327-8349-4d168cfd42c8"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COSTOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="460" y="0" width="87" height="30" uuid="66d05878-9101-486f-b4b4-328b11db2ebe"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="343" y="6" width="37" height="19" uuid="3d8c707d-4710-47ff-a028-c15a212146fa"/>
 				<textElement>
-					<font fontName="Arial" size="8"/>
+					<font fontName="Arial" size="9"/>
 				</textElement>
 				<text><![CDATA[C/U]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="555" y="1" width="32" height="30" uuid="5904b6b5-861e-44ca-af02-e784078e39df"/>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-15" y="44" width="597" height="1" uuid="cb9a5b06-bebb-4db5-9a0e-8a01a3530e16"/>
+				<reportElement positionType="FixRelativeToBottom" x="-12" y="33" width="597" height="1" uuid="cb9a5b06-bebb-4db5-9a0e-8a01a3530e16"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
