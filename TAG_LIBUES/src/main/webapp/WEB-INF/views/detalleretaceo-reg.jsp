@@ -561,7 +561,8 @@
               
                <table class="table table-striped ">
 				<thead>
-		    		<tr >		    			
+		    		<tr >		   
+		    		        <th>ITEM</th> 			
 			      			<th>Codigo Producto</th>
 			      			<th>Codigo Provedor</th>	      			
 			      			<th>Cantidad Producto</th>
@@ -571,17 +572,20 @@
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    	      
+		    	      <c:set var="contador" value="${0}" />
 				    	<c:forEach items="${retaceo2}" var="retaceos" >
 				    		<tr >				    		
 				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	           <c:if test = "${salary > 2000}">
+		    	                 <c:set var="contador" value="${contador + 1}" />	
+		    	                 <td>${contador}</td>
 				    			<td>${retaceos.codigoproducto}</td>
 				    			<td>${retaceos.codigoproveedor}</td>
 				    			<td>${retaceos.cantidadproducto}</td>
 				    		    <td>${retaceos.costoproducto}</td>
 				    			<td>${retaceos.precioproducto}</td>
-				    			<td>${retaceos.subtotal}</td>				    			
+				    			<td>${retaceos.subtotal}</td>	
+				    					    			
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
@@ -589,8 +593,11 @@
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>
+				    	 
 		    	</tbody>
-	    </table>           
+	    </table>   
+	    
+	                   
         </form:form>
         
 
