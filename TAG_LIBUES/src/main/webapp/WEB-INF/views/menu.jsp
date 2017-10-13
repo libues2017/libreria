@@ -57,7 +57,9 @@
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
           					<ul class="dropdown-menu">
             					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
+            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
+            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
             					
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
@@ -71,6 +73,7 @@
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
           					<ul class="dropdown-menu">
             					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
+            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="existencias" />">Reportes de Facturacion</a></li>
             					
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
@@ -90,7 +93,8 @@
 			            		<li role="separator" class="divider"></li>   
 			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="detalletransferencia-list" />">Transferencias</a></li>
+			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
+			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
@@ -110,7 +114,9 @@
           					<ul class="dropdown-menu">
           			
             				<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
+            				<li role="separator" class="divider"></li>
            					<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
+           					<li role="separator" class="divider"></li>
            					<li><a href="<c:url value="/vol_ent" />">Reporte mensual de retaceo</a></li>
            		
           				</ul>

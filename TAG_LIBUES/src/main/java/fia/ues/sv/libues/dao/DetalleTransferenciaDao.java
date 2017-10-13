@@ -18,4 +18,6 @@ public interface DetalleTransferenciaDao {
 	
 	List<DetalleTransferencia> findTransferencias(Integer codigo1);
 
+	DetalleTransferencia findByCodigo(Integer codTransferencia);
+
 }

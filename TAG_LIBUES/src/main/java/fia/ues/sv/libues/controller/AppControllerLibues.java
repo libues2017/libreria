@@ -1142,59 +1142,67 @@ public class AppControllerLibues {
         return "detalletransferencia-list";
     }
     
-  
+    @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
+    public String listDetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
+        DetalleTransferencia transferencia = detalletransferenciaService.findByCodigo(codTransferencia);
+        model.addAttribute("transferencias", transferencia);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "transferencia-detalle";
+    } 
+    
+    @RequestMapping(value = { "/transferencia-list" }, method = RequestMethod.GET)
+    public String listTransferencia(ModelMap model) throws IOException {
+        List<Transferencia> transferencias = transferenciaService.findAllTransferencias(); 
+        model.addAttribute("transferencias", transferencias);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "transferencia-list";
+    }
+    
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.GET)
     public String newdetalleTransferencia( HttpServletRequest request,ModelMap model) {
         DetalleTransferencia detalletransferencia = new DetalleTransferencia();
         model.addAttribute("detalletransferencia", detalletransferencia);
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
-    	HttpSession sesion = request.getSession(true);
-    	 	 
-    	//HttpSession session = request.getSession();
-    	
-    	//Producto producto = new Producto();
-    	
-    	if(sesion.getAttribute("codigo1") != null)
-    	{
-    	  Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
-    	  List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
-    	  model.addAttribute("transferencia2", transferenciaBuscar);
+        HttpSession sesion = request.getSession(true);
+                
+        if(sesion.getAttribute("codigo1") != null)
+        {
+          Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
+          List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
+          model.addAttribute("transferencia2", transferenciaBuscar);
        }
-  	  
+      
         List<Producto> productos = productoService.findAllProductos();
 
         //Incrementar Transferencia
        
-		List<Transferencia> transferencia5 = transferenciaService.findAllTransferencias();
-		Integer transferencia6 = transferencia5.get(transferencia5.size()-1).getCodTransferencia();
+        List<Transferencia> transferencia5 = transferenciaService.findAllTransferencias();
+        Integer transferencia6 = transferencia5.get(transferencia5.size()-1).getCodTransferencia();
         HttpSession sesion1 = request.getSession(true);
         sesion1.setAttribute("codigo1", transferencia6);
-        //Integer codigo1 = (Integer)sesion1.getAttribute("codigo1");
-        //model.addAttribute("success",codigo1);
         model.addAttribute("producto", productos);
-        //model.addAttribute("message", "hello");
         return "detalletransferencia-reg";
   }
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
     public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
-    		BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String origen, String destino ) throws IOException, ParseException {
-         	
-  	
-    	if (result.hasErrors()) {
+            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String origen, String destino ) throws IOException, ParseException {
+            
+    
+        if (result.hasErrors()) {
             return "detalletransferencia-reg";
         }
-    	detalletransferenciaService.savedetalleTransferencia(detalletransferencia);
-		
-    	Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
-    	HttpSession sesion2 = request.getSession(true);
-    	Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-    	transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, origen, destino);
-    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    	String fecha = sdf.format(fechaTransferencia1);
- 		sesion2.setAttribute("mySessionAttribute", fecha);
-    	model.addAttribute("loggedinuser", getPrincipal());
+        detalletransferenciaService.savedetalleTransferencia(detalletransferencia);
+        
+        Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
+        HttpSession sesion2 = request.getSession(true);
+        Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, origen, destino);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String fecha = sdf.format(fechaTransferencia1);
+        sesion2.setAttribute("mySessionAttribute", fecha);
+        model.addAttribute("loggedinuser", getPrincipal());
 
         return "redirect:/detalletransferencia-agregar";
       
@@ -1203,15 +1211,16 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String editdetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) {
 
-    	//detalleTransferenciaService
-    	DetalleTransferencia detalleTransferencia = detalletransferenciaService.findById(codTransferencia);//detalleretaceoService.findById(codTransferencia);
-    	
-    	model.addAttribute("detalletransferencia", detalleTransferencia);
+        //detalleTransferenciaService
+        DetalleTransferencia detalleTransferencia = detalletransferenciaService.findById(codTransferencia);//detalleretaceoService.findById(codTransferencia);
+        
+        model.addAttribute("detalletransferencia", detalleTransferencia);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalletransferencia-reg";
     }
     
+    /*
     @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.POST)
     public String updateTransferencia(@Valid DetalleTransferencia detalleTransferencia, BindingResult result,
             ModelMap model, @PathVariable Integer codTransferencia) throws IOException {
@@ -1228,56 +1237,54 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/delete-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String deleteTransferencia(@PathVariable Integer codTransferencia) {
-    	
-    	detalletransferenciaService.deleteTransferenciaById(codTransferencia);
-    	return "redirect:/detalletransferencia-agregar";
-    }
+        
+        detalletransferenciaService.deleteTransferenciaById(codTransferencia);
+        return "redirect:/detalletransferencia-agregar";
+    }*/
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
-    public String findetalleTransferencia( HttpServletRequest request,ModelMap model,
-    	@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia )throws IOException, ParseException {
-    	
+    public String findetalleTransferencia( HttpServletRequest request,ModelMap model, @RequestParam(required = false) 
+    String fechaTransferencia, String tipoTransferencia )throws IOException, ParseException {
+        
           HttpSession sesion = request.getSession(true);
           Integer codTransferencia = (Integer) sesion.getAttribute("codigo1");
           sesion.setAttribute("codigoultimo", codTransferencia);
           
           List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
           for(int i=0;i<transferenciaBuscar.size();i++){
-        	  Integer codProducto = transferenciaBuscar.get(i).getCodProducto();
-        	  Integer existenciaAnterior = transferenciaBuscar.get(i).getExistenciaAnterior();
-        	  Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
-        	  
-        	  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
-    		  Double costo = transferenciaBuscar.get(i).getCostoProducto();
-    		  Integer existencia = existenciaAnterior + cantidad;        		   
-    		  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
-        	  
-        	  /*if (tipoTransferencia == "Ingresos"){
-        		  
-        	  }
-        	  else{
-        		  Integer existencia = existenciaAnterior - cantidad;
-        		  productoService.updateExistencia1(codProducto, existencia);
-        	  }*/
-        	 
+              Integer codProducto = transferenciaBuscar.get(i).getCodProducto();
+              Integer existenciaAnterior = transferenciaBuscar.get(i).getExistenciaAnterior();
+              Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
+              
+              Double precio = transferenciaBuscar.get(i).getPrecioProducto();
+              Double costo = transferenciaBuscar.get(i).getCostoProducto();
+              Integer existencia = existenciaAnterior + cantidad;                  
+              productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
+              
+              /*if (tipoTransferencia == "Ingresos"){
+                  
+              }
+              else{
+                  Integer existencia = existenciaAnterior - cantidad;
+                  productoService.updateExistencia1(codProducto, existencia);
+              }*/
+             
           }
            
           String fecha = (String) sesion.getAttribute("mySessionAttribute");
-          
           Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
-          
           Transferencia transferencia = new Transferencia();
           transferencia.setFechaTransferencia(fechaTransferencia1);
-          
-  		  transferenciaService.saveTransferencia(transferencia);
-          
+          transferenciaService.saveTransferencia(transferencia);
           Integer codigo1 = 0;
-		  sesion.setAttribute("codigo1", codigo1);
-    	
-    	  return "detalletransferencia-list";
+          sesion.setAttribute("codigo1", codigo1);
+        
+          return "detalletransferencia-list";
     }
     
-  
+    /**********************************************************************************************************************************************************************
+     ********************************************************** Fin Transferencia *****************************************************************************************
+     **********************************************************************************************************************************************************************/
     
   //***************************************************************************
     // ***************** CONTROLES PARA LOS REPORTES***************************

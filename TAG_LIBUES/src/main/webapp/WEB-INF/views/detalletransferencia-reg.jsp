@@ -554,7 +554,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<!-- 
 				<div class="row">
 					<div class="form-actions floatRight">
 						<c:choose>
@@ -568,6 +568,13 @@
 						</c:choose>
 					</div>
 				</div>
+				-->
+				
+				<div class="row">					
+					<input type="submit" value="Agregar" class="btn btn-primary btn-sm" />  								
+					<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> 
+					<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm" >Terminar Transferencia</a>
+				</div> <hr>
 				
 				<table class="table table-striped ">
 					<thead>
@@ -589,9 +596,9 @@
 									<td>${transferencias.codProducto}</td>
 									<td>${transferencias.nomProducto}</td>
 									<td>${transferencias.cantidadProducto}</td>
-									<td>${transferencias.costoProducto}</td>
-									<td>${transferencias.precioProducto}</td>
-									<td>${transferencias.subTotal}</td>
+									<td>$${transferencias.costoProducto}</td>
+									<td>$${transferencias.precioProducto}</td>
+									<td>$${transferencias.subTotal}</td>
 								</c:if>
 
 								<sec:authorize access="hasRole('ADMINISTRADOR')">
@@ -608,7 +615,7 @@
 		</div>
 	</div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
-<!-- <script src="<c:url value='/static/js/bootstrap.min.js' />"></script> -->
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 

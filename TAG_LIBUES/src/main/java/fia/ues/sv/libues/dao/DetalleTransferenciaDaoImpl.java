@@ -59,4 +59,10 @@ public class DetalleTransferenciaDaoImpl extends AbstractDao<Integer, DetalleTra
         return detalleTransferencia; 
 	}
 
+	@Override
+	public DetalleTransferencia findByCodigo(Integer codTransferencia) {
+		DetalleTransferencia detalletransferencia = getByKey(codTransferencia);					
+		return detalletransferencia;
+	}
+
 }

@@ -40,7 +40,7 @@
 							<th>COSTO</th>
 							<th>PRECIO</th>
 							<th>SUBTOTAL</th>
-							<th>OPCIONES</th>
+							<!-- <th>OPCIONES</th>-->
 						</tr>
 					</thead>
 					
@@ -54,6 +54,7 @@
 								<td>$${transferencias.precioProducto}</td>
 								<td>$${transferencias.subTotal}</td>
 
+								<!--  
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<td>
 										<a href="<c:url value='/edit-transferencia-${transferencia.codDetalleTransferencia}' />"
@@ -67,6 +68,7 @@
 										class="btn btn-danger custom-width">Eliminar</a>
 									</td>
 								</sec:authorize>
+								-->
 							</tr>
 						</c:forEach>
 					</tbody>

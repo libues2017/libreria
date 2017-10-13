@@ -20,4 +20,6 @@ public interface DetalleTransferenciaService {
 	
 	List<DetalleTransferencia> findTransferencias(Integer fecha);
 
+	DetalleTransferencia findByCodigo(Integer codTransferencia);
+
 }

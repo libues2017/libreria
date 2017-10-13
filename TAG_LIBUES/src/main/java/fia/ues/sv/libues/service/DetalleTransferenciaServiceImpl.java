@@ -58,4 +58,9 @@ public class DetalleTransferenciaServiceImpl implements DetalleTransferenciaServ
 		return dao.findTransferencias(codigo1);
 	}
 
+	@Override
+	public DetalleTransferencia findByCodigo(Integer codTransferencia) {
+		return dao.findByCodigo(codTransferencia) ;
+	}
+
 }

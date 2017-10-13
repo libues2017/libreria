@@ -5,7 +5,7 @@
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Librería UES</title>
+    <title>Detalle Transferencia</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
@@ -17,44 +17,38 @@
       
       <sec:authorize access="hasRole('ADMINISTRADOR')">
             <div class="well">
-                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> |||
+                <a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Agregar Transferencia</a>  
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> |||
-                <a href="<c:url value='/requisicion-list' />" class="btn btn-primary" > Documentos</a> 
+                <a href="<c:url value='/transferencia-list' />" class="btn btn-primary" >Lista de Transferencias</a> 
             </div>
         </sec:authorize>
         
         <div class="panel panel-default">      
               <!-- Default panel contents -->
-            <div class="panel-heading">
-            <h3>Detalle de Documento</h3>
-            </div>
+            <div class="panel-heading"><h3>Transferencia: ${transferencia.codTransferencia}</h3> </div>
             <table class="table table-hover">
                 <thead>
                     <tr>                    	                 
-                        <th>Codigo Detalle</th>                        
+                        <!--<th>Codigo Detalle</th>-->                        
                         <th>Codigo Producto</th>
-                        <th>Nombre</th>
-                        <th>Bodega</th>
-                        <th>Sala</th>
+                        <th>Titulo</th>
+                        <th>Cantidad</th>
                         <th>Costo</th>
                         <th>Precio</th>
-                        <th>Cantidad</th>
                         <th>Subtotal</th>
                     </tr>
                 </thead>
                 
                 <tbody>
-                	<c:forEach items="${detallerequisiciones}" var="detallerequisicion">
+                	<c:forEach items="${detalletransferencias}" var="detalletransferencia">
                     	<tr>                    	
-                    	<td>${detallerequisicion.codigodetalle}</td>
-                    	<td>${detallerequisicion.codigoproducto}</td>	
-                        <td>${detallerequisicion.nombreproducto}</td>
-                        <td>${detallerequisicion.bodega}</td>
-                        <td>${detallerequisicion.sala}</td>
-                        <td>$${detallerequisicion.costo}</td>
-                        <td>$${detallerequisicion.precio}</td>
-                        <td>${detallerequisicion.cantidad}</td>
-                        <td>$${detallerequisicion.subtotal}</td>
+                    	<!-- <td>${detallerequisicion.codigodetalle}</td>-->
+                    	<td>${detalletransferencia.codProducto}</td>	
+                        <td>${detalletransferencia.nomProducto}</td>
+                        <td>${detalletransferencia.cantidadProducto}</td>
+                        <td>$${detalletransferencia.costoProducto}</td>
+                        <td>$${detalletransferencia.precioProducto}</td>
+                        <td>$${detalletransferencia.subTotal}</td>
                     	</tr>
                 	</c:forEach>
                 </tbody>
