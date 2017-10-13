@@ -126,7 +126,7 @@
 							    var PVA;
 								
 							 <c:forEach items="${producto}" var="current">	
-	 			              		    if(${current.codigoProducto}==Id)	
+	 			              		    if(${current.correlativo}==Id)	
 	 			   	 			        {
 						                    existencia=${current.existencia};//2
 						              		costoexistencia=${current.costounitario};//2
@@ -195,7 +195,7 @@
                         	
               		<c:forEach items="${producto}" var="current">
               		
-              		    if(${current.codigoProducto}==Id){
+              		    if(${current.correlativo}==Id){
               		    	
               		     nombre.push("${current.nombreProducto}");
               		     document.getElementById('lbltipAddedComment').innerHTML = nombre;
@@ -290,7 +290,7 @@
 						   
 						    var sessionId1 = [];						    
 						    <c:forEach items="${producto}" var="current">								
-							  sessionId1.push("${current.codigoProducto}");						
+							  sessionId1.push("${current.correlativo}");						
 							</c:forEach>					    
 						    
 						    $( "#codigoproducto" ).autocomplete({
