@@ -2,11 +2,8 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*,java.io.*" %>
-
- 
-<html>
- 
+<%@ page import="java.util.*,java.io.*" %> 
+<html> 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Registro de productos</title>
@@ -14,15 +11,10 @@
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-       
-       
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  	
-    			 
 </head>
- 
  <%
 					// Quiero la fecha actual para ponerla por defecto 
 					String fecha="";
@@ -56,17 +48,20 @@
                     	 
                     	 sAhora=fecha;
                      }
-                     
-        %>
- 
-<body>
+%>
+<body Style="background-color:#97965B">
    <div class="row"><%@include file="page_head.jsp" %></div>
    <div class="container">
-   	<div class="row"><%@include file="menu.jsp" %></div>
     
     <div class="row col-md-8">
-	    <div class="well lead">Registro de Productos</div>
-	    
+		<c:choose>
+			<c:when test="${edit}">    
+	    		<div class="well lead" align="center">Actualizar Producto</div>
+	    	</c:when>
+	    	<c:otherwise>
+	    		<div class="well lead" align="center">Crear Nuevo Producto</div>
+	    	</c:otherwise>
+	    </c:choose>
 	    <form:form method="POST" modelAttribute="producto" class="form-horizontal">
 		    <form:input type="hidden" path="codigoProducto" id="codigoProducto"/>
 		    
@@ -584,13 +579,15 @@
             	</div>
 		     
 		        <div class="row">
-		             <div class="form-actions floatRight">
+		             <div class="form-actions floatRight" align="center">
 		                  <c:choose>
 		                      <c:when test="${edit}">
-		                          <input type="submit" value="Actualizar Producto" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/producto-list' />">Cancelar</a>
+		                          <input type="submit" value="Actualizar Producto" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el producto')"/> |||
+		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:when>
 		                      <c:otherwise>
-		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/producto-list' />">Cancelar</a>
+		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm" onclick="alert('Se creo el producto')"/> |||
+		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:otherwise>
 		                  </c:choose>
 		             </div>

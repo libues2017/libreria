@@ -796,10 +796,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/producto-list" }, method = RequestMethod.GET)
     public String listProductos(ModelMap model) throws IOException {
- 
-               
-        List<Producto> productos = productoService.findAllProductos();
-                
+    	List<Producto> productos = productoService.findAllProductos();
         model.addAttribute("producto", productos);
         model.addAttribute("loggedinuser", getPrincipal());
         return "producto-list";
@@ -830,11 +827,10 @@ public class AppControllerLibues {
     	//System.out.println(producto.getCodigoautor());
     	
     	productoService.saveProducto(producto);
-    	
-        model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
+    	//model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "producto-reg-succ";
+        return "redirect:/producto-agregar";
     }
     
     @RequestMapping(value = { "/edit-producto-{codigoProducto}" }, method = RequestMethod.GET)
@@ -856,21 +852,15 @@ public class AppControllerLibues {
         if (result.hasErrors()) {
             return "producto-reg";
         }
-        
         productoService.updateProducto(producto);
-                 
- 
-        model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "producto-reg-succ";
+        return "redirect:/producto-list";
     }
     
     @RequestMapping(value = { "/delete-producto-{codigoProducto}" }, method = RequestMethod.GET)
     public String deleteProducto(@PathVariable Integer codigoProducto) {
-    	
-    	
     	productoService.deleteByCodigoProducto(codigoProducto);
-    	    	
         return "redirect:/producto-list";
     }
     
