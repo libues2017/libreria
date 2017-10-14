@@ -37,7 +37,7 @@
 		      document.getElementById('nombreproducto').value = nombre;
 		      
    		      sala.push("${current.sala}");
-		      document.getElementById('sala').innerHTML = sala;
+		      document.getElementById('sala').value = sala;
 		      
 		      precio.push("${current.precio}");
 		      document.getElementById('precio').value = precio;
@@ -98,138 +98,94 @@ function add(campo) {
 </head>
 
 <body Style="background-color:#97965B">
-<div class="row"><%@include file="page_head.jsp"%></div>
-	<div class="container">
-
-		<div class="row"> </div>
-		<div class="col-xs-12">
-			<div class="well lead"><center>Facturación</center></div>
-			<form:form method="POST" modelAttribute="facturadetalle"
-				class="form-horizontal">
-				<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" />
-
-				<td>
-				<div class="row">
+<div class="row"><%@include file="page_head_2.jsp"%></div>
+<div class="container">
+	<div class="well lead" align="center">FACTURACION</div>
+		<form:form method="POST" modelAttribute="facturadetalle" class="form-horizontal">
+		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" />
+		
 					<div class="form-group col-md-12"  style="display:none">
-						<label class="col-md-5 control-lable" for="codigo">ID #:</label>
-						<div class="col-md-6">
-							<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>							
+						<label class="col-md-5 control-lable" for="codigo">ID #:</label>						
+						<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>							
+					</div>
+								    			
+		<div class="panel-group">			
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-3">		
+						<label class="form-control" for="fecha">Fecha:</label>
+						<input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" onchange="sesion();" />
+						</div>
+						<div class="col-xs-3">	
+						<label class="form-control" for="factura">Factura #:</label>						
+						<input type="text" id="numerofactura" name="numerofactura" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
-				</td>
-			
-			<table class="col-sm-12 col-md-12">
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-2 control-lable" for="fecha">Fecha:</label>
-						<div class="col-md-5">
-							<input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" onchange="sesion();" />
-						</div>
-					</div>
-				</div>
-				</td>
-				
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="factura">Factura #:</label>
-						<div class="col-md-5">
-							<input type="text" id="numerofactura" name="numerofactura" class="form-control input-sm" onchange="sesion();" />
-						</div>
-					</div>
-				</div>
-				</td>
-				
-				</tr>
-			</table>	
-				
-				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" for="tags">Codigo:</label>
-						<div class="col-md-2">
+			</div>			
+					
+			<div class="panel panel-success">	
+				<div class="form-group row">
+					<div class="panel-body">
+						<div class="col-xs-2">
+							<label class="form-control" for="codigo">Codigo:</label>
 							<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
-							<div class="has-error">
-								<form:errors path="codigoproducto" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" for="nombr">Titulo:</label>
-						<div class="col-md-8">
+						</div>	
+						<div class="col-xs-8" align="center">
+							<label class="form-control" for="nombr">Titulo:</label>
 							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
 						</div>
+						<div class="col-xs-2">
+							<label class="form-control" for="existencia">Existencia:</label>
+							<input type="number"  id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
+						</div>
 					</div>
 				</div>
+				<div class="form-group row" >
+					<div class="panel-body" >
+						<div class="col-xs-2" >	
+							<label class="form-control" for="precio">Precio$:</label>
+							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />
+						</div>							
+						<div class="col-xs-2">
+							<label class="form-control" for="cantidad">Cantidad:</label>
+							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
+						</div>
+						<div class="col-xs-2">	
+							<label class="form-control" for="subtotal">Subtotal:</label>
+							<form:input type="text" path="subtotalfactura" id="subtotalfactura" placeholder="AUTOMATICO" class="form-control input-sm" />
+						</div>
+						
+						<div class="col-xs-2">
+							<input type="submit" value="Agregar a Factura" class="btn btn-primary btn-sm" />
+						</div>
+						<div class="col-xs-2">
+							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar Facturación</a>
+						</div>
+						
+					</div>
+				</div>							
+			</div>			
+		</div>			
 				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" >Existencia:</label>
-						<div class="col-md-2">  
-						<table class="table table-striped ">
-						<td><label class="col-md-3 control-lable" for="sala" id="sala"></label></td>					                   
-					    </table>   
-						</div>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" for="precio">Precio$:</label>
-						<div class="col-md-2">
-							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" for="cantidad">Cantidad:</label>
-						<div class="col-md-2">
-							<form:input type="number" min="0" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
-							<div class="has-error">
-								<form:errors path="cantidad" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
-								
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-1 control-lable" for="subtotal">Subtotal:</label>
-						<div class="col-md-2">
-							<form:input type="text" path="subtotalfactura" id="subtotalfactura" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				<center>	
-				<div class="row">					
-					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||					
-					<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar</a>
-				</div> <hr>
-				</center>
-			
 			<table class="table table-striped ">
 				<thead>
-		    		<tr >	
-		    						    			
+		    		<tr class="success">			
 			      			<th>Codigo</th>
 			      			<th>Titulo</th>	      			
 			      			<th>Cantidad</th>
 			      			<th>Precio</th>
-			      			<th>Subtotal</th>	
+			      			<th>Subtotal</th>
+			      			<sec:authorize access="hasRole('ADMINISTRADOR')">
+			      			<th>Eliminar</th>
+			      			</sec:authorize>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
 		    	      
 				    	<c:forEach items="${facturas}" var="facturas" >
-				    		<tr >
+				    		<tr class="info">
 				    			<td>${facturas.codigoproducto}</td>
 				    			<td>${facturas.nombreproducto}</td>
 				    			<td>${facturas.cantidad}</td>				    		    
@@ -242,15 +198,69 @@ function add(campo) {
                         </tr>
 				    	 </c:forEach>
 		    	</tbody>
-	    </table> 
-	    <center>
+	    </table>
+	     
+	    <div class="well lead" align="center">
 		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||
 		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Credito</button>
-		</center>
+		</div>
 		<div id="contado" class="collapse">
 		
+			<div class="panel-group">			
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-6">		
+						<label class="form-control" for="cliente">Cliente:</label>
+						<input type="text" id="cliente" name="cliente" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-6">	
+						<label class="form-control" for="direccion">Direccion:</label>						
+						<input type="text" id="direccion" name="direccion" class="form-control input-sm" />
+						</div>
+					</div>
+				</div>
+				<div align="center">
+				<a href="<c:url value='/' />" class="btn btn-primary btn-sm" >Facturar</a>
+				</div>
+			</div>
+			</div>
+			
   		</div>
   		<div id="credito" class="collapse">
+  		
+  			<div class="panel-group">			
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-6">		
+						<label class="form-control" for="cliente">Cliente:</label>
+						<input type="text" id="cliente" name="cliente" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-6">	
+						<label class="form-control" for="direccion">Direccion:</label>						
+						<input type="text" id="direccion" name="direccion" class="form-control input-sm" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-6">		
+						<label class="form-control" for="documento">Documento:</label>
+						<input type="text" id="documento" name="documento" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-6">	
+						<label class="form-control" for="tipocredito">Tipo de Credito:</label>						
+						<input type="text" id="tipocredito" name="tipocredito" class="form-control input-sm" />
+						</div>
+					</div>
+				</div>
+				<div align="center">
+				<a href="<c:url value='/' />" class="btn btn-primary btn-sm" >Facturar</a>
+				</div>
+			</div>
+			</div>
   		
   		</div>
   		
