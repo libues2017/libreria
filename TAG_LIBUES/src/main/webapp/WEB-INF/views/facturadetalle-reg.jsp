@@ -7,17 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Librería UES</title>
-<link href="<c:url value='/static/css/bootstrap.css' />"
-	rel="stylesheet"></link>
+<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-
-<link
-	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-	rel="stylesheet">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 
@@ -25,7 +24,7 @@
 	
 		var nombre = [];		
 		var sala = [];
-		var precio = [];
+		var precio = [];  
 		
 		
 		var Id = document.getElementById("codigoproducto").value;
@@ -98,13 +97,13 @@ function add(campo) {
 
 </head>
 
-<body>
+<body Style="background-color:#97965B">
 <div class="row"><%@include file="page_head.jsp"%></div>
 	<div class="container">
 
-		<div class="row"><%@include file="menu.jsp"%></div>
+		<div class="row"> </div>
 		<div class="col-xs-12">
-			<div class="well lead">Realizar Facturacion</div>
+			<div class="well lead"><center>Facturación</center></div>
 			<form:form method="POST" modelAttribute="facturadetalle"
 				class="form-horizontal">
 				<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" />
@@ -114,10 +113,7 @@ function add(campo) {
 					<div class="form-group col-md-12"  style="display:none">
 						<label class="col-md-5 control-lable" for="codigo">ID #:</label>
 						<div class="col-md-6">
-							<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>
-							<div class="has-error">
-								<form:errors path="idfactura" class="help-inline" />
-							</div>
+							<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>							
 						</div>
 					</div>
 				</div>
@@ -212,12 +208,12 @@ function add(campo) {
 						</div>
 					</div>
 				</div>
-					
+				<center>	
 				<div class="row">					
-					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||
-					<a href="<c:url value='' />" class="btn btn-primary btn-sm" >Facturar</a>
+					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||					
+					<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar</a>
 				</div> <hr>
-
+				</center>
 			
 			<table class="table table-striped ">
 				<thead>
@@ -247,7 +243,17 @@ function add(campo) {
 				    	 </c:forEach>
 		    	</tbody>
 	    </table> 
-
+	    <center>
+		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||
+		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Credito</button>
+		</center>
+		<div id="contado" class="collapse">
+		
+  		</div>
+  		<div id="credito" class="collapse">
+  		
+  		</div>
+  		
 			</form:form>
 		</div>
 	</div>

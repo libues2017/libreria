@@ -588,12 +588,10 @@ public class AppControllerLibues {
              	
     	editorialService.saveEditorial(editorial);
     	
-    	
- 
-        model.addAttribute("success", "Editorial: <strong>" + editorial.getNombre()+"</strong> Registrado");
+        //model.addAttribute("success", "Editorial: <strong>" + editorial.getNombre()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "editorial-reg-succ";
+        return "redirect:/editorial-agregar";
     }
     
     @RequestMapping(value = { "/edit-editorial-{id}" }, method = RequestMethod.GET)
@@ -619,9 +617,9 @@ public class AppControllerLibues {
         editorialService.updateEditorial(editorial);
             
  
-        model.addAttribute("success", "Editorial: <strong>" + editorial.getNombre()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Editorial: <strong>" + editorial.getNombre()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "editorial-reg-succ";
+        return "redirect:/editorial-list";
     }
     
     @RequestMapping(value = { "/delete-editorial-{codigoeditorial}" }, method = RequestMethod.GET)

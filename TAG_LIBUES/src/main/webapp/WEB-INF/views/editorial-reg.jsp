@@ -14,14 +14,13 @@
     	}
     </Style>
 </head>
-<body>
+<body Style="background-color:#97965B">
 
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-	  <div class="well lead">Agregar Editorial</div>
+	  <div class="well lead" align="center">Crear Nueva Editorial</div>
         <form:form method="POST" modelAttribute="editorial" class="form-horizontal">
             <form:input type="hidden" path="codigoeditorial" id="codigoeditorial"/>
             
@@ -66,13 +65,15 @@
             	</div>
             
             <div class="row">
-                <div class="form-actions floatRight">
+                <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Editorial" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/editorial-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar Editorial" class="btn btn-primary btn-sm" onclick="alert('Se actualizo')"/> ||||| 
+                            <a href="<c:url value='/editorial-list' />" class="btn btn-primary">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Editorial" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/editorial-list' />">Cancelar</a>
+                            <input type="submit" value="Guardar Editorial" class="btn btn-primary btn-sm" onclick="alert('Se creo editorial')"/> |||||
+                            <a href="<c:url value='/editorial-list' />" class="btn btn-primary">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
