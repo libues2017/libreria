@@ -14,15 +14,13 @@
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-       <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-   <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-       
-       
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
 			  <Style>
 						h1.hidden {
                         visibility: hidden;
@@ -195,12 +193,12 @@
                         	
               		<c:forEach items="${producto}" var="current">
               		
-              		    if(${current.correlativo}==Id){
+              		    if(${current.correlativo} == Id){
               		    	
               		     nombre.push("${current.nombreProducto}");
-              		     document.getElementById('lbltipAddedComment').innerHTML = nombre;
+              		     document.getElementById('nombreprod').value = nombre;
               		   sessionId.push("${current.existencia}");
-              		   document.getElementById('lbl').innerHTML =sessionId;
+              		   document.getElementById('existencia').value =sessionId;
               		     
               		    }
               		</c:forEach>
@@ -220,7 +218,7 @@
 						  if(${current.codigoproveedor}==Id){
 			    		    	 		  
 			    		      sessionId.push("${current.nombreproveedor}");
-			    		      document.getElementById('lbl1').innerHTML =sessionId;
+			    		      document.getElementById('proveedor').value =sessionId;
 			    		     
 			    		    }
 			    		</c:forEach>              		
@@ -303,278 +301,148 @@
 	</head>
 
 	
-<body>
+<body Style="background-color:#97965B">
 
 		  
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 
-<div class="row"><%@include file="menu.jsp" %></div>
-<div class="col-xs-8">
-	  <div class="well lead">Agregar Retaceo</div>
+
+	  <div class="well lead" align="center">Realizar Retaceo</div>
         <form:form method="POST" modelAttribute="detalleretaceo"  class="form-horizontal"  >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
-              <table>			
-			           <th>
-		                        <div class="row">
-					                <div class="form-group col-md-12">
-					                    <label class="col-md-3 control-lable" for="nombr">Codigo Retaceo:</label>
-					                    <div class="col-md-7">
-					                        <form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=session.getAttribute("codigo")%>'/>   
-					                        <div class="has-error">
-					                            <form:errors path="codigoretaceo" class="help-inline"/>
-					                        </div>
-					                    </div>
-					                </div>
-					             </div>        
-                       </th>
-                        <th>
-									         <div class="row">
-									             <div class="form-group col-md-12">
-									                    <label class="col-md-3 control-lable" for="nombr">Fecha Retaceo:</label>
-									                    <div class="col-md-7">									                    
-									                       <input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm" onchange="sesion();" />     
-									             </div>
-									           </div>
-									          </div>
-                       </th>             
-             </table>
-                      
-			<table>			
-			           <th>
-						              <div class="row">
-						                <div class="form-group col-md-12">
-						                    <label class="col-md-3 control-lable" for="nombr">Codigo Factura:</label>
-						                    <div class="col-md-7">
-						                        <form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" placeholder="Digite Codigo Factura" class="form-control input-sm" /> 
-						                        <div class="has-error">
-						                            <form:errors path="codigofacturaproveedor" class="help-inline"/>
-						                        </div>
-						                    </div>
-						                </div>
-						             </div>
-                       </th>
-                        <th>
-                       
-							              <div class="row">
-							                <div class="form-group col-md-12">
-							                    <label class="col-md-3 control-lable" for="nombr">Fecha Factura:</label>
-							                    <div class="col-md-7">
-							                        <form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm"  onchange="sesion();"  />                        
-							                                               
-							                        <div class="has-error">
-							                            <form:errors path="fechafacturaproveedor" class="help-inline"/>
-							                        </div>
-							                    </div>
-							                </div>
-							               </div>  
-                       </th>
-             </table>
-             
-             <table>
-			
-			           <th>
-			                    <div class="row">
-								                <div class="form-group col-md-12">
-								                    <label class="col-md-3 control-lable" for="tags">Codigo Proveedor:</label>
-								                    <div class="col-md-7">
-								                         <form:input type="text" path="codigoproveedor" id="codigoproveedor" placeholder="Digite Codigo Proveedor" class="form-control input-sm" onchange='label2();' />    
-								                        <div class="has-error">
-								                            <form:errors path="codigoproveedor" class="help-inline"/>
-								                        </div>
-								                    </div>
-								                </div>
-								</div>
-                         
-                       </th>
-                        <th>
-					                     
-									<table class="table table-striped ">
-					                   <thead>
-					                     <tr >
-					                     <th>
-					                       Nombre Proveedor:  
-					                       </th>					                                               
-					                    </tr >
-					                   </thead>					                    	
-					                    <tbody>
-					                     <tr >  <td><label class="col-md-3 control-lable" for="proveedor" id="lbl1"  ></label></td>					                   
-					                     </tr></tbody>
-					                 </table>   
-							           
-                       </th>    
-             </table>
-             
-                 			  
-			 <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="tags">Codigo Producto:</label>
-                    <div class="col-md-7">
-                         <form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="Digite el Codigo del Producto" class="form-control input-sm" onchange='label();' />      
-                        <div class="has-error">
-                            <form:errors path="codigoproducto" class="help-inline"/>
-                        </div>
+      <div class="panel-group">
+      	<div class="panel panel-default">
+			<div class="form-group row">		
+				<div class="panel-body">
+					<div class="col-xs-3">      
+					<label class="form-control" for="nombr">Documento #:</label>					
+					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=session.getAttribute("codigo")%>'/>   
+					</div>
+					<div class="col-xs-3">				                  
+					<label class="form-control" for="nombr">Fecha Retaceo:</label>
+					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm" onchange="sesion();" />     
+					</div>
+					<div class="col-xs-3">
+					<label class="form-control" for="utilidad" >Utilidad: </label>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm"  onkeyup="validaFloat('utilidad');" value='0'/>
                     </div>
-                </div>
-               </div>                    
-     			  <div class="row">
-                     <div class="form-group col-md-12">
-                   <table class="table table-striped ">
-                     	<thead>
-                     <tr >                    
-                       <th>
-                            Nombre Poducto:  
-                       </th>                       
-                        <th>
-                            Existencia:
-                        </th>                        
-                     </tr >                    
-                    	</thead>                    	
-                    	<tbody>
-                     <tr >  <td><label class="col-md-3 control-lable" for="proveedor" id="lbltipAddedComment" ></label></td>
-                     <td> <label class="col-md-3 control-lable" for="proveedor" style="height:30px; line-height:30px; text-align:center;" id="lbl"></label></td>
-                     </tr>
-                     </tbody>
-                     </table>                  
-                     </div>
-                   </div>                     
-				       
-		    <div class="row">
-                <div class="form-group col-md-12"  >
-                    <label class="col-md-3 control-lable" for="utilidad" >Utilidad: </label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onkeyup="validaFloat('utilidad');" value='0'/>
-                        
-                        <div class="has-error">
-                            <form:errors path="utilidad" class="help-inline"/>
-                        </div>
-                         <span class="help-block"></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-success">	
+			<div class="form-group row">
+				<div class="panel-body">
+					<div class="col-xs-3">				             
+						<label class="form-control" for="nombr">Codigo Factura:</label>
+						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" placeholder="DIGITE" class="form-control input-sm" /> 
+					</div>
+					<div class="col-xs-3">
+						<label class="form-control" for="nombr">Fecha Factura:</label>
+						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm"  onchange="sesion();"  />                        
+					</div>
+					<div class="col-xs-2">
+						<label class="form-control" for="tags">Cod Proveedor:</label>
+						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2();' />    
+					</div>
+					<div class="col-xs-4">
+						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
+						<input type="text" id="proveedor" placeholder="AUTOMATICO" class="form-control input-sm" />					                     
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="panel-body">
+					<div class="col-xs-3">
+				        <label class="form-control" for="tags">Codigo Producto:</label>
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label();' />      
                     </div>
-                </div>
-             </div>			       
+                    <div class="col-xs-6"> 
+	                    <label class="form-control" for="nombr">Nombre Producto:</label>
+						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm" />
+					</div>
+					<div class="col-xs-2">
+						<label class="form-control" for="existencia">Existencia:</label>
+						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+                    </div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="panel-body">
+					<div class="col-xs-3">
+	                    <label class="form-control" for="nombr">Costo Producto: $</label>
+	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto');"  value='0'/>
+                    </div>
+                    <div class="col-xs-2">
+	                    <label class="form-control" for="nombr">Cantidad:</label>
+	                    <form:input type="numer" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
+                    </div>
+                    <div class="col-xs-3">
+	                    <label class="form-control" for="nombr">Precio Producto: $</label>
+	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
+                    </div>
 				
-             
-             <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Costo Producto: $</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto');"  value='0'/>
-                        <div class="has-error">
-                            <form:errors path="costoproducto" class="help-inline"/>
-                        </div>
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-             </div>
-             
-                <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Cantidad de producto:</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="cantidadproducto" id="cantidadproducto" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
-                        <div class="has-error">
-                            <form:errors path="cantidadproducto" class="help-inline"/>
-                        </div>
-                        <span class="help-block"></span>
-                    </div>
-                </div>
-             </div>
-                        
-             <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Precio Producto: $</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="precioproducto" id="precioproducto" placeholder="Precio de Producto para Venta" class="form-control input-sm"  />
-                        <div class="has-error">
-                            <form:errors path="precioproducto" class="help-inline"/>
-                        </div>
-                    </div>
-                </div>
-             </div>
-                                       
-             <div class="row">
-                <div class="form-group col-md-12" style="display:none " >
+					<div class="col-xs-3" style="display:none">
                     <label class="col-md-3 control-lable" for="nombr" >EXISTENCIA ANTERIOR</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="existenciaanterior" id="existenciaanterior" class="form-control input-sm"   />
-                        <div class="has-error">
-                            <form:errors path="existenciaanterior" class="help-inline"/>
-                        </div>
+                    <form:input type="text" path="existenciaanterior" id="existenciaanterior" class="form-control input-sm"   />
                     </div>
-                </div>
-             </div>
-             
-             <div class="row">
-                <div class="form-group col-md-12" style="display:none " >
+                    <div class="col-xs-3" style="display:none">
                     <label class="col-md-3 control-lable" for="nombr" >Costo ANTERIOR</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="costounitarioanterior" id="costounitarioanterior" class="form-control input-sm"  />
-                        <div class="has-error">
-                            <form:errors path="costounitarioanterior" class="help-inline"/>
-                        </div>
+                    <form:input type="text" path="costounitarioanterior" id="costounitarioanterior" class="form-control input-sm"  />
                     </div>
-                </div>
-             </div>
-                          
-             <div class="row">
-                <div class="form-group col-md-12" style="display:none" >
+                    <div class="col-xs-3" style="display:none">
                     <label class="col-md-3 control-lable" for="nombr" >Precio ANTERIOR</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="precioanterior" id="precioanterior" class="form-control input-sm"   />
-                        <div class="has-error">
-                            <form:errors path="precioanterior" class="help-inline"/>
-                        </div>
+                    <form:input type="text" path="precioanterior" id="precioanterior" class="form-control input-sm"   />
                     </div>
-                </div>
-             </div>
-             
-             <div class="row">
-                <div class="form-group col-md-12" style="display:none " >
+                    <div class="col-xs-3" style="display:none">
                     <label class="col-md-3 control-lable" for="nombr" >subtotal</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
-                        <div class="has-error">
-                            <form:errors path="subtotal" class="help-inline"/>
-                        </div>
+                    <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
                     </div>
-                </div>
-             </div>                      
-            
-            <div class="row">
-                <div class="form-actions floatRight">
-                    <c:choose>
+					
+					
+            	    <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/detalleretaceo-list' />">Cancelar</a>
+                        <div class="col-xs-2">
+                            <input type="submit" value="ACTUALIZAR" class="btn btn-primary btn-sm"/>
+                        </div>
+                       	<div class="col-xs-2">
+                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                        </div>
                         </c:when>
+                        
                         <c:otherwise>
-                            <input type="submit" value="Registrar"  class="btn btn-primary btn-sm"  /> ó <a href="<c:url value='/detalleretaceo-list' />">Cancelar</a>
-                            ó <a href="<c:url value='/finalizar' />">Finalizar</a>
-                        </c:otherwise>                    
-                         
-                       
+                        <div class="col-xs-2">
+                            <input type="submit" value="AGREGAR"  class="btn btn-primary btn-sm"  />
+                       	</div>
+                       	<div class="col-xs-2">
+                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                    	</div>                    	
+                        </c:otherwise>
                     </c:choose>
-                </div>
-            </div>
-            
-              <%--=session.getAttribute("mySessionAttribute")--%>
-              
+                    
+       			</div>
+       		</div>
+                <%--=session.getAttribute("mySessionAttribute")--%>
+       </div>       
                <table class="table table-striped ">
 				<thead>
-		    		<tr >		   
+		    		<tr class="success">		   
 		    		        <th>ITEM</th> 			
 			      			<th>Codigo Producto</th>
 			      			<th>Codigo Provedor</th>	      			
-			      			<th>Cantidad Producto</th>
-			      			<th>Costo Producto</th>
-			      			<th>Precio Producto</th>
-			      			<th>Subtotal</th>	
+			      			<th>Cantidad</th>
+			      			<th>Costo $</th>
+			      			<th>Precio $</th>
+			      			<th>Subtotal $</th>
+			      			<th>ELIMINAR</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
 		    	      <c:set var="contador" value="${0}" />
 				    	<c:forEach items="${retaceo2}" var="retaceos" >
-				    		<tr >				    		
+				    		<tr class="info">				    		
 				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	           <c:if test = "${salary > 2000}">
 		    	                 <c:set var="contador" value="${contador + 1}" />	
@@ -582,9 +450,9 @@
 				    			<td>${retaceos.codigoproducto}</td>
 				    			<td>${retaceos.codigoproveedor}</td>
 				    			<td>${retaceos.cantidadproducto}</td>
-				    		    <td>${retaceos.costoproducto}</td>
-				    			<td>${retaceos.precioproducto}</td>
-				    			<td>${retaceos.subtotal}</td>	
+				    		    <td>$ ${retaceos.costoproducto}</td>
+				    			<td>$ ${retaceos.precioproducto}</td>
+				    			<td>$ ${retaceos.subtotal}</td>	
 				    					    			
 				    		</c:if>
 				    				
@@ -596,13 +464,18 @@
 				    	 
 		    	</tbody>
 	    </table>   
-	    
-	                   
-        </form:form>
-        
 
+		
+	    <div class="well lead" align="center">	
+			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
+		</div>
+	   
+	
+	</form:form>
+        
+</div>
  <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
- <!-- <script src="<c:url value='/static/js/bootstrap.min.js' />"></script> -->
+ <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
       

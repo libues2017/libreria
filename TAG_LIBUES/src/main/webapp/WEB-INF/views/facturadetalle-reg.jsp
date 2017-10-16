@@ -169,7 +169,7 @@ function add(campo) {
 			</div>			
 		</div>			
 				
-			<table class="table table-striped ">
+			<table class="table table-striped">
 				<thead>
 		    		<tr class="success">			
 			      			<th>Codigo</th>
