@@ -18,6 +18,7 @@
 	libues.producto.`NOMBREPRODUCTO`,
 	libues.producto.`CODIGOEDITORIAL`,
 	libues.producto.`PRECIO`,
+	libues.producto.`CORRELATIVO`,
 	libues.producto.`CONSIGNACION`,
 	libues.autor.`NOMBREAUTOR`,
 	libues.autor.`CODIGOAUTOR`,
@@ -45,7 +46,7 @@ FROM libues.autor_libro
 	(libues.producto.`CODIGOPROVEEDOR`= $P{par_provee} ) AND
 	(libues.producto.`CONSIGNACION`= $P{par_consig} )]]>
 	</queryString>
-	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
+	<field name="CORRELATIVO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
 	<field name="EXISTENCIA" class="java.lang.Integer"/>
@@ -128,36 +129,39 @@ FROM libues.autor_libro
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[CODIGOPRODUCTO]]></text>
+				<text><![CDATA[Codigo Producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="120" y="0" width="120" height="30" uuid="2e5252f7-b040-4fe9-a83b-e917d5af00ba"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[NOMBREPRODUCTO]]></text>
+				<text><![CDATA[Titulo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="250" y="0" width="100" height="30" uuid="d5c86518-14d1-493f-9900-2dc9df4135e3"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[NOMBREAUTOR]]></text>
+				<text><![CDATA[Autores]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="365" y="0" width="100" height="30" uuid="d2f6d4ee-512d-4454-abca-7acabe582e1f"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[EXISTENCIA]]></text>
+				<text><![CDATA[Existencia]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="480" y="0" width="100" height="30" uuid="78436016-5b0b-4256-8cdc-888a4e3d7b2c"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[PRECIO]]></text>
+				<text><![CDATA[Precio]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="-1" y="1" width="580" height="28" uuid="4f366a70-c81c-492f-8f00-909db266f00a"/>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
@@ -165,7 +169,7 @@ FROM libues.autor_libro
 			<textField>
 				<reportElement x="-2" y="-11" width="100" height="30" uuid="86899d92-c246-443d-a78d-86f78b52a91d"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="110" y="-10" width="100" height="30" uuid="aa4eb3b2-7d2c-4d3e-88fd-ea20532b2809"/>
@@ -196,7 +200,7 @@ FROM libues.autor_libro
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="72" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>
