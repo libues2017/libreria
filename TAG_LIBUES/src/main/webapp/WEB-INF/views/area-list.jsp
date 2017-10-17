@@ -15,6 +15,12 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+	<script type="text/javascript">
+					
+					
+	</script>
+	
+	
 	
 	<script type="text/javascript">
 			    var dataSet = [];
@@ -26,7 +32,7 @@
 			    
 			    <c:forEach items="${areas}"   var="current">
 			    
-			     dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}" ] ;
+			     dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}"] ;
 			     
 			     i=i+1;
 			    
@@ -39,12 +45,40 @@
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO" },
-			               { title: "NOMBRE DEL AREA" }
+			               { title: "NOMBRE DEL AREA" },
+			               {"render": function () {
+			                   return '<button type="button" id="ButtonEditar" class="editar edit-modal btn btn-warning botonEditar"><span class="fa fa-edit"></span><span class="hidden-xs"> Editar</span></button>';
+			               }}
+			               
 			               ]
 			        
 			        } );
 			    } );
 			    
+			   </script>
+			   
+			   <script>
+			   
+			   
+			   $(document).ready(function() {
+				    var table = $('#areas').DataTable();
+				 
+				    $('#example tbody').on( 'click', 'tr', function () {
+				        if ( $(this).hasClass('selected') ) {
+				            $(this).removeClass('selected');
+				        }
+				        else {
+				            table.$('tr.selected').removeClass('selected');
+				            $(this).addClass('selected');
+				        }
+				    } );
+				 
+				    $('#button').click( function () {
+				        table.row('.selected').remove().draw( false );
+				    } );
+				} );
+			   
+			   
 			   </script>
 
 </head>
