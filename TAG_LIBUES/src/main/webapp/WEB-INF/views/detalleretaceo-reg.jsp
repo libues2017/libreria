@@ -10,7 +10,7 @@
 
  
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
@@ -326,7 +326,7 @@
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm"  onkeyup="validaFloat('utilidad');" value='0'/>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm"   value='0'/>
                     </div>
 				</div>
 			</div>
@@ -377,7 +377,7 @@
                     </div>
                     <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
-	                    <form:input type="numer" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
+	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
@@ -425,7 +425,8 @@
        			</div>
        		</div>
                 <%--=session.getAttribute("mySessionAttribute")--%>
-       </div>       
+       </div>
+	</div>       
                <table class="table table-striped ">
 				<thead>
 		    		<tr class="success">		   
@@ -445,8 +446,8 @@
 				    		<tr class="info">				    		
 				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	           <c:if test = "${salary > 2000}">
-		    	                 <c:set var="contador" value="${contador + 1}" />	
-		    	                 <td>${contador}</td>
+		    	                <c:set var="contador" value="${contador + 1}" />	
+		    	                <td>${contador}</td>
 				    			<td>${retaceos.codigoproducto}</td>
 				    			<td>${retaceos.codigoproveedor}</td>
 				    			<td>${retaceos.cantidadproducto}</td>
@@ -484,9 +485,4 @@
             
 </body>
 </html>
-
-
-
-
-
 

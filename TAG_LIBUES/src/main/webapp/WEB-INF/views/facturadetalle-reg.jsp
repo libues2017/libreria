@@ -102,12 +102,13 @@ function add(campo) {
 <div class="container">
 	<div class="well lead" align="center">FACTURACION</div>
 		<form:form method="POST" modelAttribute="facturadetalle" class="form-horizontal">
-		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" />
+		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" /> 
 		
 					<div class="form-group col-md-12"  style="display:none">
 						<label class="col-md-5 control-lable" for="codigo">ID #:</label>						
 						<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>							
-					</div>
+					</div>				
+					
 								    			
 		<div class="panel-group">			
 			<div class="panel panel-default">
@@ -119,7 +120,7 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">	
 						<label class="form-control" for="factura">Factura #:</label>						
-						<input type="text" id="numerofactura" name="numerofactura" class="form-control input-sm" onchange="sesion();" />
+						<input type="number" id="numerofactura" name="numerofactura" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
@@ -130,22 +131,22 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 							<label class="form-control" for="codigo">Codigo:</label>
-							<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
+							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
 						</div>	
 						<div class="col-xs-8" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
 							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
 						</div>
 						<div class="col-xs-2">
-							<label class="form-control" for="existencia">Existencia:</label>
-							<input type="number"  id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
+							<label class="form-control" for="sala">Existencia:</label>
+							<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
 						</div>
 					</div>
 				</div>
 				<div class="form-group row" >
 					<div class="panel-body" >
 						<div class="col-xs-2" >	
-							<label class="form-control" for="precio">Precio$:</label>
+							<label class="form-control" for="precio">Precio $:</label>
 							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />
 						</div>							
 						<div class="col-xs-2">
@@ -201,7 +202,7 @@ function add(campo) {
 	    </table>
 	     
 	    <div class="well lead" align="center">
-		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||
+		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||||||
 		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Credito</button>
 		</div>
 		<div id="contado" class="collapse">
@@ -221,7 +222,7 @@ function add(campo) {
 					</div>
 				</div>
 				<div align="center">
-				<a href="<c:url value='/' />" class="btn btn-primary btn-sm" >Facturar</a>
+				<a href="<c:url value='/facturar-contado' />" class="btn btn-primary btn-sm" >Facturar</a>
 				</div>
 			</div>
 			</div>
@@ -265,8 +266,8 @@ function add(campo) {
   		</div>
   		
 			</form:form>
-		</div>
 	</div>
+
 
  <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
  <!--  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script> -->

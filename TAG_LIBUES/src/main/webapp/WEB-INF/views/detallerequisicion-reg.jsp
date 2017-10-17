@@ -7,17 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Librería UES</title>
-<link href="<c:url value='/static/css/bootstrap.css' />"
-	rel="stylesheet"></link>
+<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-
-<link
-	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-	rel="stylesheet">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <Style>
 .control-label {
@@ -115,200 +114,110 @@ function add(campo) {
 
 </head>
 
+<body Style="background-color:#97965B">
 
-
-
-<body>
-
-	<div class="row"><%@include file="page_head.jsp"%></div>
+	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
+		<div class="well lead" align="center">Agregar Requisición</div>
+		<form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
+		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
-		<div class="row"><%@include file="menu.jsp"%></div>
-		<div class="col-xs-12">
-			<div class="well lead">Agregar Requisición</div>
-			<form:form method="POST" modelAttribute="detallerequisicion"
-				class="form-horizontal">
-				<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
-
-			<table class="col-sm-12 col-md-12">
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-5 control-lable" for="nombr">Doc. #:</label>
-						<div class="col-md-6">
-							<form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
-							<div class="has-error">
-								<form:errors path="codigorequisicion" class="help-inline" />
-							</div>
+		<div class="panel-group">			
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Documento #:</label>
+						<form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
+						</div>
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Destino:</label>
+						<SELECT name="destino" id="destino" placeholder="SELECCIONAR" class="form-control input-sm" onchange="sesion();">
+							<OPTION VALUE="SALA" data-toggle="collapse" data-target="#req-sala">Sala</OPTION>
+							<OPTION VALUE="BODEGA" data-toggle="collapse" data-target="#req-bodega">Bodega</OPTION>
+						</SELECT>
+						</div>
+						<div class="col-xs-3">			
+						<label class="form-control" for="nombr">Fecha:</label>
+						<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm" onchange="sesion();" />
 						</div>
 					</div>
 				</div>
-				</td>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Destino:</label>
-						<div class="col-md-7">
-						<!--  <input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" /> -->	
-							<SELECT name="destino" id="destino" placeholder="SELECCIONAR" class="form-control input-sm" onchange="sesion();">
-										<OPTION VALUE="SALA">Sala</OPTION>
-										<OPTION VALUE="BODEGA">Bodega</OPTION>
-							</SELECT>
+			</div>
+			
+			<div class="panel panel-success">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-2">
+						<label class="form-control" for="tags">Codigo:</label>
+						<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
+						</div>
+						<div class="col-xs-6">
+						<label class="form-control" for="nombr">Titulo:</label>
+						<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-2">
+						<label class="form-control" for="nombr">Bodega:</label>
+						<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						</div>
+						<div class="col-xs-2">
+						<label class="form-control" for="nombr">Sala:</label>
+						<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"/>							
 						</div>
 					</div>
 				</div>
-				</td>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Fecha:</label>
-						<div class="col-md-8">
-							<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm" onchange="sesion();" />
+				<div class="form-group row">
+					<div class="panel-body">
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Costo #:</label>
+						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
-					</div>
-				</div>
-				</td>
-				</tr>
-				
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-5 control-lable" for="tags">Codigo	Producto:</label>
-						<div class="col-md-6">
-							<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
-							<div class="has-error">
-								<form:errors path="codigoproducto" class="help-inline" />
-							</div>
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Precio $:</label>
+						<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
-					</div>
-				</div>
-				</td>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Nombre Producto:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Cantidad:</label>
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
 						</div>
-					</div>
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Subtotal $:</label>
+						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" />							
+			 			</div>
+			 		</div>
+			 	</div>
+			 	<div class="form-group row" align="center">
+				 	<input type="submit" value="AGREGAR" class="btn btn-primary btn-sm" /> |||||||||| 								
+					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
-				</td>
-				<tr>
-			<!--  	
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" >Existencia Total:</label>
-						<div class="col-md-7">  
-						<table class="table table-striped ">
-						<td><label class="col-md-3 control-lable" for="existencia" id="existencia"></label></td>					                   
-					    </table>   
-						</div>
-					</div>
-				</div>
-			-->	
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-5 control-lable" for="nombr">Bodega:</label>
-						<div class="col-md-6">
-							<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				</td>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Sala:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"/>							
-						</div>
-					</div>
-				</div>
-				</td>
-				</tr>
-				
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-5 control-lable" for="nombr">Costo #:</label>
-						<div class="col-md-6">
-							<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				</td>
-				
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Precio $:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				</td>
-				</tr>
-				
-				<tr>
-				<td>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-5 control-lable" for="nombr">Cant Mover:</label>
-						<div class="col-md-6">
-							<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
-							<div class="has-error">
-								<form:errors path="cantidad" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
-				</td>
-				<td>				
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-4 control-lable" for="nombr">Subtotal:</label>
-						<div class="col-md-7">
-							<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" />							
-						</div>
-					</div>
-				</div>
-				</td>
-				</tr>
-		</table> 	
-				<div class="row">					
-					<input type="submit" value="Registrar" class="btn btn-primary btn-sm" /> |||||								
-					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> |||||
-					<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >Guardar Requisición</a>
-				</div> <hr>
-
+			</div>
+		</div>
  		<table class="table table-striped ">
 				<thead>
-		    		<tr >		    			
-			      			<th>Codigo Producto</th>
-			      			<th>Nombre Producto</th>	      			
+		    		<tr class="success">
+		    				<th>ITEM</th>		    			
+			      			<th>Codigo</th>
+			      			<th>Titulo</th>	      			
 			      			<th>Cantidad</th>
 			      			<th>Costo</th>
 			      			<th>Precio</th>
-			      			<th>Subtotal</th>	
+			      			<th>Subtotal</th>
+			      			<th>ELIMINAR</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    	      
 				    	<c:forEach items="${req1}" var="requisiciones" >
-				    		<tr >
+				    		<tr class="info">				    		
+		    	            <c:if test = "${salary > 2000}">
+		    	                <c:set var="contador" value="${contador + 1}" />
+		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
 				    			<td>${requisiciones.cantidad}</td>
 				    		    <td>$ ${requisiciones.costo}</td>
 				    			<td>$ ${requisiciones.precio}</td>
 				    			<td>$ ${requisiciones.subtotal}</td>	    			
-				    			
+				    		</c:if>	
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
@@ -316,12 +225,13 @@ function add(campo) {
 				    	 </c:forEach>
 		    	</tbody>
 	    </table>          
-
-
-			</form:form>
+		<div class="well lead" align="center">
+			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICION</a>
 		</div>
+	</form:form>
+</div>
 
-	</div>
+	
 
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
 <!--  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script> -->
