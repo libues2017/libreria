@@ -1222,13 +1222,13 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalletransferencia-reg-succ";
     }
-    
+    */
     @RequestMapping(value = { "/delete-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String deleteTransferencia(@PathVariable Integer codTransferencia) {
         
         detalletransferenciaService.deleteTransferenciaById(codTransferencia);
         return "redirect:/detalletransferencia-agregar";
-    }*/
+    }
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
     public String findetalleTransferencia( HttpServletRequest request,ModelMap model, @RequestParam(required = false) 

@@ -13,6 +13,9 @@
 	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <Style>
 	h1.hidden {
@@ -45,7 +48,7 @@
    				document.getElementById('nomProducto').value = nombre1;
  				
    				existencia1.push("${current.existencia}");
- 				document.getElementById('existencia1').innerHTML = existencia1;
+ 				document.getElementById('existencia1').value = existencia1;
  				
  				if(Id1 == "Salidas"){
  					costo1.push("${current.costounitario}");
@@ -300,297 +303,133 @@
 </script>  
 
 </head>
-<body>
-	<div class="row"><%@include file="page_head.jsp"%></div>
+<body Style="background-color:#97965B">
+	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="row"><%@include file="menu.jsp"%></div>
-		<div class="col-md-12">
-			<div class="well lead">Agregar Transferencia</div>
-			<form:form method="POST" modelAttribute="detalletransferencia"
-				class="form-horizontal">
-				<form:input type="hidden" path="codDetalleTransferencia"
-					id="codDetalleTransferencia" />
-
-				<table class="col-sm-12 col-md-12">
-					<tr>
-						<td>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-5 control-lable" for="nombr">Transferencia #:</label>
-									<div class="col-md-6">
-										<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
-										<div class="has-error">
-											<form:errors path="codTransferencia" class="help-inline" />
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</td>
-
-						<td>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Origen:</label>
-									<div class="col-md-7">
-										<!-- <input type="text" name="origen" id="origen" class="form-control input-sm" onchange="sesion();" />-->
-										<SELECT name="origen" id="origen" class="form-control input-sm" onchange="sesion();">
-											<OPTION VALUE="SV-SS">San Salvador</OPTION>
-											<OPTION VALUE="SV-SA">Santa Ana</OPTION>
-											<OPTION VALUE="SV-SM">San Miguel</OPTION>
-											<OPTION VALUE="SV-SV">San Vicente</OPTION>
-										</SELECT>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-
-					<tr>
-						<td>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-5 control-lable" for="nombr">Fecha Transferencia:</label>
-									<div class="col-md-6">
-										<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
-									</div>
-								</div>
-							</div>
-						</td>
-
-						<td>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Destino:</label>
-									<div class="col-md-7">
-										<!-- <input type="text" name="destino" id="destino" class="form-control input-sm" onchange="sesion();" />-->
-										<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
-											<OPTION VALUE="SV-SS">San Salvador</OPTION>
-											<OPTION VALUE="SV-SA">Santa Ana</OPTION>
-											<OPTION VALUE="SV-SM">San Miguel</OPTION>
-											<OPTION VALUE="SV-SV">San Vicente</OPTION>
-										</SELECT>
-									</div>
-								</div>
-							</div>
-						</td>
-					</tr>
-
-					<tr>
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-5 control-lable" for="nombr">De:</label>
-									<div class="col-md-6">
-										<!--<input type="text" name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();" />-->
-										<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();">
-											<OPTION VALUE="Salidas">Salidas</OPTION>
-											<OPTION VALUE="Ingresos">Ingresos</OPTION>
-										</SELECT>
-									</div>
-								</div>
-							</div>
-						</th>
-
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Utilidad:</label>
-									<div class="col-md-7">
-										<form:input type="text" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" />
-										<div class="has-error">
-											<form:errors path="utilidad" class="help-inline" />
-										</div>
-									</div>
-								</div>
-							</div>
-						</th>
-					</tr>
-
-				</table>
-
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="tags">Codigo:</label>
-						<div class="col-md-3">
+		<div class="well lead">Agregar Transferencia</div>
+			<form:form method="POST" modelAttribute="detalletransferencia"	class="form-horizontal">
+			<form:input type="hidden" path="codDetalleTransferencia" id="codDetalleTransferencia" />
+		
+		<div class="panel-group">			
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-2">
+							<label class="form-control" for="nombr">Doc. #:</label>
+							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
+						</div>
+						<div class="col-xs-2">			
+							<label class="form-control" for="nombr">Origen:</label>
+							<SELECT name="origen" id="origen" class="form-control input-sm" onchange="sesion();">
+								<OPTION VALUE="SV-SS">San Salvador</OPTION>
+								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
+								<OPTION VALUE="SV-SM">San Miguel</OPTION>
+								<OPTION VALUE="SV-SV">San Vicente</OPTION>
+							</SELECT>
+						</div>
+						<div class="col-xs-2">			
+						<label class="form-control" for="nombr">Fecha:</label>
+						<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
+						</div>
+						<div class="col-xs-2">			
+							<label class="form-control" for="nombr">Destino:</label>
+							<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+								<OPTION VALUE="SV-SS">San Salvador</OPTION>
+								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
+								<OPTION VALUE="SV-SM">San Miguel</OPTION>
+								<OPTION VALUE="SV-SV">San Vicente</OPTION>
+							</SELECT>
+						</div>
+						<div class="col-xs-2">			
+							<label class="form-control" for="nombr">De:</label>
+							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();">
+								<OPTION VALUE="Salidas">Salidas</OPTION>
+								<OPTION VALUE="Ingresos">Ingresos</OPTION>
+							</SELECT>
+						</div>
+						<div class="col-xs-2">
+							<label class="form-control" for="nombr">Utilidad:</label>
+							<form:input type="number" min="0" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="form-group row">		
+					<div class="panel-body">
+						<div class="col-xs-2">			
+							<label class="form-control" for="tags">Codigo:</label>
 							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1();' />
-							<div class="has-error">
-								<form:errors path="codProducto" class="help-inline" />
-							</div>
+						</div>
+						<div class="col-xs-8">
+							<label class="form-control" for="nombr">Titulo:</label>
+							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm"  />
+						</div>
+						<div class="col-xs-2">		
+							<label class="form-control" for="existencia1" >Existencias:</label>
+							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm"  />					                   
 						</div>
 					</div>
 				</div>
-
-				<table class="col-sm-12 col-md-12">
-					<tr>
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Titulo:</label>
-									<div class="col-md-7">
-										<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm"  />
-									</div>
-								</div>
-							</div>
-						</th>
+				<div class="form-group row">
+					<div class="panel-body">		
+						<div class="col-xs-2">
+							<label class="form-control" for="nombr">Cantidad:</label>
+							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto')" />
+						</div>
+						<div class="col-xs-2">
+							<label class="form-control" for="nombr">Costo:</label>
+							<form:input type="text" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' />
+						</div>
+						<div class="col-xs-2">		
+							<label class="form-control" for="nombr">Precio:</label>
+							<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-2">
+							<label class="form-control" for="nombr">SubTotal:</label>
+							<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" />
+						</div>
 						
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" >Existencias:</label>
-									<div class="col-md-7">  
-										<table class="table table-striped ">
-											<td><label class="col-md-3 control-lable" for="existencia1" id="existencia1"></label></td>					                   
-					    				</table>   
-									</div>
-								</div>
-							</div>
-						</th>
-					</tr>
-				</table>
-
-				<table class="col-sm-12 col-md-12">
-					<tr>
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Cantidad:</label>
-									<div class="col-md-7">
-										<form:input type="text" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto')" />
-										<div class="has-error">
-											<form:errors path="cantidadProducto" class="help-inline" />
-										</div>
-										<span class="help-block"></span>
-									</div>
-								</div>
-							</div>
-						</th>
+						<div class="col-xs-2" style="display: none">
+							<label class="col-md-3 control-lable" for="nombr">EXISTENCIA ANTERIOR</label>
+							<form:input type="text" path="existenciaAnterior" id="existenciaAnterior" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-2" style="display: none">
+							<label class="col-md-3 control-lable" for="nombr">Costo	ANTERIOR</label>
+							<form:input type="text" path="costoAnterior" id="costoAnterior" class="form-control input-sm" />
+						</div>
+						<div class="col-xs-2" style="display: none">
+							<label class="col-md-3 control-lable" for="nombr">Precio ANTERIOR</label>
+							<form:input type="text" path="precioAnterior" id="precioAnterior" class="form-control input-sm" />
+						</div>	
 						
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Costo:</label>
-									<div class="col-md-7">
-										<form:input type="text" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' />
-										<div class="has-error">
-											<form:errors path="costoProducto" class="help-inline" />
-										</div>
-										<span class="help-block"></span>
-									</div>
-								</div>
-							</div>
-						</th>
-						
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">Precio:</label>
-									<div class="col-md-7">
-										<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" />
-										<div class="has-error">
-											<form:errors path="precioProducto" class="help-inline" />
-										</div>
-									</div>
-								</div>
-							</div>
-						</th>
-						
-						<th>
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="col-md-4 control-lable" for="nombr">SubTotal:</label>
-									<div class="col-md-7">
-										<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" />
-										<div class="has-error">
-											<form:errors path="subTotal" class="help-inline" />
-										</div>
-									</div>
-								</div>
-							</div>
-						</th>
-				
-					</tr>
-				</table>
-				
-
-				<div class="row">
-					<div class="form-group col-md-12" style="display: none">
-						<label class="col-md-3 control-lable" for="nombr">EXISTENCIA
-							ANTERIOR</label>
-						<div class="col-md-7">
-							<form:input type="text" path="existenciaAnterior"
-								id="existenciaAnterior" class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="existenciaAnterior" class="help-inline" />
-							</div>
+						<div class="col-xs-2">
+							<input type="submit" value="Agregar" class="btn btn-primary btn-sm" />
+						</div>
+						<div class="col-xs-2">
+							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" >Cancelar</a>
 						</div>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="form-group col-md-12" style="display: none">
-						<label class="col-md-3 control-lable" for="nombr">Costo
-							ANTERIOR</label>
-						<div class="col-md-7">
-							<form:input type="text" path="costoAnterior" id="costoAnterior"
-								class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="costoAnterior" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-md-12" style="display: none">
-						<label class="col-md-3 control-lable" for="nombr">Precio
-							ANTERIOR</label>
-						<div class="col-md-7">
-							<form:input type="text" path="precioAnterior" id="precioAnterior"
-								class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="precioAnterior" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- 
-				<div class="row">
-					<div class="form-actions floatRight">
-						<c:choose>
-							<c:when test="${edit}">
-								<input type="submit" value="Actualizar" class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detalletransferencia-list' />">Cancelar</a>
-							</c:when>
-							<c:otherwise>
-								<input type="submit" value="Agregar" class="btn btn-primary btn-sm" /> ó <a href="<c:url value='/detalletransferencia-list' />">Cancelar</a>
-                            	ó <a href="<c:url value='/finalizar1' />">Finalizar</a>
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</div>
-				-->
-				
-				<div class="row">					
-					<input type="submit" value="Agregar" class="btn btn-primary btn-sm" />  								
-					<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" >Cancelar</a> 
-					<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm" >Terminar Transferencia</a>
-				</div> <hr>
-				
+			</div>
+		</div>								
+	
 				<table class="table table-striped ">
 					<thead>
-						<tr>
+						<tr class="success">
 							<th>Codigo</th>
 							<th>Titulo</th>
 							<th>Cantidad</th>
 							<th>Costo</th>
 							<th>Precio</th>
 							<th>SubTotal</th>
-						</tr>
+							<th>ELIMINAR</th>
+						</tr >
 					</thead>
 					
 					<tbody>
 						<c:forEach items="${transferencia2}" var="transferencias">
-							<tr>
+							<tr class="info">
 								<c:set var="salary" scope="session" value="${2000*2}" />
 								<c:if test="${salary > 2000}">
 									<td>${transferencias.codProducto}</td>
@@ -602,18 +441,19 @@
 								</c:if>
 
 								<sec:authorize access="hasRole('ADMINISTRADOR')">
-									<td><a
-										href="<c:url value='/delete-detalleTransferencia-${transferencias.codDetalleTransferencia}' />"
+									<td><a href="<c:url value='/delete-detalleTransferencia-${transferencias.codDetalleTransferencia}' />"
 										class="btn btn-danger custom-width">Eliminar</a></td>
 								</sec:authorize>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-					
-			</form:form>
-		</div>
-	</div>
+			<div class="well lead" align="center">	
+				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm" >Guardar Transferencia</a>
+			</div>			
+		</form:form>
+</div>
+
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
