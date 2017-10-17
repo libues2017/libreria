@@ -33,6 +33,10 @@ private static final long serialVersionUID = 1L;
 	private String nombreproducto;
 	
 	@NotNull
+	@Column(name="sala")
+	private Integer sala;
+	
+	@NotNull
 	@Column(name="precio")
 	private Double precio;
 	
@@ -99,5 +103,15 @@ private static final long serialVersionUID = 1L;
 	public void setSubtotalfactura(Double subtotalfactura) {
 		this.subtotalfactura = subtotalfactura;
 	}
+
+	public Integer getSala() {
+		return sala;
+	}
+
+	public void setSala(Integer sala) {
+		this.sala = sala;
+	}
+	
+	
 	
 }
