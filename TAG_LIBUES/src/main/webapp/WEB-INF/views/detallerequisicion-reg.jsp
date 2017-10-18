@@ -22,7 +22,13 @@
 .control-label {
 	text-align: left;
 }
+
+invalid {
+border: 2px solid #ff0000;
+}
 </Style>
+
+
 
 <script type="text/javascript">
 
@@ -149,20 +155,21 @@ function add(campo) {
 				<div class="form-group row">		
 					<div class="panel-body">
 						<div class="col-xs-2">
-						<label class="form-control" for="tags">Codigo:</label>
-						<form:input type="number" path="codigoproducto" id="codigoproducto" name="codigo-producto" placeholder="DIGITAR (99999)" class="form-control input-sm" onchange='producto();'/>
+						<label class="form-control" for="tags">Código:</label>
+						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (99999)" class="form-control input-sm" 
+									onchange='producto();' title="Digitar codigo del producto, solo números"/>
 						</div>
 						<div class="col-xs-6">
-						<label class="form-control" for="nombr">Titulo:</label>
-						<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+						<label class="form-control" for="nombr">Título:</label>
+						<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Bodega:</label>
-						<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Sala:</label>
-						<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"/>							
+						<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 						</div>
 					</div>
 				</div>
@@ -170,19 +177,20 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-3">
 						<label class="form-control" for="costo">Costo #:</label>
-						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="precio">Precio $:</label>
-						<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (999)" class="form-control input-sm" onchange="add('cantidad')" />
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (999)" class="form-control input-sm" onchange="add('cantidad')" 
+									title="Digitar cantidad a mover, solo números"/>
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
-						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" />							
+						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 			 			</div>
 			 		</div>
 			 	</div>
@@ -196,8 +204,8 @@ function add(campo) {
 				<thead>
 		    		<tr class="success">
 		    				<th>ITEM</th>		    			
-			      			<th>Codigo</th>
-			      			<th>Titulo</th>	      			
+			      			<th>Código</th>
+			      			<th>Título</th>	      			
 			      			<th>Cantidad</th>
 			      			<th>Costo</th>
 			      			<th>Precio</th>
@@ -228,15 +236,20 @@ function add(campo) {
 		    	</tbody>
 	    </table>          
 		<div class="well lead" align="center">
-			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICION</a>
+			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
 		</div>
 	</form:form>
 </div>
 
 	
 
-<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
-<!--  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script> -->
+<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>   
+<!--  
+pages:
+http://formvalidation.io/examples/changing-success-error-colors/
+http://www.um.es/docencia/barzana/DAWEB/Desarrollo-de-aplicaciones-web-teoria-formularios-ejemplo-1.html
+-->
  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
