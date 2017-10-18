@@ -47,8 +47,9 @@
 			               { title: "CODIGO" },
 			               { title: "NOMBRE DEL AREA" },
 			               {"render": function () {
-			                   return '<button type="button" id="ButtonEditar" class="editar edit-modal btn btn-warning botonEditar"><span class="fa fa-edit"></span><span class="hidden-xs"> Editar</span></button>';
+			                   return '<a href="<c:url value='/edit-area-{codigoarea}' />" class="btn btn-success custom-width">Editar</a></td>';
 			               }}
+			              
 			               
 			               ]
 			        
@@ -56,30 +57,16 @@
 			    } );
 			    
 			   </script>
-			   
-			   <script>
-			   
-			   
-			   $(document).ready(function() {
-				    var table = $('#areas').DataTable();
-				 
-				    $('#example tbody').on( 'click', 'tr', function () {
-				        if ( $(this).hasClass('selected') ) {
-				            $(this).removeClass('selected');
-				        }
-				        else {
-				            table.$('tr.selected').removeClass('selected');
-				            $(this).addClass('selected');
-				        }
-				    } );
-				 
-				    $('#button').click( function () {
-				        table.row('.selected').remove().draw( false );
-				    } );
-				} );
-			   
-			   
-			   </script>
+								   
+		      <script> 
+		      var e;
+		      $('#busqueda1').on("click", 'td', function(element) {
+		    	    e=document.getElementById("busqueda1").value = this.innerHTML;
+		    	  });
+					
+					alert(e);
+					
+			   </script> 
 
 </head>
 <body>
