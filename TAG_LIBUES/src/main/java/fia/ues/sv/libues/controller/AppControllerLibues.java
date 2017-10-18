@@ -1523,14 +1523,11 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/guardar" }, method = RequestMethod.GET)
-    public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
-    	   String fecharequisicion, String destino )throws IOException, ParseException {
+    public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model, @RequestParam(required = false) String destino )throws IOException, ParseException {
     	
           HttpSession sesion=request.getSession(true);    	
           Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
-          sesion.setAttribute("codigoultimo", codigorequisicion);     
-                   
-      //    String destino = request.getParameter("destinorequisicion");
+          sesion.setAttribute("codigoultimo", codigorequisicion);         
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){
@@ -1550,7 +1547,7 @@ public class AppControllerLibues {
             	  Integer sala = sala1 + cantidad;
             	  productoService.updateExistencia(codigoproducto, existencia, sala);
         	  }
-        	  System.out.println(destino+ " Hola");
+        	  
           }          
        
           String fecha =(String) sesion.getAttribute("mySessionAttribute");          
