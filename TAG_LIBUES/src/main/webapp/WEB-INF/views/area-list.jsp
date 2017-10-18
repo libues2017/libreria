@@ -15,9 +15,13 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
 	<script type="text/javascript">
 					
-					
+				
+	
+	
+	
 	</script>
 	
 	
@@ -48,7 +52,10 @@
 			               { title: "NOMBRE DEL AREA" },
 			             
 			               {"render": function () {
-			                   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
+			                   
+			            	  
+			            	   
+			            	   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
 			               }}
 			              
 			              
@@ -62,6 +69,11 @@
 
 								return nRow;
 							}*/
+							
+							
+							
+							
+						
 			        
 			        } );
 			    	
@@ -74,8 +86,12 @@
 			    	        else {
 			    	            tabla.$('tr.selected').removeClass('selected');
 			    	            $(this).addClass('selected');
-			    	            dato = $(this).find("td:eq(0)").text();
-			    	           // alert(dato);
+			    	            dato = $(this).find("td:eq(2)").text();
+			    	           // var button = '<input type="submit" value="Numero parrafos" id="num_parrafos" name="Numero Parrafos"/>';
+			    	           // $('#formID').append(button); o $('.formClass').append(button);
+			    	            
+			    	            return '<a href="<c:url value='/edit-area-dato' />" class="btn btn-success custom-width">Editar</a></td>';
+			    	            //alert(dato);
 			    	        }
 			    	    } );
 			        
