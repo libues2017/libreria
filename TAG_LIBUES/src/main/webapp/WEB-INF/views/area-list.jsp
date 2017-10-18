@@ -41,34 +41,73 @@
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
 			    $(document).ready(function() {
-			        $('#areas').DataTable( {
+			    	var tabla =  $('#areas').DataTable( {
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO" },
 			               { title: "NOMBRE DEL AREA" },
+			             
 			               {"render": function () {
-			                   return '<a href="<c:url value='/edit-area-{codigoarea}' />" class="btn btn-success custom-width">Editar</a></td>';
+			                   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
 			               }}
+			              
 			              
 			               
 			               ]
+			               /*"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) //Inicializa los botones en todas las paginas
+							{
+									$( ".editar" ).button({ icons: {primary: "ui-icon-pencil" }  });
+									$( ".eliminar" ).button({ icons: {primary: "ui-icon-trash" }  });
+
+
+								return nRow;
+							}*/
 			        
 			        } );
+			    	
+			    	 $('#areas tbody').on( 'click', 'tr', function () {
+			    	        if ( $(this).hasClass('selected') ) {
+			    	            $(this).removeClass('selected');
+			    	            dato = "";
+			    	            //alert(dato);
+			    	        }
+			    	        else {
+			    	            tabla.$('tr.selected').removeClass('selected');
+			    	            $(this).addClass('selected');
+			    	            dato = $(this).find("td:eq(0)").text();
+			    	           // alert(dato);
+			    	        }
+			    	    } );
+			        
+			        
+			    	
+			        
+			        
 			    } );
 			    
 			   </script>
 								   
-		      <script> 
-		      var e;
-		      $('#busqueda1').on("click", 'td', function(element) {
-		    	    e=document.getElementById("busqueda1").value = this.innerHTML;
-		    	  });
-					
-					alert(e);
-					
-			   </script> 
+		      
 
 </head>
+
+<script type="text/javascript">
+
+			function obtenNombre(fila) 
+			{ 
+			    var e = document.getElementById("areas").rows[fila].cells[1].innerText; 
+			    alert(e);
+			    
+			    //location.href = 'pagina.jsp?campo=' + x; 
+			} 
+</script> 
+
+
+</script>
+
+
+
+
 <body>
 
 <div class="row"><%@include file="page_head.jsp" %></div>
