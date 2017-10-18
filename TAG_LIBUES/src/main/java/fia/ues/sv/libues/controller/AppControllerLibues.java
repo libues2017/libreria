@@ -1328,6 +1328,12 @@ public class AppControllerLibues {
  		return "ReportTransferencias";
  	}
 
+     //Control para el Reporte de requisicion
+     @RequestMapping(value={"/repo_requisiciones"}, method = RequestMethod.GET)
+ 	public String repoteRequisicionIngreso(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "ReporteRequisicionIngreso";
+ 	}
     
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
@@ -1559,7 +1565,7 @@ public class AppControllerLibues {
           Integer codigo2 = 0;
 		  sesion.setAttribute("codigo2", codigo2);
     	
-		return "detallerequisicion-list";
+		return "GenerarReporteRequisicion";
 
     }// ******************************** Finaliza REQUISICIONES
     

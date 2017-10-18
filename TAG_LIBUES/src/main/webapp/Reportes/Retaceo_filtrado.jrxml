@@ -131,7 +131,7 @@
 		</groupFooter>
 	</group>
 	<title>
-		<band height="158" splitType="Stretch">
+		<band height="183" splitType="Stretch">
 			<line>
 				<reportElement x="0" y="80" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -181,34 +181,37 @@
 				<imageExpression><![CDATA["Logo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="100" y="90" width="330" height="30" uuid="3515c9ab-e449-48bf-8273-be9ddbe4978c"/>
+				<reportElement x="102" y="86" width="330" height="30" uuid="3515c9ab-e449-48bf-8273-be9ddbe4978c"/>
 				<textElement textAlignment="Center">
 					<font size="16"/>
 				</textElement>
 				<text><![CDATA[Reporte de Ingreso Retaceo de Productos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="11" y="128" width="59" height="16" uuid="1a49217c-5046-4536-afca-ba827fc32503"/>
+				<reportElement x="11" y="130" width="59" height="16" uuid="1a49217c-5046-4536-afca-ba827fc32503"/>
 				<text><![CDATA[Retaceo N° ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="70" y="128" width="100" height="16" uuid="21e1a107-abf1-4755-a527-05aa9e4eaae3"/>
+				<reportElement x="70" y="131" width="100" height="16" uuid="21e1a107-abf1-4755-a527-05aa9e4eaae3"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGORETACEO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="181" y="128" width="39" height="16" uuid="b50a999d-611f-4345-a20d-8496a4e7a7f8"/>
+				<reportElement x="186" y="128" width="39" height="16" uuid="b50a999d-611f-4345-a20d-8496a4e7a7f8"/>
 				<text><![CDATA[Fecha :]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="230" y="128" width="70" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<reportElement x="230" y="126" width="70" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
 				<textElement>
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHARETACEO}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="-1" y="124" width="337" height="34" uuid="8f8ac440-55f4-4363-a2d1-68c18cae446d"/>
+			</rectangle>
 		</band>
 	</title>
 	<pageHeader>

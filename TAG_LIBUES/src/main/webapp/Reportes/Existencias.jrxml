@@ -58,9 +58,9 @@ FROM libues.autor_libro
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="91" splitType="Stretch">
+		<band height="141" splitType="Stretch">
 			<image>
-				<reportElement x="-1" y="7" width="83" height="80" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
+				<reportElement x="-1" y="-6" width="83" height="80" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
@@ -109,17 +109,75 @@ FROM libues.autor_libro
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="4" y="102" width="100" height="19" uuid="951fc0d7-680a-44ff-8456-458083e51bd4"/>
+				<textFieldExpression><![CDATA[$P{par_area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="100" width="100" height="20" uuid="8fa701df-940c-4d38-8d0b-9c9cc119406e"/>
+				<textFieldExpression><![CDATA[$P{par_tipoprod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="101" width="100" height="20" uuid="c25f136c-3071-47be-b4a5-58c7706b7c9c"/>
+				<textFieldExpression><![CDATA[$P{par_provee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="101" width="100" height="19" uuid="559d6a14-e477-48cf-a253-4a9b2badda7e"/>
+				<textFieldExpression><![CDATA[$P{par_editorial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="100" width="100" height="21" uuid="61b96191-b28d-48cc-b847-4b9391131f4d"/>
+				<textFieldExpression><![CDATA[$P{par_consig}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="471" y="80" width="100" height="20" uuid="569a4569-816b-4269-90de-d9628058b960"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consignacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="79" width="100" height="21" uuid="0664215d-32ff-4415-8f15-b7277e555c07"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="80" width="100" height="20" uuid="ada4f370-eeec-4d99-9f4d-9480c69b7361"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Editorial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="80" width="100" height="20" uuid="74932a7a-bb8d-450a-b765-5c54d9878d8a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="80" width="100" height="20" uuid="6bb9dd3b-3f39-469a-81c1-ce2838620be7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement x="170" y="0" width="250" height="21" uuid="46e769f9-2026-4bf7-b2e1-d868f935d2c5"/>
-				<textElement>
-					<font fontName="Arial" size="14" isBold="true"/>
+				<reportElement x="156" y="2" width="322" height="21" uuid="46e769f9-2026-4bf7-b2e1-d868f935d2c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Existencias de Productos]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="-2" y="-62" width="581" height="41" uuid="368d5101-da78-47b6-9faa-41ab895958a9"/>
+			</rectangle>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -160,29 +218,29 @@ FROM libues.autor_libro
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="-1" y="1" width="580" height="28" uuid="4f366a70-c81c-492f-8f00-909db266f00a"/>
+				<reportElement mode="Transparent" x="-10" y="1" width="589" height="28" uuid="4f366a70-c81c-492f-8f00-909db266f00a"/>
 			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="51" splitType="Stretch">
+		<band height="36" splitType="Stretch">
 			<textField>
 				<reportElement x="-2" y="-11" width="100" height="30" uuid="86899d92-c246-443d-a78d-86f78b52a91d"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="-10" width="100" height="30" uuid="aa4eb3b2-7d2c-4d3e-88fd-ea20532b2809"/>
+				<reportElement x="110" y="-10" width="130" height="30" uuid="aa4eb3b2-7d2c-4d3e-88fd-ea20532b2809"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="-9" width="100" height="30" uuid="97a5ef04-87b5-427b-830f-01276d81d1c7"/>
+				<reportElement x="247" y="-9" width="100" height="30" uuid="97a5ef04-87b5-427b-830f-01276d81d1c7"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="362" y="-9" width="100" height="30" uuid="907ad093-619f-48d5-98eb-d08bb7d1e7ee"/>
+				<reportElement x="364" y="-9" width="100" height="30" uuid="907ad093-619f-48d5-98eb-d08bb7d1e7ee"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{EXISTENCIA}]]></textFieldExpression>
 			</textField>
@@ -192,7 +250,7 @@ FROM libues.autor_libro
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-2" y="30" width="581" height="1" uuid="4ff5b019-86b6-428e-82aa-7958975edc8a">
+				<reportElement x="-2" y="24" width="581" height="1" uuid="4ff5b019-86b6-428e-82aa-7958975edc8a">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
