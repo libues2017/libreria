@@ -38,9 +38,11 @@ public class DetalleRequisicion implements Serializable{
 	@Column(name="CANTIDADMOV")
 	private Integer cantidad;
 	
+	@NotNull
 	@Column(name="BODEGA")
 	private Integer bodega;
 	
+	@NotNull
 	@Column(name="SALA")
 	private Integer sala;
 	

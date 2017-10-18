@@ -1504,7 +1504,7 @@ public class AppControllerLibues {
             return "detallerequisicion-reg";
         }
     	detallerequisicionService.saveDetalleRequisicion(detallerequisicion);
-		
+    	
     	Integer codigorequisicion = Integer.parseInt(request.getParameter("codigorequisicion"));
     	HttpSession sesion2=request.getSession(true);
     	Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharequisicion);    	
@@ -1528,6 +1528,7 @@ public class AppControllerLibues {
           HttpSession sesion=request.getSession(true);    	
           Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
           sesion.setAttribute("codigoultimo", codigorequisicion);         
+         // String bodega = "BODEGA"; 
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){

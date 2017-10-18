@@ -118,7 +118,7 @@ function add(campo) {
 
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">Agregar Requisición</div>
+		<div class="well lead" align="center">Realizar Requisición</div>
 		<form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
@@ -132,9 +132,9 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Destino:</label>
-						<SELECT name="destino" id="destino" placeholder="SELECCIONAR" class="form-control input-sm" onchange="sesion();">
-							<OPTION VALUE="SALA" data-toggle="collapse" data-target="#req-sala">Sala</OPTION>
-							<OPTION VALUE="BODEGA" data-toggle="collapse" data-target="#req-bodega">Bodega</OPTION>
+						<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+							<OPTION VALUE="SALA" >Sala</OPTION>
+							<OPTION VALUE="BODEGA" >Bodega</OPTION>
 						</SELECT>
 						</div>
 						<div class="col-xs-3">			
@@ -150,7 +150,7 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Codigo:</label>
-						<form:input type="text" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
+						<form:input type="number" path="codigoproducto" id="codigoproducto" name="codigo-producto" placeholder="DIGITAR (99999)" class="form-control input-sm" onchange='producto();'/>
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Titulo:</label>
@@ -169,16 +169,16 @@ function add(campo) {
 				<div class="form-group row">
 					<div class="panel-body">
 						<div class="col-xs-3">
-						<label class="form-control" for="nombr">Costo #:</label>
+						<label class="form-control" for="costo">Costo #:</label>
 						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
 						<div class="col-xs-3">
-						<label class="form-control" for="nombr">Precio $:</label>
+						<label class="form-control" for="precio">Precio $:</label>
 						<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />							
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (999)" class="form-control input-sm" onchange="add('cantidad')" />
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
@@ -206,10 +206,12 @@ function add(campo) {
 		    		</tr>
 		    	</thead>
 		    	<tbody>
+		    			<c:set var="contador" value="${0}" />
 				    	<c:forEach items="${req1}" var="requisiciones" >
 				    		<tr class="info">				    		
-		    	            <c:if test = "${salary > 2000}">
-		    	                <c:set var="contador" value="${contador + 1}" />
+		    	            <c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	           <c:if test = "${salary > 2000}">
+		    	                <c:set var="contador" value="${contador + 1}" />	
 		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>

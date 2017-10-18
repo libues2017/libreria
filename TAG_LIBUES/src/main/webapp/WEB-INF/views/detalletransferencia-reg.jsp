@@ -306,7 +306,7 @@
 <body Style="background-color:#97965B">
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead">Agregar Transferencia</div>
+		<div class="well lead" align="center">Realizar Transferencia</div>
 			<form:form method="POST" modelAttribute="detalletransferencia"	class="form-horizontal">
 			<form:input type="hidden" path="codDetalleTransferencia" id="codDetalleTransferencia" />
 		
