@@ -1605,10 +1605,7 @@ public class AppControllerLibues {
             return "facturadetalle-reg";
         }
     	facturadetalleService.saveFacturaDetalle(facturadetalle);
-		/*
-    	Integer numerofact = 1000;
-    	Double total = 0.0;
-    	String tipo = "Contado"; */
+		
     	
     	Integer idfactura = Integer.parseInt(request.getParameter("idfactura"));
     	HttpSession sesion2=request.getSession(true);
@@ -1626,6 +1623,37 @@ public class AppControllerLibues {
     	facturadetalleService.deleteFacturaById(idfactura);
     	return "redirect:/detallefacturacion-agregar";        
     }
+    
+    
+    @RequestMapping(value = { "/facturar-contado" }, method = RequestMethod.GET)
+    public String saveFacturacionContado( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
+    	   String fecha)throws IOException, ParseException {
+    	
+    	 HttpSession sesion=request.getSession(true);    	
+         Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
+         sesion.setAttribute("codigoultimo", codigofact);     
+                          
+         List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
+         for(int i=0;i<facturaBuscar.size();i++){
+        	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
+	       	 Integer cantidad = facturaBuscar.get(i).getCantidad();	       	 
+	       	 Integer existencia = facturaBuscar.get(i).getSala();
+	       	 Integer sala = existencia - cantidad;
+	       	 productoService.updateSalaVenta1(codigoproducto, sala);
+         }
+         
+         String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
+         Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          
+         Factura factura = new Factura();
+         factura.setFechafactura(fechafactura1);
+         factura.setNumerofactura(1001);
+ 		 facturaService.saveFactura(factura);  		
+         Integer idfactura = 0;
+		 sesion.setAttribute("codigofact", idfactura);
+    	
+    	return "redirect:/detallefacturacion-agregar";
+    }
+
     
      
     

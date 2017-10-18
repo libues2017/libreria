@@ -125,6 +125,13 @@ public class ProductoServiceImpl implements ProductoService{
 		
 	}
 	
-	
+	@Override
+	public void updateSalaVenta1(Integer codigoproducto, Integer sala) {
+		Producto entity = dao.findByCorrelativo(codigoproducto);
+		if(entity !=null){
+			entity.setSala(sala);	
+		}
+		
+	}	
 	
 }
