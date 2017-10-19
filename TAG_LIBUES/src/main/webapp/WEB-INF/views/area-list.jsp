@@ -16,6 +16,11 @@
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+
+	
+	
+	
 	<script type="text/javascript">
 					
 				
@@ -61,15 +66,7 @@
 			              
 			               
 			               ]
-			               /*"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) //Inicializa los botones en todas las paginas
-							{
-									$( ".editar" ).button({ icons: {primary: "ui-icon-pencil" }  });
-									$( ".eliminar" ).button({ icons: {primary: "ui-icon-trash" }  });
-
-
-								return nRow;
-							}*/
-							
+			        
 							
 							
 							
@@ -86,13 +83,52 @@
 			    	        else {
 			    	            tabla.$('tr.selected').removeClass('selected');
 			    	            $(this).addClass('selected');
-			    	            dato = $(this).find("td:eq(2)").text();
+			    	            dato = $(this).find("td:eq(0)").text();
 			    	           // var button = '<input type="submit" value="Numero parrafos" id="num_parrafos" name="Numero Parrafos"/>';
 			    	           // $('#formID').append(button); o $('.formClass').append(button);
 			    	            
-			    	            return '<a href="<c:url value='/edit-area-dato' />" class="btn btn-success custom-width">Editar</a></td>';
+			    	           // return '<a href="<c:url value='/edit-area-dato' />" class="btn btn-success custom-width">Editar</a></td>';
 			    	            //alert(dato);
+			    	            
+			    	            var dato2 =parseInt(dato);
+			    	        	
+			    	            var str = JSON.stringify(dato);
+			    	            //console.log(str);
+			    	            var obj = JSON.parse(str);
+
+			    	            /*var button = '<input type="submit" value="Numero parrafos" id="num_parrafos" name="Numero Parrafos"/>';
+			    	            $('form1').append(button)*/
+			    	            
+			    	            var capa = document.getElementById("capa");
+			    	            var h1 = document.createElement("hola");
+				    	         var h0="<a href='";
+				    	         var h01="<c:url value='";
+			    	            var h2="/";
+			    	            var h3="edit-area-";
+			    	            var h4=dato2;
+			    	            var h5="' />'";
+			    	            var h6="class=";			    	            	
+			    	            var h7="btn btn-success custom-width";
+			    	            var h8= ">Editar</a></td>";
+			    	            
+			    	            var res14 = h0.concat(h01);
+			    	            var res = h01.concat(h2);
+			    	            var res1 = res.concat(h3, h4);
+			    	            var res2 = res1.concat(h5, h6);
+			    	            var res3 = res2.concat(h7, h8);
+			    	           // var res4 = res3.concat(h8);
+			    	           alert(res3);
+			    	            
+			    	            
+			    	           // h1.innerHTML = '<a href="<c:url value='/edit-area-$dato2' />" class="btn btn-success custom-width">Editar</a></td>';
+			    	            //capa.appendChild(h1);
+			    	            
+			    	          
+			    	            
 			    	        }
+			    	        
+			    	        
+			    	       
 			    	    } );
 			        
 			        
@@ -126,13 +162,19 @@
 
 <body>
 
+  
+<div id="capa" class="row">
+
+   <h1>Areas</h1>
+</div>
+
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 	<div class="row"><%@include file="menu.jsp" %></div>
 	<div class="row">
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
+            <div   class="well">
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> |
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
