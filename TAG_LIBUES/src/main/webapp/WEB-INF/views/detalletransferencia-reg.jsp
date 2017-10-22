@@ -318,6 +318,20 @@
 							<label class="form-control" for="nombr">Doc. #:</label>
 							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
 						</div>
+						
+						<div class="col-xs-2">			
+							<label class="form-control" for="nombr">De:</label>
+							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();">
+								<OPTION VALUE="Salidas">Salidas</OPTION>
+								<OPTION VALUE="Ingresos">Ingresos</OPTION>
+							</SELECT>
+						</div>
+						
+						<div class="col-xs-2">			
+							<label class="form-control" for="nombr">Fecha:</label>
+							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
+						</div>
+						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">Origen:</label>
 							<SELECT name="origen" id="origen" class="form-control input-sm" onchange="sesion();">
@@ -327,10 +341,7 @@
 								<OPTION VALUE="SV-SV">San Vicente</OPTION>
 							</SELECT>
 						</div>
-						<div class="col-xs-2">			
-						<label class="form-control" for="nombr">Fecha:</label>
-						<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
-						</div>
+						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">Destino:</label>
 							<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
@@ -340,13 +351,7 @@
 								<OPTION VALUE="SV-SV">San Vicente</OPTION>
 							</SELECT>
 						</div>
-						<div class="col-xs-2">			
-							<label class="form-control" for="nombr">De:</label>
-							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();">
-								<OPTION VALUE="Salidas">Salidas</OPTION>
-								<OPTION VALUE="Ingresos">Ingresos</OPTION>
-							</SELECT>
-						</div>
+						
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Utilidad:</label>
 							<form:input type="number" min="0" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" />

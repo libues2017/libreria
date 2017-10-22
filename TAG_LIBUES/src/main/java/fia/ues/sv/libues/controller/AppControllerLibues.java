@@ -1231,12 +1231,13 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
-    public String findetalleTransferencia( HttpServletRequest request,ModelMap model, @RequestParam(required = false) 
-    String fechaTransferencia, String tipoTransferencia )throws IOException, ParseException {
+    public String findetalleTransferencia( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
         
           HttpSession sesion = request.getSession(true);
           Integer codTransferencia = (Integer) sesion.getAttribute("codigo1");
           sesion.setAttribute("codigoultimo", codTransferencia);
+          //Leer valor a comparar, Salidas o Ingresos
+          String tipoTransferencia = transferenciaService.findById(codTransferencia).getTipoTransferencia();
           
           List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
           for(int i=0;i<transferenciaBuscar.size();i++){
@@ -1244,18 +1245,17 @@ public class AppControllerLibues {
               Integer existenciaAnterior = transferenciaBuscar.get(i).getExistenciaAnterior();
               Integer cantidad = transferenciaBuscar.get(i).getCantidadProducto();
               
-              Double precio = transferenciaBuscar.get(i).getPrecioProducto();
-              Double costo = transferenciaBuscar.get(i).getCostoProducto();
-              Integer existencia = existenciaAnterior + cantidad;                  
-              productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
-              
-              /*if (tipoTransferencia == "Ingresos"){
+              if (tipoTransferencia.equals("Ingresos")){
+            	  Double precio = transferenciaBuscar.get(i).getPrecioProducto();
+            	  Double costo = transferenciaBuscar.get(i).getCostoProducto();
+            	  Integer existencia = existenciaAnterior + cantidad;                  
+            	  productoService.updatePrecioProducto1(codProducto, precio, costo,existencia);
                   
               }
               else{
                   Integer existencia = existenciaAnterior - cantidad;
                   productoService.updateExistencia1(codProducto, existencia);
-              }*/
+              }
              
           }
            
