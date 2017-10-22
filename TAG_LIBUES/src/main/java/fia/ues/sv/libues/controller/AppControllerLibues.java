@@ -1529,12 +1529,13 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/guardar" }, method = RequestMethod.GET)
-    public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model, @RequestParam(required = false) String destino )throws IOException, ParseException {
+    public String saveDetalleRequisicion( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
           HttpSession sesion=request.getSession(true);    	
           Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
           sesion.setAttribute("codigoultimo", codigorequisicion);         
-         // String bodega = "BODEGA"; 
+         //se lee el valor a comparar. SALA o BODEGA 
+          String destino = requisicionService.findById(codigorequisicion).getDestino();
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){
@@ -1544,7 +1545,7 @@ public class AppControllerLibues {
         	  Integer sala1 = requisicionBuscar.get(i).getSala();
         	  Integer cantidad = requisicionBuscar.get(i).getCantidad();
         	  
-        	  if (destino == "BODEGA"){
+        	  if (destino.equals("BODEGA")){
 	        	  Integer existencia = bodega1 + cantidad;
 	        	  Integer sala = sala1 - cantidad;
 	        	  productoService.updateExistencia(codigoproducto, existencia, sala);
@@ -1560,7 +1561,10 @@ public class AppControllerLibues {
           String fecha =(String) sesion.getAttribute("mySessionAttribute");          
           Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);          
           Requisicion requisicion = new Requisicion();
-          requisicion.setFecha(fecharequisicion1);          
+          //Valores por defecto para inicializar la nueva requisiscion
+          requisicion.setDestino("SALA");
+          requisicion.setFecha(fecharequisicion1);
+          //requisicion.seTotal(0.0);
   		  requisicionService.saveRequisicion(requisicion);  		
           Integer codigo2 = 0;
 		  sesion.setAttribute("codigo2", codigo2);
