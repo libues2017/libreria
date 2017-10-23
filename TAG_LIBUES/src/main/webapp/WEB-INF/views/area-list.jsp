@@ -111,16 +111,20 @@
 			    	         
 			    	         
 			    	          var res = "http://localhost:8080/TAG_LIBUES/edit-area-";
+			    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-area-";
 			    	         
 			    	         var res1=dato;
-			    	         var res2=res.concat(res1);
+			    	         var res2=res.concat(res1);//link editar			    	         
+			    	         var res4=res3.concat(res1);//link eliminar
 			    	        // h1.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Editar</a></td>';
 			    	         var str = "Editar";
+			    	         var str1 = "Eliminar";
 			    	        var result = str.link(res2);
+			    	        var result1 = str1.link(res4);
 			    	       // h1.innerHTML=result;
 			    	         // capa.appendChild(h1);
 			    	          document.getElementById("devolver").innerHTML = result;
-			    	          
+			    	          document.getElementById("devolver1").innerHTML = result1;
 			    	          
 			    	          
 			    	          // h2.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Eliminar</a></td>';
@@ -196,10 +200,21 @@
 	<div class="row">
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div id="devolver"  class="well">
+            <div   class="well">
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> |
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
+             <div  class="well">
+                <div id="devolver"  class="well">
+                
+                
+               </div>
+                
+                <div id="devolver1"  class="well">
+                
+            </div>
+            </div>
+            
         </sec:authorize>
 
 		<!--<div class="col-xs-8">-->
