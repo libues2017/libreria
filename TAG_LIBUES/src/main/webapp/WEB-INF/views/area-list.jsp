@@ -58,21 +58,15 @@
 			               //,
 			             
 			               /*{"render": function () {
-			                   
-			            	  
+			                   	            	  
 			            	   
 			            	   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
 			               }}
 			              */
 			              
 			               
-			               ]
-			        
-							
-							
-							
-						
-			        
+			               ]	     
+								        
 			        } );
 			    	
 			    	 $('#areas tbody').on( 'click', 'tr', function () {
@@ -106,7 +100,7 @@
 			    	            
 			    	            var capa = document.getElementById("capa");
 			    	            var h1 = document.createElement("hola");
-				    	   
+			    	            var h2 = document.createElement("hola");
 			    	            
 			    	            
 			    	           // h1.innerHTML = '<a href="<c:url value='/edit-area-$dato2' />" class="btn btn-success custom-width">Editar</a></td>';
@@ -120,12 +114,28 @@
 			    	         
 			    	         var res1=dato;
 			    	         var res2=res.concat(res1);
-			    	         h1.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Editar</a></td>';
-			    	           capa.appendChild(h1);
-			    	            
+			    	        // h1.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Editar</a></td>';
+			    	         var str = "Editar";
+			    	        var result = str.link(res2);
+			    	       // h1.innerHTML=result;
+			    	         // capa.appendChild(h1);
+			    	          document.getElementById("devolver").innerHTML = result;
+			    	          
+			    	          
+			    	          
+			    	          // h2.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Eliminar</a></td>';
+			    	         //  capa.appendChild(h2);
+			    	         
+			    	          
+			    	         
+			    	        /* var boton = $('<input type="submit" value="Numero parrafos" id="num_parrafos" name="Editar" onclick="li($dato)" />');
+			    	         
+			    	          $('body').append(boton);*/
 			    	         
 			    	         
-			    	         //window.location.replace(res2); 
+			    	         
+			    	         //alert(res2);
+			    	       ///  window.location.replace(res2); 
 			    	         
 			    	            //window.location.replace("http://localhost:8080/TAG_LIBUES/edit-area-101");  
 			    	          
@@ -136,6 +146,16 @@
 			        
 			    } );
 			    
+			   </script>
+			   
+			   
+			   <script>
+			   function li(campo){
+				   
+				   alert(campo);
+				   
+			   }
+			   
 			   </script>
 								   
 		      
@@ -167,13 +187,16 @@
    <h1>Areas</h1>
 </div>
 
+<p id="demo"></p>
+
+
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 	<div class="row"><%@include file="menu.jsp" %></div>
 	<div class="row">
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div   class="well">
+            <div id="devolver"  class="well">
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> |
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
