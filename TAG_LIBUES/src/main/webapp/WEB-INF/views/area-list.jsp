@@ -205,12 +205,9 @@
                 <a href="<c:url value='/index' />"> Regresar</a>
             </div>
              <div  class="well">
-                <div id="devolver"  class="well">
-                
-                
-               </div>
-                
-                <div id="devolver1"  class="well">
+               <p id="devolver"></p>
+                <p id="devolver1"></p>
+             
                 
             </div>
             </div>
