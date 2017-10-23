@@ -1175,7 +1175,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
     public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
-            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String origen, String destino ) throws IOException, ParseException {
+            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String sucursal) throws IOException, ParseException {
             
     
         if (result.hasErrors()) {
@@ -1186,7 +1186,7 @@ public class AppControllerLibues {
         Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
         HttpSession sesion2 = request.getSession(true);
         Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, origen, destino);
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, sucursal);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
         sesion2.setAttribute("mySessionAttribute", fecha);

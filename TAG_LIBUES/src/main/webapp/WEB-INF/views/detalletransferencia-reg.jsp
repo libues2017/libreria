@@ -17,17 +17,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!--
 <Style>
 	h1.hidden {
     	visibility: hidden;
     }
 </Style>
+-->
 
+<!--
 <Style>
 	.control-label{
 		text-align: left;
 	}
 </Style>
+-->
 
 <script type="text/javascript">
 	function producto1(){
@@ -113,6 +117,7 @@
 </script>
 
 <script>
+	
 	function addIt(campo) {
 	/* Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
 		
@@ -131,14 +136,15 @@
 			TC = (PEX*CPEX) +(PE*CPE) 
 			TA = PEX+PE 
             CPU=TC/TA 
-			PV=CPU+(CPU*0.20). 								
+			PV=CPU+(CPU*0.20). 		
+			
 	*/
 	
 	 numero=document.getElementById(campo).value;
 	 // campo="costoproducto";
 	  
 	 if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
-	     	//alert("El valor " + campo + " no es un número");
+		 	alert("El valor " + campo + " no es un número");
 	   		$("#glypcn"+campo).remove();
             $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
             $('#'+campo).parent().children('span').text("no es un numero").show();
@@ -314,8 +320,8 @@
 			<div class="panel panel-default">
 				<div class="form-group row">		
 					<div class="panel-body">
-						<div class="col-xs-2">
-							<label class="form-control" for="nombr">Doc. #:</label>
+						<div class="col-xs-3">
+							<label class="form-control" for="nombr">Transferencia #:</label>
 							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
 						</div>
 						
@@ -327,25 +333,14 @@
 							</SELECT>
 						</div>
 						
-						<div class="col-xs-2">			
+						<div class="col-xs-3">			
 							<label class="form-control" for="nombr">Fecha:</label>
 							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
 						</div>
 						
 						<div class="col-xs-2">			
-							<label class="form-control" for="nombr">Origen:</label>
-							<SELECT name="origen" id="origen" class="form-control input-sm" onchange="sesion();">
-								<OPTION VALUE="SV-SS">San Salvador</OPTION>
-								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
-								<OPTION VALUE="SV-SM">San Miguel</OPTION>
-								<OPTION VALUE="SV-SV">San Vicente</OPTION>
-							</SELECT>
-						</div>
-						
-						<div class="col-xs-2">			
-							<label class="form-control" for="nombr">Destino:</label>
-							<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
-								<OPTION VALUE="SV-SS">San Salvador</OPTION>
+							<label class="form-control" for="nombr">Sucursal:</label>
+							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();">
 								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
 								<OPTION VALUE="SV-SM">San Miguel</OPTION>
 								<OPTION VALUE="SV-SV">San Vicente</OPTION>
@@ -362,29 +357,33 @@
 			<div class="panel panel-default">
 				<div class="form-group row">		
 					<div class="panel-body">
+						
 						<div class="col-xs-2">			
 							<label class="form-control" for="tags">Codigo:</label>
 							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1();' />
 						</div>
+						
 						<div class="col-xs-8">
 							<label class="form-control" for="nombr">Titulo:</label>
 							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm"  />
 						</div>
+						
 						<div class="col-xs-2">		
 							<label class="form-control" for="existencia1" >Existencias:</label>
 							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm"  />					                   
 						</div>
+					
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="panel-body">		
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto')" />
+							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto');"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Costo:</label>
-							<form:input type="text" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' />
+							<form:input type="number" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' />
 						</div>
 						<div class="col-xs-2">		
 							<label class="form-control" for="nombr">Precio:</label>

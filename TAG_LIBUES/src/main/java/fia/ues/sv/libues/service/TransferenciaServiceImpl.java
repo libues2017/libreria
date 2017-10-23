@@ -37,15 +37,15 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 	}
 
 	@Override
-	public void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, String tipoTransferencia, String origen, String destino) {
+	public void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, String tipoTransferencia, String sucursal) {
 		Transferencia transferencia = new Transferencia();
 		Transferencia entity = dao.findById(codTransferencia);
 		
 		if(entity != null){
 			entity.setFechaTransferencia(fechaTransferencia);
 			entity.setTipoTransferencia(tipoTransferencia);//.setFechaTipoTransferencia(fechaTransferencia);
-			entity.setOrigen(origen);//.setFechaTransferencia(fechaTransferencia);
-			entity.setDestino(destino);//.setFechaTransferencia(fechaTransferencia);
+			entity.setSucursal(sucursal);
+			
 		}
 		
 	}

@@ -26,11 +26,8 @@ public class Transferencia implements Serializable{
 	@Column(name="TIPOTRANSFERENCIA")
 	private String tipoTransferencia;
 	
-	@Column(name="ORIGEN")
-	private String origen;
-	
-	@Column(name="DESTINO")
-	private String destino;
+	@Column(name="SUCURSAL")
+	private String sucursal;
 	
 	@NotNull
 	@Column(name="FECHATRANSFERENCIA")
@@ -52,20 +49,13 @@ public class Transferencia implements Serializable{
 		this.tipoTransferencia = tipoTransferencia;
 	}
 
-	public String getOrigen() {
-		return origen;
+
+	public String getSucursal() {
+		return sucursal;
 	}
 
-	public void setOrigen(String origen) {
-		this.origen = origen;
-	}
-
-	public String getDestino() {
-		return destino;
-	}
-
-	public void setDestino(String destino) {
-		this.destino = destino;
+	public void setSucursal(String sucursal) {
+		this.sucursal = sucursal;
 	}
 
 	public Date getFechaTransferencia() {

@@ -31,8 +31,7 @@
                     <tr>                        
                         <th>Documento</th>                        
                         <th>Tipo</th>
-                        <th>Origen</th>
-                        <th>Destino</th>                        
+                        <th>Sucursal</th>                        
                         <th>Fecha</th>
                         
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
@@ -50,8 +49,7 @@
                     	<tr>
                     		<td><a  href="<c:url value='/transferencia-detalle-${transferencia.codTransferencia}' />">${transferencia.codTransferencia}</a></td>
                     		<td>${transferencia.tipoTransferencia}</td>	
-                        	<td>${transferencia.origen}</td>
-                        	<td>${transferencia.destino}</td>	
+                        	<td>${transferencia.sucursal}</td>	
                         	<td>${transferencia.fechaTransferencia}</td> 
                      
                     	</tr>
