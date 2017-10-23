@@ -327,7 +327,8 @@
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">De:</label>
-							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();">
+							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();"
+							title="Seleccione el Tipo de Transferencia">
 								<OPTION VALUE="Salidas">Salidas</OPTION>
 								<OPTION VALUE="Ingresos">Ingresos</OPTION>
 							</SELECT>
@@ -335,12 +336,14 @@
 						
 						<div class="col-xs-3">			
 							<label class="form-control" for="nombr">Fecha:</label>
-							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" />
+							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" 
+							title="Seleccione la fecha de Transferencia"/>
 						</div>
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">Sucursal:</label>
-							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();">
+							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();" 
+							title="Seleccione sucursal segun Tipo de Transferencia">
 								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
 								<OPTION VALUE="SV-SM">San Miguel</OPTION>
 								<OPTION VALUE="SV-SV">San Vicente</OPTION>
@@ -349,7 +352,8 @@
 						
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Utilidad:</label>
-							<form:input type="number" min="0" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" />
+							<form:input type="number" min="0" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+							title="Debe ser un valor entero, si es salida la Utilidad es 0"/>
 						</div>
 					</div>
 				</div>
@@ -360,17 +364,20 @@
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="tags">Codigo:</label>
-							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1();' />
+							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1();' placeholder="Digitar"
+							title="Digite el Código de Producto"/>
 						</div>
 						
 						<div class="col-xs-8">
 							<label class="form-control" for="nombr">Titulo:</label>
-							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm"  />
+							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm" placeholder="Automatico"
+							title="Muestra el Titulo del Producto" />
 						</div>
 						
 						<div class="col-xs-2">		
 							<label class="form-control" for="existencia1" >Existencias:</label>
-							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm"  />					                   
+							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm" placeholder="Automatico" 
+							title="Indica la cantidad de productos existentes en bodega" />					                   
 						</div>
 					
 					</div>
@@ -379,19 +386,23 @@
 					<div class="panel-body">		
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto');"/>
+							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto')" 
+							placeholder="Digitar" title="El Valor debe ser entero"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Costo:</label>
-							<form:input type="number" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' />
+							<form:input type="number" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' 
+							title="Si la Transferencia es de Ingresos digite el costo, de lo contrario se llena automaticamente" />
 						</div>
 						<div class="col-xs-2">		
 							<label class="form-control" for="nombr">Precio:</label>
-							<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" />
+							<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" placeholder="Automatico"
+							title="Este campo es Calculado"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">SubTotal:</label>
-							<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" />
+							<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" placeholder="Automatico"
+							title="Este Valor es Calculado"/>
 						</div>
 						
 						<div class="col-xs-2" style="display: none">
@@ -408,10 +419,10 @@
 						</div>	
 						
 						<div class="col-xs-2">
-							<input type="submit" value="Agregar" class="btn btn-primary btn-sm" />
+							<input type="submit" value="Agregar" class="btn btn-primary btn-sm" title="Agrega Producto a La Transferencia"/>
 						</div>
 						<div class="col-xs-2">
-							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" >Cancelar</a>
+							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" title="Descartar Transferencia">Cancelar</a>
 						</div>
 					</div>
 				</div>
@@ -453,7 +464,7 @@
 					</tbody>
 				</table>
 			<div class="well lead" align="center">	
-				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm" >Guardar Transferencia</a>
+				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
 			</div>			
 		</form:form>
 </div>
