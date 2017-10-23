@@ -54,15 +54,16 @@
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO" },
-			               { title: "NOMBRE DEL AREA" },
+			               { title: "NOMBRE DEL AREA" }
+			               //,
 			             
-			               {"render": function () {
+			               /*{"render": function () {
 			                   
 			            	  
 			            	   
 			            	   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
 			               }}
-			              
+			              */
 			              
 			               
 			               ]
@@ -75,6 +76,10 @@
 			        } );
 			    	
 			    	 $('#areas tbody').on( 'click', 'tr', function () {
+			    		 
+			    		
+			    		 
+			    		 
 			    	        if ( $(this).hasClass('selected') ) {
 			    	            $(this).removeClass('selected');
 			    	            dato = "";
@@ -101,39 +106,33 @@
 			    	            
 			    	            var capa = document.getElementById("capa");
 			    	            var h1 = document.createElement("hola");
-				    	         var h0="<a href='";
-				    	         var h01="<c:url value='";
-			    	            var h2="/";
-			    	            var h3="edit-area-";
-			    	            var h4=dato2;
-			    	            var h5="' />'";
-			    	            var h6="class=";			    	            	
-			    	            var h7="btn btn-success custom-width";
-			    	            var h8= ">Editar</a></td>";
-			    	            
-			    	            var res14 = h0.concat(h01);
-			    	            var res = h01.concat(h2);
-			    	            var res1 = res.concat(h3, h4);
-			    	            var res2 = res1.concat(h5, h6);
-			    	            var res3 = res2.concat(h7, h8);
-			    	           // var res4 = res3.concat(h8);
-			    	           alert(res3);
+				    	   
 			    	            
 			    	            
 			    	           // h1.innerHTML = '<a href="<c:url value='/edit-area-$dato2' />" class="btn btn-success custom-width">Editar</a></td>';
 			    	            //capa.appendChild(h1);
 			    	            
-			    	          
+			    	         //   http://localhost:8080/TAG_LIBUES/edit-area-101
 			    	            
-			    	        }
-			    	        
+			    	         
+			    	         
+			    	          var res = "http://localhost:8080/TAG_LIBUES/edit-area-";
+			    	         
+			    	         var res1=dato;
+			    	         var res2=res.concat(res1);
+			    	         h1.innerHTML = '<a href="http://localhost:8080/TAG_LIBUES/edit-area-101" class="btn btn-success custom-width">Editar</a></td>';
+			    	           capa.appendChild(h1);
+			    	            
+			    	         
+			    	         
+			    	         //window.location.replace(res2); 
+			    	         
+			    	            //window.location.replace("http://localhost:8080/TAG_LIBUES/edit-area-101");  
+			    	          
+			    	      }		    	        
 			    	        
 			    	       
 			    	    } );
-			        
-			        
-			    	
-			        
 			        
 			    } );
 			    
