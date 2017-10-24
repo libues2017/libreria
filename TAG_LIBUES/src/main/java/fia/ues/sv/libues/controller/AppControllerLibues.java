@@ -844,11 +844,11 @@ public class AppControllerLibues {
     	producto.setImagen(file);
     	
     	productoService.saveProducto(producto);
-    	model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
+    	//model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return"producto-reg-succ";
-        //return "redirect:/producto-agregar";
+        //return"producto-reg-succ";
+        return "redirect:/producto-agregar";
     }
     
     @RequestMapping(value = { "/edit-producto-{codigoProducto}" }, method = RequestMethod.GET)
@@ -878,10 +878,10 @@ public class AppControllerLibues {
         }
         
         productoService.updateProducto(producto);
-        model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "producto-reg-succ";
-        //return "redirect:/producto-list";
+        //return "producto-reg-succ";
+        return "redirect:/producto-list";
     }
     
     @RequestMapping(value = { "/delete-producto-{codigoProducto}" }, method = RequestMethod.GET)
@@ -1546,10 +1546,16 @@ public class AppControllerLibues {
     return "redirect:/detallerequisicion-agregar";      
     }
     
-    @RequestMapping(value = { "/delete-detallerequisicion-{codigorequisicion}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/delete-detallerequisicion-{codigorequisicion}" }, method = RequestMethod.GET) // Borrar un producto de la lista
     public String deleteRequisicion(@PathVariable Integer codigorequisicion) {    	
     	detallerequisicionService.deleteRequisicionById(codigorequisicion);
     	return "redirect:/detallerequisicion-agregar";        
+    }
+    
+    @RequestMapping(value = { "/delete-requisicion-{codigoreq}" }, method = RequestMethod.GET) // Eliminar una requisición de la tabla padre con sus hijas
+    public String deleteRequisicionMaestra(@PathVariable Integer codigoreq) {    	
+    	requisicionService.deleteRequisicionById(codigoreq);    	
+        return "redirect:/requisicion-list";
     }
     
     @RequestMapping(value = { "/guardar" }, method = RequestMethod.GET)
@@ -1578,8 +1584,7 @@ public class AppControllerLibues {
         		  Integer existencia = bodega1 - cantidad;
             	  Integer sala = sala1 + cantidad;
             	  productoService.updateExistencia(codigoproducto, existencia, sala);
-        	  }
-        	  
+        	  }        	  
           }          
        
           String fecha =(String) sesion.getAttribute("mySessionAttribute");          

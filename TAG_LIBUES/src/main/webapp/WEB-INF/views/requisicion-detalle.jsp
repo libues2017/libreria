@@ -9,16 +9,15 @@
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
-<body>
-<div class="row"><%@include file="page_head.jsp" %></div>
-	<div class="container">
-	<div class="row"><%@include file="menu.jsp" %></div>
+<body Style="background-color:#97965B">
+<div class="row"><%@include file="page_head_2.jsp" %></div>
+	<div class="container">	
       <div class="row col-md-12">
       
       <sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> |||
-                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> |||
+            <div class="well" align="center">
+                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> ||||||
+                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> ||||||
                 <a href="<c:url value='/requisicion-list' />" class="btn btn-primary" > Documentos</a> 
             </div>
         </sec:authorize>

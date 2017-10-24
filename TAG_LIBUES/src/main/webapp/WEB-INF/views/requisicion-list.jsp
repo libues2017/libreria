@@ -9,18 +9,21 @@
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
-<body>
-<div class="row"><%@include file="page_head.jsp" %></div>
-	<div class="container">
-		<div class="row"><%@include file="menu.jsp" %></div>
-		
-		<div class="row col-md-10">
-		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> |||
+<body Style="background-color:#97965B">
+<div class="row"><%@include file="page_head_2.jsp" %></div>
+	<div class="container">	
+		 
+        <div class="panel-group">
+    		<div class="panel panel-default" align="center">
+      		<div class="panel-heading" ><h4>REQUISICIONES</h4></div>
+      		<sec:authorize access="hasRole('ADMINISTRADOR')">
+      		<div class="panel-body">
+      			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> ||||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-            </div>
-        </sec:authorize>
+      		</div>
+      		 </sec:authorize>
+    		</div>
+        </div>
         
         <div class="panel panel-default">
         
@@ -29,14 +32,12 @@
             <table class="table table-hover">
                 <thead>
                     <tr>                        
-                        <th>Documento #</th>                        
+                        <th>Doc. #</th>                        
                         <th>Destino</th>
                         <th>Fecha</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <th width="100"></th>
-                        </sec:authorize>
+                        <th>Total</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <th width="100"></th>
+                            <th width="100">ELIMINAR</th>
                         </sec:authorize>
                          
                     </tr>
@@ -47,8 +48,11 @@
                     	<tr>
                     		<td><a  href="<c:url value='/requisicion-detalle-${requisicion.codigorequisicion}' />">${requisicion.codigorequisicion}</a></td>
                     		<td>${requisicion.destino}</td>	
-                        	<td>${requisicion.fecha}</td>                     
-                        
+                        	<td>${requisicion.fecha}</td>
+                        	<td>${requisicion.total}</td>
+                        	<sec:authorize access="hasRole('ADMINISTRADOR')">                     
+                        	<td><a href="<c:url value='/delete-requisicion-${requisicion.codigorequisicion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                        	</sec:authorize>
                     	</tr>
                 	</c:forEach>
                 </tbody>
