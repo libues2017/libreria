@@ -85,10 +85,10 @@
                     <tr>
                         <th>Imagen</th>
                         <th>Titulo</th>
-                        <th>Proveedor</th>
-                        <th>Editorial</th>
                         <th>Autores</th>
                         <th>Area</th>
+                        <th>Proveedor</th>
+                        <th>Editorial</th>
                         <th>Precio</th>
                         <th>Tipo Producto</th>
                         <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
@@ -106,13 +106,13 @@
                     <tr>
                         <td><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></td>
                         <td>${producto.nombreProducto}</td>
-                        <td>${producto.proveedor.nombreproveedor}</td>
-                        <td>${producto.editorial.nombre}</td>
-                        <td><c:forEach items="${producto.autores}" var="autor">
+                       <td><c:forEach items="${producto.autores}" var="autor">
                         	${autor.nombreautor}<br/> 
                         	</c:forEach>
                         </td>
                         <td>${producto.area.nombrearea}</td>
+                        <td>${producto.proveedor.nombreproveedor}</td>
+                        <td>${producto.editorial.nombre}</td>
                         <td>${producto.precio}</td>
                         <td>${producto.tipoProducto}</td>
                         <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">

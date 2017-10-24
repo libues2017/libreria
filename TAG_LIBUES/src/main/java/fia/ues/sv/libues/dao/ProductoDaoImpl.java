@@ -152,7 +152,7 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 			    if(busqueda.getCodTipoProducto()==0)
 				 {
 				  //no restricciones tipo producto
-				  if(busqueda.getCodigoautor()==0)
+				  if(busqueda.getCodigoproveedor()==0)
 			        {  
 			    	 //no restricciones proveedor
 			        }
@@ -167,7 +167,7 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 				   criteria.add(Restrictions.eq("TipoProducto", tipoproducto));
 				   if(busqueda.getCodigoproveedor()==0)
 			        {  
-			    	 //no restricciones autores
+			    	 //no restricciones proveedor
 			        }
 			       else
 			         {

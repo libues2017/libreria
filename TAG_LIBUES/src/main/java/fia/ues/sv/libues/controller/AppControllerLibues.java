@@ -809,7 +809,7 @@ public class AppControllerLibues {
     		producto.setImg(byteToString(producto.getImagen()));
     	}
     	
-        model.addAttribute("producto", productos);
+        model.addAttribute("productos", productos);
         model.addAttribute("loggedinuser", getPrincipal());
         return "producto-list";
     }
@@ -1432,13 +1432,11 @@ public class AppControllerLibues {
     public String busquedaProducto(ModelMap model ) throws IOException {
  
         Busqueda busqueda = new Busqueda();  
-        
-    	model.addAttribute("busqueda",busqueda);
+        model.addAttribute("busqueda",busqueda);
         model.addAttribute("loggedinuser", getPrincipal());
         return "producto-busqueda";
     }
     
-   // List<Libro> libros_busqueda = new ArrayList<Libro>();
     
     @RequestMapping(value = { "/producto-busqueda" }, method = RequestMethod.POST)
     public String enviarParametros(Busqueda busqueda, ModelMap model) throws IOException {
