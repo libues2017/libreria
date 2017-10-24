@@ -65,13 +65,17 @@ public class ProductoServiceImpl implements ProductoService{
 			entity.setUnidadMedida(producto.getUnidadMedida());;
 			entity.setPais(producto.getPais());
 			entity.setSala(producto.getSala());
+			if(producto.getLocation()!=""){
+				entity.setLocation(producto.getLocation());
+				entity.setImagen(producto.getImagen());
+			}
 		}
 		
 	}
 
 	@Override
 	public void updateprecioProducto(Integer codigoproducto,Double precio,Double costo,Integer existencia) {
-		Producto producto = new Producto();
+		//Producto producto = new Producto();
 		Producto entity = dao.findByCorrelativo(codigoproducto);
 		if(entity !=null){			
 			entity.setCostounitario(costo);

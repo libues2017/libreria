@@ -142,7 +142,7 @@
                 	<div class="form-group col-md-12">
                     	<label class="col-md-3 control-lable" for="autores">Autores / Marca:</label>
                     	<div class="col-md-7">
-                        	<form:select path="autores" items="${autores}" multiple="false" itemValue="codigoautor"   class="form-control input-sm" />
+                        	<form:select path="autores" items="${autores}" multiple="true" itemValue="codigoautor"   class="form-control input-sm" />
                         	<div class="has-error">
                             	<form:errors path="autores" class="help-inline"/>
                         	</div>
@@ -577,6 +577,18 @@
                     	</div>
                 	</div>
             	</div>
+            	
+            	<div class="row">
+						<div class="form-group col-md-12">
+							<label class="col-md-3 control-lable" for="location">Subir imagen:</label>
+							<div class="col-md-7">
+								<form:input type="file" path="location" id="location" class="form-control input-sm"/>
+								<div class="has-error">
+									<form:errors path="location" class="help-inline"/>
+								</div>
+							</div>
+						</div>
+				</div>
 		     
 		        <div class="row">
 		             <div class="form-actions floatRight" align="center">

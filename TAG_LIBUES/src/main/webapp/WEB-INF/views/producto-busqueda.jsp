@@ -83,7 +83,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <%-- <th>Imagen</th>--%>
+                        <th>Imagen</th>
                         <th>Titulo</th>
                         <th>Proveedor</th>
                         <th>Editorial</th>
@@ -104,7 +104,7 @@
                 
                 <c:forEach items="${productos}" var="producto">
                     <tr>
-                        <%-- <td><img  src="data:image/jpeg;base64,${libro.img}" height="100" width="75" /></td>--%>
+                        <td><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></td>
                         <td>${producto.nombreProducto}</td>
                         <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>

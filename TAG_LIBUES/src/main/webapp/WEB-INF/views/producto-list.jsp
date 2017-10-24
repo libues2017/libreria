@@ -2,12 +2,16 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Librería UES</title>
+    <!--
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	-->
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
@@ -29,16 +33,17 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Imagen</th>
                         <th>Nombre de Producto</th>
                         <th>Codigo de Producto</th>
                         <th>Autor</th>
                         <th>Existencia</th>
                         <th>Precio</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <th width="100">EDITAR</th>
+                            <th width="100">Editar</th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <th width="100">ELIMINAR</th>
+                            <th width="100">Eliminar</th>
                         </sec:authorize>
                     </tr>
                 </thead>
@@ -46,6 +51,7 @@
                 <tbody>
                 	<c:forEach items="${productos}" var="producto">
                     	<tr>
+                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
                     		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
                     		<td>${producto.correlativo}</td>
                         	<td>

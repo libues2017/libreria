@@ -11,17 +11,23 @@ import java.io.UnsupportedEncodingException;*/
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import java.beans.PropertyEditorSupport;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
@@ -789,6 +795,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/producto-detalle-{codigoProducto}" }, method = RequestMethod.GET)
     public String detProductos(@PathVariable Integer codigoProducto, ModelMap model) throws IOException {
     	Producto producto = productoService.findByCodigoProducto(codigoProducto);
+    	producto.setImg(byteToString(producto.getImagen()));
     	model.addAttribute("producto", producto);
     	
         return "producto-detalle";
@@ -796,7 +803,12 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/producto-list" }, method = RequestMethod.GET)
     public String listProductos(ModelMap model) throws IOException {
+    	
     	List<Producto> productos = productoService.findAllProductos();
+    	for(Producto producto: productos){
+    		producto.setImg(byteToString(producto.getImagen()));
+    	}
+    	
         model.addAttribute("producto", productos);
         model.addAttribute("loggedinuser", getPrincipal());
         return "producto-list";
@@ -821,16 +833,17 @@ public class AppControllerLibues {
         }
              	
     	System.out.println(producto.getEditorial());
-    	//System.out.println(producto.getArea());
-    	//System.out.println(producto.getProveedor());
-    	//System.out.println(producto.getTipoProducto());
-    	//System.out.println(producto.getCodigoautor());
+    	
+    	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
+    	System.out.println("C:/mytemp/"  +producto.getLocation());
+    	producto.setImagen(file);
     	
     	productoService.saveProducto(producto);
-    	//model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
+    	model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "redirect:/producto-agregar";
+        return"producto-reg-succ";
+        //return "redirect:/producto-agregar";
     }
     
     @RequestMapping(value = { "/edit-producto-{codigoProducto}" }, method = RequestMethod.GET)
@@ -852,10 +865,18 @@ public class AppControllerLibues {
         if (result.hasErrors()) {
             return "producto-reg";
         }
+        
+        if(producto.getLocation()!=""){
+        	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
+        	System.out.println("C:/mytemp/" + producto.getLocation());
+        	producto.setImagen(file);
+        }
+        
         productoService.updateProducto(producto);
-        //model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
+        model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "redirect:/producto-list";
+        return "producto-reg-succ";
+        //return "redirect:/producto-list";
     }
     
     @RequestMapping(value = { "/delete-producto-{codigoProducto}" }, method = RequestMethod.GET)
@@ -1429,9 +1450,9 @@ public class AppControllerLibues {
     	Autor autor = autorService.findById(busqueda.getCodigoautor());
     	
     	List<Producto> productos = productoService.customSearch(area, editorial, proveedor, tipoproducto, autor, busqueda);
-    	/*for(Libro libro: libros){
-        	libro.setImg(byteToString(libro.getImagen()));
-        }*/
+    	for(Producto producto: productos){
+        	producto.setImg(byteToString(producto.getImagen()));
+        }
     	System.out.println(productos);
     	model.addAttribute("productos", productos);
     	model.addAttribute("busqueda", busqueda);
@@ -1715,8 +1736,27 @@ public class AppControllerLibues {
         return "comparar-inventario";
     }
     
+  /*************************************************************************************
+   ********************************Funciones auxiliares para las imagenes***************
+   *************************************************************************************/
     
-   
-
+    public String byteToString(byte[] image) throws UnsupportedEncodingException{
+    	
+    	byte[] encoded = Base64.encodeBase64(image);
+    	String encodedString = new String(encoded);
+		 return encodedString;
+	 }
+    
+    public byte[] readBytesFromFile(String filePath) throws IOException {
+        File inputFile = new File(filePath);
+       
+        FileInputStream inputStream = new FileInputStream(inputFile);
+         
+        byte[] fileBytes = new byte[(int) inputFile.length()];
+        inputStream.read(fileBytes);
+        inputStream.close();
+         
+        return fileBytes;
+    }
     
 }//Fin del Controlador

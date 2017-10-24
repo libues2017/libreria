@@ -391,7 +391,7 @@
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Costo:</label>
-							<form:input type="number" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' 
+							<form:input type="text" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' 
 							title="Si la Transferencia es de Ingresos digite el costo, de lo contrario se llena automaticamente" />
 						</div>
 						<div class="col-xs-2">		

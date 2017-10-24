@@ -68,6 +68,15 @@ public class Producto implements Serializable{
 	@Column(name="PAIS", nullable=false)
 	private String pais;
 	
+	@Column(name="IMAGEN")
+	private byte[] imagen;
+	
+	@Column(name="LOCATION")
+	private String location;
+	
+	//@Column(name="IMG")
+	private String img;
+	
 	@Column(name="ISBN", nullable=false)
 	private String isbn;
 	
@@ -101,11 +110,6 @@ public class Producto implements Serializable{
 				joinColumns={@JoinColumn(name="CODIGOPRODUCTO")},
 				inverseJoinColumns={@JoinColumn(name="CODIGOAUTOR")})
 	private Set<Autor> autores = new HashSet<Autor>();
-
-	
-	
-	
-	
 
 	public Integer getCodigoProducto() {
 		return codigoProducto;
@@ -188,6 +192,30 @@ public class Producto implements Serializable{
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+	
+	public byte[] getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen) {
+		this.imagen = imagen;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getIsbn() {

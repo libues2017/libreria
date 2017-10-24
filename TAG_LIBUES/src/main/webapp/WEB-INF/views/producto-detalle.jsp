@@ -23,6 +23,11 @@
   				<!-- Default panel contents -->
  				<div class="panel-heading"><h3>${producto.nombreProducto}</h3></div>
   				<div class="panel-body">
+  					<div class="col-md-3">
+    					<a href="#" class="thumbnail">
+    		  				<img  src="data:image/jpeg;base64,${producto.img}" height="100%" width="100%" />
+    					</a>
+                    </div>
 					<div class="col-md-1"></div>
 					<div class="col-md-7">
 						<table class="table">
