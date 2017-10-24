@@ -44,6 +44,25 @@ public class FacturaServiceImpl implements FacturaService{
 			entity.setTipofactura(tipo);
 		}
 	}
+	
+	@Override
+	public void updateFacturaDatos2(Integer idfactura, Double total, String tipo, String nombre, String direccion) {
+		Factura entity=dao.findById(idfactura);		
+		if(entity!=null){
+			entity.setTotal(total);
+			entity.setTipofactura(tipo);
+			entity.setCliente(nombre);
+			entity.setDireccion(direccion);
+		}
+	}
+	
+	@Override
+	public void updateNumeroFactura(Integer idfactura, Integer numerofactura) {
+		Factura entity=dao.findById(idfactura);		
+		if(entity!=null){
+			entity.setNumerofactura(numerofactura);			
+		}
+	}
 
 	@Override
 	public void deleteFacturaById(int idfactura) {

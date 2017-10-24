@@ -117,14 +117,13 @@ function add(campo) {
 	var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad));
 }
 </script>
-
 </head>
 
 <body Style="background-color:#97965B">
 
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">Realizar Requisición</div>
+		<div class="well lead" align="center">REALIZAR REQUISICIÓN</div>
 		<form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
@@ -156,7 +155,7 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
-						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (99999)" class="form-control input-sm" 
+						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" 
 									onchange='producto();' title="Digitar codigo del producto, solo números"/>
 						</div>
 						<div class="col-xs-6">
@@ -165,11 +164,11 @@ function add(campo) {
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Bodega:</label>
-						<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
+						<form:input type="number" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Sala:</label>
-						<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+						<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 						</div>
 					</div>
 				</div>
@@ -185,12 +184,13 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (999)" class="form-control input-sm" onchange="add('cantidad')" 
+						<form:input type="number" path="cantidad" min="1" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad')" 
 									title="Digitar cantidad a mover, solo números"/>
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
-						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" 
+									title="Se llena automaticamente" />							
 			 			</div>
 			 		</div>
 			 	</div>
@@ -209,24 +209,25 @@ function add(campo) {
 			      			<th>Cantidad</th>
 			      			<th>Costo</th>
 			      			<th>Precio</th>
-			      			<th>Subtotal</th>
+			      			<th>Subtotal</th>			      			
 			      			<th>ELIMINAR</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    			<c:set var="contador" value="${0}" />
+		    			<c:set var="contador" value="${0}" /> <c:set var="total" value="${0}"/>
 				    	<c:forEach items="${req1}" var="requisiciones" >
 				    		<tr class="info">				    		
 		    	            <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	           <c:if test = "${salary > 2000}">
-		    	                <c:set var="contador" value="${contador + 1}" />	
+		    	                <c:set var="contador" value="${contador + 1}" />
+		    	                <c:set var="total" value="${total + requisiciones.subtotal}" />	
 		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
 				    			<td>${requisiciones.cantidad}</td>
 				    		    <td>$ ${requisiciones.costo}</td>
 				    			<td>$ ${requisiciones.precio}</td>
-				    			<td>$ ${requisiciones.subtotal}</td>	    			
+				    			<td>$ ${requisiciones.subtotal}</td>				    							    			 			
 				    		</c:if>	
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
@@ -234,7 +235,18 @@ function add(campo) {
                         </tr>
 				    	 </c:forEach>
 		    	</tbody>
-	    </table>          
+	    </table>
+				
+			<div class="row" align="right">
+                <div class="form-group col-md-12">
+                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <div class="col-md-2">
+                    <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    		value='<c:forEach items="${req1}" var="requisiciones">${total}</c:forEach>'/>                           
+                    </div>
+                </div>
+            </div>	
+		        
 		<div class="well lead" align="center">
 			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
 		</div>

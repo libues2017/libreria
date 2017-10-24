@@ -222,6 +222,11 @@ public class AppControllerLibues {
     	return facturadetalleService.findAllFacturas();
     }
     
+    @ModelAttribute("facturas")
+    public List<Factura> initializeFacturas(){
+    	return facturaService.findAllFacturas();
+    }
+    
    /* @ModelAttribute("retaceos")
     public List<Retaceo> initializeRetaceos() {
         return retaceoService.findAllRetaceos();
@@ -1553,7 +1558,7 @@ public class AppControllerLibues {
           HttpSession sesion=request.getSession(true);    	
           Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
           sesion.setAttribute("codigoultimo", codigorequisicion);         
-         //se lee el valor a comparar. SALA o BODEGA 
+         // Se lee el valor a comparar. SALA o BODEGA 
           String destino = requisicionService.findById(codigorequisicion).getDestino();
           
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
@@ -1642,6 +1647,7 @@ public class AppControllerLibues {
     	String fecha = sdf.format(fecha1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
     	model.addAttribute("loggedinuser", getPrincipal());
+    	
     	return "redirect:/detallefacturacion-agregar";      
     }
     
@@ -1656,9 +1662,16 @@ public class AppControllerLibues {
     public String saveFacturacionContado( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
     	   String fecha)throws IOException, ParseException {
     	
+    	String tipo = "CONTADO"; 
+    	Double total = 0.0;
+   	 	String nombre = "";
+   	 	String direccion = "";
+    	
     	 HttpSession sesion=request.getSession(true);    	
          Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
-         sesion.setAttribute("codigoultimo", codigofact);     
+         sesion.setAttribute("codigoultimo", codigofact);
+         
+         facturaService.updateFacturaDatos2(codigofact, total, tipo, nombre, direccion);
                           
          List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
          for(int i=0;i<facturaBuscar.size();i++){
@@ -1672,8 +1685,15 @@ public class AppControllerLibues {
          String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
          Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          
          Factura factura = new Factura();
+       //Integer numero = factura.getNumerofactura();
          factura.setFechafactura(fechafactura1);
          factura.setNumerofactura(1001);
+         factura.setTipofactura("CONTADO");
+         factura.setTotal(0.0);
+         factura.setCliente("");
+         factura.setDireccion("");
+         factura.setDocumento("");
+         factura.setTipocredito("");
  		 facturaService.saveFactura(factura);  		
          Integer idfactura = 0;
 		 sesion.setAttribute("codigofact", idfactura);
@@ -1681,6 +1701,48 @@ public class AppControllerLibues {
     	return "redirect:/detallefacturacion-agregar";
     }
 
+    @RequestMapping(value = { "/facturar-credito" }, method = RequestMethod.GET)
+    public String saveFacturacionCredito( HttpServletRequest request, ModelMap model,@RequestParam(required = false) 
+    		String fecha)throws IOException, ParseException {
+    	
+    	 String tipo = "CREDITO"; 
+    	 Double total = 0.0;
+    	 String nombre = "";
+    	 String direccion = "";
+    	 
+    	 HttpSession sesion=request.getSession(true);    	
+         Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
+         sesion.setAttribute("codigoultimo", codigofact);
+         
+         facturaService.updateFacturaDatos2(codigofact, total, tipo, nombre, direccion);
+                          
+         List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
+         for(int i=0;i<facturaBuscar.size();i++){
+        	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
+	       	 Integer cantidad = facturaBuscar.get(i).getCantidad();	       	 
+	       	 Integer existencia = facturaBuscar.get(i).getSala();
+	       	 Integer sala = existencia - cantidad;
+	       	 productoService.updateSalaVenta1(codigoproducto, sala);
+         }
+         
+         String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
+         Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          
+         Factura factura = new Factura();
+         //Integer numero = factura.getNumerofactura();
+         factura.setFechafactura(fechafactura1);
+         factura.setNumerofactura(1001);
+         factura.setTipofactura("CONTADO");
+         factura.setTotal(0.0);
+         factura.setCliente("");
+         factura.setDireccion("");
+         factura.setDocumento("");
+         factura.setTipocredito("");
+ 		 facturaService.saveFactura(factura);  		
+         Integer idfactura = 0;
+		 sesion.setAttribute("codigofact", idfactura);
+    	
+    	return "redirect:/detallefacturacion-agregar";
+    }
     
      
     
@@ -1727,13 +1789,40 @@ public class AppControllerLibues {
     	
     }
     
- 
-    @RequestMapping(value = { "/comparar-inventario" }, method = RequestMethod.GET)
-    public String main2(ModelMap model) {       
+    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
+    public String newNumeroFactura( HttpServletRequest request,ModelMap model) {
+    	
+    	Factura factura = new Factura();
+        model.addAttribute("factura", factura);
+        model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
-        return "comparar-inventario";
+    	
+		List<Factura> fact5 = facturaService.findAllFacturas();
+		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigofact", fact6);
+        
+    	return "factura-set-numero"; 
     }
     
+    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.POST)   
+    public String saveNumeroFactura( HttpServletRequest request,@Valid Factura factura, BindingResult result, 
+    		ModelMap model,@RequestParam(required = false)  Integer numerofactura) throws IOException, ParseException {
+         	 	
+    	if (result.hasErrors()) {
+            return "factura-set-numero";
+        }
+    	HttpSession sesion=request.getSession(true);    	
+        Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
+                
+        facturaService.updateNumeroFactura(codigofact, numerofactura);
+    	
+    	model.addAttribute("loggedinuser", getPrincipal());
+    	
+    	return "redirect:/detallefacturacion-agregar";      
+    }  
+ 
+   
   /*************************************************************************************
    ********************************Funciones auxiliares para las imagenes***************
    *************************************************************************************/

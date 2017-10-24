@@ -79,6 +79,8 @@
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
             						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
+            						<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="numero-factura" />">Establer Numero Factura</a></li>
            						</sec:authorize>
           					</ul>
         				</li>

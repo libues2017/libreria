@@ -15,6 +15,10 @@ public interface FacturaService {
 	
 	void updateFacturaDatos (Integer idfactura, Date fecha, Integer numerofact, Double total, String tipo);
 	
+	void updateFacturaDatos2(Integer idfactura, Double total, String tipo, String nombre, String direccion);
+
+	void updateNumeroFactura(Integer idfactura, Integer numerofactura);
+	
 	void deleteFacturaById(int idfactura);
 	
 	List<Factura> findAllFacturas();
