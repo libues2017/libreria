@@ -19,17 +19,7 @@
 		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 
 	
-	
-	
-	<script type="text/javascript">
-					
-				
-	
-	
-	
-	</script>
-	
-	
+
 	
 	<script type="text/javascript">
 			    var dataSet = [];
@@ -46,34 +36,20 @@
 			     i=i+1;
 			    
 			    </c:forEach>
-			    
-			 //   dataSet =  [ "Tiger Nixon" ];
+			
 			    
 			    $(document).ready(function() {
 			    	var tabla =  $('#areas').DataTable( {
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO" },
-			               { title: "NOMBRE DEL AREA" }
-			               //,
-			             
-			               /*{"render": function () {
-			                   	            	  
-			            	   
-			            	   return '<a href="<c:url value='/edit-area-101' />" class="btn btn-success custom-width">Editar</a></td>';
-			               }}
-			              */
-			              
-			               
+			               { title: "NOMBRE DEL AREA" }			              		               
 			               ]	     
 								        
 			        } );
 			    	
 			    	 $('#areas tbody').on( 'click', 'tr', function () {
-			    		 
 			    		
-			    		 
-			    		 
 			    	        if ( $(this).hasClass('selected') ) {
 			    	            $(this).removeClass('selected');
 			    	            dato = "";
@@ -82,24 +58,9 @@
 			    	        else {
 			    	            tabla.$('tr.selected').removeClass('selected');
 			    	            $(this).addClass('selected');
-			    	            dato = $(this).find("td:eq(0)").text();			    	      
-			    	            
-			    	            var dato2 =parseInt(dato);
-			    	        	
-			    	            var str = JSON.stringify(dato);
-			    	         
-			    	            var obj = JSON.parse(str);
-
-			    	   
-			    	            var capa = document.getElementById("capa");
+			    	            dato = $(this).find("td:eq(0)").text();		
 			    	            var h1 = document.createElement("hola");
-			    	            var h2 = document.createElement("hola");
-			    	            
-			    	            
-			    	          
-			    	            
-			    	         
-			    	         
+			    	            var h2 = document.createElement("hola");			    	            
 			    	          var res = "http://localhost:8080/TAG_LIBUES/edit-area-";
 			    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-area-";
 			    	         
@@ -113,31 +74,16 @@
 			    	     
 			    	          document.getElementById("devolver").innerHTML = result;
 			    	          document.getElementById("devolver1").innerHTML = result1;
-			    	          
-			    	     
-			    	          
 			    	      }	  
 			    	    } );
 			        
 			    } );
 			    
 			   </script>		   
-			   
-			  						   
-		      
-
+	
 </head>
 
-
-
-
-
-
 <body>
-
-  
-
-
 
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">

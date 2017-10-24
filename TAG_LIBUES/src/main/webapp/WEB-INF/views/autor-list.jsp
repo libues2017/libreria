@@ -15,6 +15,10 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 	
 	
 		<script type="text/javascript">
@@ -44,6 +48,40 @@
 			               { title: "NOMBRE DE AUTOR" },   ]
 			        
 			        } );
+			        
+			        
+
+			    	 $('#autores tbody').on( 'click', 'tr', function () {
+			    		 
+			    		
+			    	        if ( $(this).hasClass('selected') ) {
+			    	            $(this).removeClass('selected');
+			    	            dato = "";
+			    	           
+			    	        }
+			    	        else {
+			    	            tabla.$('tr.selected').removeClass('selected');
+			    	            $(this).addClass('selected');
+			    	            dato = $(this).find("td:eq(0)").text();		
+			    	            var h1 = document.createElement("hola");
+			    	            var h2 = document.createElement("hola");			    	            
+			    	          var res = "http://localhost:8080/TAG_LIBUES/edit-autor-";
+			    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-autor-";			    	         
+			    	         var res1=dato;
+			    	         var res2=res.concat(res1);//link editar			    	         
+			    	         var res4=res3.concat(res1);//link eliminar			    	       
+			    	         var str = "Editar";
+			    	         var str1 = "Eliminar";
+			    	        var result = str.link(res2);
+			    	        var result1 = str1.link(res4);			    	     
+			    	          document.getElementById("devolver").innerHTML = result;
+			    	          document.getElementById("devolver1").innerHTML = result1;
+			    	          
+			    	      }	  
+			    	    } );
+			        
+			        
+			        
 			    } );
 			    
 			   </script>
@@ -62,6 +100,9 @@
             <div class="well">
                 <a href="<c:url value='/autor-agregar' />" class="btn btn-primary">Agregar Autor</a> |
                 <a href="<c:url value='/index' />"> Regresar</a>
+                   <p id="devolver"></p>
+                   <p id="devolver1"></p>
+             
             </div>
         </sec:authorize>
  <div class="panel panel-default">
