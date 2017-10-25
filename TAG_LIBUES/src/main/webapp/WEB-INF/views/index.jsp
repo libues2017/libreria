@@ -41,8 +41,8 @@
 		    <div class="thumbnail">
 		      <img src="<c:url value='/static/img/utiles.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
-		        <h3><a href="<c:url value="#" />" class="alert-link">Utiles/Micelánios</a></h3>
-		        <p>Tenemos todos los utiles que necesite para todas sus actividades.</p>
+		        <h3><a href="<c:url value="producto-busqueda" />" class="alert-link">Utiles/Micelánios</a></h3>
+		        <p>Realice una busqueda con todos los utiles que necesite para todas sus actividades.</p>
 		        
 		      </div>
 		    </div>

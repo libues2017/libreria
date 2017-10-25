@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Requisicion" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8b83ad7-82ad-4c3a-860e-29827eef8e68">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLnJlcXVpc2ljaW9uIEFTICwyOTcsMjksMGNjNGU4YTEtYjlmYy00YzY1LWI2YmQtMWM0
@@ -15,7 +15,7 @@ ZWYwOw==]]>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT Distinct libues.detalle_requisicion_producto.`CODIGOREQUISICION`,
+		<![CDATA[SELECT DISTINCT libues.detalle_requisicion_producto.`CODIGOREQUISICION`,
 	libues.detalle_requisicion_producto.`CODIGOPRODUCTO`,
 	libues.detalle_requisicion_producto.`NOMBREPRODUCTO`,
 	libues.autor.`NOMBREAUTOR`,
@@ -121,7 +121,7 @@ FROM libues.detalle_requisicion_producto
 			</staticText>
 			<image>
 				<reportElement x="-4" y="-9" width="85" height="70" uuid="2acc9600-06e4-4232-aa2d-97729f85d8cc"/>
-				<imageExpression><![CDATA["Logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement x="0" y="80" width="556" height="1" uuid="59fd07cf-f807-4c59-ad55-6d3e87932717">
@@ -142,37 +142,51 @@ FROM libues.detalle_requisicion_producto
 		<band height="43" splitType="Stretch">
 			<staticText>
 				<reportElement x="2" y="2" width="68" height="30" uuid="bbdd6670-93e3-4aa8-b74b-9d08c8dd3faf"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="80" y="2" width="70" height="30" uuid="3d972be1-500f-4252-9de0-13d37fa034e3"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Nombre Producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="153" y="2" width="67" height="30" uuid="b4efce0f-3059-4fc5-b280-01f92c19b14e"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Autor]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="230" y="2" width="60" height="18" uuid="1f3eb148-ce4c-4eff-9a7f-73fc674530de"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="305" y="1" width="75" height="30" uuid="add4897d-e1f7-44af-b647-8d14f3c5afc5"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Subtotal]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="390" y="0" width="80" height="30" uuid="3244e55b-d605-4761-9e12-e9456fd03194"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="480" y="2" width="100" height="30" uuid="71356e06-ecf3-4eba-a8cb-3886bbd7b2d5"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Movimiento]]></text>
 			</staticText>
 		</band>

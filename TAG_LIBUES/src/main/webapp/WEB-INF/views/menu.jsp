@@ -56,39 +56,39 @@
 						  <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
           					<ul class="dropdown-menu">
-            					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
+            						<li><a href="<c:url value="producto-list" />">Catalago</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
-            					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
-            					
+            						<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-            						<li role="separator" class="divider"></li>
+            					<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
+            					<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="producto-agregar" />">Agregar nuevo</a></li>
            						</sec:authorize>
           					</ul>
         				</li>
         				
+        				<sec:authorize access="hasRole('ADMINISTRADOR')"  >
         				  <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
           					<ul class="dropdown-menu">
             					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="existencias" />">Reportes de Facturacion</a></li>
-            					
-            					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-            						<li role="separator" class="divider"></li>
-            						<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
-           						</sec:authorize>
-          					</ul>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="numero-factura" />">Establer Numero Factura</a></li>
+           					</ul>
         				</li>
+        				</sec:authorize>
 
 			      		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			      		<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario 1<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">			            		
 			            		<li><a href="<c:url value="localizacion-list" />">Ubicacion de productos</a></li>			                 	
-			          		<!--  	<li role="separator" class="divider"></li>
+			          		<!--<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li> -->
 			            		<li role="separator" class="divider"></li>   
 			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
@@ -100,11 +100,19 @@
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
 			          		</ul>
 			      		</li>
-			        	</sec:authorize>        	
+			        	</sec:authorize>
+			        	        	
 			        	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			        	<li class="dropdown">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario 2<span class="caret"></span></a>
+			          		<ul class="dropdown-menu">	
 				        	<li><a href="<c:url value="proveedor-list" />">Proveedores</a></li>
+				        	<li role="separator" class="divider"></li>
 				        	<li><a href="<c:url value="editorial-list" />">Editoriales</a></li>
+				        	<li role="separator" class="divider"></li>
 				        	<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>
+				        	</ul>
+				        </li>
 				  		</sec:authorize>
 			        	
 			        	<sec:authorize access="hasRole('ADMINISTRADOR')"  >

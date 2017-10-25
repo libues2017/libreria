@@ -28,8 +28,6 @@ border: 2px solid #ff0000;
 }
 </Style>
 
-
-
 <script type="text/javascript">
 
 	function producto(){
@@ -75,7 +73,7 @@ border: 2px solid #ff0000;
       	var destino1="dest";
       				
       	sessionStorage[fecha]=fecharequisicion;
-      	sessionStorage[destino1]=destino;
+      	sessionStorage[destino1]=destino;      	
     }
 	
 </script>
@@ -118,14 +116,70 @@ function add(campo) {
 }
 </script>
 
+<script>
+	// Focus = Changes the background color of input to yellow
+	function focusF() {
+	    document.getElementById("destino").style.background = "#E3ECEF";	    
+	}
+	function focusF1() {
+		document.getElementById("codigoproducto").style.background = "#E3ECEF";
+	}
+	function focusF2() {
+		document.getElementById("cantidad").style.background = "#E3ECEF";
+	}
+	
+	// No focus = Changes the background color of input to red
+	function blurF() {
+	    document.getElementById("destino").style.background = "#DBE1E3";
+	}
+	function blurF1() {
+		document.getElementById("codigoproducto").style.background = "#DBE1E3";
+	}
+	function blurF2() {
+		document.getElementById("cantidad").style.background = "#DBE1E3";
+	}
+</script>
+
+<script>
+function cambiar(){
+	var Elt = document.getElementById("codigoproducto").value;
+	var Elt2 = document.getElementById("cantidad");
+	
+		if(Elt != null)
+        {
+        	$("#cantidad").focus();
+        	}
+}         
+</script>
+
+<script>/*
+function validar(){
+	var destino1 = document.getElementById("destino").value;
+	var sala1 = document.getElementById("sala").value;
+	var bodega1 = document.getElementById("bodega").value;
+	var cantidad1 = document.getElementById("cantidad").value;
+	
+		if(destino1 == 'SALA')
+        {
+			if(bodega1 < cantidad1){
+				alert('No hay suficiente producto en Bodega');
+			}
+        }
+		else
+			if(sala1 < cantidad1){
+				alert('No hay suficiente producto en Sala');
+			}
+}         */
+</script>
+
 </head>
 
 <body Style="background-color:#97965B">
 
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">Realizar Requisición</div>
-		<form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
+		<div class="well lead" align="center">REALIZAR REQUISICIÓN</div>
+		<form:form method="POST" name="req" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
 		<div class="panel-group">			
@@ -138,7 +192,7 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Destino:</label>
-						<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+						<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();" onfocus="focusF()" onblur="blurF()">
 							<OPTION VALUE="SALA" >Sala</OPTION>
 							<OPTION VALUE="BODEGA" >Bodega</OPTION>
 						</SELECT>
@@ -156,8 +210,8 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
-						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (99999)" class="form-control input-sm" 
-									onchange='producto();' title="Digitar codigo del producto, solo números"/>
+						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" onfocus="focusF1()"
+									onchange='producto(); cambiar();' onkeypress='producto();' title="Digitar codigo del producto, solo números"  onblur="blurF1()" />
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Título:</label>
@@ -165,11 +219,11 @@ function add(campo) {
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Bodega:</label>
-						<form:input type="text" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
+						<form:input type="number" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Sala:</label>
-						<form:input type="text" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+						<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 						</div>
 					</div>
 				</div>
@@ -185,17 +239,18 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (999)" class="form-control input-sm" onchange="add('cantidad')" 
-									title="Digitar cantidad a mover, solo números"/>
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad');" 
+									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1"/>
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
-						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+						<form:input type="text" path="subtotal" id="subtotal" placeholder="AUTOMATICO" class="form-control input-sm" 
+									title="Se llena automaticamente" />							
 			 			</div>
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">
-				 	<input type="submit" value="AGREGAR" class="btn btn-primary btn-sm" /> |||||||||| 								
+				 	<input type="button" value="AGREGAR" class="btn btn-primary btn-sm" onclick="req.submit()" /> |||||||||| 								
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>
@@ -209,24 +264,25 @@ function add(campo) {
 			      			<th>Cantidad</th>
 			      			<th>Costo</th>
 			      			<th>Precio</th>
-			      			<th>Subtotal</th>
+			      			<th>Subtotal</th>			      			
 			      			<th>ELIMINAR</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    			<c:set var="contador" value="${0}" />
+		    			<c:set var="contador" value="${0}" /> <c:set var="total" value="${0}"/>
 				    	<c:forEach items="${req1}" var="requisiciones" >
 				    		<tr class="info">				    		
 		    	            <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	           <c:if test = "${salary > 2000}">
-		    	                <c:set var="contador" value="${contador + 1}" />	
+		    	                <c:set var="contador" value="${contador + 1}" />
+		    	                <c:set var="total" value="${total + requisiciones.subtotal}" />	
 		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
 				    			<td>${requisiciones.cantidad}</td>
 				    		    <td>$ ${requisiciones.costo}</td>
 				    			<td>$ ${requisiciones.precio}</td>
-				    			<td>$ ${requisiciones.subtotal}</td>	    			
+				    			<td>$ ${requisiciones.subtotal}</td>				    							    			 			
 				    		</c:if>	
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
@@ -234,7 +290,18 @@ function add(campo) {
                         </tr>
 				    	 </c:forEach>
 		    	</tbody>
-	    </table>          
+	    </table>
+				
+			<div class="row" align="right">
+                <div class="form-group col-md-12">
+                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <div class="col-md-2">
+                    <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    		value='<c:forEach items="${req1}" var="requisiciones">${total}</c:forEach>'/>                           
+                    </div>
+                </div>
+            </div>	
+		        
 		<div class="well lead" align="center">
 			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
 		</div>

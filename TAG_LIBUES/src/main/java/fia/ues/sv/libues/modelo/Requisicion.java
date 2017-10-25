@@ -23,12 +23,16 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigorequisicion;	
 	
+	@NotNull
 	@Column(name="destinorequisicion")
 	private String destino;
 	
 	@NotNull
 	@Column(name="fecharequisicion")
 	private Date fecha;
+	
+	@Column(name="total")
+	private Double total;
 
 	public Integer getCodigorequisicion() {
 		return codigorequisicion;
@@ -52,5 +56,14 @@ private static final long serialVersionUID = 1L;
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
-	}	
+	}
+	
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	
 }
