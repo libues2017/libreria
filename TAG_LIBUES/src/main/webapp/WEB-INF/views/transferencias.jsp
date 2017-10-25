@@ -68,13 +68,17 @@
                 </div>
             </div>
             
-             <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Tipo Transferencia:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="tipotransferencia" id="tipotransferencia" required>
-                </div>
-            </div>
-
+            <div class="form-group">			
+			<label class="control-label col-sm-4" for="nombr">Tipo Transferencia:</label>
+			<div class="col-sm-4">
+			<SELECT name="tipotransferencia" id="tipotransferencia" class="form-control input-sm" onchange="sesion();" 
+			title="Seleccione Tipo de Transferencia">
+				<OPTION VALUE="Salidas">Salidas</OPTION>
+				<OPTION VALUE="Ingresos">Ingresos</OPTION>
+			</SELECT>
+			</div>
+						
+         
             <div class="form-group">
 
             </div>

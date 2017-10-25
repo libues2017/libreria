@@ -76,20 +76,29 @@
                     <input type="text" class="form-control" name="codigoproveedor" id="codigoproveedor" required>
                 </div>
             </div>
+                        
+            <div class="form-group">		
+				<label class="control-label col-sm-4" for="nombr">Tipo Producto:</label>
+				<div class="col-sm-4">
+				<SELECT name="codTipoProducto" id="codTipoProducto" class="form-control input-sm" onchange="sesion();" 
+				title="Seleccione Tipo de Producto">
+				<OPTION VALUE="101">Libro</OPTION>
+				<OPTION VALUE="102">Miscelaneo</OPTION>
+				</SELECT>
+			</div>
+			 </div>
             
-               <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Tipo Producto:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="codTipoProducto" id="codTipoProducto" required>
-                </div>
-            </div>
-            
-               <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Consignacion:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="consignacion" id="consignacion" required>
-                </div>
-            </div>
+           <div class="form-group">		
+				<label class="control-label col-sm-4" for="nombr">Consignacion:</label>
+				<div class="col-sm-4">
+				<SELECT name="consignacion" id="consignacion" class="form-control input-sm" onchange="sesion();" 
+				title="Seleccione Si Desea Consignacion">
+				<OPTION VALUE="Si">Si</OPTION>
+				<OPTION VALUE="No">No</OPTION>
+				</SELECT>
+			</div>
+			 </div>
+						
            
 
             <div class="form-group">
