@@ -28,8 +28,6 @@ border: 2px solid #ff0000;
 }
 </Style>
 
-
-
 <script type="text/javascript">
 
 	function producto(){
@@ -75,7 +73,7 @@ border: 2px solid #ff0000;
       	var destino1="dest";
       				
       	sessionStorage[fecha]=fecharequisicion;
-      	sessionStorage[destino1]=destino;
+      	sessionStorage[destino1]=destino;      	
     }
 	
 </script>
@@ -118,6 +116,62 @@ function add(campo) {
 }
 </script>
 
+<script>
+	// Focus = Changes the background color of input to yellow
+	function focusF() {
+	    document.getElementById("destino").style.background = "#E3ECEF";	    
+	}
+	function focusF1() {
+		document.getElementById("codigoproducto").style.background = "#E3ECEF";
+	}
+	function focusF2() {
+		document.getElementById("cantidad").style.background = "#E3ECEF";
+	}
+	
+	// No focus = Changes the background color of input to red
+	function blurF() {
+	    document.getElementById("destino").style.background = "#DBE1E3";
+	}
+	function blurF1() {
+		document.getElementById("codigoproducto").style.background = "#DBE1E3";
+	}
+	function blurF2() {
+		document.getElementById("cantidad").style.background = "#DBE1E3";
+	}
+</script>
+
+<script>
+function cambiar(){
+	var Elt = document.getElementById("codigoproducto").value;
+	var Elt2 = document.getElementById("cantidad");
+	
+		if(Elt != null)
+        {
+        	$("#cantidad").focus();
+        	}
+}         
+</script>
+
+<script>/*
+function validar(){
+	var destino1 = document.getElementById("destino").value;
+	var sala1 = document.getElementById("sala").value;
+	var bodega1 = document.getElementById("bodega").value;
+	var cantidad1 = document.getElementById("cantidad").value;
+	
+		if(destino1 == 'SALA')
+        {
+			if(bodega1 < cantidad1){
+				alert('No hay suficiente producto en Bodega');
+			}
+        }
+		else
+			if(sala1 < cantidad1){
+				alert('No hay suficiente producto en Sala');
+			}
+}         */
+</script>
+
 </head>
 
 <body Style="background-color:#97965B">
@@ -138,7 +192,7 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Destino:</label>
-						<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();">
+						<SELECT name="destino" id="destino" class="form-control input-sm" onchange="sesion();" onfocus="focusF()" onblur="blurF()">
 							<OPTION VALUE="SALA" >Sala</OPTION>
 							<OPTION VALUE="BODEGA" >Bodega</OPTION>
 						</SELECT>
@@ -156,8 +210,8 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
-						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" 
-									onchange='producto();' onkeypress='producto();' title="Digitar codigo del producto, solo números"/>
+						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" onfocus="focusF1()"
+									onchange='producto(); cambiar();' onkeypress='producto();' title="Digitar codigo del producto, solo números"  onblur="blurF1()" />
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Título:</label>
@@ -185,8 +239,8 @@ function add(campo) {
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" min="1" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad')" 
-									title="Digitar cantidad a mover, solo números"/>
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad');" 
+									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1"/>
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
