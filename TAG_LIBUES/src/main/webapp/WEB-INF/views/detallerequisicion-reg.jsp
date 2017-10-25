@@ -117,6 +117,7 @@ function add(campo) {
 	var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad));
 }
 </script>
+
 </head>
 
 <body Style="background-color:#97965B">
@@ -124,7 +125,7 @@ function add(campo) {
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
 		<div class="well lead" align="center">REALIZAR REQUISICIÓN</div>
-		<form:form method="POST" modelAttribute="detallerequisicion" class="form-horizontal">
+		<form:form method="POST" name="req" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
 		<div class="panel-group">			
@@ -156,7 +157,7 @@ function add(campo) {
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
 						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" 
-									onchange='producto();' title="Digitar codigo del producto, solo números"/>
+									onchange='producto();' onkeypress='producto();' title="Digitar codigo del producto, solo números"/>
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Título:</label>
@@ -195,7 +196,7 @@ function add(campo) {
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">
-				 	<input type="submit" value="AGREGAR" class="btn btn-primary btn-sm" /> |||||||||| 								
+				 	<input type="button" value="AGREGAR" class="btn btn-primary btn-sm" onclick="req.submit()" /> |||||||||| 								
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>
