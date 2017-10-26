@@ -189,22 +189,16 @@
 	
 					    		
  <%
-          
-			 		
- 
- 
-		
+      
 		List addresses = (List)request.getAttribute("productos");
         List addressessala = addresses;
  
         List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,addressessala,salahoja,bodegahoja);
  
-             //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);
+             //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);			
 			
-			
-		 Iterator<Producto> addressIter = addresses.iterator();
-		 
-		 	
+		// Iterator<Producto> addressIter = addresses.iterator();
+		 		 	
 		//  e.comparar(sheetData, addressIter);
 	
 			/*while(addressIter.hasNext()) {
@@ -212,35 +206,22 @@
 			    	out.println(address.getCorrelativo());
 			    	 out.println("<br/>");
 			    	 
-			    
-			  
 			     }
 			 */
 			 
-			/* 
-			int j=1;
-		
+			
+		/*	int j=1;		
 			
 			 for (int i = 0; i < addresses1.size(); i++) {
-
 				 List list = (List) addresses1.get(i);
-		       	 
-				 
 		           // List list = (List) addresses1.get(i);
-		           
-		           
 		           //int h=Integer.parseInt(addresses1.get(i).toString());
 		           out.println(j+" El producto " +list.get(i)+" que se encuentra ubicado en  "+list.get(i+4) +" " + " No concuerdan con el inventario teorico" );
 			    	 out.println("<br/>");
 			    	 j=j+1;
 		          
-			 }
-		*/
-					
-		
-			
-			
-				
+			 }*/
+	
 				
        %>
  
@@ -258,7 +239,7 @@
 		    	</thead>
 		    	<tbody>
 		    	      
-				    	<c:forEach items="<%=addresses1%>" var="i"  begin = "1" end = "1">
+				    	<c:forEach items="<%=addresses1%>" var="i" >
 				    		<tr >				    		
 				    	
 				    			<td>${i[0]}</td>
@@ -266,15 +247,17 @@
 				    			<td>${i[2]}</td>	
 				    			<td>${i[3]}</td>
 				    			<td>${i[4]}</td>
-				    			<td>${i[5]}</td>		    			
-				    		
-				    				
-                        
+				    			<td>${i[5]}</td>    			
+				    	
                         </tr>
 				    	 </c:forEach>
 				    	 
 				    	 
-				    
+			      <p>
+		            <c:forTokens items="<%=addresses1%>" delims="," var="sala" varStatus="i1" >
+		                <b><c:out value="${i1.count}"/>.</b> 
+		            </c:forTokens>
+		           </p>
 				    	 
 		    	</tbody>
 	    </table>       
