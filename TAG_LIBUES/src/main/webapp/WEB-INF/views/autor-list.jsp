@@ -41,7 +41,7 @@
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
 			    $(document).ready(function() {
-			        $('#autores').DataTable( {
+			    	var tabla =  $('#autores').DataTable( {
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO DE AUTOR" },
