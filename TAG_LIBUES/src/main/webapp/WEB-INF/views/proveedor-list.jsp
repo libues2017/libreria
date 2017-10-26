@@ -37,7 +37,7 @@
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
 			    $(document).ready(function() {
-			        $('#proveedores').DataTable( {
+			       var tabla = $('#proveedores').DataTable( {
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO PROVEEDOR" },
@@ -45,9 +45,35 @@
 			               { title: "CONTACTO PROVEEDOR" }]
 			        
 			        } );
+			        $('#proveedores tbody').on( 'click', 'tr', function () {
+		    	        if ( $(this).hasClass('selected') ) {
+		    	            $(this).removeClass('selected');
+		    	            dato = "";
+		    	           
+		    	        }
+		    	        else {
+		    	            tabla.$('tr.selected').removeClass('selected');
+		    	            $(this).addClass('selected');
+		    	            dato = $(this).find("td:eq(0)").text();		
+		    	            var h1 = document.createElement("hola");
+		    	            var h2 = document.createElement("hola");			    	            
+		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-proveedor-";
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-proveedor-";			    	         
+		    	         var res1=dato;
+		    	         var res2=res.concat(res1);//link editar			    	         
+		    	         var res4=res3.concat(res1);//link eliminar			    	       
+		    	         var str = "Editar";
+		    	         var str1 = "Eliminar";
+		    	        var result = str.link(res2);
+		    	        var result1 = str1.link(res4);			    	     
+		    	          document.getElementById("devolver").innerHTML = result;
+		    	          document.getElementById("devolver1").innerHTML = result1;
+		    	          
+		    	      }	  
+		    	    } );
 			    } );
 			    
-			   </script>
+		</script>
 
 </head>
 <body>
@@ -58,11 +84,15 @@
 <div class="row"><%@include file="menu.jsp" %></div>
 <!-- <div class="row"> <%@include file="authheader.jsp" %></div>-->
 <div class="row">
-<!--<h1>Editoriales</h1>-->
+<!--<h1>Proveedores</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Agregar Proveedor</a> |
-                <a href="<c:url value='/index' />"> Regresar</a>
+            <div class="well" align="center">
+                <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Agregar Proveedor</a> ||||||
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+                <p>OPCIONES</p>
+                <p id="devolver" class="btn btn-success"></p> ||
+                <p id="devolver1" class="btn btn-warning"></p>
+             
             </div>
         </sec:authorize>
  <div class="panel panel-default">

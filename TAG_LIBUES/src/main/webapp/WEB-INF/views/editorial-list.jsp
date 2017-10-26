@@ -36,7 +36,7 @@
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
 			    $(document).ready(function() {
-			        $('#editoriales').DataTable( {
+			    	var tabla =  $('#editoriales').DataTable( {
 			            data:  dataSet,
 			            columns: [
 			               { title: "CORRELATIVO" },
@@ -45,6 +45,33 @@
 			               ]
 			        
 			        } );
+			        
+					$('#editoriales tbody').on( 'click', 'tr', function () {
+		    	        if ( $(this).hasClass('selected') ) {
+		    	            $(this).removeClass('selected');
+		    	            dato = "";
+		    	           
+		    	        }
+		    	        else {
+		    	            tabla.$('tr.selected').removeClass('selected');
+		    	            $(this).addClass('selected');
+		    	            dato = $(this).find("td:eq(0)").text();		
+		    	            var h1 = document.createElement("hola");
+		    	            var h2 = document.createElement("hola");			    	            
+		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-editorial-";
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-editorial-";			    	         
+		    	         var res1=dato;
+		    	         var res2=res.concat(res1);//link editar			    	         
+		    	         var res4=res3.concat(res1);//link eliminar			    	       
+		    	         var str = "Editar";
+		    	         var str1 = "Eliminar";
+		    	        var result = str.link(res2);
+		    	        var result1 = str1.link(res4);			    	     
+		    	          document.getElementById("devolver").innerHTML = result;
+		    	          document.getElementById("devolver1").innerHTML = result1;
+		    	          
+		    	      }	  
+		    	    } );
 			    } );
 			    
 		</script>
@@ -60,9 +87,13 @@
 <div class="row">
 <!--<h1>Editoriales</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/editorial-agregar' />" class="btn btn-primary">Agregar Editorial</a> |||
+            <div class="well" align="center">
+                <a href="<c:url value='/editorial-agregar' />" class="btn btn-primary">Agregar Editorial</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+                <p>OPCIONES</p>
+                <p id="devolver" class="btn btn-success"></p> ||
+                <p id="devolver1" class="btn btn-warning"></p>
+             
             </div>
         </sec:authorize>
  <div class="panel panel-default">
@@ -71,11 +102,6 @@
             <div class="panel-heading"><span class="lead">Editoriales</span></div>
 <!--<div class="col-xs-8">-->
 	<table id="editoriales" class="table table-striped ">
-<!--	
-	<c:forEach items="${editoriales}"   var="current">
-		<a href="<c:url value='/edit-editorial-${current.codigoeditorial}' />" >Editar</a>
-	</c:forEach>
--->	
 	</table><br/>
 	</div>
 	</div>
@@ -84,7 +110,7 @@
 <br/><br/>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
-<div class="row"><%@include file="foot.jsp" %></div>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+<div class="row"><%@include file="foot.jsp" %></div>
 </body>
 </html>

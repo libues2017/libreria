@@ -72,10 +72,6 @@
         				  <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturacion <span class="caret"></span></a>
           					<ul class="dropdown-menu">
-            					<li><a href="<c:url value="producto-list" />">Catalago</a></li>
-            					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="existencias" />">Reportes de Facturacion</a></li>
-            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="numero-factura" />">Establer Numero Factura</a></li>
