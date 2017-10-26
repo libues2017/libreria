@@ -92,10 +92,11 @@
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
             <div   class="well">
-                <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> |
-                <a href="<c:url value='/index' />"> Regresar</a>
-                 <p id="devolver"></p>
-                <p id="devolver1"></p>
+                <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> ||||||
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+                 <p>OPCIONES</p>
+                <p id="devolver" class="btn btn-success"></p> ||
+                <p id="devolver1" class="btn btn-warning"></p>
              
             </div>
        

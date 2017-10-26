@@ -274,68 +274,7 @@
 				    	 </c:forEach>
 				    	 
 				    	 
-				    	 <c:forEach items="<%=addresses1%>" var="i"  begin = "1" end = "1">
-				    		<tr >				    		
-				    	
-				    			<td>${i[6]}</td>
-				    			<td>${i[7]}</td>	
-				    			<td>${i[8]}</td>	
-				    			<td>${i[9]}</td>
-				    			<td>${i[10]}</td>
-				    			<td>${i[11]}</td>		    			
-				    		
-				    				
-                        
-                        </tr>
-				    	 </c:forEach>
-				    	 
-				    	 <c:forEach items="<%=addresses1%>" var="i"  begin = "1" end = "1">
-				    		<tr >				    		
-				    	
-				    			<td>${i[12]}</td>
-				    			<td>${i[13]}</td>	
-				    			<td>${i[14]}</td>	
-				    			<td>${i[15]}</td>
-				    			<td>${i[16]}</td>
-				    			<td>${i[17]}</td>		    			
-				    		
-				    				
-                        
-                        </tr>
-				    	 </c:forEach>
-				    	 
-				    	 
-				    	 <c:forEach items="<%=addresses1%>" var="i"  begin = "1" end = "1">
-				    		<tr >				    		
-				    	
-				    			<td>${i[18]}</td>
-				    			<td>${i[19]}</td>	
-				    			<td>${i[20]}</td>	
-				    			<td>${i[21]}</td>
-				    			<td>${i[22]}</td>
-				    			<td>${i[23]}</td>		    			
-				    		
-				    				
-                        
-                        </tr>
-				    	 </c:forEach>
-				    	 
-				    	 
-				    	 <c:forEach items="<%=addresses1%>" var="i"  begin = "1" end = "1">
-				    		<tr >				    		
-				    	
-				    			<td>${i[24]}</td>
-				    			<td>${i[25]}</td>	
-				    			<td>${i[26]}</td>	
-				    			<td>${i[27]}</td>
-				    			<td>${i[28]}</td>
-				    			<td>${i[29]}</td>		    			
-				    		
-				    				
-                        
-                        </tr>
-				    	 </c:forEach>
-				    	 
+				    
 				    	 
 		    	</tbody>
 	    </table>       
