@@ -8,8 +8,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu</title>
 <link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+
 <style type="text/css">body{
 	background-color:#97965B;
+}
+</style>
+
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
 }
 </style>
 
@@ -31,28 +46,45 @@
 		     	<div class="collapse navbar-collapse" id="navbar-collapse-2">
 			          <ul class="nav navbar-nav navbar-left">
 			           
-
-			        	<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Areas <span class="caret"></span></a>
+						<li class="dropdown">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INGRESO
+			          		<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
-			            		<li><a href="<c:url value="area-list" />">Lista de Areas</a></li>
-			            		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			          			<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>			          			
+			          			
+			          			<li role="separator" class="divider"></li>
+			          			<li class="dropdown-submenu">
+			          			<a class="test" tabindex="-1" href="#">Areas <span class="caret"></span></a>
+			          			<ul class="dropdown-menu">
+			            			<li><a href="<c:url value="area-list" />">Lista de Areas</a></li>
+			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="area-agregar" />">Agregar nueva area</a></li>
-			                 	</sec:authorize>
+			            				<li><a href="<c:url value="area-agregar" />">Agregar Area</a></li>
+			                 		</sec:authorize>
+			          			</ul>
+			          			
+			          			<li role="separator" class="divider"></li>	
+				        		<li><a href="<c:url value="proveedor-list" />">Proveedores</a></li>
+				        		<li role="separator" class="divider"></li>
+				        		<li><a href="<c:url value="editorial-list" />">Editoriales</a></li>
+				        	
+				        		<li role="separator" class="divider"></li>
+				        		<li class="dropdown-submenu">
+			          			<a class="test" tabindex="-1" href="#">Autores <span class="caret"></span></a>
+			          			<ul class="dropdown-menu">
+				            		<li><a href="<c:url value="autor-list" />">Lista de Autores</a></li>
+				            		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+				            		<li role="separator" class="divider"></li>
+				            			<li><a href="<c:url value="autor-agregar" />">Agregar Autor</a></li>
+			                 		</sec:authorize>
+			          			</ul>			          			
+			          			
+			          			
 			          		</ul>
-			 			</li>
+				        </li>
 			        	
-			        	<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Autores <span class="caret"></span></a>
-			          		<ul class="dropdown-menu">
-			            		<li><a href="<c:url value="autor-list" />">Lista de Autores</a></li>
-			            		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="autor-agregar" />">Agregar nuevo autor</a></li>
-			                 	</sec:authorize>
-			          		</ul>
-			      		</li>
+			        	
+			        	
 						  <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
           					<ul class="dropdown-menu">
@@ -81,7 +113,7 @@
 
 			      		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			      		<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario 1<span class="caret"></span></a>
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">			            		
 			            		<li><a href="<c:url value="localizacion-list" />">Ubicacion de productos</a></li>			                 	
 			          		<!--<li role="separator" class="divider"></li>
@@ -98,18 +130,6 @@
 			      		</li>
 			        	</sec:authorize>
 			        	        	
-			        	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-			        	<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario 2<span class="caret"></span></a>
-			          		<ul class="dropdown-menu">	
-				        	<li><a href="<c:url value="proveedor-list" />">Proveedores</a></li>
-				        	<li role="separator" class="divider"></li>
-				        	<li><a href="<c:url value="editorial-list" />">Editoriales</a></li>
-				        	<li role="separator" class="divider"></li>
-				        	<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>
-				        	</ul>
-				        </li>
-				  		</sec:authorize>
 			        	
 			        	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
            				 <li class="dropdown">
@@ -168,5 +188,16 @@
 
  <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ 
+ <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
+ 
 </body>
 </html>
