@@ -381,9 +381,19 @@ public class excell {
 		 
 		 List<Producto> sheetDatamostrar1 = new ArrayList();
 		
+		 List<List> listaEmpresa = new ArrayList<List>();
+		 
+		 for(int i =0; i<= 5; i++){
+	            listaEmpresa.add(new ArrayList());//crea 5 sublistas
+	          
+	        }
+		 
 		 
 		 Iterator<Producto> addressIter = addresses.iterator();
 		 Iterator<Producto> addressItersala = addresses1.iterator();
+		 
+		 
+		 
 		 
 		 int d=0;
          int h=0;
@@ -394,7 +404,7 @@ public class excell {
          int estante=0;
          int nivel=0;
          String nombre="";
-         
+         int contador=0;
          
          
          
@@ -405,62 +415,72 @@ public class excell {
 		       nombre=address.getNombreProducto();
 		       
 
-      for (int i = 0; i < sheetData.size(); i++) {
-
-     	// h=sheetData.size();
-     	 
-          List list = (List) sheetData.get(i);
-       
-          
-        //  getSheetName(0);
-          
-         // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna 
-            //  Cell cell = (Cell) list.get(j);
-             Cell celle = (Cell) list.get(1);//estante
-             Cell celln = (Cell) list.get(2);//nivel
-         	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
-         	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
-
-              if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-             	 
-             	  d=(int) cell.getNumericCellValue();   //datos de excell
-             	  cantidad=(int) cell1.getNumericCellValue();
-             	  estante=(int) celle.getNumericCellValue();
-             	  nivel=(int) celln.getNumericCellValue();
-      			       			  
-      			     }                     
-             	                 	 
-	                    //System.out.print((int)cell.getNumericCellValue());  
-    			    //System.out.print("\n");
-             // } 
-              
-            //  if(d==g && cantidad==cantidadbase){
-             	 if(d==g  && cantidad!=cantidadsala){
-             // if(d==g ){
-			    	
-			    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
-             			//System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ sala+  " \n"); 
-             			
-             		 sheetDataextraer.add(g);//codigo
-             		 sheetDataextraer.add(nombre); //nombre
-             		 sheetDataextraer.add(cantidadbase);//cantidad
-             		 sheetDataextraer.add(estante);//estante
-             		 sheetDataextraer.add(nivel);//nivel
-             		 sheetDataextraer.add(sala);//ubicacion
-             		 sheetDatamostrar.add(sheetDataextraer) ;
-			    	 
-			      }
-              
-              else
-              {
-             	 
-            	 // System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
-              }
-              
-            
-              
-          }   
-      
+           for (int i = 0; i < sheetData.size(); i++) {
+	
+	     	// h=sheetData.size();
+	     	 
+	          List list = (List) sheetData.get(i);
+	       
+	          
+	        //  getSheetName(0);
+	          
+	         // for (int j = 4; j < list.size(); j++) {///se utiliza para ir columna por columna 
+	            //  Cell cell = (Cell) list.get(j);
+	             Cell celle = (Cell) list.get(1);//estante
+	             Cell celln = (Cell) list.get(2);//nivel
+	         	 Cell cell = (Cell) list.get(3);//aqui tomamos la columan donde va el codigo
+	         	 Cell cell1 = (Cell) list.get(4);//aqui se toma la cantidad del excell
+	
+	              if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+	             	 
+	             	  d=(int) cell.getNumericCellValue();   //datos de excell
+	             	  cantidad=(int) cell1.getNumericCellValue();
+	             	  estante=(int) celle.getNumericCellValue();
+	             	  nivel=(int) celln.getNumericCellValue();
+	      			       			  
+	      			     }                     
+	             	                 	 
+		                    //System.out.print((int)cell.getNumericCellValue());  
+	    			    //System.out.print("\n");
+	             // } 
+	              
+	            
+	             	 if(d==g  && cantidad!=cantidadsala){
+	             // if(d==g ){
+				    	
+				    	//System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
+	             			//System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ sala+  " \n"); 
+	             			
+	             		 sheetDataextraer.add(g);//codigo
+	             		 sheetDataextraer.add(nombre); //nombre
+	             		 sheetDataextraer.add(cantidadbase);//cantidad
+	             		 sheetDataextraer.add(estante);//estante
+	             		 sheetDataextraer.add(nivel);//nivel
+	             		 sheetDataextraer.add(sala);//ubicacion
+	             		 
+	             		 listaEmpresa.get(contador).add(g);
+	             		listaEmpresa.get(contador).add(nombre);
+	             		listaEmpresa.get(contador).add(cantidadbase);
+	             		listaEmpresa.get(contador).add(estante);
+	             		listaEmpresa.get(contador).add(nivel);
+	             		listaEmpresa.get(contador).add(sala);
+	             		
+	             		contador=contador+1;
+	             		 
+	             		 sheetDatamostrar.add(sheetDataextraer) ;
+				    	 
+				      }
+	              
+	              else
+	              {
+	             	 
+	            	 // System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
+	              }
+	              
+	            
+	              
+	          }   
+	      
       
               
       }//fin sala
@@ -515,7 +535,23 @@ public class excell {
 		               		 sheetDataextraer.add(estante);//estante
 		               		 sheetDataextraer.add(nivel);//nivel
 		               		 sheetDataextraer.add(bodega);//ubicacion
+		               		 
+		               		 
+		               		 
+		             		 listaEmpresa.get(contador).add(g);
+		             		listaEmpresa.get(contador).add(nombre);
+		             		listaEmpresa.get(contador).add(cantidadbase);
+		             		listaEmpresa.get(contador).add(estante);
+		             		listaEmpresa.get(contador).add(nivel);
+		             		listaEmpresa.get(contador).add(bodega);
+		             		
+		             		contador=contador+1;
+		             		 
+		               		 
+		               		 
 		               		 sheetDatamostrar.add(sheetDataextraer) ;
+		               		 
+		               		 
 	 			    	 
 	 			      }
 	                
@@ -529,11 +565,12 @@ public class excell {
 	                
 	            }         
 	                
-        }//fin bodega
+        }//fin bodega 
+        
 		
 		 
-		return sheetDatamostrar;         
-        
+		//return sheetDatamostrar;         
+		 return listaEmpresa;
 
     }
 

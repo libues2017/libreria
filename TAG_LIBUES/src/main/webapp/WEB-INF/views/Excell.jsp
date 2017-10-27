@@ -239,25 +239,21 @@
 		    	</thead>
 		    	<tbody>
 		    	      
-				    	<c:forEach items="<%=addresses1%>" var="i" >
+				    	<c:forEach items="<%=addresses1%>" var="i"  >
 				    		<tr >				    		
 				    	
 				    			<td>${i[0]}</td>
-				    			<td>${i[1]}</td>	
-				    			<td>${i[2]}</td>	
-				    			<td>${i[3]}</td>
-				    			<td>${i[4]}</td>
-				    			<td>${i[5]}</td>    			
+				    			<td>${i[1]}</td>
+				    	  		<td>${i[2]}</td>
+				    	  		<td>${i[3]}</td>
+				    	  		<td>${i[4]}</td>	
+				    	  		<td>${i[5]}</td>
 				    	
                         </tr>
 				    	 </c:forEach>
 				    	 
 				    	 
-			      <p>
-		            <c:forTokens items="<%=addresses1%>" delims="," var="sala" varStatus="i1" >
-		                <b><c:out value="${i1.count}"/>.</b> 
-		            </c:forTokens>
-		           </p>
+			    
 				    	 
 		    	</tbody>
 	    </table>       
