@@ -392,9 +392,7 @@ public class excell {
 		 Iterator<Producto> addressIter = addresses.iterator();
 		 Iterator<Producto> addressItersala = addresses1.iterator();
 		 
-		 
-		 
-		 
+		 		 
 		 int d=0;
          int h=0;
          int cantidad=0;
@@ -405,8 +403,8 @@ public class excell {
          int nivel=0;
          String nombre="";
          int contador=0;
-         
-         
+         int diferencia=0;
+                  
          
          while(addressItersala.hasNext()) {
 		       Producto address =  addressItersala.next();
@@ -458,12 +456,21 @@ public class excell {
 	             		 sheetDataextraer.add(nivel);//nivel
 	             		 sheetDataextraer.add(sala);//ubicacion
 	             		 
-	             		 listaEmpresa.get(contador).add(g);
-	             		listaEmpresa.get(contador).add(nombre);
-	             		listaEmpresa.get(contador).add(cantidadbase);
-	             		listaEmpresa.get(contador).add(estante);
-	             		listaEmpresa.get(contador).add(nivel);
-	             		listaEmpresa.get(contador).add(sala);
+	             		 diferencia=cantidad-cantidadsala;
+	             		 
+	             		 
+	             		 if(diferencia<-1)	             		 
+	             		 {
+	             			 
+	             			 diferencia=diferencia*-1;
+	             		 }
+	             		 
+	             		listaEmpresa.get(contador).add(g);//codigo
+	             		listaEmpresa.get(contador).add(nombre);//nombre
+	             		listaEmpresa.get(contador).add(cantidadbase);//nombre
+	             		listaEmpresa.get(contador).add(estante);//estante
+	             		listaEmpresa.get(contador).add(nivel);//nivel
+	             		listaEmpresa.get(contador).add(sala);//ubicacion
 	             		
 	             		contador=contador+1;
 	             		 
@@ -476,8 +483,6 @@ public class excell {
 	             	 
 	            	 // System.out.print("El producto con codigo "+d +" concuerda con el inventario teorico \n");
 	              }
-	              
-	            
 	              
 	          }   
 	      
@@ -494,10 +499,8 @@ public class excell {
 		       nombre=address.getNombreProducto();
 		       
 
-	        for (int i = 0; i < sheetData1.size(); i++) {
-	
-	       
-	       	 
+	        for (int i = 0; i < sheetData1.size(); i++) {	
+	       	       	 
 	            List list = (List) sheetData1.get(i);
 	         
 	            
@@ -537,22 +540,15 @@ public class excell {
 		               		 sheetDataextraer.add(bodega);//ubicacion
 		               		 
 		               		 
-		               		 
-		             		 listaEmpresa.get(contador).add(g);
-		             		listaEmpresa.get(contador).add(nombre);
-		             		listaEmpresa.get(contador).add(cantidadbase);
-		             		listaEmpresa.get(contador).add(estante);
-		             		listaEmpresa.get(contador).add(nivel);
-		             		listaEmpresa.get(contador).add(bodega);
+		               		    listaEmpresa.get(contador).add(g);//codigo
+			             		listaEmpresa.get(contador).add(nombre);//nombre
+			             		listaEmpresa.get(contador).add(cantidadbase);//nombre
+			             		listaEmpresa.get(contador).add(estante);//estante
+			             		listaEmpresa.get(contador).add(nivel);//nivel			             		
+		             		    listaEmpresa.get(contador).add(bodega);//ubicacion
 		             		
-		             		contador=contador+1;
-		             		 
-		               		 
-		               		 
+		             		contador=contador+1;	
 		               		 sheetDatamostrar.add(sheetDataextraer) ;
-		               		 
-		               		 
-	 			    	 
 	 			      }
 	                
 	                else
@@ -560,15 +556,12 @@ public class excell {
 	               	 
 	                	//System.out.print("El producto con codigo "+g +"No concuerda con el inventario teorico con el codigo  "+ d+  " \n"); 
 	                }
-	                
-	              
-	                
+	               	 
 	            }         
 	                
         }//fin bodega 
         
-		
-		 
+				 
 		//return sheetDatamostrar;         
 		 return listaEmpresa;
 
