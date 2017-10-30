@@ -1105,6 +1105,31 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/finalizar" }, method = RequestMethod.GET)
     public String findetalleRetaceo( HttpServletRequest request,ModelMap model,@RequestParam(required = false) String fecharetaceo )throws IOException, ParseException {
     	
+    	
+		    	/*
+				Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
+		
+						Cantidad de Productos en existencia = PEX 
+						Cantidad de Productos de entrada = PE 
+						Costo Productos en Existencia = CPEX
+						Costo Productos de entrada = CPE
+						Costo Promedio Unitario = CPU
+						Precio de Venta = PV 
+						Total de Costo = TC
+						Total de Artículos = TA  
+						precio de venta anterior=PVA										
+						La fórmula para el cálculo del costo promedio es la siguiente: 										 
+						TC = (PEX*CPEX) +(PE*CPE) 
+						TA = PEX+PE 
+		                CPU=TC/TA 
+						PV=CPU+(CPU*0.20). 
+														
+				*/
+				
+    	
+    	
+    	
+    	
           HttpSession sesion=request.getSession(true);
     	
           Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
@@ -1115,14 +1140,17 @@ public class AppControllerLibues {
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();
-        	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();
+        	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior();
+        	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada
         	  Integer existencia =existenciaanterior+cantidad;
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
         	  
+        	  
         	Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto tabla retaceo
-        	  costo=costo+(costo*utilidad);	/// calcula y actualiza costo unitario de producto 
+        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo
+        	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo
+        	  costo=costo/existencia;
         	 productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
           }
