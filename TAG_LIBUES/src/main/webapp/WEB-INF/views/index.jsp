@@ -21,7 +21,7 @@
 		    <div class="thumbnail">
 		      <img src="<c:url value='/static/img/libros.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
-		        <h3><a href="<c:url value="producto-list" />" class="alert-link">Libros</a></h3>
+		        <h3><a href="<c:url value="producto-busqueda" />" class="alert-link">Libros</a></h3>
 		        <p>Contamos con una gran variedad de libros a su disposicion, tanto academincos como de entretenimiento.</p>
 		        
 		      </div>

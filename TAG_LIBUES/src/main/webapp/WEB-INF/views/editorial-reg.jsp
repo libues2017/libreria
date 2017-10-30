@@ -8,6 +8,7 @@
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
     <Style>
     .control-label{
     	text-align: left;

@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+
 
 <Style>
 .control-label {
@@ -174,7 +176,7 @@ function validar(){
 
 </head>
 
-<body Style="background-color:#97965B">
+<body>
 
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
@@ -269,20 +271,26 @@ function validar(){
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    			<c:set var="contador" value="${0}" /> <c:set var="total" value="${0}"/>
+		    			<c:set var="contador" value="${0}" /> 
+		    			
+		    			<c:set var="total" value="${0}"/>
+		    			
 				    	<c:forEach items="${req1}" var="requisiciones" >
 				    		<tr class="info">				    		
 		    	            <c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	           <c:if test = "${salary > 2000}">
+		    	            <c:if test = "${salary > 2000}">
 		    	                <c:set var="contador" value="${contador + 1}" />
+		    	                
 		    	                <c:set var="total" value="${total + requisiciones.subtotal}" />	
+		    	                
 		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
 				    			<td>${requisiciones.cantidad}</td>
 				    		    <td>$ ${requisiciones.costo}</td>
 				    			<td>$ ${requisiciones.precio}</td>
-				    			<td>$ ${requisiciones.subtotal}</td>				    							    			 			
+				    			<td>$ ${requisiciones.subtotal}</td>
+				    							    							    			 			
 				    		</c:if>	
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
@@ -296,7 +304,7 @@ function validar(){
                 <div class="form-group col-md-12">
                     <label class="col-md-9 control-lable" for="total">TOTAL:</label>
                     <div class="col-md-2">
-                    <input type="text" path="total" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
                     		value='<c:forEach items="${req1}" var="requisiciones">${total}</c:forEach>'/>                           
                     </div>
                 </div>

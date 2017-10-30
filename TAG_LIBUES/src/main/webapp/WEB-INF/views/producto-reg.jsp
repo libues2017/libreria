@@ -14,6 +14,8 @@
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+  	
 </head>
  <%
 					// Quiero la fecha actual para ponerla por defecto 
@@ -49,7 +51,7 @@
                     	 sAhora=fecha;
                      }
 %>
-<body Style="background-color:#97965B">
+<body >
    <div class="row"><%@include file="page_head.jsp" %></div>
    <div class="container">
     

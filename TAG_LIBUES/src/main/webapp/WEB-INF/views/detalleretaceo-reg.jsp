@@ -20,7 +20,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+	   
 			  <Style>
 						h1.hidden {
                         visibility: hidden;
@@ -334,7 +336,7 @@ function cambiar5(){
 </head>
 
 	
-<body Style="background-color:#97965B">
+<body >
 
 		  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
