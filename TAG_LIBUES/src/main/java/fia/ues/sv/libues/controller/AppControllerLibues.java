@@ -1117,9 +1117,12 @@ public class AppControllerLibues {
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();
         	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();
         	  Integer existencia =existenciaanterior+cantidad;
+        	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
+        	  utilidad=utilidad/100;
         	  
         	Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	 
+        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto tabla retaceo
+        	  costo=costo+(costo*utilidad);	/// calcula y actualiza costo unitario de producto 
         	 productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
           }

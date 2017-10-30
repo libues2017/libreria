@@ -449,7 +449,7 @@ function cambiar5(){
                         
                         <c:otherwise>
                         <div class="col-xs-2">
-                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()"  />
+                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
