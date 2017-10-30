@@ -192,15 +192,19 @@
                         	var Id=document.getElementById("codigoproducto").value;
                             var sessionId = [];
                             var nombre = [];
+                            var costo=[];
                         	
               		<c:forEach items="${producto}" var="current">
               		
               		    if(${current.correlativo} == Id){
               		    	
               		     nombre.push("${current.nombreProducto}");
+              		     costo.push("${current.costounitario}");
               		     document.getElementById('nombreprod').value = nombre;
+              		   document.getElementById('costoactual').value = costo;
               		   sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =sessionId;
+              		   
               		     
               		    }
               		</c:forEach>
@@ -394,13 +398,17 @@ function cambiar5(){
 				        <label class="form-control" for="tags">Codigo Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />      
                     </div>
-                    <div class="col-xs-6"> 
+                    <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm" />
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="existencia">Existencia:</label>
 						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+                    </div>
+                    <div class="col-xs-2">
+						<label class="form-control" for="costoactual">Costo Actual:</label>
+						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
 				</div>
 			</div>
