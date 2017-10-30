@@ -10,23 +10,7 @@
 <link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 <script src="/static/js/jquery-3.1.1.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
-
-<style type="text/css">body{
-	background-color:#97965B;
-}
-</style>
-
-<style>
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -1px;
-}
-</style>
+<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
 </head>
 <body>

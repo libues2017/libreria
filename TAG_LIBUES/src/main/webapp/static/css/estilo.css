@@ -1,0 +1,54 @@
+body {
+
+/* Ubicación de la imagen */
+
+background-image: url(../img/fondo-login2.jpg);
+
+/* Para dejar la imagen de fondo centrada, vertical y
+
+horizontalmente */
+
+background-position: center center;
+
+/* Para que la imagen de fondo no se repita */
+
+background-repeat: no-repeat;
+
+/* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+
+background-attachment: fixed;
+
+/* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+
+background-size: cover;
+
+/* Se muestra un color de fondo mientras se está cargando la imagen
+
+de fondo o si hay problemas para cargarla */
+
+background-color: #66999;
+
+}
+
+@media only screen and (max-width: 800px) {
+
+body {
+
+background-image: url(../img/fondo-login2-media.jpg);
+
+}
+
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+.page_header{
+ 	background-color: #5D8DC4;
+ }

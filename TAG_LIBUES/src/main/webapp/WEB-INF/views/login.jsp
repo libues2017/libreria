@@ -7,12 +7,11 @@
         <title>Login page</title>
         <link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
         <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-        
-    </head>
+        <link href="<c:url value='/static/css/estilo.css' />" rel="stylesheet"></link>
+ 	</head>
  
-    <body>
-    <div class="container">
-   	<div class="row"><%@include file="menu.jsp" %></div>
+    <body>    
+    <div class="container">   	
     <div class="row">
     <div class="col-md-9 right-panel"><h1>Librería Universitaria<small><br/>Universidad de El Salvador </small></h1></div>
     <div class="col-md-3 loggin-div">
@@ -48,9 +47,11 @@
                             <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" /> 
                                  
                             <div class="form-actions col-xs-5">
-                                <input type="submit"
-                                    class="btn btn-block btn-primary btn-default" value="Ingresar">
+                                <input type="submit" class="btn btn-block btn-primary btn-default" value="Ingresar">
                             </div>
+                            <div class="col-xs-2">
+							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar</a>
+						</div>
                         </form>
                     </div>
                 </div>

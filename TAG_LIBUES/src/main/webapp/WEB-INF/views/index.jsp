@@ -7,16 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Libreria Universitaria</title>
-<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
- <style>
- 	body{
- 	background-color: #ffffd6;
- }
- }
- .page_header{
- 	background-color: #5D8DC4;
- }
- </style>
+<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link> 
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
