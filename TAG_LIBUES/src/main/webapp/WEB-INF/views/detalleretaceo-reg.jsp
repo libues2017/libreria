@@ -236,12 +236,12 @@
 					var fecha="f";
 					var fecha1="f1";
 					var cfp="cfp";
-					var uti="uti";
+					var uti1="uti";
 					
 					sessionStorage[fecha]=fecharetaceo;
 					sessionStorage[fecha1]=fechafacturaproveedor;
 					sessionStorage[cfp]=codigofacturaproveedor;
-					//sessionStorage[uti]=utilidad;
+					sessionStorage[uti1]=utilidad;
 				     }
                      
                  </script>
@@ -253,16 +253,16 @@
 									   var p1;
 									  
 										for(var i=0;i<sessionStorage.length;i++){
-						                //var producto=sessionStorage.key("f");
+						                var producto=sessionStorage.key("f");
 						                p=sessionStorage.getItem('f');
 						                p1=sessionStorage.getItem('f1');
 						                p3=sessionStorage.getItem('cfp');	
-						                //p4=sessionStorage.getItem('uti');
+						                p4=sessionStorage.getItem('uti');
 										}
 									   document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
 									   document.getElementById("codigofacturaproveedor").value=p3;
-									 //  document.getElementById("utilidad").value=p4;
+									   document.getElementById("utilidad").value=p4;
 					    
 					           } );
 					                  
@@ -281,7 +281,7 @@
 								  } );
 					  </script>
 					  				  
-					  <script>
+				<script>
 					 		
 					  $( function() {
 						  
@@ -298,7 +298,40 @@
 						  } );
 					  
 					  </script>
-	</head>
+
+<script>
+function cambiar1(){
+	var codigo1 = document.getElementById("codigofacturaproveedor").value;	
+		if(codigo1 != null){
+        	$("#codigoproveedor").focus();
+		}
+}
+function cambiar2(){	
+	var codigo3 = document.getElementById("codigoproveedor").value;	
+		if(codigo3 != null) {
+        	$("#codigoproducto").focus();
+        }
+}
+function cambiar3(){	
+	var codigo2 = document.getElementById("codigoproducto").value;	
+		if(codigo2 != null) {
+        	$("#costoproducto").focus();
+        }
+}
+function cambiar4(){	
+	var costo = document.getElementById("costoproducto").value;		
+		if(costo != null) {
+        	$("#cantidadproducto").focus();
+        }
+}
+function cambiar5(){		
+	var cantidad = document.getElementById("cantidadproducto").value;	
+		if(cantidad != null) {
+        	$("#agregar").focus();
+        }
+}
+</script>
+</head>
 
 	
 <body Style="background-color:#97965B">
@@ -309,7 +342,7 @@
 
 
 	  <div class="well lead" align="center">Realizar Retaceo</div>
-        <form:form method="POST" modelAttribute="detalleretaceo"  class="form-horizontal"  >
+        <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
       <div class="panel-group">
@@ -326,7 +359,7 @@
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm"   value='0'/>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
                     </div>
 				</div>
 			</div>
@@ -337,15 +370,15 @@
 				<div class="panel-body">
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
-						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" placeholder="DIGITE" class="form-control input-sm" /> 
+						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" onchange='cambiar1();' placeholder="DIGITE" class="form-control input-sm" /> 
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>
-						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm"  onchange="sesion();"  />                        
+						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();"/>                        
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
-						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2();' />    
+						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' />    
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
@@ -357,7 +390,7 @@
 				<div class="panel-body">
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
-	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label();' />      
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />      
                     </div>
                     <div class="col-xs-6"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
@@ -373,11 +406,11 @@
 				<div class="panel-body">
 					<div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Costo Producto: $</label>
-	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto');"  value='0'/>
+	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto'); cambiar4();" placeholder="DIGITE"/>
                     </div>
                     <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
-	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto')"/>
+	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto'); cambiar5();"/>
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
@@ -414,7 +447,7 @@
                         
                         <c:otherwise>
                         <div class="col-xs-2">
-                            <input type="submit" value="AGREGAR"  class="btn btn-primary btn-sm"  />
+                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
