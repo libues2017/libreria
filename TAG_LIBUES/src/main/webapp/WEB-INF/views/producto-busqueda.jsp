@@ -64,7 +64,7 @@
 	       	       	
        	</div>
        	<br/>
-       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Libro" class="btn btn-primary btn-sm"/></div></div>
+       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Producto" class="btn btn-primary btn-sm"/></div></div>
        	</form:form>
   
   	<c:set var="categories" value="${productos}" scope="session"/>
@@ -91,12 +91,12 @@
                         <th>Editorial</th>
                         <th>Precio</th>
                         <th>Tipo Producto</th>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-                            <th width="100"></th>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                            <th width="100">Editar</th>
                         </sec:authorize>
-                        <sec:authorize access="hasRole('ADMIN')">
-                            <th width="100"></th>
-                        </sec:authorize>
+                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                            <th width="100">Eliminar</th>
+                        </sec:authorize>	
                          
                     </tr>
                 </thead>
@@ -104,23 +104,24 @@
                 
                 <c:forEach items="${productos}" var="producto">
                     <tr>
-                        <td><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></td>
-                        <td>${producto.nombreProducto}</td>
-                       <td><c:forEach items="${producto.autores}" var="autor">
-                        	${autor.nombreautor}<br/> 
+                        <td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
+                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
+                    		<td>
+                        	<c:forEach items="${producto.autores}" var="autor">
+                        		${autor.nombreautor}<br/> 
                         	</c:forEach>
-                        </td>
+                        	</td>	
                         <td>${producto.area.nombrearea}</td>
                         <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
                         <td>${producto.precio}</td>
                         <td>${producto.tipoProducto}</td>
-                        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-                            <td><a href="<c:url value='/edit-producto-${producto.codigoProducto}' />" class="btn btn-success custom-width">Editar</a></td>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ADMIN')">
-                            <td><a href="<c:url value='/delete-producto-${producto.codigoProducto}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        </sec:authorize>
+                       <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                            	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
+                        	</sec:authorize>
+                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
+                            	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                        	</sec:authorize>   
                     </tr>
                 </c:forEach>
                 
