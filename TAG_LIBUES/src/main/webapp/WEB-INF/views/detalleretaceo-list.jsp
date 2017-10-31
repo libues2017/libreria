@@ -21,9 +21,6 @@
 		<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
 		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 		
-		
-		  
-    
 	     <script type="text/javascript">
 
 			    var dataSet = [];
@@ -92,9 +89,6 @@
 			
 </head>
 <body>
-
-
-        
 
 
 

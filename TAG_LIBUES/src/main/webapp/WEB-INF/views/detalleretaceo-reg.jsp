@@ -442,8 +442,7 @@ function cambiar5(){
                     <div class="col-xs-3" style="display:none">
                     <label class="col-md-3 control-lable" for="nombr" >subtotal</label>
                     <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
-                    </div>
-					
+                    </div>				
 					
             	    <c:choose>
                         <c:when test="${edit}">
