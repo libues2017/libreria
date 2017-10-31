@@ -1,17 +1,9 @@
 package fia.ues.sv.libues.controller;
 
 import java.text.ParseException;
-
-/* Import Leer Archivos
-import java.io.File;
-import java.io.FileInputStream;
-import org.apache.commons.codec.binary.Base64;
-import java.io.UnsupportedEncodingException;*/
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-//import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -241,7 +233,7 @@ public class AppControllerLibues {
     // ***************** LOGUEO DE USUARIOS************************************
     //*************************************************************************
 	/**
-     * This method will list all existing users.
+     * Este Metodo mostrara todos los usuarios existentes.
      */
     @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
     public String listUsers(ModelMap model) {
@@ -270,8 +262,8 @@ public class AppControllerLibues {
     }
  
     /**
-     * This method will be called on form submission, handling POST request for
-     * saving user in database. It also validates the user input
+     * Se llamará a este método en el envío del formulario, manejando la solicitud POST para
+     * guardar usuario en la base de datos. También valida la entrada del usuario.
      */
     @RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
@@ -296,7 +288,7 @@ public class AppControllerLibues {
     }
  
        /**
-     * This method will provide the medium to update an existing user.
+     * Este metodo provee el medio para actualizar un usuario existente.
      */
     @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
     public String editUser(@PathVariable String ssoId, ModelMap model) {
@@ -308,9 +300,9 @@ public class AppControllerLibues {
     }
      
     /**
-     * This method will be called on form submission, handling POST request for
-     * updating user in database. It also validates the user input
-     */
+     * Se llamará a este método en el envío del formulario, manejando la solicitud POST para
+     * actualizar un usuario en la base de datos. También valida la entrada del usuario.
+     *      */
     @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
             ModelMap model, @PathVariable String ssoId) {
@@ -337,7 +329,7 @@ public class AppControllerLibues {
  
      
     /**
-     * This method will delete an user by it's SSOID value.
+     *Este metodo borrara un usuario por su valor SSOID.
      */
     @RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String ssoId) {
@@ -347,7 +339,7 @@ public class AppControllerLibues {
      
 
     /**
-     * This method handles Access-Denied redirect.
+     *Este método maneja la redirección de acceso denegado.
      */
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
@@ -356,8 +348,8 @@ public class AppControllerLibues {
     }
  
     /**
-     * This method handles login GET requests.
-     * If users is already logged-in and tries to goto login page again, will be redirected to list page.
+     *Este método maneja las solicitudes GET de inicio de sesión.
+     * Si los usuarios ya iniciaron sesión e intentan volver a la página de inicio de sesión, se les redirigirá a la página de la lista.
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
@@ -369,8 +361,7 @@ public class AppControllerLibues {
     }
  
     /**
-     * This method handles logout requests.
-     * Toggle the handlers if you are RememberMe functionality is useless in your app.
+     * Este método maneja las solicitudes de cierre de sesión.
      */
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response){
@@ -384,7 +375,7 @@ public class AppControllerLibues {
     }
  
     /**
-     * This method returns the principal[user-name] of logged-in user.
+     * Este método devuelve el nombre de usuario que inició sesión.
      */
     private String getPrincipal(){
         String userName = null;
@@ -399,7 +390,7 @@ public class AppControllerLibues {
     }
      
     /**
-     * This method returns true if users is already authenticated [logged-in], else false.
+     * Este método devuelve verdadero si los usuarios ya están autenticados [conectados], de lo contrario es falso.
      */
     private boolean isCurrentAuthenticationAnonymous() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -419,7 +410,6 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "area-list";
     }
-    
     
     @RequestMapping(value = { "/area-agregar" }, method = RequestMethod.GET)
     public String newArea(ModelMap model) {
@@ -444,12 +434,8 @@ public class AppControllerLibues {
         return "redirect:/area-agregar";
     }
     
-        
     @RequestMapping(value = { "/edit-area-{codigoarea}" }, method = RequestMethod.GET)
     public String editArea(@PathVariable Integer codigoarea, ModelMap model) {
-    	
-    	
-    	//areaService
     	Area area = areaService.findById(codigoarea);
     	model.addAttribute("area", area);
         model.addAttribute("edit", true);
@@ -477,13 +463,11 @@ public class AppControllerLibues {
         return "redirect:/area-list";
     }
     
-    
     //*************************************************************************
     // ***************** CONTROLES DE AUTORES *********************************
     //*************************************************************************
     
-    
-    @RequestMapping(value = { "/autor-list" }, method = RequestMethod.GET)
+      @RequestMapping(value = { "/autor-list" }, method = RequestMethod.GET)
     public String listAutores(ModelMap model) throws IOException {
  
         List<Autor> autor = autorService.findAllAutors();
@@ -492,7 +476,6 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "autor-list";
     }
-    
     
     @RequestMapping(value = { "/autor-agregar" }, method = RequestMethod.GET)
     public String newAutor(ModelMap model) {
@@ -513,20 +496,14 @@ public class AppControllerLibues {
         }
                  	  	
     	autorService.saveAutor(autor);
-    	
- 
         model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor() + "</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
         return "autor-reg-succ";
     }
     
-        
     @RequestMapping(value = { "/edit-autor-{codigoautor}" }, method = RequestMethod.GET)
     public String editAutor(@PathVariable Integer codigoautor, ModelMap model) {
-    	
-    	
-    	//areaService
     	Autor autor = autorService.findById(codigoautor);
     	model.addAttribute("autor", autor);
         model.addAttribute("edit", true);
@@ -543,9 +520,6 @@ public class AppControllerLibues {
         }
  
         autorService.updateAutor(autor);
-
-        
- 
         model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         return "autor-reg-succ";
@@ -558,25 +532,20 @@ public class AppControllerLibues {
         return "redirect:/autor-list";
     }
     
-    
     //*************************************************************************
     // ***************** CONTROLES DE EDITORIALES *****************************
     //*************************************************************************
     
     @RequestMapping(value = { "/editorial-list" }, method = RequestMethod.GET)
     public String listEditoriales(ModelMap model) throws IOException {
- 
         List<Editorial> editoriales = editorialService.findAllEditoriales();
-                
         model.addAttribute("editoriales", editoriales);
         model.addAttribute("loggedinuser", getPrincipal());
         return "editorial-list";
     }
     
-    
     @RequestMapping(value = { "/editorial-agregar" }, method = RequestMethod.GET)
     public String newEditorial(ModelMap model) {
-        
         Editorial editorial = new Editorial();
         model.addAttribute("editorial", editorial);
         model.addAttribute("edit", false);
@@ -602,10 +571,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/edit-editorial-{id}" }, method = RequestMethod.GET)
     public String editEditorial(@PathVariable Integer id, ModelMap model) {
-    	
-    	
     	Editorial editorial = editorialService.findById(id);
-    	
     	model.addAttribute("editorial", editorial);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
@@ -615,14 +581,11 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-editorial-{id}" }, method = RequestMethod.POST)
     public String updateEditorial(@Valid Editorial editorial, BindingResult result,
             ModelMap model, @PathVariable Integer id) throws IOException {
- 
-        if (result.hasErrors()) {
+         if (result.hasErrors()) {
             return "editorial-reg";
         }
  
         editorialService.updateEditorial(editorial);
-            
- 
         //model.addAttribute("success", "Editorial: <strong>" + editorial.getNombre()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         return "redirect:/editorial-list";
@@ -701,8 +664,7 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "proveedor-reg-succ";
         }
-    
-    
+
     //METODO DE ELIMINAR PROVEEDORES
     @RequestMapping(value = { "/delete-proveedor-{codigoproveedor}" }, method = RequestMethod.GET)
     public String deleteProveedor(@PathVariable Integer codigoproveedor) {
@@ -710,8 +672,7 @@ public class AppControllerLibues {
         return "redirect:/proveedor-list";
     }
     
-    
-    
+  
     //*************************************************************************
     // *************CONTROLES DE CODIGO TIPO DE PRODUCTO***********************
     //*************************************************************************
@@ -848,10 +809,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/edit-producto-{codigoProducto}" }, method = RequestMethod.GET)
     public String editProducto(@PathVariable Integer codigoProducto, ModelMap model) {
-    	
-    	   	 	
     	Producto producto = productoService.findByCodigoProducto(codigoProducto);
-    	
     	model.addAttribute("producto", producto);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
@@ -884,12 +842,6 @@ public class AppControllerLibues {
     	productoService.deleteByCodigoProducto(codigoProducto);
         return "redirect:/producto-list";
     }
-    
-  /*  @InitBinder
-    public void initBinderDate(WebDataBinder binder) {
-        CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
-        binder.registerCustomEditor(Date.class, editor);
-    }*/
     
     @InitBinder
     public void initBinder(WebDataBinder binder){
@@ -954,7 +906,6 @@ public class AppControllerLibues {
         return "detalleretaceo-list";
     }
     
-    
     @RequestMapping(value = { "/detalleretaceo-agregar" }, method = RequestMethod.GET)
     public String newdetalleRetaceo( HttpServletRequest request,ModelMap model) {
         DetalleRetaceo detalleretaceo = new DetalleRetaceo();
@@ -962,16 +913,12 @@ public class AppControllerLibues {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
-    	
-    	  
     	  // populate
-    	 
     	  HttpSession session = request.getSession();
     	  HttpSession sesion2=request.getSession(true);
     	 /* String data =request.getParameter("fechafacturaproveedor");
     	  Date fecha=null;
-    	  
-    	  
+
     	  if(sesion2.getAttribute("mySessionAttribute")==null){
     		  data=request.getParameter("fechafacturaproveedor");
     		  sesion2.setAttribute("mySessionAttribute", data);
@@ -1100,7 +1047,6 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/finalizar" }, method = RequestMethod.GET)
     public String findetalleRetaceo( HttpServletRequest request,ModelMap model,@RequestParam(required = false) String fecharetaceo )throws IOException, ParseException {
     	
-    	
 		    	/*
 				Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
 		
@@ -1117,20 +1063,12 @@ public class AppControllerLibues {
 						TC = (PEX*CPEX) +(PE*CPE) 
 						TA = PEX+PE 
 		                CPU=TC/TA 
-						PV=CPU+(CPU*0.20). 
-														
+						PV=CPU+(CPU*0.20). 									
 				*/
-				
-    	
-    	
-    	
-    	
+
           HttpSession sesion=request.getSession(true);
-    	
           Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-          
           sesion.setAttribute("codigoultimo", codigoretaceo);
-          
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
@@ -1140,8 +1078,6 @@ public class AppControllerLibues {
         	  Integer existencia =existenciaanterior+cantidad;
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
-        	  
-        	  
         	Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
         	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo
@@ -1336,20 +1272,17 @@ public class AppControllerLibues {
 		return "volmov_e";
 	}
     
-       
     @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
 	public String horashombre(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReportTRASL";
 	}
     
-    
     @RequestMapping(value={"/retaceo"}, method = RequestMethod.GET)
 	public String reporteretaceoingreso(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReporteRetaceoIngreso";
 	}
-    
     
         //Controles para el Reporte de Existencias de Producto
     @RequestMapping(value={"/existencias"}, method = RequestMethod.GET)
@@ -1358,14 +1291,12 @@ public class AppControllerLibues {
   		return "existencias";
   	}
       
-           
       @RequestMapping(value={"/repo_existencias"}, method = RequestMethod.GET)
   	public String repoexistencias(ModelMap model){
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReportEXISTENCIAS";
   	}
 
-      
       //Controles para el Reporte de Transferencias a Sucursales
    @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)
  	public String trasnferencias(ModelMap model){
@@ -1373,8 +1304,7 @@ public class AppControllerLibues {
  		return "transferencias";
  	}
      
-          
-     @RequestMapping(value={"/repo_transferencias"}, method = RequestMethod.GET)
+  @RequestMapping(value={"/repo_transferencias"}, method = RequestMethod.GET)
  	public String repotrasnferencias(ModelMap model){
  		model.addAttribute("loggedinuser", getPrincipal());
  		return "ReportTransferencias";
@@ -1775,9 +1705,40 @@ public class AppControllerLibues {
     	return "redirect:/detallefacturacion-agregar";
     }
     
-     
+    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
+    public String newNumeroFactura( HttpServletRequest request,ModelMap model) {
+    	
+    	Factura factura = new Factura();
+        model.addAttribute("factura", factura);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	
+		List<Factura> fact5 = facturaService.findAllFacturas();
+		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigofact", fact6);
+        
+    	return "factura-set-numero"; 
+    }
     
-    //*************************************************************************
+    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.POST)   
+    public String saveNumeroFactura( HttpServletRequest request,@Valid Factura factura, BindingResult result, 
+    		ModelMap model,@RequestParam(required = false)  Integer numerofactura) throws IOException, ParseException {
+         	 	
+    	if (result.hasErrors()) {
+            return "factura-set-numero";
+        }
+    	HttpSession sesion=request.getSession(true);    	
+        Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
+                
+        facturaService.updateNumeroFactura(codigofact, numerofactura);
+    	
+    	model.addAttribute("loggedinuser", getPrincipal());
+    	
+    	return "redirect:/detallefacturacion-agregar";      
+    }  
+ 
+  //*************************************************************************
     // ***************** CONTROLES PARA COMPARACION INVENTARIO ****************
     //*************************************************************************
     
@@ -1820,40 +1781,6 @@ public class AppControllerLibues {
     	
     }
     
-    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
-    public String newNumeroFactura( HttpServletRequest request,ModelMap model) {
-    	
-    	Factura factura = new Factura();
-        model.addAttribute("factura", factura);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-    	
-		List<Factura> fact5 = facturaService.findAllFacturas();
-		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigofact", fact6);
-        
-    	return "factura-set-numero"; 
-    }
-    
-    @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.POST)   
-    public String saveNumeroFactura( HttpServletRequest request,@Valid Factura factura, BindingResult result, 
-    		ModelMap model,@RequestParam(required = false)  Integer numerofactura) throws IOException, ParseException {
-         	 	
-    	if (result.hasErrors()) {
-            return "factura-set-numero";
-        }
-    	HttpSession sesion=request.getSession(true);    	
-        Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
-                
-        facturaService.updateNumeroFactura(codigofact, numerofactura);
-    	
-    	model.addAttribute("loggedinuser", getPrincipal());
-    	
-    	return "redirect:/detallefacturacion-agregar";      
-    }  
- 
-   
   /*************************************************************************************
    ********************************Funciones auxiliares para las imagenes***************
    *************************************************************************************/
