@@ -289,10 +289,10 @@ public class AppControllerLibues {
          
         userService.saveUser(user);
  
-        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Registrado Correctamente");
+        //model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Registrado Correctamente");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "registrationsuccess";
+        return "redirect:/list";
     }
  
        /**
@@ -329,9 +329,10 @@ public class AppControllerLibues {
  
         userService.updateUser(user);
  
-        model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Actualizado Correctamente");
+        //model.addAttribute("success", "Usuario " + user.getFirstName() + " "+ user.getLastName() + " Actualizado Correctamente");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "registrationsuccess";
+        //return "registrationsuccess";
+        return "redirect:/list";
     }
  
      

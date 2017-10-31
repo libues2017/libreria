@@ -170,8 +170,12 @@
 
 <div class="row"><%@include file="menu.jsp" %></div>
 <div class="row">  
- 
-        <div class="well lead">Registro de Usuario</div>
+ 		<c:choose>
+	    	<c:when test="${edit}">
+	        	<div class="well lead">Actualizar Usuario</div>
+	        </c:when>
+	        <c:otherwise><div class="well lead">Registro de Usuario</div></c:otherwise>
+        </c:choose>
         <form:form name="formulario1" id="formulario1" method="POST" modelAttribute="user" class="form-horizontal" onSubmit="return validar_clave()" >
             <form:input type="hidden" path="id" id="id"/>
              
@@ -278,10 +282,12 @@
                 <div class="form-actions floatRight">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Update" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/list' />">Cancelar</a>
+                            <input type="submit" value="Update" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el usuario')"/> 
+                            ó <a href="<c:url value='/list' />">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/list' />">Cancelar</a>
+                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="alert('Se creo el usuario')"/> 
+                            ó <a href="<c:url value='/list' />">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
