@@ -952,7 +952,7 @@ public class AppControllerLibues {
     	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
     	  
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
-    		   total=total+retaceoBuscar.get(i).getSubtotal(); 
+    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
     		  
     	  }
     	  

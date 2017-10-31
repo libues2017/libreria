@@ -506,11 +506,21 @@ function cambiar5(){
                         </tr>
 				    	 </c:forEach>
 				    	 
+				    	 <tr class="alert alert-success lead">
+						    	        <td></td>
+						    			<td></td>
+						    			<td></td>
+						    		    <td></td>
+						    			<td></td>
+						    			<td>Total</td>
+						    	        <td >
+		                                   ${total} 
+		                                </td>
+		                                <td></td>
+                         </tr>
 		    	</tbody>
 	    </table>   
-        <div class="alert alert-success lead">
-           <p style="text-align: right;">Total ${total} </p>
-        </div>
+      
 		
 	    <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
