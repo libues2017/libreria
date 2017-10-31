@@ -17,6 +17,11 @@
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 		  
 		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+		
+		<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+		
+		
 		  
     
 	     <script type="text/javascript">
@@ -30,7 +35,7 @@
 			    
 			    <c:forEach items="${detalleretaceo}"   var="current">
 
-			     dataSet[i] = [ "${current.codigoproducto}", "${current.codigoproveedor}", "${current.precioproducto}", "${current.cantidadproducto}" ] ;
+			     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproducto}", "${current.codigoproveedor}", "${current.precioproducto}", "${current.cantidadproducto}" ] ;
 			     
 			     i=i+1;
 			    
@@ -39,16 +44,47 @@
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
 			    $(document).ready(function() {
-			        $('#example').DataTable( {
+			    	var tabla = $('#example').DataTable( {
 			            data:  dataSet,
 			            columns: [
+			            	 { title: "Codigo de Retaceo" },
 			               { title: "Codigo de Producto" },
 			                { title: "Codigo de Proveedor" },
 			                { title: "Precio de Producto" },
 			               { title: "Cantidad de Producto" }
 			            ]
 			        
-			        } );
+			        } );			        
+			        
+			        $('#example tbody').on( 'click', 'tr', function () {
+			    		
+		    	        if ( $(this).hasClass('selected') ) {
+		    	            $(this).removeClass('selected');
+		    	            dato = "";
+		    	           
+		    	        }
+		    	        else {
+		    	            tabla.$('tr.selected').removeClass('selected');
+		    	            $(this).addClass('selected');
+		    	            dato = $(this).find("td:eq(0)").text();		
+		    	            var h1 = document.createElement("hola");
+		    	            var h2 = document.createElement("hola");			    	            
+		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    	         
+		    	         
+		    	         var res1=dato;
+		    	         var res2=res.concat(res1);//link editar			    	         
+		    	      	    	       
+		    	         var str = "Editar";
+		    	      
+		    	        var result = str.link(res2);		    	      
+		    	     
+		    	          document.getElementById("devolver").innerHTML = result;
+		    	          
+		    	      }	  
+		    	    } );    
+			        
+			        
+			        
 			    } );
 			    
 			    
@@ -72,6 +108,11 @@
             <div class="well">
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a> 
                 <a href="<c:url value='/index' />"> Regresar</a>
+                
+                 <p>OPCIONES</p>
+                <p id="devolver" class="btn btn-success"></p> 
+               
+                
             </div>
         </sec:authorize>
 <!--<div class="col-xs-8">-->

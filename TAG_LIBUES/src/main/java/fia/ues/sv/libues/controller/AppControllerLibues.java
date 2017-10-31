@@ -954,23 +954,22 @@ public class AppControllerLibues {
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
     		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
     		  
-    	  }
-    	  
+    	  }    	  
     	 
     	  model.addAttribute("total", total);
     	  model.addAttribute("retaceo2", retaceoBuscar);
        }
 
-   /* if(sesion2.getAttribute("mySessionAttribute")==null)
-    	{
-           sesion2.setAttribute("mySessionAttribute", fecha);
-       }
-      	else{
-    		String fecharetaceo = request.getParameter("fecharetaceo");
-        //HttpSession sesion2=request.getSession(true);
-       		sesion2.setAttribute("mySessionAttribute", fecharetaceo);	
-    	}
-    	*/
+		      /* if(sesion2.getAttribute("mySessionAttribute")==null)
+		    	{
+		           sesion2.setAttribute("mySessionAttribute", fecha);
+		       }
+		      	else{
+		    		String fecharetaceo = request.getParameter("fecharetaceo");
+		        //HttpSession sesion2=request.getSession(true);
+		       		sesion2.setAttribute("mySessionAttribute", fecharetaceo);	
+		    	}
+		    	*/
     	  
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
@@ -1020,16 +1019,71 @@ public class AppControllerLibues {
     
         
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
-    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model) {
+    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) {
 
-    	//areaService
-    	DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);
+    	
+    	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);
     	
     	model.addAttribute("detalleretaceo", detalleRetaceo);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
-        return "detalleretaceo-reg";
+        return "detalleretaceo-reg";*/
+    	
+			    	
+			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+			        model.addAttribute("detalleretaceo", detalleretaceo);
+			        model.addAttribute("edit", false);
+			        model.addAttribute("loggedinuser", getPrincipal());
+			    	HttpSession sesion=request.getSession(true);
+			    	  // populate
+			    	  HttpSession session = request.getSession();
+			    	  HttpSession sesion2=request.getSession(true);
+			    	  HttpSession sesion1=request.getSession(true);
+			          sesion1.setAttribute("codigo", codigoretaceo);
+			    	  
+			    
+			    	  Producto producto=new Producto();
+			    	  Double total=0.0;
+			    	
+			    	
+			    	 // Integer codigo=(Integer) sesion.getAttribute("codigo");
+			    	  
+			    	  Integer codigo=codigoretaceo;
+			    	  
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
+			    	  
+			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
+			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+			    		  
+			    	  }    	  
+			    	 
+			    	  model.addAttribute("total", total);
+			    	  model.addAttribute("retaceo2", retaceoBuscar);
+			       
+			
+					     
+			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
+			        List<Producto> productos = productoService.findAllProductos();
+			
+			        //incrementar retaceo
+			       
+					//List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+					//Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
+			        //HttpSession sesion1=request.getSession(true);
+			       // sesion1.setAttribute("codigo", retaceo6);
+			       // Integer codigo=(Integer)sesion1.getAttribute("codigo");
+			      //  model.addAttribute("success",codigo);
+			        model.addAttribute("proveedor", proveedores);
+			        model.addAttribute("producto", productos);
+			   
+    	
+			        return "detalleretaceo-reg";
+        
+        
+        
     }
+    
+    
  
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
@@ -1044,6 +1098,8 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalleretaceo-reg-succ";
     }
+    
+    
     
     @RequestMapping(value = { "/delete-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
     public String deleteRetaceo(@PathVariable Integer codigoretaceo) {
