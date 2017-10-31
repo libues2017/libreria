@@ -1072,15 +1072,16 @@ public class AppControllerLibues {
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
-        	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();
-        	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior();
-        	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada
-        	  Integer existencia =existenciaanterior+cantidad;
+        	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
+        	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
+        	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
+        	  Integer existencia =existenciaanterior+cantidad;// 12+2
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
         	Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo
-        	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo
+        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
+        	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
+        	  
         	  costo=costo/existencia;
         	 productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
