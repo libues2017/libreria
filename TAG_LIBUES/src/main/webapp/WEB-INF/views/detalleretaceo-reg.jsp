@@ -508,7 +508,9 @@ function cambiar5(){
 				    	 
 		    	</tbody>
 	    </table>   
-
+        <div class="alert alert-success lead">
+           <p style="text-align: right;">Total ${total} </p>
+        </div>
 		
 	    <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>

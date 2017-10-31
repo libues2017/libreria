@@ -944,11 +944,20 @@ public class AppControllerLibues {
     	  */
     	  //Date fecha = new Date();
     	  Producto producto=new Producto();
+    	  Double total=0.0;
     	
     	if(sesion.getAttribute("codigo")!=null)
     	{
     	  Integer codigo=(Integer) sesion.getAttribute("codigo");
     	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
+    	  
+    	  for (int i = 0; i < retaceoBuscar.size(); i++){
+    		   total=total+retaceoBuscar.get(i).getSubtotal(); 
+    		  
+    	  }
+    	  
+    	 
+    	  model.addAttribute("total", total);
     	  model.addAttribute("retaceo2", retaceoBuscar);
        }
 
