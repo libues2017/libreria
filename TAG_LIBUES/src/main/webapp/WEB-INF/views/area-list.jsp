@@ -91,7 +91,7 @@
 	<div class="row">
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div   class="well">
+            <div   class="well" align="center">
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>

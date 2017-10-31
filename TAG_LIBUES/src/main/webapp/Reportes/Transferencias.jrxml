@@ -4,7 +4,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="291"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="702"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="tipotransf" class="java.lang.String"/>
@@ -197,56 +197,56 @@ WHERE
 			<staticText>
 				<reportElement x="-13" y="10" width="70" height="30" uuid="5a65169e-b4a4-4df8-ad97-e3c429f32ff3"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="59" y="11" width="87" height="30" uuid="583ebc9c-b9f3-4a9d-a168-cff914c69afb"/>
 				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="163" y="11" width="87" height="30" uuid="fd5561cf-5df0-4ac1-ae97-bc3ecb0a243b"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Autor]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="234" y="11" width="87" height="30" uuid="7397cae2-9f51-4c42-ba39-c9fdcbccbc3b"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="374" y="10" width="87" height="30" uuid="9fa3c74d-0d63-4330-916f-76a6e01aa088"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="450" y="11" width="87" height="30" uuid="5811c4c8-3fac-4996-97b1-0203c7a08a70"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="323" y="12" width="37" height="18" uuid="f2f31523-75f0-4809-ad12-d249a7f837d3"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Unidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="520" y="12" width="49" height="30" uuid="006b9f30-ba94-4e8c-b736-6a933fccfafb"/>
 				<textElement textAlignment="Center">
-					<font fontName="DejaVu Sans" size="9" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Subtotal]]></text>
 			</staticText>
