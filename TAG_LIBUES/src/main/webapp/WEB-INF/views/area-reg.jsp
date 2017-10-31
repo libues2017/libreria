@@ -20,7 +20,14 @@
 
 <div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-	  <div class="well lead">Agregar Area</div>
+	<c:choose>
+	<c:when test="${edit}">
+		<div class="well lead">Actualizar Area</div>
+	</c:when>
+    <c:otherwise>
+    	<div class="well lead">Agregar Area</div>
+    </c:otherwise>
+    </c:choose>	  
         <form:form method="POST" modelAttribute="area" class="form-horizontal">
             <form:input type="hidden" path="codigoarea" id="codigoarea"/>
              
@@ -57,10 +64,12 @@
                 <div class="form-actions floatRight">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/area-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el AREA')"/> 
+                            ó <a href="<c:url value='/area-list' />">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/area-list' />">Cancelar</a>
+                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="alert('Se creo el AREA')"/> 
+                            ó <a href="<c:url value='/area-list' />">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>

@@ -432,20 +432,16 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/area-agregar" }, method = RequestMethod.POST)
-    public String saveArea(@Valid Area area, BindingResult result,
-            ModelMap model) throws IOException {
- 
+    public String saveArea(@Valid Area area, BindingResult result, ModelMap model) throws IOException { 
     	if (result.hasErrors()) {
             return "area-reg";
-        }
-                 	  	
+        }                 	  	
     	areaService.saveArea(area);
-    	
- 
-        model.addAttribute("success", "Area: <strong>" + area.getNombrearea() + "</strong> Registrado");
+    	//model.addAttribute("success", "Area: <strong>" + area.getNombrearea() + "</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "area-reg-succ";
+        //return "area-reg-succ";
+        return "redirect:/area-agregar";
     }
     
         
@@ -462,18 +458,16 @@ public class AppControllerLibues {
     }
  
     @RequestMapping(value = { "/edit-area-{codigoarea}" }, method = RequestMethod.POST)
-    public String updateArea(@Valid Area area, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoarea) throws IOException {
+    public String updateArea(@Valid Area area, BindingResult result, ModelMap model, @PathVariable Integer codigoarea) throws IOException {
  
         if (result.hasErrors()) {
             return "area-reg";
-        }
- 
+        } 
         areaService.updateArea(area);
-
-        model.addAttribute("success", "Area: <strong>" + area.getNombrearea()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Area: <strong>" + area.getNombrearea()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "area-reg-succ";
+        //return "area-reg-succ";
+        return "redirect:/area-list";
     }
     
     @RequestMapping(value = { "/delete-area-{codigoarea}" }, method = RequestMethod.GET)
