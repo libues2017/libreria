@@ -94,20 +94,37 @@ function add(campo) {
 	var subtotal = document.getElementById('subtotalfactura').value=parseFloat(precio)*(parseInt(cantidad));
 }
 </script>
-
+<script>
+function cambiar(){
+	var codigo = document.getElementById("codigoproducto").value;	
+		if(codigo != null)
+        {
+        	$("#cantidad").focus();
+        	}
+}
+function cambiar2(){
+	var cantidad = document.getElementById("cantidad").value;	
+		if(cantidad != null)
+        {
+        	$("#agregar").focus();
+        	}
+}
+function enfocar(){
+	var codigo = document.getElementById("codigoproducto").value;	
+		if(codigo == null)
+        {
+        	$("#codigoproducto").focus();
+        	}
+}
+</script>
 </head>
 
 <body >
 <div class="row"><%@include file="page_head_2.jsp"%></div>
 <div class="container">
 <div class="well lead" align="center">FACTURACION</div>
-	<form:form method="POST" modelAttribute="facturadetalle" class="form-horizontal">
+	<form:form method="POST" name="factura" modelAttribute="facturadetalle" class="form-horizontal">
 		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" /> 
-		
-					
-													
-								
-					
 								    			
 		<div class="panel-group">			
 			<div class="panel panel-default">
@@ -134,7 +151,8 @@ function add(campo) {
 					<div class="panel-body">
 						<div class="col-xs-2">
 							<label class="form-control" for="codigo">Codigo:</label>
-							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" onchange='producto();' />
+							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" 
+										onchange='producto(); cambiar();' />
 						</div>	
 						<div class="col-xs-8" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
@@ -154,7 +172,7 @@ function add(campo) {
 						</div>							
 						<div class="col-xs-2">
 							<label class="form-control" for="cantidad">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad')" />
+							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad'); cambiar2();" />
 						</div>
 						<div class="col-xs-2">	
 							<label class="form-control" for="subtotal">Subtotal:</label>
@@ -162,7 +180,7 @@ function add(campo) {
 						</div>
 						
 						<div class="col-xs-2">
-							<input type="submit" value="Agregar a Factura" class="btn btn-primary btn-sm" />
+							<input type="button" value="Agregar a Factura" id="agregar" class="btn btn-primary btn-sm" onclick="factura.submit()" onkeypress="factura.submit()"/>
 						</div>
 						<div class="col-xs-2">
 							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar Facturación</a>
