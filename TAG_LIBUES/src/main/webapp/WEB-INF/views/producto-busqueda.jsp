@@ -64,7 +64,13 @@
 	       	       	
        	</div>
        	<br/>
-       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Producto" class="btn btn-primary btn-sm"/></div></div>
+       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Producto" class="btn btn-primary btn-sm"/>
+       	<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+       	</div>
+       	
+       	
+       	</div>
+       
        	</form:form>
   
   	<c:set var="categories" value="${productos}" scope="session"/>
