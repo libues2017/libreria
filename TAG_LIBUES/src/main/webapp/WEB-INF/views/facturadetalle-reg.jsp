@@ -203,6 +203,17 @@ function add(campo) {
 				    	 </c:forEach>
 		    	</tbody>
 	    </table>
+	    
+	    <div class="row" align="right">
+                <div class="form-group col-md-12">
+                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <div class="col-md-2">
+                    <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    		value="${total}" />                           
+                    </div>
+                </div>
+            </div>	
+	    
 	     
 	    <div class="well lead" align="center">
 		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||||||

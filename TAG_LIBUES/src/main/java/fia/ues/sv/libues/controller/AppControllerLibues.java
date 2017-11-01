@@ -1638,10 +1638,16 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
     	
+    	Double total = 0.0;
     	if(sesion.getAttribute("codigofact")!=null)
     	{
     		Integer codigofact = (Integer) sesion.getAttribute("codigofact");
     		List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);
+    		
+    		for (int i = 0; i < facturaBuscar.size(); i++){
+      		   total=total+facturaBuscar.get(i).getSubtotalfactura(); //aqui se calcula el total     		  
+      	  	}
+     		model.addAttribute("total", total); 
     		model.addAttribute("facturas", facturaBuscar);
     	}
     	
