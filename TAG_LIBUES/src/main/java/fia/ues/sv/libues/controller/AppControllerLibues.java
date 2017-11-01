@@ -1208,11 +1208,19 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         HttpSession sesion = request.getSession(true);
                 
+        Double total = 0.0;
         if(sesion.getAttribute("codigo1") != null)
         {
           Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
           List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
+          
+          for(int i = 0; i < transferenciaBuscar.size(); i++){
+        	  total = total + transferenciaBuscar.get(i).getSubTotal();
+          }
+          model.addAttribute("total",total);
           model.addAttribute("transferencia2", transferenciaBuscar);
+          
+          
        }
       
         List<Producto> productos = productoService.findAllProductos();

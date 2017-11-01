@@ -445,13 +445,12 @@
 					
 					<tbody>
 						<c:set var="contador2" value="${0}"/>
-						<c:set var="total2" value="${0}" />
 						<c:forEach items="${transferencia2}" var="transferencias">
 							<tr class="info">
 								<c:set var="salary" scope="session" value="${2000*2}" />
 								<c:if test="${salary > 2000}">
 								<c:set var="contador2" value="${contador2 + 1}" />
-								<c:set var="total2" value="${total + transferencias.subtotal}" />
+									<td>${contador2}</td>
 									<td>${transferencias.codProducto}</td>
 									<td>${transferencias.nomProducto}</td>
 									<td>${transferencias.cantidadProducto}</td>
