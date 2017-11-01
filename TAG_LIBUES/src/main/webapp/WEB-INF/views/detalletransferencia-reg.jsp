@@ -432,6 +432,7 @@
 				<table class="table table-striped ">
 					<thead>
 						<tr class="success">
+							<th>Item</th>
 							<th>Codigo</th>
 							<th>Titulo</th>
 							<th>Cantidad</th>
@@ -443,10 +444,14 @@
 					</thead>
 					
 					<tbody>
+						<c:set var="contador2" value="${0}"/>
+						<c:set var="total2" value="${0}" />
 						<c:forEach items="${transferencia2}" var="transferencias">
 							<tr class="info">
 								<c:set var="salary" scope="session" value="${2000*2}" />
 								<c:if test="${salary > 2000}">
+								<c:set var="contador2" value="${contador2 + 1}" />
+								<c:set var="total2" value="${total + transferencias.subtotal}" />
 									<td>${transferencias.codProducto}</td>
 									<td>${transferencias.nomProducto}</td>
 									<td>${transferencias.cantidadProducto}</td>
@@ -463,6 +468,17 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				
+				<div class="row" align="right">
+                	<div class="form-group col-md-12">
+                    	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    	<div class="col-md-2">
+                    		<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    		value="$ ${total}" />                           
+                    	</div>
+                	</div>
+            	</div>
+				
 			<div class="well lead" align="center">	
 				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
 			</div>			

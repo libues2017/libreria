@@ -1143,12 +1143,12 @@ public class AppControllerLibues {
         	  Integer existencia =existenciaanterior+cantidad;// 12+2
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
-        	Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-        	 Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
+        	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
+        	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
-        	 productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
           }
           

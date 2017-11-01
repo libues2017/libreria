@@ -154,12 +154,13 @@ function cambiar(){
 }         
 </script>
 
-<script>/*
+<script>
 function validar(){
 	var destino1 = document.getElementById("destino").value;
-	var sala1 = document.getElementById("sala").value;
-	var bodega1 = document.getElementById("bodega").value;
-	var cantidad1 = document.getElementById("cantidad").value;
+	var sala1 = parseInt(document.getElementById("sala").value);
+	var bodega1 = parseInt(document.getElementById("bodega").value);
+	var cantidad1 = parseInt(document.getElementById("cantidad").value);
+	
 	
 		if(destino1 == 'SALA')
         {
@@ -171,7 +172,7 @@ function validar(){
 			if(sala1 < cantidad1){
 				alert('No hay suficiente producto en Sala');
 			}
-}         */
+}         
 </script>
 
 </head>
@@ -241,7 +242,7 @@ function validar(){
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad');" 
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad'); validar();" 
 									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1"/>
 						</div>
 						<div class="col-xs-3">
