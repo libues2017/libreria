@@ -24,15 +24,19 @@ ZWYwOw==]]>
 	libues.detalle_requisicion_producto.`PRECIO`,
 	libues.detalle_requisicion_producto.`COSTO`,
 	libues.detalle_requisicion_producto.`SUBTOTAL`
-FROM libues.detalle_requisicion_producto
-	INNER JOIN libues.requisicion ON 
-	 libues.detalle_requisicion_producto.`CODIGOREQUISICION` = libues.requisicion.`CODIGOREQUISICION` ,
-	libues.autor_libro
-	INNER JOIN libues.producto ON 
-	 libues.autor_libro.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO` 
-	INNER JOIN libues.autor ON 
-	 libues.autor_libro.`CODIGOAUTOR` = libues.autor.`CODIGOAUTOR`
-	 WHERE (libues.detalle_requisicion_producto.`CODIGOREQUISICION`= $P{codigo})]]>
+FROM 
+	libues.detalle_requisicion_producto,
+	libues.autor_libro,
+	libues.autor,
+	libues.requisicion,
+	libues.producto
+WHERE 
+	(libues.autor.`CODIGOAUTOR` = libues.autor_libro.`CODIGOAUTOR`)	 AND
+	(libues.producto.`CORRELATIVO` = libues.detalle_requisicion_producto.`CODIGOPRODUCTO`) AND
+    (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) AND
+	(libues.detalle_requisicion_producto.`CODIGOREQUISICION` = libues.requisicion.`CODIGOREQUISICION`) AND
+	(libues.detalle_requisicion_producto.`CODIGOREQUISICION`= $P{codigo})
+	Order by libues.detalle_requisicion_producto.`CODIGOREQUISICION`]]>
 	</queryString>
 	<field name="CODIGOREQUISICION" class="java.lang.Integer"/>
 	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>

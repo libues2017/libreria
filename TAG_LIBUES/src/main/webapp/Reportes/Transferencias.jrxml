@@ -24,10 +24,13 @@ FROM
 	libues.detalletransferencia,
 	libues.autor_libro,
 	libues.autor,
-	libues.transferencia
+	libues.transferencia,
+	libues.producto
 WHERE 
 	(libues.autor.`CODIGOAUTOR` = libues.autor_libro.`CODIGOAUTOR`)	 AND
-	(libues.transferencia.`CODTRANSFERENCIA`= libues.detalletransferencia.`CODTRANSFERENCIA`)	 AND
+	(libues.producto.`CORRELATIVO` = libues.detalletransferencia.`CODPRODUCTO`) AND
+    (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) AND
+	(libues.transferencia.`CODTRANSFERENCIA`= libues.detalletransferencia.`CODTRANSFERENCIA`) and
     (libues.transferencia.`FECHATRANSFERENCIA` between $P{fechini} and $P{fenili}) and
 	(libues.transferencia.`TIPOTRANSFERENCIA` = $P{tipotransf})
 	Order by libues.detalletransferencia.`CODTRANSFERENCIA`]]>
