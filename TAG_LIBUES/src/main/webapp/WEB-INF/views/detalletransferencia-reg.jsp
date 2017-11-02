@@ -111,6 +111,22 @@
 </script>
 
 <script>
+function validar2(){
+	var tipoTrans1 = document.getElementById("tipoTransferencia").value;
+	var bodega2 = parseInt(document.getElementById("existencia1").value);
+	var cantidad2 = parseInt(document.getElementById("cantidadProducto").value);
+	
+	
+		if(tipoTrans1 == 'Salidas')
+        {
+			if(bodega2 < cantidad2){
+				alert('No hay suficiente producto en Bodega');
+			}
+        }
+}         
+</script>
+
+<script>
 	
 	function addIt(campo) {
 	/* Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
@@ -380,7 +396,7 @@
 					<div class="panel-body">		
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto')" 
+							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto'); validar2();" 
 							placeholder="Digitar" title="El Valor debe ser entero"/>
 						</div>
 						<div class="col-xs-2">
