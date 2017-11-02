@@ -72,20 +72,17 @@
 	function sesion(){
 		var fechaTransferencia = document.getElementById("fechaTransferencia").value;
 		var tipo = document.getElementById('tipoTransferencia').value;
-		var origen = document.getElementById("origen").value;
-		var destino = document.getElementById('destino').value;
+		var sucursal = document.getElementById("sucursal").value;
 		var utilidad = document.getElementById('utilidad').value;
 		
 		var fecha = "f1";
 		var tipo1 = "tp1";
-		var origen1 = "orig1";
-		var destino1 = "dest1";
+		var sucursal1 = "sucu1";
 		var utilidad1 = "uti1";
 		
 		sessionStorage[fecha] = fechaTransferencia;
 		sessionStorage[tipo1] = tipo;
-		sessionStorage[origen1] = origen;
-		sessionStorage[destino1] = destino;
+		sessionStorage[sucursal1] = sucursal;
 		sessionStorage[utilidad1] = utilidad;
 	}
 
@@ -96,21 +93,18 @@
 		var p;
 		var p1;
 		var p2;
-		var p3;
 		var p4;
 	
 		for(var i = 0; i < sessionStorage.length; i++)
 		{						                
 			p = sessionStorage.getItem('f1');
 			p1 = sessionStorage.getItem('tp1');
-			p2 = sessionStorage.getItem('orig1');
-			p3 = sessionStorage.getItem('dest1');
+			p2 = sessionStorage.getItem('sucu1');
 			p4 = sessionStorage.getItem('uti1');
 		}
 		document.getElementById("fechaTransferencia").value=p;
 		document.getElementById("tipoTransferencia").value=p1;
-		document.getElementById("origen").value=p2;
-		document.getElementById("destino").value=p3;
+		document.getElementById("sucursal").value=p2;
 		document.getElementById("utilidad").value=p4;
 	} );
 
@@ -327,7 +321,7 @@
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">De:</label>
-							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();"
+							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();" 
 							title="Seleccione el Tipo de Transferencia">
 								<OPTION VALUE="Salidas">Salidas</OPTION>
 								<OPTION VALUE="Ingresos">Ingresos</OPTION>

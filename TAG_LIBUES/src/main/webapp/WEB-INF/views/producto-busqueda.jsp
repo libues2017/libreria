@@ -92,11 +92,15 @@
                         <th>Imagen</th>
                         <th>Titulo</th>
                         <th>Autores</th>
-                        <th>Area</th>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >
+                        	<th>Area</th>
+                        </sec:authorize>
                         <th>Proveedor</th>
                         <th>Editorial</th>
                         <th>Precio</th>
-                        <th>Tipo Producto</th>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                        	<th>Tipo Producto</th>
+                        </sec:authorize>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             <th width="100">Editar</th>
                         </sec:authorize>
@@ -117,11 +121,15 @@
                         		${autor.nombreautor}<br/> 
                         	</c:forEach>
                         	</td>	
-                        <td>${producto.area.nombrearea}</td>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                        	<td>${producto.area.nombrearea}</td>
+                        </sec:authorize>
                         <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
-                        <td>${producto.precio}</td>
-                        <td>${producto.tipoProducto}</td>
+                        <td>$${producto.precio}</td>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                        	<td>${producto.tipoProducto}</td>
+                        </sec:authorize>
                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
                         	</sec:authorize>
