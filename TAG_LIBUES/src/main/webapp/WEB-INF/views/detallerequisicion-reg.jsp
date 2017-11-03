@@ -122,18 +122,20 @@ function validar2() {
 	if(destino1 == 'SALA')
     {
 		if(bodega1 < cantidad1){
-			alert('No hay suficiente producto en Bodega');
+			alert('No hay suficiente producto en BODEGA');
 		}
 		else {
 			var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad1));
+			$("#agrega").focus();
 		}
     }
 	else
 		if(sala1 < cantidad1){
-			alert('No hay suficiente producto en Sala');
+			alert('No hay suficiente producto en SALA');
 		}
 		else {
 			var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad1));
+			$("#agrega").focus();
 		}
 }
 </script>
@@ -170,14 +172,6 @@ function cambiar(){
 		if(Elt != null)
         {
         	$("#cantidad").focus();
-        	}
-}
-function cambiar1(){	
-	var Elt2 = document.getElementById("cantidad").value;
-	
-		if(Elt2 != null)
-        {
-        	$("#agrega").focus();
         	}
 }
 </script>
@@ -248,7 +242,7 @@ function cambiar1(){
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="validar2(); cambiar1()" 
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="validar2();" 
 									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1" />
 						</div>
 						<div class="col-xs-3">

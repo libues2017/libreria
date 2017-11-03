@@ -87,13 +87,7 @@ $( function() {
 	});
 } );
 </script>
-<script>
-function add(campo) {
-	var cantidad=document.getElementById('cantidad').value;
-	var precio=document.getElementById('precio').value;
-	var subtotal = document.getElementById('subtotalfactura').value=parseFloat(precio)*(parseInt(cantidad));
-}
-</script>
+
 <script>
 function cambiar(){
 	var codigo = document.getElementById("codigoproducto").value;	
@@ -102,21 +96,25 @@ function cambiar(){
         	$("#cantidad").focus();
         	}
 }
-function cambiar2(){
-	var cantidad = document.getElementById("cantidad").value;	
-		if(cantidad != null)
-        {
-        	$("#agregar").focus();
-        	}
-}
-function enfocar(){
-	var codigo = document.getElementById("codigoproducto").value;	
-		if(codigo == null)
-        {
-        	$("#codigoproducto").focus();
-        	}
+
+</script>
+
+<script>
+function validar() {	
+	var sala = parseInt(document.getElementById("sala").value);	
+	var cantidad = parseInt(document.getElementById("cantidad").value);	
+	var precio=document.getElementById('precio').value;
+	
+		if(sala < cantidad){
+			alert('NO HAY SUFICIENTE PRODUCTO');
+		}
+		else {
+			var subtotal = document.getElementById('subtotalfactura').value=parseFloat(precio)*(parseInt(cantidad));
+			$("#agregar").focus();
+		}
 }
 </script>
+
 </head>
 
 <body >
@@ -172,7 +170,7 @@ function enfocar(){
 						</div>							
 						<div class="col-xs-2">
 							<label class="form-control" for="cantidad">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="add('cantidad'); cambiar2();" />
+							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="validar();" />
 						</div>
 						<div class="col-xs-2">	
 							<label class="form-control" for="subtotal">Subtotal:</label>
