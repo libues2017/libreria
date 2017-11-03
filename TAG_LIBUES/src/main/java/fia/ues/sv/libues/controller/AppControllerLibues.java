@@ -1528,9 +1528,7 @@ public class AppControllerLibues {
         model.addAttribute("requisiciones", requisiciones);
         model.addAttribute("loggedinuser", getPrincipal());
         return "requisicion-list";
-    }
-    
-    
+    }       
     
     @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.GET)
     public String newdetalleRequisicion( HttpServletRequest request,ModelMap model) {
@@ -1540,10 +1538,16 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
     	
+    	Double total = 0.0;
     	if(sesion.getAttribute("codigo2")!=null)
     	{
     		Integer codigo2=(Integer) sesion.getAttribute("codigo2");
     		List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
+    		
+    		for (int i = 0; i < requisicionBuscar.size(); i++){
+       		   total=total+requisicionBuscar.get(i).getSubtotal(); //aqui se calcula el total     		  
+       	  	}
+      		model.addAttribute("total", total);
     		model.addAttribute("req1", requisicionBuscar);
     	}
     	

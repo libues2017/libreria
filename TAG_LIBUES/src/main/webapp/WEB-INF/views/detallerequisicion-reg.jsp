@@ -111,10 +111,30 @@ $( function() {
 </script>
 
 <script>
-function add(campo) {
-	var cantidad=document.getElementById('cantidad').value;
+function validar2() {
+	var destino1 = document.getElementById("destino").value;
+	var sala1 = parseInt(document.getElementById("sala").value);
+	var bodega1 = parseInt(document.getElementById("bodega").value);
+	var cantidad1 = parseInt(document.getElementById("cantidad").value);	
 	var precio=document.getElementById('precio').value;
-	var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad));
+	
+	
+	if(destino1 == 'SALA')
+    {
+		if(bodega1 < cantidad1){
+			alert('No hay suficiente producto en Bodega');
+		}
+		else {
+			var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad1));
+		}
+    }
+	else
+		if(sala1 < cantidad1){
+			alert('No hay suficiente producto en Sala');
+		}
+		else {
+			var subtotal = document.getElementById('subtotal').value=parseFloat(precio)*(parseInt(cantidad1));
+		}
 }
 </script>
 
@@ -151,30 +171,16 @@ function cambiar(){
         {
         	$("#cantidad").focus();
         	}
-}         
-</script>
-
-<script>
-function validar(){
-	var destino1 = document.getElementById("destino").value;
-	var sala1 = parseInt(document.getElementById("sala").value);
-	var bodega1 = parseInt(document.getElementById("bodega").value);
-	var cantidad1 = parseInt(document.getElementById("cantidad").value);
+}
+function cambiar1(){	
+	var Elt2 = document.getElementById("cantidad").value;
 	
-	
-		if(destino1 == 'SALA')
+		if(Elt2 != null)
         {
-			if(bodega1 < cantidad1){
-				alert('No hay suficiente producto en Bodega');
-			}
-        }
-		else
-			if(sala1 < cantidad1){
-				alert('No hay suficiente producto en Sala');
-			}
-}         
+        	$("#agrega").focus();
+        	}
+}
 </script>
-
 </head>
 
 <body>
@@ -242,8 +248,8 @@ function validar(){
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="add('cantidad'); validar();" 
-									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1"/>
+						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="validar2(); cambiar1()" 
+									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1" />
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Subtotal $:</label>
@@ -253,7 +259,7 @@ function validar(){
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">
-				 	<input type="button" value="AGREGAR" class="btn btn-primary btn-sm" onclick="req.submit()" /> |||||||||| 								
+				 	<input type="button" value="AGREGAR" id="agrega" class="btn btn-primary btn-sm" onclick="req.submit()" /> |||||||||| 								
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>
@@ -274,16 +280,12 @@ function validar(){
 		    	<tbody>
 		    			<c:set var="contador" value="${0}" /> 
 		    			
-		    			<c:set var="total" value="${0}"/>
-		    			
 				    	<c:forEach items="${req1}" var="requisiciones" >
 				    		<tr class="info">				    		
 		    	            <c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	            <c:if test = "${salary > 2000}">
-		    	                <c:set var="contador" value="${contador + 1}" />
-		    	                
-		    	                <c:set var="total" value="${total + requisiciones.subtotal}" />	
-		    	                
+		    	                <c:set var="contador" value="${contador + 1}" />    	                
+		    	              
 		    	                <td>${contador}</td>
 				    			<td>${requisiciones.codigoproducto}</td>
 				    			<td>${requisiciones.nombreproducto}</td>
@@ -306,7 +308,7 @@ function validar(){
                     <label class="col-md-9 control-lable" for="total">TOTAL:</label>
                     <div class="col-md-2">
                     <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value='<c:forEach items="${req1}" var="requisiciones">${total}</c:forEach>'/>                           
+                    		value='${total}'/>                           
                     </div>
                 </div>
             </div>	
