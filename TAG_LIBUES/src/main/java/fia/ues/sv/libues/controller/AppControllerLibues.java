@@ -1061,7 +1061,13 @@ public class AppControllerLibues {
 			    	  model.addAttribute("retaceo2", retaceoBuscar);
 			       
 			
-					     
+			    	 Retaceo retaceo= retaceoService.findById(codigoretaceo);
+			    	 
+			    	 Date fecharetaceo=retaceo.getFecharetaceo();
+			    	  
+			    	  model.addAttribute("fecharetaceo",fecharetaceo );
+			          model.addAttribute("edit", true);
+			    	  
 			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
 			        List<Producto> productos = productoService.findAllProductos();
 			
@@ -1077,7 +1083,7 @@ public class AppControllerLibues {
 			        model.addAttribute("producto", productos);
 			   
     	
-			        return "detalleretaceo-reg";
+			        return "detalleretaceo-modificar";
         
         
         

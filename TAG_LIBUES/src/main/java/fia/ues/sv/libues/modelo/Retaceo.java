@@ -42,31 +42,10 @@ public class Retaceo implements Serializable{
 
 
 	public void setFecharetaceo(Date fecharetaceo) {
-		//2007-12-25
-		/*HttpServletRequest request = null;
-		//this.fecharetaceo = fecharetaceo;
-		String strFecha =request.getParameter("fecharetaceo");
-	      
-	      SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-	      //String strFecha = "2007-12-25";
-	      Date fecha = null;
-	      try {
-
-	      fecha = formatoDelTexto.parse(strFecha);
-
-	      } catch (ParseException ex) {
-
-	      ex.printStackTrace();
-
-	      }*/
-	      
-	      
-	      
-	      
+		    
+	    
 	      this.fecharetaceo = fecharetaceo;
-	      
-		
-		
+	     
 	}
 	
 
@@ -81,11 +60,6 @@ public class Retaceo implements Serializable{
 	}
 	
 
-	
-
-
-	
-	
 	
 	
 }
