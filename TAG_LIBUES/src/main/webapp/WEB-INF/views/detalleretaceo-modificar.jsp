@@ -6,7 +6,45 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*,java.io.*" %>
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
-
+<%
+					// Quiero la fecha actual para ponerla por defecto 
+					String fecha="";
+                    String sAhora = "";
+                    
+                    
+                    
+					
+						if(session.getAttribute("fecharetaceo")!=null){
+					             fecha=session.getAttribute("fecharetaceo").toString();
+						}
+						
+						System.out.println("fecha:" + fecha);   
+                              
+                     if(fecha==""){
+                    	  
+                    	Calendar ahora = Calendar.getInstance();
+     					int anyo = ahora.get(Calendar.YEAR);
+     					int mes = ahora.get(Calendar.MONTH) +1; 
+     					int dia = ahora.get(Calendar.DAY_OF_MONTH);
+     					
+     					if (mes < 10) {
+     					sAhora = anyo + "-0" + mes;
+     					} else {
+     					sAhora = anyo + "-" + mes;
+     					}
+     					if (dia < 10) {
+     					sAhora += "-0" + dia;
+     					} else {
+     					sAhora += "-"+dia;
+     					} 
+                    	 
+                     }
+                     
+                     else{
+                    	 
+                    	 sAhora=fecha;
+                     }
+%>
 
  
 <head>
@@ -235,9 +273,18 @@
                 function sesion(){
     				
 					var codigofacturaproveedor=document.getElementById("codigofacturaproveedor").value;
+					/*var m = ${fecharetaceo};
+					alert(m);
+					var fecharetaceo=m;*/
 					var fecharetaceo=document.getElementById("fecharetaceo").value;
 					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
 					var utilidad = document.getElementById('utilidad').value;
+					
+					
+					 <c:set var="contador" value="${0}" />
+						 var m = <%=sAhora %>;
+						//	alert(m);
+					 
 					
 					var fecha="f";
 					var fecha1="f1";
@@ -265,7 +312,7 @@
 						                p3=sessionStorage.getItem('cfp');	
 						                p4=sessionStorage.getItem('uti');
 										}
-									   document.getElementById("fecharetaceo").value=p;
+									  // document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
 									   document.getElementById("codigofacturaproveedor").value=p3;
 									   document.getElementById("utilidad").value=p4;
@@ -339,6 +386,13 @@ function cambiar5(){
 </script>
 </head>
 
+
+
+<script>
+var miVar = <%= sAhora %>;
+//alert("El valor del contador es " + miVar);
+</script>
+
 	
 <body >
 
@@ -347,7 +401,7 @@ function cambiar5(){
 <div class="container">
 
 
-	  <div class="well lead" align="center">Realizar Retaceo</div>
+	  <div class="well lead" align="center">Modificar Retaceo</div>
         <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
@@ -361,7 +415,7 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
-					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm" onchange="sesion();" />     
+					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  value="<%=sAhora %>" /> 
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>

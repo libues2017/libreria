@@ -1019,7 +1019,7 @@ public class AppControllerLibues {
     
         
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
-    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) {
+    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
     	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);
@@ -1065,8 +1065,7 @@ public class AppControllerLibues {
 			    	 
 			    	 Date fecharetaceo=retaceo.getFecharetaceo();
 			    	  
-			    	  model.addAttribute("fecharetaceo",fecharetaceo );
-			          model.addAttribute("edit", true);
+			    	  
 			    	  
 			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
 			        List<Producto> productos = productoService.findAllProductos();
@@ -1079,21 +1078,27 @@ public class AppControllerLibues {
 			       // sesion1.setAttribute("codigo", retaceo6);
 			       // Integer codigo=(Integer)sesion1.getAttribute("codigo");
 			      //  model.addAttribute("success",codigo);
+			        
+			       // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			    	String fecha = sdf.format(fecharetaceo);
+			    	 sesion2.setAttribute("fecharetaceo", fecha);
+			    	//model.addAttribute("fecharetaceo",fecharetaceo );
+			          model.addAttribute("edit", true);
+			          
 			        model.addAttribute("proveedor", proveedores);
 			        model.addAttribute("producto", productos);
 			   
     	
 			        return "detalleretaceo-modificar";
-        
-        
-        
+              
     }
     
     
  
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoretaceo) throws IOException {
+            ModelMap model, @PathVariable Integer codigoretaceo) throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
