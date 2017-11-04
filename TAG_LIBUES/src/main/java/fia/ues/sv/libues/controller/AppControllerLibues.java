@@ -1022,13 +1022,11 @@ public class AppControllerLibues {
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-    	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);
-    	
+    	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);    	
     	model.addAttribute("detalleretaceo", detalleRetaceo);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
-        return "detalleretaceo-reg";*/
-    	
+        return "detalleretaceo-reg";*/    	
 			    	
 			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
 			        model.addAttribute("detalleretaceo", detalleretaceo);
@@ -1039,33 +1037,30 @@ public class AppControllerLibues {
 			    	  HttpSession session = request.getSession();
 			    	  HttpSession sesion2=request.getSession(true);
 			    	  HttpSession sesion1=request.getSession(true);
-			          sesion1.setAttribute("codigo", codigoretaceo);
-			    	  
+			          sesion1.setAttribute("codigo", codigoretaceo);			    	  
 			    
 			    	  Producto producto=new Producto();
-			    	  Double total=0.0;
-			    	
+			    	  Double total=0.0;	    	
 			    	
 			    	 // Integer codigo=(Integer) sesion.getAttribute("codigo");
 			    	  
-			    	  Integer codigo=codigoretaceo;
+			    	  //Integer codigo=codigoretaceo;
 			    	  
-			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceos(codigoretaceo);
+			    	  Double utilidad=detalle.get(0).getUtilidad();
+			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
-			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
-			    		  
+			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			    		  
 			    	  }    	  
 			    	 
 			    	  model.addAttribute("total", total);
-			    	  model.addAttribute("retaceo2", retaceoBuscar);
-			       
+			    	  model.addAttribute("retaceo2", retaceoBuscar);			       
 			
 			    	 Retaceo retaceo= retaceoService.findById(codigoretaceo);
 			    	 
-			    	 Date fecharetaceo=retaceo.getFecharetaceo();
-			    	  
-			    	  
+			    	 Date fecharetaceo=retaceo.getFecharetaceo();			    	  		    	  
 			    	  
 			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
 			        List<Producto> productos = productoService.findAllProductos();
@@ -1080,10 +1075,11 @@ public class AppControllerLibues {
 			      //  model.addAttribute("success",codigo);
 			        
 			       // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
-			    	 sesion2.setAttribute("fecharetaceo", fecha);
-			    	//model.addAttribute("fecharetaceo",fecharetaceo );
+			    	 //sesion2.setAttribute("fecharetaceo", fecha);
+			    	model.addAttribute("fecharetaceo",fecharetaceo );
+			    	   model.addAttribute("utilidad", utilidad);
 			          model.addAttribute("edit", true);
 			          
 			        model.addAttribute("proveedor", proveedores);

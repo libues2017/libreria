@@ -18,7 +18,7 @@
 					             fecha=session.getAttribute("fecharetaceo").toString();
 						}
 						
-						System.out.println("fecha:" + fecha);   
+						System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));   
                               
                      if(fecha==""){
                     	  
@@ -315,7 +315,7 @@
 									  // document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
 									   document.getElementById("codigofacturaproveedor").value=p3;
-									   document.getElementById("utilidad").value=p4;
+									 //  document.getElementById("utilidad").value=p4;
 					    
 					           } );
 					                  
@@ -419,7 +419,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=session.getAttribute("utilidad")%>'/>
                     </div>
 				</div>
 			</div>
