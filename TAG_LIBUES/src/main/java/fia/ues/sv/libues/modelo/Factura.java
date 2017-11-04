@@ -21,8 +21,9 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idfactura;
 	
+	@NotNull
 	@Column(name="numerofactura")
-	private Integer numerofactura;
+	private Integer numerofactura;	
 	
 	@NotNull
 	@Column(name="fechafactura")

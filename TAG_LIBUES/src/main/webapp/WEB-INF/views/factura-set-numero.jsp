@@ -18,40 +18,39 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
 </head>
-<body Style="background-color:#97965B">
+<body >
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-<div class="well lead" align="center">ESTABLECER NUMERO FACTURA</div>
-<form:form method="POST" modelAttribute="factura" class="form-horizontal">
-		<form:input type="hidden" path="idfactura" id="idfactura" /> 
-		<div class="panel-group" align="center">			
-			<div class="panel panel-default" >
-				<div class="form-group row" >		
-					<div class="panel-body" >
-						<div class="col-xs-3" >	
-						<label class="form-control" for="codigo">ID #:</label>						
-						<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>
-						</div>
-						<div class="col-xs-3" align="center">	
-						<label class="form-control" for="factura">Número de Factura:</label>						
-						<input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" />
+<div class="well lead" align="center">ESTABLECER NÚMERO FACTURA</div>
+	<form:form method="POST" modelAttribute="factura" class="form-horizontal">
+		<form:input type="hidden" path="idfactura" id="idfactura" />	
+			
+		
+														
+					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" for="factura">Número de Factura:</label>
+						<div class="col-md-3">						
+						<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" />
 						</div>
 					</div>
-				</div>
-				<div class="form-group row" >
-					<div class="panel-body" >
-						<div class="col-xs-2" >
-							<input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm" />
-						</div>
-						<div class="col-xs-2" >
-							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >CANCELAR - SALIR</a>
-						</div>
+					<div class="form-group col-md-12">	
+						<label class="col-md-3 control-lable" for="fecha">Fecha Factura:</label>
+						<div class="col-md-3">
+						<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" />
 					</div>
-				</div>
-			</div>
-		</div>
+					</div>
+						
+					<div class="col-xs-3" >
+						<input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm" />
+					</div>
+					<div class="col-xs-3" >
+						<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >CANCELAR</a>					
+					</div>
+				
+		
 	</form:form>
 </div>
 

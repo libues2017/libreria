@@ -1790,37 +1790,28 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
-    public String newNumeroFactura( HttpServletRequest request,ModelMap model) {
+    public String newNumeroFactura(ModelMap model) {
     	
     	Factura factura = new Factura();
         model.addAttribute("factura", factura);
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
-    	
-		List<Factura> fact5 = facturaService.findAllFacturas();
-		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigofact", fact6);
         
     	return "factura-set-numero"; 
     }
     
     @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.POST)   
-    public String saveNumeroFactura( HttpServletRequest request,@Valid Factura factura, BindingResult result, 
-    		ModelMap model,@RequestParam(required = false)  Integer numerofactura) throws IOException, ParseException {
+    public String saveNumeroFactura(@Valid Factura factura, BindingResult result, ModelMap model) throws IOException {
          	 	
     	if (result.hasErrors()) {
             return "factura-set-numero";
-        }
-    	HttpSession sesion=request.getSession(true);    	
-        Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
-                
-        facturaService.updateNumeroFactura(codigofact, numerofactura);
-    	
-    	model.addAttribute("loggedinuser", getPrincipal());
-    	
-    	return "redirect:/detallefacturacion-agregar";      
-    }  
+        } 	
+       
+    	facturaService.saveFactura(factura);
+    	model.addAttribute("loggedinuser", getPrincipal());    	
+    	return "redirect:/numero-factura";      
+    } 
+    
  
   //*************************************************************************
     // ***************** CONTROLES PARA COMPARACION INVENTARIO ****************
