@@ -12,10 +12,12 @@ public interface RequisicionService {
 	
 	void updateRequisicion (Requisicion requisicion);
 	
-	void updateFechaRequisicion (Date fecha, String destino, Integer codigorequisicion, Double total);
+	void updateFechaRequisicion (Date fecha, String destino, Integer codigorequisicion);
 	
 	void deleteRequisicionById(int codigorequisicion);
 	
 	List<Requisicion> findAllRequisiciones();
+
+	void updateTotal(Integer codigorequisicion, Double total);
 
 }

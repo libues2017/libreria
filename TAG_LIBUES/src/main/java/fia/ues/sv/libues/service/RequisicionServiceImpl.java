@@ -38,15 +38,14 @@ public class RequisicionServiceImpl implements RequisicionService{
 	}
 
 	@Override
-	public void updateFechaRequisicion(Date fecha, String destino, Integer codigorequisicion, Double total) {
+	public void updateFechaRequisicion(Date fecha, String destino, Integer codigorequisicion) {
 		Requisicion entity=dao.findById(codigorequisicion);		
 		if(entity!=null){			
 			entity.setFecha(fecha);
-			entity.setDestino(destino);
-			entity.setTotal(total);
-		}
-		
-	}
+			entity.setDestino(destino);			
+		}		
+	}	
+	
 
 	@Override
 	public void deleteRequisicionById(int codigorequisicion) {
@@ -56,6 +55,15 @@ public class RequisicionServiceImpl implements RequisicionService{
 	@Override
 	public List<Requisicion> findAllRequisiciones() {
 		return dao.findAllRequisiciones();
+	}
+
+	@Override
+	public void updateTotal(Integer codigorequisicion, Double total) {
+		Requisicion entity=dao.findById(codigorequisicion);		
+		if(entity!=null){			
+			entity.setTotal(total);			
+		}	
+		
 	}
 	
 

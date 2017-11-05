@@ -1569,7 +1569,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detallerequisicion-agregar" }, method = RequestMethod.POST)   
     public String saveRequisicion( HttpServletRequest request,@Valid DetalleRequisicion detallerequisicion, BindingResult result, 
-    		ModelMap model,@RequestParam(required = false) String destino, String fecharequisicion, Double total ) throws IOException, ParseException {
+    		ModelMap model,@RequestParam(required = false) String destino, String fecharequisicion ) throws IOException, ParseException {
          	 	
     	if (result.hasErrors()) {
             return "detallerequisicion-reg";
@@ -1579,7 +1579,7 @@ public class AppControllerLibues {
     	Integer codigorequisicion = Integer.parseInt(request.getParameter("codigorequisicion"));
     	HttpSession sesion2=request.getSession(true);
     	Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharequisicion);    	
-    	requisicionService.updateFechaRequisicion(fecharequisicion1, destino, codigorequisicion, total);
+    	requisicionService.updateFechaRequisicion(fecharequisicion1, destino, codigorequisicion);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecharequisicion1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1607,7 +1607,19 @@ public class AppControllerLibues {
           sesion.setAttribute("codigoultimo", codigorequisicion);         
          // Se lee el valor a comparar. SALA o BODEGA 
           String destino = requisicionService.findById(codigorequisicion).getDestino();
-          
+      	
+	      Double total = 0.0;
+	      if(sesion.getAttribute("codigo2")!=null)
+	      {
+	      	Integer codigo2=(Integer) sesion.getAttribute("codigo2");
+	      	List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
+	      		
+	      	for (int i = 0; i < requisicionBuscar.size(); i++){
+	       		   total=total+requisicionBuscar.get(i).getSubtotal(); //aqui se calcula el total     		  
+	       	} 
+	      }       
+	      requisicionService.updateTotal(codigorequisicion, total);
+      	  
           List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
           for(int i=0;i<requisicionBuscar.size();i++){
         	  
