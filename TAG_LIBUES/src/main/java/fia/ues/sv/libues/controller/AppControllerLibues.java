@@ -1770,8 +1770,20 @@ public class AppControllerLibues {
     public String saveFacturacionCredito( HttpServletRequest request, ModelMap model,@RequestParam(required = false) 
     		String fecha)throws IOException, ParseException {
     	
+    	HttpSession sesion1=request.getSession(true);
+    	
+    	Double total = 0.0;    	
+    	if(sesion1.getAttribute("codigofact")!=null)
+    	{
+    		Integer codigofact = (Integer) sesion1.getAttribute("codigofact");
+    		List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);
+    		
+    		for (int i = 0; i < facturaBuscar.size(); i++){
+      		   total=total+facturaBuscar.get(i).getSubtotalfactura(); //aqui se calcula el total     		  
+      	  	}
+    	}
+    	
     	 String tipo = "CREDITO"; 
-    	 Double total = 0.0;
     	 String nombre = "";
     	 String direccion = "";
     	 
@@ -1790,12 +1802,13 @@ public class AppControllerLibues {
 	       	 productoService.updateSalaVenta1(codigoproducto, sala);
          }
          
+         Integer numerofac = facturaService.findById(codigofact).getNumerofactura();
+         
          String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
          Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          
          Factura factura = new Factura();
-         //Integer numero = factura.getNumerofactura();
          factura.setFechafactura(fechafactura1);
-         factura.setNumerofactura(1001);
+         factura.setNumerofactura(numerofac + 1);
          factura.setTipofactura("CREDITO");
          factura.setTotal(0.0);
          factura.setCliente("");
