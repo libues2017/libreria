@@ -61,7 +61,9 @@
                         				<sec:authorize access="hasRole('ADMINISTRADOR')">
                             				<a href="<c:url value='/delete-producto-${producto.codigoProducto}' />" class="btn btn-danger custom-width">Eliminar</a>
                         				</sec:authorize>
+                        				
                         			</td>
+                        			
                     </tr>
                     
       						</tbody>

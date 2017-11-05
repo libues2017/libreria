@@ -59,7 +59,7 @@
  	 			    document.getElementById('costoProducto').value = costo1;
  	 			    
  	 				precio1.push("${current.precio}");
- 	 			    document.getElementById('precioProducto').value = costo1;
+ 	 			    document.getElementById('precioProducto').value = precio1;
  				}
  				
  			    
@@ -110,6 +110,7 @@
 
 </script>
 
+<!--
 <script>
 function validar2(){
 	var tipoTrans1 = document.getElementById("tipoTransferencia").value;
@@ -125,6 +126,7 @@ function validar2(){
         }
 }         
 </script>
+-->
 
 <script>
 	
@@ -154,21 +156,21 @@ function validar2(){
 	 // campo="costoproducto";
 	  
 	 if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
-		 	alert("El valor " + campo + " no es un número");
-	   		$("#glypcn"+campo).remove();
-            $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
-            $('#'+campo).parent().children('span').text("no es un numero").show();
-            $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+		 	alert("El valor " + campo + " no es un número valido");
+	   		//$("#glypcn"+campo).remove();
+            //$('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
+            //$('#'+campo).parent().children('span').text("no es un numero").show();
+            //$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
             return false;
 	 }  
         
      else{
     	 	var comparar = document.getElementById("tipoTransferencia").value;
     	 	if(comparar == "Ingresos"){
-	    	 	$("#glypcn"+campo).remove();
-				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-				$('#'+campo).parent().children('span').hide();
-				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	    	 	//$("#glypcn"+campo).remove();
+				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+				//$('#'+campo).parent().children('span').hide();
+				//$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 				var existencia = 0;
 	    		var costoexistencia = 0.0;
 	    		var precioventa = 0.0;
@@ -223,8 +225,15 @@ function validar2(){
 			   
 		  		var costoproducto = document.getElementById('costoProducto').value;
 		  		var cantidad=document.getElementById('cantidadProducto').value;								
-		  		var cla2 = document.getElementById('precioProducto').value=PV;								
-		 		var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  		var cla2 = document.getElementById('precioProducto').value=PV;
+		  		if(cantidad<0){
+		  			alert('Digite un Valor Positivo');
+		  		}
+		  		else{
+		  			var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  			$("#agregar").focus();
+		  		}
+		 		
 		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
 		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
 		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
@@ -237,10 +246,10 @@ function validar2(){
     	 	
     	 	else{
     	 		
-    	 		$("#glypcn"+campo).remove();
-				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-				$('#'+campo).parent().children('span').hide();
-				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+    	 		//$("#glypcn"+campo).remove();
+				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+				//$('#'+campo).parent().children('span').hide();
+				//$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 				var existencia = 0;
 	    		var costoexistencia = 0.0;
 	    		var precioventa = 0.0;
@@ -286,10 +295,18 @@ function validar2(){
 		  
 		 		PV=parseFloat(PVA);
 			   
-		  		var costoproducto = document.getElementById('costoProducto').value;
+		 		var existencia1 = parseInt(document.getElementById("existencia1").value);
+		 		var costoproducto = document.getElementById('costoProducto').value;
 		  		var cantidad=document.getElementById('cantidadProducto').value;								
-		  		var cla2 = document.getElementById('precioProducto').value=PV;								
-		 		var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  		var cla2 = document.getElementById('precioProducto').value=PV;
+		  		if(cantidad > existencia1){
+		  			alert('No hay suficiente Producto en Bodega para Transferir');
+		  		}
+		  		else{
+		  			var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
+		  			$("#agregar").focus();
+		  		}
+		 		
 		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
 		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
 		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
@@ -396,7 +413,7 @@ function validar2(){
 					<div class="panel-body">		
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Cantidad:</label>
-							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto'); validar2();" 
+							<form:input type="number" min="1" path="cantidadProducto" id="cantidadProducto" class="form-control input-sm" onchange="addIt('cantidadProducto');" 
 							placeholder="Digitar" title="El Valor debe ser entero"/>
 						</div>
 						<div class="col-xs-2">
