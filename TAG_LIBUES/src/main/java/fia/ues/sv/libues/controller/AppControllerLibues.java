@@ -1712,11 +1712,22 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/facturar-contado" }, method = RequestMethod.GET)
     public String saveFacturacionContado( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 
-    	   String fecha)throws IOException, ParseException {
+    	   String fecha, String nombre)throws IOException, ParseException {
     	
-    	String tipo = "CONTADO"; 
-    	Double total = 0.0;
-   	 	String nombre = "";
+    	HttpSession sesion1=request.getSession(true);
+    	
+    	Double total = 0.0;    	
+    	if(sesion1.getAttribute("codigofact")!=null)
+    	{
+    		Integer codigofact = (Integer) sesion1.getAttribute("codigofact");
+    		List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);
+    		
+    		for (int i = 0; i < facturaBuscar.size(); i++){
+      		   total=total+facturaBuscar.get(i).getSubtotalfactura(); //aqui se calcula el total     		  
+      	  	}
+    	}  	
+    	
+    	String tipo = "CONTADO";    	 
    	 	String direccion = "";
     	
     	 HttpSession sesion=request.getSession(true);    	
@@ -1732,14 +1743,16 @@ public class AppControllerLibues {
 	       	 Integer existencia = facturaBuscar.get(i).getSala();
 	       	 Integer sala = existencia - cantidad;
 	       	 productoService.updateSalaVenta1(codigoproducto, sala);
-         }
+         }         
+        
+         Integer numerofac = facturaService.findById(codigofact).getNumerofactura();
+         
          
          String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
          Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          
-         Factura factura = new Factura();
-       //Integer numero = factura.getNumerofactura();
+         Factura factura = new Factura();         
          factura.setFechafactura(fechafactura1);
-         factura.setNumerofactura(1001);
+         factura.setNumerofactura(numerofac + 1);
          factura.setTipofactura("CONTADO");
          factura.setTotal(0.0);
          factura.setCliente("");
@@ -1783,7 +1796,7 @@ public class AppControllerLibues {
          //Integer numero = factura.getNumerofactura();
          factura.setFechafactura(fechafactura1);
          factura.setNumerofactura(1001);
-         factura.setTipofactura("CONTADO");
+         factura.setTipofactura("CREDITO");
          factura.setTotal(0.0);
          factura.setCliente("");
          factura.setDireccion("");
