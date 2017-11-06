@@ -916,32 +916,7 @@ public class AppControllerLibues {
     	  // populate
     	  HttpSession session = request.getSession();
     	  HttpSession sesion2=request.getSession(true);
-    	 /* String data =request.getParameter("fechafacturaproveedor");
-    	  Date fecha=null;
-
-    	  if(sesion2.getAttribute("mySessionAttribute")==null){
-    		  data=request.getParameter("fechafacturaproveedor");
-    		  sesion2.setAttribute("mySessionAttribute", data);    		  
-    	  }
-    	  /*
-    	  else
-    	  {
-        	  SimpleDateFormat d = new SimpleDateFormat("dd/MM/yyyy");
-        	  try {
-    		       fecha = d.parse("02/03/2016");
-    		       data="02/02/2016";
-    		      // d.format(fecha);
-    			//model.addAttribute("fecha", data);
-    			  sesion2.setAttribute("mySessionAttribute", data);
-    		} catch (ParseException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
-    		  
-    	  }
     	
-    	  */
-    	  //Date fecha = new Date();
     	  Producto producto=new Producto();
     	  Double total=0.0;
     	
@@ -1021,74 +996,55 @@ public class AppControllerLibues {
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-    	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);    	
-    	model.addAttribute("detalleretaceo", detalleRetaceo);
-        model.addAttribute("edit", true);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "detalleretaceo-reg";*/    	
-			    	
 			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo);
+			    	
+			    	
 			        model.addAttribute("detalleretaceo", detalleretaceo);
-			        model.addAttribute("edit", false);
-			        model.addAttribute("loggedinuser", getPrincipal());
+			       
 			    	HttpSession sesion=request.getSession(true);
 			    	  // populate
-			    	  HttpSession session = request.getSession();
-			    	  HttpSession sesion2=request.getSession(true);
-			    	  HttpSession sesion1=request.getSession(true);
-			          sesion1.setAttribute("codigo", codigoretaceo);			    	  
+			    			    		    	  
 			    
 			    	  Producto producto=new Producto();
 			    	  Double total=0.0;	    	
 			    	
-			    
-			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
-			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();
-			    	  
-				        List<Producto> productos = productoService.findAllProductos();
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista
+			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();			    	  
+				      List<Producto> productos = productoService.findAllProductos();
 			    	 
-				        
-				        
-				        
-				        
-				        
-				        
-				        
-			    	int k=  retaceoBuscar.get(0).getCodigodetalleretaceo();
-			    	  
-			    	  
 			    	
-			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
-			    	  Double utilidad=detalle.get(0).getUtilidad();
-			    	  Integer codigoproveedor=detalle.get(0).getCodigoproveedor();
-			    	  Integer codigofacturaproveedor=detalle.get(0).getCodigofacturaproveedor();
-			    		Date fechafacturaproveedor=	detalle.get(0).getFechafacturaproveedor();  
+			
+			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
+			    	  Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
+			    	  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
+			    	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
 			    		
 			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);
 			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();
 			    		
+			    		Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
+			    		String nombreproducto=productoBuscar.getNombreProducto();
+			    				    		
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
 			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			    		  
 			    	  }    	  
-			    	 
-			    	  model.addAttribute("total", total);
-			    	  model.addAttribute("retaceo2", retaceoBuscar);			       
+			    	 		    	 		       
 			
 			    	 Retaceo retaceo= retaceoService.findById(codigoretaceo);
 			    	 
 			    	 Date fecharetaceo=retaceo.getFecharetaceo();			    	  		    	  
 			    	  
-			        
-					      		        
 			    
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
 			    	String fechafac = sdf.format(fechafacturaproveedor);
 			    	
-			    	 //sesion2.setAttribute("fecharetaceo", fecha);
-			    	 //sesion2.setAttribute("utilidad", utilidad);
+			    	model.addAttribute("codigoretaceo",codigoretaceo );
 			    	model.addAttribute("fecharetaceo",fecha );
+			    	model.addAttribute("codigoproducto",codigoproducto );
+			    	model.addAttribute("nombreproducto", nombreproducto);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);
 			    	model.addAttribute("codigoproveedor", codigoproveedor);
@@ -1096,10 +1052,12 @@ public class AppControllerLibues {
 			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
 			    	model.addAttribute("proveedor", proveedores);
 				    model.addAttribute("producto", productos);
+				    model.addAttribute("total", total);
+			    	model.addAttribute("retaceo2", retaceoBuscar);	
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());
 			         
-			        System.out.println("utilidad:"+k);   
+			     
     	
 			        return "detalleretaceo-modificar";
               

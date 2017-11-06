@@ -413,7 +413,7 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">      
 					<label class="form-control" for="nombr">Documento #:</label>					
-					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=session.getAttribute("codigo")%>'/>   
+					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=request.getAttribute("codigoretaceo").toString()%>'/>   
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
