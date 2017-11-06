@@ -78,6 +78,17 @@ public class DetalleRetaceoDaoImpl extends AbstractDao<Integer, DetalleRetaceo> 
         List<DetalleRetaceo> detalleRetaceo = (List<DetalleRetaceo>) criteria.list();
         return detalleRetaceo; 
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<DetalleRetaceo> findRetaceosProducto(Integer codigoretaceo,Integer codigoproducto) {
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoretaceo"));
+        criteria.add(Restrictions.eq("codigoretaceo", codigoretaceo)); 
+        criteria.add(Restrictions.eq("codigoretaceo", codigoproducto)); 
+       // criteria.add(Restrictions.("visible", true));
+        List<DetalleRetaceo> detalleRetaceo = (List<DetalleRetaceo>) criteria.list();
+        return detalleRetaceo; 
+	}
 	 
 	
 

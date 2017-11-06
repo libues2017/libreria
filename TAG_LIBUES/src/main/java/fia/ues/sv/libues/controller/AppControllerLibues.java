@@ -1017,7 +1017,7 @@ public class AppControllerLibues {
     }
     
         
-    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	

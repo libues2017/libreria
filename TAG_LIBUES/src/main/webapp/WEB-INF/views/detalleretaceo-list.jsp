@@ -58,19 +58,25 @@
 		    	        if ( $(this).hasClass('selected') ) {
 		    	            $(this).removeClass('selected');
 		    	            dato = "";
+		    	            codigoproducto = "";
 		    	           
 		    	        }
 		    	        else {
 		    	            tabla.$('tr.selected').removeClass('selected');
 		    	            $(this).addClass('selected');
-		    	            dato = $(this).find("td:eq(0)").text();		
+		    	            dato = $(this).find("td:eq(0)").text();	
+		    	            codigoproducto= $(this).find("td:eq(1)").text();	
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
 		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    	         
 		    	         
 		    	         var res1=dato;
+		    	         var res12="-";	
+		    	         var res123=codigoproducto;	
 		    	         var res2=res.concat(res1);//link editar			    	         
-		    	      	    	       
+		    	         var res2=res2.concat(res12);  
+		    	         var res2=res2.concat(res123);
+		    	         
 		    	         var str = "Editar";
 		    	      
 		    	        var result = str.link(res2);		    	      

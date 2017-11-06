@@ -1,6 +1,10 @@
 package fia.ues.sv.libues.service;
 
 import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,6 +83,13 @@ public class DetalleRetaceoServiceImpl implements DetalleRetaceoService{
 		return dao.findRetaceos(codigo);
 	}
    
+	
+	@Override
+	public List<DetalleRetaceo> findRetaceosProducto(Integer codigoretaceo,Integer codigoproducto) {
+		
+        return dao.findRetaceosProducto(codigoretaceo, codigoproducto); 
+	}
+	 
 	
 
 }

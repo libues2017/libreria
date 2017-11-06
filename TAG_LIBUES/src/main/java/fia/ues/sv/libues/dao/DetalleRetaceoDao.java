@@ -18,4 +18,6 @@ public interface DetalleRetaceoDao {
 	
 	List<DetalleRetaceo> findRetaceos(Integer codigo);
 
+	List<DetalleRetaceo> findRetaceosProducto(Integer codigoretaceo, Integer codigoproducto);
+
 }

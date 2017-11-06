@@ -36,4 +36,6 @@ public interface DetalleRetaceoService {
 	
 	List<DetalleRetaceo> findRetaceos(Integer fecha);
 
+	List<DetalleRetaceo> findRetaceosProducto(Integer codigoretaceo, Integer codigoproducto);
+
 }
