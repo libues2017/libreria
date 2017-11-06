@@ -1041,11 +1041,7 @@ public class AppControllerLibues {
 			    	  Producto producto=new Producto();
 			    	  Double total=0.0;	    	
 			    	
-			    	 // Integer codigo=(Integer) sesion.getAttribute("codigo");
-			    	  
-			    	  //Integer codigo=codigoretaceo;
-			    	  
-			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+			    
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
 			    	 
 			    	int k=  retaceoBuscar.get(0).getCodigodetalleretaceo();
@@ -1055,7 +1051,9 @@ public class AppControllerLibues {
 			    	  
 			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
 			    	  Double utilidad=detalle.get(0).getUtilidad();
-			    	  
+			    	  Integer codigoproveedor=detalle.get(0).getCodigoproveedor();
+			    	  Integer codigofacturaproveedor=detalle.get(0).getCodigofacturaproveedor();
+			    			  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
 			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			    		  
@@ -1070,29 +1068,21 @@ public class AppControllerLibues {
 			    	  
 			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
 			        List<Producto> productos = productoService.findAllProductos();
-			
-			        //incrementar retaceo
-			       
-					//List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
-					//Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-			        //HttpSession sesion1=request.getSession(true);
-			       // sesion1.setAttribute("codigo", retaceo6);
-			       // Integer codigo=(Integer)sesion1.getAttribute("codigo");
-			      //  model.addAttribute("success",codigo);
-			        
-			       // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+					      		        
+			    
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
 			    	 //sesion2.setAttribute("fecharetaceo", fecha);
 			    	 //sesion2.setAttribute("utilidad", utilidad);
 			    	model.addAttribute("fecharetaceo",fecha );
-			    	   model.addAttribute("utilidad", utilidad);
-			          model.addAttribute("edit", true);
-			          
-			        model.addAttribute("proveedor", proveedores);
-			        model.addAttribute("producto", productos);
-			        
-			        
+			    	model.addAttribute("utilidad", utilidad);
+			    	model.addAttribute("codigoproveedor", codigoproveedor);
+			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
+			    	model.addAttribute("proveedor", proveedores);
+				    model.addAttribute("producto", productos);
+			        model.addAttribute("edit", true);
+			        model.addAttribute("loggedinuser", getPrincipal());
+			         
 			        System.out.println("utilidad:"+k);   
     	
 			        return "detalleretaceo-modificar";

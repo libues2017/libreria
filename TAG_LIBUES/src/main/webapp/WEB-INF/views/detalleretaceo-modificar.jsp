@@ -315,8 +315,8 @@
 						                p4=sessionStorage.getItem('uti');
 										}
 									  // document.getElementById("fecharetaceo").value=p;
-									   document.getElementById("fechafacturaproveedor").value=p1;
-									   document.getElementById("codigofacturaproveedor").value=p3;
+									   //document.getElementById("fechafacturaproveedor").value=p1;
+									 //  document.getElementById("codigofacturaproveedor").value=p3;
 									 //  document.getElementById("utilidad").value=p4;
 					    
 					           } );
@@ -432,15 +432,15 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
-						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" onchange='cambiar1();' placeholder="DIGITE" class="form-control input-sm" /> 
+						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" onchange='cambiar1();' value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' placeholder="DIGITE" class="form-control input-sm" /> 
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>
-						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();"/>                        
+						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" />                        
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
-						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' />    
+						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();'  value='<%=request.getAttribute("codigoproveedor").toString()%>'/>    
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
