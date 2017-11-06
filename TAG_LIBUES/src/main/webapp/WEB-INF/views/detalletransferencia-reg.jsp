@@ -110,23 +110,6 @@
 
 </script>
 
-<!--
-<script>
-function validar2(){
-	var tipoTrans1 = document.getElementById("tipoTransferencia").value;
-	var bodega2 = parseInt(document.getElementById("existencia1").value);
-	var cantidad2 = parseInt(document.getElementById("cantidadProducto").value);
-	
-	
-		if(tipoTrans1 == 'Salidas')
-        {
-			if(bodega2 < cantidad2){
-				alert('No hay suficiente producto en Bodega');
-			}
-        }
-}         
-</script>
--->
 
 <script>
 	
@@ -500,7 +483,7 @@ function validar2(){
                     	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
                     	<div class="col-md-2">
                     		<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value="$ ${total}" />                           
+                    		value="${total}" />                           
                     	</div>
                 	</div>
             	</div>

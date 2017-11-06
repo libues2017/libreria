@@ -23,15 +23,21 @@ public class Transferencia implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codTransferencia;
 	
+	@NotNull
 	@Column(name="TIPOTRANSFERENCIA")
 	private String tipoTransferencia;
 	
+	@NotNull
 	@Column(name="SUCURSAL")
 	private String sucursal;
 	
 	@NotNull
 	@Column(name="FECHATRANSFERENCIA")
 	private Date fechaTransferencia;
+	
+	@NotNull
+	@Column(name= "TOTAL")
+	private Double total;
 
 	public Integer getCodTransferencia() {
 		return codTransferencia;
@@ -65,7 +71,13 @@ public class Transferencia implements Serializable{
 	public void setFechaTransferencia(Date fechaTransferencia) {
 		this.fechaTransferencia = fechaTransferencia;
 	}
-	
-	
 
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	
 }

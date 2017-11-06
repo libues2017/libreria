@@ -1332,12 +1332,15 @@ public class AppControllerLibues {
     */
     @RequestMapping(value = { "/delete-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String deleteTransferencia(@PathVariable Integer codTransferencia) {
-        
         detalletransferenciaService.deleteTransferenciaById(codTransferencia);
         return "redirect:/detalletransferencia-agregar";
     }
     
-    
+    @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una requisición de la tabla padre con sus hijas
+    public String deleteTransferenciaMaestra(@PathVariable Integer codTransferencia) {    	
+    	transferenciaService.deleteTransferenciaById(codTransferencia);  	
+        return "redirect:/transferencia-list";
+    }
     
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
     public String findetalleTransferencia( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
@@ -1347,6 +1350,20 @@ public class AppControllerLibues {
           sesion.setAttribute("codigoultimo", codTransferencia);
           //Leer valor a comparar, Salidas o Ingresos
           String tipoTransferencia = transferenciaService.findById(codTransferencia).getTipoTransferencia();
+          
+          Double total = 0.0;
+          if(sesion.getAttribute("codigo1") != null)
+          {
+        	  Integer codigo1 =(Integer)sesion.getAttribute("codigo1");
+        	  List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
+        	  
+        	  for(int i = 0; i < transferenciaBuscar.size(); i++){
+        		  total = total + transferenciaBuscar.get(i).getSubTotal();
+        	  }
+          }
+          
+          transferenciaService.updateTotal(codTransferencia, total);
+          
           List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
           
           for(int i=0;i<transferenciaBuscar.size();i++){
@@ -1377,7 +1394,11 @@ public class AppControllerLibues {
           String fecha = (String) sesion.getAttribute("mySessionAttribute");
           Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
           Transferencia transferencia = new Transferencia();
+          //valores por defecto para inicializar la siguiente transferencoa
+          transferencia.setTipoTransferencia("Salidas");
+          transferencia.setSucursal("SV-SA");
           transferencia.setFechaTransferencia(fechaTransferencia1);
+          transferencia.setTotal(0.0);
           transferenciaService.saveTransferencia(transferencia);
           Integer codigo1 = 0;
           sesion.setAttribute("codigo1", codigo1);

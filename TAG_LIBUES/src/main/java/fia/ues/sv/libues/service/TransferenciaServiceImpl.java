@@ -61,4 +61,13 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 		return dao.findAllTransferencias();
 	}
 
+	@Override
+	public void updateTotal(Integer codTransferencia, Double total) {
+		Transferencia entity = dao.findById(codTransferencia);
+		if(entity != null){
+			entity.setTotal(total);
+		}
+		
+	}
+
 }

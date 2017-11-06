@@ -18,5 +18,7 @@ public interface TransferenciaService {
 	void deleteTransferenciaById(int codTransferencia);
 	
 	List<Transferencia> findAllTransferencias();
+	
+	void updateTotal(Integer codTransferencia, Double total);
 
 }

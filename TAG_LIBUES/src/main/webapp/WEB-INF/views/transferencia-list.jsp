@@ -33,7 +33,7 @@
                         <th>Tipo</th>
                         <th>Sucursal</th>                        
                         <th>Fecha</th>
-                        
+                        <th>Total</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             <th width="100"></th>
                         </sec:authorize>
@@ -50,7 +50,12 @@
                     		<td><a  href="<c:url value='/transferencia-detalle-${transferencia.codTransferencia}' />">${transferencia.codTransferencia}</a></td>
                     		<td>${transferencia.tipoTransferencia}</td>	
                         	<td>${transferencia.sucursal}</td>	
-                        	<td>${transferencia.fechaTransferencia}</td> 
+                        	<td>${transferencia.fechaTransferencia}</td>
+                        	<td>${transferencia.total}</td>
+                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
+                        		<td><a href="<c:url value='/delete-transferencia-${transferencia.codTransferencia}'/>" class="btn btn-danger custom-width">Eliminar</a></td>
+                        	</sec:authorize>
+                        	 
                      
                     	</tr>
                 	</c:forEach>
