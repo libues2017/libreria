@@ -436,7 +436,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>
-						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" />                        
+						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" value='<%=request.getAttribute("fechafacturaproveedor").toString()%>'/>                        
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
@@ -444,7 +444,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
-						<input type="text" id="proveedor" placeholder="AUTOMATICO" class="form-control input-sm" />					                     
+						<input type="text" id="proveedor" placeholder="AUTOMATICO" class="form-control input-sm" value='<%=request.getAttribute("nombreproveedor").toString()%>'/>					                     
 					</div>
 				</div>
 			</div>

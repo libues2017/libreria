@@ -1043,17 +1043,30 @@ public class AppControllerLibues {
 			    	
 			    
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
+			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();
+			    	  
+				        List<Producto> productos = productoService.findAllProductos();
 			    	 
+				        
+				        
+				        
+				        
+				        
+				        
+				        
 			    	int k=  retaceoBuscar.get(0).getCodigodetalleretaceo();
 			    	  
 			    	  
-			    	  //retaceoBuscar.size();
-			    	  
+			    	
 			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
 			    	  Double utilidad=detalle.get(0).getUtilidad();
 			    	  Integer codigoproveedor=detalle.get(0).getCodigoproveedor();
 			    	  Integer codigofacturaproveedor=detalle.get(0).getCodigofacturaproveedor();
-			    			  
+			    		Date fechafacturaproveedor=	detalle.get(0).getFechafacturaproveedor();  
+			    		
+			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);
+			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();
+			    		
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
 			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			    		  
@@ -1066,17 +1079,20 @@ public class AppControllerLibues {
 			    	 
 			    	 Date fecharetaceo=retaceo.getFecharetaceo();			    	  		    	  
 			    	  
-			        List<Proveedor> proveedores = proveedorService.findAllProveedores();
-			        List<Producto> productos = productoService.findAllProductos();
+			        
 					      		        
 			    
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
+			    	String fechafac = sdf.format(fechafacturaproveedor);
+			    	
 			    	 //sesion2.setAttribute("fecharetaceo", fecha);
 			    	 //sesion2.setAttribute("utilidad", utilidad);
 			    	model.addAttribute("fecharetaceo",fecha );
+			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);
 			    	model.addAttribute("codigoproveedor", codigoproveedor);
+			    	model.addAttribute("nombreproveedor", nombreproveedor);
 			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
 			    	model.addAttribute("proveedor", proveedores);
 				    model.addAttribute("producto", productos);
