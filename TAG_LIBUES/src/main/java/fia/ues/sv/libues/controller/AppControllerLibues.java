@@ -1435,6 +1435,19 @@ public class AppControllerLibues {
  		model.addAttribute("loggedinuser", getPrincipal());
  		return "ReporteRequisicionIngreso";
  	}
+     
+     //Controles para el Reporte de Kardex
+     @RequestMapping(value={"/kardex"}, method = RequestMethod.GET)
+   	public String kardex(ModelMap model){
+   		model.addAttribute("loggedinuser", getPrincipal());
+   		return "kardex";
+   	}
+       
+    @RequestMapping(value={"/repo_kardex"}, method = RequestMethod.GET)
+   	public String repotkardex(ModelMap model){
+   		model.addAttribute("loggedinuser", getPrincipal());
+   		return "ReportKardex";
+   	}
     
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
