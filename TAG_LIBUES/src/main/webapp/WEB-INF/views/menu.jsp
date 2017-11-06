@@ -109,6 +109,8 @@
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
 			            		<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="existencias" />">Reporte de Kardex</a></li>
+			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
 			          		</ul>
 			      		</li>

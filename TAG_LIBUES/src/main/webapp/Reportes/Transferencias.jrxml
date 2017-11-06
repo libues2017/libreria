@@ -8,6 +8,7 @@
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="tipotransf" class="java.lang.String"/>
+	<parameter name="fec" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT DISTINCT libues.detalletransferencia.`CODPRODUCTO`,
 	libues.detalletransferencia.`NOMPRODUCTO`,
@@ -19,7 +20,8 @@
 	libues.detalletransferencia.`CODTRANSFERENCIA`,
 	libues.transferencia.`SUCURSAL`,
 	libues.transferencia.`TIPOTRANSFERENCIA`,
-	libues.transferencia.`FECHATRANSFERENCIA`
+	libues.transferencia.`FECHATRANSFERENCIA`,
+	libues.transferencia.FECHATRANSFERENCIA as fecha
 FROM 
 	libues.detalletransferencia,
 	libues.autor_libro,
@@ -46,6 +48,14 @@ WHERE
 	<field name="SUCURSAL" class="java.lang.String"/>
 	<field name="TIPOTRANSFERENCIA" class="java.lang.String"/>
 	<field name="FECHATRANSFERENCIA" class="java.sql.Date"/>
+	<field name="fecha" class="java.util.Date"/>
+	<variable name="Variable" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{SUBTOTAL}]]></initialValueExpression>
+	</variable>
+	<variable name="SUBTOTAL1" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+	</variable>
 	<group name="CODTRANSFERENCIA">
 		<groupExpression><![CDATA[$F{CODTRANSFERENCIA}]]></groupExpression>
 	</group>
@@ -122,7 +132,22 @@ WHERE
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="54"/>
+			<band height="41">
+				<textField>
+					<reportElement x="405" y="4" width="60" height="15" uuid="d5a6e559-3993-4aff-8f61-ddd77b8d2d4c"/>
+					<textElement>
+						<font fontName="Arial" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SUBTOTAL1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="357" y="4" width="44" height="18" uuid="fed5379b-e453-4de6-90c6-ea21e4b5552e"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[SubTotal:]]></text>
+				</staticText>
+			</band>
 		</groupFooter>
 	</group>
 	<background>
@@ -134,54 +159,15 @@ WHERE
 				<reportElement x="-1" y="7" width="83" height="80" uuid="8fe1fc4e-e8c8-4e21-a3f7-bc5d97d32475"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="95" y="0" width="270" height="25" uuid="956beef1-10d8-4386-a182-e38980c64ee8">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<textElement>
-					<font size="19" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Libreria Universitaria]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="25" width="285" height="15" uuid="5e7a3691-f524-423e-b11d-97cc6733d0a1"/>
-				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="40" width="205" height="15" uuid="9361c7f7-6219-427c-bf15-0f0ab4b1f185"/>
-				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="98" y="55" width="172" height="15" uuid="1255d407-b3f2-42e1-ba7f-dba43a5b9e4a"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<text><![CDATA[Reporte de Transferencias]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="98" y="70" width="100" height="21" uuid="38d459e3-8622-45be-8d47-e410048d6c98"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<text><![CDATA[Fecha de Impresion]]></text>
-			</staticText>
-			<textField pattern="dd//MM/yyyy">
-				<reportElement positionType="Float" x="208" y="70" width="84" height="20" uuid="bc8acd4f-c59b-4679-a1db-1a9649e8fb26"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<textField>
-				<reportElement x="407" y="10" width="73" height="30" uuid="09cacb39-966d-4eef-b928-3827d5bd7ddf"/>
+				<reportElement x="401" y="10" width="73" height="30" uuid="09cacb39-966d-4eef-b928-3827d5bd7ddf"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="480" y="10" width="85" height="30" uuid="7f6227b2-5e00-435c-a39d-6d5ad9b087fc"/>
+				<reportElement x="483" y="10" width="85" height="30" uuid="7f6227b2-5e00-435c-a39d-6d5ad9b087fc"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="8"/>
 				</textElement>
@@ -193,10 +179,56 @@ WHERE
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement x="95" y="0" width="270" height="25" uuid="8853fdb3-f878-45d7-97ed-c2304ed9a32f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libreria Universitaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="285" height="15" uuid="1a043a00-2618-4611-9051-2757cfc9b011"/>
+				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="b9f10b5f-030c-4b58-98fb-bce1df6df071"/>
+				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="55" width="172" height="15" uuid="b16e7e62-3012-439f-9706-04bd948e4f39"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Reporte de Transferencias del mes de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="314" y="54" width="229" height="17" uuid="9fb309f0-73e6-4467-a7a2-422be34e551f"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fec}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="98" y="70" width="100" height="21" uuid="b702ce1e-89f5-4d5b-b56d-4c8765abc90c"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Impresion]]></text>
+			</staticText>
+			<textField pattern="dd//MM/yyyy">
+				<reportElement positionType="Float" x="208" y="70" width="84" height="20" uuid="52ecb921-fd94-47f5-a6b0-3aee4f82903f"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="42" splitType="Stretch">
+		<band height="54" splitType="Stretch">
 			<staticText>
 				<reportElement x="-13" y="10" width="70" height="30" uuid="5a65169e-b4a4-4df8-ad97-e3c429f32ff3"/>
 				<textElement textAlignment="Center">
@@ -322,12 +354,38 @@ WHERE
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="50"/>
 	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="465" y="20" width="67" height="17" uuid="73674443-55fd-4fb7-bda6-1cb20fd0995d"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Variable}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="340" y="19" width="117" height="17" uuid="18763941-7b12-40d0-af4a-12168f1e78ab"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="20" width="143" height="17" uuid="cee433e2-f7df-42d0-b13a-4660e33113df"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Transferencias del mes de]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="20" width="137" height="17" uuid="10de8a85-ac2e-4fae-8027-92f8e2efc885"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fec}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
