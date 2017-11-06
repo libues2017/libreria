@@ -15,7 +15,9 @@
                     
 					
 						if(session.getAttribute("fecharetaceo")!=null){
-					             fecha=session.getAttribute("fecharetaceo").toString();
+					           //  fecha=session.getAttribute("fecharetaceo").toString();
+							
+							fecha=request.getAttribute("fecharetaceo").toString();
 						}
 						
 						System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));   
@@ -419,7 +421,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=session.getAttribute("utilidad")%>'/>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=request.getAttribute("utilidad").toString()%>'/>
                     </div>
 				</div>
 			</div>

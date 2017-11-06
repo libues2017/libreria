@@ -1018,7 +1018,7 @@ public class AppControllerLibues {
     
         
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
-    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
+    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
     	/*DetalleRetaceo detalleRetaceo = detalleretaceoService.findById(codigoretaceo);    	
@@ -1045,10 +1045,15 @@ public class AppControllerLibues {
 			    	  
 			    	  //Integer codigo=codigoretaceo;
 			    	  
-			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
+			    	 
+			    	int k=  retaceoBuscar.get(0).getCodigodetalleretaceo();
+			    	  
+			    	  
 			    	  //retaceoBuscar.size();
 			    	  
-			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceos(codigoretaceo);
+			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);
 			    	  Double utilidad=detalle.get(0).getUtilidad();
 			    	  
 			    	  
@@ -1078,15 +1083,17 @@ public class AppControllerLibues {
 			       // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
-			    	 sesion2.setAttribute("fecharetaceo", fecha);
-			    	 sesion2.setAttribute("utilidad", utilidad);
-			    	//model.addAttribute("fecharetaceo",fecha );
-			    	  // model.addAttribute("utilidad", utilidad);
+			    	 //sesion2.setAttribute("fecharetaceo", fecha);
+			    	 //sesion2.setAttribute("utilidad", utilidad);
+			    	model.addAttribute("fecharetaceo",fecha );
+			    	   model.addAttribute("utilidad", utilidad);
 			          model.addAttribute("edit", true);
 			          
 			        model.addAttribute("proveedor", proveedores);
 			        model.addAttribute("producto", productos);
-			        System.out.println("utilidad:"+utilidad);   
+			        
+			        
+			        System.out.println("utilidad:"+k);   
     	
 			        return "detalleretaceo-modificar";
               
