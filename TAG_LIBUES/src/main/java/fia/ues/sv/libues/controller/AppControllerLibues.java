@@ -921,8 +921,7 @@ public class AppControllerLibues {
 
     	  if(sesion2.getAttribute("mySessionAttribute")==null){
     		  data=request.getParameter("fechafacturaproveedor");
-    		  sesion2.setAttribute("mySessionAttribute", data);
-    		  
+    		  sesion2.setAttribute("mySessionAttribute", data);    		  
     	  }
     	  /*
     	  else
@@ -1047,6 +1046,8 @@ public class AppControllerLibues {
 			    	  //Integer codigo=codigoretaceo;
 			    	  
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+			    	  //retaceoBuscar.size();
+			    	  
 			    	  List<DetalleRetaceo> detalle=detalleretaceoService.findRetaceos(codigoretaceo);
 			    	  Double utilidad=detalle.get(0).getUtilidad();
 			    	  
@@ -1077,14 +1078,15 @@ public class AppControllerLibues {
 			       // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
-			    	 //sesion2.setAttribute("fecharetaceo", fecha);
-			    	model.addAttribute("fecharetaceo",fecharetaceo );
-			    	   model.addAttribute("utilidad", utilidad);
+			    	 sesion2.setAttribute("fecharetaceo", fecha);
+			    	 sesion2.setAttribute("utilidad", utilidad);
+			    	//model.addAttribute("fecharetaceo",fecha );
+			    	  // model.addAttribute("utilidad", utilidad);
 			          model.addAttribute("edit", true);
 			          
 			        model.addAttribute("proveedor", proveedores);
 			        model.addAttribute("producto", productos);
-			   
+			        System.out.println("utilidad:"+utilidad);   
     	
 			        return "detalleretaceo-modificar";
               
