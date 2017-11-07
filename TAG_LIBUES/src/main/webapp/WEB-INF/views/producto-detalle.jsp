@@ -118,7 +118,7 @@
                             				<a href="<c:url value='/delete-producto-${producto.codigoProducto}' />" class="btn btn-danger custom-width">Eliminar</a>
                         				</sec:authorize>
                         				
-                            				<a href="<c:url value='/producto-list' />" class="btn btn-primary"> Regresar</a>
+                            				<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                         			
                         				
                         			</td>

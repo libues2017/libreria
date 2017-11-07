@@ -38,11 +38,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
 		.antMatchers("/","/index").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('DBA')")
-		.antMatchers("/list","/materia-list","/autor-list","/evento-list","/editorial-list", "/tipo-list", "/producto-list").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
-		.antMatchers("/edit-user-*","/newuser/**","/delete-user-*","/delete-materia-*","/delete-util-*","/delete-autor-*",
-				"/delete-editorial-*","/delete-evento-*","delete-libro-*").access("hasRole('ADMINISTRADOR')")
-		.antMatchers("/materia-agregar","/edit-materia-*","/newUtil","/edit-util-*","/autor-agregar","edit-autor-*","/evento-agregar",
-				"/editorial-agrear","edit-editorial-*","/libro-agregar","edit-libro-*","/edit-evento-*").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		
+		.antMatchers("/list","/autor-list","/editorial-list", "/tipo-list", "/producto-list").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		
+		.antMatchers("/edit-user-*","/newuser/**","/delete-user-*","/delete-autor-*","/delete-editorial-*","delete-producto-*","/delete-area-*").access("hasRole('ADMINISTRADOR')")
+		
+		.antMatchers("/autor-agregar","edit-autor-*","/editorial-agrear","edit-editorial-*","/producto-agregar").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("ssoId").passwordParameter("password")
 		.and().rememberMe().rememberMeParameter("remeber-me").tokenRepository(tokenRepository).tokenValiditySeconds(86400)
 		.and().csrf()

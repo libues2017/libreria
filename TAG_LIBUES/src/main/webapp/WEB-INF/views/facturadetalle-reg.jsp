@@ -125,7 +125,7 @@ function validar() {
 		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" /> 
 								    			
 		<div class="panel-group">			
-			<div class="panel panel-default">
+			<div class="panel panel-default" style="background-color: #E3F5F1">
 				<div class="form-group row">		
 					<div class="panel-body">
 						<div class="col-xs-2">	

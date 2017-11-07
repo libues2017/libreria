@@ -32,7 +32,7 @@
 		    <div class="thumbnail">
 		      <img src="<c:url value='/static/img/utiles.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
-		        <h3><a href="<c:url value="producto-busqueda" />" class="alert-link">Utiles/Miscelánios</a></h3>
+		        <h3><a href="<c:url value="producto-list" />" class="alert-link">Utiles/Miscelánios</a></h3>
 		        <p>Realice una busqueda con todos los utiles que necesite para todas sus actividades.</p>
 		        
 		      </div>

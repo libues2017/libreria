@@ -352,7 +352,7 @@ function cambiar5(){
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
       <div class="panel-group">
-      	<div class="panel panel-default">
+      	<div class="panel panel-default" style="background-color: #E3F5F1">
 			<div class="form-group row">		
 				<div class="panel-body">
 					<div class="col-xs-3">      
@@ -369,9 +369,6 @@ function cambiar5(){
                     </div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="panel panel-success">	
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">				             
@@ -392,6 +389,8 @@ function cambiar5(){
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="panel panel-success">	
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">
