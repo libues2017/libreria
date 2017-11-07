@@ -262,8 +262,8 @@ public class AppControllerLibues {
     }
  
     /**
-     * Se llamará a este método en el envío del formulario, manejando la solicitud POST para
-     * guardar usuario en la base de datos. También valida la entrada del usuario.
+     * Se llamarï¿½ a este mï¿½todo en el envï¿½o del formulario, manejando la solicitud POST para
+     * guardar usuario en la base de datos. Tambiï¿½n valida la entrada del usuario.
      */
     @RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
@@ -300,8 +300,8 @@ public class AppControllerLibues {
     }
      
     /**
-     * Se llamará a este método en el envío del formulario, manejando la solicitud POST para
-     * actualizar un usuario en la base de datos. También valida la entrada del usuario.
+     * Se llamarï¿½ a este mï¿½todo en el envï¿½o del formulario, manejando la solicitud POST para
+     * actualizar un usuario en la base de datos. Tambiï¿½n valida la entrada del usuario.
      *      */
     @RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
@@ -339,7 +339,7 @@ public class AppControllerLibues {
      
 
     /**
-     *Este método maneja la redirección de acceso denegado.
+     *Este mï¿½todo maneja la redirecciï¿½n de acceso denegado.
      */
     @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
@@ -348,8 +348,8 @@ public class AppControllerLibues {
     }
  
     /**
-     *Este método maneja las solicitudes GET de inicio de sesión.
-     * Si los usuarios ya iniciaron sesión e intentan volver a la página de inicio de sesión, se les redirigirá a la página de la lista.
+     *Este mï¿½todo maneja las solicitudes GET de inicio de sesiï¿½n.
+     * Si los usuarios ya iniciaron sesiï¿½n e intentan volver a la pï¿½gina de inicio de sesiï¿½n, se les redirigirï¿½ a la pï¿½gina de la lista.
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
@@ -361,7 +361,7 @@ public class AppControllerLibues {
     }
  
     /**
-     * Este método maneja las solicitudes de cierre de sesión.
+     * Este mï¿½todo maneja las solicitudes de cierre de sesiï¿½n.
      */
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response){
@@ -375,7 +375,7 @@ public class AppControllerLibues {
     }
  
     /**
-     * Este método devuelve el nombre de usuario que inició sesión.
+     * Este mï¿½todo devuelve el nombre de usuario que iniciï¿½ sesiï¿½n.
      */
     private String getPrincipal(){
         String userName = null;
@@ -390,7 +390,7 @@ public class AppControllerLibues {
     }
      
     /**
-     * Este método devuelve verdadero si los usuarios ya están autenticados [conectados], de lo contrario es falso.
+     * Este mï¿½todo devuelve verdadero si los usuarios ya estï¿½n autenticados [conectados], de lo contrario es falso.
      */
     private boolean isCurrentAuthenticationAnonymous() {
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -795,7 +795,7 @@ public class AppControllerLibues {
              	
     	System.out.println(producto.getEditorial());
     	
-    	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
+    	byte[] file = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocation());
     	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
     	
@@ -1093,7 +1093,7 @@ public class AppControllerLibues {
     public String findetalleRetaceo( HttpServletRequest request,ModelMap model,@RequestParam(required = false) String fecharetaceo )throws IOException, ParseException {
     	
 		    	/*
-				Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
+				Aquï¿½ se detallan las siglas de las variables utilizadas en el cï¿½lculo: 
 		
 						Cantidad de Productos en existencia = PEX 
 						Cantidad de Productos de entrada = PE 
@@ -1102,9 +1102,9 @@ public class AppControllerLibues {
 						Costo Promedio Unitario = CPU
 						Precio de Venta = PV 
 						Total de Costo = TC
-						Total de Artículos = TA  
+						Total de Artï¿½culos = TA  
 						precio de venta anterior=PVA										
-						La fórmula para el cálculo del costo promedio es la siguiente: 										 
+						La fï¿½rmula para el cï¿½lculo del costo promedio es la siguiente: 										 
 						TC = (PEX*CPEX) +(PE*CPE) 
 						TA = PEX+PE 
 		                CPU=TC/TA 
@@ -1307,7 +1307,7 @@ public class AppControllerLibues {
         return "redirect:/detalletransferencia-agregar";
     }
     
-    @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una requisición de la tabla padre con sus hijas
+    @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una requisiciï¿½n de la tabla padre con sus hijas
     public String deleteTransferenciaMaestra(@PathVariable Integer codTransferencia) {    	
     	transferenciaService.deleteTransferenciaById(codTransferencia);  	
         return "redirect:/transferencia-list";
@@ -1644,7 +1644,7 @@ public class AppControllerLibues {
     	return "redirect:/detallerequisicion-agregar";        
     }
     
-    @RequestMapping(value = { "/delete-requisicion-{codigoreq}" }, method = RequestMethod.GET) // Eliminar una requisición de la tabla padre con sus hijas
+    @RequestMapping(value = { "/delete-requisicion-{codigoreq}" }, method = RequestMethod.GET) // Eliminar una requisiciï¿½n de la tabla padre con sus hijas
     public String deleteRequisicionMaestra(@PathVariable Integer codigoreq) {    	
     	requisicionService.deleteRequisicionById(codigoreq);    	
         return "redirect:/requisicion-list";

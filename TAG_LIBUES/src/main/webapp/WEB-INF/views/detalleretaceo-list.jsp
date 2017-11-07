@@ -105,7 +105,7 @@
 <div class="row">
 <!--<h1>Areas</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
+			    <div class="well" align="center">
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a> 
                 <a href="<c:url value='/index' />"> Regresar</a>
                 
