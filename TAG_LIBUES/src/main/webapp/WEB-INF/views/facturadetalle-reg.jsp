@@ -212,10 +212,10 @@ function validar() {
 				    			<td>$ ${facturas.precio}</td>
 				    			<td>$ ${facturas.subtotalfactura}</td>	    			
 				    			
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        </sec:authorize>
-                        </tr>
+                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
+                            	<td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                       		</sec:authorize>
+                        	</tr>
 				    	 </c:forEach>
 		    	</tbody>
 	    </table>

@@ -795,7 +795,7 @@ public class AppControllerLibues {
              	
     	System.out.println(producto.getEditorial());
     	
-    	byte[] file = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocation());
+    	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
     	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
     	
