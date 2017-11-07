@@ -51,7 +51,7 @@
                     		<td><a  href="<c:url value='/requisicion-detalle-${requisicion.codigorequisicion}' />">${requisicion.codigorequisicion}</a></td>
                     		<td>${requisicion.destino}</td>	
                         	<td>${requisicion.fecha}</td>
-                        	<td>${requisicion.total}</td>
+                        	<td>$${requisicion.total}</td>
                         	<sec:authorize access="hasRole('ADMINISTRADOR')">                     
                         	<td><a href="<c:url value='/delete-requisicion-${requisicion.codigorequisicion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>

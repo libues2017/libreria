@@ -51,7 +51,7 @@
                     		<td>${transferencia.tipoTransferencia}</td>	
                         	<td>${transferencia.sucursal}</td>	
                         	<td>${transferencia.fechaTransferencia}</td>
-                        	<td>${transferencia.total}</td>
+                        	<td>$${transferencia.total}</td>
                         	<sec:authorize access="hasRole('ADMINISTRADOR')">
                         		<td><a href="<c:url value='/delete-transferencia-${transferencia.codTransferencia}'/>" class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>

@@ -45,6 +45,7 @@
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <th width="100">Eliminar</th>
                         </sec:authorize>
+                        
                     </tr>
                 </thead>
                 
@@ -66,7 +67,8 @@
                         	</sec:authorize>
                         	<sec:authorize access="hasRole('ADMINISTRADOR')">
                             	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
-                        	</sec:authorize>                        
+                        	</sec:authorize>
+                        	                        
                     	</tr>
                 	</c:forEach>
                 </tbody>

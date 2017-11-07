@@ -569,7 +569,7 @@ var miVar = <%= sAhora %>;
 						    			<td></td>
 						    			<td>Total</td>
 						    	        <td >
-		                                   ${total} 
+		                                   $ ${total} 
 		                                </td>
 		                                <td></td>
                          </tr>
