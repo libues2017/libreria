@@ -61,7 +61,7 @@
                         				<sec:authorize access="hasRole('ADMINISTRADOR')">
                             				<a href="<c:url value='/delete-producto-${producto.codigoProducto}' />" class="btn btn-danger custom-width">Eliminar</a>
                         				</sec:authorize>
-                        				<sec:authorize access="hasRole('ADMINISTRADOR')">
+                        				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             				<a href="<c:url value='/producto-list' />" class="btn btn-primary"> Regresar</a>
                         				</sec:authorize>
                         				
