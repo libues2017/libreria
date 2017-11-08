@@ -997,8 +997,7 @@ public class AppControllerLibues {
 
     	
 			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
-			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo);
-			    	
+			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo);		    	
 			    	
 			        model.addAttribute("detalleretaceo", detalleretaceo);
 			       
@@ -1038,9 +1037,6 @@ public class AppControllerLibues {
 			    	  }    	  
 			    	 		    	 		       
 			
-			    			    	  		    	  
-			    	  
-			    
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 			    	String fecha = sdf.format(fecharetaceo);
 			    	String fechafac = sdf.format(fechafacturaproveedor);
@@ -1063,6 +1059,8 @@ public class AppControllerLibues {
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());
 			         
+			        
+			        System.out.println("fecha:" + fecha);   
 			     
     	
 			        return "detalleretaceo-modificar";
