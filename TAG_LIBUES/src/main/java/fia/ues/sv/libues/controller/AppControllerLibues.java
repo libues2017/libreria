@@ -982,7 +982,7 @@ public class AppControllerLibues {
     	retaceoService.updateFechaRetaceo(fecharetaceo1, codigoretaceo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecharetaceo1);
- 		 sesion2.setAttribute("mySessionAttribute", fecha);
+ 		sesion2.setAttribute("mySessionAttribute", fecha);
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detalleretaceo-agregar";
@@ -1017,14 +1017,16 @@ public class AppControllerLibues {
 			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
 			    	  Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
-			    	  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
-			    	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
+			    	//  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
+			    //	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
 			    		
 			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);
 			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();
 			    		
 			    		Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
 			    		String nombreproducto=productoBuscar.getNombreProducto();
+			    		Integer existencia=productoBuscar.getExistencia();
+			    		Double costo=productoBuscar.getCostounitario();
 			    				    		
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1034,6 +1036,8 @@ public class AppControllerLibues {
 			
 			    	 Retaceo retaceo= retaceoService.findById(codigoretaceo);
 			    	 
+			    	 Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
+			    	 Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
 			    	 Date fecharetaceo=retaceo.getFecharetaceo();			    	  		    	  
 			    	  
 			    
@@ -1045,6 +1049,8 @@ public class AppControllerLibues {
 			    	model.addAttribute("fecharetaceo",fecha );
 			    	model.addAttribute("codigoproducto",codigoproducto );
 			    	model.addAttribute("nombreproducto", nombreproducto);
+			    	model.addAttribute("existencia", existencia);
+			    	model.addAttribute("costo", costo);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);
 			    	model.addAttribute("codigoproveedor", codigoproveedor);

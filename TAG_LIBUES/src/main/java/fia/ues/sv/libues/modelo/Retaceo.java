@@ -35,6 +35,37 @@ public class Retaceo implements Serializable{
 	private Date fecharetaceo ;
 	
 	
+	
+	@NotNull
+	@Column(name="CODIGOFACTURAPROVEEDOR")
+	private Integer codigofacturaproveedor;
+	
+	@NotNull
+	@Column(name="FECHAFACTURAPROVEEDOR", nullable=false)	
+	private Date fechafacturaproveedor ;
+	
+	
+	
+
+	public Integer getCodigofacturaproveedor() {
+		return codigofacturaproveedor;
+	}
+
+
+	public void setCodigofacturaproveedor(Integer codigofacturaproveedor) {
+		this.codigofacturaproveedor = codigofacturaproveedor;
+	}
+
+
+	public Date getFechafacturaproveedor() {
+		return fechafacturaproveedor;
+	}
+
+
+	public void setFechafacturaproveedor(Date fechafacturaproveedor) {
+		this.fechafacturaproveedor = fechafacturaproveedor;
+	}
+
 
 	public Date getFecharetaceo() {
 		return fecharetaceo;

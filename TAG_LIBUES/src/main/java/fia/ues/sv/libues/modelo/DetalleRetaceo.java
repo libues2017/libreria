@@ -38,14 +38,14 @@ public class DetalleRetaceo implements Serializable{
 	private Integer codigoretaceo;
 	
 	
-	@NotNull
+	/*@NotNull
 	@Column(name="CODIGOFACTURAPROVEEDOR")
 	private Integer codigofacturaproveedor;
 	
 	@NotNull
 	@Column(name="FECHAFACTURAPROVEEDOR", nullable=false)
 	// @DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date fechafacturaproveedor ;
+	private Date fechafacturaproveedor ;*/
 	
 	@NotNull
 	@Column(name="COSTOPRODUCTO")
@@ -199,7 +199,7 @@ public class DetalleRetaceo implements Serializable{
 		this.subtotal = subtotal;
 	}
 
-	public Date getFechafacturaproveedor() {
+	/*public Date getFechafacturaproveedor() {
 		return fechafacturaproveedor;
 	}
 
@@ -216,17 +216,23 @@ public class DetalleRetaceo implements Serializable{
 
 	public void setCodigofacturaproveedor(Integer codigofacturaproveedor) {
 		this.codigofacturaproveedor = codigofacturaproveedor;
-	}
+	}*/
 	
 	
 	
 	@Override
     public String toString() {
-        return "detalleretaceo [CODIGODETALLERETACEO=" + codigodetalleretaceo + ", CODIGOPRODUCTO=" + codigoproducto 
+       /* return "detalleretaceo [CODIGODETALLERETACEO=" + codigodetalleretaceo + ", CODIGOPRODUCTO=" + codigoproducto 
                 + ", CODIGOPROVEEDOR=" + codigoproveedor + ",CODIGORETACEO=" + codigoretaceo + ", COSTOPRODUCTO=" + costoproducto + ", PRECIOPRODUCTO=" + precioproducto
                 + ", CANTIDADPRODUCTO=" + cantidadproducto  + ", SUBTOTA=" +subtotal 
-                + ", FECHAFACTURAPROVEEDOR=" + fechafacturaproveedor + ", CODIGOFACTURAPROVEEDOR=" + codigofacturaproveedor +" ]";
+                + ", FECHAFACTURAPROVEEDOR=" + fechafacturaproveedor + ", CODIGOFACTURAPROVEEDOR=" + codigofacturaproveedor +" ]";*/
         
+		return "detalleretaceo [CODIGODETALLERETACEO=" + codigodetalleretaceo + ", CODIGOPRODUCTO=" + codigoproducto 
+                + ", CODIGOPROVEEDOR=" + codigoproveedor + ",CODIGORETACEO=" + codigoretaceo + ", COSTOPRODUCTO=" + costoproducto + ", PRECIOPRODUCTO=" + precioproducto
+                + ", CANTIDADPRODUCTO=" + cantidadproducto  + ", SUBTOTA=" +subtotal 
+                + " ]";
+		
+		
     }
 
 
