@@ -1012,11 +1012,15 @@ public class AppControllerLibues {
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista
 			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();			    	  
 				      List<Producto> productos = productoService.findAllProductos();
-			    	 
-			    	
+				      Retaceo retaceo= retaceoService.findById(codigoretaceo);
+				    	 
+				    	 Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
+				    	 Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
+				    	 Date fecharetaceo=retaceo.getFecharetaceo();	
+				    	 Integer codigoproveedor=retaceo.getCodigofacturaproveedor();
 			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
-			    	  Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
+			    	 // Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
 			    	//  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
 			    //	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
 			    		
@@ -1034,11 +1038,7 @@ public class AppControllerLibues {
 			    	  }    	  
 			    	 		    	 		       
 			
-			    	 Retaceo retaceo= retaceoService.findById(codigoretaceo);
-			    	 
-			    	 Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
-			    	 Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
-			    	 Date fecharetaceo=retaceo.getFecharetaceo();			    	  		    	  
+			    			    	  		    	  
 			    	  
 			    
 			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador

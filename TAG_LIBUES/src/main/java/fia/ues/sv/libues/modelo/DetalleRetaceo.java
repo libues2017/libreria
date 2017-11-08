@@ -28,9 +28,9 @@ public class DetalleRetaceo implements Serializable{
 	@Column(name="CODIGOPRODUCTO")
 	private Integer codigoproducto;
 	
-	@NotNull
+	/*@NotNull
 	@Column(name="CODIGOPROVEEDOR")
-	private Integer codigoproveedor;
+	private Integer codigoproveedor;*/
 	
 	
 	@NotNull
@@ -141,14 +141,14 @@ public class DetalleRetaceo implements Serializable{
 	}
 
 
-	public Integer getCodigoproveedor() {
+	/*public Integer getCodigoproveedor() {
 		return codigoproveedor;
 	}
 
 
 	public void setCodigoproveedor(Integer codigoproveedor) {
 		this.codigoproveedor = codigoproveedor;
-	}
+	}*/
 
 
 	public Integer getCodigoretaceo() {
@@ -228,7 +228,7 @@ public class DetalleRetaceo implements Serializable{
                 + ", FECHAFACTURAPROVEEDOR=" + fechafacturaproveedor + ", CODIGOFACTURAPROVEEDOR=" + codigofacturaproveedor +" ]";*/
         
 		return "detalleretaceo [CODIGODETALLERETACEO=" + codigodetalleretaceo + ", CODIGOPRODUCTO=" + codigoproducto 
-                + ", CODIGOPROVEEDOR=" + codigoproveedor + ",CODIGORETACEO=" + codigoretaceo + ", COSTOPRODUCTO=" + costoproducto + ", PRECIOPRODUCTO=" + precioproducto
+                + ",CODIGORETACEO=" + codigoretaceo + ", COSTOPRODUCTO=" + costoproducto + ", PRECIOPRODUCTO=" + precioproducto
                 + ", CANTIDADPRODUCTO=" + cantidadproducto  + ", SUBTOTA=" +subtotal 
                 + " ]";
 		

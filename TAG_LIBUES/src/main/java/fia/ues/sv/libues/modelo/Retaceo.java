@@ -46,6 +46,20 @@ public class Retaceo implements Serializable{
 	
 	
 	
+	@NotNull
+	@Column(name="CODIGOPROVEEDOR")
+	private Integer codigoproveedor;
+	
+
+	public Integer getCodigoproveedor() {
+		return codigoproveedor;
+	}
+
+
+	public void setCodigoproveedor(Integer codigoproveedor) {
+		this.codigoproveedor = codigoproveedor;
+	}
+
 
 	public Integer getCodigofacturaproveedor() {
 		return codigofacturaproveedor;

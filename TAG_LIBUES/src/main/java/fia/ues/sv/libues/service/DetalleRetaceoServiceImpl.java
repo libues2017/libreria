@@ -50,7 +50,7 @@ public class DetalleRetaceoServiceImpl implements DetalleRetaceoService{
 		if(entity!=null){
 			
 			entity.setCodigoproducto(detalleRetaceo.getCodigoproducto());
-			entity.setCodigoproveedor(detalleRetaceo.getCodigoproveedor());
+			//entity.setCodigoproveedor(detalleRetaceo.getCodigoproveedor());
 			entity.setPrecioproducto(detalleRetaceo.getPrecioproducto());
 			entity.setCantidadproducto(detalleRetaceo.getCantidadproducto());
 			//entity.setFecharetaceo(detalleRetaceo.getFecharetaceo());
