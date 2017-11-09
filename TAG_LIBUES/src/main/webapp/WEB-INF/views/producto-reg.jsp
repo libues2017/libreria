@@ -52,126 +52,104 @@
                      }
 %>
 <body >
-   <div class="row"><%@include file="page_head.jsp" %></div>
+   <div class="row"><%@include file="page_head_2.jsp" %></div>
    <div class="container">
     
-    <div class="row col-md-8">
+    <div class="row col-md-12">
 		<c:choose>
 			<c:when test="${edit}">    
-	    		<div class="well lead" align="center">Actualizar Producto</div>
+	    		<div class="well lead" align="center">ACTUALIZAR PRODUCTO</div>
 	    	</c:when>
 	    	<c:otherwise>
-	    		<div class="well lead" align="center">Crear Nuevo Producto</div>
+	    		<div class="well lead" align="center">CREAR NUEVO PRODUCTO</div>
 	    	</c:otherwise>
 	    </c:choose>
 	    <form:form method="POST" modelAttribute="producto" class="form-horizontal">
 		    <form:input type="hidden" path="codigoProducto" id="codigoProducto"/>
 		    
-		    <div class="row">
-		        	<div class="form-group col-md-12" style="display:none ">
-		            	<label class="col-md-3 control-lable" for="correlativo">Codigo de producto:</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" path="correlativo" id="correlativo" class="form-control input-sm"/>
-		                	<div class="has-error">
-		                		<form:errors path="correlativo" class="help-inline"/>
-		                	</div>
-		                </div>
-		            </div>
-		        </div>
+		    <div class="panel-group">
+		    	<div class="panel panel-success">
+		    		<div class="form-group row">
+		    			<div class="panel-body">
+					    	<div class="row">
+					        	<div class="form-group col-md-12" style="display:none ">
+					            	<label class="col-md-3 control-lable" for="correlativo">Codigo de producto:</label>
+					                <div class="col-md-7">
+					                	<form:input type="text" path="correlativo" id="correlativo" class="form-control input-sm"/>
+					                	<div class="has-error">
+					                		<form:errors path="correlativo" class="help-inline"/>
+					                	</div>
+					                </div>
+					            </div>
+					    	</div>
 		             
-		    	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="area">Area:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="area" items="${areas}" multiple="false" itemValue="codigoarea" itemLabel="nombrearea" class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="area" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
+					   		<div class="col-xs-4">
+			                	<label class="form-control" for="area">Area:</label>
+			                    <form:select path="area" items="${areas}" multiple="false" itemValue="codigoarea" itemLabel="nombrearea" class="form-control input-sm" />
+			                    <div class="has-error">
+			                    	<form:errors path="area" class="help-inline"/>
+			                    </div>
+			           		</div>
             	
-            	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="proveedor">Proveedor:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="proveedor" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="proveedor" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
+			            	<div class="col-xs-4">
+			                    <label class="form-control" for="proveedor">Proveedor:</label>
+			                    <form:select path="proveedor" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
+			                    <div class="has-error">
+			                       <form:errors path="proveedor" class="help-inline"/>
+			                    </div>
+			            	</div>
             	
-            	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="proveedorAnterior">Proveedor Anterior:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="proveedorAnterior" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="proveedor" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
-            	
-		    	<div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="nombreProducto">Nombre de Producto:</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="Digite el Nombre del Producto" class="form-control input-sm"/>
-		                	<div class="has-error">
-		                		<form:errors path="nombreProducto" class="help-inline"/>
-		                	</div>
-		                </div>
+			            	<div class="col-xs-4">
+			                	<label class="form-control" for="proveedorAnterior">Proveedor Anterior:</label>
+			                    <form:select path="proveedorAnterior" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
+			                    <div class="has-error">
+			                    	<form:errors path="proveedor" class="help-inline"/>
+			                    </div>	
+			            	</div>
+			            </div>
 		            </div>
-		        </div>
-		        
-		        	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="tipoProducto">Tipo de Producto:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="tipoProducto" items="${tipoproductos}" multiple="false" itemValue="codTipoProducto" itemLabel="tipoProducto" class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="tipoProducto" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
-		        
-		        
-		        <div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="autores">Autores / Marca:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="autores" items="${autores}" multiple="true" itemValue="codigoautor"   class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="autores" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
-            
-            	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="editorial">Editorial:</label>
-                    	<div class="col-md-7">
-                        	<form:select path="editorial" items="${editoriales}" multiple="false" itemValue="codigoeditorial" itemLabel="nombre" class="form-control input-sm" />
-                        	<div class="has-error">
-                            	<form:errors path="editorial" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
-            	
-            
-		        
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="unidadMedida">Unidad de Medida:</label>
-                    	<div class="col-md-7">
-                        	<!--<form:input type="text" path="unidadMedida" id="unidadMedida" class="form-control input-sm"/>-->
-                        	<SELECT name="unidadMedida" id="unidadMedida" class="form-control input-sm">
+		            
+		            <div class="form-group row">
+		            	<div class="panel-body">
+		            		<div class="col-xs-8">
+			            		<label class="form-control" for="nombreProducto">Nombre de Producto:</label>
+			                	<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="Digite el Nombre del Producto" class="form-control input-sm"/>
+			                	<div class="has-error">
+			                		<form:errors path="nombreProducto" class="help-inline"/>
+			                	</div>
+		                	</div>
+		                	
+		                	<div class="col-xs-4">
+                    			<label class="form-control" for="tipoProducto">Tipo de Producto:</label>
+                        		<form:select path="tipoProducto" items="${tipoproductos}" multiple="false" itemValue="codTipoProducto" itemLabel="tipoProducto" class="form-control input-sm" />
+                        		<div class="has-error">
+                            		<form:errors path="tipoProducto" class="help-inline"/>
+                        		</div>
+            				</div>
+		                	
+		            	</div>
+		            	
+		            	<div class="panel-body">
+                			<div class="col-xs-4">
+                    			<label class="form-control" for="autores">Autores / Marca:</label>
+                        		<form:select path="autores" items="${autores}" multiple="true" itemValue="codigoautor"   class="form-control input-sm" />
+                        		<div class="has-error">
+                            		<form:errors path="autores" class="help-inline"/>
+                        		</div>
+                			</div>
+                		
+                			<div class="col-xs-4">
+                    			<label class="form-control" for="editorial">Editorial:</label>
+                        		<form:select path="editorial" items="${editoriales}" multiple="false" itemValue="codigoeditorial" itemLabel="nombre" class="form-control input-sm" />
+                        		<div class="has-error">
+                            		<form:errors path="editorial" class="help-inline"/>
+                        		</div>
+                			</div>
+                			
+                			<div class="col-xs-4">
+                    			<label class="form-control" for="unidadMedida">Unidad de Medida:</label>
+                        		<!--<form:input type="text" path="unidadMedida" id="unidadMedida" class="form-control input-sm"/>-->
+                        		<SELECT name="unidadMedida" id="unidadMedida" class="form-control input-sm">
 										<OPTION VALUE="C/U">Unidad</OPTION>
 										<OPTION VALUE="HJA">Hoja</OPTION>
 										<OPTION VALUE="PQT">Paquete</OPTION>
@@ -182,111 +160,76 @@
 										<OPTION VALUE="PLG">Pliego</OPTION>
 										<OPTION VALUE="JGO">Juego</OPTION>
 										<OPTION VALUE="YDA">Yarda</OPTION>					
-							</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="unidadMedida" class="help-inline"/>
-                       	 	</div>
-                    	</div>
-               		</div>
-            	</div>
-		            
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="existencia">Existencias:</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" min="0" path="existencia" id="existencia" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
-		                    
-		                    <div class="has-error">
-		                    	<form:errors path="existencia" class="help-inline"/>
-		                    </div>
-		                   
-		                </div>
-		                
-		            </div>
-		        </div>
-		        
-		         <div class="row">
-		        	<div class="form-group col-md-12" style="display:none ">
-		            	<label class="col-md-3 control-lable" for="existencia">Sala:</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" path="sala" id="sala"  class="form-control input-sm" value="0"/>		                    		                   
-		                </div>
-		                
-		            </div>
-		        </div>
-		             
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="existencia">Unidad Minima:</label>
-		                <div class="col-md-7">
-		                	<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
-		                    <!-- 
-		                    <div class="has-error">
-		                    	<form:errors path="unidadMinima" class="help-inline"/>
-		                    </div>
-		                    -->
-		                </div>
-		            </div>
-		        </div>
-		             
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="isbn">ISBN:</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" path="isbn" id="isbn" placeholder="Digite el Codigo ISBN del Producto" class="form-control input-sm"/>
-		                    <div class="has-error">
-		                   		<form:errors path="isbn" class="help-inline"/>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		        
-		        <div class="row">
-                	<div class="form-group col-md-12">
-                		<label class="col-md-3 control-lable" for="fechaCreacion">Fecha de Creación:</label>
-                		<div class="col-md-7">
-                    		<form:input type="date" class="form-control imput-sm" path="fechaCreacion" id="fechaCreacion" placeholder="Digite la Fecha de la Creacion de Producto" value="<%=sAhora %>"/>
-                    		<div class="has-error">
-                    			<form:errors path="fechaCreacion" class="help-inline"/>
-                    		</div>
-                		</div>
-                	</div>
-            	</div>
-		            
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="precio">Precio: $</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" value="0.0"/>
-		                    <!-- 
-		                    <div class="has-error">
-		                    	<form:errors path="precio" class="help-inline"/>
-		                    </div>
-		                    -->
-		                </div>
-		            </div>
-		        </div>
-		         
-		          <div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="costounitario">Costo Unitario: $</label>
-		                <div class="col-md-7">
-		                	<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" value="0.0"/>
-		                    <!--
-		                    <div class="has-error">
-		                    	<form:errors path="precio" class="help-inline"/>
-		                    </div>
-		                    -->
-		                </div>
-		            </div>
-		        </div>
-		       	        
-		        <div class="row">
-		        	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="especificoGastos">Especifíco de Gastos:</label>
-                    	<div class="col-md-7">
-                        	<!--<form:input type="text" path="especificoGastos" id="especificoGastos" class="form-control input-sm"/>-->
-                        	<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm">
+								</SELECT>
+                        		<div class="has-error">
+                            		<form:errors path="unidadMedida" class="help-inline"/>
+                       	 		</div>
+               				</div>        	
+		            	</div>
+		            	
+		            	<div class="panel-body">
+		            		<div class="col-xs-4">
+		            			<label class="form-control" for="existencia">Existencias:</label>
+		                		<form:input type="text" min="0" path="existencia" id="existencia" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
+		                    	<div class="has-error">
+		                    		<form:errors path="existencia" class="help-inline"/>
+		                    	</div>
+		            		</div>
+		            		
+		            		<div class="col-xs-4">
+		            			<label class="form-control" for="existencia">Unidad Minima:</label>
+		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
+		                    	<!-- 
+		                    	<div class="has-error">
+		                    		<form:errors path="unidadMinima" class="help-inline"/>
+		                    	</div>
+		                    	-->
+		                	</div>
+		                	
+		                	<div class="col-xs-4">
+		            			<label class="form-control" for="isbn">ISBN:</label>
+		                		<form:input type="text" path="isbn" id="isbn" placeholder="Digite el Codigo ISBN del Producto" class="form-control input-sm"/>
+		                    	<div class="has-error">
+		                   			<form:errors path="isbn" class="help-inline"/>
+		                    	</div>		                		
+		            		</div>
+		            	</div>
+		            	
+		            	<div class="panel-body">
+                			<div class="col-xs-4">
+                				<label class="form-control" for="fechaCreacion">Fecha de Creación:</label>               		
+                    			<form:input type="date" class="form-control imput-sm" path="fechaCreacion" id="fechaCreacion" placeholder="Digite la Fecha de la Creacion de Producto" value="<%=sAhora %>"/>
+                    			<div class="has-error">
+                    				<form:errors path="fechaCreacion" class="help-inline"/>
+                    			</div>
+                			</div>
+                			              			
+		        			<div class="col-xs-4">
+		            			<label class="form-control" for="precio">Precio: $</label>		                		
+		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" value="0.0"/>
+		                    	<!-- 
+		                    	<div class="has-error">
+		                    		<form:errors path="precio" class="help-inline"/>
+		                    	</div>
+		                    	-->
+		                	</div>
+		                			                	
+		        			<div class="col-xs-4">
+		            			<label class="form-control" for="costounitario">Costo Unitario: $</label>
+		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" value="0.0"/>
+		                    	<!--
+		                    	<div class="has-error">
+		                    		<form:errors path="precio" class="help-inline"/>
+		                    	</div>
+		                    	-->
+		            		</div>		            	
+		            	</div>
+		            	
+		            	<div class="panel-body">		            			
+		        			<div class="col-xs-4">
+                    			<label class="form-control" for="especificoGastos">Especifíco de Gastos:</label>
+                        		<!--<form:input type="text" path="especificoGastos" id="especificoGastos" class="form-control input-sm"/>-->
+                        		<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm">
 										<OPTION VALUE="54101">54101 Productos Alimenticios Para Personas</OPTION>
 										<OPTION VALUE="54102">54102 Productos Alimenticios Para Animales</OPTION>
 										<OPTION VALUE="54103">54103 Productos Agropecuarios y Forestales</OPTION>
@@ -307,20 +250,16 @@
 										<OPTION VALUE="54118">54118 Herramientas, repuestos y Accesorios</OPTION>
 										<OPTION VALUE="54119">54119 Materiales Eléctricos</OPTION>
 										<OPTION VALUE="54199">54199 Bienes de Uso y Consumo Diversos</OPTION>				
-							</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="especificoGastos" class="help-inline"/>
-                       	 	</div>
-                    	</div>
-               		</div>
-            	</div>
-            	
-            	<div class="row">
-		        	<div class="form-group col-md-12">
-		            	<label class="col-md-3 control-lable" for="pais">Pais:</label>
-		                <div class="col-md-7">
-		                	<!--<form:input type="text" path="pais" id="pais" class="form-control input-sm"/>-->
-		                	<select name="pais" id="pais" class="form-control input-sm">
+								</SELECT>
+                        		<div class="has-error">
+                            		<form:errors path="especificoGastos" class="help-inline"/>
+                       	 		</div>             	
+               				</div>
+               				              		
+		        			<div class="col-xs-4">
+		            			<label class="form-control" for="pais">Pais:</label>					              	
+		                		<!--<form:input type="text" path="pais" id="pais" class="form-control input-sm"/>-->
+		                		<select name="pais" id="pais" class="form-control input-sm">
 									<option value="AF">Afganistán</option>
 									<option value="AL">Albania</option>
 									<option value="DE">Alemania</option>
@@ -555,55 +494,64 @@
 									<option value="YU">Yugoslavia</option>
 									<option value="ZM">Zambia</option>
 									<option value="ZW">Zimbabue</option>
-							</select>
-		                	<div class="has-error">
-		                		<form:errors path="pais" class="help-inline"/>
-		                	</div>
-		                </div>
-		            </div>
-		        </div>
-            	
-            	            	
-            	<div class="row">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-3 control-lable" for="consignacion">Consignación:</label>
-                    	<div class="col-md-7">
-                        	<!--<form:input type="text" path="consignacion" id="consignacion" class="form-control input-sm"/>-->
+								</select>
+		                		<div class="has-error">
+		                			<form:errors path="pais" class="help-inline"/>
+		                		</div>
+		            		</div>
+		            				            		
+                			<div class="col-xs-4">
+                    			<label class="form-control" for="consignacion">Consignación:</label>
+                        		<!--<form:input type="text" path="consignacion" id="consignacion" class="form-control input-sm"/>-->
                         		<SELECT name="consignacion" id="consignacion" class="form-control input-sm">
 									<OPTION VALUE="si">Sí</OPTION>
 									<OPTION VALUE="no">No</OPTION>							
 								</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="consignacion" class="help-inline"/>
-                        	</div>
-                    	</div>
-                	</div>
-            	</div>
-            	
-            	<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-3 control-lable" for="location">Subir Portada:</label>
-							<div class="col-md-7">
+                        		<div class="has-error">
+                            		<form:errors path="consignacion" class="help-inline"/>
+                        		</div>                   	
+                			</div>
+            			</div>
+            			
+            			<div class="panel-body">
+							<div class="col-xs-6">
+								<label class="form-control" for="location">Subir Portada:</label>
 								<form:input type="file" path="location" id="location" class="form-control input-sm"/>
 								<div class="has-error">
 									<form:errors path="location" class="help-inline"/>
 								</div>
 							</div>
-						</div>
-				</div>
-				
-				<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-3 control-lable" for="locationc">Subir Contra Portada:</label>
-							<div class="col-md-7">
+							
+							<div class="col-xs-6">
+								<label class="form-control" for="locationc">Subir Contraportada:</label>
 								<form:input type="file" path="locationc" id="locationc" class="form-control input-sm"/>
 								<div class="has-error">
 									<form:errors path="locationc" class="help-inline"/>
 								</div>
 							</div>
 						</div>
-				</div>
-		     
+		
+            			
+            			</div>
+		            				            	
+		            	</div>
+		            	
+		            	
+		            		
+		            	</div>
+		            </div>
+	            </div>
+            		        
+		         <div class="row">
+		        	<div class="form-group col-md-12" style="display:none ">
+		            	<label class="col-md-3 control-lable" for="existencia">Sala:</label>
+		                <div class="col-md-7">
+		                	<form:input type="text" path="sala" id="sala"  class="form-control input-sm" value="0"/>		                    		                   
+		                </div>
+		                
+		            </div>
+		        </div>
+		                         	        		        		        		            		     		         		          		       	        		                    	            	            	           	            	           	          	            													     
 		        <div class="row">
 		             <div class="form-actions floatRight" align="center">
 		                  <c:choose>

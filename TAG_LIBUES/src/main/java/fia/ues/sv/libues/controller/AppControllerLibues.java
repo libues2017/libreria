@@ -805,7 +805,7 @@ public class AppControllerLibues {
     	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
     	
-    	byte[] filec = readBytesFromFile("C:/mytemp" + producto.getLocationc());
+    	byte[] filec = readBytesFromFile("C:/mytemp/" + producto.getLocationc());
     	System.out.println("C:/mytemp/" + producto.getLocationc());
     	producto.setImagenc(filec);
     	
