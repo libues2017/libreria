@@ -530,17 +530,11 @@
 								</div>
 							</div>
 						</div>
-		
-            			
-            			</div>
-		            				            	
-		            	</div>
-		            	
-		            	
-		            		
-		            	</div>
-		            </div>
-	            </div>
+            		</div>		            				            	
+		          </div>		            			            			            		
+		       </div>
+		            
+	            
             		        
 		         <div class="row">
 		        	<div class="form-group col-md-12" style="display:none ">
