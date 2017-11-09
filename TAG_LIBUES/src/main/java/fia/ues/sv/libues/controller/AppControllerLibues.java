@@ -1017,30 +1017,27 @@ public class AppControllerLibues {
 			    	
 			        model.addAttribute("detalleretaceo", detalleretaceo);
 			       
-			    	HttpSession sesion=request.getSession(true);
-			    	  // populate
-			    			    		    	  
-			    
-			    	  Producto producto=new Producto();
-			    	  Double total=0.0;	    	
-			    	
-			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista
-			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();			    	  
+			    	//HttpSession sesion=request.getSession(true);	
+			    	  Producto producto=new Producto();		
+			    	  Double total=0.0;	   
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista		
+			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();				    	  
 				      List<Producto> productos = productoService.findAllProductos();
-				      Retaceo retaceo= retaceoService.findById(codigoretaceo);
-				    	 
-				    	 Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
-				    	 Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
-				    	 Date fecharetaceo=retaceo.getFecharetaceo();	
-				    	 Integer codigoproveedor=retaceo.getCodigofacturaproveedor();
-			
+				      
+				      Retaceo retaceo= retaceoService.findById(codigoretaceo);				    	 
+				      Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
+				      Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
+				      Date fecharetaceo=retaceo.getFecharetaceo();	
+				      Integer codigoproveedor=retaceo.getCodigofacturaproveedor();			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
+			    	  
 			    	 // Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
 			    	//  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
 			    //	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
 			    		
-			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);
-			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();
+			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
+			    		//String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
+			    		String nombreproveedor="hola";
 			    		
 			    		Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
 			    		String nombreproducto=productoBuscar.getNombreProducto();
@@ -1065,9 +1062,12 @@ public class AppControllerLibues {
 			    	model.addAttribute("costo", costo);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);
+			    	
 			    	model.addAttribute("codigoproveedor", codigoproveedor);
+			    	
 			    	model.addAttribute("nombreproveedor", nombreproveedor);
 			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
+			    	
 			    	model.addAttribute("proveedor", proveedores);
 				    model.addAttribute("producto", productos);
 				    model.addAttribute("total", total);
@@ -1076,7 +1076,7 @@ public class AppControllerLibues {
 			        model.addAttribute("loggedinuser", getPrincipal());
 			         
 			        
-			        System.out.println("fecha:" + fecha);   
+			     //   System.out.println("fecha:" + fecha);   
 			     
     	
 			        return "detalleretaceo-modificar";

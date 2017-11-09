@@ -432,15 +432,28 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
-						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" onchange='cambiar1();' value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' placeholder="DIGITE" class="form-control input-sm" /> 
+						
+						<input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" 
+						onchange='cambiar1();' value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' placeholder="DIGITE" class="form-control input-sm" /> 
+						
+						
+						
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>
-						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" value='<%=request.getAttribute("fechafacturaproveedor").toString()%>'/>                        
+						
+						
+						<input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" 
+						class="form-control input-sm" value='<%=request.getAttribute("fechafacturaproveedor").toString()%>' /> 
+						                        
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
-						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();'  value='<%=request.getAttribute("codigoproveedor").toString()%>'/>    
+						  
+						  
+						<input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" 
+						onchange='label2(); cambiar2();'  value='<%=request.getAttribute("codigoproveedor").toString()%>'/> 
+						
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
@@ -546,8 +559,7 @@ var miVar = <%= sAhora %>;
 		    	           <c:if test = "${salary > 2000}">
 		    	                <c:set var="contador" value="${contador + 1}" />	
 		    	                <td>${contador}</td>
-				    			<td>${retaceos.codigoproducto}</td>
-				    			<td>${retaceos.codigoproveedor}</td>
+				    			<td>${retaceos.codigoproducto}</td>				    			
 				    			<td>${retaceos.cantidadproducto}</td>
 				    		    <td>$ ${retaceos.costoproducto}</td>
 				    			<td>$ ${retaceos.precioproducto}</td>

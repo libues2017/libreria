@@ -81,6 +81,7 @@
 		    	        var result = str.link(res2);		    	      
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
+		    	        
 		    	          
 		    	      }	  
 		    	    } );    
