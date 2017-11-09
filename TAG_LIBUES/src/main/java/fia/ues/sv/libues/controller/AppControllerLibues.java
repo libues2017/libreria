@@ -1028,7 +1028,7 @@ public class AppControllerLibues {
 				      Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
 				      Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
 				      Date fecharetaceo=retaceo.getFecharetaceo();	
-				      Integer codigoproveedor=retaceo.getCodigofacturaproveedor();			
+				      Integer codigoproveedor=retaceo.getCodigoproveedor();			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
 			    	  
 			    	 // Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
@@ -1036,8 +1036,9 @@ public class AppControllerLibues {
 			    //	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
 			    		
 			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
-			    		//String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
-			    		String nombreproveedor="hola";
+			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
+			    		//String prueba=proveedoresBuscar.getContactoproveedor1();
+			    		//String nombreproveedor="hola";
 			    		
 			    		Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
 			    		String nombreproducto=productoBuscar.getNombreProducto();
