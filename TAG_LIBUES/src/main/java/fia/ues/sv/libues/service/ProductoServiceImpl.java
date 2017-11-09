@@ -69,6 +69,11 @@ public class ProductoServiceImpl implements ProductoService{
 				entity.setLocation(producto.getLocation());
 				entity.setImagen(producto.getImagen());
 			}
+			
+			if(producto.getLocationc()!=""){
+				entity.setLocationc(producto.getLocationc());
+				entity.setImagenc(producto.getImagenc());
+			}
 		}
 		
 	}

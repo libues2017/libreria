@@ -25,28 +25,38 @@
   				<!-- Default panel contents -->
   				<div class="panel-body">
   					<div class="col-md-3">
+  						<p>Portada</p>
     					<a href="#" class="thumbnail">
     		  				<img  src="data:image/jpeg;base64,${producto.img}" height="100%" width="100%" />
     					</a>
+    					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	    					<p>Contraportada</p>
+	    					<a href="#" class="thumbnail">
+	    		  				<img  src="data:image/jpeg;base64,${producto.imgc}" height="100%" width="100%" />
+	    					</a>
+    					</sec:authorize>
                     </div>
+                  
 					<div class="col-md-1"></div>
 					<div class="col-md-7">
-						<table class="table">
+						<table class="table table-striped">
 							<tbody>
+								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+									<tr>
+	       								<th scope="row">Código Producto:</th>
+	       								<td>${producto.correlativo}</td>
+	      							</tr>
+      							</sec:authorize>
 								<tr>
-       								<th scope="row">Codigo Producto</th>
-       								<td>${producto.correlativo}</td>
-      							</tr>
-								<tr>
-       								<th scope="row">Titulo</th>
+       								<th scope="row">Título:</th>
        								<td>${producto.nombreProducto}</td>
       							</tr>
       							<tr>
-       								<th scope="row">Area</th>
+       								<th scope="row">Área:</th>
        								<td>${producto.area.nombrearea}</td>
       							</tr>
       							<tr>
-       								<th scope="row">Autor</th>
+       								<th scope="row">Autor:</th>
        								<td>
        									<c:forEach items="${producto.autores}" var="autor">
                         						${autor.nombreautor}<br/> 
@@ -54,63 +64,68 @@
                        				 </td>
       							</tr>
       							<tr>
-       								<th scope="row">Editorial</th>
+       								<th scope="row">Editorial:</th>
        								<td>${producto.editorial.nombre}</td>
       							</tr>
+      							
+      							<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	      							<tr>
+	       								<th scope="row">Proveedor:</th>
+	       								<td>${producto.proveedor.nombreproveedor}</td>
+	      							</tr>      							
+	      							<tr>
+	       								<th scope="row">Bodega:</th>
+	       								<td>${producto.existencia}</td>
+	      							</tr>
+	      							<tr>
+	       								<th scope="row">Sala:</th>
+	       								<td>${producto.sala}</td>
+	      							</tr>
+	      							<tr>
+	       								<th scope="row">Unidad:</th>
+	       								<td>${producto.unidadMedida}</td>
+	      							</tr>
+	      							<tr>
+	       								<th scope="row">ISBN:</th>
+	       								<td>${producto.isbn}</td>
+	      							</tr>
+	      							<tr>
+	       								<th scope="row">Fecha de Creación:</th>
+	       								<td>${producto.fechaCreacion}</td>
+	      							</tr>
+      							</sec:authorize>
       							<tr>
-       								<th scope="row">Proveedor</th>
-       								<td>${producto.proveedor.nombreproveedor}</td>
-      							</tr>      							
-      							<tr>
-       								<th scope="row">Bodega</th>
-       								<td>${producto.existencia}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Sala</th>
-       								<td>${producto.sala}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Unidad</th>
-       								<td>${producto.unidadMedida}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">ISBN</th>
-       								<td>${producto.isbn}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Fecha de Creación</th>
-       								<td>${producto.fechaCreacion}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Precio</th>
+       								<th scope="row">Precio:</th>
        								<td>$ ${producto.precio}</td>
       							</tr>
+      							<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	      							<tr>
+	       								<th scope="row">Costo:</th>
+	       								<td>$ ${producto.costounitario}</td>
+	      							</tr>
+      							</sec:authorize>
       							<tr>
-       								<th scope="row">Costo</th>
-       								<td>$ ${producto.costounitario}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Unidad</th>
-       								<td>${producto.unidadMedida}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">Tipo Producto</th>
+       								<th scope="row">Tipo Producto:</th>
        								<td>${producto.tipoProducto}</td>
       							</tr>
+      							<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	      							<tr>
+	       								<th scope="row">Especifico de Gastos:</th>
+	       								<td>${producto.especificoGastos}</td>
+	      							</tr>
+      							</sec:authorize>
       							<tr>
-       								<th scope="row">Especifico de Gastos</th>
-       								<td>${producto.especificoGastos}</td>
-      							</tr>
-      							<tr>
-       								<th scope="row">País</th>
+       								<th scope="row">País:</th>
        								<td>${producto.pais}</td>
       							</tr>
-      							<tr>
-       								<th scope="row">Cosignación</th>
-       								<td>${producto.consignacion}</td>
-      							</tr>
+      							<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	      							<tr>
+	       								<th scope="row">Cosignación:</th>
+	       								<td>${producto.consignacion}</td>
+	      							</tr>
+      							</sec:authorize>
       							<tr>   
-                    	    		<td colspan="2">
+                    	    		<td colspan="2" align="center">
                         				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             				<a href="<c:url value='/edit-producto-${producto.codigoProducto}' />" class="btn btn-success custom-width">Editar</a>
                         				</sec:authorize>
@@ -119,8 +134,6 @@
                         				</sec:authorize>
                         				
                             				<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-                        			
-                        				
                         			</td>
                         			
                     </tr>

@@ -77,6 +77,15 @@ public class Producto implements Serializable{
 	//@Column(name="IMG")
 	private String img;
 	
+	@Column(name="IMAGENC")
+	private byte[] imagenc;
+	
+	@Column(name="LOCATIONC")
+	private String locationc;
+	
+	//@Column(name="IMG")
+	private String imgc;
+	
 	@Column(name="ISBN", nullable=false)
 	private String isbn;
 	
@@ -216,6 +225,30 @@ public class Producto implements Serializable{
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+	
+	public byte[] getImagenc() {
+		return imagenc;
+	}
+
+	public void setImagenc(byte[] imagenc) {
+		this.imagenc = imagenc;
+	}
+
+	public String getLocationc() {
+		return locationc;
+	}
+
+	public void setLocationc(String locationc) {
+		this.locationc = locationc;
+	}
+
+	public String getImgc() {
+		return imgc;
+	}
+
+	public void setImgc(String imgc) {
+		this.imgc = imgc;
 	}
 
 	public String getIsbn() {

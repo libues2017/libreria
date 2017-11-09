@@ -757,6 +757,7 @@ public class AppControllerLibues {
     public String detProductos(@PathVariable Integer codigoProducto, ModelMap model) throws IOException {
     	Producto producto = productoService.findByCodigoProducto(codigoProducto);
     	producto.setImg(byteToString(producto.getImagen()));
+    	producto.setImgc(byteToString(producto.getImagenc()));
     	model.addAttribute("producto", producto);
     	
         return "producto-detalle";
@@ -769,6 +770,11 @@ public class AppControllerLibues {
     	for(Producto producto: productos){
     		producto.setImg(byteToString(producto.getImagen()));
     	}
+    	
+    	/*
+    	for(Producto producto: productos){
+    		producto.setImgc(byteToString(producto.getImagenc()));
+    	}*/
     	
         model.addAttribute("productos", productos);
         model.addAttribute("loggedinuser", getPrincipal());
@@ -799,6 +805,10 @@ public class AppControllerLibues {
     	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
     	
+    	byte[] filec = readBytesFromFile("C:/mytemp" + producto.getLocationc());
+    	System.out.println("C:/mytemp/" + producto.getLocationc());
+    	producto.setImagenc(filec);
+    	
     	productoService.saveProducto(producto);
     	//model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
@@ -828,6 +838,12 @@ public class AppControllerLibues {
         	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
         	System.out.println("C:/mytemp/" + producto.getLocation());
         	producto.setImagen(file);
+        }
+        
+        if(producto.getLocationc()!=""){
+        	byte[] filec = readBytesFromFile("C:/mytemp/" + producto.getLocationc());
+        	System.out.println("C:/mytemp/" + producto.getLocationc());
+        	producto.setImagenc(filec);
         }
         
         productoService.updateProducto(producto);
