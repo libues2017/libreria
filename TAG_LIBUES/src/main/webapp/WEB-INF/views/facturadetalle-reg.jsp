@@ -3,7 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="java.util.*,java.io.*" %> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Librería UES</title>
@@ -18,8 +18,40 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+<%
+	// Quiero la fecha actual para ponerla por defecto 
+	String fecha="";
+    String sAhora = "";
+			
+		if(session.getAttribute("fechafactura")!=null){
+			fecha=session.getAttribute("fechafactura").toString();
+		}
+        if(fecha==""){
+        	Calendar ahora = Calendar.getInstance();
+     		int anyo = ahora.get(Calendar.YEAR);
+     		int mes = ahora.get(Calendar.MONTH) +1; 
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH);
+     					
+     		if (mes < 10) {
+     			sAhora = anyo + "-0" + mes;
+     		} else {
+     			sAhora = anyo + "-" + mes;
+     			}
+     			if (dia < 10) {
+     				sAhora += "-0" + dia;
+     			}
+     			else {
+     				sAhora += "-"+dia;
+     			} 
+                  	 
+           	}
+                     
+            else{
+                    	 
+            sAhora=fecha;
+		}
+%>
 <script type="text/javascript">
-
 	function producto(){
 	
 		var nombre = [];		
@@ -46,33 +78,9 @@
       return true;					
 		alert();
      }
-
-	function sesion(){
-		var fecha=document.getElementById("fechafactura").value;
-      	var numero = document.getElementById('numerofactura').value;
-      	
-      	var fecha1="f";
-      	var numero1="num";
-      				
-      	sessionStorage[fecha1]=fecha;
-      	sessionStorage[numero1]=numero;
-    }
 	
 </script>
-<script>
-	$( function() {
-		var p;
-		var p1;
-		
-		for(var i=0;i<sessionStorage.length;i++)
-		{						                
-			p=sessionStorage.getItem('f');
-			p1=sessionStorage.getItem('num');
-		}
-		document.getElementById("fechafactura").value=p;
-		document.getElementById("numerofactura").value=p1;			    
-	} );
-</script>
+
 <script>
 $( function() {
 	var sessionId1 = [];
@@ -125,7 +133,7 @@ function validar() {
 		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" /> 
 								    			
 		<div class="panel-group">			
-			<div class="panel panel-default" style="background-color: #E3F5F1">
+			<div class="panel panel-default">
 				<div class="form-group row">		
 					<div class="panel-body">
 						<div class="col-xs-2">	
@@ -134,11 +142,11 @@ function validar() {
 						</div>
 						<div class="col-xs-3">		
 						<label class="form-control" for="fecha">Fecha:</label>
-						<input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" onchange="sesion();" />
+						<input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" value="<%=sAhora %>" />
 						</div>
 						<div class="col-xs-2">	
 						<label class="form-control" for="factura">Factura #:</label>						
-						<input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" onchange="sesion();" />
+						<input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" />
 						</div>
 					</div>
 				</div>
@@ -212,10 +220,10 @@ function validar() {
 				    			<td>$ ${facturas.precio}</td>
 				    			<td>$ ${facturas.subtotalfactura}</td>	    			
 				    			
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            	<td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                       		</sec:authorize>
-                        	</tr>
+                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                            <td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                        </sec:authorize>
+                        </tr>
 				    	 </c:forEach>
 		    	</tbody>
 	    </table>
@@ -225,7 +233,7 @@ function validar() {
                     <label class="col-md-9 control-lable" for="total">TOTAL:</label>
                     <div class="col-md-2">
                     <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value="$ ${total}" />                           
+                    		value="${total}" />                           
                     </div>
                 </div>
             </div>	
