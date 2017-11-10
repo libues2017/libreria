@@ -383,7 +383,7 @@ function cambiar5(){
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						
-						<input type="text"  id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' /> 
+						<input type="text"  name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' /> 
 						   
 					</div>
 					<div class="col-xs-4">
@@ -476,8 +476,7 @@ function cambiar5(){
 				<thead>
 		    		<tr class="success">		   
 		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>
-			      			<th>Codigo Provedor</th>	      			
+			      			<th>Codigo Producto</th>			      			      			
 			      			<th>Cantidad</th>
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>
@@ -493,8 +492,7 @@ function cambiar5(){
 		    	           <c:if test = "${salary > 2000}">
 		    	                <c:set var="contador" value="${contador + 1}" />	
 		    	                <td>${contador}</td>
-				    			<td>${retaceos.codigoproducto}</td>
-				    			<td>${retaceos.codigoproveedor}</td>
+				    			<td>${retaceos.codigoproducto}</td>				    		
 				    			<td>${retaceos.cantidadproducto}</td>
 				    		    <td>$ ${retaceos.costoproducto}</td>
 				    			<td>$ ${retaceos.precioproducto}</td>
