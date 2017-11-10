@@ -14,13 +14,13 @@
                     
                     
 					
-						if(session.getAttribute("fecharetaceo")!=null){
+						if(request.getAttribute("fecharetaceo")!=null){
 					           //  fecha=session.getAttribute("fecharetaceo").toString();
 							
 							fecha=request.getAttribute("fecharetaceo").toString();
 						}
 						
-						System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));   
+						//System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));   
                               
                      if(fecha==""){
                     	  
@@ -385,6 +385,13 @@ function cambiar5(){
         	$("#agregar").focus();
         }
 }
+
+
+
+
+
+
+
 </script>
 </head>
 
@@ -516,7 +523,7 @@ var miVar = <%= sAhora %>;
             	    <c:choose>
                         <c:when test="${edit}">
                         <div class="col-xs-2">
-                            <input type="submit" value="ACTUALIZAR" class="btn btn-primary btn-sm"/>
+                            <input type="submit" value="ACTUALIZAR"  onclick="confirmar"  class="btn btn-primary btn-sm"/>
                         </div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
@@ -528,7 +535,7 @@ var miVar = <%= sAhora %>;
                             <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
-                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm"     >CANCELAR</a>
                     	</div>                    	
                         </c:otherwise>
                     </c:choose>
@@ -542,8 +549,7 @@ var miVar = <%= sAhora %>;
 				<thead>
 		    		<tr class="success">		   
 		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>
-			      			<th>Codigo Provedor</th>	      			
+			      			<th>Codigo Producto</th>			      			      			
 			      			<th>Cantidad</th>
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>
@@ -568,7 +574,7 @@ var miVar = <%= sAhora %>;
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />"  class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>

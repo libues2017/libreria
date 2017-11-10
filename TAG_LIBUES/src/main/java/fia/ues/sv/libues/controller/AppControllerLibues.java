@@ -1062,24 +1062,19 @@ public class AppControllerLibues {
 			    	model.addAttribute("existencia", existencia);
 			    	model.addAttribute("costo", costo);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
-			    	model.addAttribute("utilidad", utilidad);
-			    	
-			    	model.addAttribute("codigoproveedor", codigoproveedor);
-			    	
+			    	model.addAttribute("utilidad", utilidad);			    	
+			    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
 			    	model.addAttribute("nombreproveedor", nombreproveedor);
-			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
-			    	
+			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);			    	
 			    	model.addAttribute("proveedor", proveedores);
 				    model.addAttribute("producto", productos);
 				    model.addAttribute("total", total);
 			    	model.addAttribute("retaceo2", retaceoBuscar);	
 			        model.addAttribute("edit", true);
-			        model.addAttribute("loggedinuser", getPrincipal());
-			         
+			        model.addAttribute("loggedinuser", getPrincipal());	
 			        
-			     //   System.out.println("fecha:" + fecha);   
-			     
-    	
+			        System.out.println("fecha:" + fecha);
+			        
 			        return "detalleretaceo-modificar";
               
     }
