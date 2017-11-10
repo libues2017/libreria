@@ -930,11 +930,11 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
     	  // populate
-    	  HttpSession session = request.getSession();
-    	  HttpSession sesion2=request.getSession(true);
+    	HttpSession session = request.getSession();
+    	HttpSession sesion2=request.getSession(true);
     	
-    	  Producto producto=new Producto();
-    	  Double total=0.0;
+    	Producto producto=new Producto();
+    	 Double total=0.0;
     	
     	if(sesion.getAttribute("codigo")!=null)
     	{
@@ -1012,12 +1012,10 @@ public class AppControllerLibues {
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
-			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo);		    	
+			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();			    	
 			    	
-			        model.addAttribute("detalleretaceo", detalleretaceo);
-			       
-			    	//HttpSession sesion=request.getSession(true);	
+			        model.addAttribute("detalleretaceo", detalleretaceo);			       
+			    	
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista		
@@ -1031,19 +1029,14 @@ public class AppControllerLibues {
 				      Integer codigoproveedor=retaceo.getCodigoproveedor();			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
 			    	  
-			    	 // Integer codigoproveedor=retaceoBuscar.get(0).getCodigoproveedor();
-			    	//  Integer codigofacturaproveedor=retaceoBuscar.get(0).getCodigofacturaproveedor();
-			    //	  Date fechafacturaproveedor=	retaceoBuscar.get(0).getFechafacturaproveedor();  
+			    	  Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
+			    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
 			    		
-			    		Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
-			    		String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
-			    		//String prueba=proveedoresBuscar.getContactoproveedor1();
-			    		//String nombreproveedor="hola";
 			    		
-			    		Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
-			    		String nombreproducto=productoBuscar.getNombreProducto();
-			    		Integer existencia=productoBuscar.getExistencia();
-			    		Double costo=productoBuscar.getCostounitario();
+			    	   Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
+			    	   String nombreproducto=productoBuscar.getNombreProducto();
+			    	   Integer existencia=productoBuscar.getExistencia();
+			    	   Double costo=productoBuscar.getCostounitario();
 			    				    		
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){

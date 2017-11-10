@@ -373,15 +373,18 @@ function cambiar5(){
 				<div class="panel-body">
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
-						<form:input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" onchange='cambiar1();' placeholder="DIGITE" class="form-control input-sm" /> 
+						
+						<input type="text"  id="codigofacturaproveedor" onchange='cambiar1();' placeholder="DIGITE" class="form-control input-sm" />  
 					</div>
 					<div class="col-xs-3">
-						<label class="form-control" for="nombr">Fecha Factura:</label>
-						<form:input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();"/>                        
+						<label class="form-control" for="nombr">Fecha Factura:</label>					 
+						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();" />                     
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
-						<form:input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' />    
+						
+						<input type="text"  id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' /> 
+						   
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
@@ -395,7 +398,8 @@ function cambiar5(){
 				<div class="panel-body">
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
-	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />      
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
+	                      
                     </div>
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
