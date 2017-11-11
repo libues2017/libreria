@@ -980,7 +980,9 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detalleretaceo-agregar" }, method = RequestMethod.POST)   
     public String saveRetaceo( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo, BindingResult result,
-                              ModelMap model,@RequestParam(required = false) String fecharetaceo,@RequestParam(required = false) String fechafacturaproveedor ) 
+                              ModelMap model,@RequestParam(required = false) String fecharetaceo,
+                              @RequestParam(required = false) String fechafacturaproveedor
+                              ,@RequestParam(required = false) String codigofacturaproveedor) 
     		throws IOException, ParseException {
          	/*
                 String idPagoAsignado = request.getParameter("idPagoAsignado");
@@ -1000,15 +1002,17 @@ public class AppControllerLibues {
     	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
-    	Integer codigofacturaproveedor = 1;
+    	//String revisar=codigofacturaproveedor;
+    	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
     	
+    	//System.out.println("revisar:----------------------------------------------------------------------------" + revisar);   
     	
     	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
     	Date fecharetaceofactura=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
     	
     	HttpSession sesion2=request.getSession(true);
     	
-    	retaceoService.updateFechaRetaceo(fecharetaceo1,fecharetaceofactura,codigoproveedor,codigofacturaproveedor, codigoretaceo);
+    	retaceoService.updateFechaRetaceo(fecharetaceo1,fecharetaceofactura,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecharetaceo1);
  		sesion2.setAttribute("mySessionAttribute", fecha);

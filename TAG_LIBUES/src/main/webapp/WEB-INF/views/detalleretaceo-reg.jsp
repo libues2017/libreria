@@ -235,6 +235,7 @@
                 function sesion(){
     				
 					var codigofacturaproveedor=document.getElementById("codigofacturaproveedor").value;
+					//alert(codigofacturaproveedor);
 					var fecharetaceo=document.getElementById("fecharetaceo").value;
 					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
 					var utilidad = document.getElementById('utilidad').value;
@@ -267,8 +268,8 @@
 										}
 									   document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
-									   document.getElementById("codigofacturaproveedor").value=p3;
-									   document.getElementById("utilidad").value=p4;
+									   //document.getElementById("codigofacturaproveedor").value=p3;
+									  // document.getElementById("utilidad").value=p4;
 					    
 					           } );
 					                  
@@ -289,8 +290,7 @@
 					  				  
 				<script>
 					 		
-					  $( function() {
-						  
+					  $( function() {						  
 						   
 						    var sessionId1 = [];						    
 						    <c:forEach items="${producto}" var="current">								
@@ -374,7 +374,7 @@ function cambiar5(){
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
-						<input type="text"  id="codigofacturaproveedor" onchange='cambiar1();' placeholder="DIGITE" class="form-control input-sm" />  
+						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" onchange="sesion();" />  
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>					 
