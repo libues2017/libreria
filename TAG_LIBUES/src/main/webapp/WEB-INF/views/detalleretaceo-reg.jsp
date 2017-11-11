@@ -374,7 +374,7 @@ function cambiar5(){
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
-						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" onchange="sesion();" />  
+						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" value='<%=session.getAttribute("codigofacturaproveedor")%>' />  
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>					 

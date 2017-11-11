@@ -941,6 +941,10 @@ public class AppControllerLibues {
     	  Integer codigo=(Integer) sesion.getAttribute("codigo");
     	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
     	  
+    	  
+    	 sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
+    	 //model.addAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
+    	 //sesion2.setAttribute("codigofacturaproveedor", 0);
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
     		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
     		  
@@ -966,7 +970,9 @@ public class AppControllerLibues {
 
         //se obtiene el ultimo codigo retaceo
        
+        
 		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+		
 		Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
         HttpSession sesion1=request.getSession(true);
         sesion1.setAttribute("codigo", retaceo6);
@@ -989,7 +995,7 @@ public class AppControllerLibues {
                 String idReversoAsignado = request.getParameter("idReversoAsignado");    
     	  */
  
-          //HttpSession sesion1=request.getSession(true);
+          HttpSession sesion2=request.getSession(true);
   	
     	if (result.hasErrors()) {
             return "detalleretaceo-reg";
@@ -1004,13 +1010,14 @@ public class AppControllerLibues {
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
     	//String revisar=codigofacturaproveedor;
     	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
+    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
     	
     	//System.out.println("revisar:----------------------------------------------------------------------------" + revisar);   
     	
     	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
     	Date fecharetaceofactura=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
     	
-    	HttpSession sesion2=request.getSession(true);
+   
     	
     	retaceoService.updateFechaRetaceo(fecharetaceo1,fecharetaceofactura,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
