@@ -40,9 +40,8 @@ public class RetaceoServiceImpl implements RetaceoService{
 		
 		if(entity!=null){
 			
-			/*entity.setCodigoproducto(detalleRetaceo.getCodigoproducto());
-			entity.setCodigoproveedor(detalleRetaceo.getCodigoproveedor());
-			entity.setPrecioproducto(detalleRetaceo.getPrecioproducto());
+			/*entity.setCodigoproducto(retaceo.getCodigoproducto());
+			entity.setCodigoproveedor(retaceo.getCodigoproveedor());		
 			entity.setCantidadproducto(detalleRetaceo.getCantidadproducto());*/
 			//entity.setFecharetaceo(detalleRetaceo.getFecharetaceo());
 			
@@ -68,7 +67,7 @@ public class RetaceoServiceImpl implements RetaceoService{
 
 
 	@Override
-	public void updateFechaRetaceo(Date fecharetaceo,Integer codigoretaceo) {
+	public void updateFechaRetaceo(Date fecharetaceo,Date fechafacturaproveedor,Integer codigoproveedor,Integer codigofacturaproveedor,Integer codigoretaceo) {
 		// TODO Auto-generated method stub
 		
 		Retaceo retaceo=new Retaceo();
@@ -78,7 +77,9 @@ public class RetaceoServiceImpl implements RetaceoService{
 			
 			
 			entity.setFecharetaceo(fecharetaceo);
-			
+			entity.setFechafacturaproveedor(fechafacturaproveedor);
+			entity.setCodigofacturaproveedor(codigofacturaproveedor);
+			entity.setCodigoproveedor(codigoproveedor);
 			/*entity.setCodigoproducto(detalleRetaceo.getCodigoproducto());
 			entity.setCodigoproveedor(detalleRetaceo.getCodigoproveedor());
 			entity.setPrecioproducto(detalleRetaceo.getPrecioproducto());

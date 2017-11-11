@@ -934,7 +934,7 @@ public class AppControllerLibues {
     	HttpSession sesion2=request.getSession(true);
     	
     	Producto producto=new Producto();
-    	 Double total=0.0;
+    	Double total=0.0;
     	
     	if(sesion.getAttribute("codigo")!=null)
     	{
@@ -964,7 +964,7 @@ public class AppControllerLibues {
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
 
-        //incrementar retaceo
+        //se obtiene el ultimo codigo retaceo
        
 		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
 		Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
@@ -979,7 +979,9 @@ public class AppControllerLibues {
   }
     
     @RequestMapping(value = { "/detalleretaceo-agregar" }, method = RequestMethod.POST)   
-    public String saveRetaceo( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo, BindingResult result, ModelMap model,@RequestParam(required = false) String fecharetaceo ) throws IOException, ParseException {
+    public String saveRetaceo( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo, BindingResult result,
+                              ModelMap model,@RequestParam(required = false) String fecharetaceo,@RequestParam(required = false) String fechafacturaproveedor ) 
+    		throws IOException, ParseException {
          	/*
                 String idPagoAsignado = request.getParameter("idPagoAsignado");
                 String idReversoAsignado = request.getParameter("idReversoAsignado");    
@@ -993,9 +995,15 @@ public class AppControllerLibues {
     	detalleretaceoService.savedetalleRetaceo(detalleretaceo);
 		
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
-    	HttpSession sesion2=request.getSession(true);
+    	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
+    	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));
+    	
     	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
-    	retaceoService.updateFechaRetaceo(fecharetaceo1, codigoretaceo);
+    	Date fecharetaceofactura=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
+    	
+    	HttpSession sesion2=request.getSession(true);
+    	
+    	retaceoService.updateFechaRetaceo(fecharetaceo1,fecharetaceofactura,codigoproveedor,codigofacturaproveedor, codigoretaceo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecharetaceo1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1153,7 +1161,7 @@ public class AppControllerLibues {
           Retaceo retaceo=new Retaceo();
           retaceo.setFecharetaceo(fecharetaceo1);
           
-  		retaceoService.saveRetaceo(retaceo);
+  		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
