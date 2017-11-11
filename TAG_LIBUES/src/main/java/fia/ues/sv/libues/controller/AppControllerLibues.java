@@ -994,9 +994,14 @@ public class AppControllerLibues {
         }
     	detalleretaceoService.savedetalleRetaceo(detalleretaceo);
 		
+    	/*Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
+    	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
+    	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));*/
+    	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
-    	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));
+    	Integer codigofacturaproveedor = 1;
+    	
     	
     	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
     	Date fecharetaceofactura=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
