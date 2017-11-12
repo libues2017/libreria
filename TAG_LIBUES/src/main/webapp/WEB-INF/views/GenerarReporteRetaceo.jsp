@@ -49,13 +49,24 @@
             </div>
         </div>
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">Reporte de Ingreso Retaceo de Productos</h3></div>
+        <div class="row"><h3 class="text-center">Reporte de Retaceo de Productos</h3></div>
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/retaceo" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/tralados" />" target="_blank">
 
-           
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Fecha desde:</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio"  value="99/99/9999" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="pwd">Fecha hasta:</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="99/99/9999" required>
+                </div>
+            </div>
 
             <div class="form-group">
 
@@ -63,11 +74,11 @@
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
-                    <a class="btn btn-danger" href="<c:url value="/detalleretaceo-list" />" role="button">Listado Retaceos</a>
+                      <a class="btn btn-danger" href="<c:url value="/detalleretaceo-list" />" role="button">Listado Retaceos</a>
                 </div>
 
-				<input type="hidden" value="${loggedinuser}" name="usuario"/>
-				<input type="hidden" value="Retaceo_filtrado.jasper" name="nombre"/>
+<input type="hidden" value="${loggedinuser}" name="usuario"/>
+<input type="hidden" value="Retaceo.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>

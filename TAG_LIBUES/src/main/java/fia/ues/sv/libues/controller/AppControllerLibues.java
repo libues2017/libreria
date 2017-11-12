@@ -1421,13 +1421,13 @@ public class AppControllerLibues {
     @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
 	public String volumenEntrante(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "volmov_e";
+		return "GenerarReporteRetaceo";
 	}
     
     @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
 	public String horashombre(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "ReportTRASL";
+		return "ReporteRetaceo";
 	}
     
     @RequestMapping(value={"/retaceo"}, method = RequestMethod.GET)
@@ -1440,26 +1440,26 @@ public class AppControllerLibues {
     @RequestMapping(value={"/existencias"}, method = RequestMethod.GET)
   	public String existencias(ModelMap model){
   		model.addAttribute("loggedinuser", getPrincipal());
-  		return "existencias";
+  		return "GenerarReporteExistencias";
   	}
       
       @RequestMapping(value={"/repo_existencias"}, method = RequestMethod.GET)
   	public String repoexistencias(ModelMap model){
   		model.addAttribute("loggedinuser", getPrincipal());
-  		return "ReportEXISTENCIAS";
+  		return "ReporteExistencias";
   	}
 
       //Controles para el Reporte de Transferencias a Sucursales
    @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)
  	public String trasnferencias(ModelMap model){
  		model.addAttribute("loggedinuser", getPrincipal());
- 		return "transferencias";
+ 		return "GenerarReporteTransferencias";
  	}
      
   @RequestMapping(value={"/repo_transferencias"}, method = RequestMethod.GET)
  	public String repotrasnferencias(ModelMap model){
  		model.addAttribute("loggedinuser", getPrincipal());
- 		return "ReportTransferencias";
+ 		return "ReporteTransferencias";
  	}
 
      //Control para el Reporte de requisicion
@@ -1473,13 +1473,13 @@ public class AppControllerLibues {
      @RequestMapping(value={"/kardex"}, method = RequestMethod.GET)
    	public String kardex(ModelMap model){
    		model.addAttribute("loggedinuser", getPrincipal());
-   		return "kardex";
+   		return "GenerarReporteKardex";
    	}
        
     @RequestMapping(value={"/repo_kardex"}, method = RequestMethod.GET)
    	public String repotkardex(ModelMap model){
    		model.addAttribute("loggedinuser", getPrincipal());
-   		return "ReportKardex";
+   		return "ReporteKardex";
    	}
     
      //*************************************************************************

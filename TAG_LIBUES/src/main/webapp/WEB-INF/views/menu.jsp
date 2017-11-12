@@ -29,13 +29,11 @@
 		        
 		     	<div class="collapse navbar-collapse" id="navbar-collapse-2">
 			          <ul class="nav navbar-nav navbar-left">
-			           
 						<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INGRESO
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingreso
 			          		<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
 			          			<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>			          			
-			          			
 			          			<li role="separator" class="divider"></li>
 			          			<li class="dropdown-submenu">
 			          			<a class="test" tabindex="-1" href="#">Areas <span class="caret"></span></a>
@@ -46,12 +44,10 @@
 			            				<li><a href="<c:url value="area-agregar" />">Agregar Area</a></li>
 			                 		</sec:authorize>
 			          			</ul>
-			          			
 			          			<li role="separator" class="divider"></li>	
 				        		<li><a href="<c:url value="proveedor-list" />">Proveedores</a></li>
 				        		<li role="separator" class="divider"></li>
 				        		<li><a href="<c:url value="editorial-list" />">Editoriales</a></li>
-				        	
 				        		<li role="separator" class="divider"></li>
 				        		<li class="dropdown-submenu">
 			          			<a class="test" tabindex="-1" href="#">Autores <span class="caret"></span></a>
@@ -62,12 +58,8 @@
 				            			<li><a href="<c:url value="autor-agregar" />">Agregar Autor</a></li>
 			                 		</sec:authorize>
 			          			</ul>			          			
-			          			
-			          			
 			          		</ul>
 				        </li>
-			        	
-			        	
 			        	
 						  <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
@@ -76,8 +68,6 @@
             					<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
             					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-            					<li role="separator" class="divider"></li>
-            						<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
             					<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="producto-agregar" />">Agregar nuevo</a></li>
            						</sec:authorize>
@@ -107,66 +97,49 @@
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
-			            		<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="existencias" />">Reporte de Kardex</a></li>
+			            		<li class="dropdown-submenu">
+			          			<a class="test" tabindex="-1" href="#">Reportes <span class="caret"></span></a>
+			            		<ul class="dropdown-menu">
+			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			            			<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
+			            			<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="existencias" />">Reporte de Kardex</a></li>
+			            			<li role="separator" class="divider"></li>
+			            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
+			            			<li role="separator" class="divider"></li>
+           							<li><a href="<c:url value="/vol_ent" />">Reporte Mensual de Retaceo</a></li>
+			                 		</sec:authorize>
+			          			</ul>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
 			          		</ul>
 			      		</li>
 			        	</sec:authorize>
-			        	        	
-			        	
+
 			        	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
            				 <li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Retaceo <span class="caret"></span></a>
-          		
-          					<ul class="dropdown-menu">
-          			
+							<ul class="dropdown-menu">
             				<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
             				<li role="separator" class="divider"></li>
            					<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
-           					<li role="separator" class="divider"></li>
-           					<li><a href="<c:url value="/vol_ent" />">Reporte mensual de retaceo</a></li>
-           		
           				</ul>
           	
         	</li>
         	</sec:authorize>
         	
-        				        	
-			            <!--<sec:authorize access="hasRole('ADMIN')"  >
-			            	<li class="dropdown">
-			          			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Eventos <span class="caret"></span></a>
-			          		
-			          			<ul class="dropdown-menu">
-			          				<li><a href="<c:url value="evento-proximos" />">Eventos proximos</a></li>
-			            			<li><a href="<c:url value="evento-list" />">Lista de eventos</a></li>
-			           				<li><a href="<c:url value="evento-agregar" />">Agregar nuevo</a></li>
-			          			</ul>
-			          	
-			        		</li>
-			        	</sec:authorize>-->
-			        	
-			        	<!--<sec:authorize access="isAuthenticated()" var="isAuthenticated" />
-							<c:if test="${not isAuthenticated}">
-			            		<li><a href="<c:url value="evento-proximos" />">Eventos</a></li>
-			            	</c:if>
-			            
-			            <li><a href="<c:url value="quienesSomos" />">Quienes Somos</a></li>-->
-			           	
-			           	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-			            		<li><a href="<c:url value="list" />">Usuarios</a></li>
-			           	</sec:authorize>
-			            
-			            <!--<li>
-			            	<sec:authorize access="hasRole('USER')"  >
-								<a   href="<c:url value="/login" />">Pedidos</a>
-							</sec:authorize>
-						</li>-->
-			
-			          </ul>
-		          
+        		<li class="dropdown">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matenimiento
+			          		<span class="caret"></span></a>
+			          		<ul class="dropdown-menu">
+			          			   	<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			            			<li><a href="<c:url value="list" />">Usuarios</a></li>
+			           			</sec:authorize>
+			          			</ul>			          			
+				        </li>
+        	
+			        
+         
 		        </div><!-- /.navbar-collapse -->
 	      </div><!-- /.container -->
     </nav><!-- /.navbar -->
