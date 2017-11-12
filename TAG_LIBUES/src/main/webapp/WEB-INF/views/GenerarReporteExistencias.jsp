@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Retaceo de Productos</title>
+	<title>Existencia de Productos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){

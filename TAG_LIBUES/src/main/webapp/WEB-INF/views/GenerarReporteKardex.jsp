@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Retaceo de Productos</title>
+	<title>Kardex de Productos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -49,11 +49,11 @@
             </div>
         </div>
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">Reporte de Transferencias a Sucursales</h3></div>
+        <div class="row"><h3 class="text-center">Reporte de kardex</h3></div>
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/repo_transferencias" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/repo_kardex" />" target="_blank">
 
             <div class="form-group">
                 <label class="control-label col-sm-4" for="email">Fecha desde:</label>
