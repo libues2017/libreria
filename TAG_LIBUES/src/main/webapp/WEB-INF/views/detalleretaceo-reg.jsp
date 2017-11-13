@@ -224,7 +224,7 @@
 						  if(${current.codigoproveedor}==Id){
 			    		    	 		  
 			    		      sessionId.push("${current.nombreproveedor}");
-			    		      document.getElementById('proveedor').value =sessionId;
+			    		      document.getElementById('nombreproveedor').value =sessionId;
 			    		     
 			    		    }
 			    		</c:forEach>              		
@@ -235,7 +235,7 @@
                 function sesion(){
     				
 					var codigoproveedor=document.getElementById("codigoproveedor").value;
-					var nombreproveedor=document.getElementById("proveedor").value;
+					var nombreproveedor=document.getElementById("nombreproveedor").value;
 					//alert(codigofacturaproveedor);
 					var fecharetaceo=document.getElementById("fecharetaceo").value;
 					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
@@ -272,9 +272,9 @@
 										}
 									   document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
-									   document.getElementById("codigoproveedor").value=p3;
+									   //document.getElementById("codigoproveedor").value=p3;
 									   document.getElementById("utilidad").value=p4;
-									   document.getElementById("proveedor").value=p5;
+									   document.getElementById("nombreproveedor").value=p5;
 					    
 					           } );
 					                  
@@ -327,6 +327,7 @@ function cambiar3(){
 	var codigo2 = document.getElementById("codigoproducto").value;	
 		if(codigo2 != null) {
         	$("#costoproducto").focus();
+        	sesion();
         }
 }
 function cambiar4(){	
@@ -388,12 +389,12 @@ function cambiar5(){
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						
-						<input type="text"  name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' /> 
+						<input type="text"  name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();'  value='<%=session.getAttribute("codigoproveedor")%>'/> 
 						   
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
-						<input type="text" id="proveedor" placeholder="AUTOMATICO" class="form-control input-sm" />					                     
+						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm"  />					                     
 					</div>
 				</div>
 			</div>
