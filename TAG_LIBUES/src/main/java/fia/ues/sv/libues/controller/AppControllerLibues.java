@@ -1205,7 +1205,7 @@ public class AppControllerLibues {
     	
 		
 		
-    	return "GenerarReporteRetaceo";
+    	return "GenerarReporteRetaceoFiltrado";////no tocar
 
     } //////////////////Finaliza Proceso de  RETACEO
     
