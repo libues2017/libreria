@@ -1441,7 +1441,7 @@ public class AppControllerLibues {
     // ***************** CONTROLES PARA LOS REPORTES***************************
     //*************************************************************************
     //Controles para el Reporte de Retace de Producto
-    @RequestMapping(value={"/vol_ent"}, method = RequestMethod.GET)
+    @RequestMapping(value={"/reporte-retaceo"}, method = RequestMethod.GET)
 	public String volumenEntrante(ModelMap model){
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "GenerarReporteRetaceo";
