@@ -74,7 +74,7 @@
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            				<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
             							<li role="separator" class="divider"></li>
-           								<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>           								<li role="separator" class="divider"></li>
+           								<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>           		
            								
 			                 		</sec:authorize>
 			          			</ul>
