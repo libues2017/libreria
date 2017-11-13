@@ -1015,6 +1015,7 @@ public class AppControllerLibues {
     	Date fechafacturaproveedor1=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");///formateo en String
     	String fecha = sdf.format(fecharetaceo1);
+    	String fecha1 = sdf.format(fechafacturaproveedor1);
     	String nombreproveedor = request.getParameter("nombreproveedor");
     	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
         String revisar=nombreproveedor;
@@ -1031,7 +1032,7 @@ public class AppControllerLibues {
     	sesion2.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
     	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
  		sesion2.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
- 		sesion2.setAttribute("fechafacturaproveedor", fechafacturaproveedor1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
+ 		sesion2.setAttribute("fechafacturaproveedor", fecha1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
  		
     	model.addAttribute("loggedinuser", getPrincipal());
 
@@ -1190,7 +1191,7 @@ public class AppControllerLibues {
           
           Retaceo retaceo=new Retaceo();
           retaceo.setCodigoproveedor(codigoproveedor);
-          retaceo.setCodigoproveedor(codigofacturaproveedor);
+          retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           
@@ -1202,7 +1203,6 @@ public class AppControllerLibues {
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
     	
-		
 		
 		
     	return "GenerarReporteRetaceo";
