@@ -956,7 +956,7 @@ public class AppControllerLibues {
    	  }
    	  
    	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
-		    	    sesion2.setAttribute("codigoproveedor", " ");
+		    	    sesion2.setAttribute("codigoproveedor", 0);
 				    sesion2.setAttribute("nombreproveedor", " ");  	  
    	  
    	     }
@@ -1005,15 +1005,15 @@ public class AppControllerLibues {
     	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
-    	String nombreproveedor = request.getParameter("nombreproveedor");
-    	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
-         String revisar=nombreproveedor;
+    	
     	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
     	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
     	Date fechafacturaproveedor1=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");///formateo en String
     	String fecha = sdf.format(fecharetaceo1);
-    	
+    	String nombreproveedor = request.getParameter("nombreproveedor");
+    	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
+        String revisar=nombreproveedor;
     	
     	
     	System.out.println("revisar:----------------------------------------------------------------------------" + revisar);   
@@ -1023,7 +1023,7 @@ public class AppControllerLibues {
     	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
     	
     	
-    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
+    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor1);
     	sesion2.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
     	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
  		sesion2.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo

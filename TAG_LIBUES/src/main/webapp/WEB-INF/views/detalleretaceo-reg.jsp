@@ -274,7 +274,7 @@
 									   document.getElementById("fechafacturaproveedor").value=p1;
 									   //document.getElementById("codigoproveedor").value=p3;
 									   document.getElementById("utilidad").value=p4;
-									   document.getElementById("nombreproveedor").value=p5;
+									  // document.getElementById("nombreproveedor").value=p5;
 					    
 					           } );
 					                  
@@ -327,7 +327,7 @@ function cambiar3(){
 	var codigo2 = document.getElementById("codigoproducto").value;	
 		if(codigo2 != null) {
         	$("#costoproducto").focus();
-        	sesion();
+        	
         }
 }
 function cambiar4(){	
