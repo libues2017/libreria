@@ -74,9 +74,8 @@
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            				<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
             							<li role="separator" class="divider"></li>
-           								<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
-           								<li role="separator" class="divider"></li>
-           								<li><a href="<c:url value="reporte-retaceo" />">Generar reporte mensual retaceo</a></li>
+           								<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>           								<li role="separator" class="divider"></li>
+           								
 			                 		</sec:authorize>
 			          			</ul>
             					
@@ -120,7 +119,7 @@
 			            			<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
 			            			<li role="separator" class="divider"></li>
-           							<li><a href="<c:url value="/vol_ent" />">Reporte Mensual de Retaceo</a></li>
+           							<li><a href="<c:url value="/reporte-retaceo" />">Reporte Mensual de Retaceo</a></li>
 			                 		</sec:authorize>
 			          			</ul>
 			            		<li role="separator" class="divider"></li>
