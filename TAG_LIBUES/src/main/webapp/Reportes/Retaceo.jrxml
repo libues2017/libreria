@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Retaceo" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="template.engine" value="tabular_template"/>
 	<property name="com.jaspersoft.studio.data.sql.tables"/>
@@ -60,7 +60,7 @@
 	<parameter name="fec" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT DISTINCT libues.detalleretaceo.`CODIGOPRODUCTO`,
-		    libues.detalleretaceo.`CODIGOPROVEEDOR`,
+		    libues.retaceo.`CODIGOPROVEEDOR`,
 			libues.producto.`NOMBREPRODUCTO`,
 			libues.autor.`NOMBREAUTOR`,
 			libues.detalleretaceo.`CANTIDADPRODUCTO`,
@@ -70,8 +70,8 @@
 			libues.detalleretaceo.`EXISTENCIAANTERIOR`,
 			libues.detalleretaceo.`CODIGODETALLERETACEO`,
 			libues.detalleretaceo.CODIGORETACEO,
-			libues.detalleretaceo.CODIGOFACTURAPROVEEDOR,
-			libues.detalleretaceo.FECHAFACTURAPROVEEDOR,
+			libues.retaceo.CODIGOFACTURAPROVEEDOR,
+			libues.retaceo.FECHAFACTURAPROVEEDOR,
 			libues.proveedor.NOMBREPROVEEDOR,
 			libues.retaceo.FECHARETACEO,
 			libues.retaceo.FECHARETACEO as fecha
@@ -93,7 +93,7 @@
 			 AND
 			 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)
 			 AND
-			 (libues.detalleretaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)
+			 (libues.retaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)
 			 AND
 			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})
 			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
