@@ -57,7 +57,7 @@
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT libues.detalleretaceo.`CODIGOPRODUCTO`,
-		     libues.detalleretaceo.`CODIGOPROVEEDOR`,
+		     libues.retaceo.`CODIGOPROVEEDOR`,
 			libues.producto.`NOMBREPRODUCTO`,
 			libues.producto.ESPECIFICOGASTOS,
 			libues.producto.COSTOUNITARIO,
@@ -69,8 +69,8 @@
 			libues.detalleretaceo.`EXISTENCIAANTERIOR`,
 			libues.detalleretaceo.`CODIGODETALLERETACEO`,
 			libues.detalleretaceo.CODIGORETACEO,
-			libues.detalleretaceo.CODIGOFACTURAPROVEEDOR,
-			libues.detalleretaceo.FECHAFACTURAPROVEEDOR,
+			libues.retaceo.CODIGOFACTURAPROVEEDOR,
+			libues.retaceo.FECHAFACTURAPROVEEDOR,
 			libues.detalleretaceo.UTILIDAD,
 			libues.proveedor.NOMBREPROVEEDOR,			
 			libues.retaceo.FECHARETACEO,
@@ -92,7 +92,7 @@
 			 AND
 			 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)
 			 AND
-			 (libues.detalleretaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)	
+			 (libues.retaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)	
 			  AND
 			 (libues.retaceo.`CODIGORETACEO`= $P{codigo})					
 			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
