@@ -234,7 +234,8 @@
                 
                 function sesion(){
     				
-					var codigofacturaproveedor=document.getElementById("codigofacturaproveedor").value;
+					var codigoproveedor=document.getElementById("codigoproveedor").value;
+					var nombreproveedor=document.getElementById("proveedor").value;
 					//alert(codigofacturaproveedor);
 					var fecharetaceo=document.getElementById("fecharetaceo").value;
 					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
@@ -244,11 +245,13 @@
 					var fecha1="f1";
 					var cfp="cfp";
 					var uti1="uti";
+					var nombre="nombre";
 					
 					sessionStorage[fecha]=fecharetaceo;
 					sessionStorage[fecha1]=fechafacturaproveedor;
-					sessionStorage[cfp]=codigofacturaproveedor;
+					sessionStorage[cp]=codigoproveedor;
 					sessionStorage[uti1]=utilidad;
+					sessionStorage[nombre]=nombreproveedor;
 				     }
                      
                  </script>
@@ -263,13 +266,15 @@
 						                var producto=sessionStorage.key("f");
 						                p=sessionStorage.getItem('f');
 						                p1=sessionStorage.getItem('f1');
-						                p3=sessionStorage.getItem('cfp');	
+						                p3=sessionStorage.getItem('cp');	
 						                p4=sessionStorage.getItem('uti');
+						                p5=sessionStorage.getItem('nombre');
 										}
 									   document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
-									   //document.getElementById("codigofacturaproveedor").value=p3;
-									  // document.getElementById("utilidad").value=p4;
+									   document.getElementById("codigoproveedor").value=p3;
+									   document.getElementById("utilidad").value=p4;
+									   document.getElementById("proveedor").value=p5;
 					    
 					           } );
 					                  

@@ -799,8 +799,7 @@ public class AppControllerLibues {
             return "producto-reg";
         }
              	
-    	System.out.println(producto.getEditorial());
-    	
+    	System.out.println(producto.getEditorial());    	
     	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
     	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
@@ -939,12 +938,16 @@ public class AppControllerLibues {
     	if(sesion.getAttribute("codigo")!=null)
     	{
     	  Integer codigo=(Integer) sesion.getAttribute("codigo");
-    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);
+    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);    	  
     	  
+    	  if(sesion.getAttribute("codigofacturaproveedor")!=null){
+    		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));    		  
+    	  }
     	  
-    	 sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
-    	 //model.addAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
-    	 //sesion2.setAttribute("codigofacturaproveedor", 0);
+    	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);   }
+    		     	   	  
+    	
+    	 
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
     		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
     		  
@@ -954,20 +957,10 @@ public class AppControllerLibues {
     	  model.addAttribute("retaceo2", retaceoBuscar);
        }
 
-		      /* if(sesion2.getAttribute("mySessionAttribute")==null)
-		    	{
-		           sesion2.setAttribute("mySessionAttribute", fecha);
-		       }
-		      	else{
-		    		String fecharetaceo = request.getParameter("fecharetaceo");
-		        //HttpSession sesion2=request.getSession(true);
-		       		sesion2.setAttribute("mySessionAttribute", fecharetaceo);	
-		    	}
-		    	*/
-    	  
+		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
-
+        
         //se obtiene el ultimo codigo retaceo
        
         
@@ -1008,6 +1001,7 @@ public class AppControllerLibues {
     	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
+    	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
     	//String revisar=codigofacturaproveedor;
     	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
     	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
