@@ -1004,6 +1004,10 @@ public class AppControllerLibues {
     	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));*/
     	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
+    	System.out.println("revisar:----------------------------------------------------------------------------");
+    	
+    	
+    	
     	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
     	
     	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
@@ -1016,7 +1020,7 @@ public class AppControllerLibues {
         String revisar=nombreproveedor;
     	
     	
-    	System.out.println("revisar:----------------------------------------------------------------------------" + revisar);   
+       
     	
     	
     	

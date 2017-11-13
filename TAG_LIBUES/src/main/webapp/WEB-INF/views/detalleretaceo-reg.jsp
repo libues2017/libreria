@@ -389,7 +389,7 @@ function cambiar5(){
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						
-						<input type="text"  name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();'  value='<%=session.getAttribute("codigoproveedor")%>'/> 
+						<input type="number" min="0"  name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();'  value='<%=session.getAttribute("codigoproveedor")%>'/> 
 						   
 					</div>
 					<div class="col-xs-4">
