@@ -1009,18 +1009,26 @@ public class AppControllerLibues {
     	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
          String revisar=nombreproveedor;
     	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
-    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
-    	sesion2.setAttribute("codigoproveedor", codigoproveedor);
-    	sesion2.setAttribute("nombreproveedor", nombreproveedor);
+    	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
+    	Date fechafacturaproveedor1=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");///formateo en String
+    	String fecha = sdf.format(fecharetaceo1);
+    	
+    	
+    	
     	System.out.println("revisar:----------------------------------------------------------------------------" + revisar);   
     	
-    	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
-    	Date fecharetaceofactura=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
     	
-    	retaceoService.updateFechaRetaceo(fecharetaceo1,fecharetaceofactura,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
-    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    	String fecha = sdf.format(fecharetaceo1);
- 		sesion2.setAttribute("mySessionAttribute", fecha);
+    	
+    	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
+    	
+    	
+    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
+    	sesion2.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
+    	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
+ 		sesion2.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
+ 		sesion2.setAttribute("fechafacturaproveedor", fechafacturaproveedor1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
+ 		
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detalleretaceo-agregar";
@@ -1088,8 +1096,7 @@ public class AppControllerLibues {
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());	
 			        
-			        System.out.println("fecha:" + fecha);
-			        
+			        System.out.println("fecha:" + fecha);			        
 			        return "detalleretaceo-modificar";
               
     }
@@ -1107,7 +1114,7 @@ public class AppControllerLibues {
         detalleretaceoService.updateRetaceo(detalleRetaceo);
         model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "detalleretaceo-reg-succ";
+        return "detalleretaceo-modificar";
     }
     
     
@@ -1121,7 +1128,7 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/finalizar" }, method = RequestMethod.GET)
-    public String findetalleRetaceo( HttpServletRequest request,ModelMap model,@RequestParam(required = false) String fecharetaceo )throws IOException, ParseException {
+    public String findetalleRetaceo( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
 		    	/*
 				Aqu� se detallan las siglas de las variables utilizadas en el c�lculo: 
@@ -1167,19 +1174,33 @@ public class AppControllerLibues {
          // retaceoBuscar.get(arg0);
          // sesion.setAttribute("mySessionAttribute", fecha)
           
+          Integer codigoproveedor=(Integer) sesion.getAttribute("codigoproveedor");
+          Integer codigofacturaproveedor=(Integer) sesion.getAttribute("codigofacturaproveedor");
+          String fecharetaceo=(String) sesion.getAttribute("fecharetaceo");
+          String fechafacturaproveedor=(String) sesion.getAttribute("fechafacturaproveedor");
           
-          String fecha=(String) sesion.getAttribute("mySessionAttribute");
           
-          Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+          Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
+          Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
+          
           
           Retaceo retaceo=new Retaceo();
+          retaceo.setCodigoproveedor(codigoproveedor);
+          retaceo.setCodigoproveedor(codigofacturaproveedor);
           retaceo.setFecharetaceo(fecharetaceo1);
+          retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
+          
+          //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
+          
           
   		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
     	
+		
+		
+		
     	return "GenerarReporteRetaceo";
 
     } //////////////////Finaliza Proceso de  RETACEO
