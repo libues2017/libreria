@@ -13,9 +13,9 @@ public interface FacturaService {
 	
 	void updateFactura (Factura factura);
 	
-	void updateFacturaDatos (Integer idfactura, Date fecha, Integer numerofact, Double total, String tipo);
+	void updateFacturaDatos (Integer idfactura, Date fecha, Integer numerofact, String cliente, String direccion, String documento, String tipocredito);
 	
-	void updateFacturaDatos2(Integer idfactura, Double total, String tipo, String nombre, String direccion);
+	void updateFacturaDatos2(Integer idfactura, Double total, String tipo);
 
 	void updateNumeroFactura(Integer idfactura, Integer numerofactura);
 	

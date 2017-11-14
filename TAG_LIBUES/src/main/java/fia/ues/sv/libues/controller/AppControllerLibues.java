@@ -1789,19 +1789,22 @@ public class AppControllerLibues {
     		model.addAttribute("facturas", facturaBuscar);
     	}
     	
-        List<Producto> productos = productoService.findAllProductos();       
-		List<Factura> fact5 = facturaService.findAllFacturas();
-		Integer fact6 = fact5.get(fact5.size()-1).getIdfactura();
+    	List<Producto> productos = productoService.findAllProductos();       
+		List<Factura> fact = facturaService.findAllFacturas();
+		Integer fact1 = fact.get(fact.size()-1).getIdfactura();
         HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigofact", fact6);        
+        sesion1.setAttribute("codigofact", fact1);        
         model.addAttribute("producto", productos);
+        // Numero de factura
+        Integer numero = facturaService.findById(fact1).getNumerofactura();
+        sesion1.setAttribute("numero", numero); 
         
     	return "facturadetalle-reg"; 
     }
     
     @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.POST)   
     public String saveFactura( HttpServletRequest request,@Valid FacturaDetalle facturadetalle, BindingResult result, 
-    		ModelMap model,@RequestParam(required = false)  String fechafactura, Integer numerofactura, Double total, String tipo) 
+    		ModelMap model,@RequestParam(required = false)  String fechafactura, Integer numerofactura, String cliente, String direccion, String documento, String tipocredito) 
     		throws IOException, ParseException {
          	 	
     	if (result.hasErrors()) {
@@ -1813,7 +1816,7 @@ public class AppControllerLibues {
     	Integer idfactura = Integer.parseInt(request.getParameter("idfactura"));
     	HttpSession sesion2=request.getSession(true);
     	Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafactura);    	
-    	facturaService.updateFacturaDatos(idfactura, fecha1, numerofactura, total, tipo);
+    	facturaService.updateFacturaDatos(idfactura, fecha1, numerofactura, cliente, direccion, documento, tipocredito);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha = sdf.format(fecha1);
  		sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1847,13 +1850,12 @@ public class AppControllerLibues {
     	}  	
     	
     	String tipo = "CONTADO";    	 
-   	 	String direccion = "";
-    	
+   	 	    	
     	 HttpSession sesion=request.getSession(true);    	
          Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
          sesion.setAttribute("codigoultimo", codigofact);
          
-         facturaService.updateFacturaDatos2(codigofact, total, tipo, nombre, direccion);
+         facturaService.updateFacturaDatos2(codigofact, total, tipo);
                           
          List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
          for(int i=0;i<facturaBuscar.size();i++){
@@ -1902,15 +1904,13 @@ public class AppControllerLibues {
       	  	}
     	}
     	
-    	 String tipo = "CREDITO"; 
-    	 String nombre = "";
-    	 String direccion = "";
+    	 String tipo = "CREDITO";     	
     	 
     	 HttpSession sesion=request.getSession(true);    	
          Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
          sesion.setAttribute("codigoultimo", codigofact);
          
-         facturaService.updateFacturaDatos2(codigofact, total, tipo, nombre, direccion);
+         facturaService.updateFacturaDatos2(codigofact, total, tipo);
                           
          List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
          for(int i=0;i<facturaBuscar.size();i++){

@@ -75,8 +75,7 @@
 		      document.getElementById('precio').value = precio;
 		    }
 		</c:forEach>              		
-      return true;					
-		alert();
+      return true;
      }
 	
 </script>
@@ -95,6 +94,48 @@ $( function() {
 	});
 } );
 </script>
+<script>
+ function sesion(){
+		var cliente=document.getElementById("cliente").value;
+      	var direccion = document.getElementById('direccion').value;
+      	var documento = document.getElementById('documento').value;
+      	var tipocredito = document.getElementById('tipocredito').value;
+      	
+      	var cliente1="cli";
+      	var direccion1="direc";
+      	var documento1="doc"
+      	var tipocredito1="tipoc"
+      	
+      				
+      	sessionStorage[cliente1]=cliente;
+      	sessionStorage[direccion1]=direccion;
+      	sessionStorage[documento1]=documento;
+      	sessionStorage[tipocredito1]=tipocredito;
+    }
+	
+</script>
+
+<script>
+	$( function() {
+		var p1;
+		var p2;
+		var p3;
+		var p4;
+		
+		for(var i=0;i<sessionStorage.length;i++)
+		{						                
+			p1=sessionStorage.getItem('cli');
+			p2=sessionStorage.getItem('direc');
+			p3=sessionStorage.getItem('doc');
+			p4=sessionStorage.getItem('tipoc');
+		}
+		document.getElementById("cliente").value=p1;
+		document.getElementById("direccion").value=p2;
+		document.getElementById("documento").value=p3;
+		document.getElementById("tipocredito").value=p4;
+					    
+	} );
+</script>
 
 <script>
 function cambiar(){
@@ -104,10 +145,6 @@ function cambiar(){
         	$("#cantidad").focus();
         	}
 }
-
-</script>
-
-<script>
 function validar() {	
 	var sala = parseInt(document.getElementById("sala").value);	
 	var cantidad = parseInt(document.getElementById("cantidad").value);	
@@ -122,39 +159,66 @@ function validar() {
 		}
 }
 </script>
+<script>
+function devolver(){
+	var recibe = parseFloat(document.getElementById("recibe").value)
+	var total = parseFloat(document.getElementById("total2").value)
+	
+	var devolver = document.getElementById('devolver').value=(recibe) - (total);
+	
+}
+</script>
 
 </head>
 
 <body >
 <div class="row"><%@include file="page_head_2.jsp"%></div>
 <div class="container">
-<div class="well lead" align="center">FACTURACION</div>
+<div class="well lead" align="center">FACTURACIÓN</div>
 	<form:form method="POST" name="factura" modelAttribute="facturadetalle" class="form-horizontal">
 		<form:input type="hidden" path="idfacturadetalle" id="idfacturadetalle" /> 
-								    			
-		<div class="panel-group">			
-			<div class="panel panel-default">
-				<div class="form-group row">		
-					<div class="panel-body">
-						<div class="col-xs-2">	
-						<label class="form-control" for="codigo">ID #:</label>						
-						<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>
-						</div>
-						<div class="col-xs-3">		
-						<label class="form-control" for="fecha">Fecha:</label>
-						<input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" value="<%=sAhora %>" />
-						</div>
-						<div class="col-xs-2">	
-						<label class="form-control" for="factura">Factura #:</label>						
-						<input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" />
-						</div>
-					</div>
+		
+		<div class="col-xs-2" style="display:none">	
+			<label class="form-control" for="codigo">ID #:</label>						
+			<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>
+		</div>
+	<table>	
+	<tr>	
+		<td><label class="col-md-1 control-lable" for="fecha">Fecha:</label></td>			
+		<td><input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" value="<%=sAhora %>" /></td>	
+		
+		<td><label class="col-md-6 control-lable" for="factura" >Factura:</label></td>
+		<td><input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" /></td>		
+	</tr>	
+	</table>										    			
+		<div class="panel-group">
+			<div class="panel panel-success">			
+			<div class="panel-heading">Información del Cliente (OPCIONAL). Si es crédito, llenar todos los campos.</div>			
+			<div class="panel-body">
+			<div class="form-group row">			
+				<div class="col-xs-3">
+					<label class="form-control" for="cliente">Cliente:</label>
+					<input type="text" id="cliente" name="cliente" placeholder="DIGITAR NOMBRE" class="form-control input-sm" onchange="sesion();"/>
 				</div>
-			</div>			
-					
-			<div class="panel panel-success">	
-				<div class="form-group row">
-					<div class="panel-body">
+				<div class="col-xs-3">
+					<label class="form-control" for="direccion">Direccion:</label>	
+					<input type="text" id="direccion" name="direccion" placeholder="DIGITAR DIRECCION" class="form-control input-sm" onchange="sesion();"/>
+				</div>
+				<div class="col-xs-3">
+					<label class="form-control" for="documento">Documento:</label>
+					<input type="text" id="documento" name="documento" placeholder="DIGITAR ## DOCUMENTO" class="form-control input-sm" onchange="sesion();"/>
+				</div>
+				<div class="col-xs-3">
+					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
+					<input type="text" id="tipocredito" name="tipocredito" placeholder="TIPO DE CREDITO" class="form-control input-sm" onchange="sesion();"/>
+				</div>
+			</div>
+			</div>
+			</div>					
+			<div class="panel panel-success">
+			<div class="panel-heading">Productos. (Solo es necesario digitar el codigo y la cantidad)</div>
+				<div class="panel-body">	
+					<div class="form-group row">
 						<div class="col-xs-2">
 							<label class="form-control" for="codigo">Codigo:</label>
 							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" 
@@ -168,10 +232,9 @@ function validar() {
 							<label class="form-control" for="sala">Existencia:</label>
 							<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
 						</div>
+					
 					</div>
-				</div>
-				<div class="form-group row" >
-					<div class="panel-body" >
+					<div class="form-group row" >					
 						<div class="col-xs-2" >	
 							<label class="form-control" for="precio">Precio $:</label>
 							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />
@@ -181,7 +244,7 @@ function validar() {
 							<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITAR" class="form-control input-sm" onchange="validar();" />
 						</div>
 						<div class="col-xs-2">	
-							<label class="form-control" for="subtotal">Subtotal:</label>
+							<label class="form-control" for="subtotal">Subtotal $:</label>
 							<form:input type="text" path="subtotalfactura" id="subtotalfactura" placeholder="AUTOMATICO" class="form-control input-sm" />
 						</div>
 						
@@ -189,7 +252,7 @@ function validar() {
 							<input type="button" value="Agregar a Factura" id="agregar" class="btn btn-primary btn-sm" onclick="factura.submit()" onkeypress="factura.submit()"/>
 						</div>
 						<div class="col-xs-2">
-							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar Facturación</a>
+							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Regresar</a>
 						</div>
 						
 					</div>
@@ -229,81 +292,42 @@ function validar() {
 	    </table>
 	    
 	    <div class="row" align="right">
-                <div class="form-group col-md-12">
-                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
-                    <div class="col-md-2">
-                    <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value="${total}" />                           
-                    </div>
-                </div>
-            </div>	
+        	<div class="form-group col-md-12">
+            	<label class="col-md-8 control-lable" for="total">TOTAL:</label>
+           		<div class="col-md-2">
+               	<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" value="$ ${total}" />                           
+            	</div>
+        	</div>
+       	</div>	
 	    
+	    <table>	
+	<tr>
+		<td><label class="col-md-1 control-lable" for="total">Total:</label></td>			
+		<td><input type="text" id="total2"  class="form-control input-sm" value="$ ${total}" /></td>		
+		
+		<td><label class="col-md-1 control-lable" for="fecha">Recibe:</label></td>			
+		<td><input type="text" id="recibe"  class="form-control input-sm"  onchange="devolver();"/></td>	
+		
+		<td><label class="col-md-1 control-lable" for="factura">Devolver:</label></td>
+		<td><input type="text" id="devolver"  class="form-control input-sm" /></td>
+	</tr>	
+	</table>
 	     
 	    <div class="well lead" align="center">
 		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||||||
-		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Credito</button>
+		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Crédito</button>
 		</div>
-		<div id="contado" class="collapse">
-		
-			<div class="panel-group">			
-			<div class="panel panel-default">
-				<div class="form-group row">		
-					<div class="panel-body">
-						<div class="col-xs-6">		
-						<label class="form-control" for="cliente">Cliente:</label>
-						<input type="text" id="cliente" name="cliente" class="form-control input-sm" />
-						</div>
-						<div class="col-xs-6">	
-						<label class="form-control" for="direccion">Direccion:</label>						
-						<input type="text" id="direccion" name="direccion" class="form-control input-sm" />
-						</div>
-					</div>
-				</div>
+		<div id="contado" class="collapse">	
 				<div align="center">
-				<a href="<c:url value='/facturar-contado' />" class="btn btn-primary btn-sm" >Facturar</a>
+				<a href="<c:url value='/facturar-contado' />" class="btn btn-primary btn-sm" >Facturar Contado</a>
 				</div>
-			</div>
-			</div>
-			
   		</div>
   		
-  		<div id="credito" class="collapse">
-  		
-  			<div class="panel-group">			
-			<div class="panel panel-default">
-				<div class="form-group row">		
-					<div class="panel-body">
-						<div class="col-xs-6">		
-						<label class="form-control" for="cliente">Cliente:</label>
-						<input type="text" id="cliente" name="cliente" class="form-control input-sm" />
-						</div>
-						<div class="col-xs-6">	
-						<label class="form-control" for="direccion">Direccion:</label>						
-						<input type="text" id="direccion" name="direccion" class="form-control input-sm" />
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group row">		
-					<div class="panel-body">
-						<div class="col-xs-6">		
-						<label class="form-control" for="documento">Documento:</label>
-						<input type="text" id="documento" name="documento" class="form-control input-sm" />
-						</div>
-						<div class="col-xs-6">	
-						<label class="form-control" for="tipocredito">Tipo de Credito:</label>						
-						<input type="text" id="tipocredito" name="tipocredito" class="form-control input-sm" />
-						</div>
-					</div>
-				</div>
+  		<div id="credito" class="collapse">	
 				<div align="center">
-				<a href="<c:url value='/facturar-credito' />" class="btn btn-primary btn-sm" >Facturar</a>
+				<a href="<c:url value='/facturar-credito' />" class="btn btn-primary btn-sm" >Facturar Crédito</a>
 				</div>
-			</div>
-			</div>
-  		
-  		</div>
-  		
+  		</div>  	
 	</form:form>
 
 </div>
