@@ -85,7 +85,7 @@
 				libues.retaceo,
 				libues.proveedor
 		    WHERE 
-			  (libues.detalleretaceo.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO`) 
+			  (libues.detalleretaceo.`CODIGOPRODUCTO` = libues.producto.`CORRELATIVO`) 
 			 AND 
 			 ( libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) 
 			 AND 
