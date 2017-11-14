@@ -3,7 +3,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="java.util.*,java.io.*" %> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Librería UES</title>
@@ -18,8 +18,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-
-
 <Style>
 .control-label {
 	text-align: left;
@@ -29,6 +27,40 @@ invalid {
 border: 2px solid #ff0000;
 }
 </Style>
+
+<%
+	// Quiero la fecha actual para ponerla por defecto 
+	String fecha="";
+    String sAhora = "";
+			
+		if(session.getAttribute("fecharequisicion")!=null){
+			fecha=session.getAttribute("fecharequisicion").toString();
+		}
+        if(fecha==""){
+        	Calendar ahora = Calendar.getInstance();
+     		int anyo = ahora.get(Calendar.YEAR);
+     		int mes = ahora.get(Calendar.MONTH) +1; 
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH);
+     					
+     		if (mes < 10) {
+     			sAhora = anyo + "-0" + mes;
+     		} else {
+     			sAhora = anyo + "-" + mes;
+     			}
+     			if (dia < 10) {
+     				sAhora += "-0" + dia;
+     			}
+     			else {
+     				sAhora += "-"+dia;
+     			} 
+                  	 
+           	}
+                     
+            else{
+                    	 
+            sAhora=fecha;
+		}
+%>
 
 <script type="text/javascript">
 
@@ -67,14 +99,9 @@ border: 2px solid #ff0000;
      }
     
 	
-    function sesion(){
-		var fecharequisicion=document.getElementById("fecharequisicion").value;
-      	var destino = document.getElementById('destino').value;
-      	
-      	var fecha="f";
+    function sesion(){		
+      	var destino = document.getElementById('destino').value;      	
       	var destino1="dest";
-      				
-      	sessionStorage[fecha]=fecharequisicion;
       	sessionStorage[destino1]=destino;      	
     }
 	
@@ -82,16 +109,12 @@ border: 2px solid #ff0000;
 
 <script>
 	$( function() {
-		var p;
-		var p1;
-		
+		var p;		
 		for(var i=0;i<sessionStorage.length;i++)
-		{						                
-			p=sessionStorage.getItem('f');
-			p1=sessionStorage.getItem('dest');
+		{
+			p=sessionStorage.getItem('dest');
 		}
-		document.getElementById("fecharequisicion").value=p;
-		document.getElementById("destino").value=p1;			    
+		document.getElementById("destino").value=p;			    
 	} );
 </script>
 
@@ -202,7 +225,7 @@ function cambiar(){
 						</div>
 						<div class="col-xs-3">			
 						<label class="form-control" for="nombr">Fecha:</label>
-						<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm" onchange="sesion();" />
+						<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm"  value="<%=sAhora %>"/>
 						</div>
 					</div>
 				</div>
