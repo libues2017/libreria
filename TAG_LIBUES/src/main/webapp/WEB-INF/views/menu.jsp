@@ -129,7 +129,8 @@
 			        	</sec:authorize>
 
   	
-        		<li class="dropdown">
+        				<sec:authorize access="hasRole('ADMINISTRADOR')">
+        				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matenimiento
 			          		<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
@@ -138,6 +139,7 @@
 			           			</sec:authorize>
 			          			</ul>			          			
 				        </li>
+				        </sec:authorize>
         	
 			        
          

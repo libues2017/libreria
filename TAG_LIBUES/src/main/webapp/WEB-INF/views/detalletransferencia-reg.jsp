@@ -330,9 +330,15 @@
 			<div class="panel panel-default">
 				<div class="form-group row">		
 					<div class="panel-body">
+						<div class="col-xs-3" style="display:none ">
+							<label class="form-control" for="nombr">ID</label>
+							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
+						</div>
+						
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
-							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
+							<input type="text" path="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
+							title="Digite el número de Transferencia"/>
 						</div>
 						
 						<div class="col-xs-2">			
@@ -354,9 +360,9 @@
 							<label class="form-control" for="nombr">Sucursal:</label>
 							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();" 
 							title="Seleccione sucursal segun Tipo de Transferencia">
-								<OPTION VALUE="SV-SA">Santa Ana</OPTION>
-								<OPTION VALUE="SV-SM">San Miguel</OPTION>
-								<OPTION VALUE="SV-SV">San Vicente</OPTION>
+								<OPTION VALUE="Santa Ana">Santa Ana</OPTION>
+								<OPTION VALUE="San Miguel">San Miguel</OPTION>
+								<OPTION VALUE="San Salvador">San Vicente</OPTION>
 							</SELECT>
 						</div>
 						

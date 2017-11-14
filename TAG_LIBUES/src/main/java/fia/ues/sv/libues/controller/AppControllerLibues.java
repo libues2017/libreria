@@ -1271,7 +1271,7 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
     public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
-            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, String tipoTransferencia, String sucursal) throws IOException, ParseException {
+            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, int numeroTransferencia, String tipoTransferencia, String sucursal) throws IOException, ParseException {
             
     
         if (result.hasErrors()) {
@@ -1282,7 +1282,7 @@ public class AppControllerLibues {
         Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
         HttpSession sesion2 = request.getSession(true);
         Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, tipoTransferencia, sucursal);
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia, tipoTransferencia, sucursal);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
         sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1422,8 +1422,9 @@ public class AppControllerLibues {
           Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
           Transferencia transferencia = new Transferencia();
           //valores por defecto para inicializar la siguiente transferencoa
-          transferencia.setTipoTransferencia("Salidas");
-          transferencia.setSucursal("SV-SA");
+          transferencia.setTipoTransferencia("");
+          transferencia.setSucursal("");
+          transferencia.setNumeroTransferencia(0);
           transferencia.setFechaTransferencia(fechaTransferencia1);
           transferencia.setTotal(0.0);
           transferenciaService.saveTransferencia(transferencia);

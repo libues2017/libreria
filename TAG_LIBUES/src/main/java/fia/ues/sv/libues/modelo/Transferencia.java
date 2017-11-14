@@ -24,6 +24,10 @@ public class Transferencia implements Serializable{
 	private Integer codTransferencia;
 	
 	@NotNull
+	@Column(name="NUMEROTRANSFERENCIA")
+	private int numeroTransferencia;
+	
+	@NotNull
 	@Column(name="TIPOTRANSFERENCIA")
 	private String tipoTransferencia;
 	
@@ -45,6 +49,14 @@ public class Transferencia implements Serializable{
 
 	public void setCodTransferencia(Integer codTransferencia) {
 		this.codTransferencia = codTransferencia;
+	}
+
+	public int getNumeroTransferencia() {
+		return numeroTransferencia;
+	}
+
+	public void setNumeroTransferencia(int numeroTransferencia) {
+		this.numeroTransferencia = numeroTransferencia;
 	}
 
 	public String getTipoTransferencia() {
