@@ -158,13 +158,11 @@ function validar() {
 			$("#agregar").focus();
 		}
 }
-</script>
-<script>
-function devolver(){
+function vuelto(){
 	var recibe = parseFloat(document.getElementById("recibe").value)
-	var total = parseFloat(document.getElementById("total2").value)
+	var total2 = parseFloat(document.getElementById("total2").value)
 	
-	var devolver = document.getElementById('devolver').value=(recibe) - (total);
+	var devolver = document.getElementById('devolver').value=parseFloat(recibe) - parseFloat(total2);
 	
 }
 </script>
@@ -211,6 +209,7 @@ function devolver(){
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
+						<OPTION VALUE="" ></OPTION>
 						<OPTION VALUE="CREDITO UES" >Credito UES</OPTION>
 						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
 					</SELECT>
@@ -303,15 +302,15 @@ function devolver(){
         	</div>
        	</div>	
 	    
-	    <table>	
+	<table>	
 	<tr>
-		<td><label class="col-md-1 control-lable" for="total">Total:</label></td>			
-		<td><input type="text" id="total2"  class="form-control input-sm" value="$ ${total}" /></td>		
+		<td><label class="col-md-1 control-lable" for="total">Total $:</label></td>			
+		<td><input type="text" id="total2"  class="form-control input-sm" value="${total}" /></td>		
 		
-		<td><label class="col-md-1 control-lable" for="fecha">Recibe:</label></td>			
-		<td><input type="text" id="recibe"  class="form-control input-sm"  onchange="devolver();"/></td>	
+		<td><label class="col-md-1 control-lable" for="fecha">Recibe $:</label></td>			
+		<td><input type="text" id="recibe"  class="form-control input-sm"  onkeypress="vuelto();"/></td>	
 		
-		<td><label class="col-md-1 control-lable" for="factura">Devolver:</label></td>
+		<td><label class="col-md-1 control-lable" for="factura">Devolver $:</label></td>
 		<td><input type="text" id="devolver"  class="form-control input-sm" /></td>
 	</tr>	
 	</table>
