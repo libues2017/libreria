@@ -28,7 +28,7 @@ public interface DetalleRetaceoService {
 	
 	void savedetalleRetaceo(DetalleRetaceo detalleRetaceo);
 	
-	void updateRetaceo (DetalleRetaceo detalleRetaceo);
+	void updatedetalleRetaceo (DetalleRetaceo detalleRetaceo);
 	
 	void deleteRetaceoById(int codigoretaceo);
 	

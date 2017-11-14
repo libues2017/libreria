@@ -41,19 +41,24 @@ public class DetalleRetaceoServiceImpl implements DetalleRetaceoService{
 	}
 
 	@Override
-	public void updateRetaceo(DetalleRetaceo detalleRetaceo) {
+	public void updatedetalleRetaceo(DetalleRetaceo detalleRetaceo) {
 		// TODO Auto-generated method stub
 	
 		
-		DetalleRetaceo entity=dao.findById(detalleRetaceo.getCodigoretaceo());
+		//DetalleRetaceo entity=dao.findById(detalleRetaceo.getCodigoretaceo());
+		DetalleRetaceo entity=dao.findById(detalleRetaceo.getCodigodetalleretaceo());
 		
 		if(entity!=null){
 			
+			entity.setCodigoretaceo(detalleRetaceo.getCodigoretaceo());
+			entity.setUtilidad(detalleRetaceo.getUtilidad());
 			entity.setCodigoproducto(detalleRetaceo.getCodigoproducto());
-			//entity.setCodigoproveedor(detalleRetaceo.getCodigoproveedor());
+			entity.setCostoproducto(detalleRetaceo.getCostoproducto());
 			entity.setPrecioproducto(detalleRetaceo.getPrecioproducto());
 			entity.setCantidadproducto(detalleRetaceo.getCantidadproducto());
-			//entity.setFecharetaceo(detalleRetaceo.getFecharetaceo());
+			entity.setExistenciaanterior(detalleRetaceo.getExistenciaanterior());
+			entity.setCostounitarioanterior(detalleRetaceo.getCostounitarioanterior());
+			entity.setSubtotal(detalleRetaceo.getSubtotal());
 			
 		}
 		

@@ -11,8 +11,6 @@
 					String fecha="";
                     String sAhora = "";
                     
-                    
-                    
 					
 						if(request.getAttribute("fecharetaceo")!=null){
 					           //  fecha=session.getAttribute("fecharetaceo").toString();
