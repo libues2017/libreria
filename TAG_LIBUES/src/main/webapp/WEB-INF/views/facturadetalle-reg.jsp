@@ -198,19 +198,22 @@ function devolver(){
 			<div class="form-group row">			
 				<div class="col-xs-3">
 					<label class="form-control" for="cliente">Cliente:</label>
-					<input type="text" id="cliente" name="cliente" placeholder="DIGITAR NOMBRE" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="cliente"  maxlength="50" name="cliente" placeholder="DIGITAR NOMBRE" class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="direccion">Direccion:</label>	
-					<input type="text" id="direccion" name="direccion" placeholder="DIGITAR DIRECCION" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="direccion" maxlength="80" name="direccion" placeholder="DIGITAR DIRECCION" class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="documento">Documento:</label>
-					<input type="text" id="documento" name="documento" placeholder="DIGITAR ## DOCUMENTO" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="documento"  maxlength="15" name="documento" placeholder="DIGITAR ## DOCUMENTO" class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
-					<input type="text" id="tipocredito" name="tipocredito" placeholder="TIPO DE CREDITO" class="form-control input-sm" onchange="sesion();"/>
+					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
+						<OPTION VALUE="CREDITO UES" >Credito UES</OPTION>
+						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
+					</SELECT>
 				</div>
 			</div>
 			</div>
@@ -230,7 +233,7 @@ function devolver(){
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="sala">Existencia:</label>
-							<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
+							<form:input type="number" min="0" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
 						</div>
 					
 					</div>
