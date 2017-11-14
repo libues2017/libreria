@@ -33,7 +33,7 @@
 			    <c:forEach items="${detalleretaceo}"   var="current">
 
 			   
-			     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproducto}", "${current.precioproducto}", "${current.cantidadproducto}" ] ;
+			     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproducto}", "${current.precioproducto}", "${current.cantidadproducto}", "${current.subtotal}"  ] ;
 			     i=i+1;
 			    
 			    </c:forEach>
@@ -47,7 +47,8 @@
 			            	 { title: "Codigo de Retaceo" },
 			               { title: "Codigo de Producto" },			            
 			                { title: "Precio de Producto" },
-			               { title: "Cantidad de Producto" }
+			               { title: "Cantidad de Producto" },
+			               { title: "Subtotal" }
 			            ]
 			        
 			        } );			        
