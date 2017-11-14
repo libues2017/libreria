@@ -33,6 +33,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Item</th>
                         <th>Imagen</th>
                         <th>Nombre de Producto</th>
                         <th>Codigo de Producto</th>
@@ -50,18 +51,24 @@
                 </thead>
                 
                 <tbody>
+                	<c:set var="contador" value="${0}" />
                 	<c:forEach items="${productos}" var="producto">
                     	<tr>
-                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
-                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
-                    		<td>${producto.correlativo}</td>
-                        	<td>
-                        	<c:forEach items="${producto.autores}" var="autor">
-                        		${autor.nombreautor}<br/> 
-                        	</c:forEach>
-                        	</td>	
-                        	<td>${producto.existencia}</td>	
-                        	<td>$${producto.precio}</td>
+                    		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	            <c:if test = "${salary > 2000}">
+				    	        <c:set var="contador" value="${contador + 1}" />
+				    	        <td>${contador}</td>
+	                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
+	                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
+	                    		<td>${producto.correlativo}</td>
+	                        	<td>
+	                        	<c:forEach items="${producto.autores}" var="autor">
+	                        		${autor.nombreautor}<br/> 
+	                        	</c:forEach>
+	                        	</td>	
+	                        	<td>${producto.existencia}</td>	
+	                        	<td>$${producto.precio}</td>
+                        	</c:if>
                         	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
                         	</sec:authorize>
