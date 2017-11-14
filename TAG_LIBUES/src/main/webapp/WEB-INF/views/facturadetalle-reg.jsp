@@ -180,6 +180,12 @@ function vuelto(){
 			<label class="form-control" for="codigo">ID #:</label>						
 			<form:input type="text" path="idfactura" id="idfactura" class="form-control input-sm"  value='<%=session.getAttribute("codigofact")%>'/>
 		</div>
+		
+		<div class="col-xs-2" style="display:none">	
+			<label class="form-control" for="codigo">Estado:</label>						
+			<input type="text" id="estado" class="form-control input-sm" value="Activo" />
+		</div>
+		
 	<table>	
 	<tr>	
 		<td><label class="col-md-1 control-lable" for="fecha">Fecha:</label></td>			

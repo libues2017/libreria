@@ -33,7 +33,8 @@
             <div class="panel-heading"><span class="lead">Lista de Documento de Requisiciones</span></div>
             <table class="table table-hover">
                 <thead>
-                    <tr>                        
+                    <tr>
+                    	<th>Item</th>                        
                         <th>Doc. #</th>                        
                         <th>Destino</th>
                         <th>Fecha</th>
@@ -46,12 +47,19 @@
                 </thead>
                 
                 <tbody>
+                	<c:set var="contador" value="${0}" /> 
                 	<c:forEach items="${requisiciones}" var="requisicion">
                     	<tr>
+                    	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	            <c:if test = "${salary > 2000}">
+	    	                <c:set var="contador" value="${contador + 1}" />    	                
+		    	              
+	    	                <td>${contador}</td>
                     		<td><a  href="<c:url value='/requisicion-detalle-${requisicion.codigorequisicion}' />">${requisicion.codigorequisicion}</a></td>
                     		<td>${requisicion.destino}</td>	
                         	<td>${requisicion.fecha}</td>
                         	<td>$${requisicion.total}</td>
+                        	</c:if>	
                         	<sec:authorize access="hasRole('ADMINISTRADOR')">                     
                         	<td><a href="<c:url value='/delete-requisicion-${requisicion.codigorequisicion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>

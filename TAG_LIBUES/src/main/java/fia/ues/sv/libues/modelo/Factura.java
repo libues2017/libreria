@@ -47,6 +47,9 @@ private static final long serialVersionUID = 1L;
 	@Column(name="tipocredito")
 	private String tipocredito;
 
+	@Column(name="estado")
+	private String estado;
+	
 	/* Getters y setters */
 	
 	public Integer getIdfactura() {
@@ -120,4 +123,14 @@ private static final long serialVersionUID = 1L;
 	public void setTipocredito(String tipocredito) {
 		this.tipocredito = tipocredito;
 	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	
 }

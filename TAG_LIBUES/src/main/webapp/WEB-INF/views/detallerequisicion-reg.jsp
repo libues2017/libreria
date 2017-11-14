@@ -208,6 +208,11 @@ function cambiar(){
 		<form:form method="POST" name="req" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 
+		<div class="col-xs-2" style="display:none">	
+			<label class="form-control" for="codigo">Estado:</label>						
+			<input type="text" id="estado" class="form-control input-sm" value="Activo" />
+		</div>
+
 		<div class="panel-group">			
 			<div class="panel panel-default">
 				<div class="form-group row">		

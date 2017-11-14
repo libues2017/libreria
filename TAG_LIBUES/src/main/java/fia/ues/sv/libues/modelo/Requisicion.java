@@ -33,6 +33,9 @@ private static final long serialVersionUID = 1L;
 	
 	@Column(name="total")
 	private Double total;
+	
+	@Column(name="estado")
+	private Double estado;
 
 	public Integer getCodigorequisicion() {
 		return codigorequisicion;
@@ -65,5 +68,15 @@ private static final long serialVersionUID = 1L;
 	public void setTotal(Double total) {
 		this.total = total;
 	}
+
+	public Double getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Double estado) {
+		this.estado = estado;
+	}
+	
+	
 	
 }
