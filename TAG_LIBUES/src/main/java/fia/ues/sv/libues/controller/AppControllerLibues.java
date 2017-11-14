@@ -1108,7 +1108,7 @@ public class AppControllerLibues {
     
     
  
-    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
             ModelMap model, @PathVariable Integer codigoretaceo) throws IOException, ParseException {
  
