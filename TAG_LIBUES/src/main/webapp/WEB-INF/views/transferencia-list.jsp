@@ -29,7 +29,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>                        
-                        <th>Documento</th>                        
+                        <th>Item</th>
+                        <th># Transferencia</th>                        
                         <th>Tipo</th>
                         <th>Sucursal</th>                        
                         <th>Fecha</th>
@@ -45,18 +46,22 @@
                 </thead>
                 
                 <tbody>
+                	<c:set var="contador" value="${0}" />
                 	<c:forEach items="${transferencias}" var="transferencia">
                     	<tr>
-                    		<td><a  href="<c:url value='/transferencia-detalle-${transferencia.codTransferencia}' />">${transferencia.codTransferencia}</a></td>
-                    		<td>${transferencia.tipoTransferencia}</td>	
-                        	<td>${transferencia.sucursal}</td>	
-                        	<td>${transferencia.fechaTransferencia}</td>
-                        	<td>$${transferencia.total}</td>
+                    		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	            <c:if test = "${salary > 2000}">
+			    	            <c:set var="contador" value="${contador + 1}" />
+			    	            <td>${contador}</td>  
+	                    		<td><a  href="<c:url value='/transferencia-detalle-${transferencia.numeroTransferencia}' />">${transferencia.numeroTransferencia}</a></td>
+	                    		<td>${transferencia.tipoTransferencia}</td>	
+	                        	<td>${transferencia.sucursal}</td>	
+	                        	<td>${transferencia.fechaTransferencia}</td>
+	                        	<td>$${transferencia.total}</td>
+                        	</c:if>
                         	<sec:authorize access="hasRole('ADMINISTRADOR')">
                         		<td><a href="<c:url value='/delete-transferencia-${transferencia.codTransferencia}'/>" class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>
-                        	 
-                     
                     	</tr>
                 	</c:forEach>
                 </tbody>
