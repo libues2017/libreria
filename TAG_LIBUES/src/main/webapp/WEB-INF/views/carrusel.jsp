@@ -127,9 +127,9 @@
 				         <div class="item">
 				          <img src="<c:url value='/static/img/UesMiscelanea21.png' />" alt="...">
 				          <div class="carousel-caption">
-				            <h2>Útiles/Miselánios</h2>
+				            <h2>Útiles/Miscelánios</h2>
 				            <br/>
-				            <p>Catálogo de papelería y útiles.</p>
+				            <p>Catálogo de Papelería y Utiles.</p>
 				          </div>
 				        </div>
 				        

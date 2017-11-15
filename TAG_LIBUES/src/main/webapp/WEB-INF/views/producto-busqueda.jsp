@@ -100,7 +100,7 @@
                         <th>Editorial</th>
                         <th>Precio</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                        	<th>Tipo Producto</th>
+                        <th>Tipo</th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             <th width="100">Editar</th>
