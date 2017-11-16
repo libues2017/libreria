@@ -418,7 +418,7 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">      
 					<label class="form-control" for="nombr">Documento #:</label>					
-					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=request.getAttribute("codigoretaceo").toString()%>'/>   
+					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" />   
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
@@ -426,7 +426,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=request.getAttribute("utilidad").toString()%>'/>
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" />
                     </div>
 				</div>
 			</div>
@@ -439,7 +439,7 @@ var miVar = <%= sAhora %>;
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
 						<input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" 
-						onchange='cambiar1();' value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' placeholder="DIGITE" class="form-control input-sm" /> 
+						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" /> 
 						
 						
 						
@@ -470,7 +470,7 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
-	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();'  value='<%=request.getAttribute("codigoproducto").toString()%>' />      
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();'   />      
                     </div>
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>

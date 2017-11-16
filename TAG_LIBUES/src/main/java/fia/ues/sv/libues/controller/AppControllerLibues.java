@@ -1044,10 +1044,10 @@ public class AppControllerLibues {
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
-			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo)(codigoretaceo);
+			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
+			    
 			  
-			        model.addAttribute("detalleretaceo", detalleretaceo);			       
+			        		       
 			    	
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
@@ -1061,6 +1061,10 @@ public class AppControllerLibues {
 				      Date fecharetaceo=retaceo.getFecharetaceo();	
 				      Integer codigoproveedor=retaceo.getCodigoproveedor();			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
+			    	 Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
+			    	 
+			    		DetalleRetaceo detalleretaceo = detalleretaceoService.findById(codigodetalleretaceo);
+					  
 			    	  
 			    	  Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
 			    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
@@ -1081,6 +1085,7 @@ public class AppControllerLibues {
 			    	String fecha = sdf.format(fecharetaceo);
 			    	String fechafac = sdf.format(fechafacturaproveedor);
 			    	
+			    	model.addAttribute("detalleretaceo", detalleretaceo);	
 			    	model.addAttribute("codigoretaceo",codigoretaceo );
 			    	model.addAttribute("fecharetaceo",fecha );
 			    	model.addAttribute("codigoproducto",codigoproducto );
@@ -1099,7 +1104,7 @@ public class AppControllerLibues {
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());	
 			        
-			        System.out.println("fecha:" + fecha);			        
+			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
 			        return "detalleretaceo-modificar";
               
     }

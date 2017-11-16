@@ -44,6 +44,7 @@
 			    	var tabla = $('#example').DataTable( {
 			            data:  dataSet,
 			            columns: [
+			            	
 			            	 { title: "Codigo de Retaceo" },
 			               { title: "Codigo de Producto" },			            
 			                { title: "Precio de Producto" },
@@ -57,6 +58,7 @@
 			    		
 		    	        if ( $(this).hasClass('selected') ) {
 		    	            $(this).removeClass('selected');
+		    	            codigodetalle="";
 		    	            dato = "";
 		    	            codigoproducto = "";
 		    	           
@@ -64,7 +66,7 @@
 		    	        else {
 		    	            tabla.$('tr.selected').removeClass('selected');
 		    	            $(this).addClass('selected');
-		    	            dato = $(this).find("td:eq(0)").text();	
+		    	            dato = $(this).find("td:eq(0)").text();	//obtengo el codigo retaceo
 		    	            codigoproducto= $(this).find("td:eq(1)").text();	
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
@@ -82,12 +84,9 @@
 		    	        var result = str.link(res2);		    	      
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
-		    	        
-		    	          
+		    	        	    	          
 		    	      }	  
 		    	    } );    
-			        
-			        
 			        
 			    } );
 			    
