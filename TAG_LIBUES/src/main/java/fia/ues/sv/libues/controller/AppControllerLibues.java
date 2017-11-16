@@ -1021,9 +1021,6 @@ public class AppControllerLibues {
         String revisar=nombreproveedor;
     	
     	
-       
-    	
-    	
     	
     	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
     	
@@ -1047,8 +1044,9 @@ public class AppControllerLibues {
     public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();			    	
-			    	
+			    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
+			    	//DetalleRetaceo tipo = detalleretaceoService.findById(codigodetalleretaceo)(codigoretaceo);
+			  
 			        model.addAttribute("detalleretaceo", detalleretaceo);			       
 			    	
 			    	  Producto producto=new Producto();		
@@ -1110,16 +1108,18 @@ public class AppControllerLibues {
  
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoretaceo) throws IOException, ParseException {
+            ModelMap model, @PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto) throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
         
         
- 
+             
+        
+        System.out.println("codigo:" + codigoretaceo+"producto "+codigoproducto);	
         detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
-        model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
+       // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalleretaceo-modificar";
     }
