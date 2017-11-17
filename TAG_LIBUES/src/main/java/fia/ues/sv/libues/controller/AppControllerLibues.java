@@ -1126,7 +1126,9 @@ public class AppControllerLibues {
         detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "detalleretaceo-modificar";
+        
+        return "redirect:/detalleretaceo-list";
+        //return "detalleretaceo-modificar";
     }
     
     

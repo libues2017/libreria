@@ -498,7 +498,7 @@ var miVar = <%= sAhora %>;
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
-	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
+	                    <form:input type="number" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
                     </div>
 				
 					<div class="col-xs-3" style="display:none">
