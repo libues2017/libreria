@@ -438,8 +438,8 @@ var miVar = <%= sAhora %>;
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
-						<input type="text" path="codigofacturaproveedor" id="codigofacturaproveedor" 
-						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" /> 
+						<input type="text" id="codigofacturaproveedor" 
+						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' /> 
 						
 						
 						
@@ -448,7 +448,7 @@ var miVar = <%= sAhora %>;
 						<label class="form-control" for="nombr">Fecha Factura:</label>
 						
 						
-						<input type="date" path="fechafacturaproveedor" id="fechafacturaproveedor" name="fechafacturaproveedor" 
+						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" 
 						class="form-control input-sm" value='<%=request.getAttribute("fechafacturaproveedor").toString()%>' /> 
 						                        
 					</div>
@@ -456,7 +456,7 @@ var miVar = <%= sAhora %>;
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						  
 						  
-						<input type="numer" path="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" 
+						<input type="number"  id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" 
 						onchange='label2(); cambiar2();'  value='<%=request.getAttribute("codigoproveedor").toString()%>'/> 
 						
 					</div>
