@@ -72,16 +72,19 @@
 	function sesion(){
 		var fechaTransferencia = document.getElementById("fechaTransferencia").value;
 		var tipo = document.getElementById('tipoTransferencia').value;
+		var numero = document.getElementById('numeroTransferencia').value;
 		var sucursal = document.getElementById("sucursal").value;
 		var utilidad = document.getElementById('utilidad').value;
 		
 		var fecha = "f1";
 		var tipo1 = "tp1";
+		var numero1 = "num1";
 		var sucursal1 = "sucu1";
 		var utilidad1 = "uti1";
 		
 		sessionStorage[fecha] = fechaTransferencia;
 		sessionStorage[tipo1] = tipo;
+		sessionStorage[numero1] = numero;
 		sessionStorage[sucursal1] = sucursal;
 		sessionStorage[utilidad1] = utilidad;
 	}
@@ -94,6 +97,7 @@
 		var p1;
 		var p2;
 		var p4;
+		var p5;
 	
 		for(var i = 0; i < sessionStorage.length; i++)
 		{						                
@@ -101,11 +105,13 @@
 			p1 = sessionStorage.getItem('tp1');
 			p2 = sessionStorage.getItem('sucu1');
 			p4 = sessionStorage.getItem('uti1');
+			p5 = sessionStorage.getItem('num1');
 		}
 		document.getElementById("fechaTransferencia").value=p;
 		document.getElementById("tipoTransferencia").value=p1;
 		document.getElementById("sucursal").value=p2;
 		document.getElementById("utilidad").value=p4;
+		document.getElementById("numeroTransferencia").value=p5;
 	} );
 
 </script>
@@ -337,7 +343,7 @@
 						
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
-							<input type="text" path="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
+							<input type="number" min="0" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
 							title="Digite el número de Transferencia"/>
 						</div>
 						

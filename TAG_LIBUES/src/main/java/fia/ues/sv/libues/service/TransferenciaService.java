@@ -13,12 +13,14 @@ public interface TransferenciaService {
 	
 	void updateTransferencia(Transferencia transferencia);
 	
-	void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, int numeroTransferencia, String tipoTransferencia, String sucursal);
+	void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, int numeroTransferencia, String tipoTransferencia, String sucursal, Boolean estado);
 	
 	void deleteTransferenciaById(int codTransferencia);
 	
 	List<Transferencia> findAllTransferencias();
 	
 	void updateTotal(Integer codTransferencia, Double total);
+
+	void updateEstadoTransferenciaById(Integer codTransferencia);
 
 }

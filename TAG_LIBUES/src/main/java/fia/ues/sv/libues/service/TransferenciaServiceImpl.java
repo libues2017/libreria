@@ -37,8 +37,8 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 	}
 
 	@Override
-	public void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, int numeroTransferencia, String tipoTransferencia, String sucursal) {
-		Transferencia transferencia = new Transferencia();
+	public void updateFechaTransferencia(Date fechaTransferencia, Integer codTransferencia, int numeroTransferencia,
+			String tipoTransferencia, String sucursal, Boolean estado) {
 		Transferencia entity = dao.findById(codTransferencia);
 		
 		if(entity != null){
@@ -46,6 +46,7 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 			entity.setFechaTransferencia(fechaTransferencia);
 			entity.setTipoTransferencia(tipoTransferencia);//.setFechaTipoTransferencia(fechaTransferencia);
 			entity.setSucursal(sucursal);
+			entity.setEstado(true);
 			
 		}
 		
@@ -67,6 +68,15 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 		Transferencia entity = dao.findById(codTransferencia);
 		if(entity != null){
 			entity.setTotal(total);
+		}
+		
+	}
+
+	@Override
+	public void updateEstadoTransferenciaById(Integer codTransferencia) {
+		Transferencia entity=dao.findById(codTransferencia);		
+		if(entity!=null){
+			entity.setEstado(false);
 		}
 		
 	}

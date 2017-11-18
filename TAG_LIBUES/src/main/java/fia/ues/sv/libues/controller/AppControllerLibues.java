@@ -1280,7 +1280,8 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
     public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
-            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, int numeroTransferencia, String tipoTransferencia, String sucursal) throws IOException, ParseException {
+            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, 
+            String tipoTransferencia, String sucursal, Boolean estado) throws IOException, ParseException {
             
     
         if (result.hasErrors()) {
@@ -1289,9 +1290,11 @@ public class AppControllerLibues {
         detalletransferenciaService.savedetalleTransferencia(detalletransferencia);
         
         Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
+        Integer numero = Integer.parseInt(request.getParameter("numeroTransferencia"));
+        
         HttpSession sesion2 = request.getSession(true);
         Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia, tipoTransferencia, sucursal);
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numero, tipoTransferencia, sucursal, estado);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
         sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1315,14 +1318,10 @@ public class AppControllerLibues {
     	model.addAttribute("detalletransferencia", detalletransferencia);
     	model.addAttribute("edit", false);
     	model.addAttribute("loggedinuser", getPrincipal());
-    	HttpSession sesion = request.getSession(true);
     	
-    	HttpSession session = request.getSession();
     	HttpSession session1 = request.getSession(true);
-    	HttpSession session2 = request.getSession(true);
     	
     	session1.setAttribute("codigo1", codTransferencia);
-    	Producto producto = new Producto();
     	Double total = 0.0;
     	
     	List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
@@ -1374,10 +1373,11 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una requisici�n de la tabla padre con sus hijas
     public String deleteTransferenciaMaestra(@PathVariable Integer codTransferencia) {    	
-    	transferenciaService.deleteTransferenciaById(codTransferencia);  	
+    	transferenciaService.updateEstadoTransferenciaById(codTransferencia);  	
         return "redirect:/transferencia-list";
     }
     
+      
     @RequestMapping(value = { "/finalizar1" }, method = RequestMethod.GET)
     public String findetalleTransferencia( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
         
@@ -1431,11 +1431,12 @@ public class AppControllerLibues {
           Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
           Transferencia transferencia = new Transferencia();
           //valores por defecto para inicializar la siguiente transferencoa
-          transferencia.setTipoTransferencia("");
-          transferencia.setSucursal("");
+          transferencia.setTipoTransferencia("Salida");
+          transferencia.setSucursal("San Salvador");
           transferencia.setNumeroTransferencia(0);
           transferencia.setFechaTransferencia(fechaTransferencia1);
           transferencia.setTotal(0.0);
+          transferencia.setEstado(true);
           transferenciaService.saveTransferencia(transferencia);
           Integer codigo1 = 0;
           sesion.setAttribute("codigo1", codigo1);

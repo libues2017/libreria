@@ -43,7 +43,7 @@ public class RequisicionServiceImpl implements RequisicionService{
 		if(entity!=null){			
 			entity.setFecha(fecha);
 			entity.setDestino(destino);	
-			entity.setEstado(estado);
+			entity.setEstado(true);
 		}		
 	}	
 	
