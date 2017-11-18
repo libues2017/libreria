@@ -25,14 +25,15 @@ public class Autor implements Serializable{
 	private String nombreautor;
 
 	
-	@Column(name="ESTADO")
-	private String estado;
+	@Column(name="ESTADO",nullable=false)
+	private boolean estado;
 
-	public String getEstado() {
+	
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 

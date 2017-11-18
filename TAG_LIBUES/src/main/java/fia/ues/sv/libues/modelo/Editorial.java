@@ -30,14 +30,15 @@ public class Editorial implements Serializable {
 	private String nombre;
 	
 	@Column(name="ESTADO")
-	private String estado;
+	private boolean estado;
 	
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

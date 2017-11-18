@@ -47,6 +47,7 @@ public class EditorialDaoImpl extends AbstractDao<Integer, Editorial> implements
 	public List<Editorial> findAllEditoriales() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoespecifico"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        criteria.add(Restrictions.eq("estado", true));
         List<Editorial> editoriales = (List<Editorial>) criteria.list();
 		return editoriales;
 	}

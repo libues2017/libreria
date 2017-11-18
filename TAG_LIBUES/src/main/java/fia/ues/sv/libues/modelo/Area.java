@@ -27,14 +27,15 @@ public class Area implements Serializable {
 	private String nombrearea;
 	
 	@Column(name="ESTADO", nullable=false)
-	private String estado;
+	private boolean estado;
 		
 	
-	public String getEstado() {
+
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
 

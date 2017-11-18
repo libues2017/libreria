@@ -50,8 +50,8 @@
                     	<div class="col-md-7">
                         	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
                         	<SELECT name="estado" id="estado" class="form-control input-sm">
-										<OPTION VALUE="Activo">Activo</OPTION>
-										<OPTION VALUE="Inactivo">Inactivo</OPTION>
+										<OPTION VALUE="1">Activo</OPTION>
+										<OPTION VALUE="0">Inactivo</OPTION>
 							</SELECT>
                         	<div class="has-error">
                             	<form:errors path="estado" class="help-inline"/>

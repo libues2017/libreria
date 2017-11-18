@@ -53,6 +53,7 @@ public class ProveedorDaoImpl extends AbstractDao<Integer, Proveedor> implements
 	public List<Proveedor> findAllProveedores() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombreproveedor"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        criteria.add(Restrictions.eq("estado", true));
         List<Proveedor> proveedor = (List<Proveedor>) criteria.list();
 		return proveedor;
 	}

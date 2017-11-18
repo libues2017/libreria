@@ -46,6 +46,7 @@ public class AreaDaoImpl extends AbstractDao<Integer, Area> implements AreaDao {
 	public List<Area> findAllAreas() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoarea"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        criteria.add(Restrictions.eq("estado", true));
         List<Area> area = (List<Area>) criteria.list();
  		return area;
 	}

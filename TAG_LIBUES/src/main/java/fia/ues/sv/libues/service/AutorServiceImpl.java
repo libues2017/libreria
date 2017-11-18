@@ -36,7 +36,7 @@ public class AutorServiceImpl implements AutorService{
 		Autor entity = dao.findById(autor.getCodigoautor()); 
 		if(entity!=null){
 			entity.setNombreautor(autor.getNombreautor());
-			entity.setEstado(autor.getEstado());
+			entity.setEstado(autor.isEstado());
 		}
 	}
 

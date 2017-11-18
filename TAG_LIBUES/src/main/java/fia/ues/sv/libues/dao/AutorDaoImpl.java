@@ -46,6 +46,7 @@ public class AutorDaoImpl extends AbstractDao<Integer, Autor> implements AutorDa
 	public List<Autor> findAllAutors() {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombreautor"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        criteria.add(Restrictions.eq("estado", true));
         List<Autor> autores = (List<Autor>) criteria.list();
  		return autores;
 	}

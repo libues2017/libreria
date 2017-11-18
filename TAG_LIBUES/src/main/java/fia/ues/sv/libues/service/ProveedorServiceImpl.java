@@ -41,7 +41,7 @@ public class ProveedorServiceImpl implements ProveedorService{
 			entity.setTelefonoproveedor(proveedor.getTelefonoproveedor());
 			entity.setContactoproveedor1(proveedor.getContactoproveedor1());
 			entity.setContactoproveedor2(proveedor.getContactoproveedor2());
-			entity.setEstado(proveedor.getEstado());
+			entity.setEstado(proveedor.isEstado());
 			
 		}
 		
