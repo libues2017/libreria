@@ -1,4 +1,3 @@
-
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
@@ -10,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.NotEmpty; 
 
 @Entity
 @Table(name="requisicion")
@@ -35,7 +33,7 @@ private static final long serialVersionUID = 1L;
 	private Double total;
 	
 	@Column(name="estado")
-	private Double estado;
+	private boolean estado;
 
 	public Integer getCodigorequisicion() {
 		return codigorequisicion;
@@ -69,14 +67,16 @@ private static final long serialVersionUID = 1L;
 		this.total = total;
 	}
 
-	public Double getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(Double estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
-	
-	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

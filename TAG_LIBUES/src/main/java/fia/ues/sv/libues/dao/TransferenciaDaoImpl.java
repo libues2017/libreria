@@ -37,6 +37,7 @@ public class TransferenciaDaoImpl extends AbstractDao<Integer, Transferencia> im
 	public List<Transferencia> findAllTransferencias() {
 		Criteria criteria = createEntityCriteria();
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		criteria.add(Restrictions.eq("estado", true));
 		List<Transferencia> transferencia = (List<Transferencia>) criteria.list();
 		return transferencia;
 	}

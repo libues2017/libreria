@@ -48,7 +48,7 @@ private static final long serialVersionUID = 1L;
 	private String tipocredito;
 
 	@Column(name="estado")
-	private String estado;
+	private boolean estado;
 	
 	/* Getters y setters */
 	
@@ -124,13 +124,16 @@ private static final long serialVersionUID = 1L;
 		this.tipocredito = tipocredito;
 	}
 
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
-	
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

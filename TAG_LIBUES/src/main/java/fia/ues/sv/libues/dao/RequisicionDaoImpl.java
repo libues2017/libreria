@@ -38,6 +38,7 @@ public class RequisicionDaoImpl extends AbstractDao<Integer, Requisicion> implem
 	public List<Requisicion> findAllRequisiciones() {
 		Criteria criteria = createEntityCriteria();		 
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+        criteria.add(Restrictions.eq("estado", true));
         List<Requisicion> requisicion = (List<Requisicion>) criteria.list();
 		return requisicion;	
 	}
@@ -47,7 +48,6 @@ public class RequisicionDaoImpl extends AbstractDao<Integer, Requisicion> implem
 	public List<Requisicion> findRequisiciones(Integer codigo2) {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigorequisicion"));
         criteria.add(Restrictions.eq("codigorequisicion", codigo2)); 
-       // criteria.add(Restrictions.("visible", true));
         List<Requisicion> requisicion = (List<Requisicion>) criteria.list();
         return requisicion; 
 	}

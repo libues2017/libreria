@@ -1,4 +1,3 @@
-
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
@@ -9,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 
 @Entity

@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 @Table(name="transferencia")
 public class Transferencia implements Serializable{
@@ -42,6 +40,9 @@ public class Transferencia implements Serializable{
 	@NotNull
 	@Column(name= "TOTAL")
 	private Double total;
+	
+	@Column(name="estado")
+	private boolean estado;
 
 	public Integer getCodTransferencia() {
 		return codTransferencia;
@@ -90,6 +91,18 @@ public class Transferencia implements Serializable{
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 }
