@@ -209,7 +209,7 @@
 								  var cla4 = document.getElementById('existenciaanterior').value=PEX;
 								  var cla5 = document.getElementById('costounitarioanterior').value=CPEX;
 								  var cla6 = document.getElementById('precioanterior').value=PVA;
-								  //alert(CPEX);
+								  //alert(PV);
 								  
 								 /* return true;
 								  alert();	*/
@@ -498,7 +498,7 @@ var miVar = <%= sAhora %>;
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
-	                    <form:input type="number" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
+	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
                     </div>
 				
 					<div class="col-xs-3" style="display:none">
