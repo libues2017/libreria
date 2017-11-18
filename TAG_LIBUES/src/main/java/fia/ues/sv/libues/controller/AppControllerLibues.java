@@ -1777,6 +1777,22 @@ public class AppControllerLibues {
     // ***************** CONTROLES PARA  FACTURACION **************************
     //*************************************************************************
     
+    @RequestMapping(value = { "/factura-list" }, method = RequestMethod.GET)
+    public String listFactura(ModelMap model) throws IOException {
+    	List<Factura> facturas = facturaService.findAllFacturas();                
+        model.addAttribute("facturas", facturas);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "factura-list";
+    }
+    
+    @RequestMapping(value = { "/factura-detalle-{idfactura}" }, method = RequestMethod.GET)
+    public String detalleFactura(@PathVariable Integer idfactura, ModelMap model) throws IOException {
+    	Factura factura = facturaService.findById(idfactura);
+    	model.addAttribute("factura", factura);
+    	
+        return "factura-detalle";
+    } 
+    
     @RequestMapping(value = { "/detallefacturacion-agregar" }, method = RequestMethod.GET)
     public String newDetalleFacturacion( HttpServletRequest request,ModelMap model) {
     	
