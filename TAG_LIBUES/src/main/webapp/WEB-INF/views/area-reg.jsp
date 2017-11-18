@@ -35,7 +35,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombrearea">Nombre:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombrearea" id="nombrearea" placeholder="Digite el Nombre del Area" class="form-control input-sm"/>
+                        <form:input type="text" path="nombrearea" id="nombrearea"  maxlength="50" placeholder="Digite el Nombre del Area" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombrearea" class="help-inline"/>
                         </div>

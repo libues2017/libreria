@@ -219,7 +219,7 @@ function cambiar(){
 					<div class="panel-body">
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Documento #:</label>
-						<form:input type="text" path="codigorequisicion" id="codigorequisicion" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
+						<form:input type="text" path="codigorequisicion" id="codigorequisicion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Destino:</label>
@@ -241,20 +241,20 @@ function cambiar(){
 					<div class="panel-body">
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
-						<form:input type="number" path="codigoproducto" id="codigoproducto"  placeholder="DIGITAR (9999)" class="form-control input-sm" onfocus="focusF1()"
+						<form:input type="number" path="codigoproducto" id="codigoproducto"  maxlength="11" placeholder="DIGITAR (9999)" class="form-control input-sm" onfocus="focusF1()"
 									onchange='producto(); cambiar();' onkeypress='producto();' title="Digitar codigo del producto, solo números"  onblur="blurF1()" />
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Título:</label>
-						<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />
+						<form:input type="text" path="nombreproducto" id="nombreproducto"  maxlength="50" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Bodega:</label>
-						<form:input type="number" path="bodega" id="bodega" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
+						<form:input type="number" path="bodega" id="bodega" maxlength="11" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-2">
 						<label class="form-control" for="nombr">Sala:</label>
-						<form:input type="number" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+						<form:input type="number" path="sala" id="sala" maxlength="11" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 						</div>
 					</div>
 				</div>
@@ -270,7 +270,7 @@ function cambiar(){
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Cantidad:</label>
-						<form:input type="number" path="cantidad" id="cantidad" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="validar2();" 
+						<form:input type="number" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITAR (9999)" class="form-control input-sm" onchange="validar2();" 
 									title="Digitar cantidad a mover, solo números" onfocus="focusF2()" onblur="blurF2()" autocomplete="off" min="1" />
 						</div>
 						<div class="col-xs-3">

@@ -29,7 +29,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Codigo:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" placeholder="Digite el Codigo de la Editorial" class="form-control input-sm"/>
+                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" maxlength="4" placeholder="Digite el Codigo de la Editorial" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombre" class="help-inline"/>
                         </div>
@@ -41,7 +41,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Nombre:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombre" id="nombre" placeholder="Digite el Nombre de la Editorial" class="form-control input-sm"/>
+                        <form:input type="text" path="nombre" id="nombre" maxlength="100" placeholder="Digite el Nombre de la Editorial" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombre" class="help-inline"/>
                         </div>

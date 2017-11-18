@@ -28,7 +28,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombreautor">Nombre:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombreautor" id="nombreautor" placeholder="Digite el Nombre del Autor" class="form-control input-sm"/>
+                        <form:input type="text" path="nombreautor" id="nombreautor" maxlength="150" placeholder="Digite el Nombre del Autor" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombreautor" class="help-inline"/>
                         </div>

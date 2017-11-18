@@ -113,7 +113,7 @@
 		            	<div class="panel-body">
 		            		<div class="col-xs-8">
 			            		<label class="form-control" for="nombreProducto">Nombre de Producto:</label>
-			                	<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="Digite el Nombre del Producto" class="form-control input-sm"/>
+			                	<form:input type="text" path="nombreProducto" id="nombreProducto" maxlength="50" placeholder="Digite el Nombre del Producto" class="form-control input-sm"/>
 			                	<div class="has-error">
 			                		<form:errors path="nombreProducto" class="help-inline"/>
 			                	</div>
@@ -170,7 +170,7 @@
 		            	<div class="panel-body">
 		            		<div class="col-xs-4">
 		            			<label class="form-control" for="existencia">Existencias:</label>
-		                		<form:input type="text" min="0" path="existencia" id="existencia" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
+		                		<form:input type="text" min="0" path="existencia" id="existencia" maxlength="11" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
 		                    	<div class="has-error">
 		                    		<form:errors path="existencia" class="help-inline"/>
 		                    	</div>
@@ -178,7 +178,7 @@
 		            		
 		            		<div class="col-xs-4">
 		            			<label class="form-control" for="existencia">Unidad Minima:</label>
-		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
+		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" maxlength="11" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
 		                    	<!-- 
 		                    	<div class="has-error">
 		                    		<form:errors path="unidadMinima" class="help-inline"/>
@@ -188,7 +188,7 @@
 		                	
 		                	<div class="col-xs-4">
 		            			<label class="form-control" for="isbn">ISBN:</label>
-		                		<form:input type="text" path="isbn" id="isbn" placeholder="Digite el Codigo ISBN del Producto" class="form-control input-sm"/>
+		                		<form:input type="text" path="isbn" id="isbn" maxlength="20" placeholder="Digite el Codigo ISBN del Producto" class="form-control input-sm"/>
 		                    	<div class="has-error">
 		                   			<form:errors path="isbn" class="help-inline"/>
 		                    	</div>		                		
