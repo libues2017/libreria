@@ -69,12 +69,72 @@
             </div>
             
             <div class="form-group">			
-			<label class="control-label col-sm-4" for="nombr">Tipo Transferencia:</label>
+			<label class="control-label col-sm-4" for="nombr">Desde:</label>
 			<div class="col-sm-4">
-			<SELECT name="tipotransferencia" id="tipotransferencia" class="form-control input-sm" onchange="sesion();" 
+			<SELECT name="desde" id="desde" class="form-control input-sm" onchange="sesion();" 
 			title="Seleccione Tipo de Transferencia">
-				<OPTION VALUE="Salidas">Salidas</OPTION>
-				<OPTION VALUE="Ingresos">Ingresos</OPTION>
+					<OPTION VALUE="A">A</OPTION>
+				<OPTION VALUE="B">B</OPTION>
+				<OPTION VALUE="C">C</OPTION>
+				<OPTION VALUE="D">D</OPTION>
+				<OPTION VALUE="E">E</OPTION>
+				<OPTION VALUE="F">F</OPTION>
+				<OPTION VALUE="G">G</OPTION>
+				<OPTION VALUE="H">H</OPTION>
+				<OPTION VALUE="I">I</OPTION>
+				<OPTION VALUE="J">J</OPTION>
+				<OPTION VALUE="K">K</OPTION>
+				<OPTION VALUE="L">L</OPTION>
+				<OPTION VALUE="M">M</OPTION>
+				<OPTION VALUE="N">N</OPTION>
+				<OPTION VALUE="Ñ">Ñ</OPTION>
+				<OPTION VALUE="O">O</OPTION>
+				<OPTION VALUE="P">P</OPTION>
+				<OPTION VALUE="Q">Q</OPTION>
+				<OPTION VALUE="R">R</OPTION>
+				<OPTION VALUE="S">S</OPTION>
+				<OPTION VALUE="T">T</OPTION>
+				<OPTION VALUE="U">U</OPTION>
+				<OPTION VALUE="V">V</OPTION>
+				<OPTION VALUE="W">W</OPTION>
+				<OPTION VALUE="X">X</OPTION>
+				<OPTION VALUE="Y">Y</OPTION>
+				<OPTION VALUE="Z">Z</OPTION>
+			</SELECT>
+			</div>
+			
+			<div class="form-group">			
+			<label class="control-label col-sm-4" for="nombr">Hasta:</label>
+			<div class="col-sm-4">
+			<SELECT name="hasta" id="hasta" class="form-control input-sm" onchange="sesion();" 
+			title="Seleccione Destino">
+				<OPTION VALUE="A">A</OPTION>
+				<OPTION VALUE="B">B</OPTION>
+				<OPTION VALUE="C">C</OPTION>
+				<OPTION VALUE="D">D</OPTION>
+				<OPTION VALUE="E">E</OPTION>
+				<OPTION VALUE="F">F</OPTION>
+				<OPTION VALUE="G">G</OPTION>
+				<OPTION VALUE="H">H</OPTION>
+				<OPTION VALUE="I">I</OPTION>
+				<OPTION VALUE="J">J</OPTION>
+				<OPTION VALUE="K">K</OPTION>
+				<OPTION VALUE="L">L</OPTION>
+				<OPTION VALUE="M">M</OPTION>
+				<OPTION VALUE="N">N</OPTION>
+				<OPTION VALUE="Ñ">Ñ</OPTION>
+				<OPTION VALUE="O">O</OPTION>
+				<OPTION VALUE="P">P</OPTION>
+				<OPTION VALUE="Q">Q</OPTION>
+				<OPTION VALUE="R">R</OPTION>
+				<OPTION VALUE="S">S</OPTION>
+				<OPTION VALUE="T">T</OPTION>
+				<OPTION VALUE="U">U</OPTION>
+				<OPTION VALUE="V">V</OPTION>
+				<OPTION VALUE="W">W</OPTION>
+				<OPTION VALUE="X">X</OPTION>
+				<OPTION VALUE="Y">Y</OPTION>
+				<OPTION VALUE="Z">Z</OPTION>
 			</SELECT>
 			</div>
 						
@@ -85,11 +145,11 @@
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
-                      <a class="btn btn-danger" href="<c:url value="/detalletransferencia-list" />" role="button">Listado Transferencias</a>
+                      <a class="btn btn-danger" href="<c:url value="/index" />" role="button">Regresar</a>
                 </div>
 
 <input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="Transferencias.jasper" name="nombre"/>
+<input type="hidden" value="Kardex.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>

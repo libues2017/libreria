@@ -10,10 +10,11 @@
 
 <% /*Parametros para realizar la conexión*/ 
 String fechainicio= request.getParameter("fecha_inicio");
-String tipo= request.getParameter("tipotransferencia");
 String fechafin= request.getParameter("fecha_fin");
 String user=request.getParameter("usuario");
 String grupo=request.getParameter("nombre");
+String  inicio= request.getParameter("desde");
+String fin= request.getParameter("hasta");
 //grupo="VolEntraPro.jasper";
 Connection conexion; 
 Class.forName("com.mysql.jdbc.Driver").newInstance(); 
@@ -37,8 +38,9 @@ String fecha = formateador.format(fecha2);
 Map parameters = new HashMap();
 parameters.put("fechini", fecha1); 
 parameters.put("fenili", fecha2);
-parameters.put("tipotransf", tipo); 
 parameters.put("fec", fecha);
+parameters.put("start", inicio);
+parameters.put("end", fin);
 //parameters.put("user", user); 
 //parameters.put("fec", fecha); 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
