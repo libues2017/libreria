@@ -77,8 +77,8 @@
 			    	        var result = str.link(res2);
 			    	        var result1 = str1.link(res4);
 			    	     
-			    	          document.getElementById("devolver").innerHTML = result;
-			    	          document.getElementById("devolver1").innerHTML = result1;
+			    	          document.getElementById("devolver").innerHTML = result;//editar
+			    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
 			    	      }	  
 			    	    } );
 			        
@@ -90,12 +90,7 @@
 
 <body>
 
-    <div id="frmTest" tabindex="-1">
-	    <!-- CUTTED -->
-        <div id="step1" class="modal-footer">
-		  <button type="button" class="glyphicon glyphicon-erase btn btn-default" id="btnDelete"> Delete</button>
-		</div>
-	</div>
+    
 
     <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
@@ -104,7 +99,7 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  type="button" class="btn btn-default" id="confirmOk">Ok</button>
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
 		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
 		        </div>
 			</div>
@@ -124,9 +119,14 @@
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
-                <p id="devolver" class="btn btn-success"></p> ||
-                <p id="devolver1" class="btn btn-warning"></p>
-             
+                <p id="devolver" class="btn btn-success"></p> || 
+                 <!-- Eliminar -->
+                <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               
+                 
+
+				
+				
             </div>
        
             </div>
@@ -160,7 +160,7 @@
 var YOUR_MESSAGE_STRING_CONST = "Quieres eliminar este dato?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
-			alert();//My code to delete
+			//alert();//My code to delete
 		});
 	});
 
