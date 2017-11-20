@@ -23,6 +23,7 @@
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 	     
 
+
 		
 
 	
@@ -73,7 +74,7 @@
 			    	         var res2=res.concat(res1);//link editar			    	         
 			    	         var res4=res3.concat(res1);//link eliminar			    	       
 			    	         var str = "Editar";
-			    	         var str1 = "Eliminar";
+			    	         var str1 = "Aceptar";
 			    	        var result = str.link(res2);
 			    	        var result1 = str1.link(res4);
 			    	     
@@ -119,12 +120,10 @@
                 <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
-                <p id="devolver" class="btn btn-success"></p> || 
-                 <!-- Eliminar -->
-                <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
                
                  
-
+                
 				
 				
             </div>
