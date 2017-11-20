@@ -1275,12 +1275,15 @@ public class AppControllerLibues {
         HttpSession sesion1 = request.getSession(true);
         sesion1.setAttribute("codigo1", transferencia6);
         model.addAttribute("producto", productos);
+        //numero de transferencia
+        Integer numeroTransferencia = transferenciaService.findById(transferencia6).getNumeroTransferencia();
+        sesion1.setAttribute("numeroTransferencia", numeroTransferencia);
         return "detalletransferencia-reg";
   }
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
-    public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, 
-            BindingResult result, ModelMap model,@RequestParam(required = false) String fechaTransferencia, 
+    public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, BindingResult result, 
+            ModelMap model,@RequestParam(required = false) String fechaTransferencia, Integer numeroTransferencia, 
             String tipoTransferencia, String sucursal, Boolean estado) throws IOException, ParseException {
             
     
@@ -1290,11 +1293,11 @@ public class AppControllerLibues {
         detalletransferenciaService.savedetalleTransferencia(detalletransferencia);
         
         Integer codTransferencia = Integer.parseInt(request.getParameter("codTransferencia"));
-        Integer numero = Integer.parseInt(request.getParameter("numeroTransferencia"));
+        //Integer numero = Integer.parseInt(request.getParameter("numeroTransferencia"));
         
         HttpSession sesion2 = request.getSession(true);
         Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numero, tipoTransferencia, sucursal, estado);
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia, tipoTransferencia, sucursal, estado);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
         sesion2.setAttribute("mySessionAttribute", fecha);
@@ -1434,6 +1437,7 @@ public class AppControllerLibues {
           transferencia.setTipoTransferencia("Salida");
           transferencia.setSucursal("San Salvador");
           transferencia.setNumeroTransferencia(0);
+          //transferencia.setNumeroTransferencia(0);
           transferencia.setFechaTransferencia(fechaTransferencia1);
           transferencia.setTotal(0.0);
           transferencia.setEstado(true);

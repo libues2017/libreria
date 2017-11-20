@@ -21,7 +21,7 @@ public class Transferencia implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codTransferencia;
 	
-	
+	@NotNull
 	@Column(name="NUMEROTRANSFERENCIA")
 	private int numeroTransferencia;
 	
