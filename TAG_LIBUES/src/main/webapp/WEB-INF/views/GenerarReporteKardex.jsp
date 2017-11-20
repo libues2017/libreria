@@ -70,9 +70,9 @@
             
             <div class="form-group">			
 			<label class="control-label col-sm-4" for="nombr">Desde:</label>
-			<div class="col-sm-4">
+			<div class="col-sm-1">
 			<SELECT name="desde" id="desde" class="form-control input-sm" onchange="sesion();" 
-			title="Seleccione Tipo de Transferencia">
+			title="Seleccione Desde que Letra Buscar">
 					<OPTION VALUE="A">A</OPTION>
 				<OPTION VALUE="B">B</OPTION>
 				<OPTION VALUE="C">C</OPTION>
@@ -103,12 +103,12 @@
 			</SELECT>
 			</div>
 			
-			<div class="form-group">			
-			<label class="control-label col-sm-4" for="nombr">Hasta:</label>
-			<div class="col-sm-4">
+		  <div class="form-group">			
+			<label class="control-label col-sm-1" for="nombr">Hasta:</label>
+			<div class="col-sm-1">
 			<SELECT name="hasta" id="hasta" class="form-control input-sm" onchange="sesion();" 
-			title="Seleccione Destino">
-				<OPTION VALUE="A">A</OPTION>
+			title="Seleccione Hasta que Letra Buscar">
+					<OPTION VALUE="A">A</OPTION>
 				<OPTION VALUE="B">B</OPTION>
 				<OPTION VALUE="C">C</OPTION>
 				<OPTION VALUE="D">D</OPTION>
@@ -137,11 +137,10 @@
 				<OPTION VALUE="Z">Z</OPTION>
 			</SELECT>
 			</div>
-						
-         
-            <div class="form-group">
+					
+			<div class="form-group">
 
-            </div>
+            </div>	
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>

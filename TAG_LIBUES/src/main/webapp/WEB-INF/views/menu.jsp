@@ -117,7 +117,7 @@
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            			<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
 			            			<li role="separator" class="divider"></li>
-            						<li><a href="<c:url value="existencias" />">Reporte de Kardex</a></li>
+            						<li><a href="<c:url value="kardex" />">Reporte de Kardex</a></li>
 			            			<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
 			            			<li role="separator" class="divider"></li>
