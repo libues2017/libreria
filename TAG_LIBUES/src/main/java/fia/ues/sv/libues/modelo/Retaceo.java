@@ -1,8 +1,7 @@
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,10 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
-
- 
 
 @Entity
 @Table(name="retaceo")

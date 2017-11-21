@@ -23,7 +23,7 @@ public class Transferencia implements Serializable{
 	
 	@NotNull
 	@Column(name="NUMEROTRANSFERENCIA")
-	private int numeroTransferencia;
+	private Integer numeroTransferencia;
 	
 	@NotNull
 	@Column(name="TIPOTRANSFERENCIA")
@@ -52,11 +52,11 @@ public class Transferencia implements Serializable{
 		this.codTransferencia = codTransferencia;
 	}
 
-	public int getNumeroTransferencia() {
+	public Integer getNumeroTransferencia() {
 		return numeroTransferencia;
 	}
 
-	public void setNumeroTransferencia(int numeroTransferencia) {
+	public void setNumeroTransferencia(Integer numeroTransferencia) {
 		this.numeroTransferencia = numeroTransferencia;
 	}
 

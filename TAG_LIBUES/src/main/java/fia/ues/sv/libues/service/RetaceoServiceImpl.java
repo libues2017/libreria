@@ -70,7 +70,7 @@ public class RetaceoServiceImpl implements RetaceoService{
 	public void updateFechaRetaceo(Date fecharetaceo,Date fechafacturaproveedor,Integer codigoproveedor,Integer codigofacturaproveedor,Integer codigoretaceo) {
 		// TODO Auto-generated method stub
 		
-		Retaceo retaceo=new Retaceo();
+		//Retaceo retaceo=new Retaceo();
         Retaceo entity=dao.findById(codigoretaceo);
 		
 		if(entity!=null){

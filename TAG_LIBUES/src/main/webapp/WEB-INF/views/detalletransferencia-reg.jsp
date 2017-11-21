@@ -343,8 +343,8 @@
 						
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
-							<input type="number" min="0" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
-							title="Digite el número de Transferencia"/>
+							<input type="number" min="0" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
+							  title="Digite el número de Transferencia"  value='<%=session.getAttribute("numeroTransferencia")%>'/>
 						</div>
 						
 						<div class="col-xs-2">			
