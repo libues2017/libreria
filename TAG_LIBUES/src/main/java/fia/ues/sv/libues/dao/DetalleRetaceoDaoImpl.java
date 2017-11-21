@@ -59,7 +59,7 @@ public class DetalleRetaceoDaoImpl extends AbstractDao<Integer, DetalleRetaceo> 
 			// TODO Auto-generated method stub
 		
 		
-		  Criteria criteria = createEntityCriteria();		 
+		   Criteria criteria = createEntityCriteria();		 
            criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
            List<DetalleRetaceo> detalleRetaceo = (List<DetalleRetaceo>) criteria.list();
  		   return detalleRetaceo;	
