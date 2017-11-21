@@ -10,14 +10,19 @@
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
-		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
 	
+	
+	
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 	
 		<script type="text/javascript">
 			    var dataSet = [];
@@ -80,6 +85,23 @@
 </head>
 <body>
 
+
+    <!-- Modal confirm -->
+	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="confirmMessage">
+				</div>
+				<div class="modal-footer">
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		        </div>
+			</div>
+		</div>
+	</div>
+
+
+
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
@@ -92,8 +114,8 @@
                 <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Agregar Proveedor</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
-                <p id="devolver" class="btn btn-success"></p> ||
-                <p id="devolver1" class="btn btn-warning"></p>
+                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               
              
             </div>
         </sec:authorize>
@@ -114,4 +136,27 @@
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 <div class="row"><%@include file="foot.jsp" %></div>
 </body>
+
+<script>
+var YOUR_MESSAGE_STRING_CONST = "Quieres eliminar este dato?";
+$('#btnDelete').on('click', function(e){
+		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+			//alert();//My code to delete
+		});
+	});
+
+  function confirmDialog(message, onConfirm){
+	    var fClose = function(){
+			modal.modal("hide");
+	    };
+	    var modal = $("#confirmModal");
+	    modal.modal("show");
+	    $("#confirmMessage").empty().append(message);
+	    $("#confirmOk").one('click', onConfirm);
+	    $("#confirmOk").one('click', fClose);
+	    $("#confirmCancel").one("click", fClose);
+  }
+  </script>
+
+
 </html>
