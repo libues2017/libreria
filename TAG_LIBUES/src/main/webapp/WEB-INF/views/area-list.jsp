@@ -21,11 +21,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-	     
-
-
-		
-
+	
 	
 	<script type="text/javascript">
 			    var dataSet = [];
@@ -123,8 +119,6 @@
                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
                
                  
-                
-				
 				
             </div>
        
