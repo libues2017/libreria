@@ -915,8 +915,31 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/detalleretaceo-list" }, method = RequestMethod.GET)
     public String listRetaceos(ModelMap model) throws IOException {
-         List<DetalleRetaceo> detalleretaceo = detalleretaceoService.findAllRetaceos();
-        model.addAttribute("detalleretaceo", detalleretaceo);
+    	
+    	 Double total=0.0;	    
+    	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0);  
+    	
+         List<DetalleRetaceo> detalleretaceo = detalleretaceoService.findAllRetaceos();//extraer todos los retaceos
+         
+         //detalleretaceo.size();
+         
+         for (int j = 0; j < detalleretaceo.size(); j++){
+        	 
+		 		 Integer codigo = detalleretaceo.get(j).getCodigoretaceo();
+		          retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+		    	 
+			   	  for (int i = 0; i < retaceoBuscar.size(); i++){
+			   		 Integer codigoguardar = codigo;
+			   		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+			   		   
+			   		  
+			   	  } 
+	      
+         }
+         
+         
+       // model.addAttribute("detalleretaceo", detalleretaceo);
+         model.addAttribute("detalleretaceo", retaceoBuscar);
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalleretaceo-list";
     }

@@ -1,6 +1,11 @@
 package fia.ues.sv.libues.dao;
 
 import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -83,8 +88,14 @@ public class DetalleRetaceoDaoImpl extends AbstractDao<Integer, DetalleRetaceo> 
 	@Override
 	public List<DetalleRetaceo> findRetaceosProducto(Integer codigoretaceo,Integer codigoproducto) {
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoretaceo"));
+		
+		/*EntityManager em = ...;
+		CriteriaBuilder cb = em.getCriteriaBuilder();*/
+		
         criteria.add(Restrictions.eq("codigoretaceo", codigoretaceo)); 
-        criteria.add(Restrictions.eq("codigoproducto", codigoproducto)); 
+        criteria.add(Restrictions.eq("codigoproducto", codigoproducto));
+        
+        
        // criteria.add(Restrictions.("visible", true));
         List<DetalleRetaceo> detalleRetaceo = (List<DetalleRetaceo>) criteria.list();
         return detalleRetaceo; 
