@@ -30,12 +30,17 @@
 			    var sessionId3 = [];
 			    var i=0;
 			    
+			    
+			    <c:forEach items="${totales}"   var="total">
 			    <c:forEach items="${retaceo}"   var="current">
-				    <c:forEach items="${totales}"   var="total">
+			    
+			    
+				  
+			    <c:if test = "${total > current.codigoretaceo}">
 				    
 				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", "${current.fecharetaceo}", "${current.codigofacturaproveedor}","${total}"  ] ;
 				     i=i+1;
-				    
+				     </c:if>
 				    </c:forEach>
 			    </c:forEach>
 			    

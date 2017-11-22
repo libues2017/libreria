@@ -923,18 +923,12 @@ public class AppControllerLibues {
     	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0); 
     	 List<Retaceo> retaceo = retaceoService.findAllRetaceos();//extrae todos los retaceos
     	 
-    	 
-    	 
-    	
          List<DetalleRetaceo> detalleretaceo = detalleretaceoService.findAllRetaceos();//extraer todos los retaceos
          
          //detalleretaceo.size();
          
          //  codigoretaceo proveedor monto fecha factura
-         
-         
-         
-         
+           
          ///se extrae el codigo de retaceo 
          //se extrae el total de cada retaceo
          //
@@ -952,6 +946,7 @@ public class AppControllerLibues {
         	 
         	 
         	 totales[k]=total;//aqui se calcula el total	para cada retaceo
+        	 total=0.0;//para inicializar total
 			   	
          }
          
