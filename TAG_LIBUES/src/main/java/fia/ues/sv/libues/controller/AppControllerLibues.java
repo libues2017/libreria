@@ -919,7 +919,7 @@ public class AppControllerLibues {
     	
     	 Double total=0.0;	
     	 //Double [] totales = null;
-    	 double[] totales = new double[100];
+    	 double[][] totales = new double[100][100];
     	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0); 
     	 List<Retaceo> retaceo = retaceoService.findAllRetaceos();//extrae todos los retaceos
     	 
@@ -945,7 +945,9 @@ public class AppControllerLibues {
 		   	  } 
         	 
         	 
-        	 totales[k]=total;//aqui se calcula el total	para cada retaceo
+        	 totales[k][k]=codigo;//aqui se calcula el total	para cada retaceo
+        	 totales[k+1][k+1]=total;
+        	 
         	 total=0.0;//para inicializar total
 			   	
          }
