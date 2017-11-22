@@ -3,6 +3,7 @@ package fia.ues.sv.libues.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -916,30 +917,64 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/detalleretaceo-list" }, method = RequestMethod.GET)
     public String listRetaceos(ModelMap model) throws IOException {
     	
-    	 Double total=0.0;	    
-    	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0);  
+    	 Double total=0.0;	
+    	 //Double [] totales = null;
+    	 double[] totales = new double[100];
+    	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0); 
+    	 List<Retaceo> retaceo = retaceoService.findAllRetaceos();//extrae todos los retaceos
+    	 
+    	 
+    	 
     	
          List<DetalleRetaceo> detalleretaceo = detalleretaceoService.findAllRetaceos();//extraer todos los retaceos
          
          //detalleretaceo.size();
          
-         for (int j = 0; j < detalleretaceo.size(); j++){
+         //  codigoretaceo proveedor monto fecha factura
+         
+         
+         
+         
+         ///se extrae el codigo de retaceo 
+         //se extrae el total de cada retaceo
+         //
+         for (int k = 0; k < retaceo.size(); k++){
+        	 
+        	 Integer codigo = retaceo.get(k).getCodigoretaceo();
+        	 retaceoBuscar = detalleretaceoService.findRetaceos(codigo);   
+        	 
+        	 for (int i = 0; i < retaceoBuscar.size(); i++){
+		   		 Integer codigoguardar = codigo;
+		   		 total=total+retaceoBuscar.get(i).getSubtotal(); 
+		   		// retaceo.add(total);
+		   		  
+		   	  } 
+        	 
+        	 
+        	 totales[k]=total;//aqui se calcula el total	para cada retaceo
+			   	
+         }
+         
+         /*for (int j = 0; j < detalleretaceo.size(); j++){
         	 
 		 		 Integer codigo = detalleretaceo.get(j).getCodigoretaceo();
-		          retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
-		    	 
+		          retaceoBuscar = detalleretaceoService.findRetaceos(codigo); //para extraer el total de un mismo codigo 
+		         
 			   	  for (int i = 0; i < retaceoBuscar.size(); i++){
 			   		 Integer codigoguardar = codigo;
-			   		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
-			   		   
+			   		 total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total	
+			   		// retaceo.add(total);
 			   		  
 			   	  } 
-	      
-         }
+			   	  
+			   	  
+			   	  
+         }*/
          
          
        // model.addAttribute("detalleretaceo", detalleretaceo);
-         model.addAttribute("detalleretaceo", retaceoBuscar);
+         model.addAttribute("retaceo", retaceo);
+         model.addAttribute("totales", totales);
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalleretaceo-list";
     }
