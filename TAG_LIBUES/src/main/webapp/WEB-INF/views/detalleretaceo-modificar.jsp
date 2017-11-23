@@ -418,7 +418,7 @@ var miVar = <%= sAhora %>;
 				<div class="panel-body">
 					<div class="col-xs-3">      
 					<label class="form-control" for="nombr">Documento #:</label>					
-					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" />   
+					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=request.getAttribute("codigoretaceo").toString()%>'/>   
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
@@ -426,7 +426,7 @@ var miVar = <%= sAhora %>;
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" />
+                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=request.getAttribute("utilidad").toString()%>' />
                     </div>
 				</div>
 			</div>

@@ -1052,6 +1052,8 @@ public class AppControllerLibues {
 
     	
 			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
+				    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+				        model.addAttribute("detalleretaceo", detalleretaceo);
     	              HttpSession sesion = request.getSession();
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
@@ -1068,7 +1070,7 @@ public class AppControllerLibues {
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
 			    	  Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
 			    	 
-			          DetalleRetaceo detalleretaceo = detalleretaceoService.findById(codigodetalleretaceo);
+			          DetalleRetaceo detalleretaceo1 = detalleretaceoService.findById(codigodetalleretaceo);
 					  
 			    	  
 			    	  Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
@@ -1080,7 +1082,7 @@ public class AppControllerLibues {
 			    	   Integer existencia=productoBuscar.getExistencia();
 			    	   Double costo=productoBuscar.getCostounitario();*/
 			    				    		
-			    	  sesion.setAttribute("PUNTOPARTIDA", retaceoBuscar.size());//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
+			    	  sesion.setAttribute("punto", retaceoBuscar.size()-1);//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
 			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1121,25 +1123,28 @@ public class AppControllerLibues {
      
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoretaceo) throws IOException, ParseException {
+            ModelMap model, @PathVariable Integer codigoretaceo,HttpServletRequest request)
+            		throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
         
         
-        
-        
+        HttpSession sesion = request.getSession();
+        Integer punto=(Integer)sesion.getAttribute("punto");
               
         System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
         
+        detalleretaceoService.savedetalleRetaceo(detalleRetaceo);
         
-        detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
+       // detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         
        // return "redirect:/detalleretaceo-list";
-        return "detalleretaceo-modificar";
+       // return "detalleretaceo-modificar";
+        return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
     }
     
     
