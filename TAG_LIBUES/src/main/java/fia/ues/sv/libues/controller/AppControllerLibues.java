@@ -1023,8 +1023,7 @@ public class AppControllerLibues {
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
         
-        //se obtiene el ultimo codigo retaceo
-       
+        //se obtiene el ultimo codigo retaceo       
         
 		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
 		
@@ -1249,11 +1248,13 @@ public class AppControllerLibues {
           Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
           
           
+          
           Retaceo retaceo=new Retaceo();
           retaceo.setCodigoproveedor(codigoproveedor);
           retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
+          retaceo.setTotal(0.0);//inicializamos el total
           
           //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
