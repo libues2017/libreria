@@ -14,6 +14,7 @@
     	}
     </Style>
 </head>
+
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
@@ -22,65 +23,58 @@
 <div class="col-xs-8">
 	<c:choose>
 	<c:when test="${edit}">
-		<div class="well lead">Actualizar Area</div>
+		<div class="well lead" align="center">ACTUALIZAR ÁREA</div>
 	</c:when>
     <c:otherwise>
-    	<div class="well lead">Agregar Area</div>
+    	<div class="well lead" align="center">NUEVA ÁREA</div>
     </c:otherwise>
     </c:choose>	  
         <form:form method="POST" modelAttribute="area" class="form-horizontal">
             <form:input type="hidden" path="codigoarea" id="codigoarea"/>
-             
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombrearea">Nombre:</label>
-                    <div class="col-md-7">
-                        <form:input type="text" path="nombrearea" id="nombrearea"  maxlength="50" placeholder="Digite el Nombre del Area" class="form-control input-sm"/>
-                        <div class="has-error">
-                            <form:errors path="nombrearea" class="help-inline"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+            <div class="well lead"> 
+	            <div class="row">
+	                <div class="form-group col-md-12">
+	                    <label class="col-md-3 control-lable" for="nombrearea">Nombre:</label>
+	                    <div class="col-md-7">
+	                        <form:input type="text" path="nombrearea" id="nombrearea"  maxlength="50" placeholder="Digite el Nombre del Área" class="form-control input-sm"/>
+	                        <div class="has-error">
+	                            <form:errors path="nombrearea" class="help-inline"/>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>           
            
 		        <div class="row">
-		        	<div class="form-group col-md-12">
+		        	<div class="form-group col-md-12" style="display: none">
                     	<label class="col-md-3 control-lable" for="estado">Estado:</label>
                     	<div class="col-md-7">
-                        	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
-                        	<SELECT name="estado" id="estado" class="form-control input-sm">
-										<OPTION VALUE="1">Activo</OPTION>
-										<OPTION VALUE="0">Inactivo</OPTION>
-							</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="estado" class="help-inline"/>
-                       	 	</div>
+                        	<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1"/>
                     	</div>
                		</div>
             	</div>
      
             <div class="row">
-                <div class="form-actions floatRight">
+                <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el AREA')"/> 
-                            ó <a href="<c:url value='/area-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="alert('Se actualizó el ÁREA')"/> 
+                            ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="alert('Se creo el AREA')"/> 
-                            ó <a href="<c:url value='/area-list' />">Cancelar</a>
-                        </c:otherwise>
+                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="alert('Se creó el ÁREA')"/> 
+                            ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
+                        </c:otherwise> 
                     </c:choose>
                 </div>
+            </div>
             </div>
         </form:form>
 </div>
 
 </div>
 
-<!--
+
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
-<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 </html>
