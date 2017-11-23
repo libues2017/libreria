@@ -31,6 +31,7 @@
 			    var i=0;
 			    
 			    <c:forEach items="${retaceo}"   var="current">
+			    
 			    <c:if test = "${current.total > 0}">
 			    
 				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", "${current.fecharetaceo}", "${current.codigofacturaproveedor}","${current.total}" ] ;
@@ -80,8 +81,8 @@
 		    	         var res12="-";	
 		    	         var res123=codigoproducto;	
 		    	         var res2=res.concat(res1);//link editar			    	         
-		    	         var res2=res2.concat(res12);  
-		    	         var res2=res2.concat(res123);
+		    	        // var res2=res2.concat(res12);  
+		    	         //var res2=res2.concat(res123);
 		    	         
 		    	         var str = "Editar";
 		    	      

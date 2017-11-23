@@ -917,61 +917,12 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/detalleretaceo-list" }, method = RequestMethod.GET)
     public String listRetaceos(ModelMap model) throws IOException {
     	
-    	 Double total=0.0;	
-    	 //Double [] totales = null;
-    	 double[][] totales = new double[100][100];
-    	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(0); 
+    	
     	 List<Retaceo> retaceo = retaceoService.findAllRetaceos();//extrae todos los retaceos
     	 
-         List<DetalleRetaceo> detalleretaceo = detalleretaceoService.findAllRetaceos();//extraer todos los retaceos
-         
-         //detalleretaceo.size();
-         
-         //  codigoretaceo proveedor monto fecha factura
-           
-         ///se extrae el codigo de retaceo 
-         //se extrae el total de cada retaceo
-         //
-         for (int k = 0; k < retaceo.size(); k++){
-        	 
-        	 Integer codigo = retaceo.get(k).getCodigoretaceo();
-        	 retaceoBuscar = detalleretaceoService.findRetaceos(codigo);   
-        	 
-        	 for (int i = 0; i < retaceoBuscar.size(); i++){
-		   		 Integer codigoguardar = codigo;
-		   		 total=total+retaceoBuscar.get(i).getSubtotal(); 
-		   		// retaceo.add(total);
-		   		  
-		   	  } 
-        	 
-        	 
-        	 totales[k][k]=codigo;//aqui se calcula el total	para cada retaceo
-        	 totales[k+1][k+1]=total;
-        	 
-        	 total=0.0;//para inicializar total
-			   	
-         }
-         
-         /*for (int j = 0; j < detalleretaceo.size(); j++){
-        	 
-		 		 Integer codigo = detalleretaceo.get(j).getCodigoretaceo();
-		          retaceoBuscar = detalleretaceoService.findRetaceos(codigo); //para extraer el total de un mismo codigo 
-		         
-			   	  for (int i = 0; i < retaceoBuscar.size(); i++){
-			   		 Integer codigoguardar = codigo;
-			   		 total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total	
-			   		// retaceo.add(total);
-			   		  
-			   	  } 
-			   	  
-			   	  
-			   	  
-         }*/
-         
-         
-       // model.addAttribute("detalleretaceo", detalleretaceo);
+            
          model.addAttribute("retaceo", retaceo);
-         model.addAttribute("totales", totales);
+       
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalleretaceo-list";
     }
@@ -1018,7 +969,6 @@ public class AppControllerLibues {
    	     }
    		     
     	
-
 		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
@@ -1097,15 +1047,16 @@ public class AppControllerLibues {
     }
     
         
-    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
-    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
+    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
+    public String editdetalleRetaceo(@PathVariable Integer codigoretaceo, ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
 			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
 			    
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
-			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista		
+			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
+			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo); 
 			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();				    	  
 				      List<Producto> productos = productoService.findAllProductos();
 				      
@@ -1115,19 +1066,19 @@ public class AppControllerLibues {
 				      Date fecharetaceo=retaceo.getFecharetaceo();	
 				      Integer codigoproveedor=retaceo.getCodigoproveedor();			
 			    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
-			    	 Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
+			    	  Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
 			    	 
-			    		DetalleRetaceo detalleretaceo = detalleretaceoService.findById(codigodetalleretaceo);
+			          DetalleRetaceo detalleretaceo = detalleretaceoService.findById(codigodetalleretaceo);
 					  
 			    	  
 			    	  Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
 			    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
 			    		
 			    		
-			    	   Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
+			    	 /*  Producto productoBuscar=productoService.findByCorrelativo(codigoproducto);
 			    	   String nombreproducto=productoBuscar.getNombreProducto();
 			    	   Integer existencia=productoBuscar.getExistencia();
-			    	   Double costo=productoBuscar.getCostounitario();
+			    	   Double costo=productoBuscar.getCostounitario();*/
 			    				    		
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1142,10 +1093,10 @@ public class AppControllerLibues {
 			    	model.addAttribute("detalleretaceo", detalleretaceo);	
 			    	model.addAttribute("codigoretaceo",codigoretaceo );
 			    	model.addAttribute("fecharetaceo",fecha );
-			    	model.addAttribute("codigoproducto",codigoproducto );
-			    	model.addAttribute("nombreproducto", nombreproducto);
-			    	model.addAttribute("existencia", existencia);
-			    	model.addAttribute("costo", costo);
+			    	//model.addAttribute("codigoproducto",codigoproducto );
+			    	//model.addAttribute("nombreproducto", nombreproducto);
+			        //model.addAttribute("existencia", existencia);
+			    	//model.addAttribute("costo", costo);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);			    	
 			    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
