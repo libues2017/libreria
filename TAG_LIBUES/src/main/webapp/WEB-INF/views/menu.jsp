@@ -36,12 +36,14 @@
 			          			<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>			          			
 			          			<li role="separator" class="divider"></li>
 			          			<li class="dropdown-submenu">
-			          			<a class="test" tabindex="-1" href="#">Areas <span class="caret"></span></a>
+			          			<a class="test" tabindex="-1" href="#">햞eas <span class="caret"></span></a>
 			          			<ul class="dropdown-menu">
-			            			<li><a href="<c:url value="area-list" />">Lista de Areas</a></li>
+			            			<li><a href="<c:url value="area-list" />">Lista de 햞eas</a></li>
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            			<li role="separator" class="divider"></li>
-			            				<li><a href="<c:url value="area-agregar" />">Agregar Area</a></li>
+			            				<li><a href="<c:url value="area-agregar" />">Agregar 햞ea</a></li>
+			            			<li role="separator" class="divider"></li>
+			            				<li><a href="<c:url value="area-list-deleted" />">Restaurar 햞eas</a></li>
 			                 		</sec:authorize>
 			          			</ul>
 			          			<li role="separator" class="divider"></li>	

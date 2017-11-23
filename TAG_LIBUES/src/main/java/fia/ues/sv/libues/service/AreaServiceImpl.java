@@ -53,6 +53,27 @@ public class AreaServiceImpl implements AreaService {
 	public List<Area> findAllAreas() {
 		return dao.findAllAreas();
 	}
+	
+	@Override
+	public List<Area> findAllAreasDeleted() {
+		return dao.findAllAreasDeleted();
+	}
+
+	@Override
+	public void estadoBorrarAreaById(Integer codigoarea) {
+		Area entity=dao.findById(codigoarea);		
+		if(entity!=null){
+			entity.setEstado(false);
+		}		
+	}
+
+	@Override
+	public void estadoRestaurarAreaById(Integer codigoarea) {
+		Area entity=dao.findById(codigoarea);		
+		if(entity!=null){
+			entity.setEstado(true);
+		}		
+	}
 
 }
 

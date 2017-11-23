@@ -15,4 +15,6 @@ public interface AreaDao {
 	void deleteById(int codigoarea);
 	
 	List<Area> findAllAreas();
+	
+	List<Area> findAllAreasDeleted();
 }

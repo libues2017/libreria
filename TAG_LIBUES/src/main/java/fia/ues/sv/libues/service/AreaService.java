@@ -18,4 +18,10 @@ public interface AreaService {
 	
 	List<Area> findAllAreas();
 	
+	List<Area> findAllAreasDeleted();
+
+	void estadoBorrarAreaById(Integer codigoarea);
+
+	void estadoRestaurarAreaById(Integer codigoarea);
+	
 }

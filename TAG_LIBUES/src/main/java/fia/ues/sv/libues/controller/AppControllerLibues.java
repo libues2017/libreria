@@ -403,14 +403,20 @@ public class AppControllerLibues {
     //*************************************************************************
     
     @RequestMapping(value = { "/area-list" }, method = RequestMethod.GET)
-    public String listAreas(ModelMap model) throws IOException {
- 
-        List<Area> area = areaService.findAllAreas();
-                
+    public String listAreas(ModelMap model) throws IOException { 
+        List<Area> area = areaService.findAllAreas();                
         model.addAttribute("area", area);
         model.addAttribute("loggedinuser", getPrincipal());
         return "area-list";
     }
+    
+    @RequestMapping(value = { "/area-list-deleted" }, method = RequestMethod.GET)
+    public String listAreasDeleted(ModelMap model) throws IOException {
+        List<Area> area = areaService.findAllAreasDeleted();                
+        model.addAttribute("area", area);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "area-list-deleted";
+    } 
     
     @RequestMapping(value = { "/area-agregar" }, method = RequestMethod.GET)
     public String newArea(ModelMap model) {
@@ -461,6 +467,18 @@ public class AppControllerLibues {
     public String deleteArea(@PathVariable Integer codigoarea) {
     	
     	areaService.deleteAreaById(codigoarea);
+        return "redirect:/area-list";
+    }
+    
+    @RequestMapping(value = { "/estado-borrar-area-{codigoarea}" }, method = RequestMethod.GET)
+    public String updateAreaDeleted(@PathVariable Integer codigoarea) {    	
+    	areaService.estadoBorrarAreaById(codigoarea);
+        return "redirect:/area-list";
+    }
+    
+    @RequestMapping(value = { "/estado-restaurar-area-{codigoarea}" }, method = RequestMethod.GET)
+    public String updateAreaRestore(@PathVariable Integer codigoarea) {    	
+    	areaService.estadoRestaurarAreaById(codigoarea);
         return "redirect:/area-list";
     }
     
