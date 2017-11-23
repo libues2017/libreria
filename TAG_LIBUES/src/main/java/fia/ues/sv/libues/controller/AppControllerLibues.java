@@ -1093,15 +1093,16 @@ public class AppControllerLibues {
 			    	model.addAttribute("detalleretaceo", detalleretaceo);	
 			    	model.addAttribute("codigoretaceo",codigoretaceo );
 			    	model.addAttribute("fecharetaceo",fecha );
-			    	//model.addAttribute("codigoproducto",codigoproducto );
-			    	//model.addAttribute("nombreproducto", nombreproducto);
-			        //model.addAttribute("existencia", existencia);
-			    	//model.addAttribute("costo", costo);
 			    	model.addAttribute("fechafacturaproveedor",fechafac );
 			    	model.addAttribute("utilidad", utilidad);			    	
 			    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
 			    	model.addAttribute("nombreproveedor", nombreproveedor);
-			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);			    	
+			    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);	
+			    	//model.addAttribute("codigoproducto",codigoproducto );
+			    	//model.addAttribute("nombreproducto", nombreproducto);
+			        //model.addAttribute("existencia", existencia);
+			    	//model.addAttribute("costo", costo);
+			    			    	
 			    	model.addAttribute("proveedor", proveedores);
 				    model.addAttribute("producto", productos);
 				    model.addAttribute("total", total);
@@ -1115,15 +1116,15 @@ public class AppControllerLibues {
     }
     
      
-    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto) throws IOException, ParseException {
+            ModelMap model, @PathVariable Integer codigoretaceo) throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
               
-        System.out.println("codigo:" + codigoretaceo+"producto "+codigoproducto);	
+        System.out.println("codigo:" + codigoretaceo);	
         detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
