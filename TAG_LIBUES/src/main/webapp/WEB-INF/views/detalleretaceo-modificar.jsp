@@ -474,15 +474,15 @@ var miVar = <%= sAhora %>;
                     </div>
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
-						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm"  value='<%=request.getAttribute("nombreproducto").toString()%>'/>
+						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm"  />
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="existencia">Existencia:</label>
-						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  value='<%=request.getAttribute("existencia").toString()%>' />      
+						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"   />      
                     </div>
                     <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Costo Actual:</label>
-						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm" value='<%=request.getAttribute("costo").toString()%>' />      
+						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
 				</div>
 			</div>
