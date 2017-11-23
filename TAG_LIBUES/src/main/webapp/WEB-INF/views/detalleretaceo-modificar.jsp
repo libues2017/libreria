@@ -521,7 +521,7 @@ var miVar = <%= sAhora %>;
             	    <c:choose>
                         <c:when test="${edit}">
                         <div class="col-xs-2">
-                            <input type="submit" value="ACTUALIZAR"  onclick="confirmar"  class="btn btn-primary btn-sm"/>
+                            <input type="submit" value="AGREGAR"  onclick="confirmar"  class="btn btn-primary btn-sm"/>
                         </div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>

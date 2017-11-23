@@ -1052,7 +1052,7 @@ public class AppControllerLibues {
 
     	
 			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
-			    
+    	              HttpSession sesion = request.getSession();
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
 			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
@@ -1080,9 +1080,12 @@ public class AppControllerLibues {
 			    	   Integer existencia=productoBuscar.getExistencia();
 			    	   Double costo=productoBuscar.getCostounitario();*/
 			    				    		
+			    	  sesion.setAttribute("PUNTOPARTIDA", retaceoBuscar.size());//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
+			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
 			    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			    		  
+			    		   
 			    	  }    	  
 			    	 		    	 		       
 			
@@ -1123,8 +1126,14 @@ public class AppControllerLibues {
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
+        
+        
+        
+        
               
-        System.out.println("codigo:" + codigoretaceo);	
+        System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
+        
+        
         detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
