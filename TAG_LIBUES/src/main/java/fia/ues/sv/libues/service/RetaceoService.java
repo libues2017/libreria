@@ -35,7 +35,7 @@ public interface RetaceoService {
 	
 	List<Retaceo> findAllRetaceos();
 
-	void updateFechaRetaceo(Date fecharetaceo,Date fechafacturaproveedor,Integer codigoproveedor,Integer codigofacturaproveedor,Integer codigoretaceo);
+	void updateFechaRetaceo(Date fecharetaceo,Date fechafacturaproveedor,Integer codigoproveedor,Integer codigofacturaproveedor,Integer codigoretaceo,Double total);
 	
 	
 	

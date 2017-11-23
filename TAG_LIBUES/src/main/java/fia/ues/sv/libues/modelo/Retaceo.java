@@ -46,6 +46,21 @@ public class Retaceo implements Serializable{
 	@Column(name="CODIGOPROVEEDOR")
 	private Integer codigoproveedor;
 	
+	
+	@NotNull
+	@Column(name="TOTAL")
+	private Double total;
+	
+
+	public Double getTotal() {
+		return total;
+	}
+
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+
 
 	public Integer getCodigoproveedor() {
 		return codigoproveedor;

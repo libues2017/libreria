@@ -1001,6 +1001,7 @@ public class AppControllerLibues {
     	  }    	  
     	 
     	  model.addAttribute("total", total);
+    	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
     	  model.addAttribute("retaceo2", retaceoBuscar);
        }
     	
@@ -1075,9 +1076,11 @@ public class AppControllerLibues {
     	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
         String revisar=nombreproveedor;
     	
+        
+        HttpSession sesion = request.getSession();
+        Double total=(Double)sesion.getAttribute("total");
     	
-    	
-    	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo);
+    	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
     	
     	
     	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor1);
@@ -1161,8 +1164,7 @@ public class AppControllerLibues {
               
     }
     
-    
- 
+     
     @RequestMapping(value = { "/edit-detalleRetaceo-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.POST)
     public String updateRetaceo(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
             ModelMap model, @PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto) throws IOException, ParseException {
@@ -1170,8 +1172,7 @@ public class AppControllerLibues {
         if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
-        
-      
+              
         System.out.println("codigo:" + codigoretaceo+"producto "+codigoproducto);	
         detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
