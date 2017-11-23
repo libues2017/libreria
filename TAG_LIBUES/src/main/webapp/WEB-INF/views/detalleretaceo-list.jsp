@@ -6,7 +6,7 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Librería UES</title>
+    <title>Librería UES</title>    
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
@@ -30,19 +30,16 @@
 			    var sessionId3 = [];
 			    var i=0;
 			    
-			    
-			    <c:forEach items="${totales}"   var="total">
 			    <c:forEach items="${retaceo}"   var="current">
+			    <c:if test = "${current.total > 0}">
 			    
-			    
-				  
-			    <c:if test = "${total > current.codigoretaceo}">
-				    
-				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", "${current.fecharetaceo}", "${current.codigofacturaproveedor}","${total}"  ] ;
+				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", "${current.fecharetaceo}", "${current.codigofacturaproveedor}","${current.total}" ] ;
 				     i=i+1;
-				     </c:if>
-				    </c:forEach>
-			    </c:forEach>
+			   </c:if>
+			 
+		      </c:forEach>
+			
+			  
 			    
 			 //   dataSet =  [ "Tiger Nixon" ];
 			    
