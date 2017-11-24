@@ -2233,4 +2233,14 @@ public class AppControllerLibues {
         return fileBytes;
     }
     
+    //Control para la creacion del Respaldo de la Base
+    @RequestMapping(value={"/backup-crear"}, method = RequestMethod.GET)
+  	public String Backup(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "respaldoBase";
+  	}
+      
+   
+    
+    
 }//Fin del Controlador
