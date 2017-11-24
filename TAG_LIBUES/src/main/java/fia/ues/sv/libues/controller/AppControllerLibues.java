@@ -1373,8 +1373,6 @@ public class AppControllerLibues {
         	 
           }
           
-          
-          
          // System.out.println("revisar--------------------------------------punto:"+ punto);	
           
           //Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
@@ -1411,8 +1409,45 @@ public class AppControllerLibues {
 
     } 
     
+    //////para eliminar de modificar retaceo
     
-    
+    @RequestMapping(value = { "/delete-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
+    public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigoretaceo) {
+    	
+    	
+    	  HttpSession sesion=request.getSession(true);
+          //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+            // sesion.setAttribute("codigoultimo", codigoretaceo);
+             
+             Integer punto=(Integer) sesion.getAttribute("punto");
+            // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+             System.out.println("revisar--------------------------------------codigo:"+ codigoretaceo);	
+             
+             List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+             
+             for(int i=punto;i<retaceoBuscar.size();i++){
+           	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
+           	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
+           	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
+           	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
+           	  Integer existencia =existenciaanterior+cantidad;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
+           	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
+           	  utilidad=utilidad/100;
+           	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
+           	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
+           	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
+           	  
+           	  costo=costo/existencia;
+           	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+           	 
+             }
+             
+    	
+    	
+    	detalleretaceoService.deleteRetaceoById(codigoretaceo);
+    	return "redirect:/detalleretaceo-agregar";
+        //return "redirect:/detalleretaceo-list";
+    }
     
     
     
