@@ -10,25 +10,25 @@
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/bootstrap-formhelpers.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/bootstrap-formhelpers.min.css' />" rel="stylesheet"></link>
-     
-    <Style>
-    .control-label{
-    	text-align: left;
-    	}
-    </Style>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 </head>
 <body>
 
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-
-	  <div class="well lead">Agregar Proveedor</div>
+	<c:choose>
+	<c:when test="${edit}">
+		<div class="well lead" align="center">ACTUALIZAR PROVEEDOR</div>
+	</c:when>
+    <c:otherwise>
+	  <div class="well lead" align="center">NUEVO PROVEEDOR</div>
+	</c:otherwise>
+	</c:choose>
         <form:form method="POST" modelAttribute="proveedor" class="form-horizontal">
             <form:input type="hidden" path="codigoproveedor" id="codigoproveedor"/>
-             
+            <div class="well lead">
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombreproveedor">Nombre:</label>
@@ -57,7 +57,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="telefonoproveedor">Telefono:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="telefonoproveedor" id="telefonoproveedor" maxlength="8" placeholder="########" class="input-medium bfh-phone" data-country="SV"/>
+                        <form:input type="text" path="telefonoproveedor" id="telefonoproveedor" maxlength="8" placeholder="########" class="input-medium bfh-phone" data-country="SV" title="Número sin espacios"/>
                         <div class="has-error">
                             <form:errors path="telefonoproveedor" class="help-inline"/>
                         </div>
@@ -67,7 +67,7 @@
             
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="contactoproveedor1">Contacto 1:</label>
+                    <label class="col-md-3 control-lable" for="contactoproveedor1">Contacto:</label>
                     <div class="col-md-7">
                         <form:input type="text" path="contactoproveedor1" id="contactoproveedor1" maxlength="35" placeholder="Digite el Nombre del Contacto" class="form-control input-sm"/>
                         <div class="has-error">
@@ -79,7 +79,7 @@
             
              <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="contactoproveedor2">Contacto 2:</label>
+                    <label class="col-md-3 control-lable" for="contactoproveedor2">Correo:</label>
                     <div class="col-md-7">
                         <form:input type="text" path="contactoproveedor2" id="contactoproveedor2"  maxlength="35" placeholder="Digite el Nombre del Contacto" class="form-control input-sm"/>
                         <div class="has-error">
@@ -90,39 +90,34 @@
             </div>
             
             <div class="row">
-		        	<div class="form-group col-md-12">
+		        	<div class="row">
+		        	<div class="form-group col-md-12" style="display: none">
                     	<label class="col-md-3 control-lable" for="estado">Estado:</label>
                     	<div class="col-md-7">
-                        	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
-                        	<SELECT name="estado" id="estado" class="form-control input-sm">
-										<OPTION VALUE="1">Activo</OPTION>
-										<OPTION VALUE="0">Inactivo</OPTION>
-							</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="estado" class="help-inline"/>
-                       	 	</div>
+                        	<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1"/>
                     	</div>
                		</div>
             	</div>
+            </div>
              
             <div class="row">
-                <div class="form-actions floatRight">
+                <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Proveedor" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/proveedor-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar Proveedor" class="btn btn-primary btn-sm"/> ||||| 
+                            <a href="<c:url value='/proveedor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Proveedor" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/proveedor-list' />">Cancelar</a>
+                            <input type="submit" value="Registrar Proveedor" class="btn btn-primary btn-sm"/> |||||
+                            <a href="<c:url value='/proveedor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
             </div>
+        </div>
         </form:form>
 </div>
 
 </div>
-
-<div class="row"><%@include file="foot.jsp" %></div>
-
 </body>
 </html>

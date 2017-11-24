@@ -8,17 +8,12 @@
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <Style>
-    .control-label{
-    	text-align: left;
-    	}
-    </Style>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>    
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
 	<c:choose>
 	<c:when test="${edit}">
@@ -58,12 +53,12 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Autor" class="btn btn-primary btn-sm"/> 
-                            ó <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
+                            <input type="submit" value="Actualizar Autor" class="btn btn-primary btn-sm"/> |||||
+                            <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Autor" class="btn btn-primary btn-sm"/> 
-                            ó <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
+                            <input type="submit" value="Registrar Autor" class="btn btn-primary btn-sm"/> |||||
+                            <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
