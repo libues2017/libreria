@@ -1002,6 +1002,8 @@ public class AppControllerLibues {
     		  
     	  }    	  
     	 
+    	  
+    	  System.out.println("revisar:----------------------------------------------------------------------------" + retaceoBuscar.size());
     	  model.addAttribute("total", total);
     	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
     	  model.addAttribute("retaceo2", retaceoBuscar);
@@ -1020,6 +1022,9 @@ public class AppControllerLibues {
    	     }
    		     
     	
+    	 
+    	 
+    	 
 		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
@@ -1079,6 +1084,20 @@ public class AppControllerLibues {
         
         HttpSession sesion = request.getSession();
         Double total=(Double)sesion.getAttribute("total");
+        
+        if(total==0.0){
+        	
+        	
+        	 Integer codigo=(Integer) sesion.getAttribute("codigo");
+       	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+       	 
+       	  for (int i = 0; i < retaceoBuscar.size(); i++){
+       		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+       		  
+       	  } 
+        }
+    	
+        System.out.println("revisar:----------------------------------------------------------------------------"+total);
     	
     	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
     	
@@ -1260,6 +1279,7 @@ public class AppControllerLibues {
           String fecharetaceo=(String) sesion.getAttribute("fecharetaceo");
           String fechafacturaproveedor=(String) sesion.getAttribute("fechafacturaproveedor");
           
+          //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
           Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
           Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
@@ -1273,7 +1293,7 @@ public class AppControllerLibues {
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           retaceo.setTotal(0.0);//inicializamos el total
           
-          //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
+         
           
           
   		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
@@ -1289,8 +1309,8 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/finalizar-update-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
-    public String findetalleRetaceoUpdate( @PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto,HttpServletRequest request,ModelMap model)throws IOException, ParseException {
+    @RequestMapping(value = { "/finalizar-update-{codigoretaceo}" }, method = RequestMethod.GET)
+    public String findetalleRetaceoUpdate( @PathVariable Integer codigoretaceo,HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
 		    	/*
 				Aqu� se detallan las siglas de las variables utilizadas en el c�lculo: 
@@ -1308,14 +1328,20 @@ public class AppControllerLibues {
 						TC = (PEX*CPEX) +(PE*CPE) 
 						TA = PEX+PE 
 		                CPU=TC/TA 
-						PV=CPU+(CPU*0.20). 									
+						PV=CPU+(CPU*0.20). 	
+						
+														
 				*/
 
           HttpSession sesion=request.getSession(true);
        //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
           sesion.setAttribute("codigoultimo", codigoretaceo);
+          
+          Integer punto=(Integer) sesion.getAttribute("punto");
+          
+          
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
-          for(int i=0;i<retaceoBuscar.size();i++){
+          for(int i=punto;i<retaceoBuscar.size();i++){
         	 // Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
         	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
@@ -1328,7 +1354,7 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+        	 // productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
           }
           
