@@ -1156,7 +1156,7 @@ public class AppControllerLibues {
 			    	  sesion.setAttribute("punto", retaceoBuscar.size()-1);//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
 			    	 
 			    	  Integer d=retaceoBuscar.get(retaceoBuscar.size()-1).getCodigodetalleretaceo();
-			    	  System.out.println("revisar:----------------------------------------------------------------------------"+d);
+			    	  System.out.println("codigo detalle:----------------------------------------------------------------------------"+d);
 			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1217,7 +1217,7 @@ public class AppControllerLibues {
         HttpSession sesion = request.getSession();
         Integer punto=(Integer)sesion.getAttribute("punto");
               
-        System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
+      //  System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
         
         detalleretaceoService.savedetalleRetaceo(detalleRetaceo);
         
