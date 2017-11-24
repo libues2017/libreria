@@ -8,12 +8,14 @@ try{
     int copia_seguridad;
 
     Process runtimeProcess = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
+    //direccion para linux:  Process runtimeProcess = Runtime.getRuntime().exec("/opt/lampp/mysql/bin/mysqldump.exe --opt  --password=root --user=root --databases libues -r /home/libreria/Respaldo"+nombre);
     copia_seguridad = runtimeProcess.waitFor(); 
 
     if(copia_seguridad==0){ //Devuelve 0 si todo ha salido bien
 %>      <script> 
             function respaldoRealizado() {
                 alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
+                //alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \n/home/liberia/Respaldo/");
                 location.href="http://localhost:8080/TAG_LIBUES/index"; 
             } 
             respaldoRealizado(); 
