@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*,java.io.*" %> 
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -17,21 +18,39 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-<!--
-<Style>
-	h1.hidden {
-    	visibility: hidden;
-    }
-</Style>
--->
-
-<!--
-<Style>
-	.control-label{
-		text-align: left;
-	}
-</Style>
--->
+<%
+	// Quiero la fecha actual para ponerla por defecto 
+	String fecha="";
+    String sAhora = "";
+			
+		if(session.getAttribute("fechaTransferencia")!=null){
+			fecha=session.getAttribute("fechaTransferencia").toString();
+		}
+        if(fecha==""){
+        	Calendar ahora = Calendar.getInstance();
+     		int anyo = ahora.get(Calendar.YEAR);
+     		int mes = ahora.get(Calendar.MONTH) +1; 
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH);
+     					
+     		if (mes < 10) {
+     			sAhora = anyo + "-0" + mes;
+     		} else {
+     			sAhora = anyo + "-" + mes;
+     			}
+     			if (dia < 10) {
+     				sAhora += "-0" + dia;
+     			}
+     			else {
+     				sAhora += "-"+dia;
+     			} 
+                  	 
+           	}
+                     
+            else{
+                    	 
+            sAhora=fecha;
+		}
+%>
 
 <script type="text/javascript">
 	function producto1(){
@@ -69,14 +88,12 @@
 		alert();			  	
 	}
 	
-	function sesion(){
-		var fechaTransferencia = document.getElementById("fechaTransferencia").value;
+	function sesion(){		
 		var tipo = document.getElementById('tipoTransferencia').value;
 		var numero = document.getElementById('numeroTransferencia').value;
 		var sucursal = document.getElementById("sucursal").value;
-		var utilidad = document.getElementById('utilidad').value;
+		var utilidad = document.getElementById('utilidad').value;		
 		
-		var fecha = "f1";
 		var tipo1 = "tp1";
 		var numero1 = "num1";
 		var sucursal1 = "sucu1";
@@ -92,22 +109,19 @@
 </script>
 
 <script>
-	$( function() {
-		var p;
+	$( function() {		
 		var p1;
 		var p2;
 		var p4;
 		var p5;
 	
 		for(var i = 0; i < sessionStorage.length; i++)
-		{						                
-			p = sessionStorage.getItem('f1');
+		{	
 			p1 = sessionStorage.getItem('tp1');
 			p2 = sessionStorage.getItem('sucu1');
 			p4 = sessionStorage.getItem('uti1');
 			p5 = sessionStorage.getItem('num1');
 		}
-		document.getElementById("fechaTransferencia").value=p;
 		document.getElementById("tipoTransferencia").value=p1;
 		document.getElementById("sucursal").value=p2;
 		document.getElementById("utilidad").value=p4;
@@ -358,8 +372,8 @@
 						
 						<div class="col-xs-3">			
 							<label class="form-control" for="nombr">Fecha:</label>
-							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" onchange="sesion();" 
-							title="Seleccione la fecha de Transferencia"/>
+							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" 
+							title="Seleccione la fecha de Transferencia"  value="<%=sAhora %>" />
 						</div>
 						
 						<div class="col-xs-2">			
