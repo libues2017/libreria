@@ -70,7 +70,7 @@
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
 		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-editorial-";
-		    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-editorial-";			    	         
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES//estado-borrar-editorial-";			    	         
 		    	         var res1=dato;
 		    	         var res2=res.concat(res1);//link editar			    	         
 		    	         var res4=res3.concat(res1);//link eliminar			    	       
@@ -143,7 +143,8 @@
                 <a href="<c:url value='/editorial-agregar' />" class="btn btn-primary">Agregar Editorial</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
-                  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> ||
+                  <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
                
                 
              
@@ -170,7 +171,7 @@
 -->
 </body>
 <script>
-var YOUR_MESSAGE_STRING_CONST = "Quieres eliminar este dato?";
+var YOUR_MESSAGE_STRING_CONST = "¿Quiere eliminar este dato?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
 			//alert();//My code to delete

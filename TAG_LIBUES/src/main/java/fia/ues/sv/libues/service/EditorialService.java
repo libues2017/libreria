@@ -17,4 +17,6 @@ public interface EditorialService {
 	void deleteEditorial(int codigoeditorial);
 	
 	List<Editorial> findAllEditoriales();
+
+	void estadoBorrarEditorialById(Integer codigoeditorial);
 }

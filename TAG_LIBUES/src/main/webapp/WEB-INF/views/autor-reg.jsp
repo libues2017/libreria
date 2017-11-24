@@ -20,10 +20,17 @@
 
 <div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-	  <div class="well lead">Agregar Autor</div>
+	<c:choose>
+	<c:when test="${edit}">
+		<div class="well lead" align="center">ACTUALIZAR AUTOR</div>
+	</c:when>
+    <c:otherwise>
+    	<div class="well lead" align="center">NUEVO AUTOR</div>
+    </c:otherwise>
+    </c:choose>
         <form:form method="POST" modelAttribute="autor" class="form-horizontal">
             <form:input type="hidden" path="codigoautor" id="codigoautor"/>
-             
+            <div class="well lead"> 
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombreautor">Nombre:</label>
@@ -37,35 +44,30 @@
             </div>
             
           <div class="row">
-		        	<div class="form-group col-md-12">
+		        	<div class="row">
+		        	<div class="form-group col-md-12" style="display: none">
                     	<label class="col-md-3 control-lable" for="estado">Estado:</label>
                     	<div class="col-md-7">
-                        	<!--<form:input type="text" path="estado" id="estado" class="form-control input-sm"/>-->
-                        	<SELECT name="estado" id="estado" class="form-control input-sm">
-										<OPTION VALUE="1">Activo</OPTION>
-										<OPTION VALUE="0">Inactivo</OPTION>
-							</SELECT>
-                        	<div class="has-error">
-                            	<form:errors path="estado" class="help-inline"/>
-                       	 	</div>
+                        	<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1"/>
                     	</div>
                		</div>
             	</div>
-     
-           
-     
-           
+            	</div>
+            	      
             <div class="row">
-                <div class="form-actions floatRight">
+                <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Autor" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/autor-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar Autor" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Autor" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/autor-list' />">Cancelar</a>
+                            <input type="submit" value="Registrar Autor" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
+            </div>
             </div>
         </form:form>
 </div>

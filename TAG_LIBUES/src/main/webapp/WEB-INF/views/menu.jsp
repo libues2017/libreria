@@ -53,9 +53,7 @@
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 			            			<li><a href="<c:url value="proveedor-list" />">Lista de Proveedores</a></li>
 			            			<li role="separator" class="divider"></li>
-			            				<li><a href="<c:url value="proveedor-agregar" />">Agregar Proveedor</a></li>
-			            			<li role="separator" class="divider"></li>
-			            				<li><a href="<c:url value="proveedor-list-deleted" />">Restaurar Proveedor</a></li>
+			            				<li><a href="<c:url value="proveedor-agregar" />">Agregar Proveedor</a></li>			            			
 			                 		</sec:authorize>
 			          			</ul>  		
 				        		<li role="separator" class="divider"></li>

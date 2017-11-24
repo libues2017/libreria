@@ -617,10 +617,14 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/delete-editorial-{codigoeditorial}" }, method = RequestMethod.GET)
-    public String deleteEditorial(@PathVariable Integer codigoeditorial) {
-    	
-    	editorialService.deleteEditorial(codigoeditorial);
-    	
+    public String deleteEditorial(@PathVariable Integer codigoeditorial) {    	
+    	editorialService.deleteEditorial(codigoeditorial);    	
+        return "redirect:/editorial-list";
+    }
+    
+    @RequestMapping(value = { "/estado-borrar-editorial-{codigoeditorial}" }, method = RequestMethod.GET)
+    public String updateEditorialDeleted(@PathVariable Integer codigoeditorial) {    	
+    	editorialService.estadoBorrarEditorialById(codigoeditorial);
         return "redirect:/editorial-list";
     }
     
@@ -1885,7 +1889,7 @@ public class AppControllerLibues {
     	return "redirect:/detallerequisicion-agregar";        
     }
     
-    @RequestMapping(value = { "/delete-requisicion-{codigoreq}" }, method = RequestMethod.GET) // Eliminar una requisici�n de la tabla padre con sus hijas
+    @RequestMapping(value = { "/delete-requisicion-{codigoreq}" }, method = RequestMethod.GET) // Eliminar. Cambia de estado. Las oculta
     public String deleteRequisicionMaestra(@PathVariable Integer codigoreq) {    	
     	requisicionService.updateEstadoRequisicionById(codigoreq);    	
         return "redirect:/requisicion-list";

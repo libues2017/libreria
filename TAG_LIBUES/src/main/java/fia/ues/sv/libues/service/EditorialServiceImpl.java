@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fia.ues.sv.libues.dao.EditorialDao;
+import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Editorial;
 
 @Service("editorialService")
@@ -53,6 +54,15 @@ public class EditorialServiceImpl implements EditorialService{
 	public List<Editorial> findAllEditoriales() {
 		return dao.findAllEditoriales();
 	}
+
+	@Override
+	public void estadoBorrarEditorialById(Integer codigoeditorial) {		
+		Editorial entity=dao.findById(codigoeditorial);		
+		if(entity!=null){
+			entity.setEstado(false);
+		}
+	}
+	
 
 }
 
