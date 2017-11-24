@@ -637,7 +637,7 @@ public class AppControllerLibues {
         return "proveedor-list";
     }
     
-    
+      
     //METODO DE AGREGAR PROVEEDORES MODO GET
     @RequestMapping(value = { "/proveedor-agregar" }, method = RequestMethod.GET)
     public String newProveedor(ModelMap model) {
@@ -697,6 +697,29 @@ public class AppControllerLibues {
         return "redirect:/proveedor-list";
     }
     
+  //METODO DE CAMBIAR ESTADO DE LOS PROVEEDORES
+    @RequestMapping(value = { "/proveedor-list-deleted" }, method = RequestMethod.GET)
+        public String listProveedorDeleted(ModelMap model) throws IOException {
+            List<Proveedor> proveedor = proveedorService.findAllProveedoresDeleted();                
+            model.addAttribute("proveedor", proveedor);
+           model.addAttribute("loggedinuser", getPrincipal());
+            return "proveedor-list-deleted";
+      } 
+    
+  //METODO DE OCULTAR PROVEEDORES
+    @RequestMapping(value = { "/estado-borrar-proveedor-{codigoproveedor}" }, method = RequestMethod.GET)
+        public String updateProveedorDeleted(@PathVariable Integer codigoproveedor) {    	
+        	proveedorService.estadoBorrarProveedorById(codigoproveedor);
+            return "redirect:/proveedor-list";
+       }
+     
+  //METODO PARA RESTAURAR PROVEEDORES
+    @RequestMapping(value = { "/estado-restaurar-proveedor-{codigoproveedor}" }, method = RequestMethod.GET)
+        public String updateProveedorRestore(@PathVariable Integer codigoproveedor) {    	
+        	proveedorService.estadoRestaurarProveedorById(codigoproveedor);
+            return "redirect:/proveedor-list";
+        }
+      
   
     //*************************************************************************
     // *************CONTROLES DE CODIGO TIPO DE PRODUCTO***********************

@@ -47,7 +47,17 @@
 			                 		</sec:authorize>
 			          			</ul>
 			          			<li role="separator" class="divider"></li>	
-				        		<li><a href="<c:url value="proveedor-list" />">Proveedores</a></li>
+				        		<li class="dropdown-submenu">
+			          			<a class="test" tabindex="-1" href="#">Proveedores <span class="caret"></span></a>
+			            		<ul class="dropdown-menu">
+			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			            			<li><a href="<c:url value="proveedor-list" />">Lista de Proveedores</a></li>
+			            			<li role="separator" class="divider"></li>
+			            				<li><a href="<c:url value="proveedor-agregar" />">Agregar Proveedor</a></li>
+			            			<li role="separator" class="divider"></li>
+			            				<li><a href="<c:url value="proveedor-list-deleted" />">Restaurar Proveedor</a></li>
+			                 		</sec:authorize>
+			          			</ul>  		
 				        		<li role="separator" class="divider"></li>
 				        		<li><a href="<c:url value="editorial-list" />">Editoriales</a></li>
 				        		<li role="separator" class="divider"></li>

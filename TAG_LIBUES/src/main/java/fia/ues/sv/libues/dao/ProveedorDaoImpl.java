@@ -58,4 +58,14 @@ public class ProveedorDaoImpl extends AbstractDao<Integer, Proveedor> implements
 		return proveedor;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Proveedor> findAllProveedoresDeleted() {
+		Criteria criteria = createEntityCriteria().addOrder(Order.desc("codigoproveedor"));
+		        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+		        criteria.add(Restrictions.eq("estado", false));
+		        List<Proveedor> proveedor = (List<Proveedor>) criteria.list();
+		 		return proveedor;
+	}
+
 }//Fin de la Clase

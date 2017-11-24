@@ -17,6 +17,12 @@ public interface ProveedorService {
 	void deleteProveedor(int codigoproveedor);
 	
 	List<Proveedor> findAllProveedores();
+	
+	List<Proveedor> findAllProveedoresDeleted();
+	
+	void estadoBorrarProveedorById(Integer codigoproveedor);
+	
+	void estadoRestaurarProveedorById(Integer codigoproveedor);
 
 }
 

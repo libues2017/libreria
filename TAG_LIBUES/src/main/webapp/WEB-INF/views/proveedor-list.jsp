@@ -5,24 +5,13 @@
 <html>
 <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Librería UES</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
-	
-	
-	
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
+    <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
+    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
 	
 		<script type="text/javascript">
 			    var dataSet = [];
@@ -32,7 +21,7 @@
 			    var sessionId3 = [];
 			    var sessionId4 = [];
 			    var i=0;
-			    
+			   
 			    <c:forEach items="${proveedores}"   var="current">
 			    
 			     dataSet[i] = [ "${current.codigoproveedor}", "${current.nombreproveedor}", "${current.contactoproveedor1}" ] ;
@@ -49,9 +38,12 @@
 			            columns: [
 			               { title: "CODIGO PROVEEDOR" },
 			               { title: "NOMBRE PROVEEDOR" },
-			               { title: "CONTACTO PROVEEDOR" }]
+			               { title: "CONTACTO PROVEEDOR" }],
+			       "language": idioma_espanol
 			        
 			        } );
+			       
+			       
 			        $('#proveedores tbody').on( 'click', 'tr', function () {
 		    	        if ( $(this).hasClass('selected') ) {
 		    	            $(this).removeClass('selected');
@@ -65,7 +57,7 @@
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
 		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-proveedor-";
-		    	          var res3 = "http://localhost:8080/TAG_LIBUES//delete-proveedor-";			    	         
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES//estado-borrar-proveedor-";			    	         
 		    	         var res1=dato;
 		    	         var res2=res.concat(res1);//link editar			    	         
 		    	         var res4=res3.concat(res1);//link eliminar			    	       
@@ -80,8 +72,32 @@
 		    	    } );
 			    } );
 			    
-		</script>
-
+			    var idioma_espanol = {
+					    "sProcessing":     "Procesando...",
+					    "sLengthMenu":     "Mostrar _MENU_ registros",
+					    "sZeroRecords":    "No se encontraron resultados",
+					    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+					    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+					    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+					    "sInfoPostFix":    "",
+					    "sSearch":         "Buscar:",
+					    "sUrl":            "",
+					    "sInfoThousands":  ",",
+					    "sLoadingRecords": "Cargando...",
+					    "oPaginate": {
+					        "sFirst":    "Primero",
+					        "sLast":     "Último",
+					        "sNext":     "Siguiente",
+					        "sPrevious": "Anterior"
+					    },
+					    "oAria": {
+					        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+					        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					    }
+					}
+			</script>		   
+		
 </head>
 <body>
 
@@ -99,7 +115,6 @@
 			</div>
 		</div>
 	</div>
-
 
 
 <div class="row"><%@include file="page_head.jsp" %></div>

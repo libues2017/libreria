@@ -14,5 +14,7 @@ public interface ProveedorDao {
 	void deleteByID(int codigoproveedor);
 	
 	List<Proveedor> findAllProveedores();
+	
+	List<Proveedor> findAllProveedoresDeleted();
 
 }

@@ -87,9 +87,9 @@
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
                       <a class="btn btn-danger" href="<c:url value="/detalletransferencia-list" />" role="button">Listado Transferencias</a>
                 </div>
-
-<input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="Transferencias.jasper" name="nombre"/>
+                
+				<input type="hidden" value="${loggedinuser}" name="usuario"/>
+				<input type="hidden" value="Transferencias.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>

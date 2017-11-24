@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import fia.ues.sv.libues.dao.ProveedorDao;
 import fia.ues.sv.libues.modelo.Proveedor;
 
@@ -56,5 +55,26 @@ public class ProveedorServiceImpl implements ProveedorService{
 	@Override
 	public List<Proveedor> findAllProveedores() {
 		return dao.findAllProveedores();
+	}
+
+	@Override
+	public List<Proveedor> findAllProveedoresDeleted() {
+		return dao.findAllProveedoresDeleted();
+	}
+
+	@Override
+	public void estadoBorrarProveedorById(Integer codigoproveedor) {
+		Proveedor entity=dao.findById(codigoproveedor);		
+		if(entity!=null){
+			entity.setEstado(false);
+		}		
+	}
+
+	@Override
+	public void estadoRestaurarProveedorById(Integer codigoproveedor) {
+		Proveedor entity=dao.findById(codigoproveedor);		
+		if(entity!=null){
+			entity.setEstado(true);
+		}		
 	}
 }
