@@ -146,10 +146,12 @@
 </div>
 </div>
 <br/><br/>
-<script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
+<div class="row"><%@include file="foot.jsp" %></div>
+<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-<div class="row"><%@include file="foot.jsp" %></div>
+-->
+<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
 </body>
 
 <script>
