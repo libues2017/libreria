@@ -16,5 +16,7 @@ public interface AutorService {
 	void deleteAutorById(int codigoautor);
 	
 	List<Autor> findAllAutors();
+
+	void estadoBorrarAutorById(Integer codigoautor);
 	
 }

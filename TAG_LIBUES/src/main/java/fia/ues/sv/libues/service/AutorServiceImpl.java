@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import fia.ues.sv.libues.dao.AutorDao;
+import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Autor;
 
 @Service("autorService")
@@ -48,6 +49,14 @@ public class AutorServiceImpl implements AutorService{
 	@Override
 	public List<Autor> findAllAutors() {
 		return dao.findAllAutors();
+	}
+	
+	@Override
+	public void estadoBorrarAutorById(Integer codigoautor) {
+		Autor entity=dao.findById(codigoautor);		
+		if(entity!=null){
+			entity.setEstado(false);
+		}		
 	}
 			
 }

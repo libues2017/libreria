@@ -551,6 +551,12 @@ public class AppControllerLibues {
         return "redirect:/autor-list";
     }
     
+    @RequestMapping(value = { "/estado-borrar-autor-{codigoautor}" }, method = RequestMethod.GET)
+    public String updateAutorDeleted(@PathVariable Integer codigoautor) {    	
+    	autorService.estadoBorrarAutorById(codigoautor);
+        return "redirect:/autor-list";
+    }
+    
     //*************************************************************************
     // ***************** CONTROLES DE EDITORIALES *****************************
     //*************************************************************************
