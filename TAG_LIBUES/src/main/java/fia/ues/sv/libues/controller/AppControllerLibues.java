@@ -1411,7 +1411,7 @@ public class AppControllerLibues {
     
     //////para eliminar de modificar retaceo
     
-    @RequestMapping(value = { "/delete-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigoretaceo}" }, method = RequestMethod.GET)
     public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigoretaceo) {
     	
     	
@@ -1430,7 +1430,9 @@ public class AppControllerLibues {
            	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
            	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
            	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
-           	  Integer existencia =existenciaanterior+cantidad;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
+           	
+           	  
+           	  Integer existencia =existenciaanterior;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
            	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
            	  utilidad=utilidad/100;
            	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
