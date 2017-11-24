@@ -1125,6 +1125,7 @@ public class AppControllerLibues {
 				    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
 				        model.addAttribute("detalleretaceo", detalleretaceo);
     	              HttpSession sesion = request.getSession();
+    	              sesion.setAttribute("codigo", codigoretaceo); 
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
 			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
@@ -1153,6 +1154,9 @@ public class AppControllerLibues {
 			    	   Double costo=productoBuscar.getCostounitario();*/
 			    				    		
 			    	  sesion.setAttribute("punto", retaceoBuscar.size()-1);//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
+			    	 
+			    	  Integer d=retaceoBuscar.get(retaceoBuscar.size()-1).getCodigodetalleretaceo();
+			    	  System.out.println("revisar:----------------------------------------------------------------------------"+d);
 			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1184,6 +1188,15 @@ public class AppControllerLibues {
 			    	model.addAttribute("retaceo2", retaceoBuscar);	
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());	
+			        
+			        
+			        
+			        sesion.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
+			    	sesion.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
+			    	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
+			 		sesion.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
+			 		sesion.setAttribute("fechafacturaproveedor", fechafac);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
+			 		
 			        
 			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
 			        return "detalleretaceo-modificar";
@@ -1309,8 +1322,8 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/finalizar-update-{codigoretaceo}" }, method = RequestMethod.GET)
-    public String findetalleRetaceoUpdate( @PathVariable Integer codigoretaceo,HttpServletRequest request,ModelMap model)throws IOException, ParseException {
+    @RequestMapping(value = { "/finalizar-update" }, method = RequestMethod.GET)
+    public String findetalleRetaceoUpdate( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
 		    	/*
 				Aqu� se detallan las siglas de las variables utilizadas en el c�lculo: 
@@ -1335,14 +1348,16 @@ public class AppControllerLibues {
 
           HttpSession sesion=request.getSession(true);
        //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-          sesion.setAttribute("codigoultimo", codigoretaceo);
+         // sesion.setAttribute("codigoultimo", codigoretaceo);
           
           Integer punto=(Integer) sesion.getAttribute("punto");
-          
+          Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+          System.out.println("revisar--------------------------------------codigo:"+ codigoretaceo);	
           
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+          
           for(int i=punto;i<retaceoBuscar.size();i++){
-        	 // Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
+        	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
         	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
         	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
@@ -1354,9 +1369,13 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
-        	 // productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
         	 
           }
+          
+          
+          
+         // System.out.println("revisar--------------------------------------punto:"+ punto);	
           
           //Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
          // retaceoBuscar.get(arg0);
@@ -1377,7 +1396,7 @@ public class AppControllerLibues {
           retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
-          
+          retaceo.setTotal(0.0);
           //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
           
