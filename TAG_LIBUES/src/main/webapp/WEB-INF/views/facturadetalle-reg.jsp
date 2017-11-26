@@ -183,7 +183,7 @@ function vuelto(){
 		
 		<div class="col-xs-2" style="display:none">	
 			<label class="form-control" for="codigo">Estado:</label>						
-			<input type="text" id="estado" class="form-control input-sm" value="Activo" />
+			<input type="text" id="estado" class="form-control input-sm" value="1" />
 		</div>
 		
 	<table>	

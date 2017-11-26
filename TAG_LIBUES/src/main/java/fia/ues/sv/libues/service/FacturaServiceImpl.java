@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fia.ues.sv.libues.dao.FacturaDao;
+import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Factura;
 
 @Service("facturaService")
@@ -73,6 +74,15 @@ public class FacturaServiceImpl implements FacturaService{
 	@Override
 	public List<Factura> findAllFacturas() {
 		return dao.findAllFacturas();
+	}
+
+	@Override
+	public void updateEstadoFacturaById(Integer idfactura) {
+		Factura entity=dao.findById(idfactura);		
+		if(entity!=null){
+			entity.setEstado(false);
+		}
+		
 	}
 
 	

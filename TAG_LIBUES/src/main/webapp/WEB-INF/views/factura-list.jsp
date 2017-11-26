@@ -62,7 +62,8 @@
                         	<td>$${factura.total}</td>
                         	<td>${factura.fechafactura}</td>
                         	</c:if>	
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">                     
+                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
+                        	<td><a href="<c:url value='/factura-detalle-${factura.idfactura}'/>"  class="btn btn-success custom-width">Editar</a></td>                     
                         	<td><a href="<c:url value='/factura-detalle-${factura.idfactura}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>
                     	</tr>

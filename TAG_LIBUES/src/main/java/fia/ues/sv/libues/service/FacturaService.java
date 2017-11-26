@@ -23,4 +23,6 @@ public interface FacturaService {
 	
 	List<Factura> findAllFacturas();
 
+	void updateEstadoFacturaById(Integer idfactura);
+
 }

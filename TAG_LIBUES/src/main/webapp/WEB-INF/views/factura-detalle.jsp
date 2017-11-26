@@ -15,12 +15,9 @@
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 </head>
 <body>
-	<div class="row"><%@include file="page_head_2.jsp" %></div>
-	<br>
-	<div class="container">
-        
-	<div class="row">	
-	
+	<div class="row"><%@include file="page_head_2.jsp" %></div>	
+	<div class="container">        
+	<div class="row">		
 	<div class="panel panel-default">
   				<!-- Default panel contents -->
   				<div class="panel-heading"><h3>ELIMINAR FACTURA: ${factura.numerofactura}</h3></div>
@@ -52,7 +49,7 @@
       							<tr>   
                     	    		<td colspan="2" align="center">
                         				<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            				<a href="<c:url value='/delete-factura-${factura.idfactura}' />" class="btn btn-danger custom-width">Eliminar</a>
+                            				<a href="<c:url value='/cambio-estado-factura-${factura.idfactura}' />" class="btn btn-danger custom-width">Eliminar</a>
                         				</sec:authorize>                        				
                             				<a href="<c:url value='/factura-list' />" class="btn btn-primary"> Regresar</a>
                         			</td>
