@@ -2267,20 +2267,43 @@ public class AppControllerLibues {
         model.addAttribute("factura", factura);
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());        
-    	return "factura-set-numero"; 
+    	return "facturacion"; 
     }
     
     @RequestMapping(value = { "/facturacion-agregar" }, method = RequestMethod.POST)   
     public String saveFacturacion(@Valid Factura factura, BindingResult result, ModelMap model) throws IOException {
          	 	
     	if (result.hasErrors()) {
-            return "factura-set-numero";
+            return "facturacion";
         } 	
        
     	facturaService.saveFactura(factura);
     	model.addAttribute("loggedinuser", getPrincipal());    	
-    	return "redirect:/numero-factura";      
-    } 
+    	return "redirect:/facturacion-agregar";      
+    }
+    
+    @RequestMapping(value = { "/edit-facturacion-{idfactura}" }, method = RequestMethod.GET)
+    public String editFacturacion(ModelMap model) {
+    	
+    	Factura factura = new Factura();
+        model.addAttribute("factura", factura);
+        model.addAttribute("edit", true);
+        model.addAttribute("loggedinuser", getPrincipal());        
+    	return "facturacion"; 
+    }
+    
+    @RequestMapping(value = { "/edit-facturacion-{idfactura}" }, method = RequestMethod.POST)   
+    public String updateFacturacion(@Valid Factura factura, BindingResult result, ModelMap model, @PathVariable Integer idfactura) throws IOException {
+         	 	
+    	if (result.hasErrors()) {
+            return "facturacion";
+        } 	
+       
+    	facturaService.saveFactura(factura);
+    	model.addAttribute("loggedinuser", getPrincipal());    	
+    	return "redirect:/factura-list";      
+    }
+    
     
  
   //*************************************************************************
