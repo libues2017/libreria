@@ -96,43 +96,24 @@ $( function() {
 </script>
 <script>
  function sesion(){
-		var cliente=document.getElementById("cliente").value;
-      	var direccion = document.getElementById('direccion').value;
-      	var documento = document.getElementById('documento').value;
-      	var tipocredito = document.getElementById('tipocredito').value;
+      	var tipocredito = document.getElementById('tipocredito').value;      	
       	
-      	var cliente1="cli";
-      	var direccion1="direc";
-      	var documento1="doc"
       	var tipocredito1="tipoc"
       	
-      				
-      	sessionStorage[cliente1]=cliente;
-      	sessionStorage[direccion1]=direccion;
-      	sessionStorage[documento1]=documento;
       	sessionStorage[tipocredito1]=tipocredito;
     }
 	
 </script>
 
 <script>
-	$( function() {
-		var p1;
-		var p2;
-		var p3;
-		var p4;
+	$( function() {		
+		var p;
 		
 		for(var i=0;i<sessionStorage.length;i++)
-		{						                
-			p1=sessionStorage.getItem('cli');
-			p2=sessionStorage.getItem('direc');
-			p3=sessionStorage.getItem('doc');
-			p4=sessionStorage.getItem('tipoc');
-		}
-		document.getElementById("cliente").value=p1;
-		document.getElementById("direccion").value=p2;
-		document.getElementById("documento").value=p3;
-		document.getElementById("tipocredito").value=p4;
+		{	
+			p=sessionStorage.getItem('tipoc');
+		}		
+		document.getElementById("tipocredito").value=p;
 					    
 	} );
 </script>
@@ -202,20 +183,20 @@ function vuelto(){
 			<div class="form-group row">			
 				<div class="col-xs-3">
 					<label class="form-control" for="cliente">Cliente:</label>
-					<input type="text" id="cliente"  maxlength="50" name="cliente" placeholder="DIGITAR NOMBRE" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="cliente"  maxlength="50" name="cliente"  class="form-control input-sm" value="- -"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="direccion">Direccion:</label>	
-					<input type="text" id="direccion" maxlength="80" name="direccion" placeholder="DIGITAR DIRECCION" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="direccion" maxlength="80" name="direccion"  class="form-control input-sm" value="- -"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="documento">Documento:</label>
-					<input type="text" id="documento"  maxlength="15" name="documento" placeholder="DIGITAR ## DOCUMENTO" class="form-control input-sm" onchange="sesion();"/>
+					<input type="text" id="documento"  maxlength="15" name="documento"  class="form-control input-sm" value="- -"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
-						<OPTION VALUE="" ></OPTION>
+						<OPTION VALUE="- -" >- -</OPTION>
 						<OPTION VALUE="CREDITO UES" >Credito UES</OPTION>
 						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
 					</SELECT>
