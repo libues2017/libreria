@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,11 +26,10 @@ public class Area implements Serializable {
 	@Column(name="NOMBREAREA", nullable=false)
 	private String nombrearea;
 	
+	@NotNull
 	@Column(name="ESTADO", nullable=false)
 	private boolean estado;
 		
-	
-
 	public boolean isEstado() {
 		return estado;
 	}

@@ -463,6 +463,15 @@ public class AppControllerLibues {
         return "redirect:/area-list";
     }
     
+    /*
+    @RequestMapping(value = { "/lista-todas-areas}" }, method = RequestMethod.GET)
+    public String ListaTodasAreas(ModelMap model) throws IOException {    	
+    	List<Area> area = areaService.findAllAreasDeleted();
+    	model.addAttribute("area", area);
+    	model.addAttribute("loggedinuser", getPrincipal());
+        return "redirect:/area-list";
+    }*/
+    
     @RequestMapping(value = { "/delete-area-{codigoarea}" }, method = RequestMethod.GET)
     public String deleteArea(@PathVariable Integer codigoarea) {
     	

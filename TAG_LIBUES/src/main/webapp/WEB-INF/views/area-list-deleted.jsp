@@ -7,16 +7,20 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Librería UES - Áreas</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-       
+    <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
+    <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
+    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+    
+    <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>-->
 
 	<script type="text/javascript">
 			    var dataSet = [];
@@ -28,7 +32,7 @@
 			    
 			    <c:forEach items="${areas}"   var="current">
 			    
-			     dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}"] ;
+			     dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}" , "${current.estado}"] ;
 			     
 			     i=i+1;
 			    
@@ -39,8 +43,10 @@
 			            data:  dataSet,
 			            columns: [
 			               { title: "CODIGO" },
-			               { title: "NOMBRE DEL AREA" }			              		               
-			               ]	     
+			               { title: "NOMBRE DEL AREA" },
+			               { title: "ESTADO"}
+			               ],
+			               "language": idioma_espanol
 								        
 			        } );
 			    	
@@ -69,6 +75,31 @@
 			    	    } );
 			        
 			    } );
+			    
+			    var idioma_espanol = {
+					    "sProcessing":     "Procesando...",
+					    "sLengthMenu":     "Mostrar _MENU_ registros",
+					    "sZeroRecords":    "No se encontraron resultados",
+					    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+					    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+					    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+					    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+					    "sInfoPostFix":    "",
+					    "sSearch":         "Buscar:",
+					    "sUrl":            "",
+					    "sInfoThousands":  ",",
+					    "sLoadingRecords": "Cargando...",
+					    "oPaginate": {
+					        "sFirst":    "Primero",
+					        "sLast":     "Último",
+					        "sNext":     "Siguiente",
+					        "sPrevious": "Anterior"
+					    },
+					    "oAria": {
+					        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+					        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+					    }
+					}
 			    
 </script>		   
 	
@@ -102,8 +133,10 @@
 
 <br/><br/>
 <div class="row"><%@include file="foot.jsp" %></div>
+<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
+<!-- 
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>-->
 </body>
 </html>
