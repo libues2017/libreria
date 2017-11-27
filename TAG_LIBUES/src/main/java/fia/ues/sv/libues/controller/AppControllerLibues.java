@@ -2302,13 +2302,12 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/edit-facturacion-{idfactura}" }, method = RequestMethod.POST)   
-    public String updateFacturacion(@Valid Factura factura, BindingResult result, ModelMap model, @PathVariable Integer idfactura) throws IOException {
-         	 	
+    public String updateFacturacion(@Valid Factura factura, BindingResult result, 
+    		ModelMap model, @PathVariable Integer idfactura) throws IOException {         	 	
     	if (result.hasErrors()) {
             return "facturacion";
-        } 	
-       
-    	facturaService.saveFactura(factura);
+        }       
+    	facturaService.updateFactura(factura);
     	model.addAttribute("loggedinuser", getPrincipal());    	
     	return "redirect:/factura-list";      
     }
