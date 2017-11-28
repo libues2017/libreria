@@ -1710,7 +1710,7 @@ public class AppControllerLibues {
           Integer codigo1 = 0;
           sesion.setAttribute("codigo1", codigo1);
         
-          return "detalletransferencia-list";
+          return "transferencia-list";
     }
     
     /**********************************************************************************************************************************************************************

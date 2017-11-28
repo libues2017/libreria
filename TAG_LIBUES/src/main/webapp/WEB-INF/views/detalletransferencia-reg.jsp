@@ -99,7 +99,6 @@
 		var sucursal1 = "sucu1";
 		var utilidad1 = "uti1";
 		
-		sessionStorage[fecha] = fechaTransferencia;
 		sessionStorage[tipo1] = tipo;
 		sessionStorage[numero1] = numero;
 		sessionStorage[sucursal1] = sucursal;
