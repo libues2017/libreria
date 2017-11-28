@@ -1472,8 +1472,10 @@ public class AppControllerLibues {
             	
   	
 	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
-	  	//return "redirect:/detalleretaceo-agregar";
-           return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
+	  	return "redirect:/detalleretaceo-agregar";
+         //  return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
+          // return "detalleretaceo-modificar";
+           
      }
 
     
