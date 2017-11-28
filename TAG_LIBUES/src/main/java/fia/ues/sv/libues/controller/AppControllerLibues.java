@@ -1165,7 +1165,7 @@ public class AppControllerLibues {
 			    	  sesion.setAttribute("punto", retaceoBuscar.size()-1);//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR EL RETACEO NUEVO
 			    	 
 			    	  Integer d=retaceoBuscar.get(retaceoBuscar.size()-1).getCodigodetalleretaceo();
-			    	  System.out.println("codigo detalle:----------------------------------------------------------------------------"+d);
+			    	//  System.out.println("codigo detalle:----------------------------------------------------------------------------"+d);
 			    	  
 			    	  
 			    	  for (int i = 0; i < retaceoBuscar.size(); i++){
@@ -1420,45 +1420,62 @@ public class AppControllerLibues {
     
     //////para eliminar de modificar retaceo
     
-    @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigoretaceo}" }, method = RequestMethod.GET)
-    public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigoretaceo) {
+    @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
+    public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigoretaceo,@PathVariable Integer codigoproducto) {
     	
     	
-    	  HttpSession sesion=request.getSession(true);
-          //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-            // sesion.setAttribute("codigoultimo", codigoretaceo);
-             
-             Integer punto=(Integer) sesion.getAttribute("punto");
-            // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-             System.out.println("revisar--------------------------------------codigo:"+ codigoretaceo);	
-             
-             List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
-             
-             for(int i=punto;i<retaceoBuscar.size();i++){
-           	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
-           	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
-           	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
-           	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
-           	
-           	  
-           	  Integer existencia =existenciaanterior;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
-           	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
-           	  utilidad=utilidad/100;
-           	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-           	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
-           	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
-           	  
-           	  costo=costo/existencia;
-           	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
-           	 
-             }
-             
-    	
-    	
-    	detalleretaceoService.deleteRetaceoById(codigoretaceo);
-    	return "redirect:/detalleretaceo-agregar";
-        //return "redirect:/detalleretaceo-list";
-    }
+  	      HttpSession sesion=request.getSession(true);
+		        //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+		          // sesion.setAttribute("codigoultimo", codigoretaceo);
+		  	  
+		  	  
+  	      String fecha = request.getParameter("fecharetaceo");
+  	   
+  	   
+  	   
+           
+           Integer punto=(Integer) sesion.getAttribute("punto");
+          // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+           System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto);	
+           
+           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+           
+         //  Producto productoBuscar = productoService.findByCorrelativo(codigoproducto);//encontramos el correlativo
+           
+           for(int i=punto;i<retaceoBuscar.size();i++){
+         	  Integer codigoproductotemp =retaceoBuscar.get(i).getCodigoproducto();//encontramos el correlativo
+         	  
+         	  if( codigoproductotemp==codigoproducto){
+         		  
+         		  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  // 
+             	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 
+             	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   
+             	
+             	  
+             	  
+             	  
+             	  Integer existencia =existenciaanterior;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
+             	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
+             	  utilidad=utilidad/100;
+             	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
+             	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
+             	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
+             	  
+             	  costo=costo/existencia;
+             	 // productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+         		  
+         	  }
+         	  
+         
+         	 
+           }
+            	
+  	
+	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
+	  	//return "redirect:/detalleretaceo-agregar";
+           return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
+     }
+
     
     
     
