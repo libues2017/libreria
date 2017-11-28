@@ -336,6 +336,32 @@
 		});
 	} );
 </script>  
+<script>
+function cambiar(){
+	var numero = document.getElementById("numeroTransferencia").value;	
+	
+		if(numero != null)
+        {
+        	$("#tipoTransferencia").focus();
+        	}
+}
+function cambiar1(){
+	var tipo = document.getElementById("tipoTransferencia").value;	
+	
+		if(tipo != null)
+        {
+        	$("#sucursal").focus();
+        	}
+}
+function cambiar3(){
+	var codigo = document.getElementById("codProducto").value;	
+	
+		if(codigo != null)
+        {
+        	$("#cantidadProducto").focus();
+        	}
+}
+</script>
 
 </head>
 <body>
@@ -356,7 +382,7 @@
 						
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
-							<input type="number" min="0" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion();" 
+							<input type="number" min="0" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion(); cambiar();"  
 							  title="Digite el número de Transferencia"  value='<%=session.getAttribute("numeroTransferencia")%>'/>
 						</div>
 						
@@ -377,7 +403,7 @@
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">Sucursal:</label>
-							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();" 
+							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();" onkeyup="cambiar1();" 
 							title="Seleccione sucursal segun Tipo de Transferencia">
 								<OPTION VALUE="Santa Ana">Santa Ana</OPTION>
 								<OPTION VALUE="San Miguel">San Miguel</OPTION>
@@ -399,8 +425,8 @@
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="tags">Codigo:</label>
-							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1();' placeholder="Digitar"
-							title="Digite el Código de Producto"/>
+							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1(); cambiar3();' placeholder="Digitar"
+							title="Digite el Código de Producto" />
 						</div>
 						
 						<div class="col-xs-8">
