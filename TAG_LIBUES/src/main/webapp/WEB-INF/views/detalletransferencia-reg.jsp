@@ -342,7 +342,7 @@
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
 		<div class="well lead" align="center">Realizar Transferencia</div>
-			<form:form method="POST" modelAttribute="detalletransferencia"	class="form-horizontal">
+			<form:form method="POST" name="trans" modelAttribute="detalletransferencia"	class="form-horizontal">
 			<form:input type="hidden" path="codDetalleTransferencia" id="codDetalleTransferencia" />
 		
 		<div class="panel-group">			
@@ -454,7 +454,7 @@
 						</div>	
 						
 						<div class="col-xs-2">
-							<input type="submit" value="Agregar" class="btn btn-primary btn-sm" title="Agrega Producto a La Transferencia"/>
+							<input type="button" value="Agregar"  id="agrega" class="btn btn-primary btn-sm" onclick="trans.submit()" title="Agrega Producto a La Transferencia"/>
 						</div>
 						<div class="col-xs-2">
 							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" title="Descartar Transferencia">Cancelar</a>
