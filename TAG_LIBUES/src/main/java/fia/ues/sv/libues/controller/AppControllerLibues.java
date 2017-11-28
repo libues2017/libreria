@@ -1411,8 +1411,7 @@ public class AppControllerLibues {
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
-    	
-		
+    		
 		
     	return "GenerarReporteRetaceoFiltrado";////no tocar
 
@@ -1431,30 +1430,31 @@ public class AppControllerLibues {
 		  	  
   	      String fecha = request.getParameter("fecharetaceo");
   	   
-  	   
-  	   
-           
            Integer punto=(Integer) sesion.getAttribute("punto");
           // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-           System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto);	
+          // System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto);	
            
            List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
            
-         //  Producto productoBuscar = productoService.findByCorrelativo(codigoproducto);//encontramos el correlativo
+            Producto productoBuscar = productoService.findByCorrelativo(codigoproducto);//encontramos el correlativo
            
-           for(int i=punto;i<retaceoBuscar.size();i++){
+           for(int i=0;i<retaceoBuscar.size();i++){
          	  Integer codigoproductotemp =retaceoBuscar.get(i).getCodigoproducto();//encontramos el correlativo
+         	// System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"codigo 2    "+  codigoproductotemp);	
          	  
-         	  if( codigoproductotemp==codigoproducto){
+         	  if( codigoproductotemp==codigoproducto){//si correbase==correvista
          		  
          		  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  // 
              	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 
              	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   
              	
+             	
              	  
+             	  Integer existencia =productoBuscar.getExistencia()-cantidad;
+             	  // restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
              	  
-             	  
-             	  Integer existencia =existenciaanterior;// restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
+             	 System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"    "+existencia);	
+
              	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
              	  utilidad=utilidad/100;
              	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
@@ -1464,8 +1464,7 @@ public class AppControllerLibues {
              	  costo=costo/existencia;
              	 // productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
          		  
-         	  }
-         	  
+         	  }        	  
          
          	 
            }
