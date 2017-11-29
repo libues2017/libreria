@@ -200,15 +200,16 @@
               		    if(${current.correlativo} == Id){
               		    	
               		     nombre.push("${current.nombreProducto}");
-              		     costo.push("${current.costounitario}");
-              		     document.getElementById('nombreprod').value = nombre;
+              		   costo.push("${current.costounitario}");
+              		   document.getElementById('nombreprod').value = nombre;
               		   document.getElementById('costoactual').value = costo;
               		   sessionId.push("${current.existencia}");
-              		   document.getElementById('existencia').value =sessionId;
+              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
+              		   //document.getElementById('existencia').value =sessionId;
               		   
               		   
               		                		   
-              		 alert(${current.existencia}+${current.sala});	
+              		// alert(${current.existencia}+${current.sala});	
               		     
               		    }
               		</c:forEach>

@@ -241,7 +241,8 @@
               		     document.getElementById('nombreprod').value = nombre;
               		   document.getElementById('costoactual').value = costo;
               		   sessionId.push("${current.existencia}");
-              		   document.getElementById('existencia').value =sessionId;
+              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
+              		   //document.getElementById('existencia').value =sessionId;
               		   
               		     
               		    }
