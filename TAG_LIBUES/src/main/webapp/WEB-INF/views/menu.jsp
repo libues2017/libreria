@@ -48,6 +48,7 @@
 			          			</ul>
 			          			<li role="separator" class="divider"></li>	
 				        		<li class="dropdown-submenu">
+			          			
 			          			<a class="test" tabindex="-1" href="#">Proveedores <span class="caret"></span></a>
 			            		<ul class="dropdown-menu">
 			            			<sec:authorize access="hasRole('ADMINISTRADOR')"  >

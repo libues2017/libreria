@@ -407,7 +407,7 @@ function cambiar3(){
 							title="Seleccione sucursal segun Tipo de Transferencia">
 								<OPTION VALUE="Santa Ana">Santa Ana</OPTION>
 								<OPTION VALUE="San Miguel">San Miguel</OPTION>
-								<OPTION VALUE="San Salvador">San Vicente</OPTION>
+								<OPTION VALUE="San Vicente">San Vicente</OPTION>
 							</SELECT>
 						</div>
 						
