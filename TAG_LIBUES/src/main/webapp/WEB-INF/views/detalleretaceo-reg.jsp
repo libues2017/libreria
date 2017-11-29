@@ -206,6 +206,9 @@
               		   sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =sessionId;
               		   
+              		   
+              		                		   
+              		 alert(${current.existencia}+${current.sala});	
               		     
               		    }
               		</c:forEach>

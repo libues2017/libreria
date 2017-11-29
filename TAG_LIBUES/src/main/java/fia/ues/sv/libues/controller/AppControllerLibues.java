@@ -1452,7 +1452,7 @@ public class AppControllerLibues {
        	  Integer existencia =productoBuscar.getExistencia()-cantidad;
        	  // restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
        	  
-       	 System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"    "+existencia);	
+       	// System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"    "+existencia);	
 
        	  Double utilidad=detalle.getUtilidad();
        	  utilidad=utilidad/100;
