@@ -1436,6 +1436,8 @@ public class AppControllerLibues {
            
            List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
            
+           
+           System.out.println("revisar--------------------------------------tamaño:"+retaceoBuscar.size());	
             Producto productoBuscar = productoService.findByCorrelativo(codigoproducto);//encontramos el correlativo
            
            for(int i=0;i<retaceoBuscar.size();i++){
