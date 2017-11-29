@@ -60,11 +60,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-	
-	
-	    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
+
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
 	   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
 	   	
@@ -408,6 +404,14 @@
 <body >
 
 	 
+	  <div id="frmTest" tabindex="-1">
+	    <!-- CUTTED -->
+        <div id="step1" class="modal-footer">
+		  <button type="button" class="glyphicon glyphicon-erase btn btn-default" id="btnDelete"> Delete</button>
+		</div>
+	</div>
+	 
+	 
 	  <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
 		<div class="modal-dialog">
@@ -593,6 +597,8 @@
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <td><a href="<c:url value='/delete-detalleRetaceoupdate-${retaceos.codigodetalleretaceo}-${retaceos.codigoproducto}' />"  class="btn btn-danger custom-width" id="btnDelete">Eliminar</a></td>
+                         <td>  <button  button type="button" class="btn btn-warning" id="btnDelete">Ok</button> </td>
+                       
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>
