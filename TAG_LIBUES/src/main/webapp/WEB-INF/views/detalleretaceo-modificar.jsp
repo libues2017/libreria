@@ -58,9 +58,17 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-	   
+	
+	
+	    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
+    <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
+	   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+	   	
+	   	
 			  <Style>
 						h1.hidden {
                         visibility: hidden;
@@ -353,58 +361,69 @@
 					  
 					  </script>
 
-<script>
-function cambiar1(){
-	var codigo1 = document.getElementById("codigofacturaproveedor").value;	
-		if(codigo1 != null){
-        	$("#codigoproveedor").focus();
-		}
-}
-function cambiar2(){	
-	var codigo3 = document.getElementById("codigoproveedor").value;	
-		if(codigo3 != null) {
-        	$("#codigoproducto").focus();
-        }
-}
-function cambiar3(){	
-	var codigo2 = document.getElementById("codigoproducto").value;	
-		if(codigo2 != null) {
-        	$("#costoproducto").focus();
-        }
-}
-function cambiar4(){	
-	var costo = document.getElementById("costoproducto").value;		
-		if(costo != null) {
-        	$("#cantidadproducto").focus();
-        }
-}
-function cambiar5(){		
-	var cantidad = document.getElementById("cantidadproducto").value;	
-		if(cantidad != null) {
-        	$("#agregar").focus();
-        }
-}
+					<script>
+					function cambiar1(){
+						var codigo1 = document.getElementById("codigofacturaproveedor").value;	
+							if(codigo1 != null){
+					        	$("#codigoproveedor").focus();
+							}
+					}
+					function cambiar2(){	
+						var codigo3 = document.getElementById("codigoproveedor").value;	
+							if(codigo3 != null) {
+					        	$("#codigoproducto").focus();
+					        }
+					}
+					function cambiar3(){	
+						var codigo2 = document.getElementById("codigoproducto").value;	
+							if(codigo2 != null) {
+					        	$("#costoproducto").focus();
+					        }
+					}
+					function cambiar4(){	
+						var costo = document.getElementById("costoproducto").value;		
+							if(costo != null) {
+					        	$("#cantidadproducto").focus();
+					        }
+					}
+					function cambiar5(){		
+						var cantidad = document.getElementById("cantidadproducto").value;	
+							if(cantidad != null) {
+					        	$("#agregar").focus();
+					        }
+					}
+					
+					</script>
 
-
-
-
-
-
-
-</script>
 </head>
 
 
 
-<script>
-var miVar = <%= sAhora %>;
-//alert("El valor del contador es " + miVar);
-</script>
+					<script>
+					var miVar = <%= sAhora %>;
+					//alert("El valor del contador es " + miVar);
+					</script>
 
 	
 <body >
 
-		  
+	 
+	  <!-- Modal confirm -->
+	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="confirmMessage">
+				</div>
+				<div class="modal-footer">
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		        </div>
+			</div>
+		</div>
+	</div>
+	 
+	 
+	 	  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 
@@ -573,7 +592,7 @@ var miVar = <%= sAhora %>;
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceoupdate-${retaceos.codigodetalleretaceo}-${retaceos.codigoproducto}' />"  class="btn btn-danger custom-width">Eliminar</a></td>
+                            <td><a href="<c:url value='/delete-detalleRetaceoupdate-${retaceos.codigodetalleretaceo}-${retaceos.codigoproducto}' />"  class="btn btn-danger custom-width" id="btnDelete">Eliminar</a></td>
                         </sec:authorize>
                         </tr>
 				    	 </c:forEach>
@@ -611,5 +630,26 @@ var miVar = <%= sAhora %>;
  
             
 </body>
+
+<script>
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
+$('#btnDelete').on('click', function(e){
+		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+			//alert();//My code to delete
+		});
+	});
+
+  function confirmDialog(message, onConfirm){
+	    var fClose = function(){
+			modal.modal("hide");
+	    };
+	    var modal = $("#confirmModal");
+	    modal.modal("show");
+	    $("#confirmMessage").empty().append(message);
+	    $("#confirmOk").one('click', onConfirm);
+	    $("#confirmOk").one('click', fClose);
+	    $("#confirmCancel").one("click", fClose);
+  }
+  </script>
 </html>
 
