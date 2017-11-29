@@ -1419,9 +1419,9 @@ public class AppControllerLibues {
     
     //////para eliminar de modificar retaceo
     
-    @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigoretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigodetalleretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
 
-public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigodetalleretaceo,@PathVariable Integer codigoproducto) {
+     public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigodetalleretaceo,@PathVariable Integer codigoproducto) {
     	
     	
   	      HttpSession sesion=request.getSession(true);
