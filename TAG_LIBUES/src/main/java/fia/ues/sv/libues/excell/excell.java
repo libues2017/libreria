@@ -48,11 +48,55 @@ public class excell {
 	
     private static final String FILE_NAME = "/tmp/MyFirstExcel.xlsx";
 	
-	 public static void escribirExcel()   
+    public static void crearEtiquetas()   
+    {   
+	 
+	
+        try  
+        {   
+            //Se crea el libro Excel   
+            HSSFWorkbook wb = new HSSFWorkbook();   
+  
+            //Se crea una nueva hoja dentro del libro   
+            HSSFSheet sheet = wb.createSheet("HojaEjemplo");   
+  
+            //Se crea una fila dentro de la hoja   
+            HSSFRow row = sheet.createRow((short)0);   
+  
+            //Creamos celdas de varios tipos   
+            row.createCell((short)0).setCellValue(1);   
+            row.createCell((short)1).setCellValue(1.2);   
+            row.createCell((short)2).setCellValue("ejemplo");   
+            row.createCell((short)3).setCellValue(true);   
+  
+            //Creamos una celda de tipo fecha y la mostramos   
+            //indicando un patrón de formato   
+            HSSFCellStyle cellStyle = wb.createCellStyle();   
+            cellStyle.setDataFormat(   
+                    HSSFDataFormat.getBuiltinFormat("d/m/yy h:mm"));   
+  
+            HSSFCell cell = row.createCell((short)4);   
+            cell.setCellValue(new Date());   
+            cell.setCellStyle(cellStyle);   
+  
+            //Escribimos los resultados a un fichero Excel   
+            FileOutputStream fileOut =   
+               // new FileOutputStream("ejemplo.xls");  
+            		new FileOutputStream("Etiquetas.xls");
+  
+            wb.write(fileOut);   
+            fileOut.close();   
+        }   
+        catch(IOException e)   
+        {   
+            System.out.println("Error al escribir el fichero.");   
+        }   
+    }
+ 
+    
+    
+    public static void escribirExcel()   
 	    {   
-		 
-		
-		 
 		 
 	        try  
 	        {   

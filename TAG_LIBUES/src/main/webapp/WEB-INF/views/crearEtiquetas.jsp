@@ -50,7 +50,7 @@
 
 <% 
     excell e=new excell();
-    e.escribirExcel();
+    e.crearEtiquetas();
 
 %>
     
