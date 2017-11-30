@@ -2401,6 +2401,46 @@ public class AppControllerLibues {
     	
     }
     
+    
+    @RequestMapping(value = "/generarEtiquetas", method = RequestMethod.GET)
+    public ModelAndView Etiquetas(ModelMap model) {
+    	  List<Book> listBooks = new ArrayList<Book>();
+          listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
+                  "May 28, 2008", 38.11F));
+          listBooks.add(new Book("Head First Java", "Kathy Sierra & Bert Bates",
+                  "0596009208", "February 9, 2005", 30.80F));
+          listBooks.add(new Book("Java Generics and Collections",
+                  "Philip Wadler", "0596527756", "Oct 24, 2006", 29.52F));
+          listBooks.add(new Book("Thinking in Java", "Bruce Eckel", "0596527756",
+                  "February 20, 2006", 43.97F));
+          listBooks.add(new Book("Spring in Action", "Craig Walls", "1935182358",
+                  "June 29, 2011", 31.98F));
+   
+          // return a view which will be resolved by an excel view resolver
+          
+         // model.addAttribute("listBooks", listBooks);
+          
+         // return "Excell";
+         // return new ModelAndView(home, "model", model);
+          List<Producto> productos = productoService.findAllProductos();
+
+          //incrementar retaceo
+   
+         model.addAttribute("producto", productos);
+          //model.addAttribute("producto", "productos");
+         
+         
+       /*  HashMap<Integer, List<String>> map = new HashMap<>(); 
+         List<Producto> list = new ArrayList<Producto>();
+        /* list.add("Java");
+         list.add("Primefaces");
+         list.add("JSF");*/
+       //  map.put(1,listBooks);
+          
+          return new ModelAndView("crearEtiquetas", "listBooks", listBooks);
+    	
+    }
+    
   /*************************************************************************************
    ********************************Funciones auxiliares para las imagenes***************
    *************************************************************************************/

@@ -136,7 +136,8 @@
 			                 		</sec:authorize>
 			          			</ul>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>			                 	
+			            		<li><a href="<c:url value="downloadExcel" />">Comparacion de Inventario</a></li>
+			            			<li><a href="<c:url value="generarEtiquetas" />">Generar etiquetas</a></li>				                 	
 			          		</ul>
 			      		</li>
 			        	</sec:authorize>

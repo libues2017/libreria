@@ -9,41 +9,26 @@
 <%
 					// Quiero la fecha actual para ponerla por defecto 
 					String fecha="";
-                    String sAhora = "";
-                    
+                    String sAhora = "";                   
 					
 						if(request.getAttribute("fecharetaceo")!=null){
-					           //  fecha=session.getAttribute("fecharetaceo").toString();
-							
+					           //  fecha=session.getAttribute("fecharetaceo").toString();							
 							fecha=request.getAttribute("fecharetaceo").toString();
-						}
-						
-						//System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));   
-                              
+						}						
+						//System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));                                 
                      if(fecha==""){
                     	  
                     	Calendar ahora = Calendar.getInstance();
      					int anyo = ahora.get(Calendar.YEAR);
      					int mes = ahora.get(Calendar.MONTH) +1; 
-     					int dia = ahora.get(Calendar.DAY_OF_MONTH);
-     					
+     					int dia = ahora.get(Calendar.DAY_OF_MONTH);     					
      					if (mes < 10) {
      					sAhora = anyo + "-0" + mes;
-     					} else {
-     					sAhora = anyo + "-" + mes;
-     					}
-     					if (dia < 10) {
-     					sAhora += "-0" + dia;
-     					} else {
-     					sAhora += "-"+dia;
-     					} 
-                    	 
-                     }
-                     
-                     else{
-                    	 
-                    	 sAhora=fecha;
-                     }
+     					} else {	sAhora = anyo + "-" + mes; }
+     					if (dia < 10) { sAhora += "-0" + dia; } 
+     					else {sAhora += "-"+dia;}                     	 
+                     }                     
+                     else{sAhora=fecha;}
 %>
 
  
@@ -61,11 +46,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
-  
-
-
-
-       
 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
 	   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
@@ -88,8 +68,7 @@
 				  function validaFloat(campo)
 				  {
 					  
-					 numero=document.getElementById("utilidad").value;
-					  
+					 numero=document.getElementById("utilidad").value;					  
 					  
 				    if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
 				     //alert("El valor " + campo + " no es un número");
@@ -99,8 +78,7 @@
 		                    $('#'+campo).parent().children('span').text("no es un numero").show();
 		                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
                             return false;
-				    }  
-                    
+				    }                     
                     
                     else{
 	        				$("#glypcn"+campo).remove();
@@ -111,8 +89,7 @@
         				}
 				  }
 				  
-				  
-				  
+				  			  
 				  
 							function addIt(campo) {
 							
@@ -222,8 +199,7 @@
 								  //alert(PV);
 								  
 								 /* return true;
-								  alert();	*/
-								  
+								  alert();	*/								  
 								  
 								  return true;
 							  
@@ -311,8 +287,7 @@
                  </script>
                  
                   <script>
-                               $( function() {
-					  
+                               $( function() {					  
 									   var p;
 									   var p1;
 									  
