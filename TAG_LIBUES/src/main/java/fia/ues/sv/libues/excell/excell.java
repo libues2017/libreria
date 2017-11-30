@@ -60,16 +60,8 @@ public class excell {
         	 Iterator<Producto> productoIter = producto.iterator();
         	 
         	 int g=0;
-        	 
-        	 while(productoIter.hasNext()) {
-        		 
-        		 Producto address =  productoIter.next();
-  		       g=address.getCorrelativo(); // datos de la base
-  		     System.out.print("El producto con codigo------------------------------------------ " +g);
-  		       
-        		 
-        	 }
-        	 
+        	 int i=1;
+        	
             //Se crea el libro Excel   
             HSSFWorkbook wb = new HSSFWorkbook();   
             //Se crea una nueva hoja dentro del libro   
@@ -83,6 +75,19 @@ public class excell {
             row.createCell((short)2).setCellValue("ejemplo");   
             row.createCell((short)3).setCellValue(true);   
   
+            while(productoIter.hasNext()) {
+       		 
+       		 Producto address =  productoIter.next();
+ 		       g=address.getCorrelativo(); // datos de la base
+ 		     System.out.print("\n El producto con codigo------------------------------------------ " +g);
+ 		    HSSFRow row1 = sheet.createRow((short)i);
+ 		   row1.createCell((short)0).setCellValue(g);    
+ 		   i=i+1;
+       		 
+       	 }
+       	 
+            
+            
             //Creamos una celda de tipo fecha y la mostramos   
             //indicando un patrón de formato   
             HSSFCellStyle cellStyle = wb.createCellStyle();   
@@ -103,7 +108,7 @@ public class excell {
         }   
         catch(IOException e)   
         {   
-            System.out.println("Error al escribir el fichero.");   
+            System.out.println("----------------------------------Error al escribir el fichero.");   
         }   
     }
     
