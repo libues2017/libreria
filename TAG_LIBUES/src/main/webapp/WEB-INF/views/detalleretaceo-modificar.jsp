@@ -61,6 +61,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 	
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
+  
+
+
+
+       
+
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
 	   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
 	   	
@@ -395,21 +401,11 @@
 
 
 
-					<script>
-					var miVar = <%= sAhora %>;
-					//alert("El valor del contador es " + miVar);
-					</script>
-
 	
 <body >
 
 	 
-	  <div id="frmTest" tabindex="-1">
-	    <!-- CUTTED -->
-        <div id="step1" class="modal-footer">
-		  <button type="button" class="glyphicon glyphicon-erase btn btn-default" id="btnDelete"> Delete</button>
-		</div>
-	</div>
+	  
 	 
 	 
 	  <!-- Modal confirm -->
@@ -419,7 +415,7 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+					<button type="button" class="btn btn-default" id="confirmOk">Ok</button>
 		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
 		        </div>
 			</div>
@@ -596,8 +592,8 @@
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceoupdate-${retaceos.codigodetalleretaceo}-${retaceos.codigoproducto}' />"  class="btn btn-danger custom-width" id="btnDelete">Eliminar</a></td>
-                         <td>  <button  button type="button" class="btn btn-warning" id="btnDelete">Ok</button> </td>
+                            <td><a href="<c:url value='/delete-detalleRetaceoupdate-${retaceos.codigodetalleretaceo}-${retaceos.codigoproducto}' />"  class="btn btn-danger custom-width" >Eliminar</a></td>
+                        
                        
                         </sec:authorize>
                         </tr>
@@ -638,24 +634,26 @@
 </body>
 
 <script>
-var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
-$('#btnDelete').on('click', function(e){
-		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
-			//alert();//My code to delete
-		});
-	});
+    var YOUR_MESSAGE_STRING_CONST = "Your confirm message?";
+    alert(YOUR_MESSAGE_STRING_CONST);
+      $('#btnDelete').on('click', function(e){
+    		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+    			//My code to delete
+    		});
+    	});
 
-  function confirmDialog(message, onConfirm){
-	    var fClose = function(){
-			modal.modal("hide");
-	    };
-	    var modal = $("#confirmModal");
-	    modal.modal("show");
-	    $("#confirmMessage").empty().append(message);
-	    $("#confirmOk").one('click', onConfirm);
-	    $("#confirmOk").one('click', fClose);
-	    $("#confirmCancel").one("click", fClose);
-  }
+        function confirmDialog(message, onConfirm){
+    	    var fClose = function(){
+    			modal.modal("hide");
+    	    };
+    	    var modal = $("#confirmModal");
+    	    modal.modal("show");
+    	    $("#confirmMessage").empty().append(message);
+    	    $("#confirmOk").one('click', onConfirm);
+    	    $("#confirmOk").one('click', fClose);    	  
+    	   $("#confirmCancel").one("click", fClose);
+        }
+        
   </script>
 </html>
 
