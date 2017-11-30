@@ -60,26 +60,26 @@ public class excell {
         	 Iterator<Producto> productoIter = producto.iterator();
         	 
         	 int g=0;
-        	 int i=1;
+        	 int i=0;
         	
             //Se crea el libro Excel   
             HSSFWorkbook wb = new HSSFWorkbook();   
             //Se crea una nueva hoja dentro del libro   
             HSSFSheet sheet = wb.createSheet("Etiquetas");
             //Se crea una fila dentro de la hoja   
-            HSSFRow row = sheet.createRow((short)0);  
+          /*  HSSFRow row = sheet.createRow((short)0);  
             //Creamos celdas de varios tipos            
             
             row.createCell((short)0).setCellValue(1);   
             row.createCell((short)1).setCellValue(1.2);   
             row.createCell((short)2).setCellValue("ejemplo");   
-            row.createCell((short)3).setCellValue(true);   
+            row.createCell((short)3).setCellValue(true);   */
   
             while(productoIter.hasNext()) {
        		 
        		 Producto address =  productoIter.next();
  		       g=address.getCorrelativo(); // datos de la base
- 		     System.out.print("\n El producto con codigo------------------------------------------ " +g);
+ 		     //System.out.print("\n El producto con codigo------------------------------------------ " +g);
  		    HSSFRow row1 = sheet.createRow((short)i);
  		   row1.createCell((short)0).setCellValue(g);    
  		   i=i+1;
@@ -94,9 +94,9 @@ public class excell {
             cellStyle.setDataFormat(   
                     HSSFDataFormat.getBuiltinFormat("d/m/yy h:mm"));   
   
-            HSSFCell cell = row.createCell((short)4);   
+           /* HSSFCell cell = row.createCell((short)4);   
             cell.setCellValue(new Date());   
-            cell.setCellStyle(cellStyle);   
+            cell.setCellStyle(cellStyle);   */
   
             //Escribimos los resultados a un fichero Excel   
             FileOutputStream fileOut =   
