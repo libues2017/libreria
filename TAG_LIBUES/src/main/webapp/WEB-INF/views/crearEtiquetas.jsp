@@ -50,7 +50,9 @@
 
 <% 
     excell e=new excell();
-    e.crearEtiquetas();
+    List producto = (List)request.getAttribute("productos");
+    List addressessala = producto;
+    e.crearEtiquetas(producto);
 
 %>
     
