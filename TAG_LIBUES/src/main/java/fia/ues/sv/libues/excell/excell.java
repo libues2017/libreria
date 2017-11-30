@@ -51,10 +51,25 @@ public class excell {
     public static void crearEtiquetas(List producto)   
     {   
 	 
+    	
+    	
+    	
         try  
         {   
         	
         	 Iterator<Producto> productoIter = producto.iterator();
+        	 
+        	 int g=0;
+        	 
+        	 while(productoIter.hasNext()) {
+        		 
+        		 Producto address =  productoIter.next();
+  		       g=address.getCorrelativo(); // datos de la base
+  		     System.out.print("El producto con codigo------------------------------------------ " +g);
+  		       
+        		 
+        	 }
+        	 
             //Se crea el libro Excel   
             HSSFWorkbook wb = new HSSFWorkbook();   
             //Se crea una nueva hoja dentro del libro   
