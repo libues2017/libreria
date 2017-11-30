@@ -61,9 +61,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Generando Etiquetas</title>
+<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
+
 </head>
 <body>
+<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="container">
+	<div class="row"><%@include file="menu.jsp" %></div>
+<div class="row">
+		<!--<h1>Areas</h1>-->
+		<sec:authorize access="hasRole('ADMINISTRADOR')">
+            <div   class="well" align="center">
+               
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+                                       			
+            </div>
+       </sec:authorize>
 
 </body>
 </html>

@@ -2427,7 +2427,11 @@ public class AppControllerLibues {
           //incrementar retaceo
    
          model.addAttribute("producto", productos);
+         model.addAttribute("loggedinuser", getPrincipal());    
           //model.addAttribute("producto", "productos");
+         
+         excell e=new excell();
+         
          
          
        /*  HashMap<Integer, List<String>> map = new HashMap<>(); 

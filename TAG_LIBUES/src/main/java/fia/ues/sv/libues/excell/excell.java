@@ -51,9 +51,6 @@ public class excell {
     public static void crearEtiquetas(List producto)   
     {   
 	 
-    	
-    	
-    	
         try  
         {   
         	
