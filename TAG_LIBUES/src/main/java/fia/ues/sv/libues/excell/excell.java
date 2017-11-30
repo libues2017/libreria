@@ -56,14 +56,17 @@ public class excell {
         	
         	 Iterator<Producto> productoIter = producto.iterator();
         	 
-        	 int g=0;
+        	 int correlativo=0;
         	 int i=0;
+        	 String nombreProducto="";
         	
             //Se crea el libro Excel   
             HSSFWorkbook wb = new HSSFWorkbook();   
             //Se crea una nueva hoja dentro del libro   
             HSSFSheet sheet = wb.createSheet("Etiquetas");
+            
             //Se crea una fila dentro de la hoja   
+            HSSFCellStyle style =wb.createCellStyle(); 
           /*  HSSFRow row = sheet.createRow((short)0);  
             //Creamos celdas de varios tipos            
             
@@ -74,12 +77,16 @@ public class excell {
   
             while(productoIter.hasNext()) {
        		 
-       		 Producto address =  productoIter.next();
- 		       g=address.getCorrelativo(); // datos de la base
+       		 Producto product =  productoIter.next();
+ 		       correlativo=product.getCorrelativo(); // datos de la base
+ 		       nombreProducto=product.getNombreProducto();
+ 		       
  		     //System.out.print("\n El producto con codigo------------------------------------------ " +g);
  		    HSSFRow row1 = sheet.createRow((short)i);
- 		   row1.createCell((short)0).setCellValue(g);    
- 		   i=i+1;
+ 		   row1.createCell((short)0).setCellValue(correlativo);
+ 		  row1.createCell((short)1).setCellValue(nombreProducto);   
+ 		  //row1.createCell((short)1).setCellStyle(style);
+ 		  i=i+1;
        		 
        	 }
        	 
