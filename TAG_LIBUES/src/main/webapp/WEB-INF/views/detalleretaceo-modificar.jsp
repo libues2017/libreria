@@ -399,14 +399,40 @@
 
 </head>
 
+<script>
+    var YOUR_MESSAGE_STRING_CONST = "Your confirm message?";
+   
+      $('#btnDelete').on('click', function(e){
+    		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+    			//My code to delete
+    		});
+    	});
 
+        function confirmDialog(message, onConfirm){
+    	    var fClose = function(){
+    			modal.modal("hide");
+    	    };
+    	    var modal = $("#confirmModal");
+    	    modal.modal("show");
+    	    $("#confirmMessage").empty().append(message);
+    	    $("#confirmOk").one('click', onConfirm);
+    	    $("#confirmOk").one('click', fClose);    	  
+    	   $("#confirmCancel").one("click", fClose);
+        }
+        
+  </script>
 
 	
 <body >
 
 	 
 	  
-	 
+	 	<div id="frmTest" tabindex="-1">
+	            <!-- CUTTED -->
+		        <div id="step1" class="modal-footer">
+				  <button type="button" class="glyphicon glyphicon-erase btn btn-default" id="btnDelete"> Delete</button>
+				</div>
+	    </div>
 	 
 	  <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
@@ -633,27 +659,6 @@
             
 </body>
 
-<script>
-    var YOUR_MESSAGE_STRING_CONST = "Your confirm message?";
-    alert(YOUR_MESSAGE_STRING_CONST);
-      $('#btnDelete').on('click', function(e){
-    		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
-    			//My code to delete
-    		});
-    	});
 
-        function confirmDialog(message, onConfirm){
-    	    var fClose = function(){
-    			modal.modal("hide");
-    	    };
-    	    var modal = $("#confirmModal");
-    	    modal.modal("show");
-    	    $("#confirmMessage").empty().append(message);
-    	    $("#confirmOk").one('click', onConfirm);
-    	    $("#confirmOk").one('click', fClose);    	  
-    	   $("#confirmCancel").one("click", fClose);
-        }
-        
-  </script>
 </html>
 
