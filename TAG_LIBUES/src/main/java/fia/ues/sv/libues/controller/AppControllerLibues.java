@@ -53,6 +53,7 @@ import fia.ues.sv.libues.modelo.FacturaDetalle;
 import fia.ues.sv.libues.modelo.Localizacion;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.Requisicion;
+import fia.ues.sv.libues.modelo.Reservas;
 import fia.ues.sv.libues.modelo.Retaceo;
 import fia.ues.sv.libues.modelo.TipoProducto;
 import fia.ues.sv.libues.modelo.Transferencia;
@@ -72,6 +73,7 @@ import fia.ues.sv.libues.service.FacturaDetalleService;
 import fia.ues.sv.libues.service.FacturaService;
 import fia.ues.sv.libues.service.ProveedorService;
 import fia.ues.sv.libues.service.RequisicionService;
+import fia.ues.sv.libues.service.ReservasService;
 import fia.ues.sv.libues.service.RetaceoService;
 import fia.ues.sv.libues.service.TipoProductoService;
 import fia.ues.sv.libues.service.TransferenciaService;
@@ -130,6 +132,9 @@ public class AppControllerLibues {
 	
 	@Autowired
 	FacturaDetalleService facturadetalleService;
+	
+	@Autowired
+	ReservasService reservasService;
 	
 	@Autowired
 	RetaceoService retaceoService;
@@ -220,16 +225,16 @@ public class AppControllerLibues {
     	return facturaService.findAllFacturas();
     }
     
+    @ModelAttribute("reservas")
+    public List<Reservas> initializeReservas(){
+    	return reservasService.findAllReservas();
+    }
    /* @ModelAttribute("retaceos")
     public List<Retaceo> initializeRetaceos() {
         return retaceoService.findAllRetaceos();
     }*/
     
-    /**@ModelAttribute("novedades")
-    public List<Libro> listaNovedades(){
-        return libroService.findNovedades();
-    }**/	
-	
+    
 	//*************************************************************************
     // ***************** LOGUEO DE USUARIOS************************************
     //*************************************************************************
@@ -2354,6 +2359,42 @@ public class AppControllerLibues {
     	facturaService.updateFactura(factura);
     	model.addAttribute("loggedinuser", getPrincipal());    	
     	return "redirect:/factura-list";      
+    }
+    
+    //*************************************************************************
+    //***************** RESERVACIONES DE LIBROS ******************************
+    //************************************************************************
+    
+    @RequestMapping(value = { "/reservaciones-list" }, method = RequestMethod.GET)
+    public String listReservaciones(ModelMap model) throws IOException { 
+        List<Reservas> reservas = reservasService.findAllReservas();                
+        model.addAttribute("reservas", reservas);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "reservaciones-list";
+    }
+    
+    @RequestMapping(value = { "/reservas-agregar" }, method = RequestMethod.GET)
+    public String newReservacion(ModelMap model) {
+        Reservas reservas = new Reservas();
+        model.addAttribute("reservas", reservas);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        //model.addAttribute("area", getPrincipal());
+        return "reservas-reg";
+    }
+    
+    @RequestMapping(value = { "/reservas-agregar" }, method = RequestMethod.POST)
+    public String saveReservacion(@Valid Reservas reservas, BindingResult result, ModelMap model) throws IOException { 
+    	if (result.hasErrors()) {
+            return "reservas-reg";
+        }                 	  	
+    	reservasService.saveReservas(reservas);
+    	model.addAttribute("success", "Reservacion de: <strong>" + reservas.getNombreproducto() 
+    						+ "</strong> Realizada a nombre de:" + reservas.getNombre());
+        model.addAttribute("loggedinuser", getPrincipal());
+        //return "success";
+        return "area-reg-succ";
+        //return "redirect:/area-agregar";
     }
     
     

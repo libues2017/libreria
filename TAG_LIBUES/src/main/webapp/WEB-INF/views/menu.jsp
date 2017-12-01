@@ -152,6 +152,8 @@
 			            			<li><a href="<c:url value="list" />">Usuarios</a></li>
 			            			<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
+			            			<li role="separator" class="divider"></li>
+			            			<li><a href="<c:url value="reservas-agregar" />">Realizar Reservacion de libros</a></li>
 			           			</sec:authorize>
 			          			</ul>			          			
 				        </li>
