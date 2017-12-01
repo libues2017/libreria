@@ -1198,9 +1198,7 @@ public class AppControllerLibues {
 				    model.addAttribute("total", total);
 			    	model.addAttribute("retaceo2", retaceoBuscar);	
 			        model.addAttribute("edit", true);
-			        model.addAttribute("loggedinuser", getPrincipal());	
-			        
-			        
+			        model.addAttribute("loggedinuser", getPrincipal());				        		        
 			        
 			        sesion.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
 			    	sesion.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
@@ -1408,6 +1406,99 @@ public class AppControllerLibues {
     	return "GenerarReporteRetaceoFiltrado";////no tocar
 
     } 
+    
+    
+    
+    /////////////////para acutlaizar cabecera retaceo////////////
+    @RequestMapping(value = { "/finalizar-detalleRetaceocabecera" }, method = RequestMethod.POST)
+    public String updateRetaceoCaberera(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
+            ModelMap model, @PathVariable Integer codigoretaceo,HttpServletRequest request,@PathVariable Integer codigodetalleretaceo,@PathVariable Integer codigoproducto)
+            		throws IOException, ParseException {
+ 
+				    	/*
+						Aqu� se detallan las siglas de las variables utilizadas en el c�lculo: 
+				
+								Cantidad de Productos en existencia = PEX 
+								Cantidad de Productos de entrada = PE 
+								Costo Productos en Existencia = CPEX
+								Costo Productos de entrada = CPE
+								Costo Promedio Unitario = CPU
+								Precio de Venta = PV 
+								Total de Costo = TC
+								Total de Art�culos = TA  
+								precio de venta anterior=PVA										
+								La f�rmula para el c�lculo del costo promedio es la siguiente: 										 
+								TC = (PEX*CPEX) +(PE*CPE) 
+								TA = PEX+PE 
+				                CPU=TC/TA 
+								PV=CPU+(CPU*0.20). 						
+																
+						*/
+				
+				  HttpSession sesion=request.getSession(true);
+				//   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+				 // sesion.setAttribute("codigoultimo", codigoretaceo);
+				  
+				  Integer punto=(Integer) sesion.getAttribute("punto");
+				 // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+				  System.out.println("revisar--------------------------------------codigo:"+ codigoretaceo);	
+				  
+				  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+				  
+				  for(int i=punto;i<retaceoBuscar.size();i++){
+					//  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
+					  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
+					  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
+					  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
+					  Integer existencia =existenciaanterior+cantidad;// 12+2
+					  Double utilidad=retaceoBuscar.get(i).getUtilidad();
+					  utilidad=utilidad/100;
+					  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
+					  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
+					  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
+					  
+					  costo=costo/existencia;
+					  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+					 
+				  }
+				  
+				 	
+				  Integer codigoproveedor=(Integer) sesion.getAttribute("codigoproveedor");
+				  Integer codigofacturaproveedor1=(Integer) sesion.getAttribute("codigofacturaproveedor");
+				  String fecharetaceo=(String) sesion.getAttribute("fecharetaceo");
+				  String fechafacturaproveedor=(String) sesion.getAttribute("fechafacturaproveedor");
+				  Double total=(Double) sesion.getAttribute("total");
+				  
+				  Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
+				  Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
+				  
+				  
+				  Retaceo retaceo=new Retaceo();
+				  retaceo.setCodigoproveedor(codigoproveedor);
+				  retaceo.setCodigofacturaproveedor(codigofacturaproveedor1);
+				  retaceo.setFecharetaceo(fecharetaceo1);
+				  retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
+				  retaceo.setTotal(0.0);
+				  System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
+				  
+				  retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
+				  
+				  
+					//retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
+					
+				Integer codigo=0;
+				sesion.setAttribute("codigo", codigo);
+					
+				
+				return "GenerarReporteRetaceoFiltrado";////no tocar
+    }
+    
+    
+    
+    /////////////////////////////////////
+    
+    
+    
     
     //////para eliminar de modificar retaceo
     
