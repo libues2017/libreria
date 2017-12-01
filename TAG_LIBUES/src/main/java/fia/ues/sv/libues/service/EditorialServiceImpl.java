@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import fia.ues.sv.libues.dao.EditorialDao;
-import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Editorial;
 
 @Service("editorialService")
