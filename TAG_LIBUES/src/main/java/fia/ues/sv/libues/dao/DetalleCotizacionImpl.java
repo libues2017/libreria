@@ -2,6 +2,9 @@ package fia.ues.sv.libues.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
@@ -17,38 +20,49 @@ public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacio
 
 	@Override
 	public DetalleCotizacion findByCodigo(int codigoCotizacion) {
-		// TODO Auto-generated method stub
-		return null;
+		DetalleCotizacion detalleCot = getByKey(codigoCotizacion);
+		return detalleCot;
 	}
 
 	@Override
 	public DetalleCotizacion findByNombre(String nombreProducto) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("nombreProducto", nombreProducto));
+		DetalleCotizacion detalleCotizacion = (DetalleCotizacion)crit.uniqueResult();
+		return detalleCotizacion;
 	}
 
 	@Override
-	public void save(DetalleCotizacionDao detalleCotizacion) {
-		// TODO Auto-generated method stub
+	public void save(DetalleCotizacion detalleCotizacion) {
+		persist(detalleCotizacion);
 		
 	}
 
 	@Override
 	public void deleteById(int numeroDetalle) {
-		// TODO Auto-generated method stub
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("numeroDetalle", numeroDetalle));
+		DetalleCotizacion detalleCotizacion = (DetalleCotizacion)crit.uniqueResult();
+		delete(detalleCotizacion);
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<DetalleCotizacion> findAllCotizaciones() {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria crite = createEntityCriteria();
+		crite.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) crite.list();
+		return detalleCotizacion;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<DetalleCotizacion> findCotizaciones(Integer numeroDetalle) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria crite = createEntityCriteria().addOrder(Order.asc("numeroDetalle"));
+		crite.add(Restrictions.eq("numeroDetalle", numeroDetalle));
+		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) crite.list();
+		return detalleCotizacion;
 	}
 
 }

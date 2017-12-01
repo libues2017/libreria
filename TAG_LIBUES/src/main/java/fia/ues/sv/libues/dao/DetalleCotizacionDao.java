@@ -12,7 +12,7 @@ public interface DetalleCotizacionDao {
 	
 	DetalleCotizacion findByNombre(String nombreProducto);
 	
-	void save(DetalleCotizacionDao detalleCotizacion);
+	void save(DetalleCotizacion detalleCotizacion);
 	
 	void deleteById(int numeroDetalle);
 	
