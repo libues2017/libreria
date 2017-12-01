@@ -1395,7 +1395,7 @@ public class AppControllerLibues {
           System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
           retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
-          
+      
           
   		//retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
