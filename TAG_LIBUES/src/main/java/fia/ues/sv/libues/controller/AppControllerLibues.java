@@ -1207,7 +1207,7 @@ public class AppControllerLibues {
 			    	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
 			 		sesion.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
 			 		sesion.setAttribute("fechafacturaproveedor", fechafac);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
-			 		
+			 		sesion.setAttribute("total", total);
 			        
 			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
 			        return "detalleretaceo-modificar";
