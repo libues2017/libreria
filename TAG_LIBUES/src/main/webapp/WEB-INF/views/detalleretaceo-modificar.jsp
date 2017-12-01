@@ -617,7 +617,7 @@
       
 		
 	    <div class="well lead" align="center">	
-			<a href="<c:url value='/finalizar-detalleRetaceocabecera' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
+			<a href="<c:url value='/finalizar-update' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
 		</div>
 	   
 	
