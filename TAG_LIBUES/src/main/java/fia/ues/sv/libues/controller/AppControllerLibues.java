@@ -1307,9 +1307,7 @@ public class AppControllerLibues {
           
           Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
           Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
-          
-          
-          
+                    
           Retaceo retaceo=new Retaceo();
           retaceo.setCodigoproveedor(codigoproveedor);
           retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
@@ -1317,15 +1315,11 @@ public class AppControllerLibues {
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           retaceo.setTotal(0.0);//inicializamos el total
           
-         
-          
           
   		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
-    	
-		
 		
     	return "GenerarReporteRetaceoFiltrado";////no tocar
 
@@ -1352,8 +1346,7 @@ public class AppControllerLibues {
 						TC = (PEX*CPEX) +(PE*CPE) 
 						TA = PEX+PE 
 		                CPU=TC/TA 
-						PV=CPU+(CPU*0.20). 	
-						
+						PV=CPU+(CPU*0.20). 						
 														
 				*/
 
@@ -1384,12 +1377,7 @@ public class AppControllerLibues {
         	 
           }
           
-         // System.out.println("revisar--------------------------------------punto:"+ punto);	
-          
-          //Integer retaceo6 = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-         // retaceoBuscar.get(arg0);
-         // sesion.setAttribute("mySessionAttribute", fecha)
-          
+         	
           Integer codigoproveedor=(Integer) sesion.getAttribute("codigoproveedor");
           Integer codigofacturaproveedor1=(Integer) sesion.getAttribute("codigofacturaproveedor");
           String fecharetaceo=(String) sesion.getAttribute("fecharetaceo");
@@ -1406,7 +1394,7 @@ public class AppControllerLibues {
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           retaceo.setTotal(0.0);
-          //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
+          System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
           retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
           
@@ -1426,12 +1414,10 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/delete-detalleRetaceoupdate-{codigodetalleretaceo}-{codigoproducto}" }, method = RequestMethod.GET)
 
      public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigodetalleretaceo,@PathVariable Integer codigoproducto) {
-    	
-    	
+    	    	
   	      HttpSession sesion=request.getSession(true);
 		        //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-		          // sesion.setAttribute("codigoultimo", codigoretaceo);
-		  	  
+		          // sesion.setAttribute("codigoultimo", codigoretaceo);		  	  
 		  	  
   	      String fecha = request.getParameter("fecharetaceo");
   	   
@@ -1441,8 +1427,7 @@ public class AppControllerLibues {
            
            List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigodetalleretaceo);
            
-           DetalleRetaceo detalle=detalleretaceoService.findById(codigodetalleretaceo);
-           
+           DetalleRetaceo detalle=detalleretaceoService.findById(codigodetalleretaceo);           
            
            System.out.println("revisar--------------------------------------tamaño:"+detalle.getCodigoproducto());	
             Producto productoBuscar = productoService.findByCorrelativo(codigoproducto);//encontramos el correlativo
@@ -1451,8 +1436,6 @@ public class AppControllerLibues {
        	  Double costoanterior =detalle.getCostounitarioanterior(); // 
        	  Integer cantidad =detalle.getCantidadproducto();//producto de entrada   
        	
-       	
-       	  
        	  Integer existencia =productoBuscar.getExistencia()-cantidad;
        	  // restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
        	  
@@ -1467,41 +1450,7 @@ public class AppControllerLibues {
        	  costo=costo/existencia;
        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
        	  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
-            
-            
-            
-         /*  for(int i=0;i<retaceoBuscar.size();i++){
-         	  Integer codigoproductotemp =retaceoBuscar.get(i).getCodigoproducto();//encontramos el correlativo
-         	// System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"codigo 2    "+  codigoproductotemp);	
-         	  
-         	  if( codigoproductotemp==codigoproducto){//si correbase==correvista
-         		  
-         		  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  // 
-             	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 
-             	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   
-             	
-             	
-             	  
-             	  Integer existencia =productoBuscar.getExistencia()-cantidad;
-             	  // restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
-             	  
-             	 System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"    "+existencia);	
-
-             	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
-             	  utilidad=utilidad/100;
-             	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
-             	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
-             	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
-             	  
-             	  costo=costo/existencia;
-             	 // productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
-         		  
-         	  }      	  
-         
-         	 
-           }
-            	*/
-  	
+           
 	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
 	  //	return "redirect:/detalleretaceo-agregar";
            return "redirect:/edit-detalleRetaceo-"+detalle.getCodigoretaceo();
