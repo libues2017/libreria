@@ -2,20 +2,22 @@ package fia.ues.sv.libues.dao;
 
 import java.util.List;
 
+import fia.ues.sv.libues.modelo.DetalleCotizacion;
+
 public interface DetalleCotizacionDao {
 	
-	DetalleCotizacionDao findById(int numeroDetalle);
+	DetalleCotizacion findById(int numeroDetalle);
 	
-	DetalleCotizacionDao findByCodigo(int codigoCotizacion);
+	DetalleCotizacion findByCodigo(int codigoCotizacion);
 	
-	DetalleCotizacionDao findByNombre(String nombreProducto);
+	DetalleCotizacion findByNombre(String nombreProducto);
 	
 	void save(DetalleCotizacionDao detalleCotizacion);
 	
 	void deleteById(int numeroDetalle);
 	
-	List<DetalleCotizacionDao> findAllCotizaciones();
+	List<DetalleCotizacion> findAllCotizaciones();
 	
-	List<DetalleCotizacionDao> findCotizaciones(Integer numeroDetalle);
+	List<DetalleCotizacion> findCotizaciones(Integer numeroDetalle);
 
 }

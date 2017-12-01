@@ -2,24 +2,27 @@ package fia.ues.sv.libues.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
 
+@Repository("detallecotizacionDao")
 public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacion> implements DetalleCotizacionDao{
 
 	@Override
-	public DetalleCotizacionDao findById(int numeroDetalle) {
+	public DetalleCotizacion findById(int numeroDetalle) {
+		DetalleCotizacion detalleCotizacion = getByKey(numeroDetalle);
+		return detalleCotizacion;
+	}
+
+	@Override
+	public DetalleCotizacion findByCodigo(int codigoCotizacion) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DetalleCotizacionDao findByCodigo(int codigoCotizacion) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public DetalleCotizacionDao findByNombre(String nombreProducto) {
+	public DetalleCotizacion findByNombre(String nombreProducto) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -37,13 +40,13 @@ public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacio
 	}
 
 	@Override
-	public List<DetalleCotizacionDao> findAllCotizaciones() {
+	public List<DetalleCotizacion> findAllCotizaciones() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<DetalleCotizacionDao> findCotizaciones(Integer numeroDetalle) {
+	public List<DetalleCotizacion> findCotizaciones(Integer numeroDetalle) {
 		// TODO Auto-generated method stub
 		return null;
 	}
