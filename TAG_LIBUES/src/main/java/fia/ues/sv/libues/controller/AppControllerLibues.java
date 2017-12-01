@@ -1036,9 +1036,6 @@ public class AppControllerLibues {
    	     }
    		     
     	
-    	 
-    	 
-    	 
 		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
@@ -1394,10 +1391,10 @@ public class AppControllerLibues {
          // sesion.setAttribute("mySessionAttribute", fecha)
           
           Integer codigoproveedor=(Integer) sesion.getAttribute("codigoproveedor");
-          Integer codigofacturaproveedor=(Integer) sesion.getAttribute("codigofacturaproveedor");
+          Integer codigofacturaproveedor1=(Integer) sesion.getAttribute("codigofacturaproveedor");
           String fecharetaceo=(String) sesion.getAttribute("fecharetaceo");
           String fechafacturaproveedor=(String) sesion.getAttribute("fechafacturaproveedor");
-          
+          Double total=(Double) sesion.getAttribute("total");
           
           Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
           Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
@@ -1405,14 +1402,16 @@ public class AppControllerLibues {
           
           Retaceo retaceo=new Retaceo();
           retaceo.setCodigoproveedor(codigoproveedor);
-          retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
+          retaceo.setCodigofacturaproveedor(codigofacturaproveedor1);
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           retaceo.setTotal(0.0);
           //System.out.println("fecha--------------------------------------:" + fechafacturaproveedor);	
           
+          retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
           
-  		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
+          
+  		//retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
         Integer codigo=0;
 		sesion.setAttribute("codigo", codigo);
