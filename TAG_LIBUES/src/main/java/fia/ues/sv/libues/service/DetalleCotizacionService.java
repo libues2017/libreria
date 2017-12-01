@@ -20,6 +20,6 @@ public interface DetalleCotizacionService {
 	
 	List<DetalleCotizacion> findAllCotizaciones();
 	
-	List<DetalleCotizacion> findCotizaciones(Integer fecha);
+	List<DetalleCotizacion> findCotizaciones(Integer codigo6);
 
 }
