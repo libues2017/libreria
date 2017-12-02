@@ -61,10 +61,14 @@ import fia.ues.sv.libues.modelo.Producto;
 import fia.ues.sv.libues.modelo.User;
 import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Busqueda;
+import fia.ues.sv.libues.modelo.Cotizacion;
+import fia.ues.sv.libues.modelo.DetalleCotizacion;
 import fia.ues.sv.libues.modelo.DetalleRequisicion;
 import fia.ues.sv.libues.modelo.UserProfile;
 import fia.ues.sv.libues.service.LocalizacionService;
 import fia.ues.sv.libues.service.AutorService;
+import fia.ues.sv.libues.service.CotizacionService;
+import fia.ues.sv.libues.service.DetalleCotizacionService;
 import fia.ues.sv.libues.service.DetalleRequisicionService;
 import fia.ues.sv.libues.service.DetalleRetaceoService;
 import fia.ues.sv.libues.service.DetalleTransferenciaService;
@@ -147,6 +151,12 @@ public class AppControllerLibues {
 	
 	@Autowired
 	DetalleTransferenciaService detalletransferenciaService;
+	
+	@Autowired
+	CotizacionService cotizacionService;
+	
+	@Autowired
+	DetalleCotizacionService detalleCotizacionService;
 			
 	@Autowired
 	PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
@@ -223,6 +233,16 @@ public class AppControllerLibues {
     @ModelAttribute("facturas")
     public List<Factura> initializeFacturas(){
     	return facturaService.findAllFacturas();
+    }
+    
+    @ModelAttribute("cotizaciones")
+    public List<Cotizacion> initializeCotizaciones(){
+    	return cotizacionService.findAllCotizaciones();
+    }
+    
+    @ModelAttribute("cotizacionesdetalle")
+    public List<DetalleCotizacion> initializeDetalleCotizaciones(){
+    	return detalleCotizacionService.findAllCotizaciones();
     }
     
     @ModelAttribute("reservas")
@@ -2347,6 +2367,17 @@ public class AppControllerLibues {
         //return "success";
         return "area-reg-succ";
         //return "redirect:/area-agregar";
+    }
+    
+  /*************************************************************************************************************************************************************
+   ********************************************** Cotizaciones de Productos ************************************************************************************
+   *************************************************************************************************************************************************************/
+    @RequestMapping(value = { "/cotizaciones-list" }, method = RequestMethod.GET)
+    public String listCotizaciones(ModelMap model) throws IOException { 
+        List<Cotizacion> cotizaciones = cotizacionService.findAllCotizaciones();                
+        model.addAttribute("cotizaciones", cotizaciones);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "cotizaciones-list";
     }
     
     

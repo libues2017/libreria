@@ -38,7 +38,7 @@ public class CotizacionDaoImpl extends AbstractDao<Integer, Cotizacion> implemen
 	public List<Cotizacion> findAllCotizaciones() {
 		Criteria criteria = createEntityCriteria();
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-		criteria.add(Restrictions.eq("estado", true));
+		//criteria.add(Restrictions.eq("estado", true));
 		List<Cotizacion> cotizacion = (List<Cotizacion>) criteria.list();
 		return cotizacion;
 	}

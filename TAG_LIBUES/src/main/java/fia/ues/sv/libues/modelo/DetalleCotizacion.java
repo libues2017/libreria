@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="detallerequizicion")
+@Table(name="detallecotizacion")
 public class DetalleCotizacion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

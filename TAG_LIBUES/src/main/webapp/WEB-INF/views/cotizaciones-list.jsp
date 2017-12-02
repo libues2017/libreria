@@ -25,16 +25,16 @@
       			</sec:authorize>
     		</div>
         </div>
-	</div>
+	
 	
 	<div class="panel panel-default">
     	<!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">Lista de Documentos de Cotizaciones</span></div>
+        <div class="panel-heading"><span class="lead">Lista de Cotizaciones</span></div>
         <table class="table table-hover">
         	<thead>
             	<tr>
                 	<th>Ítem</th>                        
-                    <th>Doc. #</th>                        
+                    <th>Cotización. #</th>                        
                     <th>Nombre del Cliente</th>
                     <th>Teléfono</th>
                     <th>Correo</th>
@@ -68,6 +68,7 @@
                	</c:forEach>
             </tbody>
        	</table>
+	</div>
 	</div>
 	
 	<div class="row"><%@include file="foot.jsp" %></div>

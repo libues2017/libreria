@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fia.ues.sv.libues.dao.DetalleCotizacionDao;
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
 
-@Service("detallecotizacionService")
+@Service("detalleCotizacionService")
 @Transactional
 public class DetalleCotizacionServiceImpl implements DetalleCotizacionService{
 	
