@@ -6,9 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Librería UES</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+    
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
 <%
 	// Fecha actual para ponerla por defecto 
@@ -66,7 +75,42 @@
             else{                    	 
             sDespues=fecha;
 		}
-%>     
+%>
+
+<script type="text/javascript">
+
+	function producto(){
+	
+		var nombre = [];
+		
+		var Id = document.getElementById("codigoproducto").value;
+	
+		<c:forEach items="${producto}" var="current" >
+		
+		  if( ${current.correlativo} == Id) {		    	 		  
+		      nombre.push("${current.nombreProducto}");
+		      document.getElementById('nombreproducto').value = nombre;		     
+		    }
+		</c:forEach>              		
+      return true;					
+		alert();
+     }
+</script>
+<script>
+$( function() {
+	var sessionId1 = [];
+	
+	<c:forEach items="${producto}" var="current">								
+	sessionId1.push("${current.correlativo}");						
+	</c:forEach>					    
+	
+	$( "#codigoproducto" ).autocomplete({
+	// source: availableTags
+	source: sessionId1
+	});
+} );
+</script>
+          
 </head>
 <body>
 
@@ -89,7 +133,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="codigo">Codigo:</label>
                     <div class="col-md-4">
-                        <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm"/>
+                        <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" onchange="producto();"/>
                         <div class="has-error">
                             <form:errors path="codigoproducto" class="help-inline"/>
                         </div>
@@ -165,11 +209,11 @@
                     <c:choose>
                         <c:when test="${edit}">
                             <input type="submit" value="Actualizar" class="btn btn-primary" /> ||||| 
-                            <a href="<c:url value='/ ' />" class="btn btn-primary">Cancelar</a>
+                            <a href="<c:url value='/producto-busqueda' />" class="btn btn-primary">Cancelar</a>
                         </c:when>
                         <c:otherwise>
                             <input type="submit" value="Realizar" class="btn btn-primary" /> |||||
-                            <a href="<c:url value='/ ' />" class="btn btn-primary">Cancelar</a>
+                            <a href="<c:url value='/producto-busqueda' />" class="btn btn-primary">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
@@ -179,6 +223,9 @@
 </div>
 
 </div>
-
+<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script> 
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </body>
 </html>
