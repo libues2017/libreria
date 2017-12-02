@@ -64,7 +64,7 @@
 	       	       	
        	</div>
        	<br/>
-       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Producto" class="btn btn-primary btn-sm"/>
+       	<div class="row"><div class="col-md-4"><input type="submit" value="Buscar Producto" class="btn btn-primary"/> |||||
        	<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
        	</div>
        	
@@ -80,7 +80,7 @@
        	<sec:authorize access="hasRole('ADMIN')">
             <div class="well">
                 <a href="<c:url value='/producto-agregar' />" class="btn btn-primary">Nuevo Libro</a> |
-                <a href="<c:url value='/index' />"> Regresar</a>
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
             </div>
         </sec:authorize>
         <div class="panel panel-default">
@@ -100,13 +100,13 @@
                         <th>Editorial</th>
                         <th>Precio</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                        <th>Tipo</th>
+                        <th>RESERVAR</th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <th width="100">Editar</th>
+                            <th width="100">EDITAR</th>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <th width="100">Eliminar</th>
+                            <th width="100">ELIMINAR</th>
                         </sec:authorize>	
                          
                     </tr>
@@ -116,8 +116,8 @@
 					<c:set var="contador" value="${0}" />
                 	<c:forEach items="${productos}" var="producto">
                     	<tr>
-                    		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	            <c:if test = "${salary > 2000}">
+                    	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	        <c:if test = "${salary > 2000}">
 			    	        <c:set var="contador" value="${contador + 1}" />
 			    	        <td>${contador}</td>
                         	<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
@@ -133,16 +133,16 @@
                         <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
                         <td>$${producto.precio}</td>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                        	<td>${producto.tipoProducto}</td>
-                        </sec:authorize>
+                        
+                        	<td><a href="<c:url value='/edit-reservas-${producto.codigoProducto }'/>"  class="btn btn-primary">Reservar</a></td>
+                        
                         </c:if>
                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
-                        	</sec:authorize>
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
-                        	</sec:authorize>   
+                           	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
+                       </sec:authorize>
+                       <sec:authorize access="hasRole('ADMINISTRADOR')">
+                           	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                       </sec:authorize>   
                     </tr>
                 </c:forEach>
                 
