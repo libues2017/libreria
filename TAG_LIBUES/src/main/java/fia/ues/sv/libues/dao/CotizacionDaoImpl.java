@@ -13,8 +13,8 @@ import fia.ues.sv.libues.modelo.Cotizacion;
 public class CotizacionDaoImpl extends AbstractDao<Integer, Cotizacion> implements CotizacionDao{
 
 	@Override
-	public Cotizacion findById(int numeroCotizacion) {
-		Cotizacion cotizacion = getByKey(numeroCotizacion);
+	public Cotizacion findById(int codigoCotizacion) {
+		Cotizacion cotizacion = getByKey(codigoCotizacion);
 		return cotizacion;
 	}
 
@@ -25,9 +25,9 @@ public class CotizacionDaoImpl extends AbstractDao<Integer, Cotizacion> implemen
 	}
 
 	@Override
-	public void deleteById(int numeroCotizacion) {
+	public void deleteById(int codigoCotizacion) {
 		Criteria crit = createEntityCriteria();
-		crit.add(Restrictions.eq("numeroCotizacion", numeroCotizacion));
+		crit.add(Restrictions.eq("codigoCotizacion", codigoCotizacion));
 		Cotizacion cotizacion = (Cotizacion)crit.uniqueResult();
 		delete(cotizacion);
 		
@@ -46,8 +46,8 @@ public class CotizacionDaoImpl extends AbstractDao<Integer, Cotizacion> implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cotizacion> findCotizaciones(Integer codigo6) {
-		Criteria criteria = createEntityCriteria().addOrder(Order.asc("numeroCotizacion"));
-		criteria.add(Restrictions.eq("numeroCotizacion", codigo6));
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoCotizacion"));
+		criteria.add(Restrictions.eq("codigoCotizacion", codigo6));
 		List<Cotizacion> cotizacion = (List<Cotizacion>) criteria.list();
 		return cotizacion;
 	}

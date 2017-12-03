@@ -139,8 +139,8 @@
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
 		<div class="well lead" align="center">REALIZAR COTIZACIÓN</div>
-		<form:form method="POST" name="cotiza" modelAttribute="detallecotizaciones" class="form-horizontal">
-			<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
+		<form:form method="POST" name="cotiza" modelAttribute="detallecotizacion" class="form-horizontal">
+			<form:input type="hidden" path="codigoCotizacion" id="codigoCotizacion" />
 		</form:form>
 		
 		<div class="panel-group">

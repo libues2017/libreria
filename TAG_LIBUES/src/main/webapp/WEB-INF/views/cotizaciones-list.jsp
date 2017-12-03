@@ -54,7 +54,7 @@
 		    	    <c:if test = "${salary > 2000}">
 	    	        	<c:set var="contador" value="${contador + 1}" />    	                 
 	    	            	<td>${contador}</td>
-                    		<td><a  href="<c:url value='/cotizacion-detalle-${cotizacion.numeroCotizacion}' />">${cotizacion.numeroCotizacion}</a></td>
+                    		<td><a  href="<c:url value='/cotizacion-detalle-${cotizacion.codigoCotizacion}' />">${cotizacion.codigoCotizacion}</a></td>
                     		<td>${cotizacion.nombreCliente}</td>	
                         	<td>${cotizacion.telefono}</td>
                         	<td>${cotizacion.correo}</td>
@@ -62,7 +62,7 @@
                         	<td>$${cotizacion.total}</td>
                     </c:if>	
                     <sec:authorize access="hasRole('ADMINISTRADOR')">                     
-                    	<td><a href="<c:url value='/delete-cotizacion-${cotizacion.numeroCotizacion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                    	<td><a href="<c:url value='/delete-cotizacion-${cotizacion.codigoCotizacion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                     </sec:authorize>
                 </tr>
                	</c:forEach>

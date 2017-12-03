@@ -18,6 +18,6 @@ public interface DetalleCotizacionDao {
 	
 	List<DetalleCotizacion> findAllCotizaciones();
 	
-	List<DetalleCotizacion> findCotizaciones(Integer numeroDetalle);
+	List<DetalleCotizacion> findCotizaciones(Integer codigo6);
 
 }

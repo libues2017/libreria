@@ -18,8 +18,8 @@ public class CotizacionServiceImpl implements CotizacionService{
 	private CotizacionDao dao;
 	
 	@Override
-	public Cotizacion findById(int numeroCotizacion) {
-		return dao.findById(numeroCotizacion);
+	public Cotizacion findById(int codigoCotizacion) {
+		return dao.findById(codigoCotizacion);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class CotizacionServiceImpl implements CotizacionService{
 
 	@Override
 	public void updateCotizacion(Cotizacion cotizacion) {
-		Cotizacion entity = dao.findById(cotizacion.getNumeroCotizacion());
+		Cotizacion entity = dao.findById(cotizacion.getCodigoCotizacion());//getNumeroCotizacion());
 		if(entity != null){
 			
 		}
@@ -38,9 +38,9 @@ public class CotizacionServiceImpl implements CotizacionService{
 	}
 	
 	@Override
-	public void updateFechaCotizacion(Date fechaCotizacion, String nombreCliente, Integer numeroCotizacion,
+	public void updateFechaCotizacion(Date fechaCotizacion, String nombreCliente, Integer codigoCotizacion,
 			String telefono, String correo) {
-		Cotizacion entity = dao.findById(numeroCotizacion);
+		Cotizacion entity = dao.findById(codigoCotizacion);
 		if(entity != null){
 			entity.setFechaCotizacion(fechaCotizacion);
 			entity.setNombreCliente(nombreCliente);
@@ -52,8 +52,8 @@ public class CotizacionServiceImpl implements CotizacionService{
 	}
 
 	@Override
-	public void deleteCotizacionById(int numeroCotizacion) {
-		dao.deleteById(numeroCotizacion);
+	public void deleteCotizacionById(int codigoCotizacion) {
+		dao.deleteById(codigoCotizacion);
 		
 	}
 
@@ -63,8 +63,8 @@ public class CotizacionServiceImpl implements CotizacionService{
 	}
 
 	@Override
-	public void updateTotal(Integer numeroCotizacion, Double total) {
-		Cotizacion entity = dao.findById(numeroCotizacion);
+	public void updateTotal(Integer codigoCotizacion, Double total) {
+		Cotizacion entity = dao.findById(codigoCotizacion);
 		if(entity != null){
 			entity.setTotal(total);
 		}

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
 
 @Repository("detallecotizacionDao")
-public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacion> implements DetalleCotizacionDao{
+public class DetalleCotizacionDaoImpl extends AbstractDao<Integer, DetalleCotizacion> implements DetalleCotizacionDao{
 
 	@Override
 	public DetalleCotizacion findById(int numeroDetalle) {
@@ -20,8 +20,8 @@ public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacio
 
 	@Override
 	public DetalleCotizacion findByCodigo(int codigoCotizacion) {
-		DetalleCotizacion detalleCot = getByKey(codigoCotizacion);
-		return detalleCot;
+		DetalleCotizacion detallecotizacion = getByKey(codigoCotizacion);
+		return detallecotizacion;
 	}
 
 	@Override
@@ -58,9 +58,9 @@ public class DetalleCotizacionImpl extends AbstractDao<Integer, DetalleCotizacio
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<DetalleCotizacion> findCotizaciones(Integer numeroDetalle) {
-		Criteria crite = createEntityCriteria().addOrder(Order.asc("numeroDetalle"));
-		crite.add(Restrictions.eq("numeroDetalle", numeroDetalle));
+	public List<DetalleCotizacion> findCotizaciones(Integer codigo6) {
+		Criteria crite = createEntityCriteria().addOrder(Order.asc("codigoCotizacion"));
+		crite.add(Restrictions.eq("numeroDetalle", codigo6));
 		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) crite.list();
 		return detalleCotizacion;
 	}

@@ -6,11 +6,11 @@ import fia.ues.sv.libues.modelo.Cotizacion;
 
 public interface CotizacionDao {
 	
-	Cotizacion findById(int numeroCotizacion);
+	Cotizacion findById(int codigoCotizacion);
 	
 	void save(Cotizacion cotizacion);
 	
-	void deleteById(int numeroCotizacion);
+	void deleteById(int codigoCotizacion);
 	
 	List<Cotizacion> findAllCotizaciones();
 	

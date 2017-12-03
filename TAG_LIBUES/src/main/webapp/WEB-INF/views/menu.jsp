@@ -90,7 +90,7 @@
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="producto-agregar" />">Agregar nuevo</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="cotizaciones-list" />">Cotizaciones</a></li>
+            					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
            					</sec:authorize>
           				</ul>
         			</li>

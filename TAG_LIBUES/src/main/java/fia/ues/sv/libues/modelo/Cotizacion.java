@@ -19,7 +19,7 @@ public class Cotizacion implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer numeroCotizacion;
+	private Integer codigoCotizacion;
 	
 	@NotNull
 	@Column(name="NOMBRECLIENTE")
@@ -40,12 +40,12 @@ public class Cotizacion implements Serializable{
 	@Column(name="TOTAL")
 	private Double total;
 
-	public Integer getNumeroCotizacion() {
-		return numeroCotizacion;
+	public Integer getCodigoCotizacion() {
+		return codigoCotizacion;
 	}
 
-	public void setNumeroCotizacion(Integer numeroCotizacion) {
-		this.numeroCotizacion = numeroCotizacion;
+	public void setCodigoCotizacion(Integer codigoCotizacion) {
+		this.codigoCotizacion = codigoCotizacion;
 	}
 
 	public String getNombreCliente() {
@@ -91,7 +91,5 @@ public class Cotizacion implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
 
 }
