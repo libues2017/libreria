@@ -261,7 +261,7 @@ function cambiar(){
 				<div class="form-group row">
 					<div class="panel-body">
 						<div class="col-xs-3">
-						<label class="form-control" for="costo">Costo #:</label>
+						<label class="form-control" for="costo">Costo:</label>
 						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
 						</div>
 						<div class="col-xs-3">

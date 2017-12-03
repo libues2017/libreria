@@ -240,7 +240,7 @@ public class AppControllerLibues {
     	return cotizacionService.findAllCotizaciones();
     }
     
-    @ModelAttribute("cotizacionesdetalle")
+    @ModelAttribute("detallecotizaciones")
     public List<DetalleCotizacion> initializeDetalleCotizaciones(){
     	return detalleCotizacionService.findAllCotizaciones();
     }
@@ -2409,6 +2409,82 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "cotizaciones-list";
     }
+    
+    @RequestMapping(value = { "/cotizacion-detalle-{numeroCotizacion}" }, method = RequestMethod.GET)
+    public String detalleCotizacion(@PathVariable Integer numeroCotizacion, ModelMap model) throws IOException {
+    	Cotizacion cotizacion = cotizacionService.findById(numeroCotizacion);
+    	model.addAttribute("cotizacion", cotizacion);
+    	return "cotizacion-detalle";
+    } 
+    
+    @RequestMapping(value = { "/detallecotizacion-agregar" }, method = RequestMethod.GET)
+    public String newDetalleCotizacion( HttpServletRequest request,ModelMap model) {
+    	DetalleCotizacion detalleCotizacion = new DetalleCotizacion();
+    	model.addAttribute("detalleCotizacion", detalleCotizacion);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion=request.getSession(true);
+    	
+    	Double total = 0.0;
+    	if(sesion.getAttribute("codigo6")!=null)
+    	{
+    		Integer codigo6 = (Integer) sesion.getAttribute("codigo6");
+    		List<DetalleCotizacion> cotizacionBuscar = detalleCotizacionService.findCotizaciones(codigo6);
+    		
+    		for (int i = 0; i < cotizacionBuscar.size(); i++){
+      		   total = total + cotizacionBuscar.get(i).getValorTotal();//.getValorUnitario();//getSubtotalfactura(); //aqui se calcula el total     		  
+      	  	}
+     		model.addAttribute("total", total); 
+    		model.addAttribute("cotizaciones", cotizacionBuscar);
+    	}
+    	
+    	
+    	
+    	List<Producto> productos = productoService.findAllProductos();       
+		List<Cotizacion> cotiza = cotizacionService.findAllCotizaciones();//facturaService.findAllFacturas();
+		Integer cotiza1 = cotiza.get(cotiza.size()-1).getNumeroCotizacion();//.getIdfactura();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigo6", cotiza1);        
+        model.addAttribute("producto", productos);
+        // Numero de cotizacion
+        Integer numero2 = cotizacionService.findById(cotiza1).getNumeroCotizacion();
+        sesion1.setAttribute("numero2", numero2); 
+    	return "detallecotizacion-reg"; 
+    }
+    
+    @RequestMapping(value = { "/detallecotizacion-agregar" }, method = RequestMethod.POST)   
+    public String saveCotizacion( HttpServletRequest request,@Valid DetalleCotizacion detalleCotizacion, BindingResult result, 
+    		ModelMap model,@RequestParam(required = false)  String fechaCotizacion, String nombreCliente, String telefono, String correo) 
+    		throws IOException, ParseException {
+         	 	
+    	if (result.hasErrors()) {
+            return "detallecotizacion-reg";
+        }
+    	
+    	detalleCotizacionService.saveDetalleCotizacion(detalleCotizacion);
+    	
+    	Integer numeroCotizacion = Integer.parseInt(request.getParameter("numeroCotizacion"));
+    	HttpSession sesion2 = request.getSession(true);
+    	Date fechaCotizacion2 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaCotizacion);
+    	cotizacionService.updateFechaCotizacion(fechaCotizacion2, nombreCliente, numeroCotizacion, telefono, correo);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    	String fecha6 = sdf.format(fechaCotizacion2);
+    	sesion2.setAttribute("mySessionAttribute", fecha6);
+    	model.addAttribute("loggedinuser", getPrincipal());
+    	return "redirect:/detallecotizacion-agregar";
+    	
+    }
+    
+    /*
+    @RequestMapping(value = { "/detallecotizacion-agregar" }, method = RequestMethod.GET)
+    public String newcotizacion(ModelMap model) {
+        Cotizacion cotizaciones = new Cotizacion();
+        model.addAttribute("cotizaciones", cotizaciones);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+        //model.addAttribute("area", getPrincipal());
+        return "detallecotizacion-reg";
+    }*/
     
     
  
