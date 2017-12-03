@@ -2474,10 +2474,10 @@ public class AppControllerLibues {
     	
     	detallecotizacionService.saveDetalleCotizacion(detallecotizacion);
     	
-    	Integer numeroCotizacion = Integer.parseInt(request.getParameter("numeroCotizacion"));
+    	Integer codigoCotizacion = Integer.parseInt(request.getParameter("codigoCotizacion"));
     	HttpSession sesion2 = request.getSession(true);
     	Date fechaCotizacion2 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaCotizacion);
-    	cotizacionService.updateFechaCotizacion(fechaCotizacion2, nombreCliente, numeroCotizacion, telefono, correo);
+    	cotizacionService.updateFechaCotizacion(fechaCotizacion2, nombreCliente, codigoCotizacion, telefono, correo);
     	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     	String fecha6 = sdf.format(fechaCotizacion2);
     	sesion2.setAttribute("mySessionAttribute", fecha6);

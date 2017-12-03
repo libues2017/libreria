@@ -140,7 +140,7 @@
 	<div class="container">
 		<div class="well lead" align="center">REALIZAR COTIZACIÓN</div>
 		<form:form method="POST" name="cotiza" modelAttribute="detallecotizacion" class="form-horizontal">
-			<form:input type="hidden" path="codigoCotizacion" id="codigoCotizacion" />
+			<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
 		</form:form>
 		
 		<div class="panel-group">
@@ -149,7 +149,7 @@
 					<div class="panel-body">				
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Cotización #:</label>
-							<form:input type="text" path="numeroCotizacion" id="numeroCotizacion" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' />
+							<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' />
 						</div>						
 						<div class="col-xs-3">			
 							<label class="form-control" for="nombr">Fecha:</label>
