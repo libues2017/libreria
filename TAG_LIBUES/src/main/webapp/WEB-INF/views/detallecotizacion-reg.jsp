@@ -10,6 +10,14 @@
 	<title>Librería UES</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"	rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 	
 	<Style>
@@ -58,7 +66,7 @@
 	
 	<script type="text/javascript">
 
-		function producto(){
+		function producto2(){
 			var nombreProducto1 = [];			
 			var valorUnitario1 = [];	
 			var Id = document.getElementById("codigoProducto").value;
@@ -119,7 +127,7 @@
 				sessionId1.push("${current.correlativo}");						
 			</c:forEach>					    
 	
-			$( "#codigoproducto" ).autocomplete({
+			$( "#codigoProducto" ).autocomplete({
 				// source: availableTags
 				source: sessionId1
 			});
@@ -174,8 +182,8 @@
 						<div class="panel-body">
 							<div class="col-xs-3">
 				        		<label class="form-control" for="tags">Código de Producto:</label>
-	                    		<form:input type="text" path="codigoProducto" id="codigoProducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label();' 
-	                    		title="Digite el Código del Producto"/>        
+	                    		<form:input type="text" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2();' 
+	                    	 	title="Digite el Código del Producto"/>        
                     		</div>
                     		<div class="col-xs-7"> 
 	                    		<label class="form-control" for="nombr">Nombre de Producto:</label>
@@ -192,13 +200,11 @@
 							</div>
 							<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Cantidad:</label>
-	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto');"
-	                    		title="Digite la Cantizad de producto a cotizar"/>
+	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="addIt('cantidad');"/>
                     		</div>
                     		<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Valor Total $:</label>
-	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMATICO" class="form-control input-sm" onchange="addIt('cantidadproducto');"
-	                    		title="Este Valor es Calculado"/>
+	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Este Valor es Calculado"/>
                     		</div>
                     		<div class="col-xs-2">
 								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="trans.submit()" title="Agrega Producto a La Cotizacion"/>
