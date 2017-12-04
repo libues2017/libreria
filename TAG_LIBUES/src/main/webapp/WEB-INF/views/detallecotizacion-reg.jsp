@@ -147,7 +147,7 @@
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
 		<div class="well lead" align="center">REALIZAR COTIZACIÓN</div>
-		<form:form method="POST" name="cot" modelAttribute="detallecotizacion" class="form-horizontal">
+		<form:form method="POST" name="cotiza" modelAttribute="detallecotizacion" class="form-horizontal">
 			<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
 			<div class="panel-group">
 				<div class="panel panel-default">
@@ -215,7 +215,7 @@
 	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Este Valor es Calculado"/>
                     		</div>
                     		<div class="col-xs-2">
-								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="trans.submit()" title="Agrega Producto a La Cotizacion"/>
+								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="cotiza.submit()" title="Agrega Producto a La Cotizacion"/>
 							</div>
                     	</div>
 						
