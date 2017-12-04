@@ -2350,8 +2350,7 @@ public class AppControllerLibues {
         Reservas reservas = new Reservas();
         model.addAttribute("reservas", reservas);
         model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        //model.addAttribute("area", getPrincipal());
+        model.addAttribute("loggedinuser", getPrincipal());       
         return "reservas-reg";
     }
     
@@ -2368,7 +2367,7 @@ public class AppControllerLibues {
         return "reservas-reg-succ";
         //return "redirect:/area-agregar";
     }
-    
+    /*
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.GET)
     public String editReservas(ModelMap model) {
     	
@@ -2378,9 +2377,9 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         //model.addAttribute("area", getPrincipal());
         
-        /*HttpSession sesion=request.getSession(true);
+        HttpSession sesion=request.getSession(true);
         Integer numero = facturaService.findById(codigoprod).getNumerofactura();
-        sesion.setAttribute("numero", numero);*/
+        sesion.setAttribute("numero", numero);
         
         return "reservas-reg"; 
     }
@@ -2398,7 +2397,7 @@ public class AppControllerLibues {
         //return "success";
         return "reservas-reg-succ";
     }
-    
+    */
   /*************************************************************************************************************************************************************
    ********************************************** Cotizaciones de Productos ************************************************************************************
    *************************************************************************************************************************************************************/
