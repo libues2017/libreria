@@ -60,7 +60,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Ver vista de Impresión</button>
+                    <button type="submit" class="btn btn-primary">Imprimir Factura</button>
                     <a class="btn btn-danger" href="<c:url value="/detallefacturacion-agregar" />" role="button">Realizar otra venta</a>
                 </div>
 
