@@ -2209,7 +2209,8 @@ public class AppControllerLibues {
          Integer idfactura = 0;
 		 sesion.setAttribute("codigofact", idfactura);
     	
-    	return "redirect:/detallefacturacion-agregar";
+		 return "GenerarFactura";
+    	//return "redirect:/detallefacturacion-agregar";
     }
 
     @RequestMapping(value = { "/facturar-credito" }, method = RequestMethod.GET)
@@ -2264,7 +2265,8 @@ public class AppControllerLibues {
          Integer idfactura = 0;
 		 sesion.setAttribute("codigofact", idfactura);
     	
-    	return "redirect:/detallefacturacion-agregar";
+		 return "GenerarFactura";
+    	//return "redirect:/detallefacturacion-agregar";
     }
     
     @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
