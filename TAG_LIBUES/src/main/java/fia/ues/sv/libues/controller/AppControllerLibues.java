@@ -3,7 +3,6 @@ package fia.ues.sv.libues.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -2367,9 +2366,9 @@ public class AppControllerLibues {
         return "reservas-reg-succ";
         //return "redirect:/area-agregar";
     }
-    /*
+    
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.GET)
-    public String editReservas(ModelMap model) {
+    public String editReservas(@PathVariable Integer codigoprod, ModelMap model) throws IOException {
     	
     	Reservas reservas = new Reservas();
         model.addAttribute("reservas", reservas);
@@ -2377,9 +2376,9 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         //model.addAttribute("area", getPrincipal());
         
-        HttpSession sesion=request.getSession(true);
-        Integer numero = facturaService.findById(codigoprod).getNumerofactura();
-        sesion.setAttribute("numero", numero);
+      
+        Integer codigo = productoService.findByCorrelativo(codigoprod).getCodigoProducto();
+        model.addAttribute("codigo", codigo);
         
         return "reservas-reg"; 
     }
@@ -2397,7 +2396,7 @@ public class AppControllerLibues {
         //return "success";
         return "reservas-reg-succ";
     }
-    */
+    
   /*************************************************************************************************************************************************************
    ********************************************** Cotizaciones de Productos ************************************************************************************
    *************************************************************************************************************************************************************/

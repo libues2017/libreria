@@ -87,7 +87,7 @@ public class Reservas implements Serializable{
 	public void setDui(String dui) {
 		this.dui = dui;
 	}
-	
+
 	public Date getFechaini() {
 		return fechaini;
 	}
@@ -111,6 +111,7 @@ public class Reservas implements Serializable{
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-	
+
+		
 	
 }

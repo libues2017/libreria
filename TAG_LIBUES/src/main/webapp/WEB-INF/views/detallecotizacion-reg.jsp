@@ -148,7 +148,7 @@
 	<div class="container">
 		<div class="well lead" align="center">REALIZAR COTIZACIÓN</div>
 		<form:form method="POST" name="cotiza" modelAttribute="detallecotizacion" class="form-horizontal">
-			<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
+		<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<div class="form-group row">

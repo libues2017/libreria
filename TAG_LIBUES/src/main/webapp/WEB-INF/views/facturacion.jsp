@@ -59,9 +59,16 @@
 		<form:input type="hidden" path="idfactura" id="idfactura" />
 		
 					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" for="factura">Codigo:</label>
+						<div class="col-md-3">						
+						<form:input type="text" path="idfactura"  maxlength="10" id="idfactura"   class="form-control input-sm" />
+						</div>
+					</div>
+		
+					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="factura">Número de Factura:</label>
 						<div class="col-md-3">						
-						<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" />
+						<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" class="form-control input-sm" />
 						</div>
 					</div>
 					<div class="form-group col-md-12">	

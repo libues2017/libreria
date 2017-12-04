@@ -33,7 +33,7 @@ public class Cotizacion implements Serializable{
 	@Column(name="CORREO")
 	private String correo;
 	
-	@NotNull
+	
 	@Column(name="FECHACOTIZACION")
 	private Date fechaCotizacion;
 	
