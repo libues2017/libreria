@@ -6,11 +6,126 @@
 <%@ page import="java.util.*,java.io.*" %> 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Librería UES</title>
-<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Librería UES</title>
+	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+	
+	<Style>
+		.control-label {
+			text-align: left;
+		}
+		
+		invalid {
+			border: 2px solid #ff0000;
+		}
+	</Style>
+	
+	<%
+		// Quiero la fecha actual para ponerla por defecto 
+		String fecha="";
+    	String sAhora = "";
+			
+		if(session.getAttribute("fechaCotizacion")!=null){
+			fecha=session.getAttribute("fechaCotizacion").toString();
+		}
+        if(fecha==""){
+        	Calendar ahora = Calendar.getInstance();
+     		int anyo = ahora.get(Calendar.YEAR);
+     		int mes = ahora.get(Calendar.MONTH) +1; 
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH);
+     					
+     		if (mes < 10) {
+     			sAhora = anyo + "-0" + mes;
+     		} else {
+     			sAhora = anyo + "-" + mes;
+     			}
+     			if (dia < 10) {
+     				sAhora += "-0" + dia;
+     			}
+     			else {
+     				sAhora += "-"+dia;
+     			} 
+                  	 
+           	}
+                     
+            else{
+                    	 
+            sAhora=fecha;
+		}
+	%>
+	
+	<script type="text/javascript">
+
+		function producto(){
+			var nombreProducto1 = [];			
+			var valorUnitario1 = [];	
+			var Id = document.getElementById("codigoProducto").value;
+	
+			<c:forEach items="${producto}" var="current" >
+		
+		  		if( ${current.correlativo} == Id) {	    	 		  
+		    	
+		  			nombreProducto1.push("${current.nombreProducto}");
+		      		document.getElementById('nombreProducto').value = nombreProducto1;
+		      	      	   		      		      
+		      		valorUnitario1.push("${current.precio}");
+		      		document.getElementById('valorUnitario').value = valorUnitario1;
+		    	}
+			</c:forEach>              		
+      		return true;					
+			alert();
+     	}
+    
+	
+    	function sesion(){		
+      		var nombreCliente1 = document.getElementById('nombreCliente').value;
+      		var telefono = document.getElementById('telefono').value;
+      		var correo = document.getElementById('correo').value;
+      	
+      		var nombreCli1 = "nombreCli";
+      		var tel1 = "tele";
+      		var corre1 = "corre"
+      	
+      		sessionStorage[nombreCli1] = nombreCliente1;  
+      		sessionStorage[tel1] = telefono;
+      		sessionStorage[corre1] = correo;
+    	}	
+	</script>
+	
+	<script>
+		$( function() {		
+			var a1;
+			var a2;
+			var a3;
+			var a4;
+	
+			for(var i = 0; i < sessionStorage.length; i++){	
+				a1 = sessionStorage.getItem('nombreCli');
+				a2 = sessionStorage.getItem('tele');
+				a3 = sessionStorage.getItem('corre');
+			}
+			document.getElementById("nombreCliente").value=a1;
+			document.getElementById("telefono").value=a2;
+			document.getElementById("correo").value=a3;
+		} );
+	</script>
+	
+	<script>
+		$( function() {
+			var sessionId1 = [];
+			<c:forEach items="${producto}" var="current">								
+				sessionId1.push("${current.correlativo}");						
+			</c:forEach>					    
+	
+			$( "#codigoproducto" ).autocomplete({
+				// source: availableTags
+				source: sessionId1
+			});
+		} );
+	</script>
+	
 </head>
 <body>
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
@@ -29,7 +144,7 @@
 							<div class="col-xs-3">			
 								<label class="form-control" for="nombr">Fecha:</label>
 								<input type="date" id="fechaCotizacion" name="fechaCotizacion" class="form-control input-sm" 
-								title="Seleccione la fecha de Cotización" />
+								title="Seleccione la fecha de Cotización" value="<%=sAhora %>" />
 							</div>
 							<div class="col-xs-6">
 								<label class="form-control" for="nombr">Nombre del Cliente:</label>
@@ -148,5 +263,9 @@
 			
 		</form:form>
 	</div>
+	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
+ 	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+ 	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </body>
 </html>
