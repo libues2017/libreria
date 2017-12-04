@@ -134,6 +134,14 @@
 		} );
 	</script>
 	
+	<script>
+		function cotizacion2(){
+			var cantidad2 = document.getElementById("cantidad").value;
+			var precio2 = document.getElementById("valorUnitario").value;
+			var subtotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
+		}
+	</script>
+	
 </head>
 <body>
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
@@ -200,7 +208,7 @@
 							</div>
 							<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Cantidad:</label>
-	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="addIt('cantidad');"/>
+	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();"/>
                     		</div>
                     		<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Valor Total $:</label>
