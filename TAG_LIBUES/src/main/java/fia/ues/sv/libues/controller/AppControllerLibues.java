@@ -2406,16 +2406,28 @@ public class AppControllerLibues {
     		ModelMap model, @PathVariable Integer codigoprod) throws IOException {
     	if (result.hasErrors()) {
             return "reservas-reg";
-        }                 	  	
+        }
+    	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCodigoProducto();
+    	Integer sala = productoService.findByCodigoProducto(codigoprod).getSala() - 1;
+    	
     	reservasService.saveReservas(reserv);
     	model.addAttribute("success", "Reservacion de Libro: <strong>" + reserv.getNombreproducto() 
 							+ ". </strong> Realizada a nombre de: " + reserv.getNombre()
 							+ ". Con DUI numero: "+ reserv.getDui()
 							+ ". Finaliza en la fecha: "+ reserv.getFechafin());
-        model.addAttribute("loggedinuser", getPrincipal());       
+        model.addAttribute("loggedinuser", getPrincipal());
+        productoService.updateReserva(codigo,sala);
         return "reservas-reg-succ";
     }
-    
+    /*
+    List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
+    for(int i=0;i<facturaBuscar.size();i++){
+   	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
+      	 Integer cantidad = facturaBuscar.get(i).getCantidad();	       	 
+      	 Integer existencia = facturaBuscar.get(i).getSala();
+      	 Integer sala = existencia - cantidad;
+      	 productoService.updateSalaVenta1(codigoproducto, sala);
+    }         */
     
     
     

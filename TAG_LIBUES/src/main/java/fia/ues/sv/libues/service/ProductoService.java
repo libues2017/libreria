@@ -38,5 +38,7 @@ public interface ProductoService {
 	
 	void updateSalaVenta1(Integer codigoproducto, Integer sala);
 
+	void updateReserva(Integer codigo, Integer sala);
+
 
 }

@@ -141,6 +141,12 @@ public class ProductoServiceImpl implements ProductoService{
 			entity.setSala(sala);	
 		}
 		
+	}
+
+	@Override
+	public void updateReserva(Integer codigo, Integer sala) {
+		// TODO Auto-generated method stub
+		
 	}	
 	
 }
