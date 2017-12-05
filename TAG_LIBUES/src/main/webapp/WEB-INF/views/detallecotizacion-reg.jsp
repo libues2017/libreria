@@ -195,7 +195,7 @@
                     		</div>
                     		<div class="col-xs-7"> 
 	                    		<label class="form-control" for="nombr">Nombre de Producto:</label>
-								<input type="text" id="nombreProducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+								<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="AUTOMATICO" class="form-control input-sm" />
 							</div>
 							<div class="col-xs-2">
 							<a href="<c:url value='/cotizacion-list' />"  class="btn btn-primary" title="Descartar Cotización">Salir</a>
