@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b67289f-d73d-4c2e-83b3-d5b42a8018c4">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bGlidWVzLmZhY3R1cmFfZGV0YWxsZSBBUyAsNDk0LDE3MSxjZTVkYjUxOS03NmMyLTQ5MGMtYWI3
+Yy0zY2QwMjRmZDI5YzA7bGlidWVzLmZhY3R1cmEgQVMgLDMzMyw2MywzZmVmMWNjYy1iZGVlLTQz
+MTMtOTUwZC00OGY3OWQ0OGNiYWM7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="289"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="705"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="codigo" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT libues.factura.`FECHAFACTURA`,
+	libues.factura.`NUMEROFACTURA`,
+	libues.factura_detalle.`CODIGOPRODUCTO`,
+	libues.factura_detalle.`NOMBREPRODUCTO`,
+	libues.factura_detalle.`CANTIDAD`,
+	libues.factura_detalle.`PRECIO`,
+	libues.factura_detalle.`SUBTOTALFACTURA`,
+	libues.factura.`TOTAL`,
+	libues.factura.`DIRECCION`,
+	libues.factura.`CLIENTE`,
+	libues.factura.`TIPOFACTURA`
+FROM libues.factura_detalle
+	INNER JOIN libues.factura ON 
+	 libues.factura_detalle.`IDFACTURA` = libues.factura.`IDFACTURA`
+WHERE (libues.factura.`NUMEROFACTURA` = $P{codigo})]]>
+	</queryString>
+	<field name="FECHAFACTURA" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="FECHAFACTURA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="NUMEROFACTURA" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="NUMEROFACTURA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="CODIGOPRODUCTO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CODIGOPRODUCTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura_detalle"/>
+	</field>
+	<field name="NOMBREPRODUCTO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREPRODUCTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura_detalle"/>
+	</field>
+	<field name="CANTIDAD" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CANTIDAD"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura_detalle"/>
+	</field>
+	<field name="PRECIO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="PRECIO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura_detalle"/>
+	</field>
+	<field name="SUBTOTALFACTURA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="SUBTOTALFACTURA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura_detalle"/>
+	</field>
+	<field name="TOTAL" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="DIRECCION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="DIRECCION"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="CLIENTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CLIENTE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<field name="TIPOFACTURA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="TIPOFACTURA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
+	</field>
+	<group name="NUMEROFACTURA">
+		<groupExpression><![CDATA[$F{NUMEROFACTURA}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="106" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="10" width="100" height="30" uuid="0c6d60d5-120d-406d-8841-da3cc550214a"/>
+				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="10" width="100" height="30" uuid="17c53100-3616-4530-b3ad-9a7094718016"/>
+				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="25485816-81a4-4173-8a24-6a01011b9f5e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="25e4d89c-1bc2-449b-9481-8d8f9daa91c4"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="30" uuid="e3cd22dd-c426-4de5-a3fc-9286abde3805">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3be83bdb-041d-4b77-8400-dcf868a8baa8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="100" height="30" uuid="3f40288b-0fd9-417d-816f-4360bd3277de">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3766c29e-3afd-492e-9cde-a585ea9fc95b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="30" uuid="c76e9463-b862-4767-8058-779eaccc1b25">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f00d5db9-4a31-43df-802a-75f28ce9b437"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="100" height="30" uuid="fb480ded-2469-46e0-a6f4-a62c3af06b13">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68e55ea4-c907-4059-8bb4-945d40f36b26"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{SUBTOTALFACTURA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="480" y="0" width="100" height="30" uuid="9eef8b04-d5bf-47e2-8666-53ddd3bfccbd"/>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

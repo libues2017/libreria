@@ -1805,6 +1805,19 @@ public class AppControllerLibues {
    		return "ReporteKardex";
    	}
     
+    //Controles para la impresion de las facturas
+    @RequestMapping(value={"/factura"}, method = RequestMethod.GET)
+  	public String factura(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "GenerarFactura";
+  	}
+      
+   @RequestMapping(value={"/repo_factura"}, method = RequestMethod.GET)
+  	public String repotfactura(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "ReporteFactura";
+  	}
+    
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
      //*************************************************************************

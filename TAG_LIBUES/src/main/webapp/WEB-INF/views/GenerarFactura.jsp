@@ -53,7 +53,7 @@
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/factura" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/repo_factura" />" target="_blank">
 
             <div class="form-group">
 
