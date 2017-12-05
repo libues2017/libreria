@@ -8,7 +8,7 @@ MTMtOTUwZC00OGY3OWQ0OGNiYWM7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="289"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="705"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT libues.factura.`FECHAFACTURA`,
@@ -25,7 +25,7 @@ MTMtOTUwZC00OGY3OWQ0OGNiYWM7]]>
 FROM libues.factura_detalle
 	INNER JOIN libues.factura ON 
 	 libues.factura_detalle.`IDFACTURA` = libues.factura.`IDFACTURA`
-WHERE (libues.factura.`NUMEROFACTURA` = $P{codigo})]]>
+WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 	</queryString>
 	<field name="FECHAFACTURA" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.label" value="FECHAFACTURA"/>
