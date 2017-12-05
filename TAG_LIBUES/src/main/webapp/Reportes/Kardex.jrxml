@@ -32,12 +32,13 @@ LWNiMTUtNDQwZi04ZDAxLTkwOGRjNjQ2ZTVhYTs=]]>
 	libues.producto.`NOMBREPRODUCTO`,
 	libues.autor.`NOMBREAUTOR`
 FROM libues.bitacora,
-	libues.autor_libro
-	INNER JOIN libues.autor ON 
-	 libues.autor_libro.`CODIGOAUTOR` = libues.autor.`CODIGOAUTOR` 
-	INNER JOIN libues.producto ON 
-	 libues.autor_libro.`CODIGOPRODUCTO` = libues.producto.`CODIGOPRODUCTO`
+	libues.autor_libro,
+	libues.autor,
+	libues.producto
 WHERE
+	(libues.autor_libro.`CODIGOPRODUCTO` = libues.producto.`CORRELATIVO`) AND
+	(libues.bitacora.`CODIGOPRODUCTO` = libues.producto.`CORRELATIVO`) AND
+	(libues.autor_libro.`CODIGOAUTOR` = libues.autor.`CODIGOAUTOR`) AND 
 	(libues.bitacora.`FECHABITACORA` between $P{fechini} and $P{fenili}) AND	 
 	(libues.producto.`NOMBREPRODUCTO` between $P{start} and $P{end})]]>
 	</queryString>
