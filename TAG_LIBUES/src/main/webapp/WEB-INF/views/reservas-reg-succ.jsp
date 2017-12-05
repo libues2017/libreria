@@ -16,6 +16,7 @@
         <div class="alert alert-success lead">
             ${success}
         </div>
+        <a href="<c:url value='/producto-busqueda' />" class="btn btn-primary">Volver a Catalogo</a>
     </div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>

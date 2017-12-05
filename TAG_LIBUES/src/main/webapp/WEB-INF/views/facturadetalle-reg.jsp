@@ -96,10 +96,13 @@ $( function() {
 </script>
 <script>
  function sesion(){
+	 	var documento = document.getElementById('documento').value;
       	var tipocredito = document.getElementById('tipocredito').value;      	
       	
+      	var documento1="doc"
       	var tipocredito1="tipoc"
       	
+      	sessionStorage[documento1]=documento;
       	sessionStorage[tipocredito1]=tipocredito;
     }
 	
@@ -108,11 +111,14 @@ $( function() {
 <script>
 	$( function() {		
 		var p;
+		var p1;
 		
 		for(var i=0;i<sessionStorage.length;i++)
 		{	
+			p1=sessionStorage.getItem("doc");
 			p=sessionStorage.getItem('tipoc');
-		}		
+		}
+		document.getElementById("documento").value=p1;
 		document.getElementById("tipocredito").value=p;
 					    
 	} );
@@ -191,7 +197,7 @@ function vuelto(){
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="documento">Documento:</label>
-					<input type="text" id="documento"  maxlength="15" name="documento"  class="form-control input-sm" value="- -"/>
+					<input type="text" id="documento"  maxlength="15" name="documento"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>

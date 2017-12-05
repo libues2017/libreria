@@ -244,7 +244,7 @@ public class AppControllerLibues {
     	return detallecotizacionService.findAllCotizaciones();
     }
     
-    @ModelAttribute("reservas")
+    @ModelAttribute("reservaciones")
     public List<Reservas> initializeReservas(){
     	return reservasService.findAllReservas();
     }
@@ -2363,25 +2363,25 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/reservas-agregar" }, method = RequestMethod.GET)
     public String newReservacion(ModelMap model) {
-        Reservas reservas = new Reservas();
-        model.addAttribute("reservas", reservas);
+        Reservas reserv = new Reservas();
+        model.addAttribute("reserv", reserv);
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());       
         return "reservas-reg";
     }
     
     @RequestMapping(value = { "/reservas-agregar" }, method = RequestMethod.POST)
-    public String saveReservacion(@Valid Reservas reservas, BindingResult result, ModelMap model) throws IOException { 
+    public String saveReservacion(@Valid Reservas reserv, BindingResult result, ModelMap model) throws IOException { 
     	if (result.hasErrors()) {
             return "reservas-reg";
         }                 	  	
-    	reservasService.saveReservas(reservas);
-    	model.addAttribute("success", "Reservacion de: <strong>" + reservas.getNombreproducto() 
-    						+ "</strong> Realizada a nombre de:" + reservas.getNombre());
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
-        return "reservas-reg-succ";
-        //return "redirect:/area-agregar";
+    	reservasService.saveReservas(reserv);
+    	model.addAttribute("success", "Reservacion de Libro: <strong>" + reserv.getNombreproducto() 
+    						+ "</strong> Realizada a nombre de: " + reserv.getNombre()
+    						+ "Con DUI numero: "+ reserv.getDui()
+    						+ "Finaliza en la fecha: "+ reserv.getFechafin());
+        model.addAttribute("loggedinuser", getPrincipal());       
+        return "reservas-reg-succ";        
     }
     
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.GET)
@@ -2390,8 +2390,8 @@ public class AppControllerLibues {
     	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCorrelativo();
     	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
     	
-    	Reservas reservas = new Reservas();
-        model.addAttribute("reservas", reservas);
+    	Reservas reserv = new Reservas();
+        model.addAttribute("reserv", reserv);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         
@@ -2399,33 +2399,20 @@ public class AppControllerLibues {
         model.addAttribute("nombre", nombre);
         
         return "reservas-reg";
-        
-        /*
-        List<Producto> productos = productoService.findAllProductos();       
-		List<Factura> fact = facturaService.findAllFacturas();
-		Integer fact1 = fact.get(fact.size()-1).getIdfactura();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigofact", fact1);        
-        model.addAttribute("producto", productos);
-        // Numero de factura
-        
-        Integer numero = facturaService.findById(fact1).getNumerofactura();
-        sesion1.setAttribute("numero", numero); 
-         */
-        
     }
     
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.POST)   
-    public String updateReservas(@Valid Reservas reservas, BindingResult result, 
+    public String updateReservas(@Valid Reservas reserv, BindingResult result, 
     		ModelMap model, @PathVariable Integer codigoprod) throws IOException {
     	if (result.hasErrors()) {
             return "reservas-reg";
         }                 	  	
-    	reservasService.saveReservas(reservas);
-    	model.addAttribute("success", "Reservacion de: <strong>" + reservas.getNombreproducto() 
-    						+ "</strong> Realizada a nombre de:" + reservas.getNombre());
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
+    	reservasService.saveReservas(reserv);
+    	model.addAttribute("success", "Reservacion de Libro: <strong>" + reserv.getNombreproducto() 
+							+ ". </strong> Realizada a nombre de: " + reserv.getNombre()
+							+ ". Con DUI numero: "+ reserv.getDui()
+							+ ". Finaliza en la fecha: "+ reserv.getFechafin());
+        model.addAttribute("loggedinuser", getPrincipal());       
         return "reservas-reg-succ";
     }
     
