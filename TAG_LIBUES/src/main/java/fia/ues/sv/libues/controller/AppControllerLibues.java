@@ -2282,6 +2282,8 @@ public class AppControllerLibues {
     	//return "redirect:/detallefacturacion-agregar";
     }
     
+    
+    
     @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
     public String newNumeroFactura(ModelMap model) {
     	
@@ -2385,7 +2387,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.GET)
     public String editReservas(@PathVariable Integer codigoprod, ModelMap model) throws IOException {
     	
-    	Integer codigo = (Integer) productoService.findByCodigoProducto(codigoprod).getCorrelativo();
+    	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCorrelativo();
     	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
     	
     	Reservas reservas = new Reservas();
@@ -2396,7 +2398,21 @@ public class AppControllerLibues {
         model.addAttribute("codigo", codigo);
         model.addAttribute("nombre", nombre);
         
-        return "reservas-reg"; 
+        return "reservas-reg";
+        
+        /*
+        List<Producto> productos = productoService.findAllProductos();       
+		List<Factura> fact = facturaService.findAllFacturas();
+		Integer fact1 = fact.get(fact.size()-1).getIdfactura();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigofact", fact1);        
+        model.addAttribute("producto", productos);
+        // Numero de factura
+        
+        Integer numero = facturaService.findById(fact1).getNumerofactura();
+        sesion1.setAttribute("numero", numero); 
+         */
+        
     }
     
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.POST)   
