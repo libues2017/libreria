@@ -2385,15 +2385,16 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.GET)
     public String editReservas(@PathVariable Integer codigoprod, ModelMap model) throws IOException {
     	
+    	Integer codigo = (Integer) productoService.findByCodigoProducto(codigoprod).getCorrelativo();
+    	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
+    	
     	Reservas reservas = new Reservas();
         model.addAttribute("reservas", reservas);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
-        //model.addAttribute("area", getPrincipal());
         
-      
-        Integer codigo = productoService.findByCorrelativo(codigoprod).getCodigoProducto();
         model.addAttribute("codigo", codigo);
+        model.addAttribute("nombre", nombre);
         
         return "reservas-reg"; 
     }

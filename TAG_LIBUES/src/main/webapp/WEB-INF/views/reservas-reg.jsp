@@ -50,7 +50,7 @@
         	Calendar ahora = Calendar.getInstance();
      		int anyo = ahora.get(Calendar.YEAR);
      		int mes = ahora.get(Calendar.MONTH) +1; 
-     		int dia = ahora.get(Calendar.DAY_OF_MONTH) +1;
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH) +2;
      		
      		if (mes < 10) {
      			sDespues = anyo + "-0" + mes;
@@ -91,7 +91,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="codigo">Codigo:</label>
                     <div class="col-md-4">
-                        <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" />
+                        <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" value="${codigo}"/>
                         <div class="has-error">
                             <form:errors path="codigoproducto" class="help-inline"/>
                         </div>
@@ -103,7 +103,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="nombr">Libro:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombreproducto" id="nombreproducto"  class="form-control input-sm"/>
+                        <form:input type="text" path="nombreproducto" id="nombreproducto"  class="form-control input-sm" value="${nombre}"/>
                         <div class="has-error">
                             <form:errors path="nombreproducto" class="help-inline"/>
                         </div>
