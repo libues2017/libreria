@@ -2475,10 +2475,8 @@ public class AppControllerLibues {
       		List<DetalleCotizacion> cotizacionBuscar = detallecotizacionService.findCotizaciones(codigo6);
       		
       		for (int i = 0; i < cotizacionBuscar.size(); i++){
-      			total = total + cotizacionBuscar.get(i).getValorTotal();
-      			     			     			
-        		//total = total + cotizacionBuscar.get(i).getValorTotal();//.getValorUnitario();//getSubtotalfactura(); //aqui se calcula el total     		  
-        	  	}
+      			total = total + cotizacionBuscar.get(i).getValorTotal();  		  
+        	}
        		model.addAttribute("total", total); 
       		model.addAttribute("cotiza2", cotizacionBuscar);
       	}
@@ -2507,16 +2505,23 @@ public class AppControllerLibues {
       	
       	detallecotizacionService.saveDetalleCotizacion(detallecotizacion);
       	
-      	Integer codigoCotizacion1 = Integer.parseInt(request.getParameter("codigoCotizacion"));
+      	Integer codigoCotizacion = Integer.parseInt(request.getParameter("codigoCotizacion"));
       	HttpSession sesion2 = request.getSession(true);
       	Date fechaCotizacion2 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaCotizacion);
-      	cotizacionService.updateFechaCotizacion(fechaCotizacion2, nombreCliente, codigoCotizacion1, telefono, correo);
+      	cotizacionService.updateFechaCotizacion(fechaCotizacion2, nombreCliente, codigoCotizacion, telefono, correo);
       	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
       	String fecha6 = sdf.format(fechaCotizacion2);
       	sesion2.setAttribute("mySessionAttribute", fecha6);
       	model.addAttribute("loggedinuser", getPrincipal());
       	return "redirect:/detallecotizacion-agregar";
       	
+      }
+      
+      @RequestMapping(value = { "/delete-detallecotizacion-{numeroDetalle}" }, method = RequestMethod.GET) // Borrar un producto de la lista
+      public String deleteCotizacion(@PathVariable Integer numeroDetalle) {    	
+      	detallecotizacionService.deleteCotizacionById(numeroDetalle);
+      	return "redirect:/detallecotizacion-agregar"; 
+      	        
       }
       
       /*

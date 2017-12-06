@@ -138,7 +138,7 @@
 		function cotizacion2(){
 			var cantidad2 = parseInt(document.getElementById("cantidad").value);
 			var precio2 = document.getElementById("valorUnitario").value;
-			var ValorTotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
+			var valorTotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
 		}
 	</script>
 	
@@ -252,7 +252,7 @@
 							</c:if>
 						
 							<sec:authorize access="hasRole('ADMINISTRADOR')">
-	                    		<td><a href="<c:url value='/delete-detalleCotizacion-${cotizaciones.numeroDetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+	                    		<td><a href="<c:url value='/delete-detallecotizacion-${cotizaciones.numeroDetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
 	                    	</sec:authorize>
 	                	</tr>
 					</c:forEach>
