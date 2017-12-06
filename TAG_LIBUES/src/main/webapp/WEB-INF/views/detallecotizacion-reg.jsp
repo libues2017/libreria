@@ -10,7 +10,7 @@
 	<title>Librería UES</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"	rel="stylesheet">
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -136,9 +136,9 @@
 	
 	<script>
 		function cotizacion2(){
-			var cantidad2 = document.getElementById("cantidad").value;
+			var cantidad2 = parseInt(document.getElementById("cantidad").value);
 			var precio2 = document.getElementById("valorUnitario").value;
-			var subtotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
+			var ValorTotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
 		}
 	</script>
 	
@@ -155,7 +155,7 @@
 						<div class="panel-body">
 							<div class="col-xs-3">
 								<label class="form-control" for="nombr">Cotización #:</label>
-								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' />
+								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' />
 							</div>
 							<div class="col-xs-3">			
 								<label class="form-control" for="nombr">Fecha:</label>
@@ -164,21 +164,21 @@
 							</div>
 							<div class="col-xs-6">
 								<label class="form-control" for="nombr">Nombre del Cliente:</label>
-								<input type="text" id="nombreCliente" name="nombreCliente" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="nombreCliente" name="nombreCliente" maxlength="60" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
 								title="Digite el nombre del Cliente"/>
 							</div>	
 						</div>
 					</div>
-					<div class="form-group row" align="center">
+					<div class="form-group row">
 						<div class="panel-body">
-							<div class="col-xs-3">
+							<div class="col-xs-4">
 								<label class="form-control" for="nombr">Número de Teléfono:</label>
-								<input type="text" id="telefono" name="telefono" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="telefono" name="telefono" maxlength="9" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
 								title="Digite el número de Telefono del Cliente"/>
 							</div>
 							<div class="col-xs-7">
 								<label class="form-control" for="nombr">Correo Electrónico:</label>
-								<input type="text" id="correo" name="correo" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="correo" name="correo" maxlength="65" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
 								title="Digite el correo electrónico del Cliente"/>
 							</div>
 						</div>
@@ -188,27 +188,25 @@
 				<div class="panel panel-success">
 					<div class="form-group row">
 						<div class="panel-body">
-							<div class="col-xs-3">
+							<div class="col-xs-4">
 				        		<label class="form-control" for="tags">Código de Producto:</label>
 	                    		<form:input type="text" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2();' 
 	                    	 	title="Digite el Código del Producto"/>        
                     		</div>
                     		<div class="col-xs-7"> 
 	                    		<label class="form-control" for="nombr">Nombre de Producto:</label>
-								<form:input type="text" path="nombreProducto" id="nombreProducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+								<form:input type="text" path="nombreProducto" id="nombreProducto" maxlength="50" placeholder="AUTOMATICO" class="form-control input-sm" />
 							</div>
-							<div class="col-xs-2">
-							<a href="<c:url value='/cotizacion-list' />"  class="btn btn-primary" title="Descartar Cotización">Salir</a>
-						</div>
+							
 						</div>
 						<div class="panel-body">
 							<div class="col-xs-3">
 								<label class="form-control" for="precio">Valor Unitario $:</label>
 								<form:input type="text" path="valorUnitario" id="valorUnitario" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 							</div>
-							<div class="col-xs-3">
+							<div class="col-xs-2">
 	                    		<label class="form-control" for="nombr">Cantidad:</label>
-	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();"/>
+	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();"/>
                     		</div>
                     		<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Valor Total $:</label>
@@ -216,6 +214,9 @@
                     		</div>
                     		<div class="col-xs-2">
 								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="cotiza.submit()" title="Agrega Producto a La Cotizacion"/>
+							</div>
+							<div class="col-xs-2">
+								<a href="<c:url value='/cotizacion-list' />"  class="btn btn-primary" title="Descartar Cotización">Salir</a>
 							</div>
                     	</div>
 						
@@ -237,7 +238,7 @@
 				</thead>
 				<tbody>
 					<c:set var="contador" value="${0}"/>
-					<c:forEach items="${cotizacion2}" var="cotizaciones">
+					<c:forEach items="${cotiza2}" var="cotizaciones">
 						<tr class="info">
 							<c:set var="salary" scope="session" value="${2000*2}"/>
 							<c:if test="${salary > 2000 }">
@@ -255,21 +256,18 @@
 	                    	</sec:authorize>
 	                	</tr>
 					</c:forEach>
-					
-					<tr class="alert alert-success lead">
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						
-						<td>Total Cotización</td>
-						<td >
-			            	$${total} 
-			            </td>
-			            <td></td>
-					</tr>
 				</tbody>
 			</table>
+			
+			<div class="row" align="right">
+            	<div class="form-group col-md-12">
+                	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <div class="col-md-2">
+                   		<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
+                    	value="$ ${total}" />                           
+                    </div>
+            	</div>
+           </div>			
 			
 			<div class="well lead" align="center">	
 				<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Terminar Cotización</a>

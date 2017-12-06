@@ -2462,8 +2462,8 @@ public class AppControllerLibues {
       public String newdetalleCotizacion( HttpServletRequest request,ModelMap model) {
       	DetalleCotizacion detallecotizacion = new DetalleCotizacion();
       	model.addAttribute("detallecotizacion", detallecotizacion);
-          model.addAttribute("edit", false);
-          model.addAttribute("loggedinuser", getPrincipal());
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
       	HttpSession sesion = request.getSession(true);
       	
       	HttpSession sesion2=request.getSession(true);
@@ -2475,22 +2475,21 @@ public class AppControllerLibues {
       		List<DetalleCotizacion> cotizacionBuscar = detallecotizacionService.findCotizaciones(codigo6);
       		
       		for (int i = 0; i < cotizacionBuscar.size(); i++){
-        		   total = total + cotizacionBuscar.get(i).getValorTotal();//.getValorUnitario();//getSubtotalfactura(); //aqui se calcula el total     		  
+      			total = total + cotizacionBuscar.get(i).getValorTotal();
+      			     			     			
+        		//total = total + cotizacionBuscar.get(i).getValorTotal();//.getValorUnitario();//getSubtotalfactura(); //aqui se calcula el total     		  
         	  	}
        		model.addAttribute("total", total); 
-      		model.addAttribute("cotizacion2", cotizacionBuscar);
+      		model.addAttribute("cotiza2", cotizacionBuscar);
       	}
       	
-      	
       	List<Producto> productos = productoService.findAllProductos();       
-  		
       	//Incrementar Cotizacion
-      	
-      	List<Cotizacion> cotizacion5 = cotizacionService.findAllCotizaciones();//facturaService.findAllFacturas();
-  		Integer cotizacion6 = cotizacion5.get(cotizacion5.size()-1).getCodigoCotizacion();//.getNumeroCotizacion();//.getIdfactura();
-          HttpSession sesion1 = request.getSession(true);
-          sesion1.setAttribute("codigo6", cotizacion6);        
-          model.addAttribute("producto", productos);
+      	List<Cotizacion> cotiza5 = cotizacionService.findAllCotizaciones();//facturaService.findAllFacturas();
+  		Integer cotiza6 = cotiza5.get(cotiza5.size()-1).getCodigoCotizacion();//.getNumeroCotizacion();//.getIdfactura();
+        HttpSession sesion1 = request.getSession(true);
+        sesion1.setAttribute("codigo6", cotiza6);        
+        model.addAttribute("producto", productos);
           // Numero de cotizacion
           //Integer numero2 = cotizacionService.findById(cotizacion6).getNumeroCotizacion();
           //sesion1.setAttribute("numero2", numero2); 
