@@ -37,13 +37,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
-		.antMatchers("/","/index").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		.antMatchers("/","/index").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('DBA') or hasRole('BODEGUERO')")
 		
 		.antMatchers("/list","/autor-list","/editorial-list", "/tipo-list", "/producto-list").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
 		
 		.antMatchers("/edit-user-*","/newuser/**","/delete-user-*","/delete-autor-*","/delete-editorial-*","delete-producto-*","/delete-area-*").access("hasRole('ADMINISTRADOR')")
 		
 		.antMatchers("/autor-agregar","edit-autor-*","/editorial-agrear","edit-editorial-*","/producto-agregar").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		
+		.antMatchers("/producto-list").access("hasRole('BODEGUERO')")
 		
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("ssoId").passwordParameter("password")
 		.and().rememberMe().rememberMeParameter("remeber-me").tokenRepository(tokenRepository).tokenValiditySeconds(86400)

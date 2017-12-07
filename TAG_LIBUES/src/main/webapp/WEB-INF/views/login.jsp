@@ -37,7 +37,7 @@
                             </div>
                             <div class="input-group input-sm col-xs-10">
                                 <label class="input-group-addon" for="password"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label> 
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Contrtaseña" required>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
                             </div>
                           <!--    <div class="input-group input-sm">
                               <div class="checkbox">

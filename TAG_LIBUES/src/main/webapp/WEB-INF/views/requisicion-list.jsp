@@ -13,12 +13,11 @@
 </head>
 <body Style="background-color:#97965B">
 <div class="row"><%@include file="page_head_2.jsp" %></div>
-	<div class="container">	
-		 
+	<div class="container">			 
         <div class="panel-group">
     		<div class="panel panel-default" align="center">
       		<div class="panel-heading" ><h4>REQUISICIONES</h4></div>
-      		<sec:authorize access="hasRole('ADMINISTRADOR')">
+      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')" >
       		<div class="panel-body">
       			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> ||||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
@@ -60,7 +59,7 @@
                         	<td>${requisicion.fecha}</td>
                         	<td>$${requisicion.total}</td>
                         	</c:if>	
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">                     
+                        	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">                     
                         	<td><a href="<c:url value='/delete-requisicion-${requisicion.codigorequisicion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>
                     	</tr>
@@ -69,7 +68,7 @@
             </table>
         	</div>
         </div>
-    </div>
+
   <div class="row"><%@include file="foot.jsp" %></div>
  <!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->

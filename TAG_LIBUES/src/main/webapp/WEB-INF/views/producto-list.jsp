@@ -14,7 +14,7 @@
 	-->
 </head>
 <body>
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 	<div class="container">
 		<div class="row"><%@include file="menu.jsp" %></div>
 		

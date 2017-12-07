@@ -8,19 +8,22 @@
     <title>Lista de Transferencias</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+     <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 </head>
 <body>
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 	<div class="container">
-		<div class="row"><%@include file="menu.jsp" %></div>
-		
-		<div class="row col-md-12">
-		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Agregar Transferencia</a>   
+		<div class="panel-group">
+    		<div class="panel panel-default" align="center">
+      		<div class="panel-heading" ><h4>TRANSFERENCIAS</h4></div>
+      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')" >
+      		<div class="panel-body">
+      			<a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Realizar Transferencia</a> ||||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-            </div>
-        </sec:authorize>
+      		</div>
+      		 </sec:authorize>
+    		</div>
+        </div>
         
         <div class="panel panel-default">
         
@@ -35,10 +38,7 @@
                         <th>Sucursal</th>                        
                         <th>Fecha</th>
                         <th>Total</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <th width="100"></th>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA') or hasRole('BODEGUERO')">                                                  
                             <th width="100"></th>
                         </sec:authorize>
                          
@@ -59,7 +59,7 @@
 	                        	<td>${transferencia.fechaTransferencia}</td>
 	                        	<td>$${transferencia.total}</td>
                         	</c:if>
-                        	<sec:authorize access="hasRole('ADMINISTRADOR')">
+                        	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
                         		<td><a href="<c:url value='/delete-transferencia-${transferencia.codTransferencia}'/>" class="btn btn-danger custom-width">Eliminar</a></td>
                         	</sec:authorize>
                     	</tr>
@@ -68,7 +68,7 @@
             </table>
         	</div>
         </div>
-    </div>
+
   <div class="row"><%@include file="foot.jsp" %></div>
  <!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
