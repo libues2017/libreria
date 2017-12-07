@@ -33,11 +33,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(userDetailsService);
 		auth.authenticationProvider(authenticationProvider());
 	}
-	
+	 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
-		.antMatchers("/","/index").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('DBA') or hasRole('BODEGUERO')")
+		.antMatchers("/","/index","/producto-list").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('DBA') or hasRole('BODEGUERO')")
 		
 		.antMatchers("/list","/autor-list","/editorial-list", "/tipo-list", "/producto-list").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
 		
@@ -45,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		.antMatchers("/autor-agregar","edit-autor-*","/editorial-agrear","edit-editorial-*","/producto-agregar").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
 		
-		.antMatchers("/producto-list").access("hasRole('BODEGUERO')")
+		.antMatchers("/producto-list").access("hasRole('BODEGUERO')") 
 		
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/login").usernameParameter("ssoId").passwordParameter("password")
 		.and().rememberMe().rememberMeParameter("remeber-me").tokenRepository(tokenRepository).tokenValiditySeconds(86400)

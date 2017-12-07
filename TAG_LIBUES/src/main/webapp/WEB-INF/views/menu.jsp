@@ -109,7 +109,7 @@
         				</li>
         			</sec:authorize>
 
-			 
+			 		<sec:authorize access="hasRole('USUARIO') "  >
 			      		<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
@@ -143,7 +143,24 @@
 			          			</sec:authorize>
 			          		</ul>
 			      		</li>
-
+					</sec:authorize>
+					<sec:authorize access="hasRole('USUARIO') "  >
+        				<li class="dropdown">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes<span class="caret"></span></a>
+			          		<ul class="dropdown-menu">
+			          			<sec:authorize access="hasRole('BODEGUERO')"  >			          			
+			            			<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
+			            		</sec:authorize>
+			            			<li role="separator" class="divider"></li>
+			            			<li><a href="<c:url value="kardex" />">Reporte de Kárdex</a></li>
+			            			<li role="separator" class="divider"></li>
+			            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
+			            			<li role="separator" class="divider"></li>
+	           							<li><a href="<c:url value="/reporte-retaceo" />">Reporte Mensual de Retaceo</a></li>
+			          		</ul>			          			
+				        </li>
+					</sec:authorize>
+					
         			<sec:authorize access="hasRole('ADMINISTRADOR')">
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matenimiento<span class="caret"></span></a>
