@@ -128,7 +128,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="dui">DUI:</label>
                     <div class="col-md-4">
-                        <form:input type="text" path="dui" id="dui" maxlength="10" class="form-control input-sm"/>
+                        <form:input type="text" path="dui" id="dui" maxlength="10" class="form-control input-sm" placeholder="########-#" title="Digitar. Incluir guion (-)"/>
                         <div class="has-error">
                             <form:errors path="dui" class="help-inline"/>
                         </div>
@@ -156,9 +156,18 @@
             
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-4 control-lable" for="dui">Cantidad:</label>
+                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
                     <div class="col-md-2">
                         <form:input type="number" min="1" max="1" path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="precio">Precio:</label>
+                    <div class="col-md-2">
+                        <form:input type="text" path="precio" id="precio"  class="form-control input-sm" value="${prec}"/>                        
                     </div>
                 </div>
             </div>

@@ -33,6 +33,7 @@
     		<tr >
     			<th>CODIGO</th>
     			<th>TITULO</th>
+    			<th>PRECIO</th>
     			<th>NOMBRE CLIENTE</th>
     			<th>DUI</th>
     			<th>FECHA FIN</th>
@@ -45,6 +46,7 @@
     		<tr >
     			<td>${reservas.codigoproducto}</td>
     			<td>${reservas.nombreproducto}</td>
+    			<td>${reservas.precio}</td>
     			<td>${reservas.nombre}</td>
     			<td>${reservas.dui}</td>
     			<td>${reservas.fechafin}</td>

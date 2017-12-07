@@ -41,6 +41,7 @@ public class ReservasServiceImpl implements ReservasService{
 			entity.setFechafin(reservas.getFechafin());
 			entity.setFechaini(reservas.getFechaini());
 			entity.setNombre(reservas.getNombre());
+			entity.setPrecio(reservas.getPrecio());
 		}
 	}
 

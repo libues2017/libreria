@@ -2389,6 +2389,7 @@ public class AppControllerLibues {
     	
     	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCorrelativo();
     	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
+    	Double prec = productoService.findByCodigoProducto(codigoprod).getPrecio();
     	
     	Reservas reserv = new Reservas();
         model.addAttribute("reserv", reserv);
@@ -2397,6 +2398,7 @@ public class AppControllerLibues {
         
         model.addAttribute("codigo", codigo);
         model.addAttribute("nombre", nombre);
+        model.addAttribute("prec", prec);
         
         return "reservas-reg";
     }

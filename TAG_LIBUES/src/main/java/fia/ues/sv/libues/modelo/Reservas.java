@@ -29,6 +29,7 @@ public class Reservas implements Serializable{
 	@Column(name="nombreproducto")
 	private String nombreproducto;
 	
+	@NotEmpty
 	@Column(name="nombre")
 	private String nombre;
 	
@@ -47,6 +48,10 @@ public class Reservas implements Serializable{
 	@NotNull
 	@Column(name="cantidad")
 	private Integer cantidad;
+	
+	@NotNull
+	@Column(name="precio")
+	private Double precio;
 
 	public Integer getIdreservas() {
 		return idreservas;
@@ -112,6 +117,12 @@ public class Reservas implements Serializable{
 		this.cantidad = cantidad;
 	}
 
-		
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}		
 	
 }

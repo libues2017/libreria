@@ -15,6 +15,7 @@
 <div class="row"><%@include file="carrusel.jsp" %></div>
 <div class="row"><%@include file="menu.jsp" %></div>
 <sec:authorize access="hasRole('USUARIO')"  ></sec:authorize>
+<sec:authorize access="hasRole('USUARIO')"  ></sec:authorize>
 <div class="row">
 	<div class="row">
 		  <div class="col-sm-4 col-md-4">
