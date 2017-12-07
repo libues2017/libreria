@@ -86,8 +86,8 @@
            							<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
 			          		</ul>
 			          		</sec:authorize>
-            	
             				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')"  >
+            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
            					</sec:authorize>
           				</ul>
@@ -121,40 +121,26 @@
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
 			            		</sec:authorize>
-			            		<sec:authorize access="hasRole('ADMINISTRADOR') "  >
-			            		<li role="separator" class="divider"></li>
-			            		<li class="dropdown-submenu">
-			          			<a class="test" tabindex="-1" href="#">Reportes <span class="caret"></span></a>
-			            		<ul class="dropdown-menu">			            			
-				            			<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
-				            			<li role="separator" class="divider"></li>
-	            						<li><a href="<c:url value="kardex" />">Reporte de Kárdex</a></li>
-				            			<li role="separator" class="divider"></li>
-				            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
-				            			<li role="separator" class="divider"></li>
-	           							<li><a href="<c:url value="/reporte-retaceo" />">Reporte Mensual de Retaceo</a></li>			                 		
-			          			</ul>
-			            		<li role="separator" class="divider"></li>
+			            		 <li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
+			            		<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="generarEtiquetas" />">Generar etiquetas</a></li>				                 	
 			          			</sec:authorize>
 			          		</ul>
 			      		</li>
-					</sec:authorize>
+				
 					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') "  >
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
-			          			<sec:authorize access="hasRole('BODEGUERO')"  >			          			
-			            			<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
-			            		</sec:authorize>
-			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="kardex" />">Reporte de Kárdex</a></li>
+			          				<li><a href="<c:url value="kardex" />">Reporte de Kárdex</a></li>
 			            			<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="existencias" />">Reporte de Existencias</a></li>
 			            			<li role="separator" class="divider"></li>
-	           							<li><a href="<c:url value="/reporte-retaceo" />">Reporte Mensual de Retaceo</a></li>
-			          		</ul>			          			
+	           						<li><a href="<c:url value="/reporte-retaceo" />">Reporte Mensual de Retaceo</a></li>
+	           						<li role="separator" class="divider"></li>
+	           						<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
+		          		</ul>			          			
 				        </li>
 					</sec:authorize>
 					
@@ -167,7 +153,8 @@
 			            			<li role="separator" class="divider"></li>
 			            			<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
 			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>			            			
+			            			<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
+			            						            			
 			           			</sec:authorize>
 			          		</ul>			          			
 				        </li>
