@@ -7,15 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Libreria Universitaria</title>
-<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link> 
+<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
+	<script src="/static/js/jquery-3.1.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link><base>
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 <div class="row"><%@include file="carrusel.jsp" %></div>
+<sec:authorize access="hasRole('USUARIO') or hasRole('BODEGUERO') or  hasRole('VENDEDOR') or hasRole('ADMINISTRADOR')"  >
 <div class="row"><%@include file="menu.jsp" %></div>
-<sec:authorize access="hasRole('USUARIO')"  ></sec:authorize>
-<sec:authorize access="hasRole('BODEGUERO')"  ></sec:authorize>
+</sec:authorize>
 <div class="row">
 	<div class="row">
 		  <div class="col-sm-4 col-md-4">
@@ -58,6 +61,6 @@
 <!--Para agregar pie depagina-->
 <!--  <div class="row"><%@include file="foot.jsp" %></div>-->
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
-<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ 	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 </html>
