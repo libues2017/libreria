@@ -317,7 +317,7 @@ function cambiar(){
 				    			<td>$ ${requisiciones.subtotal}</td>
 				    							    							    			 			
 				    		</c:if>	
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
                             <td><a href="<c:url value='/delete-detallerequisicion-${requisiciones.codigodetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>

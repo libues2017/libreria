@@ -87,10 +87,7 @@
 			          		</ul>
 			          		</sec:authorize>
             	
-            				<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-            					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="producto-agregar" />">Agregar nuevo</a></li>
-            					<li role="separator" class="divider"></li>
+            				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
             					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
            					</sec:authorize>
           				</ul>
@@ -109,7 +106,7 @@
         				</li>
         			</sec:authorize>
 
-			 		<sec:authorize access="hasRole('USUARIO') "  >
+			 		<sec:authorize access="hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
 			      		<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">

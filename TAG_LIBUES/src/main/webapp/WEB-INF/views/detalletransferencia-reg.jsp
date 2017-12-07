@@ -520,7 +520,7 @@ function cambiar3(){
 									<td>$${transferencias.subTotal}</td>
 								</c:if>
 
-								<sec:authorize access="hasRole('ADMINISTRADOR')">
+								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
 									<td><a href="<c:url value='/delete-detalleTransferencia-${transferencias.codDetalleTransferencia}' />"
 										class="btn btn-danger custom-width">Eliminar</a></td>
 								</sec:authorize>
