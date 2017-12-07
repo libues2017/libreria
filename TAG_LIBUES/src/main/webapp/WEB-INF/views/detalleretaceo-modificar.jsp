@@ -460,7 +460,7 @@
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
 						<input type="text" id="codigofacturaproveedor" 
-						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" value='<%=request.getAttribute("codigofacturaproveedor").toString()%>' /> 
+						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" value='${codigofacturaproveedor}' /> 
 						
 						
 						
@@ -471,7 +471,7 @@
 						
 						
 						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" 
-						class="form-control input-sm" value='<%=request.getAttribute("fechafacturaproveedor").toString()%>' /> 
+						class="form-control input-sm" value='${fechafacturaproveedor}' /> 
 						                        
 					</div>
 					<div class="col-xs-2">
