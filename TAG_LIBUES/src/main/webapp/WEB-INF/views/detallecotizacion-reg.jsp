@@ -139,6 +139,45 @@
 			var cantidad2 = parseInt(document.getElementById("cantidad").value);
 			var precio2 = document.getElementById("valorUnitario").value;
 			var valorTotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
+			if(cantidad2 != null){
+				$("#agrega").focus();
+			}
+			
+		}
+		
+		function saltar1(){
+			var nombre = document.getElementById("nombreCliente").value;
+			if(nombre != null){
+				$("#telefono").focus();
+			}
+			
+		}
+		
+		function saltar2(){
+			var telefono = document.getElementById("telefono").value;
+			if(telefono != null){
+				$("#correo").focus();
+			}
+			
+			
+		}
+		
+		function saltar3(){
+			var correo = document.getElementById("correo").value;
+			if(correo != null){
+				$("#codigoProducto").focus();
+			}
+			
+			
+		}
+		
+		function saltar4(){
+			var codigo = document.getElementById("codigoProducto").value;
+			if(codigo != null){
+				$("#cantidad").focus();
+			}
+			
+			
 		}
 	</script>
 	
@@ -164,7 +203,7 @@
 							</div>
 							<div class="col-xs-6">
 								<label class="form-control" for="nombr">Nombre del Cliente:</label>
-								<input type="text" id="nombreCliente" name="nombreCliente" maxlength="60" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="nombreCliente" name="nombreCliente" maxlength="60" class="form-control input-sm" onchange="sesion(); saltar1();" placeholder="Digitar"
 								title="Digite el nombre del Cliente"/>
 							</div>	
 						</div>
@@ -173,12 +212,12 @@
 						<div class="panel-body">
 							<div class="col-xs-4">
 								<label class="form-control" for="nombr">Número de Teléfono:</label>
-								<input type="text" id="telefono" name="telefono" maxlength="9" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="telefono" name="telefono" maxlength="9" class="form-control input-sm" onchange="sesion(); saltar2();" placeholder="Digitar"
 								title="Digite el número de Telefono del Cliente"/>
 							</div>
 							<div class="col-xs-7">
 								<label class="form-control" for="nombr">Correo Electrónico:</label>
-								<input type="text" id="correo" name="correo" maxlength="65" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
+								<input type="text" id="correo" name="correo" maxlength="65" class="form-control input-sm" onchange="sesion(); saltar3();" placeholder="Digitar"
 								title="Digite el correo electrónico del Cliente"/>
 							</div>
 						</div>
@@ -190,7 +229,7 @@
 						<div class="panel-body">
 							<div class="col-xs-4">
 				        		<label class="form-control" for="tags">Código de Producto:</label>
-	                    		<form:input type="text" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2();' 
+	                    		<form:input type="text" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2(); saltar4();' 
 	                    	 	title="Digite el Código del Producto"/>        
                     		</div>
                     		<div class="col-xs-7"> 
@@ -206,7 +245,8 @@
 							</div>
 							<div class="col-xs-2">
 	                    		<label class="form-control" for="nombr">Cantidad:</label>
-	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();"/>
+	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();
+	                    		saltar4();"/>
                     		</div>
                     		<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Valor Total $:</label>
