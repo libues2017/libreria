@@ -17,7 +17,7 @@ LWNiMTUtNDQwZi04ZDAxLTkwOGRjNjQ2ZTVhYTs=]]>
 	<parameter name="start" class="java.lang.String"/>
 	<parameter name="end" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT libues.bitacora.`CODIGOBITACORA`,
+		<![CDATA[SELECT DISTINCT libues.bitacora.`CODIGOBITACORA`,
 	libues.bitacora.`CODIGOPRODUCTO`,
 	libues.bitacora.`CODOPERACION1`,
 	libues.bitacora.`CODOPERACION2`,

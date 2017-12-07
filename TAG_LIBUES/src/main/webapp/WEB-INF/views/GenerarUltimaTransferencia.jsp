@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Factura</title>
+	<title>Transferencias</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -65,7 +65,7 @@
                 </div>
 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
-				<input type="hidden" value="TransferenciaUltima.jasper" name="nombre"/>
+				<input type="hidden" value="TransferenciasUltima.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>

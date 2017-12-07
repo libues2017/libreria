@@ -11,7 +11,7 @@ MTMtOTUwZC00OGY3OWQ0OGNiYWM7]]>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT libues.factura.`FECHAFACTURA`,
+		<![CDATA[SELECT DISTINCT libues.factura.`FECHAFACTURA`,
 	libues.factura.`NUMEROFACTURA`,
 	libues.factura_detalle.`CODIGOPRODUCTO`,
 	libues.factura_detalle.`NOMBREPRODUCTO`,
