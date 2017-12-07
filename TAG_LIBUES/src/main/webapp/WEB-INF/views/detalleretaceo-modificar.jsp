@@ -402,12 +402,7 @@
 
 	 
 	  
-	 	<div id="frmTest" tabindex="-1">
-	            <!-- CUTTED -->
-		        <div id="step1" class="modal-footer">
-				  <button type="button" class="glyphicon glyphicon-erase btn btn-default" id="btnDelete"> Delete</button>
-				</div>
-	    </div>
+	 	
 	 
 	  <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
