@@ -116,7 +116,7 @@
 			          			<!--<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li> -->			            		
 			            		<li role="separator" class="divider"></li>
-			            		<sec:authorize access="hasRole('BODEGUERO')"  >
+			            		<sec:authorize access="hasRole('BODEGUERO') or hasRole ('ADMINISTRADOR')"  >
 			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
