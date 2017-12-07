@@ -7,17 +7,17 @@ try{
     String nombre = "Respaldo_Sistema_"+fechaHoy+".sql";
     int copia_seguridad;
 
-    //Process runtimeProcess = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
-    Process runtimeProcess = Runtime.getRuntime().exec("/opt/lampp/bin/mysqldump --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
+   Process runtimeProcess = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
+   //Process runtimeProcess = Runtime.getRuntime().exec("/opt/lampp/bin/mysqldump --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
     copia_seguridad = runtimeProcess.waitFor(); 
 
     if(copia_seguridad==0){ //Devuelve 0 si todo ha salido bien
 %>      <script> 
             function respaldoRealizado() {
-                //alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
                 //alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \n/home/gestor/Respaldo/");
                 alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
-                location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
+                location.href="http://localhost:8080/TAG_LIBUES/index"; 
+               // location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
             } 
             respaldoRealizado(); 
         </script> 
@@ -26,7 +26,8 @@ try{
 %>      <script> 
             function respaldoNoRealizado() {
                 alert("El respaldo no se pudo generar");
-                location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
+                location.href="http://localhost:8080/TAG_LIBUES/index"; 
+                //location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
             } 
             respaldoNoRealizado(); 
         </script> 

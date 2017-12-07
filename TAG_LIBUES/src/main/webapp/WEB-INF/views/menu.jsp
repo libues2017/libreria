@@ -27,6 +27,7 @@
 		        
 		    <div class="collapse navbar-collapse" id="navbar-collapse-2">
 				<ul class="nav navbar-nav navbar-left">
+					<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 					<li class="dropdown">
 			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingreso <span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
@@ -42,6 +43,7 @@
 			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="area-list-deleted" />">Restaurar Áreas</a></li>
 			                 	</sec:authorize>
+			                
 			          		</ul>
 			          		
 			          		<li role="separator" class="divider"></li>	
@@ -65,9 +67,11 @@
 				            		<li role="separator" class="divider"></li>
 				            		<li><a href="<c:url value="autor-agregar" />">Agregar Autor</a></li>
 			                 	</sec:authorize>
+			                 	
 			          		</ul>			          			
 			          	</ul>
 				 	</li>
+				 	 </sec:authorize>
 			        	
 					<li class="dropdown">
           				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
@@ -75,11 +79,12 @@
             				<li><a href="<c:url value="producto-list" />">Catálago</a></li>
             				<li role="separator" class="divider"></li>
             				<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
+            				<sec:authorize access="hasRole('ADMINISTRADOR')"  >
             				<li role="separator" class="divider"></li>
             				<li class="dropdown-submenu">
 			          		<a class="test" tabindex="-1" href="#">Retaceo de Productos <span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
-			            		<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+			            		
 			            			<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
             						<li role="separator" class="divider"></li>
            							<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>           		  								
