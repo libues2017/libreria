@@ -1730,7 +1730,7 @@ public class AppControllerLibues {
           Integer codigo1 = 0;
           sesion.setAttribute("codigo1", codigo1);
         
-          return "redirect:/transferencia-list";
+          return "redirect:/GenerarUltimaTransferencia";
     }
     
     /**********************************************************************************************************************************************************************
@@ -1817,6 +1817,19 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReporteFactura";
   	}
+   
+ //Controles para generacion del reporte de la ultima transferencia insertada
+   @RequestMapping(value={"/transferenciaUltima"}, method = RequestMethod.GET)
+ 	public String ultimaTransferencia(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "GenerarUltimaTransferencia";
+ 	}
+     
+  @RequestMapping(value={"/repo_UltimaTransferencia"}, method = RequestMethod.GET)
+ 	public String repotTransferenciaUltima(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "ReporteUltimaTransferencia";
+ 	}
     
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
