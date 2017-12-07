@@ -17,7 +17,7 @@
 		<div class="panel-group">
     		<div class="panel panel-default" align="center">
       			<div class="panel-heading" ><h4>COTIZACIONES</h4></div>
-      			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
+      			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')">
       				<div class="panel-body">
 	      				<a href="<c:url value='/detallecotizacion-agregar' />" class="btn btn-primary">Realizar Cotización</a> ||||||||
 	                	<a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
@@ -40,7 +40,7 @@
                     <th>Correo</th>
                     <th>Fecha</th>
                     <th>Total</th>
-                    <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
+                    <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')">
                     	<th width="100">ELIMINAR</th>
                     </sec:authorize>     
                 </tr>

@@ -87,7 +87,7 @@
 			          		</ul>
 			          		</sec:authorize>
             	
-            				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
+            				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')"  >
             					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
            					</sec:authorize>
           				</ul>
@@ -106,7 +106,7 @@
         				</li>
         			</sec:authorize>
 
-			 		<sec:authorize access="hasRole('USUARIO') or hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
+			 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
 			      		<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
@@ -141,7 +141,7 @@
 			          		</ul>
 			      		</li>
 					</sec:authorize>
-					<sec:authorize access="hasRole('USUARIO') "  >
+					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') "  >
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
