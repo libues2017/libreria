@@ -154,11 +154,11 @@
 	
 	
 	
-	 <div class="row col-md-10">
+	 <div class="panel panel-default">
 			        <div class="panel panel-default">
 			              <!-- Default panel contents -->
 			            <div class="panel-heading"><span class="lead">Retaceo</span></div>
-			<table id="example" class="table table-striped ">
+			<table id="example" class="display" >
 					<thead>
 					
 				

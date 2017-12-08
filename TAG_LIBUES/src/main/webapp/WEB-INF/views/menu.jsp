@@ -29,7 +29,7 @@
 				<ul class="nav navbar-nav navbar-left">
 				<sec:authorize access="hasRole('ADMINISTRADOR')"  >
 					<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingreso <span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
 			          		<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>			          			
 			          		<li role="separator" class="divider"></li>
@@ -66,30 +66,43 @@
 				            		<li role="separator" class="divider"></li>
 				            		<li><a href="<c:url value="autor-agregar" />">Agregar Autor</a></li>
 			                 	</sec:authorize>
-			          		</ul>			          			
+			          		</ul>
+			          		<li role="separator" class="divider"></li>
+			          		<li><a href="<c:url value="producto-list" />">Catálago de Productos</a></li>
+			          					          			
 			          	</ul>
 				 	</li>
-			</sec:authorize>	
+				</sec:authorize>
+			
+				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
+			      		<li class="dropdown">
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
+			          		<ul class="dropdown-menu">
+			          		<!-- 	<sec:authorize access="hasRole('ADMINISTRADOR') "  >			            		
+			            		<li><a href="<c:url value="localizacion-list" />">Ubicación de productos</a></li>
+			            		</sec:authorize>
+			            		<li role="separator" class="divider"></li>  -->
+			          			<li><a href="<c:url value="detalleretaceo-list" />">Retaceos</a></li>			                 	
+			          			<li role="separator" class="divider"></li>
+			            		<sec:authorize access="hasRole('BODEGUERO') or hasRole ('ADMINISTRADOR')"  >
+			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
+			            		<li role="separator" class="divider"></li>
+			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
+			            		</sec:authorize>
+			            		 <li role="separator" class="divider"></li>
+			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
+			            		<li role="separator" class="divider"></li>
+			            		<li><a href="<c:url value="generarEtiquetas" />">Generar etiquetas</a></li>				                 	
+			          			
+			          		</ul>
+			      		</li>
+				</sec:authorize>	
 					<li class="dropdown">
-          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
+          				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consulta<span class="caret"></span></a>
           				<ul class="dropdown-menu">
             				<li><a href="<c:url value="producto-list" />">Catálago</a></li>
             				<li role="separator" class="divider"></li>
             				<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
-            				<li role="separator" class="divider"></li>
-            				<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-            				<li class="dropdown-submenu">
-			          		<a class="test" tabindex="-1" href="#">Retaceo de Productos <span class="caret"></span></a>
-			          		<ul class="dropdown-menu">			            		
-			            			<li><a href="<c:url value="detalleretaceo-list" />">Lista de Retaceos</a></li>
-            						<li role="separator" class="divider"></li>
-           							<li><a href="<c:url value="detalleretaceo-agregar" />">Agregar nuevo retaceo</a></li>
-			          		</ul>
-			          		</sec:authorize>
-            				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')"  >
-            					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
-           					</sec:authorize>
           				</ul>
         			</li>
         				
@@ -99,39 +112,33 @@
           					<ul class="dropdown-menu">
             					<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
+            					<li><a href="<c:url value="#" />">Cierre de Caja</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="numero-factura" />">Establer Numero Factura</a></li>
+            					<li><a href="<c:url value="#" />">Reportes de Facturacion</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="#" />">Reportes Ventas Contados</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="#" />">Reportes Ventas Creditos</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="#" />">Mensual Salidas al Precio</a></li>
            					</ul>
         				</li>
         			</sec:authorize>
 
-			 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')"  >
-			      		<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
-			          		<ul class="dropdown-menu">
-			          			<sec:authorize access="hasRole('ADMINISTRADOR') "  >			            		
-			            		<li><a href="<c:url value="localizacion-list" />">Ubicación de productos</a></li>
-			            		</sec:authorize>			                 	
-			          			<!--<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="detallerequisicion-list" />">Requisiciones</a></li> -->			            		
-			            		<li role="separator" class="divider"></li>
-			            		<sec:authorize access="hasRole('BODEGUERO') or hasRole ('ADMINISTRADOR')"  >
-			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
-			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
-			            		</sec:authorize>
-			            		 <li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
-			            		<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="generarEtiquetas" />">Generar etiquetas</a></li>				                 	
-			          			</sec:authorize>
-			          		</ul>
-			      		</li>
-				
+			 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')">
+        				<li class="dropdown">
+          					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cotizacion<span class="caret"></span></a>
+          					<ul class="dropdown-menu">
+            					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="detallecotizacion-agregar" />">Realizar Cotizacion</a></li>	
+           					</ul>
+        				</li>
+        			</sec:authorize>
+			 		
 					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') "  >
         				<li class="dropdown">
-			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes<span class="caret"></span></a>
+			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporte<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
 			          				<li><a href="<c:url value="kardex" />">Reporte de Kárdex</a></li>
 			            			<li role="separator" class="divider"></li>
@@ -148,13 +155,18 @@
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matenimiento<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
-			          			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
-			            			<li><a href="<c:url value="list" />">Usuarios</a></li>
+			          			<sec:authorize access="hasRole('ADMINISTRADOR')" >
+			            				<li><a href="<c:url value="list" />">Usuarios</a></li>
 			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
+			            				<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
 			            			<li role="separator" class="divider"></li>
-			            			<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
-			            						            			
+			            				<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
+			            			<li role="separator" class="divider"></li>
+            							<li><a href="<c:url value="numero-factura" />">Establer Numero Factura</a></li>
+            						<li role="separator" class="divider"></li>
+            							<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
+			            			<li role="separator" class="divider"></li>
+            							<li><a href="<c:url value="#" />">Cierre Semestral</a></li>			            			
 			           			</sec:authorize>
 			          		</ul>			          			
 				        </li>
