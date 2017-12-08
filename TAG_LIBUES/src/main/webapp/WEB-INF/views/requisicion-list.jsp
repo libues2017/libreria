@@ -17,7 +17,7 @@
         <div class="panel-group">
     		<div class="panel panel-default" align="center">
       		<div class="panel-heading" ><h4>REQUISICIONES</h4></div>
-      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')" >
+      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
       		<div class="panel-body">
       			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> ||||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>

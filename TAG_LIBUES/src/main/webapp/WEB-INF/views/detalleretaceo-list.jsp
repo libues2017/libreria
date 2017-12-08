@@ -11,20 +11,8 @@
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
-    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>	 
-		 <!--
-		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-		  
-		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-		  
-		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
-		  
-		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-		
-		<script type="text/javascript" charset="utf8" src="//editor.datatables.net/extensions/Editor/js/dataTables.editor.min.js"></script>
-		<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.2.3/js/dataTables.select.min.js"></script>
-		-->
+    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>	 		
 		
 	     <script type="text/javascript">
 
@@ -131,25 +119,19 @@
 </head>
 <body>
 
-
-
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="row">
 <!--<h1>Areas</h1>-->
-<sec:authorize access="hasRole('ADMINISTRADOR')">
+	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 			    <div class="well" align="center">
-                <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a> 
-                <a href="<c:url value='/index' />"> Regresar</a>
-                
+                <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>
+                ||||||<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
                 <p id="devolver" class="btn btn-success"></p> 
-               
                 
             </div>
-        </sec:authorize>
+   	</sec:authorize>
 <!--<div class="col-xs-8">-->
 	
 	

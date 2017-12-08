@@ -16,7 +16,7 @@
 		<div class="panel-group">
     		<div class="panel panel-default" align="center">
       		<div class="panel-heading" ><h4>TRANSFERENCIAS</h4></div>
-      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')" >
+      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
       		<div class="panel-body">
       			<a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Realizar Transferencia</a> ||||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
@@ -38,7 +38,7 @@
                         <th>Sucursal</th>                        
                         <th>Fecha</th>
                         <th>Total</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA') or hasRole('BODEGUERO')">                                                  
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">                                                  
                             <th width="100"></th>
                         </sec:authorize>
                          
