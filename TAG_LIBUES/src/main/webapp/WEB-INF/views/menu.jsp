@@ -29,7 +29,7 @@
 				<ul class="nav navbar-nav navbar-left">
 				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole ('DBA')"  >
 					<li class="dropdown">
-			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
+			        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ingreso<span class="caret"></span></a>
 			          	<ul class="dropdown-menu">
 			          		<li><a href="<c:url value="tipo-list" />">Tipo Producto</a></li>			          			
 			          		<li role="separator" class="divider"></li>
@@ -74,6 +74,9 @@
 			          		
 			          		<li role="separator" class="divider"></li>
 			          			<li><a href="<c:url value="producto-list" />">Catálago de Productos</a></li>
+			          						                 	
+			          				
+			          			
 			          					          			
 			          	</ul>
 				 	</li>
@@ -88,12 +91,10 @@
 			            		</sec:authorize>
 			            		<li role="separator" class="divider"></li>  -->
 			          			<li><a href="<c:url value="detalleretaceo-list" />">Retaceos</a></li>			                 	
-			          			<li role="separator" class="divider"></li>
-			            		<sec:authorize access="hasRole('BODEGUERO') or hasRole ('ADMINISTRADOR')"  >
+			          			<li role="separator" class="divider"></li>			            		
 			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>
-			            		</sec:authorize>
+			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>			            		
 			            		 <li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
 			            		<li role="separator" class="divider"></li>

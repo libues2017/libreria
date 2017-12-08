@@ -17,14 +17,12 @@
 
 <div class="row"><%@include file="menu.jsp" %></div>
 <div class="row">
-<!--<h1>Tipos</h1>-->
-<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/tipo-agregar' />" class="btn btn-primary">Crear Tipo Producto</a> |
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-            </div>
-        </sec:authorize>
-<!--<div class="col-xs-8">-->
+	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+    <div class="well">
+    <a href="<c:url value='/tipo-agregar' />" class="btn btn-primary">Crear Tipo Producto</a> |||
+	<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
+    </div>
+	</sec:authorize>
 	 <div class="row col-md-10">
         <div class="panel panel-default">
               <!-- Default panel contents -->
@@ -34,7 +32,12 @@
     		<tr >
     			<th>CODIGO</th>
     			<th>TIPO DE PRODUCTO</th>
-    			<th>OPCIONES</th>
+    			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+    			<th>EDITAR</th>
+    			</sec:authorize>
+    			<sec:authorize access="hasRole('ADMINISTRADOR')">
+    			<th>ELIMINAR</th>
+    			</sec:authorize>
       			
     		</tr>
     	</thead>
@@ -45,11 +48,11 @@
     			<td>${tipos.tipoProducto}</td>
     			
                 <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <td><a href="<c:url value='/edit-tipo-${tipos.codTipoProducto}' />" class="btn btn-success custom-width">Editar</a></td>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-tipo-${tipos.codTipoProducto}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        </sec:authorize>
+                <td><a href="<c:url value='/edit-tipo-${tipos.codTipoProducto}' />" class="btn btn-success custom-width">Editar</a></td>
+                </sec:authorize>
+                <sec:authorize access="hasRole('ADMINISTRADOR')">
+                <td><a href="<c:url value='/delete-tipo-${tipos.codTipoProducto}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                </sec:authorize>
     		</tr>
     	</c:forEach>
     	</tbody>

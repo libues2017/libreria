@@ -121,19 +121,18 @@
 <div class="container">
 
 <div class="row"><%@include file="menu.jsp" %></div>
-<!-- <div class="row"> <%@include file="authheader.jsp" %></div>-->
 <div class="row">
-<!--<h1>Proveedores</h1>-->
-<sec:authorize access="hasRole('ADMINISTRADOR')">
+	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div class="well" align="center">
                 <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Agregar Proveedor</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
-                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               
-             
+                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+                 <sec:authorize access="hasRole('ADMINISTRADOR')"> 
+                 ||| <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                 </sec:authorize>
             </div>
-        </sec:authorize>
+    </sec:authorize>
  <div class="panel panel-default">
     <div class="panel panel-default">
               <!-- Default panel contents -->

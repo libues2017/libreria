@@ -125,8 +125,10 @@
                 <a href="<c:url value='/editorial-agregar' />" class="btn btn-primary">Agregar Editorial</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
-                  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> ||
-                  <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
+                  <sec:authorize access="hasRole('ADMINISTRADOR')">
+                  |||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                  </sec:authorize>
             </div>
 	</sec:authorize>
  <div class="panel panel-default">
