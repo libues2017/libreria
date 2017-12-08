@@ -46,8 +46,8 @@
 			var tabla =  $('#areas').DataTable( {
 				data:  dataSet,
 			    columns: [
-			    	{ title: "CODIGO" },
-			        { title: "NOMBRE DEL AREA" }			              		               
+			    	{ title: "CÓDIGO" },
+			        { title: "NOMBRE DEL ÁREA" }			              		               
 			    ],
 			    "language": idioma_espanol
 			} );
@@ -113,9 +113,6 @@
 
 <body>
 
-    
-   
-
     <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
 		<div class="modal-dialog">
@@ -130,49 +127,39 @@
 		</div>
 	</div>
 
-
-
-
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 	<div class="row"><%@include file="menu.jsp" %></div>
 	<div class="row">
 		<!--<h1>Areas</h1>-->
-		<sec:authorize access="hasRole('ADMINISTRADOR')">
+		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div   class="well" align="center">
-                <a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Area</a> ||||||
+            	<a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Área</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-                 <p>OPCIONES</p>
-               <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>                       			
+                <p>OPCIONES</p>
+               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+               	<sec:authorize access="hasRole('ADMINISTRADOR')">
+               	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               	</sec:authorize>                       			
             </div>
        </sec:authorize>
        
-    </div>    
-	<!--<div class="col-xs-8">-->
+    </div>    	
 	<div class="row col-md-13">
-    	<div class="panel panel-default">
-        <!-- Default panel contents -->
-        	<div class="panel-heading"><span class="lead">Areas</span></div>
-			
-			<table id="areas" class="display" cellspacing="0" width="100%">					
+    	<div class="panel panel-default">        
+        	<div class="panel-heading"><span class="lead">Áreas</span></div>			
+			<table id="areas" class="display" >					
 			</table><br/>
 		</div>
 	</div>
 </div>
 
-</div>
+
 <br/><br/>
 <div class="row"><%@include file="foot.jsp" %></div>
-<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>-->
-<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>   
-<!--  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
-<!--<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>-->
-
-
-      
+<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
+ 
 </body>
-
-
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
 $('#btnDelete').on('click', function(e){

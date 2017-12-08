@@ -40,11 +40,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.antMatchers("/","/index").access("!isAuthenticated() or hasRole('USUARIO') or hasRole('ADMINISTRADOR') "
 				+ "or hasRole('DBA') or hasRole('BODEGUERO') or hasRole('VENDEDOR') or hasRole('DIRECTOR')")
 		
-		.antMatchers("/list","/autor-list","/editorial-list", "/tipo-list").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		.antMatchers("/list","/autor-list","/editorial-list", "/tipo-list")
+		.access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
 		
-		.antMatchers("/edit-user-*","/newuser/**","/delete-user-*","/delete-autor-*","/delete-editorial-*","delete-producto-*","/delete-area-*").access("hasRole('ADMINISTRADOR')")
+		.antMatchers("/edit-user-*","/newuser/**","/delete-user-*","/delete-autor-*","/delete-editorial-*","delete-producto-*","/delete-area-*")
+		.access("hasRole('ADMINISTRADOR')")
 		
-		.antMatchers("/autor-agregar","edit-autor-*","/editorial-agrear","edit-editorial-*","/producto-agregar").access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
+		.antMatchers("/autor-agregar","edit-autor-*","/editorial-agrear","edit-editorial-*","/producto-agregar")
+		.access("hasRole('ADMINISTRADOR') or hasRole('DBA')")
 		
 		
 		

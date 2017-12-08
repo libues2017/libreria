@@ -4,7 +4,6 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
@@ -13,20 +12,6 @@
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
     <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
     
-    <!--  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-	
-	
-	
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-	-->
-	
 		<script type="text/javascript">
 			    var dataSet = [];
 			    var sessionId = [];
@@ -133,28 +118,20 @@
 
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
-
 <div class="row"><%@include file="menu.jsp" %></div>
-<!-- <div class="row"> <%@include file="authheader.jsp" %></div>-->
 <div class="row">
-<!--<h1>Editoriales</h1>-->
-<sec:authorize access="hasRole('ADMINISTRADOR')">
+	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div class="well" align="center">
                 <a href="<c:url value='/editorial-agregar' />" class="btn btn-primary">Agregar Editorial</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
                   <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> ||
                   <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               
-                
-             
             </div>
-        </sec:authorize>
+	</sec:authorize>
  <div class="panel panel-default">
     <div class="panel panel-default">
-              <!-- Default panel contents -->
-            <div class="panel-heading"><span class="lead">Editoriales</span></div>
-<!--<div class="col-xs-8">-->
+	    <div class="panel-heading"><span class="lead">Editoriales</span></div>
 	<table id="editoriales" class="table table-striped ">
 	</table><br/>
 	</div>
@@ -164,11 +141,6 @@
 <br/><br/>
 <div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
-<!--
-<script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
-<script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
--->
 </body>
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Quiere eliminar este dato?";
@@ -177,7 +149,6 @@ $('#btnDelete').on('click', function(e){
 			//alert();//My code to delete
 		});
 	});
-
   function confirmDialog(message, onConfirm){
 	    var fClose = function(){
 			modal.modal("hide");

@@ -129,65 +129,53 @@
 </head>
 <body>
 
-
-
-    <!-- Modal confirm -->
-	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body" id="confirmMessage">
-				</div>
-				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
-		        </div>
-			</div>
+<!-- Modal confirm -->
+<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+	<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-body" id="confirmMessage">
 		</div>
+		<div class="modal-footer">
+			<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		    <button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		    </div>
 	</div>
+	</div>
+</div>
 
 
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
-
 <div class="row"><%@include file="menu.jsp" %></div>
-<!-- <div class="row"> <%@include file="authheader.jsp" %></div>-->
 <div class="row">
-<!--<h1>Autores</h1>-->
-<sec:authorize access="hasRole('ADMINISTRADOR')">
+
+<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div class="well" align="center">
                 <a href="<c:url value='/autor-agregar' />" class="btn btn-primary">Agregar Autor</a> ||||||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                 <p>OPCIONES</p>
-                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> || <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               
-                
-             
+                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+                <sec:authorize access="hasRole('ADMINISTRADOR')"> 
+                |||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                </sec:authorize>
             </div>
         </sec:authorize>
  <div class="panel panel-default">
     <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">Autores</span></div>
-<!--<div class="col-xs-8">-->
 	<table id="autores" class="table table-striped ">
 	</table><br/>
 	</div>
 	</div>
 </div>
 </div>
-<br/><br/>
-
 <div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
-<!-- 
-<script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
-<script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
--->
 </body>
 
 <script>
-var YOUR_MESSAGE_STRING_CONST = "Quieres eliminar este dato?";
+var YOUR_MESSAGE_STRING_CONST = "¿Quiere eliminar este dato?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
 			//alert();//My code to delete
