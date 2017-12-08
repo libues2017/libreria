@@ -372,12 +372,15 @@
 					
 					
 					
-					function se(){
-						   
-						   var a=document.getElementById("fecharetaceo").value;
-						   
-						   alert(a);
-						   }
+					
+					
+					</script>
+					
+					<script type="text/javascript">
+					
+					
+					
+					
 					
 					</script>
 
@@ -518,8 +521,11 @@
                             <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
-                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm"     >CANCELAR</a>
-                    	</div>                    	
+                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm"  id="click-me"  >CANCELAR</a>
+                    	</div>    
+                    	
+                    	 
+                    	                	
                         </c:otherwise>
                     </c:choose>
                     
