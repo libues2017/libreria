@@ -263,7 +263,7 @@ function vuelto(){
 			      			<th>Cantidad</th>
 			      			<th>Precio</th>
 			      			<th>Subtotal</th>
-			      			<sec:authorize access="hasRole('ADMINISTRADOR')">
+			      			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR')">
 			      			<th>Eliminar</th>
 			      			</sec:authorize>	
 		    		</tr>
@@ -278,7 +278,7 @@ function vuelto(){
 				    			<td>$ ${facturas.precio}</td>
 				    			<td>$ ${facturas.subtotalfactura}</td>	    			
 				    			
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR')">
                             <td><a href="<c:url value='/delete-detallefactura-${facturas.idfacturadetalle}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                         </sec:authorize>
                         </tr>

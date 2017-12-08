@@ -106,13 +106,16 @@
           				</ul>
         			</li>
         				
-        			<sec:authorize access="hasRole('ADMINISTRADOR')"  >
+        			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR') or hasRole('DIRECTOR')"  >
         				<li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
           					<ul class="dropdown-menu">
+          						<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR')">
             					<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="#" />">Cierre de Caja</a></li>
+            					</sec:authorize>
+            					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DIRECTOR')">
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="#" />">Reportes de Facturacion</a></li>
             					<li role="separator" class="divider"></li>
@@ -121,6 +124,7 @@
             					<li><a href="<c:url value="#" />">Reportes Ventas Creditos</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="#" />">Mensual Salidas al Precio</a></li>
+            					</sec:authorize>
            					</ul>
         				</li>
         			</sec:authorize>
@@ -136,7 +140,7 @@
         				</li>
         			</sec:authorize>
 			 		
-					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') "  >
+					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DIRECTOR') "  >
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reporte<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
