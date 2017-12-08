@@ -181,6 +181,13 @@ WHERE
 				<textElement textAlignment="Right"/>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="91" y="57" width="285" height="23" uuid="fca88c11-a118-4ee8-8e22-47e7a34fa4b1"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Ultima Transferencia]]></text>
+			</staticText>
 		</band>
 	</title>
 	<columnHeader>

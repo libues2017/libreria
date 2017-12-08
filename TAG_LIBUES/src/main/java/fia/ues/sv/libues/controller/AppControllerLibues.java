@@ -1830,7 +1830,20 @@ public class AppControllerLibues {
  		model.addAttribute("loggedinuser", getPrincipal());
  		return "ReporteUltimaTransferencia";
  	}
+  
+  //Controles para generacion del comprobante de Cotizaciones
+  @RequestMapping(value={"/cotizaciones"}, method = RequestMethod.GET)
+	public String cotizaciones(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "GenerarCotizacion";
+	}
     
+ @RequestMapping(value={"/repo_cotizacion"}, method = RequestMethod.GET)
+	public String repotCotizacion(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteCotizacion";
+ }
+ 
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
      //*************************************************************************
@@ -2091,7 +2104,7 @@ public class AppControllerLibues {
     
        
     //*************************************************************************
-    // ***************** CONTROLES PARA  FACTURACION **************************
+    // ***************** CONTROLES PARA FACTURACION **************************
     //*************************************************************************
     
     @RequestMapping(value = { "/factura-list" }, method = RequestMethod.GET)
@@ -2671,8 +2684,6 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "respaldoBase";
   	}
-      
-   
-    
+ 
     
 }//Fin del Controlador
