@@ -21,7 +21,7 @@ public class TipoProducto implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codTipoProducto;
 	
-	@NotEmpty
+	@NotEmpty(message="No puede ir vacío")
 	@Column(name="TIPOPRODUCTO", nullable=false)
 	private String tipoProducto;
 

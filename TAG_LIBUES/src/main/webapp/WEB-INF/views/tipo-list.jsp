@@ -20,8 +20,8 @@
 <!--<h1>Tipos</h1>-->
 <sec:authorize access="hasRole('ADMINISTRADOR')">
             <div class="well">
-                <a href="<c:url value='/tipo-agregar' />" class="btn btn-primary">Agregar Tipo Producto</a> |
-                <a href="<c:url value='/index' />"> Regresar</a>
+                <a href="<c:url value='/tipo-agregar' />" class="btn btn-primary">Crear Tipo Producto</a> |
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
             </div>
         </sec:authorize>
 <!--<div class="col-xs-8">-->

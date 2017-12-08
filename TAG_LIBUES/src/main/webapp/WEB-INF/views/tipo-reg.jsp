@@ -8,22 +8,24 @@
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <Style>
-    .control-label{
-    	text-align: left;
-    	}
-    </Style>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link> 
+   
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
-
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="col-xs-8">
-	  <div class="well lead">Agregar Tipo Producto</div>
+	  <c:choose>
+	<c:when test="${edit}">
+		<div class="well lead" align="center">ACTUALIZAR TIPO PRODUCTO</div>
+	</c:when>
+    <c:otherwise>
+    	<div class="well lead" align="center">NUEVO TIPO PRODUCTO</div>
+    </c:otherwise>
+    </c:choose>	
         <form:form method="POST" modelAttribute="tipo" class="form-horizontal">
             <form:input type="hidden" path="codTipoProducto" id="codTipoProducto"/>
-             
+            <div class="well lead"> 
             <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="nombr">Tipo:</label>
@@ -39,16 +41,19 @@
      
            
             <div class="row">
-                <div class="form-actions floatRight">
+                <div class="form-actions floatRight"  align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/tipo-list' />">Cancelar</a>
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/tipo-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm"/> ó <a href="<c:url value='/tipo-list' />">Cancelar</a>
+                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/tipo-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
+            </div>
             </div>
         </form:form>
 </div>
