@@ -370,62 +370,30 @@
 					        }
 					}
 					
+					
+					
+					function se(){
+						   
+						   var a=document.getElementById("fecharetaceo").value;
+						   
+						   alert(a);
+						   }
+					
 					</script>
 
 </head>
 
-<script>
-    var YOUR_MESSAGE_STRING_CONST = "Your confirm message?";
-   
-      $('#btnDelete').on('click', function(e){
-    		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
-    			//My code to delete
-    		});
-    	});
-
-        function confirmDialog(message, onConfirm){
-    	    var fClose = function(){
-    			modal.modal("hide");
-    	    };
-    	    var modal = $("#confirmModal");
-    	    modal.modal("show");
-    	    $("#confirmMessage").empty().append(message);
-    	    $("#confirmOk").one('click', onConfirm);
-    	    $("#confirmOk").one('click', fClose);    	  
-    	   $("#confirmCancel").one("click", fClose);
-        }
-        
-  </script>
 
 	
 <body >
 
-	 
-	  
-	 	
-	 
-	  <!-- Modal confirm -->
-	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body" id="confirmMessage">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
-		        </div>
-			</div>
-		</div>
-	</div>
-	 
-	 
 	 	  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 
 
 	  <div class="well lead" align="center">Modificar Retaceo</div>
-        <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
+        <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"   >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
       <div class="panel-group">
