@@ -18,7 +18,7 @@
         <div class="panel-group">
     		<div class="panel panel-default" align="center">
       		<div class="panel-heading" ><h4>VENTAS</h4></div>
-      		<sec:authorize access="hasRole('ADMINISTRADOR')">
+      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
       		<div class="panel-body">      			
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
       		</div>
