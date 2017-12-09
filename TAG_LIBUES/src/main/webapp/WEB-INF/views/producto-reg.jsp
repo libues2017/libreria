@@ -16,6 +16,18 @@
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
   	
+  	<script>
+      function validar()
+      {
+    	  var area = document.getElementById('codigoarea').value;
+    	  if (area == 0)
+    	  {
+    		  alert('Seleccione un Area');  
+    	  }    	  	
+    	  
+      }
+    </script>
+  	
 </head>
  <%
 					// Quiero la fecha actual para ponerla por defecto 
@@ -85,7 +97,10 @@
 		             
 					   		<div class="col-xs-4">
 			                	<label class="form-control" for="area">Area:</label>
-			                    <form:select path="area" items="${areas}" multiple="false" itemValue="codigoarea" itemLabel="nombrearea" class="form-control input-sm" />
+			                    <form:select path="area" id="codigoarea" multiple="false"  class="form-control input-sm" >
+	       							<form:option value="0"  label="Seleccione un Area"/>
+	       							<form:options items="${areas}"  itemValue="codigoarea" itemLabel="nombrearea"  />
+	       						</form:select>
 			                    <div class="has-error">
 			                    	<form:errors path="area" class="help-inline"/>
 			                    </div>
@@ -93,15 +108,18 @@
             	
 			            	<div class="col-xs-4">
 			                    <label class="form-control" for="proveedor">Proveedor:</label>
-			                    <form:select path="proveedor" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
-			                    <div class="has-error">
-			                       <form:errors path="proveedor" class="help-inline"/>
-			                    </div>
+			                    <form:select path="proveedor" id="codigoproveedor" multiple="false"  class="form-control input-sm" >
+	       							<form:option value="0"  label="Seleccione un Proveedor"/>
+	       							<form:options items="${proveedores}"  itemValue="codigoproveedor" itemLabel="nombreproveedor"  />
+	       						</form:select>			           
 			            	</div>
             	
 			            	<div class="col-xs-4">
-			                	<label class="form-control" for="proveedorAnterior">Proveedor Anterior:</label>
-			                    <form:select path="proveedorAnterior" items="${proveedores}" multiple="false" itemValue="codigoproveedor"   class="form-control input-sm" />
+			                	<label class="form-control" for="proveedorAnterior">Proveedor Anterior:</label>			                 
+			                    <form:select path="proveedorAnterior" id="codigoproveedor" multiple="false"  class="form-control input-sm" >
+	       							<form:option value="0"  label=" "/>
+	       							<form:options items="${proveedores}"  itemValue="codigoproveedor" itemLabel="nombreproveedor"  />
+	       						</form:select>
 			                    <div class="has-error">
 			                    	<form:errors path="proveedor" class="help-inline"/>
 			                    </div>	
@@ -178,7 +196,8 @@
 		            		
 		            		<div class="col-xs-4">
 		            			<label class="form-control" for="existencia">Unidad Minima:</label>
-		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" maxlength="11" placeholder="Digite la Cantidad de Minima del Producto" class="form-control input-sm"/>
+		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" 
+		                		class="form-control input-sm" value="1"/>
 		                    	<!-- 
 		                    	<div class="has-error">
 		                    		<form:errors path="unidadMinima" class="help-inline"/>
@@ -554,7 +573,7 @@
 		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:when>
 		                      <c:otherwise>
-		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm" onclick="alert('Se creo el producto')"/> |||
+		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm" onclick="validar();"/> |||
 		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:otherwise>
 		                  </c:choose>

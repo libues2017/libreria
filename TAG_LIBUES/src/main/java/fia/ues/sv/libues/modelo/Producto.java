@@ -54,8 +54,10 @@ public class Producto implements Serializable{
 	@Column(name="EXISTENCIA")
 	private Integer existencia;
 	
+	@NotNull
 	@Column(name="SALA" )
 	private Integer sala;
+	
 	
 	@Column(name="UNIDADMINIMA")
 	private Integer unidadMinima;
