@@ -23,8 +23,34 @@
     	  if (area == 0)
     	  {
     		  alert('Seleccione un Area');  
-    	  }    	  	
-    	  
+    	  } 	  
+      }
+      
+      function validar2()
+      {
+    	  var codigo = document.getElementById('codigoproveedor').value;
+    	  if (codigo == 0)
+    	  {
+    		  alert('Seleccione un Proveedor');  
+    	  } 	  
+      }
+      
+      function validar3()
+      {
+    	  var nombre = document.getElementById('nombreProducto').value;
+    	  if (nombre == '')
+    	  {
+    		  alert('Digite un Nombre de Producto');  
+    	  } 	  
+      }
+      
+      function validar4()
+      {
+    	  var tipo = document.getElementById('codTipoProducto').value;
+    	  if (tipo == 0)
+    	  {
+    		  alert('Seleccione el Tipo de Producto');  
+    	  } 	  
       }
     </script>
   	
@@ -571,7 +597,7 @@
 		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:when>
 		                      <c:otherwise>
-		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm" onclick="validar();"/> |||
+		                          <input type="submit" value="Registrar Producto" class="btn btn-primary btn-sm" onclick="validar(); validar2(); validar3(); validar4();"/> |||
 		                          <a href="<c:url value='/producto-list' />" class="btn btn-primary btn-sm">Cancelar</a>
 		                      </c:otherwise>
 		                  </c:choose>
