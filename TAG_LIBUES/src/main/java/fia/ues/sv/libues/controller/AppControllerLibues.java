@@ -1846,6 +1846,19 @@ public class AppControllerLibues {
 		return "ReporteCotizacion";
  }
  
+ //Controles para generacion del reporte de Ventas
+ @RequestMapping(value={"/ventas"}, method = RequestMethod.GET)
+	public String ventas(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "GenerarReporteVentas";
+	}
+   
+@RequestMapping(value={"/repo_ventas"}, method = RequestMethod.GET)
+	public String repotVentas(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteVentas";
+}
+ 
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
      //*************************************************************************
