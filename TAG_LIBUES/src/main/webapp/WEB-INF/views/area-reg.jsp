@@ -9,8 +9,42 @@
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>    
-</head>
+    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
+	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+	
+    <script>
+      function validar()
+      {
+    	  var nomarea = document.getElementById('nombrearea').value;
+    	  if (nomarea != '')
+    	  {
+    		  alert('El área se creo con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Ingrese un nombre de área');
+    	  }
+      }
+    </script>
+    
+    <script>
+      function editarvalidar()
+      {
+    	  var nomarea = document.getElementById('nombrearea').value;
+    	  if (nomarea != '')
+    	  {
+    		  alert('El área se actualizo con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Ingrese un nombre de área');
+    	  }
+      }
+    </script>
 
+</head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
@@ -52,11 +86,11 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="alert('Se actualizó el ÁREA')"/> 
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> 
                             ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="alert('Se creó el ÁREA')"/> 
+                            <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="validar();"/> 
                             ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise> 
                     </c:choose>
@@ -67,7 +101,6 @@
 </div>
 
 </div>
-
 
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>

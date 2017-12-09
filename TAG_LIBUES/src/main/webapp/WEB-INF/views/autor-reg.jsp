@@ -8,7 +8,42 @@
 <title>Librería UES</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>    
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link> 
+    
+    <script>
+      function validar()
+      {
+    	  var nomautor = document.getElementById('nombreautor').value;
+    	  if (nomautor != '')
+    	  {
+    		  alert('El autor fue creado con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Digite el nombre de autor');
+    	  }
+      }
+    
+    </script>
+    
+<script>
+      function editarvalidar()
+      {
+    	  var nomautor = document.getElementById('nombreautor').value;
+    	  if (nomautor != '')
+    	  {
+    		  alert('El autor se actualizo con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Ingrese un nombre de autor');
+    	  }
+      }
+    </script>
+    
+       
 </head>
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
@@ -53,11 +88,11 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Autor" class="btn btn-primary btn-sm"/> |||||
+                            <input type="submit" value="Actualizar Autor" onclick="editarvalidar();" class="btn btn-primary btn-sm"/> |||||
                             <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Autor" class="btn btn-primary btn-sm"/> |||||
+                            <input type="submit" value="Registrar Autor" onclick="validar();" class="btn btn-primary btn-sm"/> |||||
                             <a href="<c:url value='/autor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>

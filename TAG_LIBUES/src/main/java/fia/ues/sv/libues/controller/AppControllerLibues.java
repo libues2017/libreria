@@ -548,10 +548,11 @@ public class AppControllerLibues {
         }
                  	  	
     	autorService.saveAutor(autor);
-        model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor() + "</strong> Registrado");
+        //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor() + "</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        return "autor-reg-succ";
+        //return "autor-reg-succ";
+        return "redirect:/autor-agregar";
     }
     
     @RequestMapping(value = { "/edit-autor-{codigoautor}" }, method = RequestMethod.GET)
@@ -572,9 +573,10 @@ public class AppControllerLibues {
         }
  
         autorService.updateAutor(autor);
-        model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "autor-reg-succ";
+        //return "autor-reg-succ";
+        return "redirect:/autor-list";
     }
     
     @RequestMapping(value = { "/delete-autor-{codigoautor}" }, method = RequestMethod.GET)
