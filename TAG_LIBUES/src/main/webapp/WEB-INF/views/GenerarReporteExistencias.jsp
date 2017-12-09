@@ -41,7 +41,7 @@
             <div class="container col-xs-1 col-sm-1 col-md-1"></div>
 
             <div class="container col-xs-10 col-sm-10 col-md-10 ">
-                <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: </br><script type="text/javascript">getDate()</script></h4></div>
+                <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: <br><script type="text/javascript">getDate()</script></h4></div>
                 <div class="col-sm-8"><img src="<c:url value="/static/img/logo.png"/>" class="img-responsive center-block" /></div>
 
                 
@@ -51,8 +51,8 @@
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Reporte de Existencias de Productos</h3></div>
 
-        </br>
-        </br>
+        <br>
+        <br>
         <form class="form-horizontal" role="form" action="<c:url value="/repo_existencias" />" target="_blank">
 
             <div class="form-group">
@@ -76,6 +76,30 @@
                     <input type="text" class="form-control" name="codigoproveedor" id="codigoproveedor" required>
                 </div>
             </div>
+            
+            <!-- 
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Area:</label>
+                <div class="col-sm-4">
+                    <form:select type="text" path="areas" items="${areas}" class="form-control" name="codigoarea" id="codigoarea" />                    
+                </div>
+            </div>
+           
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Editorial:</label>
+                <div class="col-sm-4">
+                    <form:select type="text" path="editoriales" items="${editoriales}" class="form-control" name="codigoeditorial" id="codigoeditorial" />
+                </div>
+            </div>
+            
+                        
+               <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Proveedor:</label>
+                <div class="col-sm-4">
+                    <form:select type="text" path="proveedores" items="${proveedores}" class="form-control" name="codigoproveedor" id="codigoproveedor" />
+                </div>
+            </div>
+             -->
                         
             <div class="form-group">		
 				<label class="control-label col-sm-4" for="nombr">Tipo Producto:</label>

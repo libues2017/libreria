@@ -97,13 +97,19 @@ $( function() {
 <script>
  function sesion(){
 	 	var documento = document.getElementById('documento').value;
-      	var tipocredito = document.getElementById('tipocredito').value;      	
+      	var tipocredito = document.getElementById('tipocredito').value;
+      	var cliente = document.getElementById('cliente').value;
+      	var direccion = document.getElementById('direccion').value;
       	
       	var documento1="doc"
       	var tipocredito1="tipoc"
+      	var cliente1="clien"
+      	var direccion1="direc"
       	
       	sessionStorage[documento1]=documento;
       	sessionStorage[tipocredito1]=tipocredito;
+      	sessionStorage[cliente1]=cliente;
+      	sessionStorage[direccion1]=direccion;
     }
 	
 </script>
@@ -112,12 +118,18 @@ $( function() {
 	$( function() {		
 		var p;
 		var p1;
+		var p2;
+		var p3;
 		
 		for(var i=0;i<sessionStorage.length;i++)
-		{	
+		{
+			p3=sessionStorage.getitem("direc");
+			p2=sessionStorage.getItem("clien");
 			p1=sessionStorage.getItem("doc");
 			p=sessionStorage.getItem('tipoc');
 		}
+		document.getElementById("direccion").value=p3
+		document.getElementById("cliente").value=p2
 		document.getElementById("documento").value=p1;
 		document.getElementById("tipocredito").value=p;
 					    
@@ -189,11 +201,11 @@ function vuelto(){
 			<div class="form-group row">			
 				<div class="col-xs-3">
 					<label class="form-control" for="cliente">Cliente:</label>
-					<input type="text" id="cliente"  maxlength="50" name="cliente"  class="form-control input-sm" value="- -"/>
+					<input type="text" id="cliente"  maxlength="50" name="cliente"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="direccion">Direccion:</label>	
-					<input type="text" id="direccion" maxlength="80" name="direccion"  class="form-control input-sm" value="- -"/>
+					<input type="text" id="direccion" maxlength="80" name="direccion"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
 					<label class="form-control" for="documento">Documento:</label>
@@ -203,7 +215,7 @@ function vuelto(){
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
 						<OPTION VALUE="- -" >- -</OPTION>
-						<OPTION VALUE="CREDITO UES" >Credito UES</OPTION>
+						<OPTION VALUE="EMPLEADO UES" >Empleado UES</OPTION>
 						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
 					</SELECT>
 				</div>
