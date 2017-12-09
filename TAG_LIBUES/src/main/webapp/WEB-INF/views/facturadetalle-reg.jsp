@@ -146,10 +146,10 @@ function validar() {
 		}
 }
 function vuelto(){
-	var recibe = parseFloat(document.getElementById("recibe").value)
-	var total2 = parseFloat(document.getElementById("total2").value)
+	var recibe = document.getElementById("recibe").value;
+	var total2 = document.getElementById("total2").value;
 	
-	var devolver = document.getElementById('devolver').value=parseFloat(recibe) - parseFloat(total2);
+	var devolver = parseFloat(document.getElementById('devolver').value=parseFloat(recibe) - parseFloat(total2));
 	
 }
 </script>
