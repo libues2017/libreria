@@ -119,10 +119,7 @@
 			                    <form:select path="proveedorAnterior" id="codigoproveedor" multiple="false"  class="form-control input-sm" >
 	       							<form:option value="0"  label=" "/>
 	       							<form:options items="${proveedores}"  itemValue="codigoproveedor" itemLabel="nombreproveedor"  />
-	       						</form:select>
-			                    <div class="has-error">
-			                    	<form:errors path="proveedor" class="help-inline"/>
-			                    </div>	
+	       						</form:select>		                    
 			            	</div>
 			            </div>
 		            </div>
@@ -139,10 +136,10 @@
 		                	
 		                	<div class="col-xs-4">
                     			<label class="form-control" for="tipoProducto">Tipo de Producto:</label>
-                        		<form:select path="tipoProducto" items="${tipoproductos}" multiple="false" itemValue="codTipoProducto" itemLabel="tipoProducto" class="form-control input-sm" />
-                        		<div class="has-error">
-                            		<form:errors path="tipoProducto" class="help-inline"/>
-                        		</div>
+                        		<form:select path="tipoProducto" id="codTipoProducto" multiple="false"  class="form-control input-sm" >
+	       							<form:option value="0"  label="Seleccione Tipo Producto"/>
+	       							<form:options items="${tipoproductos}"  itemValue="codTipoProducto" itemLabel="tipoProducto"  />
+	       						</form:select>               		
             				</div>
 		                	
 		            	</div>
@@ -150,24 +147,24 @@
 		            	<div class="panel-body">
                 			<div class="col-xs-4">
                     			<label class="form-control" for="autores">Autores / Marca:</label>
-                        		<form:select path="autores" items="${autores}" multiple="true" itemValue="codigoautor"   class="form-control input-sm" />
-                        		<div class="has-error">
-                            		<form:errors path="autores" class="help-inline"/>
-                        		</div>
+                        		<form:select path="autores" id="codigoautor" items="${autores}"  itemValue="codigoautor" multiple="true"  class="form-control input-sm" />
+	       							
+	       					  
                 			</div>
                 		
                 			<div class="col-xs-4">
                     			<label class="form-control" for="editorial">Editorial:</label>
-                        		<form:select path="editorial" items="${editoriales}" multiple="false" itemValue="codigoeditorial" itemLabel="nombre" class="form-control input-sm" />
-                        		<div class="has-error">
-                            		<form:errors path="editorial" class="help-inline"/>
-                        		</div>
+                        		<form:select path="editorial" id="codigoeditorial" multiple="false"  class="form-control input-sm" >
+	       							<form:option value="0"  label="Seleccione Editorial"/>
+	       							<form:options items="${editoriales}" multiple="false" itemValue="codigoeditorial" itemLabel="nombre"  />
+	       						</form:select>                        		                        		                     		
                 			</div>
                 			
                 			<div class="col-xs-4">
                     			<label class="form-control" for="unidadMedida">Unidad de Medida:</label>
                         		<!--<form:input type="text" path="unidadMedida" id="unidadMedida" class="form-control input-sm"/>-->
                         		<SELECT name="unidadMedida" id="unidadMedida" class="form-control input-sm">
+										<OPTION VALUE="">Selecciona la Unidad de Medida</OPTION>
 										<OPTION VALUE="C/U">Unidad</OPTION>
 										<OPTION VALUE="HJA">Hoja</OPTION>
 										<OPTION VALUE="PQT">Paquete</OPTION>
@@ -249,6 +246,7 @@
                     			<label class="form-control" for="especificoGastos">Especifíco de Gastos:</label>
                         		<!--<form:input type="text" path="especificoGastos" id="especificoGastos" class="form-control input-sm"/>-->
                         		<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm">
+										<OPTION VALUE="">Seleccione el Especifíco de Gastos</OPTION>
 										<OPTION VALUE="54101">54101 Productos Alimenticios Para Personas</OPTION>
 										<OPTION VALUE="54102">54102 Productos Alimenticios Para Animales</OPTION>
 										<OPTION VALUE="54103">54103 Productos Agropecuarios y Forestales</OPTION>
