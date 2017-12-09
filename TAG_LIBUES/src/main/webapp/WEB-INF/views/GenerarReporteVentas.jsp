@@ -53,7 +53,7 @@
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/repo_transferencias" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/repo_ventas" />" target="_blank">
 
             <div class="form-group">
                 <label class="control-label col-sm-4" for="email">Fecha desde:</label>
