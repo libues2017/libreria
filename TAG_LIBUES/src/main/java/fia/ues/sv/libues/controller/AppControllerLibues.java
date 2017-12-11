@@ -2447,6 +2447,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.POST)   
     public String updateReservas(@Valid Reservas reserv, BindingResult result, 
     		ModelMap model, @PathVariable Integer codigoprod) throws IOException {
+    	//Producto producto = productoService.findByCodigoProducto(codigoProducto);
     	if (result.hasErrors()) {
             return "reservas-reg";
         }

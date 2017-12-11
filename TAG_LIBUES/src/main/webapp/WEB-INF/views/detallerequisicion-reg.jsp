@@ -289,8 +289,8 @@ function validar1(){
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">			 		
-			 		<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse"  onclick="validar1();" data-target="#agrega">COMPROBAR</button>			 		
-				 	<input type="button" value="AGREGAR" id="agrega" class="collapse" onclick="req.submit();"  /> 							
+			 <!--		<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse"  onclick="validar1();" data-target="#agrega">COMPROBAR</button>	 -->		 		
+				 	<input type="button" value="AGREGAR" id="agrega" class="btn btn-primary btn-sm" onclick="req.submit();"  /> 							
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>

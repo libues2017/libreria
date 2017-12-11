@@ -89,7 +89,7 @@
             <div class="well lead">
                          
             <div class="row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="codigo">Codigo:</label>
                     <div class="col-md-4">
                         <form:input type="text" path="codigoproducto" id="codigoproducto" class="form-control input-sm" value="${codigo}"/>
@@ -101,10 +101,21 @@
             </div>
              
             <div class="row">
+                <div class="form-group col-md-12" style="display:none">
+                    <label class="col-md-4 control-lable" for="nombr">Libro:</label>
+                    <div class="col-md-7">
+                        <form:input type="text" path="nombreproducto" id="nombreproducto"  class="form-control input-sm" value="${nombre}" />
+                        <div class="has-error">
+                            <form:errors path="nombreproducto" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="nombr">Libro:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="nombreproducto" id="nombreproducto"  class="form-control input-sm" value="${nombre}"/>
+                        <input type="text" id="nombreproducto"  class="form-control input-sm" value="${nombre}" disabled="disabled"/>
                         <div class="has-error">
                             <form:errors path="nombreproducto" class="help-inline"/>
                         </div>
@@ -137,41 +148,73 @@
             </div>
             
             <div class="row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="fecha">Reservación:</label>
                     <div class="col-md-4">
                         <form:input type="date" path="fechaini" id="fechaini"  class="form-control input-sm" value="<%=sAhora%>"/>                        
                     </div>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="fecha">Reservación:</label>
+                    <div class="col-md-4">
+                        <input type="date" id="fechaini"  class="form-control input-sm" value="<%=sAhora%>" disabled/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="fecha">Finaliza:</label>
                     <div class="col-md-4">
                         <form:input type="date" path="fechafin" id="fechafin"  class="form-control input-sm" value="<%=sDespues%>"/>                        
                     </div>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="fecha">Finaliza:</label>
+                    <div class="col-md-4">
+                        <input type="date" id="fechafin"  class="form-control input-sm" value="<%=sDespues%>" disabled/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
                     <div class="col-md-2">
                         <form:input type="number" min="1" max="1" path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
                     </div>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
+                    <div class="col-md-2">
+                        <input type="number" min="1" max="1"  id="cantidad"  class="form-control input-sm" value="1" disabled/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="precio">Precio:</label>
                     <div class="col-md-2">
                         <form:input type="text" path="precio" id="precio"  class="form-control input-sm" value="${prec}"/>                        
                     </div>
                 </div>
+            </div>            
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="precio">Precio:</label>
+                    <div class="col-md-2">
+                        <input type="text" id="precio"  class="form-control input-sm" value="${prec}" disabled/>                        
+                    </div>
+                </div>
             </div>
-            
+
             <div class="row">
                 <div class="form-actions floatRight" align="center">
                     <c:choose>

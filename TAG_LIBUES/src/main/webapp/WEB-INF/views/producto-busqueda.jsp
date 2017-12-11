@@ -98,10 +98,8 @@
                         </sec:authorize>
                         <th>Proveedor</th>
                         <th>Editorial</th>
-                        <th>Precio</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                        <th>RESERVAR</th>
-                        </sec:authorize>
+                        <th>Precio</th>                       
+                        <th>RESERVAR</th>                        
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             <th width="100">EDITAR</th>
                         </sec:authorize>
