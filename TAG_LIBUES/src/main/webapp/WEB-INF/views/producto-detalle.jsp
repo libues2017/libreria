@@ -126,6 +126,7 @@
       							</sec:authorize>
       							<tr>   
                     	    		<td colspan="2" align="center">
+                    	    			<a href="<c:url value='/edit-reservas-${producto.codigoProducto }'/>"  class="btn btn-primary">Reservar</a>
                         				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                             				<a href="<c:url value='/edit-producto-${producto.codigoProducto}' />" class="btn btn-success custom-width">Editar</a>
                         				</sec:authorize>

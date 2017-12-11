@@ -40,5 +40,7 @@ public interface ProductoService {
 
 	void updateReserva(Integer codigo, Integer sala);
 
+	void updateReservaRestaurar(Integer cod, Integer sala);
+
 
 }

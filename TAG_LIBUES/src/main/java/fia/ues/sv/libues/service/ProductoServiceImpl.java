@@ -145,7 +145,19 @@ public class ProductoServiceImpl implements ProductoService{
 
 	@Override
 	public void updateReserva(Integer codigo, Integer sala) {
-		// TODO Auto-generated method stub
+		Producto entity = dao.findByCodigoProducto(codigo);
+		if(entity != null){
+			entity.setSala(sala);
+		}
+		
+	}
+
+	@Override
+	public void updateReservaRestaurar(Integer cod, Integer sala) {
+		Producto entity = dao.findByCorrelativo(cod);
+		if(entity != null){
+			entity.setSala(sala);
+		}
 		
 	}	
 	

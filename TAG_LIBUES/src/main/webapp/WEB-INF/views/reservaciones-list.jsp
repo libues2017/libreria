@@ -52,7 +52,7 @@
     			<td>${reservas.fechafin}</td>
     			
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
-                	<td><a href="<c:url value='/d-d-${reservas.idreservas}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+                	<td><a href="<c:url value='/delete-reserva-${reservas.idreservas}' />" class="btn btn-danger custom-width">Eliminar</a></td>
                	</sec:authorize>
     		</tr>
     	</c:forEach>

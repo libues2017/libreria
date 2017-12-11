@@ -2447,7 +2447,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/edit-reservas-{codigoprod}" }, method = RequestMethod.POST)   
     public String updateReservas(@Valid Reservas reserv, BindingResult result, 
     		ModelMap model, @PathVariable Integer codigoprod) throws IOException {
-    	//Producto producto = productoService.findByCodigoProducto(codigoProducto);
+    	
     	if (result.hasErrors()) {
             return "reservas-reg";
         }
@@ -2463,15 +2463,15 @@ public class AppControllerLibues {
         productoService.updateReserva(codigo,sala);
         return "reservas-reg-succ";
     }
-    /*
-    List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
-    for(int i=0;i<facturaBuscar.size();i++){
-   	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
-      	 Integer cantidad = facturaBuscar.get(i).getCantidad();	       	 
-      	 Integer existencia = facturaBuscar.get(i).getSala();
-      	 Integer sala = existencia - cantidad;
-      	 productoService.updateSalaVenta1(codigoproducto, sala);
-    }         */
+    
+    @RequestMapping(value = { "/delete-reserva-{idreservas}" }, method = RequestMethod.GET)
+    public String deleteReserva(@PathVariable Integer idreservas) {    	
+    	reservasService.deleteReservas(idreservas);
+    	Integer cod = reservasService.findById(idreservas).getCodigoproducto();
+    	Integer sala = productoService.findByCorrelativo(cod).getSala() + 1;
+    	productoService.updateReservaRestaurar(cod,sala);
+    	return "redirect:/reservaciones-list";        
+    }
     
     
     
