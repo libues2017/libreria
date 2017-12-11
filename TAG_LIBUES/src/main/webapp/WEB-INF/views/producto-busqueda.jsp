@@ -8,12 +8,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Busqueda Productos</title>
+<title>Busqueda Productos</title>  
 </head>
 <body>
 	
-	<div class="row"><%@include file="page_head_2.jsp" %></div>
-	<div class="container">
+<div class="row"><%@include file="page_head_2.jsp" %></div>
+<div class="container">
 		<div class="row"><%@include file="menu.jsp" %></div>
        	  
        	
@@ -72,17 +72,11 @@
        	</div>
        
        	</form:form>
-  
+
   	<c:set var="categories" value="${productos}" scope="session"/>
   	
   	<hr/>
-
-       	<sec:authorize access="hasRole('ADMIN')">
-            <div class="well">
-                <a href="<c:url value='/producto-agregar' />" class="btn btn-primary">Nuevo Libro</a> |
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-            </div>
-        </sec:authorize>
+       
         <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">Resultados</span></div>
@@ -148,7 +142,7 @@
             </table>
         </div>
         
-    </div>
+</div>    
   <div class="row"><%@include file="foot.jsp" %></div>
 </body>
 </html>
