@@ -49,7 +49,6 @@ import fia.ues.sv.libues.modelo.DetalleTransferencia;
 import fia.ues.sv.libues.modelo.Editorial;
 import fia.ues.sv.libues.modelo.Factura;
 import fia.ues.sv.libues.modelo.FacturaDetalle;
-import fia.ues.sv.libues.modelo.Localizacion;
 import fia.ues.sv.libues.modelo.Proveedor;
 import fia.ues.sv.libues.modelo.Requisicion;
 import fia.ues.sv.libues.modelo.Reservas;
@@ -64,7 +63,6 @@ import fia.ues.sv.libues.modelo.Cotizacion;
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
 import fia.ues.sv.libues.modelo.DetalleRequisicion;
 import fia.ues.sv.libues.modelo.UserProfile;
-import fia.ues.sv.libues.service.LocalizacionService;
 import fia.ues.sv.libues.service.AutorService;
 import fia.ues.sv.libues.service.CotizacionService;
 import fia.ues.sv.libues.service.DetalleCotizacionService;
@@ -109,8 +107,8 @@ public class AppControllerLibues {
 	@Autowired
 	EditorialService editorialService;
 	
-	@Autowired
-	LocalizacionService localizacionService;
+	/*@Autowired
+	LocalizacionService localizacionService; */
 		
 	@Autowired
 	AutorService autorService;
@@ -179,10 +177,10 @@ public class AppControllerLibues {
         return editorialService.findAllEditoriales();
     }
     
-    @ModelAttribute("localizaciones")
+    /*@ModelAttribute("localizaciones")
     public List<Localizacion> initializeLocalizacion() {
         return localizacionService.findAllLocalizaciones();
-    }
+    }*/
     
     @ModelAttribute("proveedores")
     public List<Proveedor> initializeProveedores() {
@@ -1862,7 +1860,7 @@ public class AppControllerLibues {
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
      //*************************************************************************
-    @RequestMapping(value = { "/localizacion-list" }, method = RequestMethod.GET)
+/*    @RequestMapping(value = { "/localizacion-list" }, method = RequestMethod.GET)
     public String listLocalizaciones(ModelMap model) throws IOException {
  
         List<Localizacion> localizaciones = localizacionService.findAllLocalizaciones();
@@ -1926,7 +1924,7 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         return "localizacion-reg-succ";
     }  
-    
+   */ 
 
   //**************************************************************************
     // *****************CONTROLES PARA LAS BUSQUEDAS **************************
