@@ -894,11 +894,11 @@ public class AppControllerLibues {
     	producto.setImagenc(filec);
     	
     	productoService.saveProducto(producto);
-    	//model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
+    	model.addAttribute("success", "Producto: <strong>" + producto.getNombreProducto()+"</strong> Registrado");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
-        //return"producto-reg-succ";
-        return "redirect:/producto-agregar";
+        return"producto-reg-succ";
+        //return "redirect:/producto-agregar";
     }
     
     @RequestMapping(value = { "/edit-producto-{codigoProducto}" }, method = RequestMethod.GET)

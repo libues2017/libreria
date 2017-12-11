@@ -258,7 +258,7 @@
 		                			                	
 		        			<div class="col-xs-4">
 		            			<label class="form-control" for="costounitario">Costo Unitario: $</label>
-		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" value="0.0"/>
+		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" placeholder="Digite Costo"/>
 		                    	<!--
 		                    	<div class="has-error">
 		                    		<form:errors path="precio" class="help-inline"/>
