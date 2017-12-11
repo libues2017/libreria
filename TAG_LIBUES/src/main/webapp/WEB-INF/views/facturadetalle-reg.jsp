@@ -96,20 +96,20 @@ $( function() {
 </script>
 <script>
  function sesion(){
+	 	var cliente = document.getElementById('cliente').value;
+	 	var direccion = document.getElementById('direccion').value;
 	 	var documento = document.getElementById('documento').value;
-      	var tipocredito = document.getElementById('tipocredito').value;
-      	var cliente = document.getElementById('cliente').value;
-      	var direccion = document.getElementById('direccion').value;
+      	var tipocredito = document.getElementById('tipocredito').value;      	
       	
-      	var documento1="doc"
-      	var tipocredito1="tipoc"
       	var cliente1="clien"
       	var direccion1="direc"
+      	var documento1="doc"
+      	var tipocredito1="tipoc"
       	
-      	sessionStorage[documento1]=documento;
-      	sessionStorage[tipocredito1]=tipocredito;
       	sessionStorage[cliente1]=cliente;
       	sessionStorage[direccion1]=direccion;
+      	sessionStorage[documento1]=documento;
+      	sessionStorage[tipocredito1]=tipocredito;
     }
 	
 </script>
@@ -122,17 +122,16 @@ $( function() {
 		var p3;
 		
 		for(var i=0;i<sessionStorage.length;i++)
-		{
-			p3=sessionStorage.getitem("direc");
-			p2=sessionStorage.getItem("clien");
+		{	
 			p1=sessionStorage.getItem("doc");
 			p=sessionStorage.getItem('tipoc');
+			p2=sessionStorage.getItem('clien');
+			p3=sessionStorage.getItem('direc');
 		}
-		document.getElementById("direccion").value=p3
-		document.getElementById("cliente").value=p2
 		document.getElementById("documento").value=p1;
 		document.getElementById("tipocredito").value=p;
-					    
+		document.getElementById("cliente").value=p2;
+		document.getElementById("direccion").value=p3;			    
 	} );
 </script>
 
