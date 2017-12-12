@@ -1391,6 +1391,7 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
+        	  
         	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);        	 
           }
           
@@ -1469,10 +1470,21 @@ public class AppControllerLibues {
        	  Double precio=detalle.getPrecioproducto() ;
        	  Double costo=detalle.getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
        	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
-       	  
+       	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
+       	
+       	
+       	if(existencia>0){
        	  costo=costo/existencia;
+       	}
+       //	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
+       	  
+       	  
+          
        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
        	  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
+       	  
+       	  
+       	  
            
 	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
 	  //	return "redirect:/detalleretaceo-agregar";
