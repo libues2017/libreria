@@ -9,10 +9,10 @@
   
 
 <% /*Parametros para realizar la conexión*/ 
-int codarea= (Integer.parseInt(request.getParameter("codigoarea")));
-int codprovee=(Integer.parseInt( request.getParameter("codigoproveedor")));
-int codedito= (Integer.parseInt(request.getParameter("codigoeditorial")));
-int codtiprod= (Integer.parseInt(request.getParameter("codTipoProducto")));
+String codarea= request.getParameter("codigoarea");
+String codprovee=request.getParameter("codigoproveedor");
+String codedito= request.getParameter("codigoeditorial");
+String codtiprod= request.getParameter("codtipoproducto");
 String cons= request.getParameter("consignacion");
 String grupo=request.getParameter("nombre");
 Connection conexion; 
@@ -30,7 +30,6 @@ parameters.put("par_provee", codprovee);
 parameters.put("par_editorial", codedito); 
 parameters.put("par_tipoprod", codtiprod); 
 parameters.put("par_consig", cons); 
-
 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (),parameters, conexion); 

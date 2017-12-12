@@ -54,31 +54,8 @@
         <br>
         <br>
         <form class="form-horizontal" role="form" action="<c:url value="/repo_existencias" />" target="_blank">
-
-            <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Area:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="codigoarea" id="codigoarea" required>
-                </div>
-            </div>
-           
-              <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Editorial:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="codigoeditorial" id="codigoeditorial" required>
-                </div>
-            </div>
-            
-                        
-               <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Proveedor:</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" name="codigoproveedor" id="codigoproveedor" required>
-                </div>
-            </div>
-            
-            <!-- 
-            <div class="form-group">
+     
+             <div class="form-group">
                 <label class="control-label col-sm-4" for="email">Area:</label>
                 <div class="col-sm-4">
                     <form:select type="text" path="areas" items="${areas}" class="form-control" name="codigoarea" id="codigoarea" />                    
@@ -99,19 +76,14 @@
                     <form:select type="text" path="proveedores" items="${proveedores}" class="form-control" name="codigoproveedor" id="codigoproveedor" />
                 </div>
             </div>
-             -->
-                        
-            <div class="form-group">		
-				<label class="control-label col-sm-4" for="nombr">Tipo Producto:</label>
-				<div class="col-sm-4">
-				<SELECT name="codTipoProducto" id="codTipoProducto" class="form-control input-sm" onchange="sesion();" 
-				title="Seleccione Tipo de Producto">
-				<OPTION VALUE="101">Libro</OPTION>
-				<OPTION VALUE="102">Miscelaneo</OPTION>
-				</SELECT>
-			</div>
-			 </div>
             
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Tipo de Producto:</label>
+                <div class="col-sm-4">
+                    <form:select type="text" path="tipoproductos" items="${tipoproductos}" class="form-control" name="codtipoproducto" id="codtipoproducto" />
+                </div>
+            </div>
+                       
            <div class="form-group">		
 				<label class="control-label col-sm-4" for="nombr">Consignacion:</label>
 				<div class="col-sm-4">
