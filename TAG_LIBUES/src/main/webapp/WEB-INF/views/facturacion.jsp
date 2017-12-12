@@ -10,39 +10,7 @@
 <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-<%
-	// Quiero la fecha actual para ponerla por defecto 
-	String fecha="";
-    String sAhora = "";
-			
-		if(session.getAttribute("fechafactura")!=null){
-			fecha=session.getAttribute("fechafactura").toString();
-		}
-        if(fecha==""){
-        	Calendar ahora = Calendar.getInstance();
-     		int anyo = ahora.get(Calendar.YEAR);
-     		int mes = ahora.get(Calendar.MONTH) +1; 
-     		int dia = ahora.get(Calendar.DAY_OF_MONTH);
-     					
-     		if (mes < 10) {
-     			sAhora = anyo + "-0" + mes;
-     		} else {
-     			sAhora = anyo + "-" + mes;
-     			}
-     			if (dia < 10) {
-     				sAhora += "-0" + dia;
-     			}
-     			else {
-     				sAhora += "-"+dia;
-     			} 
-                  	 
-           	}
-                     
-            else{
-                    	 
-            sAhora=fecha;
-		}
-%>
+
 </head>
 <body >
 <div class="row"><%@include file="page_head_2.jsp" %></div>
@@ -74,7 +42,7 @@
 					<div class="form-group col-md-12">	
 						<label class="col-md-3 control-lable" for="fecha">Fecha Factura:</label>
 						<div class="col-md-3">
-						<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" value="<%=sAhora %>" />
+						<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" />
 						</div>
 					</div>
 					

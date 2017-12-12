@@ -2388,6 +2388,33 @@ public class AppControllerLibues {
     	return "redirect:/factura-list";      
     }
     
+    // EDITAR NUMERO DE LA FACTURA Y FECHA
+    @RequestMapping(value = { "/edit-numero-factura-{idfactura}" }, method = RequestMethod.GET)
+    public String editNumeroFactura(@PathVariable Integer idfactura, ModelMap model) throws ParseException {
+    	
+    	Integer numero = facturaService.findById(idfactura).getNumerofactura();    	
+    	
+    	Factura factura = new Factura();
+        model.addAttribute("factura", factura);
+        model.addAttribute("edit", true);
+        model.addAttribute("loggedinuser", getPrincipal());
+        model.addAttribute("numero", numero);       
+    	return "facturacion-edit"; 
+    }
+    
+    @RequestMapping(value = { "/edit-numero-factura-{idfactura}" }, method = RequestMethod.POST)   
+    public String updateNumeroFactura(@Valid Factura factura, BindingResult result, 
+    		ModelMap model, @PathVariable Integer idfactura) throws IOException {         	 	
+    	if (result.hasErrors()) {
+            return "facturacion-edit";
+        }
+    	Integer codigo = facturaService.findById(idfactura).getIdfactura();
+    	Integer numero = facturaService.findById(idfactura).getNumerofactura();
+    	facturaService.updateNumeroFactura(codigo,numero);
+    	model.addAttribute("loggedinuser", getPrincipal());    	
+    	return "redirect:/factura-list";      
+    }
+    
     //*************************************************************************
     //***************** RESERVACIONES DE LIBROS ******************************
     //************************************************************************

@@ -225,9 +225,13 @@ function validar1(){
 			<div class="panel panel-default">
 				<div class="form-group row">		
 					<div class="panel-body">
-						<div class="col-xs-3">
+						<div class="col-xs-3" style="display:none">
 						<label class="form-control" for="nombr">Documento #:</label>
 						<form:input type="text" path="codigorequisicion" id="codigorequisicion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
+						</div>
+						<div class="col-xs-3">
+						<label class="form-control" for="nombr">Documento #:</label>
+						<input type="text" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' disabled="disabled" />
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Destino:</label>
@@ -236,9 +240,13 @@ function validar1(){
 							<OPTION VALUE="BODEGA" >Bodega</OPTION>
 						</SELECT>
 						</div>
-						<div class="col-xs-3">			
+						<div class="col-xs-3" style="display:none">			
 						<label class="form-control" for="nombr">Fecha:</label>
 						<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm"  value="<%=sAhora %>"/>
+						</div>
+						<div class="col-xs-3">			
+						<label class="form-control" for="nombr">Fecha:</label>
+						<input type="date" id="fecharequisicion" name="fecharequisicion" class="form-control input-sm"  value="<%=sAhora %>" disabled="disabled"/>
 						</div>
 					</div>
 				</div>
@@ -271,7 +279,7 @@ function validar1(){
 						<div class="col-xs-3">
 						<label class="form-control" for="costo">Costo:</label>
 						<form:input type="text" path="costo" id="costo" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" />							
-						</div>
+						</div>						
 						<div class="col-xs-3">
 						<label class="form-control" for="precio">Precio $:</label>
 						<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
