@@ -49,7 +49,8 @@
       							<tr>   
                     	    		<td colspan="2" align="center">
                         				<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            				<a href="<c:url value='/cambio-estado-factura-${factura.idfactura}' />" class="btn btn-danger custom-width">Eliminar</a>
+                            				<a href="<c:url value='/cambio-estado-factura-${factura.idfactura}' />" 
+                            								class="btn btn-danger custom-width" onclick="alert('Se borró la Factura')">Eliminar</a>
                         				</sec:authorize>                        				
                             				<a href="<c:url value='/factura-list' />" class="btn btn-primary"> Regresar</a>
                         			</td>

@@ -2339,8 +2339,7 @@ public class AppControllerLibues {
          	 	
     	if (result.hasErrors()) {
             return "factura-set-numero";
-        } 	
-       
+        }
     	facturaService.saveFactura(factura);
     	model.addAttribute("loggedinuser", getPrincipal());    	
     	return "redirect:/numero-factura";      

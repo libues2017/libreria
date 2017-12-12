@@ -61,11 +61,15 @@
 						<label class="col-md-3 control-lable" for="fecha">Fecha Factura:</label>
 						<div class="col-md-3">
 						<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" value="<%=sAhora %>" />
+						</div>
 					</div>
+					<div class="col-xs-2" style="display:none">	
+						<label class="form-control" for="codigo">Estado:</label>						
+						<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1" />
 					</div>
 						
 					<div class="col-xs-3" >
-						<input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm" />
+						<input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm" onclick="alert('Se creó el nuevo número de Factura')" />
 					</div>
 					<div class="col-xs-3" >
 						<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >CANCELAR</a>					
