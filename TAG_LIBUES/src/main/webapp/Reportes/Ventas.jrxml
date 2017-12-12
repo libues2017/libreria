@@ -27,7 +27,7 @@ FROM libues.factura
 WHERE
 	(libues.factura.`FECHAFACTURA` between $P{fechini} and $P{fenili}) AND
 	(libues.factura.`TIPOFACTURA` = $P{tipofact})
-    Order by libues.factura.`NUMEROFACTURA`]]>
+    Order by libues.factura.`FECHAFACTURA`]]>
 	</queryString>
 	<field name="NUMEROFACTURA" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="NUMEROFACTURA"/>
@@ -72,136 +72,139 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="154" splitType="Stretch">
-			<image>
-				<reportElement x="-1" y="7" width="83" height="80" uuid="372d538a-52da-4c82-8e85-10b17a031bfa"/>
-				<imageExpression><![CDATA["logo.png"]]></imageExpression>
-			</image>
+		<band height="142" splitType="Stretch">
 			<staticText>
-				<reportElement x="98" y="78" width="100" height="21" uuid="a8aa3482-395d-43d4-949a-2be911f6affc"/>
+				<reportElement x="97" y="73" width="125" height="21" uuid="f143b118-8d86-45c7-9dbd-0257a26a9593"/>
 				<textElement>
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Fecha de Impresion]]></text>
 			</staticText>
 			<textField pattern="dd//MM/yyyy">
-				<reportElement positionType="Float" x="202" y="80" width="84" height="20" uuid="41ec2530-dfae-4726-8814-f01612c688fc"/>
+				<reportElement positionType="Float" x="210" y="74" width="84" height="20" uuid="c5514275-c77f-4b69-b11e-3826b1df4b29"/>
 				<textElement>
-					<font fontName="Arial" size="8"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="98" y="55" width="122" height="15" uuid="5d06fc92-60a2-489b-bf12-f72e55f32b90"/>
+				<reportElement x="95" y="25" width="305" height="15" uuid="8b86421b-1431-426a-a115-4e2774824d9b"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[Reporte de Ventas al:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="40" width="205" height="15" uuid="51fea069-b76a-4bd3-83b5-0252395d80a0"/>
-				<textElement>
-					<font size="11"/>
-				</textElement>
-				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="95" y="25" width="306" height="15" uuid="45d608ff-5090-4ced-a4a1-054bc886ca35"/>
-				<textElement>
-					<font size="11"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="0" width="270" height="25" uuid="a1261a05-507e-4eeb-a616-03c324a1983e">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
+				<reportElement x="340" y="96" width="52" height="20" uuid="38e54122-b4ae-472a-be87-4b4e54ce3603"/>
 				<textElement>
-					<font size="19" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Libreria Universitaria]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="401" y="10" width="73" height="30" uuid="01370b88-5438-4045-8209-ebe49b7410cd"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="483" y="10" width="85" height="30" uuid="bf00126c-65ab-400b-9e9e-a40a0d92e716"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="224" y="55" width="100" height="17" uuid="691ca44e-f9cd-4536-8b82-6c69d37e73f3"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{tipofact}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="43" y="115" width="100" height="22" uuid="4388b666-0d0e-4031-9d23-a275adcf63c8"/>
-				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="367" y="116" width="100" height="21" uuid="5535685b-bdb4-4bfe-955d-c35a597e4406"/>
-				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="334" y="116" width="50" height="20" uuid="3aac6b82-90d9-48d4-8eef-be00d0b11bfa"/>
-				<textElement>
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="115" width="50" height="22" uuid="ed9b3ae8-2d43-4fc4-8541-56f62dec7ee2"/>
+				<reportElement x="98" y="55" width="132" height="15" uuid="05989d7a-37c9-4c70-8d34-6a6bd85b7cb0"/>
 				<textElement>
-					<font isBold="true"/>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte de Facturas al:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="1" width="83" height="90" uuid="8bb8059f-19a1-4d21-a6f2-6365456c8e77"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="673612ce-eb69-4403-99ad-d6cca9b429ae"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-2" y="118" width="587" height="1" uuid="9520f691-34ba-4c76-89a8-776b74bfee73">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="60" y="97" width="50" height="18" uuid="a4b8a91a-cdad-4d85-9dc4-013193d3efe6"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="10" width="73" height="30" uuid="79a0f81b-bde2-4a35-be0b-e3a485554035"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="10" width="85" height="30" uuid="2abab1bd-74fc-4770-a1b6-544ac5522ff9"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="97" width="50" height="18" uuid="428f2b61-bd49-4768-853b-cb74b8f3df64"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="393" y="96" width="67" height="20" uuid="262c1868-471f-4c7d-9000-e8d91f4012f9"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="7" width="270" height="18" uuid="185461df-8ec6-4aa3-b8cb-216fd1dc2535">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libreria Universitaria]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="228" y="56" width="100" height="15" uuid="1f88f0de-3a0a-4dfc-9857-00bab9456306"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipofact}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<columnHeader>
 		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="56" y="0" width="88" height="30" uuid="55ac4f51-7f6b-4099-8159-4dc2ee4c7679">
+				<reportElement x="140" y="1" width="88" height="30" uuid="55ac4f51-7f6b-4099-8159-4dc2ee4c7679">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="332ac018-4f8e-48ee-979c-7bfc2b28c3da"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Numero de Factura]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="148" y="1" width="100" height="30" uuid="603e732f-703c-4265-ae3d-5e6aa9976caf">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8522b4f1-9f94-4231-9cb0-2523f5559757"/>
-				</reportElement>
-				<textElement textAlignment="Center">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha de Factura]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="-13" y="0" width="63" height="30" uuid="2954410e-97b1-40fd-9a4e-dde04798fc2d">
+				<reportElement x="74" y="1" width="63" height="30" uuid="2954410e-97b1-40fd-9a4e-dde04798fc2d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039d4549-58da-40eb-b872-abe9195b1cfe"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Correlativo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="250" y="1" width="100" height="30" uuid="79d15b05-2bb5-422a-bafc-9750c4630be5">
+				<reportElement x="230" y="1" width="120" height="30" uuid="79d15b05-2bb5-422a-bafc-9750c4630be5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="97c91b3c-5845-449e-9931-46cb7070369c"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cliente]]></text>
 			</staticText>
@@ -210,7 +213,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e94bc3-fad4-449d-9337-cf992a05d7d7"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Documento]]></text>
 			</staticText>
@@ -219,7 +222,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85292e86-f04f-4635-8a8e-282735586902"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
@@ -228,61 +231,75 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03539ba5-31c7-41c6-a9e1-d461176f1f64"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-12" y="1" width="89" height="30" uuid="603e732f-703c-4265-ae3d-5e6aa9976caf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8522b4f1-9f94-4231-9cb0-2523f5559757"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Factura]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="60" y="-2" width="81" height="30" uuid="221d245d-fe1a-4ec4-85f8-c9e9d160f9f5">
+				<reportElement x="146" y="-2" width="81" height="30" uuid="221d245d-fe1a-4ec4-85f8-c9e9d160f9f5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="332ac018-4f8e-48ee-979c-7bfc2b28c3da"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="143" y="-1" width="100" height="30" uuid="b2080752-127b-40ce-8628-3a2f26914d18">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8522b4f1-9f94-4231-9cb0-2523f5559757"/>
-				</reportElement>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="-15" y="-2" width="65" height="30" uuid="f907073f-f355-487c-8bfb-9dab741f2fb3">
+				<reportElement x="77" y="-3" width="65" height="30" uuid="f907073f-f355-487c-8bfb-9dab741f2fb3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039d4549-58da-40eb-b872-abe9195b1cfe"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{IDFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="246" y="-1" width="100" height="30" uuid="1e704230-a20d-482e-a9b1-344fcd89266f">
+				<reportElement x="230" y="-1" width="116" height="30" uuid="1e704230-a20d-482e-a9b1-344fcd89266f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="97c91b3c-5845-449e-9931-46cb7070369c"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CLIENTE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="346" y="0" width="87" height="30" uuid="b6ab7dd9-fe09-4764-b588-2e4749125445">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e94bc3-fad4-449d-9337-cf992a05d7d7"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="437" y="0" width="81" height="30" uuid="c8d6bbaf-5122-45fa-b88f-f8649afb4028">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85292e86-f04f-4635-8a8e-282735586902"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{TIPOCREDITO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="524" y="-1" width="66" height="30" uuid="9c1577dc-c953-4db9-93f6-fe544f58c5f2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03539ba5-31c7-41c6-a9e1-d461176f1f64"/>
 				</reportElement>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -291,6 +308,22 @@ WHERE
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
+			<staticText>
+				<reportElement x="520" y="-2" width="37" height="19" uuid="747c9a17-50f7-4d0f-9237-a8f6c79aba31"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-9" y="-2" width="49" height="19" uuid="b2080752-127b-40ce-8628-3a2f26914d18">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8522b4f1-9f94-4231-9cb0-2523f5559757"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>
