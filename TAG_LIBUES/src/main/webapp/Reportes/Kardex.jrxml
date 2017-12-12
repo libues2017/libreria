@@ -251,7 +251,7 @@ WHERE
 			</line>
 			<textField>
 				<reportElement x="60" y="97" width="50" height="18" uuid="9e9b811d-fba3-49cc-b5a2-5f140a4e5b93"/>
-				<textElement>
+				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>

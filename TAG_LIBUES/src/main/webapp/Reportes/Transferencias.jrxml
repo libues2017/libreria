@@ -49,12 +49,15 @@ WHERE
 	<field name="TIPOTRANSFERENCIA" class="java.lang.String"/>
 	<field name="FECHATRANSFERENCIA" class="java.sql.Date"/>
 	<field name="fecha" class="java.util.Date"/>
-	<variable name="Variable" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
-		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
-		<initialValueExpression><![CDATA[$F{SUBTOTAL}]]></initialValueExpression>
+	<variable name="Cantidad" class="java.lang.Integer" resetType="None" calculation="Count">
+		<variableExpression><![CDATA[$V{Group1_COUNT}]]></variableExpression>
 	</variable>
 	<variable name="SUBTOTAL1" class="java.lang.Double" resetType="Group" resetGroup="Group1" calculation="Sum">
 		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+	</variable>
+	<variable name="Variable" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
+		<initialValueExpression><![CDATA[$F{SUBTOTAL}]]></initialValueExpression>
 	</variable>
 	<group name="CODTRANSFERENCIA">
 		<groupExpression><![CDATA[$F{CODTRANSFERENCIA}]]></groupExpression>
@@ -115,20 +118,41 @@ WHERE
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="42">
+			<band height="54">
 				<textField>
-					<reportElement x="525" y="26" width="60" height="15" uuid="d5a6e559-3993-4aff-8f61-ddd77b8d2d4c"/>
+					<reportElement x="545" y="25" width="36" height="15" uuid="d5a6e559-3993-4aff-8f61-ddd77b8d2d4c"/>
 					<textElement>
 						<font fontName="Arial" size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{SUBTOTAL1}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="460" y="24" width="62" height="18" uuid="fed5379b-e453-4de6-90c6-ea21e4b5552e"/>
+					<reportElement x="482" y="24" width="62" height="18" uuid="fed5379b-e453-4de6-90c6-ea21e4b5552e"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[SubTotal:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="110" y="24" width="100" height="30" uuid="60a474d1-20d0-4cdf-ac5f-9674ed1d6c4e"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Cantidad}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="-10" y="24" width="120" height="30" uuid="095e437a-c4d7-4151-a7ed-3b6d01455251"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total de Productos:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="522" y="25" width="37" height="19" uuid="c43a3882-8f5e-4f07-aa16-bbe4b9bd2ef2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="10"/>
+					</textElement>
+					<text><![CDATA[$]]></text>
 				</staticText>
 			</band>
 		</groupFooter>
@@ -404,12 +428,19 @@ WHERE
 				<text><![CDATA[Total Transferencias:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="507" y="32" width="67" height="17" uuid="28c2f1cf-9f2b-4199-a587-a814b53a1d32"/>
+				<reportElement x="511" y="31" width="67" height="17" uuid="6b491dc2-84a3-4a7f-9559-50759328b544"/>
 				<textElement>
-					<font fontName="Arial" size="10"/>
+					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Variable}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="490" y="31" width="37" height="19" uuid="7ad79601-abf2-4e2f-92ae-c4008165c1c4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
 		</band>
 	</lastPageFooter>
 </jasperReport>

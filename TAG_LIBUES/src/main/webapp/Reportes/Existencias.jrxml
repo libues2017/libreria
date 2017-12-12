@@ -51,6 +51,7 @@ FROM libues.autor_libro
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
 	<field name="EXISTENCIA" class="java.lang.Integer"/>
 	<field name="PRECIO" class="java.math.BigDecimal"/>
+	<variable name="Cantidad" class="java.lang.Integer" calculation="Count"/>
 	<group name="NOMBREPRODUCTO">
 		<groupExpression><![CDATA[$F{NOMBREPRODUCTO}]]></groupExpression>
 	</group>
@@ -58,31 +59,23 @@ FROM libues.autor_libro
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="141" splitType="Stretch">
+		<band height="149" splitType="Stretch">
 			<image>
-				<reportElement x="-1" y="-6" width="83" height="80" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
+				<reportElement x="-1" y="-6" width="91" height="100" uuid="74d625cb-9c3c-4163-ba79-589cadeb24b2"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="95" y="55" width="100" height="21" uuid="6e52c7c1-55fa-4826-8157-dcff9df17bac"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<text><![CDATA[Fecha de Impresion]]></text>
-			</staticText>
-			<textField pattern="dd//MM/yyyy">
-				<reportElement positionType="Float" x="200" y="55" width="84" height="20" uuid="a5fe0b8e-b9ae-4484-b950-c6c36cac6124"/>
-				<textElement>
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="1a50a39b-424f-4699-a9d8-ac1d95166e5c"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="25" width="285" height="15" uuid="75f91e28-d39b-49b7-aa77-2c180373e221"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<staticText>
@@ -90,94 +83,123 @@ FROM libues.autor_libro
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement>
-					<font size="19" isBold="true"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
 			<textField evaluationTime="Report">
 				<reportElement x="480" y="10" width="85" height="30" uuid="19af6523-a5c3-469f-b90e-a0165414cddf"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="407" y="10" width="73" height="30" uuid="6825be0e-e928-414f-be95-422677a5a105"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="4" y="102" width="100" height="19" uuid="951fc0d7-680a-44ff-8456-458083e51bd4"/>
-				<textFieldExpression><![CDATA[$P{par_area}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="360" y="100" width="100" height="20" uuid="8fa701df-940c-4d38-8d0b-9c9cc119406e"/>
-				<textFieldExpression><![CDATA[$P{par_tipoprod}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="120" y="101" width="100" height="20" uuid="c25f136c-3071-47be-b4a5-58c7706b7c9c"/>
-				<textFieldExpression><![CDATA[$P{par_provee}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="240" y="101" width="100" height="19" uuid="559d6a14-e477-48cf-a253-4a9b2badda7e"/>
+				<reportElement x="223" y="129" width="100" height="19" uuid="559d6a14-e477-48cf-a253-4a9b2badda7e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{par_editorial}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="471" y="100" width="100" height="21" uuid="61b96191-b28d-48cc-b847-4b9391131f4d"/>
-				<textFieldExpression><![CDATA[$P{par_consig}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="471" y="80" width="100" height="20" uuid="569a4569-816b-4269-90de-d9628058b960"/>
+				<reportElement x="464" y="105" width="100" height="20" uuid="569a4569-816b-4269-90de-d9628058b960"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Consignacion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="360" y="79" width="100" height="21" uuid="0664215d-32ff-4415-8f15-b7277e555c07"/>
+				<reportElement x="348" y="106" width="100" height="21" uuid="0664215d-32ff-4415-8f15-b7277e555c07"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo Producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="240" y="80" width="100" height="20" uuid="ada4f370-eeec-4d99-9f4d-9480c69b7361"/>
+				<reportElement x="225" y="106" width="100" height="20" uuid="ada4f370-eeec-4d99-9f4d-9480c69b7361"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Editorial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="120" y="80" width="100" height="20" uuid="74932a7a-bb8d-450a-b765-5c54d9878d8a"/>
+				<reportElement x="108" y="107" width="100" height="20" uuid="74932a7a-bb8d-450a-b765-5c54d9878d8a"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Proveedor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="80" width="100" height="20" uuid="6bb9dd3b-3f39-469a-81c1-ce2838620be7"/>
+				<reportElement x="-10" y="106" width="100" height="20" uuid="6bb9dd3b-3f39-469a-81c1-ce2838620be7"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Area]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="95" y="55" width="322" height="21" uuid="15b492e8-3f56-4e0f-8b20-cb7b2a30e532"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Existencias de Productos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="98" y="74" width="100" height="21" uuid="7a2d41b6-5935-40cc-a6e9-f9de74a274c0"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha de Impresion]]></text>
+			</staticText>
+			<textField pattern="dd//MM/yyyy">
+				<reportElement positionType="Float" x="203" y="74" width="84" height="20" uuid="81cf1ec0-7a0a-433b-906f-58a2e06c6644"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="-10" y="95" width="589" height="52" uuid="4f366a70-c81c-492f-8f00-909db266f00a"/>
+			</rectangle>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="30" splitType="Stretch">
-			<staticText>
-				<reportElement x="156" y="2" width="322" height="21" uuid="46e769f9-2026-4bf7-b2e1-d868f935d2c5"/>
+			<textField>
+				<reportElement x="-8" y="-20" width="100" height="19" uuid="951fc0d7-680a-44ff-8456-458083e51bd4"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="18" isBold="true"/>
+					<font fontName="Arial" size="12"/>
 				</textElement>
-				<text><![CDATA[Reporte de Existencias de Productos]]></text>
-			</staticText>
-			<rectangle>
-				<reportElement mode="Transparent" x="-2" y="-62" width="581" height="41" uuid="368d5101-da78-47b6-9faa-41ab895958a9"/>
-			</rectangle>
+				<textFieldExpression><![CDATA[$P{par_area}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="-20" width="100" height="20" uuid="c25f136c-3071-47be-b4a5-58c7706b7c9c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{par_provee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="349" y="-22" width="100" height="20" uuid="8fa701df-940c-4d38-8d0b-9c9cc119406e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{par_tipoprod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="-24" width="100" height="21" uuid="61b96191-b28d-48cc-b847-4b9391131f4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{par_consig}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -185,68 +207,75 @@ FROM libues.autor_libro
 			<staticText>
 				<reportElement x="-2" y="0" width="112" height="30" uuid="8fb1aea7-cdab-4f6f-b6a0-d2ef314e5e6a"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Codigo Producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="120" y="0" width="120" height="30" uuid="2e5252f7-b040-4fe9-a83b-e917d5af00ba"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Titulo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="250" y="0" width="100" height="30" uuid="d5c86518-14d1-493f-9900-2dc9df4135e3"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Autores]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="365" y="0" width="100" height="30" uuid="d2f6d4ee-512d-4454-abca-7acabe582e1f"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Existencia]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="480" y="0" width="100" height="30" uuid="78436016-5b0b-4256-8cdc-888a4e3d7b2c"/>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement mode="Transparent" x="-10" y="1" width="589" height="28" uuid="4f366a70-c81c-492f-8f00-909db266f00a"/>
-			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="36" splitType="Stretch">
 			<textField>
 				<reportElement x="-2" y="-11" width="100" height="30" uuid="86899d92-c246-443d-a78d-86f78b52a91d"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="110" y="-10" width="130" height="30" uuid="aa4eb3b2-7d2c-4d3e-88fd-ea20532b2809"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="247" y="-9" width="100" height="30" uuid="97a5ef04-87b5-427b-830f-01276d81d1c7"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="364" y="-9" width="100" height="30" uuid="907ad093-619f-48d5-98eb-d08bb7d1e7ee"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{EXISTENCIA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="480" y="-9" width="100" height="30" uuid="68d74fce-c87e-42be-bc90-afcb54f52f26"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -264,6 +293,21 @@ FROM libues.autor_libro
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="24" width="120" height="30" uuid="3b8464de-5d9a-4f6b-acfe-d730fab93c98"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Productos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="24" width="100" height="30" uuid="0234ce5d-0ab0-4c86-bf35-86a87ae73b8a"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
