@@ -1391,8 +1391,7 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
-        	 
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);        	 
           }
           
          	
