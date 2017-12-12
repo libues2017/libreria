@@ -1221,7 +1221,7 @@ public class AppControllerLibues {
 			        
 			        sesion.setAttribute("codigofacturaproveedor", codigofacturaproveedor);
 			    	sesion.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
-			    	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
+			    	sesion.setAttribute("codigo", codigoretaceo);
 			 		sesion.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
 			 		sesion.setAttribute("fechafacturaproveedor", fechafac);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
 			 		sesion.setAttribute("total", total);
@@ -1368,11 +1368,12 @@ public class AppControllerLibues {
 				*/
 
           HttpSession sesion=request.getSession(true);
-       //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+         //Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
          // sesion.setAttribute("codigoultimo", codigoretaceo);
           
           Integer punto=(Integer) sesion.getAttribute("punto");
           Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+          sesion.setAttribute("codigoultimo", codigoretaceo);
           System.out.println("revisar--------------------------------------codigo:"+ codigoretaceo);	
           
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
