@@ -165,7 +165,7 @@
             						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
 			            			<li role="separator" class="divider"></li>
-            							<li><a href="<c:url value="#" />">Cierre Semestral</a></li>
+            							<li><a href="<c:url value="cierre-semestral" />">Cierre Semestral</a></li>
 			          		</ul>			          			
 				        </li>
 					</sec:authorize>

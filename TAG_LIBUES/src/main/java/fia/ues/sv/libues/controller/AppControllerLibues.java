@@ -2728,13 +2728,20 @@ public class AppControllerLibues {
     }
   
     /*************************************************************************************
-     ************Controles para el respaldo y recuperacion de Base de Datos***************
+     ************Controles para Gestion de la Base de Datos***************
      *************************************************************************************/
     //Control para la creacion del archivo de  Respaldo de la Base
     @RequestMapping(value={"/backup-crear"}, method = RequestMethod.GET)
   	public String Backup(ModelMap model){
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "respaldoBase";
+  	}
+    
+    //Control para realizar el cierre semestral
+    @RequestMapping(value={"/cierre-semestral"}, method = RequestMethod.GET)
+  	public String cierreSemestral(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "cierreSemestral";
   	}
  
     
