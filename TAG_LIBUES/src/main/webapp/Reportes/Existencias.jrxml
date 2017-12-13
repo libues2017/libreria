@@ -85,42 +85,42 @@ WHERE
 	<title>
 		<band height="164" splitType="Stretch">
 			<textField>
-				<reportElement x="37" y="92" width="116" height="30" uuid="9a952da2-b4a2-411f-97f8-c5d421298b35"/>
+				<reportElement x="30" y="90" width="174" height="30" uuid="9a952da2-b4a2-411f-97f8-c5d421298b35"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{par_area}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="362" y="119" width="114" height="30" uuid="232ddc62-9453-4157-a475-00b172528921"/>
+				<reportElement x="344" y="124" width="114" height="30" uuid="232ddc62-9453-4157-a475-00b172528921"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{par_tipoprod}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="63" y="120" width="114" height="30" uuid="9916fb8d-aaf3-4582-94f6-7bd3fb1cd44e"/>
+				<reportElement x="55" y="120" width="114" height="30" uuid="9916fb8d-aaf3-4582-94f6-7bd3fb1cd44e"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{par_provee}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="266" y="96" width="114" height="30" uuid="2d925092-5da4-4b10-ab02-e8e73bb9824a"/>
+				<reportElement x="259" y="93" width="114" height="30" uuid="2d925092-5da4-4b10-ab02-e8e73bb9824a"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{par_editorial}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="488" y="93" width="89" height="30" uuid="bc0bf7fe-586f-4043-91f2-10d2a156c1f9"/>
+				<reportElement x="476" y="93" width="89" height="30" uuid="bc0bf7fe-586f-4043-91f2-10d2a156c1f9"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{par_consig}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="2" y="92" width="40" height="30" uuid="eb2ddcba-b2a1-4b3c-af4d-183ee9e47c05"/>
+				<reportElement x="2" y="90" width="40" height="30" uuid="eb2ddcba-b2a1-4b3c-af4d-183ee9e47c05"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
@@ -134,21 +134,21 @@ WHERE
 				<text><![CDATA[Proveedor:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="212" y="96" width="60" height="30" uuid="605310ea-6f0e-452a-bf7d-655edcb0af35"/>
+				<reportElement x="219" y="93" width="60" height="30" uuid="605310ea-6f0e-452a-bf7d-655edcb0af35"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Editorial:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="259" y="119" width="120" height="30" uuid="8626f04b-d53e-4ca9-97f6-9737b7629877"/>
+				<reportElement x="256" y="123" width="120" height="30" uuid="8626f04b-d53e-4ca9-97f6-9737b7629877"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo de Producto:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="405" y="93" width="90" height="30" uuid="eef13259-b917-402e-8a2a-c5dd1cbd7f4a"/>
+				<reportElement x="408" y="93" width="90" height="30" uuid="eef13259-b917-402e-8a2a-c5dd1cbd7f4a"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
@@ -221,18 +221,12 @@ WHERE
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement mode="Transparent" x="-3" y="86" width="588" height="64" uuid="533c65f2-58d1-45ec-ac7a-342673ba3944"/>
-				<graphicElement>
-					<pen lineStyle="Solid"/>
-				</graphicElement>
-			</rectangle>
 		</band>
 	</title>
 	<columnHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="-7" y="0" width="77" height="30" uuid="18344e0d-7b35-4287-a7c3-8787d047c9d0">
+				<reportElement x="2" y="0" width="61" height="30" uuid="18344e0d-7b35-4287-a7c3-8787d047c9d0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78b9121b-7db4-4429-9ac3-bb5da3cc4bea"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -241,7 +235,7 @@ WHERE
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="90" y="0" width="113" height="30" uuid="b5fd25bc-f397-423d-9941-5ae12adb4feb">
+				<reportElement x="100" y="0" width="77" height="30" uuid="b5fd25bc-f397-423d-9941-5ae12adb4feb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9801d9eb-1dc4-4d41-8ca5-5adfaff9565d"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -250,7 +244,7 @@ WHERE
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="216" y="0" width="134" height="30" uuid="e5c84e67-d2cd-4312-a6e7-3677b5f08217">
+				<reportElement x="240" y="0" width="90" height="30" uuid="e5c84e67-d2cd-4312-a6e7-3677b5f08217">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eea4574b-6cec-47ab-99ac-9155864213cd"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -276,10 +270,22 @@ WHERE
 				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="-9" y="0" width="588" height="29" uuid="2abd6e91-1a64-4649-afa8-6444640a1bc9"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="-4" y="-76" width="577" height="66" uuid="17527350-673d-480c-96e4-d50bb81f6614"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
 				<reportElement x="-7" y="0" width="87" height="30" uuid="49a0f062-a2ef-4343-8844-450ac410388a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="78b9121b-7db4-4429-9ac3-bb5da3cc4bea"/>
@@ -299,7 +305,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="230" y="0" width="127" height="30" uuid="35b76026-2b75-4ae0-9a0d-071220f5e237">
+				<reportElement x="241" y="0" width="127" height="30" uuid="35b76026-2b75-4ae0-9a0d-071220f5e237">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eea4574b-6cec-47ab-99ac-9155864213cd"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -340,12 +346,6 @@ WHERE
 			</staticText>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="161" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="180" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
 		<band height="54" splitType="Stretch">
 			<staticText>
@@ -356,12 +356,18 @@ WHERE
 				<text><![CDATA[Total de Productos:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="110" y="24" width="100" height="30" uuid="113fff74-a37d-4fe8-92da-15f0f33cc28e"/>
+				<reportElement x="83" y="24" width="38" height="16" uuid="113fff74-a37d-4fe8-92da-15f0f33cc28e"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{CORRELATIVO_COUNT}]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="-12" y="24" width="133" height="26" uuid="c3959088-d92a-409c-9537-1f7a26435970"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
 		</band>
 	</summary>
 </jasperReport>

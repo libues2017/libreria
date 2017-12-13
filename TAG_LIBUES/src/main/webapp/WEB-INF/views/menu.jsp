@@ -123,8 +123,6 @@
             					</sec:authorize>
             					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DIRECTOR') or hasRole ('DBA')">
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="#" />">Reportes de Facturacion</a></li>
-            					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="ventas" />">Reportes de Ventas</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="#" />">Mensual Salidas al Precio</a></li>

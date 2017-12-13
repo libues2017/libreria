@@ -81,51 +81,60 @@ WHERE
 					<text><![CDATA[Fecha:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="321" y="7" width="52" height="23" uuid="42edf846-1c0e-43cf-a593-670610d2c765"/>
+					<reportElement x="300" y="7" width="52" height="13" uuid="42edf846-1c0e-43cf-a593-670610d2c765"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{FECHAREQUISICION}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement mode="Transparent" x="-15" y="4" width="595" height="36" uuid="318be126-6106-4161-8a75-5b02539f9f76"/>
+					<reportElement mode="Transparent" x="-15" y="4" width="371" height="26" uuid="7dfae067-6b26-4281-abfb-c4c8816ddfde"/>
 				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="51">
+			<band height="54">
 				<staticText>
-					<reportElement x="468" y="24" width="37" height="19" uuid="98a5f2f4-39d7-4cf8-8772-372b7c0e37bb"/>
+					<reportElement x="482" y="24" width="37" height="19" uuid="98a5f2f4-39d7-4cf8-8772-372b7c0e37bb"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<text><![CDATA[$]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="350" y="24" width="136" height="18" uuid="da6aca46-b798-4967-977b-e8d7c6b67b77"/>
+					<reportElement x="381" y="24" width="121" height="18" uuid="da6aca46-b798-4967-977b-e8d7c6b67b77"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Total de Transferencia]]></text>
+					<text><![CDATA[Total de Requisicion]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="110" y="21" width="100" height="21" uuid="dcdd6b2c-d9f7-48ff-8ba6-16745c9e73b1"/>
+					<reportElement x="84" y="21" width="36" height="21" uuid="dcdd6b2c-d9f7-48ff-8ba6-16745c9e73b1"/>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="-9" y="21" width="120" height="30" uuid="06cc7bb4-c738-4a28-b0d4-2f25b2341076"/>
+					<reportElement x="-9" y="21" width="120" height="21" uuid="06cc7bb4-c738-4a28-b0d4-2f25b2341076"/>
 					<textElement>
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Total de Productos:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="494" y="25" width="68" height="18" uuid="ba5bfea4-98a0-4d9d-91a5-1afe4248d576"/>
+					<reportElement x="495" y="25" width="68" height="18" uuid="ba5bfea4-98a0-4d9d-91a5-1afe4248d576"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="-11" y="21" width="135" height="26" uuid="5283cbc7-81e2-47df-b761-654622c59873"/>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="373" y="21" width="192" height="26" uuid="82375d19-2b59-49e2-9a8d-bb8e8548ce6b"/>
+				</rectangle>
 			</band>
 		</groupFooter>
 	</group>
@@ -133,65 +142,65 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="134" splitType="Stretch">
+		<band height="101" splitType="Stretch">
 			<image>
 				<reportElement x="-4" y="-6" width="81" height="86" uuid="ebc8e2ab-2c24-4ec3-81e2-2b8a8ae3b0bb"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="344ce0aa-3356-4b15-98d3-74b5ec147442"/>
-				<textElement>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="0" width="270" height="25" uuid="e8d56053-f755-4e2f-b9b0-4950d5deb1ba">
+				<reportElement x="95" y="10" width="115" height="15" uuid="e8d56053-f755-4e2f-b9b0-4950d5deb1ba">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement>
-					<font fontName="Arial" size="19" isBold="true"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="25" width="320" height="15" uuid="318987d1-e979-438c-aa80-ea3a49fdcaf7"/>
-				<textElement>
+				<reportElement x="95" y="25" width="306" height="15" uuid="318987d1-e979-438c-aa80-ea3a49fdcaf7"/>
+				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="93" y="57" width="198" height="23" uuid="76d0ef7a-4b7e-4f04-ae67-33cd7f4f57fa"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="14" isBold="true"/>
+				<reportElement x="95" y="57" width="148" height="23" uuid="76d0ef7a-4b7e-4f04-ae67-33cd7f4f57fa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Reporte Ultima Requisicion]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="365" y="40" width="100" height="30" uuid="ab5c4b36-86db-4765-87b3-5d27dfadb9dc"/>
+				<reportElement x="426" y="40" width="100" height="30" uuid="ab5c4b36-86db-4765-87b3-5d27dfadb9dc"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="466" y="40" width="100" height="30" uuid="fb9cbef1-b714-4ff9-9b72-97e0f7c525d9"/>
+				<reportElement x="469" y="40" width="100" height="30" uuid="fb9cbef1-b714-4ff9-9b72-97e0f7c525d9"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="M/d/yy h:mm a">
-				<reportElement positionType="Float" x="465" y="10" width="84" height="20" uuid="c8a6a758-1902-41af-b9b2-b5fe2c42706d"/>
+				<reportElement positionType="Float" x="465" y="23" width="84" height="20" uuid="c8a6a758-1902-41af-b9b2-b5fe2c42706d"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="415" y="10" width="50" height="20" uuid="fba0d7aa-3a0a-4c17-9147-cce76f81f2ae"/>
+				<reportElement x="424" y="22" width="50" height="20" uuid="fba0d7aa-3a0a-4c17-9147-cce76f81f2ae"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
@@ -199,22 +208,22 @@ WHERE
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="120" width="572" height="1" uuid="b869ceb3-72f7-4a3f-bbe5-903500846d9d"/>
+				<reportElement positionType="FixRelativeToBottom" x="10" y="100" width="572" height="1" uuid="b869ceb3-72f7-4a3f-bbe5-903500846d9d"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="95" y="81" width="115" height="23" uuid="a55c7539-1284-495e-82c4-37de41270b20"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="14" isBold="false"/>
+				<reportElement x="95" y="76" width="115" height="19" uuid="a55c7539-1284-495e-82c4-37de41270b20"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Movimiento para:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="210" y="80" width="100" height="24" uuid="248634d1-0665-48cb-941b-3aa1fd363c86"/>
+				<reportElement x="179" y="77" width="100" height="20" uuid="248634d1-0665-48cb-941b-3aa1fd363c86"/>
 				<textElement>
-					<font fontName="Arial" size="14" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESTINOREQUISICION}]]></textFieldExpression>
 			</textField>
@@ -227,7 +236,7 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Codigo]]></text>
+				<text><![CDATA[Codigo de Producto]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="68" y="2" width="70" height="30" uuid="3d972be1-500f-4252-9de0-13d37fa034e3"/>
@@ -271,10 +280,13 @@ WHERE
 				</textElement>
 				<text><![CDATA[Movimiento]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="-12" y="-1" width="595" height="36" uuid="f68ceb24-2802-4aaf-b343-97083a6367a4"/>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="42" splitType="Stretch">
+		<band height="35" splitType="Stretch">
 			<textField>
 				<reportElement x="-11" y="0" width="70" height="30" uuid="81c0d9d2-d973-4f97-a8d9-87eb25450afa"/>
 				<textElement textAlignment="Center">
@@ -319,13 +331,13 @@ WHERE
 			</textField>
 			<textField>
 				<reportElement x="490" y="1" width="86" height="30" uuid="b3e3c5f5-1a8b-4aea-a773-d75a88a8855b"/>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDADMOV}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="41" width="570" height="1" uuid="9f232058-7a1b-4593-b74f-4ca7b659d704">
+				<reportElement x="-5" y="33" width="570" height="1" uuid="9f232058-7a1b-4593-b74f-4ca7b659d704">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

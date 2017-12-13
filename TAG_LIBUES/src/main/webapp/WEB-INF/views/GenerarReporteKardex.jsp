@@ -68,6 +68,7 @@
                 </div>
             </div>
             
+            <%-- 
             <div class="form-group">			
 			<label class="control-label col-sm-4" for="nombr">Desde:</label>
 			<div class="col-sm-1">
@@ -137,6 +138,7 @@
 				<OPTION VALUE="Z">Z</OPTION>
 			</SELECT>
 			</div>
+			--%>
 					
 			<div class="form-group">
 
