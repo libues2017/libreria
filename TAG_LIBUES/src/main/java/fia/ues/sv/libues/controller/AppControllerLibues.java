@@ -2334,7 +2334,7 @@ public class AppControllerLibues {
     }
     
     
-    
+    // NUMERO DE FACTURA -------------------------------------------------------------------
     @RequestMapping(value = { "/numero-factura" }, method = RequestMethod.GET)
     public String newNumeroFactura(ModelMap model) {
     	
@@ -2357,48 +2357,7 @@ public class AppControllerLibues {
     	return "redirect:/numero-factura";      
     }
     
-    @RequestMapping(value = { "/facturacion-agregar" }, method = RequestMethod.GET)
-    public String newFacturacion(ModelMap model) {
-    	
-    	Factura factura = new Factura();
-        model.addAttribute("factura", factura);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());        
-    	return "facturacion"; 
-    }
-    
-    @RequestMapping(value = { "/facturacion-agregar" }, method = RequestMethod.POST)   
-    public String saveFacturacion(@Valid Factura factura, BindingResult result, ModelMap model) throws IOException {
-         	 	
-    	if (result.hasErrors()) {
-            return "facturacion";
-        }
-    	facturaService.saveFactura(factura);
-    	model.addAttribute("loggedinuser", getPrincipal());    	
-    	return "redirect:/facturacion-agregar";      
-    }
-    
-    @RequestMapping(value = { "/edit-facturacion-{idfactura}" }, method = RequestMethod.GET)
-    public String editFacturacion(ModelMap model) {
-    	
-    	Factura factura = new Factura();
-        model.addAttribute("factura", factura);
-        model.addAttribute("edit", true);
-        model.addAttribute("loggedinuser", getPrincipal());        
-    	return "facturacion"; 
-    }
-    
-    @RequestMapping(value = { "/edit-facturacion-{idfactura}" }, method = RequestMethod.POST)   
-    public String updateFacturacion(@Valid Factura factura, BindingResult result, 
-    		ModelMap model, @PathVariable Integer idfactura) throws IOException {         	 	
-    	if (result.hasErrors()) {
-            return "facturacion";
-        }       
-    	facturaService.updateFactura(factura);
-    	model.addAttribute("loggedinuser", getPrincipal());    	
-    	return "redirect:/factura-list";      
-    }
-    
+    // -------------------------------------------------------------------------------------------------
     // EDITAR NUMERO DE LA FACTURA Y FECHA
     @RequestMapping(value = { "/edit-numero-factura-{idfactura}" }, method = RequestMethod.GET)
     public String editNumeroFactura(@PathVariable Integer idfactura, ModelMap model) throws ParseException {
@@ -2410,20 +2369,21 @@ public class AppControllerLibues {
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         model.addAttribute("numero", numero);       
-    	return "facturacion-edit"; 
+    	return "factura-set-numero"; 
     }
     
     @RequestMapping(value = { "/edit-numero-factura-{idfactura}" }, method = RequestMethod.POST)   
-    public String updateNumeroFactura(@Valid Factura factura, BindingResult result, 
+    public String updateNumeroFactura(HttpServletRequest request,@Valid Factura factura, BindingResult result, 
     		ModelMap model, @PathVariable Integer idfactura) throws IOException {         	 	
     	if (result.hasErrors()) {
-            return "facturacion-edit";
+            return "factura-set-numero";
         }
-    	Integer codigo = facturaService.findById(idfactura).getIdfactura();
-    	Integer numero = facturaService.findById(idfactura).getNumerofactura();
-    	facturaService.updateNumeroFactura(codigo,numero);
+    	Integer numero2 = Integer.parseInt(request.getParameter("numerofactura"));
+    	//Integer numero = facturaService.findById(idfactura).getNumerofactura();
+    	facturaService.updateNumeroFactura(idfactura,numero2);
     	model.addAttribute("loggedinuser", getPrincipal());    	
-    	return "redirect:/factura-list";      
+    	return "redirect:/factura-list"; 
+    	
     }
     
     //*************************************************************************

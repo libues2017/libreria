@@ -47,34 +47,51 @@
 <body >
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-<div class="well lead" align="center">ESTABLECER NÚMERO FACTURA</div>
+<div class="col-xs-8">
+<c:choose>
+	<c:when test="${edit}">
+		<div class="well lead" align="center">ACTUALIZAR DATOS FACTURA</div>
+	</c:when>
+    <c:otherwise>
+    	<div class="well lead" align="center">NÚMERO FACTURA</div>
+    </c:otherwise>
+    </c:choose>
 	<form:form method="POST" modelAttribute="factura" class="form-horizontal">
-		<form:input type="hidden" path="idfactura" id="idfactura" />
-		
-					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="factura">Número de Factura:</label>
-						<div class="col-md-3">						
-						<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" />
-						</div>
-					</div>
-					<div class="form-group col-md-12" style="display:none">	
-						<label class="col-md-3 control-lable" for="fecha">Fecha Factura:</label>
-						<div class="col-md-3">
-						<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" value="<%=sAhora %>" />
-						</div>
-					</div>
-					<div class="col-xs-2" style="display:none">	
-						<label class="form-control" for="codigo">Estado:</label>						
-						<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1" />
-					</div>
-						
-					<div class="col-xs-3" >
-						<input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm" onclick="alert('Se creó el nuevo número de Factura')" />
-					</div>
-					<div class="col-xs-3" >
-						<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >CANCELAR</a>					
-					</div>
+	<form:input type="hidden" path="idfactura" id="idfactura" />
+		<div class="well lead">	
+			<div class="form-group col-md-12" align="center">
+				<label class="col-md-6 control-lable" for="factura">Número de Factura:</label>
+				<div class="col-md-4">						
+				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" value="${numero }"/>
+			</div>
+			</div>
+			<div class="form-group col-md-12" style="display:none">	
+				<label class="col-md-3 control-lable" for="fecha">Fecha Factura:</label>
+				<div class="col-md-3">
+				<form:input type="date" path="fechafactura" id="fechafactura"  class="form-control input-sm" value="<%=sAhora %>" />
+				</div>
+			</div>
+			<div class="form-group col-md-12" style="display:none">	
+				<label  class="col-md-3 control-lable" for="codigo">Estado:</label>
+				<div class="col-md-3">						
+				<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1" />
+				</div>
+			</div>
+			<div class="form-actions floatRight" align="center">					
+                    <c:choose>
+                        <c:when test="${edit}">
+                            <input type="submit" value="ACTUALIZAR" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm"/> 
+                            ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                        </c:otherwise>
+                    </c:choose>
+                    </div>			
+		</div>
 	</form:form>
+</div>
 </div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
