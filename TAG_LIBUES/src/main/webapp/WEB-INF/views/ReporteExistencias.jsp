@@ -7,8 +7,8 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.Locale"%>
   
-
 <% /*Parametros para realizar la conexión*/ 
+try {
 String codarea= request.getParameter("codigoarea");
 String codprovee=request.getParameter("codigoproveedor");
 String codedito= request.getParameter("codigoeditorial");
@@ -40,5 +40,15 @@ ServletOutputStream ouputStream = response.getOutputStream();
 ouputStream.write(bytes, 0, bytes.length); /*Limpiamos y cerramos flujos de salida*/ 
 ouputStream.flush(); 
 ouputStream.close();
-
+}
+ catch(Exception e){
+    //out.println(e);
+	 %>   <script> 
+       function respaldoNoRealizado() {
+           alert("No Se han Encontrado Resultados");
+           close();
+       } 
+       respaldoNoRealizado(); 
+   </script> 
+   <%  } 
 %>

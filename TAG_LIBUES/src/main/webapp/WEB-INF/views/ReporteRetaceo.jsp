@@ -9,6 +9,7 @@
   
 
 <% /*Parametros para realizar la conexión*/ 
+try{
 String fechainicio= request.getParameter("fecha_inicio");
 String fechafin= request.getParameter("fecha_fin");
 String user=request.getParameter("usuario");
@@ -47,5 +48,17 @@ ServletOutputStream ouputStream = response.getOutputStream();
 ouputStream.write(bytes, 0, bytes.length); /*Limpiamos y cerramos flujos de salida*/ 
 ouputStream.flush(); 
 ouputStream.close();
-
-%>
+}
+catch(Exception e){
+	   //out.println(e);
+		 %>   <script> 
+	      function respaldoNoRealizado() {
+	          alert("No Se han Encontrado Resultados");
+	          close();
+	          //location.href="http://localhost:8080/TAG_LIBUES/transferencias"; 
+	          //location.href="http://192.168.0.52:8080/TAG_LIBUES/transferencias"; 
+	      } 
+	      respaldoNoRealizado(); 
+	  </script> 
+	  <%  } 
+	%>
