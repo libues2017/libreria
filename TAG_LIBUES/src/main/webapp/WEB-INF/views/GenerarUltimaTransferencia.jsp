@@ -42,8 +42,8 @@
 
             <div class="container col-xs-10 col-sm-10 col-md-10 ">
                 <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: </br><script type="text/javascript">getDate()</script></h4></div>
-                <div class="col-sm-8"><img src="<c:url value="/static/img/logo.png"/>" class="img-responsive center-block" /></div>
-
+               <%-- <div class="col-sm-8"><img src="<c:url value="/static/img/logo.png"/>" class="img-responsive center-block" /></div>
+--%>
                 
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
