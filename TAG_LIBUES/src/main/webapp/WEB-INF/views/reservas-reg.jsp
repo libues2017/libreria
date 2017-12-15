@@ -229,8 +229,14 @@
                     </c:choose>
                 </div>
             </div>
-            </div>
+            </div>            
         </form:form>
+         <div class="well lead">
+         <p>
+         Las reservaciones tienen una duración de 48 horas, dos dias maximo.<br>
+         Solo se puede reservar un producto por persona.
+         </p>
+         </div>
 </div>
 
 </div>
