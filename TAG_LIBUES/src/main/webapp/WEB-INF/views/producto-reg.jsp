@@ -248,7 +248,7 @@
                 			              			
 		        			<div class="col-xs-4">
 		            			<label class="form-control" for="precio">Precio: $</label>		                		
-		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" value="0.0"/>
+		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" />
 		                    	<!-- 
 		                    	<div class="has-error">
 		                    		<form:errors path="precio" class="help-inline"/>

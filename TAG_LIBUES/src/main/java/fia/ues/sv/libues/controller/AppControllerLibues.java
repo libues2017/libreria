@@ -2463,9 +2463,9 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/delete-reserva-{idreservas}" }, method = RequestMethod.GET)
     public String deleteReserva(@PathVariable Integer idreservas) {    	
     	reservasService.deleteReservas(idreservas);
-    	Integer cod = reservasService.findById(idreservas).getCodigoproducto();
-    	Integer sala = productoService.findByCorrelativo(cod).getSala() + 1;
-    	productoService.updateReservaRestaurar(cod,sala);
+    	//Integer cod = reservasService.findById(idreservas).getCodigoproducto();
+    	//Integer sala = productoService.findByCorrelativo(cod).getSala() + 1;
+    	//productoService.updateReservaRestaurar(cod,sala);
     	return "redirect:/reservaciones-list";        
     }
     

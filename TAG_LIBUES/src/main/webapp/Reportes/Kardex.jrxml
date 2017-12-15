@@ -16,6 +16,7 @@ LWNiMTUtNDQwZi04ZDAxLTkwOGRjNjQ2ZTVhYTs=]]>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="start" class="java.lang.String"/>
 	<parameter name="end" class="java.lang.String"/>
+	<parameter name="Cantidad" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT DISTINCT libues.bitacora.`CODIGOBITACORA`,
 	libues.bitacora.`CODIGOPRODUCTO`,
@@ -151,7 +152,7 @@ WHERE
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="84"/>
+			<band height="28"/>
 		</groupFooter>
 	</group>
 	<background>
@@ -338,7 +339,7 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="44" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="53" height="20" uuid="e64b6320-b5e8-44f9-a030-7d961d0d94b5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="57f0e46d-6aec-436b-9871-11303844326f"/>
@@ -429,12 +430,6 @@ WHERE
 			</staticText>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
 	</summary>

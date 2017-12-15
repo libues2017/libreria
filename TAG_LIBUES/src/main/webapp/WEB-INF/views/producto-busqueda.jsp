@@ -72,7 +72,7 @@
        	</div>
        
        	</form:form>
-
+	</div>
   	<c:set var="categories" value="${productos}" scope="session"/>
   	
   	<hr/>
@@ -142,7 +142,7 @@
             </table>
         </div>
         
-</div>    
+   
   <div class="row"><%@include file="foot.jsp" %></div>
 </body>
 </html>
