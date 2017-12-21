@@ -23,7 +23,7 @@
 	<div class="row">
 		  <div class="col-sm-4 col-md-4">
 		    <div class="thumbnail">
-		      <img src="<c:url value='/static/img/libros.jpg' />" style="min-height:50px;height:200px;" />
+		      <img src="<c:url value='/static/img/fondolibros.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
 		        <h3><a href="<c:url value="producto-busqueda" />" class="alert-link">Libros</a></h3>
 		        <p>Contamos con una gran variedad de libros a su disposicion, tanto academincos como de entretenimiento.</p>
@@ -34,7 +34,7 @@
 		  
 		  <div class="col-sm-4 col-md-4">
 		    <div class="thumbnail">
-		      <img src="<c:url value='/static/img/utiles.jpg' />" style="min-height:50px;height:200px;" />
+		      <img src="<c:url value='/static/img/utiles2.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
 		        <h3><a href="<c:url value="producto-list" />" class="alert-link">Utiles/Miscelánios</a></h3>
 		        <p>Realice una busqueda con todos los utiles que necesite para todas sus actividades.</p>
@@ -45,7 +45,7 @@
 		
 		  <div class="col-sm-4 col-md-4">
 		    <div class="thumbnail">
-		      <img src="<c:url value='/static/img/libros.jpg' />" style="min-height:50px;height:200px;" />
+		      <img src="<c:url value='/static/img/fondolibros2.jpg' />" style="min-height:50px;height:200px;" />
 		      <div class="caption">
 		        <h3><a href="<c:url value="area-list" />" class="alert-link">Areas</a></h3>
 		        <p>Contamos con una gran variedad de libros a su disposicion, libros academicos, literatura, etc.</p>

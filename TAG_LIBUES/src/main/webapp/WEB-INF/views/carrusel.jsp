@@ -125,7 +125,7 @@
 				        </div>
 				        
 				         <div class="item">
-				          <img src="<c:url value='/static/img/UesMiscelanea21.png' />" alt="...">
+				          <img src="<c:url value='/static/img/fondolibros3.jpg' />" alt="...">
 				          <div class="carousel-caption">
 				            <h2>Útiles/Miscelánios</h2>
 				            <br/>
