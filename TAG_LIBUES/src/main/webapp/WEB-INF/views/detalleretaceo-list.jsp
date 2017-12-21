@@ -71,7 +71,7 @@
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
 		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    
-		    	          var res3 = "http://localhost:8080/TAG_LIBUES/delete-detalleRetaceoupdate-";
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES/delete-detalleRetaceoTotal-";
 		    	          
 		    	         
 		    	         var res1=dato;

@@ -1269,6 +1269,20 @@ public class AppControllerLibues {
         //return "redirect:/detalleretaceo-list";
     }
     
+    
+    
+    @RequestMapping(value = { "/delete-detalleRetaceoTotal-{codigoretaceo}" }, method = RequestMethod.GET)
+    public String deleteRetaceoTotal(@PathVariable Integer codigoretaceo) {
+    	
+    	///codigo retaceo
+    	
+    	detalleretaceoService.deleteRetaceoById(codigoretaceo);
+    	return "redirect:/detalleretaceo-agregar";
+        //return "redirect:/detalleretaceo-list";
+    }
+    
+    
+    
     @RequestMapping(value = { "/finalizar" }, method = RequestMethod.GET)
     public String findetalleRetaceo( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
