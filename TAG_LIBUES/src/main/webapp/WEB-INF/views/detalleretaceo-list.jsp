@@ -91,8 +91,8 @@
 		    	        
 		    	        //alert(result1);
 		    	     
-		    	          //document.getElementById("devolver").innerHTML = result;
-		    	          document.getElementById("devolver1").innerHTML = result;//eliminar
+		    	          document.getElementById("devolver").innerHTML = result;
+		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
 		    	        	    	          
 		    	      }	  
 		    	    } );    
@@ -155,12 +155,12 @@
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>
                 ||||||<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+               	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>
                 
-                <sec:authorize access="hasRole('ADMINISTRADOR')">
+                
                	|||              	
-                 <button type="button" class="btn btn-warning" id="devolver1"> Eliminar</button>
-               	</sec:authorize>    
+                 <button id="devolver1" type="button" class="btn btn-warning" > Eliminar</button>
+                   
                 
             </div>
    	</sec:authorize>
