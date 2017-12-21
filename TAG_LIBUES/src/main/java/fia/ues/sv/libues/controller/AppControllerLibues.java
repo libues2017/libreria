@@ -1469,9 +1469,6 @@ public class AppControllerLibues {
     } 
     
     
-  
-    
-    
     
     
     //////para eliminar de modificar retaceo

@@ -276,7 +276,7 @@
 						                p=sessionStorage.getItem('f');
 						                p1=sessionStorage.getItem('f1');
 						                p3=sessionStorage.getItem('cp');	
-						                p4=sessionStorage.getItem('uti1');
+						                p4=sessionStorage.getItem('uti');
 						                p5=sessionStorage.getItem('nombre');
 										}
 									   document.getElementById("fecharetaceo").value=p;
