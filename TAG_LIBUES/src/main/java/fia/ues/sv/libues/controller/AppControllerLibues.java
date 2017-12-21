@@ -1542,17 +1542,17 @@ public class AppControllerLibues {
 	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
 	  //	return "redirect:/detalleretaceo-agregar";
        	  
-	 List<DetalleRetaceo> retaceoBuscar1 = detalleretaceoService.findRetaceos(codigodetalleretaceo); 
+	// List<DetalleRetaceo> retaceoBuscar1 = detalleretaceoService.findRetaceos(codigodetalleretaceo); 
        	 
     	 
     	 
     	
-    	 if( retaceoBuscar1.size()<0){
+    	/* if( detalleretaceoService.findRetaceos(codigodetalleretaceo).isEmpty()){
     		 
     		 return "redirect:/detalleretaceo-list"; 
-    	 }
+    	 }*/
        	  
-    		System.out.println("revisar--------------------------------------tamano:"+retaceoBuscar1.size());
+    		//System.out.println("revisar--------------------------------------tamano:"+retaceoBuscar1.size());
        	  	
            return "redirect:/edit-detalleRetaceo-"+detalle.getCodigoretaceo();
           // return "detalleretaceo-modificar";
