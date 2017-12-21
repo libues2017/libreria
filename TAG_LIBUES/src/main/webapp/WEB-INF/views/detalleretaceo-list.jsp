@@ -87,7 +87,9 @@
 		    	         var str1 = "Eliminar";
 		    	      
 		    	        var result = str.link(res2);	
-		    	        var result1 = str.link(res4);
+		    	        var result1 = str1.link(res4);
+		    	        
+		    	        //alert(result1);
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
 		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
@@ -157,7 +159,7 @@
                 
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
                	|||              	
-                 <p id="devolver1" class="btn btn-success"></p> 
+                 <button type="button" class="btn btn-warning" id="devolver1"> Eliminar</button>
                	</sec:authorize>    
                 
             </div>
