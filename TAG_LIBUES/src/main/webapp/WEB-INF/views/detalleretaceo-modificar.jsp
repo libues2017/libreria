@@ -571,7 +571,7 @@
 				    	 </c:forEach>
 				    	 
 				    	 <tr class="alert alert-success lead">
-						    	        <td></td>
+						    	        
 						    			<td></td>
 						    			<td></td>
 						    		    <td></td>

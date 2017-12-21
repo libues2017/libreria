@@ -1153,8 +1153,8 @@ public class AppControllerLibues {
 
     	
 			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
-				    	DetalleRetaceo detalleretaceo = new DetalleRetaceo();
-				        model.addAttribute("detalleretaceo", detalleretaceo);
+				      DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+				      model.addAttribute("detalleretaceo", detalleretaceo);
     	              HttpSession sesion = request.getSession();
     	              sesion.setAttribute("codigo", codigoretaceo); 
 			    	  Producto producto=new Producto();		
