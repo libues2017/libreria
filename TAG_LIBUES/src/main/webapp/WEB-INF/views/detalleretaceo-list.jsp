@@ -155,8 +155,7 @@
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>
                 ||||||<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>
-                
+               	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>               
                 
                	|||              	
                  <button id="devolver1" type="button" class="btn btn-warning" > Eliminar</button>
