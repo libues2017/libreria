@@ -1529,13 +1529,16 @@ public class AppControllerLibues {
        	  
 	 List<DetalleRetaceo> retaceoBuscar1 = detalleretaceoService.findRetaceos(codigodetalleretaceo); 
        	 
-    	 retaceoBuscar1.size();
+    	 
+    	 
     	
     	 if( retaceoBuscar1.size()<0){
     		 
     		 return "redirect:/detalleretaceo-list"; 
     	 }
        	  
+    		System.out.println("revisar--------------------------------------tamano:"+retaceoBuscar1.size());
+       	  	
            return "redirect:/edit-detalleRetaceo-"+detalle.getCodigoretaceo();
           // return "detalleretaceo-modificar";
            
