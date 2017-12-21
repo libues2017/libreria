@@ -1547,10 +1547,12 @@ public class AppControllerLibues {
     	 
     	 
     	
-    	/* if( detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
+    	 if( detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
     		 
+    		 
+    		 detalleretaceoService.deleteRetaceoById(codigoretaceo);
     		 return "redirect:/detalleretaceo-list"; 
-    	 }*/
+    	 }
        	  
     		//System.out.println("revisar--------------------------------------tamano:"+retaceoBuscar1.size());
        	  	
