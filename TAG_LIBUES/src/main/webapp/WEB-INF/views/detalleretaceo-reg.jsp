@@ -276,7 +276,7 @@
 						                p=sessionStorage.getItem('f');
 						                p1=sessionStorage.getItem('f1');
 						                p3=sessionStorage.getItem('cp');	
-						                p4=sessionStorage.getItem('uti');
+						                p4=sessionStorage.getItem('uti1');
 						                p5=sessionStorage.getItem('nombre');
 										}
 									   document.getElementById("fecharetaceo").value=p;
@@ -380,7 +380,7 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="number" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
+                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
                     </div>
 				</div>
 			</div>

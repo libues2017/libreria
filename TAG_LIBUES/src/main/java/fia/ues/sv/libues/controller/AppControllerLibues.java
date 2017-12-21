@@ -1264,7 +1264,16 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/delete-detalleRetaceo-{codigoretaceo}" }, method = RequestMethod.GET)
     public String deleteRetaceo(@PathVariable Integer codigoretaceo) {
     	
+    	
+    	
+    	int codigodetalleretaceo=0;
+    	
+   	    
+    	
     	detalleretaceoService.deleteRetaceoById(codigoretaceo);
+    	
+    
+    	
     	return "redirect:/detalleretaceo-agregar";
         //return "redirect:/detalleretaceo-list";
     }
@@ -1520,6 +1529,16 @@ public class AppControllerLibues {
            
 	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
 	  //	return "redirect:/detalleretaceo-agregar";
+       	  
+	 List<DetalleRetaceo> retaceoBuscar1 = detalleretaceoService.findRetaceos(codigodetalleretaceo); 
+       	 
+    	 retaceoBuscar1.size();
+    	
+    	 if( retaceoBuscar1.size()<0){
+    		 
+    		 return "redirect:/detalleretaceo-list"; 
+    	 }
+       	  
            return "redirect:/edit-detalleRetaceo-"+detalle.getCodigoretaceo();
           // return "detalleretaceo-modificar";
            
