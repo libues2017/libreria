@@ -1493,7 +1493,7 @@ public class AppControllerLibues {
      public String deleteRetaceoUpdate( HttpServletRequest request,@PathVariable Integer codigodetalleretaceo,@PathVariable Integer codigoproducto) {
     	    	
   	      HttpSession sesion=request.getSession(true);
-		        //   Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
+		          Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
 		          // sesion.setAttribute("codigoultimo", codigoretaceo);		  	  
 		  	  
   	      String fecha = request.getParameter("fecharetaceo");
@@ -1502,7 +1502,7 @@ public class AppControllerLibues {
           // Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
           // System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto);	
            
-           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigodetalleretaceo);
+           //List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigodetalleretaceo);
            
            DetalleRetaceo detalle=detalleretaceoService.findById(codigodetalleretaceo);           
            
@@ -1547,7 +1547,7 @@ public class AppControllerLibues {
     	 
     	 
     	
-    	/* if( detalleretaceoService.findRetaceos(codigodetalleretaceo).isEmpty()){
+    	/* if( detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
     		 
     		 return "redirect:/detalleretaceo-list"; 
     	 }*/
