@@ -1160,9 +1160,19 @@ public class AppControllerLibues {
 			    	  Producto producto=new Producto();		
 			    	  Double total=0.0;	   
 			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
+			    	 
+			    	  
+			    	  
+			    	  if(!detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
+			    	  
 			    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo); 
 			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();				    	  
 				      List<Producto> productos = productoService.findAllProductos();
+				      
+				      
+				      
+				    	  
+				    	  
 				      
 				      Retaceo retaceo= retaceoService.findById(codigoretaceo);				    	 
 				      Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
@@ -1229,6 +1239,11 @@ public class AppControllerLibues {
 			        
 			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
 			        return "detalleretaceo-modificar";
+			        
+				      }
+				      return "redirect:/detalleretaceo-list";
+				           
+				      
               
     }
     
