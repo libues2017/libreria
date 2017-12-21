@@ -1550,7 +1550,7 @@ public class AppControllerLibues {
     	 if( detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
     		 
     		 
-    		 detalleretaceoService.deleteRetaceoById(codigoretaceo);
+    		 retaceoService.deleteRetaceoById(codigoretaceo);
     		 return "redirect:/detalleretaceo-list"; 
     	 }
        	  
