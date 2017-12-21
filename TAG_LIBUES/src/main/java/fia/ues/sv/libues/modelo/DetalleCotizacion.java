@@ -104,12 +104,13 @@ public class DetalleCotizacion implements Serializable{
 		return serialVersionUID;
 	}
 	
+	/*
 	@Override
     public String toString() {
         return "detallecotizacion [NUMERODETALLE=" + numeroDetalle + ", CODIGOCOTIZACION=" + codigoCotizacion + ", CODIGOPRODUCTO=" + codigoProducto 
         		+ ", NOMBREPRODUCTO=" + nombreProducto + ", CANTIDAD=" + cantidad 
         		+", VALORUNITARIO=" + valorUnitario +", VALORTOTAL= "+ valorTotal +"]";
-	}
+	}*/
 	
 
 }

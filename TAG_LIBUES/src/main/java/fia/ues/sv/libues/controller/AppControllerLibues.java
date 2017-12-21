@@ -232,10 +232,11 @@ public class AppControllerLibues {
     	return facturaService.findAllFacturas();
     }
     
+    /*
     @ModelAttribute("cotizaciones")
     public List<Cotizacion> initializeCotizaciones(){
     	return cotizacionService.findAllCotizaciones();
-    }
+    }*/
     
     @ModelAttribute("detallecotizaciones")
     public List<DetalleCotizacion> initializedetalleCotizaciones(){
@@ -2484,8 +2485,8 @@ public class AppControllerLibues {
       
       @RequestMapping(value = { "/cotizacion-detalle-{codigoCotizacion}" }, method = RequestMethod.GET)
       public String listDetalleCotizacion(@PathVariable Integer codigoCotizacion, ModelMap model) throws IOException {
-      	DetalleCotizacion cotizacion = detallecotizacionService.findByCodigo(codigoCotizacion);
-      	model.addAttribute("cotizaciones", cotizacion);
+      	DetalleCotizacion cotiza = detallecotizacionService.findByCodigo(codigoCotizacion);
+      	model.addAttribute("cotizaciones", cotiza);
       	model.addAttribute("loggedinuser", getPrincipal());
       	return "cotizacion-detalle";
       } 
@@ -2506,7 +2507,7 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
       	HttpSession sesion = request.getSession(true);
       	
-      	HttpSession sesion2=request.getSession(true);
+      	//HttpSession sesion2=request.getSession(true);
       	
       	Double total = 0.0;
       	if(sesion.getAttribute("codigo6") != null)
@@ -2518,7 +2519,7 @@ public class AppControllerLibues {
       			total = total + cotizacionBuscar.get(i).getValorTotal();  		  
         	}
        		model.addAttribute("total", total); 
-      		model.addAttribute("cotiza2", cotizacionBuscar);
+      		model.addAttribute("cotiza1", cotizacionBuscar);
       	}
       	
       	List<Producto> productos = productoService.findAllProductos();       
@@ -2557,12 +2558,13 @@ public class AppControllerLibues {
       	
       }
       
-      @RequestMapping(value = { "/delete-detallecotizacion-{numeroDetalle}" }, method = RequestMethod.GET) // Borrar un producto de la lista
-      public String deleteCotizacion(@PathVariable Integer numeroDetalle) {    	
-      	detallecotizacionService.deleteCotizacionById(numeroDetalle);
+      @RequestMapping(value = { "/delete-detallecotizacion-{codigoCotizacion}" }, method = RequestMethod.GET) // Borrar un producto de la lista
+      public String deleteCotizacion(@PathVariable Integer codigoCotizacion) {    	
+      	detallecotizacionService.deleteCotizacionById(codigoCotizacion);
       	return "redirect:/detallecotizacion-agregar"; 
       	        
       }
+      
       
       /*
       @RequestMapping(value = { "/detallecotizacion-agregar" }, method = RequestMethod.GET)
@@ -2574,6 +2576,62 @@ public class AppControllerLibues {
           //model.addAttribute("area", getPrincipal());
           return "detallecotizacion-reg";
       }*/
+      
+      @RequestMapping(value = { "/finalizarCotizacion" }, method = RequestMethod.GET)
+      public String saveDetalleCotizacion( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
+      	
+            HttpSession sesion=request.getSession(true);    	
+            Integer codigoCotizacion = (Integer) sesion.getAttribute("codigo6");          
+            sesion.setAttribute("codigoultimo", codigoCotizacion);         
+           // Se lee el valor a comparar. SALA o BODEGA 
+            //String destino = requisicionService.findById(codigorequisicion).getDestino();
+        	
+  	      Double total = 0.0;
+  	      if(sesion.getAttribute("codigo6")!=null)
+  	      {
+  	      	Integer codigo6=(Integer) sesion.getAttribute("codigo6");
+  	      	List<DetalleCotizacion> cotizacionBuscar = detallecotizacionService.findCotizaciones(codigo6);
+  	      	for(int i = 0; i < cotizacionBuscar.size(); i++){
+  	      		total = total + cotizacionBuscar.get(i).getValorTotal();
+  	      	}
+  	      }       
+  	      
+  	      cotizacionService.updateTotal(codigoCotizacion, total);
+  	        
+          /*List<DetalleCotizacion> cotizacionBuscar = detallecotizacionService.findCotizaciones(codigoCotizacion);
+          for(int i =0 ; i < cotizacionBuscar.size(); i++){
+          	  Integer codigoproducto = requisicionBuscar.get(i).getCodigoproducto();
+          	  Integer bodega1 = requisicionBuscar.get(i).getBodega();        	  
+          	  Integer sala1 = requisicionBuscar.get(i).getSala();
+          	  Integer cantidad = requisicionBuscar.get(i).getCantidad();
+          	  
+          	  if (destino.equals("BODEGA")){
+  	        	  Integer existencia = bodega1 + cantidad;
+  	        	  Integer sala = sala1 - cantidad;
+  	        	  productoService.updateExistencia(codigoproducto, existencia, sala);
+          	  }
+          	  else {
+          		  Integer existencia = bodega1 - cantidad;
+              	  Integer sala = sala1 + cantidad;
+              	  productoService.updateExistencia(codigoproducto, existencia, sala);
+          	  }        	  
+            } */         
+         
+            String fecha6 =(String) sesion.getAttribute("mySessionAttribute");          
+            Date fechaCotizacion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha6);          
+            Cotizacion cotizacion = new Cotizacion();
+            //Valores por defecto para inicializar la nueva cotizacion
+            cotizacion.setNombreCliente("");
+            cotizacion.setTelefono("");
+            cotizacion.setCorreo("");
+            cotizacion.setFechaCotizacion(fechaCotizacion1);
+            cotizacion.setTotal(0.0);
+            cotizacionService.saveCotizacion(cotizacion);
+            Integer codigo6 = 0;
+  		  	sesion.setAttribute("codigo6", codigo6);
+  		  	return "GenerarCotizacion";
+
+      }
     
     
  

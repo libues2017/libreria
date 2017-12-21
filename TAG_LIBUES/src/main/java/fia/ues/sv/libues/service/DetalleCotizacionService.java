@@ -14,7 +14,7 @@ public interface DetalleCotizacionService {
 	
 	void saveDetalleCotizacion(DetalleCotizacion detalleCotizacion);
 	
-	void updateDetalleCotizacion(DetalleCotizacion detalleCotizacion);
+	void updateCotizacion(DetalleCotizacion detalleCotizacion);
 	
 	void deleteCotizacionById(int numeroDetalle);
 	

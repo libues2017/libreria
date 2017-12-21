@@ -50,9 +50,9 @@ public class DetalleCotizacionDaoImpl extends AbstractDao<Integer, DetalleCotiza
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DetalleCotizacion> findAllCotizaciones() {
-		Criteria crite = createEntityCriteria();
-		crite.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) crite.list();
+		Criteria criteria = createEntityCriteria();
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) criteria.list();
 		return detalleCotizacion;
 	}
 

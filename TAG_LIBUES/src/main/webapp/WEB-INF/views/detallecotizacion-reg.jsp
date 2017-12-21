@@ -19,6 +19,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+	<style>
+		p.normal {
+    		font-weight: normal;
+		}
+
+		p.light {
+    		font-weight: lighter;
+		}
+
+		p.thick {
+    		font-weight: bold;
+		}
+
+		p.thicker {
+    		font-weight: 900;
+		}
+	</style>
 	
 	<Style>
 		.control-label {
@@ -192,14 +209,23 @@
 				<div class="panel panel-default">
 					<div class="form-group row">
 						<div class="panel-body">
+							<div class="col-xs-3" style="display:none">
+								<label class="form-control" for="nombr">Cotización #:</label>
+								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" maxlength="11" class="form-control input-sm" 
+								 value='<%=session.getAttribute("codigo6")%>' />
+							</div>
 							<div class="col-xs-3">
 								<label class="form-control" for="nombr">Cotización #:</label>
-								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' />
+								<input type="text" title="Número de Cotización" class="form-control input-sm" value='<%=session.getAttribute("codigo6")%>' disabled="disabled" />
+							</div>
+							<div class="col-xs-3" style="display:none">			
+								<label class="form-control" for="nombr">Fecha:</label>
+								<input type="date" id="fechaCotizacion" name="fechaCotizacion" class="form-control input-sm" value="<%=sAhora %>" />
 							</div>
 							<div class="col-xs-3">			
 								<label class="form-control" for="nombr">Fecha:</label>
 								<input type="date" id="fechaCotizacion" name="fechaCotizacion" class="form-control input-sm" 
-								title="Seleccione la fecha de Cotización" value="<%=sAhora %>" />
+								title="Fecha de Cotización" value="<%=sAhora %>" disabled="disabled"/>
 							</div>
 							<div class="col-xs-6">
 								<label class="form-control" for="nombr">Nombre del Cliente:</label>
@@ -240,7 +266,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="col-xs-3">
-								<label class="form-control" for="precio">Valor Unitario $:</label>
+								<label class="form-control" for="precio">Precio $:</label>
 								<form:input type="text" path="valorUnitario" id="valorUnitario" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 							</div>
 							<div class="col-xs-2">
@@ -264,14 +290,15 @@
 				</div>
 			</div>
 			
+			<p class="thick" align="center">DETALLE DE LOS PRODUCTOS COTIZADOS</p>
 			<table class="table table-striped ">
 				<thead>
 					<tr class="success">		   
 			    		        <th>ITEM</th> 			
-				      			<th>Codigo Producto</th>
+				      			<th>Código Producto</th>
 				      			<th>Nombre Producto</th>			      			      			
 				      			<th>Cantidad</th>
-				      			<th>Valor Unitario</th>
+				      			<th>Precio</th>
 				      			<th>SubTotal</th>
 				      			<th></th>	
 			    	</tr>
@@ -296,9 +323,22 @@
 	                    	</sec:authorize>
 	                	</tr>
 					</c:forEach>
+					
+					<tr class="alert alert-success lead">
+						    	        <td></td>
+						    			<td></td>
+						    			<td></td>
+						    		    <td></td>						    			
+						    			<td>TOTAL</td>
+						    	        <td >
+		                                   $${total} 
+		                                </td>
+		                                <td></td>
+                	</tr>
 				</tbody>
 			</table>
 			
+			<!--
 			<div class="row" align="right">
             	<div class="form-group col-md-12">
                 	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
@@ -308,9 +348,9 @@
                     </div>
             	</div>
            </div>			
-			
+			-->
 			<div class="well lead" align="center">	
-				<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Terminar Cotización</a>
+				<a href="<c:url value='/finalizarCotizacion' />" class="btn btn-primary btn-sm">Terminar Cotización</a>
 			</div>
 			
 		</form:form>

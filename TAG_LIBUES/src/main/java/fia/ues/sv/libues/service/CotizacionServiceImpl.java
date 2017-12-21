@@ -45,8 +45,7 @@ public class CotizacionServiceImpl implements CotizacionService{
 			entity.setFechaCotizacion(fechaCotizacion);
 			entity.setNombreCliente(nombreCliente);
 			entity.setTelefono(telefono);
-			entity.setCorreo(correo);
-			
+			entity.setCorreo(correo);		
 		}
 		
 	}

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fia.ues.sv.libues.dao.DetalleCotizacionDao;
 import fia.ues.sv.libues.modelo.DetalleCotizacion;
 
-@Service("detalleCotizacionService")
+@Service("detallecotizacionService")
 @Transactional
 public class DetalleCotizacionServiceImpl implements DetalleCotizacionService{
 	
@@ -38,14 +38,14 @@ public class DetalleCotizacionServiceImpl implements DetalleCotizacionService{
 	}
 
 	@Override
-	public void updateDetalleCotizacion(DetalleCotizacion detalleCotizacion) {
+	public void updateCotizacion(DetalleCotizacion detalleCotizacion) {
 		DetalleCotizacion entity = dao.findById(detalleCotizacion.getCodigoCotizacion());
 		if(entity != null){
 			entity.setCodigoProducto(detalleCotizacion.getCodigoProducto());
 			entity.setNombreProducto(detalleCotizacion.getNombreProducto());
 			entity.setCantidad(detalleCotizacion.getCantidad());
 			entity.setValorUnitario(detalleCotizacion.getValorUnitario());
-			entity.setValorTotal(detalleCotizacion.getValorTotal());
+			//entity.setValorTotal(detalleCotizacion.getValorTotal());
 		}
 		
 	}
