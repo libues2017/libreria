@@ -91,8 +91,8 @@
 		    	        
 		    	        //alert(result1);
 		    	     
-		    	          document.getElementById("devolver").innerHTML = result;
-		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
+		    	          //document.getElementById("devolver").innerHTML = result;
+		    	          document.getElementById("devolver1").innerHTML = result;//eliminar
 		    	        	    	          
 		    	      }	  
 		    	    } );    
