@@ -84,8 +84,10 @@
 		    	         //var res2=res2.concat(res123);
 		    	         
 		    	         var str = "Editar";
+		    	         var str1 = "Eliminar";
 		    	      
-		    	        var result = str.link(res2);		    	      
+		    	        var result = str.link(res2);	
+		    	        var result1 = str.link(res4);
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
 		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
@@ -154,7 +156,8 @@
                	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
                 
                 <sec:authorize access="hasRole('ADMINISTRADOR')">
-               	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               	|||              	
+                 <p id="devolver1" class="btn btn-success"></p> 
                	</sec:authorize>    
                 
             </div>

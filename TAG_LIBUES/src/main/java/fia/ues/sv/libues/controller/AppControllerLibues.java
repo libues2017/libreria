@@ -1276,9 +1276,26 @@ public class AppControllerLibues {
     	
     	///codigo retaceo
     	
-    	detalleretaceoService.deleteRetaceoById(codigoretaceo);
-    	return "redirect:/detalleretaceo-agregar";
-        //return "redirect:/detalleretaceo-list";
+    	int codigodetalleretaceo=0;
+    	
+    	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo); 
+    	 
+    	 retaceoBuscar.size();
+    	// codigoretaceototal= retaceoBuscar.get(0).getCodigodetalleretaceo();
+    	 
+    	  for (int i = 0; i < retaceoBuscar.size(); i++){
+   		   //total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total			
+    		  
+    		  codigodetalleretaceo= retaceoBuscar.get(i).getCodigodetalleretaceo(); 
+    		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
+   		   
+   	  } 
+    	
+    	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
+    	  retaceoService.deleteRetaceoById(codigoretaceo);
+    	  
+    	//return "redirect:/detalleretaceo-agregar";
+        return "redirect:/detalleretaceo-list";
     }
     
     
