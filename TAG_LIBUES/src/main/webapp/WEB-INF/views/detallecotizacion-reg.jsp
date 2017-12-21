@@ -211,8 +211,7 @@
 						<div class="panel-body">
 							<div class="col-xs-3" style="display:none">
 								<label class="form-control" for="nombr">Cotización #:</label>
-								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" maxlength="11" class="form-control input-sm" 
-								 value='<%=session.getAttribute("codigo6")%>' />
+								<form:input type="text" path="codigoCotizacion" id="codigoCotizacion" maxlength="11" class="form-control input-sm"  value='<%=session.getAttribute("codigo6")%>' />
 							</div>
 							<div class="col-xs-3">
 								<label class="form-control" for="nombr">Cotización #:</label>
@@ -305,7 +304,7 @@
 				</thead>
 				<tbody>
 					<c:set var="contador" value="${0}"/>
-					<c:forEach items="${cotiza2}" var="cotizaciones">
+					<c:forEach items="${cotiza1}" var="cotizaciones">
 						<tr class="info">
 							<c:set var="salary" scope="session" value="${2000*2}"/>
 							<c:if test="${salary > 2000 }">
