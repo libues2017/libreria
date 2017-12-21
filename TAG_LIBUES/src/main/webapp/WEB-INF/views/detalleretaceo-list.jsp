@@ -12,7 +12,9 @@
 	<link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
     <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
-    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>	 		
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>	 	
+    
+		<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>	
 		
 	     <script type="text/javascript">
 
@@ -68,12 +70,16 @@
 		    	            codigoproducto= $(this).find("td:eq(1)").text();	
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
-		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    	         
+		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    
+		    	          var res3 = "http://localhost:8080/TAG_LIBUES/delete-detalleRetaceoupdate-";
+		    	          
 		    	         
 		    	         var res1=dato;
 		    	         var res12="-";	
 		    	         var res123=codigoproducto;	
-		    	         var res2=res.concat(res1);//link editar			    	         
+		    	         var res2=res.concat(res1);//link editar
+		    	         
+		    	         var res4=res3.concat(res1);//link eliminar	
 		    	        // var res2=res2.concat(res12);  
 		    	         //var res2=res2.concat(res123);
 		    	         
@@ -82,6 +88,7 @@
 		    	        var result = str.link(res2);		    	      
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
+		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
 		    	        	    	          
 		    	      }	  
 		    	    } );    
@@ -119,6 +126,22 @@
 </head>
 <body>
 
+
+
+ <!-- Modal confirm -->
+	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="confirmMessage">
+				</div>
+				<div class="modal-footer">
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		        </div>
+			</div>
+		</div>
+	</div>
+
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 <div class="row">
@@ -129,6 +152,10 @@
                 ||||||<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
                 <p id="devolver" class="btn btn-success"></p> 
+                
+                <sec:authorize access="hasRole('ADMINISTRADOR')">
+               	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               	</sec:authorize>    
                 
             </div>
    	</sec:authorize>
@@ -173,5 +200,26 @@
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 -->
 </body>
+
+<script>
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
+$('#btnDelete').on('click', function(e){
+		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+			//alert();//My code to delete
+		});
+	});
+
+  function confirmDialog(message, onConfirm){
+	    var fClose = function(){
+			modal.modal("hide");
+	    };
+	    var modal = $("#confirmModal");
+	    modal.modal("show");
+	    $("#confirmMessage").empty().append(message);
+	    $("#confirmOk").one('click', onConfirm);
+	    $("#confirmOk").one('click', fClose);
+	    $("#confirmCancel").one("click", fClose);
+  }
+  </script>
 </html>
 
