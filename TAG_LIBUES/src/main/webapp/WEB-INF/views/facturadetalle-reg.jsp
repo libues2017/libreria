@@ -77,6 +77,34 @@
 		</c:forEach>              		
       return true;
      }
+</script>	
+
+<script>
+	function nombreprod(){
+		
+		var codigo = [];		
+		var sala1 = [];
+		var precio1 = [];  
+		
+		
+		var Id1 = document.getElementById("nombreproducto").value;
+	
+		<c:forEach items="${producto}" var="current" >
+		
+		  if( ${current.nombreProducto} == Id1 ) {
+		    	 		  
+		      codigo.push("${current.codigoProducto}");
+		      document.getElementById('codigoproducto').value = codigo;
+		      
+   		      sala1.push("${current.sala}");
+		      document.getElementById('sala').value = sala1;
+		      
+		      precio1.push("${current.precio}");
+		      document.getElementById('precio').value = precio1;
+		    }
+		</c:forEach>              		
+      return true;
+     }
 	
 </script>
 
@@ -89,6 +117,20 @@ $( function() {
 	</c:forEach>					    
 	
 	$( "#codigoproducto" ).autocomplete({
+	// source: availableTags
+	source: sessionId1
+	});
+} );
+</script>
+<script>
+$( function() {
+	var sessionId1 = [];
+	
+	<c:forEach items="${producto}" var="current">								
+	sessionId1.push("${current.nombreProducto}");						
+	</c:forEach>					    
+	
+	$( "#nombreproducto" ).autocomplete({
 	// source: availableTags
 	source: sessionId1
 	});
@@ -195,7 +237,7 @@ function vuelto(){
 	</table>										    			
 		<div class="panel-group">
 			<div class="panel panel-success">			
-			<div class="panel-heading">Información del Cliente (OPCIONAL). Si es crédito, llenar todos los campos.</div>			
+			<div class="panel-heading">Información del Cliente. En CREDITO, llenar todos los campos.</div>			
 			<div class="panel-body">
 			<div class="form-group row">			
 				<div class="col-xs-3">
@@ -227,12 +269,12 @@ function vuelto(){
 					<div class="form-group row">
 						<div class="col-xs-2">
 							<label class="form-control" for="codigo">Codigo:</label>
-							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR" class="form-control input-sm" 
+							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR(####)" class="form-control input-sm" 
 										onchange='producto(); cambiar();' />
 						</div>	
 						<div class="col-xs-8" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
-							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" />
+							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" onchange="nombreprod()"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="sala">Existencia:</label>
