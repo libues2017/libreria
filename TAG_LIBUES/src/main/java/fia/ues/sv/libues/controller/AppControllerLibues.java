@@ -2428,9 +2428,10 @@ public class AppControllerLibues {
     	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCorrelativo();
     	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
     	Double prec = productoService.findByCodigoProducto(codigoprod).getPrecio();
-    	
+    	List<Reservas> reservas = reservasService.findAllReservas(); 
     	Reservas reserv = new Reservas();
         model.addAttribute("reserv", reserv);
+        model.addAttribute("reservas", reservas);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         

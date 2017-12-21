@@ -68,7 +68,22 @@
             sDespues=fecha;
 		}
 %>
-          
+
+<script type="text/javascript">
+
+	function validar(){
+	
+		var Id = document.getElementById("dui").value;		
+		<c:forEach items="${reservas}" var="current" >
+		
+		  if( ${current.dui} == Id) {		    	 		  
+		      alert('Este DUI ya fue usado. Ingrese otro DUI si desea hacer otra reserva.')
+		    }
+		</c:forEach>              		
+      return true;	
+     }
+</script>
+		          
 </head>
 <body>
 
@@ -139,7 +154,8 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-4 control-lable" for="dui">DUI:</label>
                     <div class="col-md-4">
-                        <form:input type="text" path="dui" id="dui" maxlength="10" class="form-control input-sm" placeholder="########-#" title="Digitar. Incluir guion (-)"/>
+                        <form:input type="text" path="dui" id="dui" maxlength="10" class="form-control input-sm" 
+                        onchange="validar()" placeholder="########-#" title="Digitar. Incluir guion (-)"/>
                         <div class="has-error">
                             <form:errors path="dui" class="help-inline"/>
                         </div>
