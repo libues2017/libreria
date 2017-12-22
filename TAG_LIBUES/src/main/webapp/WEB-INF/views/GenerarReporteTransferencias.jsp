@@ -84,7 +84,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
-                      <a class="btn btn-danger" href="<c:url value="/detalletransferencia-list" />" role="button">Listado Transferencias</a>
+                      <a class="btn btn-danger" href="<c:url value="/transferencia-list" />" role="button">Listado Transferencias</a>
                 </div>
                 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
