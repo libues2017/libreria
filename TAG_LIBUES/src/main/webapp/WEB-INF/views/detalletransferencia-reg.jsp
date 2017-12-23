@@ -526,9 +526,23 @@ function cambiar3(){
 								</sec:authorize>
 							</tr>
 						</c:forEach>
+						
+						<tr class="alert alert-success lead">
+						    	        <td></td>
+						    			<td></td>
+						    			<td></td>
+						    		    <td></td>	
+						    		    <td></td>					    			
+						    			<td>TOTAL</td>
+						    	        <td >
+		                                   $${total} 
+		                                </td>
+		                                <td></td>
+                		</tr>
 					</tbody>
 				</table>
 				
+				<!--
 				<div class="row" align="right">
                 	<div class="form-group col-md-12">
                     	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
@@ -538,6 +552,7 @@ function cambiar3(){
                     	</div>
                 	</div>
             	</div>
+            	-->
 				
 			<div class="well lead" align="center">	
 				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>

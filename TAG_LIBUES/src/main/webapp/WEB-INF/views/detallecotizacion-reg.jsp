@@ -327,7 +327,7 @@
 						    	        <td></td>
 						    			<td></td>
 						    			<td></td>
-						    		    <td></td>						    			
+						    		    <td></td>						    		  						    			
 						    			<td>TOTAL</td>
 						    	        <td >
 		                                   $${total} 
