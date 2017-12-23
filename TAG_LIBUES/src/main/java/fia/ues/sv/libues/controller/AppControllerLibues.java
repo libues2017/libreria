@@ -2627,10 +2627,16 @@ public class AppControllerLibues {
       }
       
       @RequestMapping(value = { "/delete-detallecotizacion-{codigoCotizacion}" }, method = RequestMethod.GET) // Borrar un producto de la lista
-      public String deleteCotizacion(@PathVariable Integer codigoCotizacion) {    	
+      public String deleteDetalleCotizacion(@PathVariable Integer codigoCotizacion) {    	
       	detallecotizacionService.deleteCotizacionById(codigoCotizacion);
       	return "redirect:/detallecotizacion-agregar"; 
       	        
+      }
+      
+      @RequestMapping(value = { "/delete-cotizacion-{codigoCotizacion}" }, method = RequestMethod.GET)
+      public String deleteCotizacion(@PathVariable Integer codigoCotizacion) {
+    	  cotizacionService.deleteCotizacionById(codigoCotizacion);     	    	
+          return "redirect:/cotizacion-list";
       }
       
       

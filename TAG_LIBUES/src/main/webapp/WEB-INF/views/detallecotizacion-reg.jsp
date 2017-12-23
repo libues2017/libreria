@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Librería UES</title>
+	<title>Realizar Cotización</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
@@ -154,8 +154,8 @@
 	<script>
 		function cotizacion2(){
 			var cantidad2 = parseInt(document.getElementById("cantidad").value);
-			var precio2 = document.getElementById("valorUnitario").value;
-			var valorTotal = document.getElementById('valorTotal').value = parseFloat(precio2)*(parseInt(cantidad2));
+			var valorUnitario = document.getElementById("valorUnitario").value;
+			var valorTotal = document.getElementById('valorTotal').value = parseFloat(valorUnitario)*(parseInt(cantidad2));
 			if(cantidad2 != null){
 				$("#agrega").focus();
 			}
@@ -202,7 +202,7 @@
 <body>
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">REALIZAR COTIZACIÓN</div>
+		<div class="well lead" align="center">NUEVA COTIZACIÓN</div>
 		<form:form method="POST" name="cotiza" modelAttribute="detallecotizacion" class="form-horizontal">
 		<form:input type="hidden" path="numeroDetalle" id="numeroDetalle" />
 			<div class="panel-group">
@@ -254,8 +254,8 @@
 						<div class="panel-body">
 							<div class="col-xs-4">
 				        		<label class="form-control" for="tags">Código de Producto:</label>
-	                    		<form:input type="text" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2(); saltar4();' 
-	                    	 	title="Digite el Código del Producto"/>        
+	                    		<form:input type="number" path="codigoProducto" id="codigoProducto" maxlength="11" placeholder="DIGITE"  class="form-control input-sm" onchange='producto2(); saltar4();' 
+	                    	 	onkeypress='producto2();' title="Digite el Código del Producto"/>        
                     		</div>
                     		<div class="col-xs-7"> 
 	                    		<label class="form-control" for="nombr">Nombre de Producto:</label>
@@ -274,7 +274,7 @@
 	                    		saltar4();"/>
                     		</div>
                     		<div class="col-xs-3">
-	                    		<label class="form-control" for="nombr">Valor Total $:</label>
+	                    		<label class="form-control" for="nombr">Total $:</label>
 	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Este Valor es Calculado"/>
                     		</div>
                     		<div class="col-xs-2">
