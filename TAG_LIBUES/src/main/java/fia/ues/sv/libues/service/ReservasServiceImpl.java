@@ -38,6 +38,7 @@ public class ReservasServiceImpl implements ReservasService{
 			entity.setCodigoproducto(reservas.getCodigoproducto());
 			entity.setCantidad(reservas.getCantidad());
 			entity.setDui(reservas.getDui());
+			entity.setTelefono(reservas.getTelefono());
 			entity.setFechafin(reservas.getFechafin());
 			entity.setFechaini(reservas.getFechaini());
 			entity.setNombre(reservas.getNombre());

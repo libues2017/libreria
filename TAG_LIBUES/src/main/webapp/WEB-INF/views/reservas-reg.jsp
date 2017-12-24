@@ -163,6 +163,19 @@
                 </div>
             </div>
             
+             <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="telefono">Telefono:</label>
+                    <div class="col-md-4">
+                        <form:input type="text" path="telefono" id="telefono" maxlength="9" class="form-control input-sm" 
+                         placeholder="####-####" title="Digitar. Incluir guion (-)"/>
+                        <div class="has-error">
+                            <form:errors path="telefono" class="help-inline"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="row">
                 <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="fecha">Reservación:</label>

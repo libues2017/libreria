@@ -37,6 +37,10 @@ public class Reservas implements Serializable{
 	@Column(name="dui")
 	private String dui;
 	
+	@NotEmpty
+	@Column(name="telefono")
+	private String telefono;
+	
 	@NotNull
 	@Column(name="fechaini")
 	private Date fechaini;
@@ -91,6 +95,14 @@ public class Reservas implements Serializable{
 
 	public void setDui(String dui) {
 		this.dui = dui;
+	}		
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	public Date getFechaini() {
