@@ -1851,6 +1851,8 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReporteExistencias";
   	}
+      
+    
 
       //Controles para el Reporte de Transferencias a Sucursales
    @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)
@@ -1897,6 +1899,19 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReporteFactura";
   	}
+   
+ //Controles para el Reporte de Facturas Emitidas
+   @RequestMapping(value={"/facturas-emitidas"}, method = RequestMethod.GET)
+ 	public String facturasemitidas(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "GenerarReporteFacturas";
+ 	}
+     
+     @RequestMapping(value={"/repo_facturas-emitidas"}, method = RequestMethod.GET)
+ 	public String repofacturasemitidas(ModelMap model){
+ 		model.addAttribute("loggedinuser", getPrincipal());
+ 		return "ReporteFacturasEmitidas";
+ 	}
    
  //Controles para generacion del reporte de la ultima transferencia insertada
    @RequestMapping(value={"/transferenciaUltima"}, method = RequestMethod.GET)
