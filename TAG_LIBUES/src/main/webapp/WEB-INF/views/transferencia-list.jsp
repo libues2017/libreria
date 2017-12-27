@@ -22,16 +22,24 @@
 		var sessionId3 = [];
 		var i=0;
 			    
+		
+		<c:set var="contador" value="${0}" />
 		<c:forEach items="${transferencias}"   var="current">
-			dataSet[i] = [ "${current.numeroTransferencia}", "${current.tipoTransferencia}", "${current.sucursal}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
+		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+            <c:if test = "${salary > 2000}">
+	            <c:set var="contador" value="${contador + 1}" />
+	             
+			dataSet[i] = [ "${contador}", "${current.numeroTransferencia}", "${current.tipoTransferencia}", "${current.sucursal}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
 		         value = "${current.fechaTransferencia}" />', "$ ${current.total}"] ;
 			i=i+1;
+			</c:if>
 		</c:forEach>
 						    
 		$(document).ready(function() {
 			var tabla =  $('#transf').DataTable( {
 				data:  dataSet,
 			    columns: [
+			    	{ title: "Item" },
 			    	{ title: "# Transferencia" },
 			        { title: "Tipo" },
 			    	{ title: "Sucursal" },
