@@ -100,7 +100,7 @@ public class Retaceo implements Serializable{
 
 	public Date getFecharetaceo() {
 		
-		 String fec=fecharetaceo.toString()	;
+		/* String fec=fecharetaceo.toString()	;
 			
 			try {
 				 fecharetaceo = new SimpleDateFormat("dd-MM-yyyy", new Locale("es", "MX")).parse(fec);
@@ -111,7 +111,7 @@ public class Retaceo implements Serializable{
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		return fecharetaceo;
 	}
 

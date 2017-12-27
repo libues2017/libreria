@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
@@ -29,7 +30,8 @@
 			    
 			    <c:if test = "${current.total > 0}">
 			    
-				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", "${current.fecharetaceo}", "${current.codigofacturaproveedor}","${current.total}" ] ;
+				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
+				         value = "${current.fecharetaceo}" />', "${current.codigofacturaproveedor}","${current.total}" ] ;
 				     i=i+1;
 			   </c:if>
 			 
