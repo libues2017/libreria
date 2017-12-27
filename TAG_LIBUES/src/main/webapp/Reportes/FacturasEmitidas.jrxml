@@ -184,7 +184,7 @@ FROM libues.factura
 	<detail>
 		<band height="304" splitType="Stretch">
 			<componentElement>
-				<reportElement x="0" y="0" width="570" height="270" uuid="4b7af170-b9ee-4495-83ab-e4ea31088e95">
+				<reportElement x="0" y="0" width="570" height="304" uuid="4b7af170-b9ee-4495-83ab-e4ea31088e95">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
@@ -202,14 +202,12 @@ FROM libues.factura
 								<text><![CDATA[FACTURA]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="56" height="30" uuid="20f75c60-7780-42cc-9062-39ee03d4a6b5"/>
+								<reportElement x="0" y="0" width="56" height="30" uuid="7e78ae0a-0f1c-4f78-8815-e4bb3aa3a26f"/>
 								<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="44" uuid="eb1646b3-f73c-44b5-ad8d-ca4007e56a3c">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
@@ -219,14 +217,12 @@ FROM libues.factura
 								<text><![CDATA[FECHA]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="44" height="30" uuid="2bc8567a-d065-4ee2-b5b7-f290bcfc384e"/>
+								<reportElement x="0" y="0" width="44" height="30" uuid="61242a07-7857-4f3e-bd5c-4c6e44ba3c08"/>
 								<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="56" uuid="d0943da7-02fc-4ceb-bde9-d2033c480b9f">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
@@ -236,14 +232,12 @@ FROM libues.factura
 								<text><![CDATA[CODIGO]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="56" height="30" uuid="5d02e624-c4db-418f-953d-1450a39aefdb"/>
+								<reportElement x="0" y="0" width="56" height="30" uuid="f8badd65-7c16-4020-9522-0a1d8283be43"/>
 								<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="144" uuid="b5d77a5b-404a-4eb8-85aa-ed41e3287b67">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
@@ -253,14 +247,12 @@ FROM libues.factura
 								<text><![CDATA[TITULO]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="144" height="30" uuid="767e1366-4334-47da-8d6e-6e15205c274b"/>
+								<reportElement x="0" y="0" width="144" height="30" uuid="3ea903e5-7ef1-4215-8053-ddc3a876487c"/>
 								<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="56" uuid="53253138-4863-4812-bcc7-6bc1f9a21fae">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
@@ -270,14 +262,15 @@ FROM libues.factura
 								<text><![CDATA[CANTIDAD]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="56" height="30" uuid="858bb210-0e77-4070-bd41-04e280c16666"/>
-								<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
-							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<frame>
+								<reportElement x="0" y="0" width="56" height="30" uuid="ba42061c-e919-4cef-8e94-a3bb2a276da0"/>
+								<textField>
+									<reportElement x="0" y="0" width="56" height="30" uuid="550ddc81-182a-4191-939d-b5b12a65439e"/>
+									<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+								</textField>
+							</frame>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="56" uuid="e58f0383-bb03-481b-b35e-7bc1dd14e0c3">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
@@ -287,14 +280,12 @@ FROM libues.factura
 								<text><![CDATA[PRECIO]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="56" height="30" uuid="1edcaf6a-6a53-4728-af19-b9a73d1e97e5"/>
+								<reportElement x="0" y="0" width="56" height="30" uuid="a7d83679-3f3a-4644-bfc4-b8216332c8eb"/>
 								<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="58" uuid="948fe8ad-9af8-47b5-8721-9f870d7ae3d2">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
@@ -304,14 +295,12 @@ FROM libues.factura
 								<text><![CDATA[P. TOTAL]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="58" height="30" uuid="4388140d-2e99-4c89-a259-01ed0d99f1ee"/>
+								<reportElement x="0" y="0" width="58" height="30" uuid="16a29e75-578c-4118-9761-2b339db1cb61"/>
 								<textFieldExpression><![CDATA[PRODUCT($F{CANTIDAD},$F{PRECIO})]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="50" uuid="820e8726-f9d0-4a41-817e-ee8d0c920d90">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column8"/>
@@ -321,14 +310,12 @@ FROM libues.factura
 								<text><![CDATA[COSTO]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="50" height="30" uuid="cc9d300f-4e4a-4560-9244-eae326dfaa29"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="f9796da4-30b6-4aaf-aef3-61410d473590"/>
 								<textFieldExpression><![CDATA[$F{COSTOUNITARIO}]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 					<jr:column width="50" uuid="9cff2785-01e4-4240-a8f9-a81d426e8f20">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column9"/>
@@ -338,14 +325,12 @@ FROM libues.factura
 								<text><![CDATA[C. TOTAL]]></text>
 							</staticText>
 						</jr:tableHeader>
-						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+						<jr:detailCell style="Table_TD" height="30">
 							<textField>
-								<reportElement x="0" y="0" width="50" height="30" uuid="751c02c3-32d3-425f-a39d-f04bdc8bb3bf"/>
+								<reportElement x="0" y="0" width="50" height="30" uuid="42df52d4-db0d-4a55-bc56-a1f38c90f1de"/>
 								<textFieldExpression><![CDATA[PRODUCT($F{CANTIDAD},$F{COSTOUNITARIO})]]></textFieldExpression>
 							</textField>
-						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="Table_TD" height="30"/>
+						</jr:detailCell>
 					</jr:column>
 				</jr:table>
 			</componentElement>

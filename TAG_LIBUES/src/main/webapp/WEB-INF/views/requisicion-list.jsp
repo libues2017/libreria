@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 <head>
@@ -22,7 +23,8 @@
 		var i=0;
 			    
 		<c:forEach items="${requisiciones}"   var="current">
-			dataSet[i] = [ "${current.codigorequisicion}", "${current.destino}", "${current.fecha}", "${current.total}"] ;
+			dataSet[i] = [ "${current.codigorequisicion}", "${current.destino}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
+		         value = "${current.fecha}" />', "${current.total}"] ;
 			i=i+1;
 		</c:forEach>
 						    
