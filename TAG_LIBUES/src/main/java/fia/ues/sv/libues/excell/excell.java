@@ -60,6 +60,7 @@ public class excell {
     	bw=new BufferedWriter(w);
     	wr=new PrintWriter(bw);
     	
+    	
     	wr.write("Esta es la primera linea");
     	wr.append("\nes la segunda linea");
     	wr.close();
