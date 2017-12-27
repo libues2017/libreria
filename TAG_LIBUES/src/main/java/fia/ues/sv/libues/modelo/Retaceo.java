@@ -1,8 +1,10 @@
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -88,18 +90,35 @@ public class Retaceo implements Serializable{
 
 
 	public void setFechafacturaproveedor(Date fechafacturaproveedor) {
+		
+		
+		
+		
 		this.fechafacturaproveedor = fechafacturaproveedor;
 	}
 
 
 	public Date getFecharetaceo() {
+		
+		 String fec=fecharetaceo.toString()	;
+			
+			try {
+				 fecharetaceo = new SimpleDateFormat("dd-MM-yyyy", new Locale("es", "MX")).parse(fec);
+				//fecharetaceo = new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("dd-MM-yyyy").parse(fec)));
+				
+				
+				 //new SimpleDateFormat("yyyy-MM-dd").format(new SimpleDateFormat("dd-MM-yyyy").parse(fec)));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return fecharetaceo;
 	}
 
 
 	public void setFecharetaceo(Date fecharetaceo) {
 		    
-	    
+    
 	      this.fecharetaceo = fecharetaceo;
 	     
 	}
