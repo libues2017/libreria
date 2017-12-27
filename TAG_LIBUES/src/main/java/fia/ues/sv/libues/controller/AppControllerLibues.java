@@ -2857,7 +2857,7 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = "/generarEtiquetas", method = RequestMethod.GET)
+    @RequestMapping(value = "/generarEtiquetastxt", method = RequestMethod.GET)
     public ModelAndView Etiquetas(ModelMap model) {
     	  List<Book> listBooks = new ArrayList<Book>();
           listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
@@ -2896,7 +2896,7 @@ public class AppControllerLibues {
          list.add("JSF");*/
        //  map.put(1,listBooks);
           
-          return new ModelAndView("crearEtiquetas", "listBooks", listBooks);
+          return new ModelAndView("generarTxt", "listBooks", listBooks);
     	
     }
     
