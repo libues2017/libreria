@@ -15,7 +15,7 @@
 
 <%
 
-String nombre="Etiquetas";
+String nombre="Etiquetas.txt";
 
 excell e=new excell();
 
