@@ -33,7 +33,7 @@
 			    
 			    
 				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
-				         value = "${current.fecharetaceo}" />', "${current.codigofacturaproveedor}","${current.total}" ] ;
+				         value = "${current.fecharetaceo}" />', "${current.codigofacturaproveedor}","$ ${current.total}" ] ;
 				     i=i+1;
 			   </c:if>
 			 

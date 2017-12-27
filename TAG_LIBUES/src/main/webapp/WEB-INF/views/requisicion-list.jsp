@@ -24,7 +24,7 @@
 			    
 		<c:forEach items="${requisiciones}"   var="current">
 			dataSet[i] = [ "${current.codigorequisicion}", "${current.destino}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
-		         value = "${current.fecha}" />', "${current.total}"] ;
+		         value = "${current.fecha}" />', "$ ${current.total}"] ;
 			i=i+1;
 		</c:forEach>
 						    
