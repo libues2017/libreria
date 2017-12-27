@@ -15,7 +15,8 @@
     <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
     <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>	 	
     
-		<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>	
+		<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+			
 		
 	     <script type="text/javascript">
 
@@ -29,6 +30,7 @@
 			    <c:forEach items="${retaceo}"   var="current">
 			    
 			    <c:if test = "${current.total > 0}">
+			    
 			    
 				     dataSet[i] = [ "${current.codigoretaceo}","${current.codigoproveedor}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
 				         value = "${current.fecharetaceo}" />', "${current.codigofacturaproveedor}","${current.total}" ] ;
@@ -134,19 +136,7 @@
 
 
 
- <!-- Modal confirm -->
-	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body" id="confirmMessage">
-				</div>
-				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
-		        </div>
-			</div>
-		</div>
-	</div>
+ 
 
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
@@ -157,12 +147,10 @@
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>
                 ||||||<a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
                  <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>               
+               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>               
                 
                	|||              	
-                 <button id="devolver1" type="button" class="btn btn-warning" > Eliminar</button>
-                   
-                
+                 <button type="button" class="btn btn-warning" id="devolver1"> Eliminar</button>
             </div>
    	</sec:authorize>
 <!--<div class="col-xs-8">-->
