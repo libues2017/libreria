@@ -55,18 +55,28 @@
         <form class="form-horizontal" role="form" action="<c:url value="/repo_facturas-emitidas" />" target="_blank">
      
      		<div class="form-group">
-                <label class="control-label col-sm-4" for="email">Fecha desde:</label>
+                <label class="control-label col-sm-4" for="fecha">Fecha desde:</label>
                 <div class="col-sm-3">
                     <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio"  value="99/99/9999" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-4" for="pwd">Fecha hasta:</label>
+                <label class="control-label col-sm-4" for="fecha">Fecha hasta:</label>
                 <div class="col-sm-3">
                     <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="99/99/9999" required>
                 </div>
             </div>
-           
+           <div class="form-group">		
+				<label class="control-label col-sm-4" for="estado">Estado:</label>
+				<div class="col-sm-3">
+				<SELECT name="estado" id="estado" class="form-control input-sm" onchange="sesion();" 
+				title="Seleccione">
+				<OPTION VALUE="1">EMITIDAS</OPTION>
+				<OPTION VALUE="0">ANULADAS</OPTION>
+				</SELECT>
+			</div>
+			</div>
+			 
             <div class="form-group">
                 <div class="col-sm-offset-5 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
@@ -74,7 +84,7 @@
             </div>
 
 <input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="Facturas.jasper" name="nombre"/>
+<input type="hidden" value="FacturasEmitidas.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
