@@ -62,6 +62,8 @@ public class excell {
     	
     	wr.write("Esta es la primera linea");
     	wr.append("\nes la segunda linea");
+    	wr.close();
+    	bw.close();
     	
     }
     catch(Exception e){}
