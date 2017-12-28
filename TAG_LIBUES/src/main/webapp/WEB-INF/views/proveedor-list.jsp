@@ -24,7 +24,7 @@
 			   
 			    <c:forEach items="${proveedores}"   var="current">
 			    
-			     dataSet[i] = [ "${current.codigoproveedor}", "${current.nombreproveedor}", "${current.contactoproveedor1}" ] ;
+			     dataSet[i] = [ "${current.codigoproveedor}", "${current.nombreproveedor}", "${current.telefonoproveedor}", "${current.contactoproveedor1}" ] ;
 			     
 			     i=i+1;
 			    
@@ -38,6 +38,7 @@
 			            columns: [
 			               { title: "CODIGO PROVEEDOR" },
 			               { title: "NOMBRE PROVEEDOR" },
+			               { title: "TELEFONO" },
 			               { title: "CONTACTO PROVEEDOR" }],
 			       "language": idioma_espanol
 			        
