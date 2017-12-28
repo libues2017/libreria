@@ -9,12 +9,13 @@
   
 
 <% /*Parametros para realizar la conexión*/ 
-try{
+try {
 String fechainicio= request.getParameter("fecha_inicio");
+int tipo= Integer.parseInt(request.getParameter("estado"));
 String fechafin= request.getParameter("fecha_fin");
 String user=request.getParameter("usuario");
 String grupo=request.getParameter("nombre");
-String estado= request.getParameter("estado");
+
 //grupo="VolEntraPro.jasper";
 Connection conexion; 
 Class.forName("com.mysql.jdbc.Driver").newInstance(); 
@@ -36,11 +37,12 @@ fecha2 = formatoDeFecha.parse(fechafin);
 //String fechafu=fecha3.toString();
 String fecha = formateador.format(fecha2);
 Map parameters = new HashMap();
-parameters.put("fechaini", fecha1); 
-parameters.put("fechafin", fecha2); 
-parameters.put("user", user); 
+parameters.put("fechini", fecha1); 
+parameters.put("fenili", fecha2);
+parameters.put("tipoFactura", tipo); 
 parameters.put("fec", fecha);
-parameters.put("estado", estado); 
+//parameters.put("user", user); 
+//parameters.put("fec", fecha); 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (),parameters, conexion); 
 /*Indicamos que la respuesta va a ser en formato PDF*/ 
@@ -52,15 +54,13 @@ ouputStream.flush();
 ouputStream.close();
 }
 catch(Exception e){
-	   //out.println(e);
-		 %>   <script> 
-	      function respaldoNoRealizado() {
-	          alert("No Se han Encontrado Resultados");
-	          close();
-	          //location.href="http://localhost:8080/TAG_LIBUES/transferencias"; 
-	          //location.href="http://192.168.0.52:8080/TAG_LIBUES/transferencias"; 
-	      } 
-	      respaldoNoRealizado(); 
-	  </script> 
-	  <%  } 
+  out.println(e);
+	 %>   <script> 
+     function respaldoNoRealizado() {
+          alert("No Se han Encontrado Resultados");
+          close();
+     	} 
+     respaldoNoRealizado(); 
+  </script> 
+ <%  } 
 	%>

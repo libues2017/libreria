@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cotizaciones" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="855b043e-ceb8-44b2-be5c-59d59a35b22b">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLmRldGFsbGVjb3RpemFjaW9uIEFTICw3MTYsMTU5LDMxNWMyNzlmLWZlOWItNGIxZS1i
@@ -8,7 +8,7 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="227"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="766"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT libues.cotizacion.`CODIGOCOTIZACION`,
@@ -79,9 +79,6 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 	<variable name="Cantidad" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$V{Group1_COUNT}]]></variableExpression>
 	</variable>
-	<group name="CODIGOCOTIZACION">
-		<groupExpression><![CDATA[$F{CODIGOCOTIZACION}]]></groupExpression>
-	</group>
 	<group name="Group1">
 		<groupHeader>
 			<band height="57">
@@ -158,7 +155,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement mode="Transparent" x="-17" y="6" width="601" height="46" uuid="d9280acf-33b5-49d4-b31c-f118f3d96d05"/>
+					<reportElement mode="Transparent" x="-17" y="6" width="601" height="46" uuid="6032c064-1227-42bc-a0eb-2dcff642d3d8"/>
 				</rectangle>
 			</band>
 		</groupHeader>
@@ -199,11 +196,14 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 			</band>
 		</groupFooter>
 	</group>
+	<group name="CODIGOCOTIZACION">
+		<groupExpression><![CDATA[$F{CODIGOCOTIZACION}]]></groupExpression>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="99" splitType="Stretch">
+		<band height="100" splitType="Stretch">
 			<image>
 				<reportElement x="-4" y="0" width="85" height="78" uuid="260ff2f1-0f8b-4ebc-961d-821c81a5d08a"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
@@ -274,7 +274,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="39" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<staticText>
 				<reportElement x="-15" y="0" width="85" height="30" uuid="22fb0e34-9b66-4f1b-82f0-33b3ba15173d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff8582b9-6d44-488a-8efe-2258e615f62d"/>
@@ -319,15 +319,6 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Subtotal]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="211" y="0" width="100" height="30" uuid="b537241a-5d4d-480d-910d-a2a4134d9c4d">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ef95f8b-7dcd-45b0-a612-5351718dc8c3"/>
-				</reportElement>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Numero de Detalle]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -377,15 +368,6 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="222" y="1" width="82" height="20" uuid="78405a7b-bc26-47a2-b79b-c86eb9e0ceb5">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0ef95f8b-7dcd-45b0-a612-5351718dc8c3"/>
-				</reportElement>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{NUMERODETALLE}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="-12" y="26" width="597" height="1" uuid="fabccfad-9d72-4496-802f-86b6dbd4fb23"/>

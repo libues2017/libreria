@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">REPORTE DE FACTURACIÓN</h3></div>
+        <div class="row"><h3 class="text-center">Reporte De Facturas</h3></div>
 
         <br>
         <br>
@@ -71,8 +71,8 @@
 				<div class="col-sm-3">
 				<SELECT name="estado" id="estado" class="form-control input-sm" onchange="sesion();" 
 				title="Seleccione">
-				<OPTION VALUE="1">EMITIDAS</OPTION>
-				<OPTION VALUE="0">ANULADAS</OPTION>
+				<OPTION VALUE="1">Emitidas</OPTION>
+				<OPTION VALUE="0">Anuladas</OPTION>
 				</SELECT>
 			</div>
 			</div>
