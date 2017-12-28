@@ -94,7 +94,7 @@
 			            		 <li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="generarEtiquetastxt" />">Generar etiquetas</a></li>				                 	
+			            		<li><a href="<c:url value="nuevas-etiquetas" />">Generar etiquetas</a></li>				                 	
 			          			
 			          		</ul>
 			      		</li>

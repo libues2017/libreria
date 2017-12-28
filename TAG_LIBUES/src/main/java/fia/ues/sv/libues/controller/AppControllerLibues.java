@@ -2856,7 +2856,78 @@ public class AppControllerLibues {
     }
     
     
+    ///////////////////////
     
+    
+    @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.GET)
+    public String newetiquetas( HttpServletRequest request,ModelMap model) {
+        DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+        model.addAttribute("detalleretaceo", detalleretaceo);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion=request.getSession(true);
+    	  // populate
+    	HttpSession session = request.getSession();
+    	HttpSession sesion2=request.getSession(true);
+    	
+    	Producto producto=new Producto();
+    	Double total=0.0;
+    	
+    	if(sesion.getAttribute("codigo")!=null)
+    	{
+    	  Integer codigo=(Integer) sesion.getAttribute("codigo");
+    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+    	 
+    	  for (int i = 0; i < retaceoBuscar.size(); i++){
+    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+    		  
+    	  }    	  
+    	 
+    	  
+    	  System.out.println("revisar:----------------------------------------------------------------------------" + retaceoBuscar.size());
+    	  model.addAttribute("total", total);
+    	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
+    	  model.addAttribute("retaceo2", retaceoBuscar);
+       }
+    	
+    	 if(sesion.getAttribute("codigofacturaproveedor")!=null){
+   		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
+   		  sesion2.setAttribute("codigoproveedor", sesion.getAttribute("codigoproveedor"));
+   		  sesion2.setAttribute("nombreproveedor", sesion.getAttribute("nombreproveedor"));
+   	  }
+   	  
+   	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
+		    	    sesion2.setAttribute("codigoproveedor", 0);
+				    sesion2.setAttribute("nombreproveedor", " ");  	  
+   	  
+   	     }
+   		     
+    	
+		     
+        List<Proveedor> proveedores = proveedorService.findAllProveedores();
+        List<Producto> productos = productoService.findAllProductos();
+        
+        //se obtiene el ultimo codigo retaceo       
+        
+		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+		
+		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigo", codigo);    
+        model.addAttribute("proveedor", proveedores);
+        model.addAttribute("producto", productos);
+      
+        return "detalleretaceo-reg";
+  }
+    
+    
+    
+    
+    
+    
+    
+    
+    //////////////////////////////
     
     @RequestMapping(value = "/generarEtiquetastxt", method = RequestMethod.GET)
     public ModelAndView Etiquetas(ModelMap model) {
@@ -2896,6 +2967,68 @@ public class AppControllerLibues {
          list.add("Primefaces");
          list.add("JSF");*/
        //  map.put(1,listBooks);
+         
+         /*
+          * 
+          *  DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+        model.addAttribute("detalleretaceo", detalleretaceo);
+        model.addAttribute("edit", false);
+        model.addAttribute("loggedinuser", getPrincipal());
+    	HttpSession sesion=request.getSession(true);
+    	  // populate
+    	HttpSession session = request.getSession();
+    	HttpSession sesion2=request.getSession(true);
+    	
+    	Producto producto=new Producto();
+    	Double total=0.0;
+    	
+    	if(sesion.getAttribute("codigo")!=null)
+    	{
+    	  Integer codigo=(Integer) sesion.getAttribute("codigo");
+    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+    	 
+    	  for (int i = 0; i < retaceoBuscar.size(); i++){
+    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+    		  
+    	  }    	  
+    	 
+    	  
+    	  System.out.println("revisar:----------------------------------------------------------------------------" + retaceoBuscar.size());
+    	  model.addAttribute("total", total);
+    	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
+    	  model.addAttribute("retaceo2", retaceoBuscar);
+       }
+    	
+    	 if(sesion.getAttribute("codigofacturaproveedor")!=null){
+   		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
+   		  sesion2.setAttribute("codigoproveedor", sesion.getAttribute("codigoproveedor"));
+   		  sesion2.setAttribute("nombreproveedor", sesion.getAttribute("nombreproveedor"));
+   	  }
+   	  
+   	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
+		    	    sesion2.setAttribute("codigoproveedor", 0);
+				    sesion2.setAttribute("nombreproveedor", " ");  	  
+   	  
+   	     }
+   		     
+    	
+		     
+        List<Proveedor> proveedores = proveedorService.findAllProveedores();
+        List<Producto> productos = productoService.findAllProductos();
+        
+        //se obtiene el ultimo codigo retaceo       
+        
+		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+		
+		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigo", codigo);    
+        model.addAttribute("proveedor", proveedores);
+        model.addAttribute("producto", productos);
+      
+          * 
+          * 
+          * */
           
           return new ModelAndView("generarTxt", "listBooks", listBooks);
     	
