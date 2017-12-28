@@ -80,11 +80,23 @@ public class excell {
  		       precioproducto=product.getPrecio();
  		       
  		       //*3673003*,TAZA TERMICA,3.90,,3.90,3673003
+ 		       //*-      *,,0.00,,0.00,-
  		       
- 		       convertprecio="*"+correlativo+"*";
+ 		       convertprecio="*"+correlativo+"*"+","+nombreProducto+","+precioproducto+",,"+precioproducto+","+correlativo;
+ 		      
+ 		       for(int j=0;j<4;j++){
+ 		    	  wr.write(convertprecio);
+ 	 		    	bw.newLine();
+ 		    	   
+ 		       }
  		       
- 		      wr.write(convertprecio);
- 		    	bw.newLine();
+ 		       
+ 		      for(int j=0;j<2;j++){
+ 		    	  wr.write("*-      *,,0.00,,0.00,-");
+ 	 		    	bw.newLine();
+ 		    	   
+ 		       }
+ 		      
  		    	//wr.append("\nes la segunda linea");
  		    
  		  i=i+1;
