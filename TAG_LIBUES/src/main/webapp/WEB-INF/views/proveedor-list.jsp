@@ -55,9 +55,11 @@
 		    	            $(this).addClass('selected');
 		    	            dato = $(this).find("td:eq(0)").text();		
 		    	            var h1 = document.createElement("hola");
-		    	            var h2 = document.createElement("hola");			    	            
-		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-proveedor-";
-		    	          var res3 = "http://localhost:8080/TAG_LIBUES//estado-borrar-proveedor-";			    	         
+		    	            var h2 = document.createElement("hola");	
+		    	            var res = "/TAG_LIBUES/edit-proveedor-";
+			    	         var res3 = "/TAG_LIBUES//estado-borrar-proveedor-";	
+		    	         // var res = "http://localhost:8080/TAG_LIBUES/edit-proveedor-";
+		    	          //var res3 = "http://localhost:8080/TAG_LIBUES//estado-borrar-proveedor-";			    	         
 		    	         var res1=dato;
 		    	         var res2=res.concat(res1);//link editar			    	         
 		    	         var res4=res3.concat(res1);//link eliminar			    	       

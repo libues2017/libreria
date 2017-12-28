@@ -74,8 +74,8 @@
 		    	            codigoproducto= $(this).find("td:eq(1)").text();	
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");			    	            
-		    	          var res = "http://localhost:8080/TAG_LIBUES/edit-detalleRetaceo-";    
-		    	          var res3 = "http://localhost:8080/TAG_LIBUES/delete-detalleRetaceoTotal-";
+		    	          var res = "/TAG_LIBUES/edit-detalleRetaceo-";    
+		    	          var res3 = "/TAG_LIBUES/delete-detalleRetaceoTotal-";
 		    	          
 		    	         
 		    	         var res1=dato;

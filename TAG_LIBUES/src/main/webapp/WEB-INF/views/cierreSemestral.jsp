@@ -32,8 +32,7 @@ try{
 	   %>      <script> 
         function respaldoRealizado() {
             alert("Se ha Realizado el Cierre Semestral");
-            location.href="http://localhost:8080/TAG_LIBUES/index"; 
-           // location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
+            location.href="/TAG_LIBUES/index"; 
         } 
         respaldoRealizado(); 
     </script> 
@@ -44,8 +43,7 @@ try{
 	 		 %>   <script> 
 	 	      function respaldoNoRealizado() {
 	 	         alert("No Se ha podido realizar el Cierre Semestral");
-	 	         location.href="http://localhost:8080/TAG_LIBUES/index"; 
-	             // location.href="http://192.168.0.52:8080/TAG_LIBUES/index"; 
+	 	         location.href="/TAG_LIBUES/index"; 
 	 	      } 
 	 	      respaldoNoRealizado(); 
 	 	  </script> 
