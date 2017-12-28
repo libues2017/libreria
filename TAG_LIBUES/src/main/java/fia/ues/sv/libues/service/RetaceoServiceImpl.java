@@ -40,6 +40,10 @@ public class RetaceoServiceImpl implements RetaceoService{
 		
 		if(entity!=null){
 			
+			
+			
+			
+			
 			/*entity.setCodigoproducto(retaceo.getCodigoproducto());
 			entity.setCodigoproveedor(retaceo.getCodigoproveedor());		
 			entity.setCantidadproducto(detalleRetaceo.getCantidadproducto());*/
