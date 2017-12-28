@@ -46,14 +46,25 @@ public class excell {
     
     
     
-    public void Escribirtxt(String nombre){
+    public void Escribirtxt(String nombre,List producto){
     	
     File f;
     FileWriter w;
     BufferedWriter bw;	
     PrintWriter wr;
     
+    Iterator<Producto> productoIter = producto.iterator();
+	 
+	 int correlativo=0;
+	 int i=0;
+	 String nombreProducto="";
+	 Double precioproducto=0.0;
+	 String convertprecio="";
+    
+    
     try{
+    	
+    	
     	
     	f=new File(nombre);
     	w=new FileWriter(f);
@@ -61,9 +72,29 @@ public class excell {
     	wr=new PrintWriter(bw);
     	
     	
-    	wr.write("Esta es la primera linea");
+ while(productoIter.hasNext()) {
+       		 
+       		 Producto product =  productoIter.next();
+ 		       correlativo=product.getCorrelativo(); // datos de la base
+ 		       nombreProducto=product.getNombreProducto();
+ 		       precioproducto=product.getPrecio();
+ 		       
+ 		       convertprecio="*"+precioproducto+"*";
+ 		       
+ 		      wr.write(convertprecio);
+ 		    	bw.newLine();
+ 		    	//wr.append("\nes la segunda linea");
+ 		    
+ 		  i=i+1;
+       		 
+       	 }
+    	
+    	
+    	
+    	
+    	/*wr.write("Esta es la primera linea");
     	bw.newLine();
-    	wr.append("\nes la segunda linea");
+    	wr.append("\nes la segunda linea");*/
     	wr.close();
     	bw.close();
     	

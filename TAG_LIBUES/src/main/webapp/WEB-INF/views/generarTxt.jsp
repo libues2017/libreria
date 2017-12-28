@@ -52,13 +52,13 @@
     excell e=new excell();
     List producto = (List)request.getAttribute("productos");
     List addressessala = producto;
-    e.crearEtiquetas(producto);
+    //e.crearEtiquetas(producto);
     
     
     String nombre="Etiquetas.txt";
 
 
-    e.Escribirtxt(nombre);
+    e.Escribirtxt(nombre,producto);
     
 
 %>
