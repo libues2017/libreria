@@ -529,7 +529,7 @@ function cambiar5(){
 						    			<td></td>
 						    			<td>Total</td>
 						    	        <td >
-		                                   $${total} 
+		                                   $ <fmt:formatNumber value = "${total}" /> 
 		                                </td>
 		                                <td></td>
                          </tr>
