@@ -97,6 +97,14 @@ FROM libues.factura,
 	<variable name="PRECIO1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
 		<variableExpression><![CDATA[$F{PRECIO}]]></variableExpression>
 	</variable>
+	<variable name="P.Total" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{PRECIO}.doubleValue() * $F{CANTIDAD}.intValue()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="C.Total" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{COSTOUNITARIO}.doubleValue( )* $F{CANTIDAD}.intValue()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
 	<group name="NUMEROFACTURA">
 		<groupExpression><![CDATA[$F{NUMEROFACTURA}]]></groupExpression>
 	</group>
@@ -378,6 +386,14 @@ FROM libues.factura,
 					<font fontName="Arial" size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="2" width="44" height="23" uuid="c425c91f-9645-4457-9bea-c3e1be648b25"/>
+				<textFieldExpression><![CDATA[$V{P.Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="2" width="36" height="22" uuid="e02fc2bf-9ae0-4eed-ad1d-bda9ef12f9ba"/>
+				<textFieldExpression><![CDATA[$V{C.Total}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
