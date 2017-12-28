@@ -1128,7 +1128,7 @@ public class AppControllerLibues {
        	  } 
         }
     	
-        System.out.println("revisar:----------------------------------------------------------------------------"+total);
+        System.out.println("total:----------------------------------------------------------------------------"+total);
     	
     	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
     	
