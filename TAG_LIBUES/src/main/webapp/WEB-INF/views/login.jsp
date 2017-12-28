@@ -49,8 +49,8 @@
                             <div class="form-actions col-xs-5">
                                 <input type="submit" class="btn btn-block btn-primary btn-default" value="Ingresar">
                             </div>
-                            <div class="col-xs-2">
-							<a href="<c:url value='/index' />" class="btn btn-primary btn-sm" >Cancelar</a>
+                            <div class="col-xs-5">
+							<a href="<c:url value='/index' />" class="btn btn-block btn-primary btn-default" >Cancelar</a>
 						</div>
                         </form>
                     </div>
