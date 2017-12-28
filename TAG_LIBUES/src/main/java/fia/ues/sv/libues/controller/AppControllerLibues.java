@@ -1114,19 +1114,19 @@ public class AppControllerLibues {
     	
         
         HttpSession sesion = request.getSession();
-        Double total=(Double)sesion.getAttribute("total");
-        
-        if(total==0.0){
+       // Double total=(Double)sesion.getAttribute("total");
+        Double total=0.0;
+       // if(total==0.0){
         	
         	
-        	 Integer codigo=(Integer) sesion.getAttribute("codigo");
+          Integer codigo=(Integer) sesion.getAttribute("codigo");
        	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
        	 
        	  for (int i = 0; i < retaceoBuscar.size(); i++){
        		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
        		  
        	  } 
-        }
+       // }
     	
         System.out.println("total:----------------------------------------------------------------------------"+total);
     	
