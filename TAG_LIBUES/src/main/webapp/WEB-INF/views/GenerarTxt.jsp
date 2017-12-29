@@ -268,7 +268,7 @@
                             var precio=[];
                         	
                         	
-              		<c:forEach items="${producto1}" var="current">
+              		<c:forEach items="${producto}" var="current">
               		
               		    if(${current.correlativo} == Id){
               		    	
@@ -278,11 +278,16 @@
               		     nombre.push("${current.nombreProducto}");
               		     costo.push("${current.costounitario}");
               		   autor.push("${current.autores}");
+              		 precio.push("${current.precio}");
               		     document.getElementById('nombreprod').value = nombre;
-              		   document.getElementById('costoactual').value = costo;
-              		 document.getElementById('autor').value = autor;
-              		   sessionId.push("${current.existencia}");
-              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
+              		  document.getElementById('precioproducto').value = precio;
+              		 // autor=autor.replace("[", " ");
+              		 autor.push=autor[0].replace("[", " ");
+              		 autor.push=autor[0].replace("]", " ");
+              		
+              		 document.getElementById('autor').value = autor[0].replace("[", " ");
+              		  /* sessionId.push("${current.existencia}");
+              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
               		   //document.getElementById('existencia').value =sessionId;
               		   
               		
@@ -294,51 +299,7 @@
                         	
 				     }
                        
-                function label2(){
-    				
-              		var sessionId = [];
-              		var Id=document.getElementById("codigoproveedor").value;
-                	
-			    		<c:forEach items="${proveedor}" var="current">
-			    		
-						  if(${current.codigoproveedor}==Id){
-			    		    	 		  
-			    		      sessionId.push("${current.nombreproveedor}");
-			    		      document.getElementById('proveedor').value =sessionId;
-			    		     
-			    		    }
-			    		</c:forEach>              		
-                      return true;					
-						alert();
-				     }
-                
-                function sesion(){
-    				
-					var codigofacturaproveedor=document.getElementById("codigofacturaproveedor").value;
-					/*var m = ${fecharetaceo};
-					alert(m);
-					var fecharetaceo=m;*/
-					var fecharetaceo=document.getElementById("fecharetaceo").value;
-					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
-					var utilidad = document.getElementById('utilidad').value;
-					
-					
-					 <c:set var="contador" value="${0}" />
-						 var m = <%=sAhora %>;
-						//	alert(m);
-					 
-					
-					var fecha="f";
-					var fecha1="f1";
-					var cfp="cfp";
-					var uti1="uti";
-					
-					sessionStorage[fecha]=fecharetaceo;
-					sessionStorage[fecha1]=fechafacturaproveedor;
-					sessionStorage[cfp]=codigofacturaproveedor;
-					sessionStorage[uti1]=utilidad;
-				     }
-                     
+                    
                  </script>
                  
                   <script>
@@ -361,22 +322,6 @@
 					           } );
 					                  
                   </script>                 
-					
-					
-					<script>
-								  $( function() {								  
-								    var miArray=new Array();
-								    var sessionId = [];								    
-								    <c:forEach items="${autor}" var="current">										
-									  sessionId.push("${current.codigoautor}");								
-									</c:forEach>	
-								    $( "#codigoautor" ).autocomplete({								  
-								    	source: sessionId
-								    });
-								  } );
-					  </script>
-					
-					
 					
 					  <script>
 								  $( function() {								  
@@ -479,52 +424,32 @@
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm" />
 					</div>
-					<div class="col-xs-2">
-						<label class="form-control" for="existencia">Existencia:</label>
-						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
-                    </div>
-                    <div class="col-xs-2">
-						<label class="form-control" for="costoactual">Costo Actual:</label>
-						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm"  />      
-                    </div>
+				
                     
                      <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Nombre autor:</label>
 						<input type="text"  id="autor" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
-				</div>
-			</div>
-			<div class="form-group row">
-				<div class="panel-body">
-					<div class="col-xs-3">
-	                    <label class="form-control" for="nombr">Costo Producto: $</label>
-	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto'); cambiar4();" placeholder="DIGITE"/>
-                    </div>
-                    <div class="col-xs-2">
-	                    <label class="form-control" for="nombr">Cantidad:</label>
-	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange="addIt('cantidadproducto'); cambiar5();"/>
-                    </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
 	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
                     </div>
+                    
+                     <div class="col-xs-2">
+	                    <label class="form-control" for="nombr">Cantidad:</label>
+	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange=" cambiar5();"/>
+                    </div>
+                    
+                    
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="panel-body">
+					
+                   
 				
-					<div class="col-xs-3" style="display:none">
-                    <label class="col-md-3 control-lable" for="nombr" >EXISTENCIA ANTERIOR</label>
-                    <form:input type="text" path="existenciaanterior" id="existenciaanterior" class="form-control input-sm"   />
-                    </div>
-                    <div class="col-xs-3" style="display:none">
-                    <label class="col-md-3 control-lable" for="nombr" >Costo ANTERIOR</label>
-                    <form:input type="text" path="costounitarioanterior" id="costounitarioanterior" class="form-control input-sm"  />
-                    </div>
-                    <div class="col-xs-3" style="display:none">
-                    <label class="col-md-3 control-lable" for="nombr" >Precio ANTERIOR</label>
-                    <form:input type="text" path="precioanterior" id="precioanterior" class="form-control input-sm"   />
-                    </div>
-                    <div class="col-xs-3" style="display:none">
-                    <label class="col-md-3 control-lable" for="nombr" >subtotal</label>
-                    <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
-                    </div>				
+					
+                  			
 					
             	    <c:choose>
                         <c:when test="${edit}">
