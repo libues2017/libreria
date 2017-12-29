@@ -265,6 +265,8 @@
                             var nombre = [];
                             var costo=[];
                             var autor=[];
+                            var precio=[];
+                        	
                         	
               		<c:forEach items="${producto1}" var="current">
               		
