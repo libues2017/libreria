@@ -71,6 +71,7 @@ import fia.ues.sv.libues.service.DetalleRequisicionService;
 import fia.ues.sv.libues.service.DetalleRetaceoService;
 import fia.ues.sv.libues.service.DetalleTransferenciaService;
 import fia.ues.sv.libues.service.EditorialService;
+import fia.ues.sv.libues.service.EtiquetaService;
 import fia.ues.sv.libues.service.FacturaDetalleService;
 import fia.ues.sv.libues.service.FacturaService;
 import fia.ues.sv.libues.service.ProveedorService;
@@ -152,6 +153,9 @@ public class AppControllerLibues {
 	
 	@Autowired
 	CotizacionService cotizacionService;
+	
+	@Autowired
+	EtiquetaService etiquetaService;
 	
 	@Autowired
 	DetalleCotizacionService detallecotizacionService;
@@ -2938,7 +2942,7 @@ public class AppControllerLibues {
         return "detalleretaceo-reg";
   }
     
-    @RequestMapping(value = { "/detalleretaceo-agregar" }, method = RequestMethod.POST)   
+    @RequestMapping(value = { "/etiqueta-agregar" }, method = RequestMethod.POST)   
     public String saveEtiqueta( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo,
     		                  BindingResult result,
                               ModelMap model,@RequestParam(required = false) String fecharetaceo,
