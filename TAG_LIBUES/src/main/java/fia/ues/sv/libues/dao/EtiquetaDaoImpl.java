@@ -2,6 +2,9 @@ package fia.ues.sv.libues.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import fia.ues.sv.libues.modelo.Area;
@@ -14,17 +17,28 @@ public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements E
 	@Override
 	public Etiqueta findById(int codigoetiqueta) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Etiqueta etiqueta = getByKey(codigoetiqueta);
+		return etiqueta;
+		
 	}
 
 	@Override
 	public void saveArea(Etiqueta etiqueta) {
+		
+		persist(etiqueta);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteAreaById(int codigoarea) {
+	public void deleteAreaById(int codigoetiqueta) {
+		
+		
+		Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("codigoetiqueta", codigoetiqueta));
+        Etiqueta etiqueta = (Etiqueta) crit.uniqueResult();
+        delete(etiqueta);
 		// TODO Auto-generated method stub
 		
 	}
@@ -32,7 +46,11 @@ public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements E
 	@Override
 	public List<Etiqueta> findAllEtiquetas() {
 		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("codigoetiqueta"));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
+       // criteria.add(Restrictions.eq("estado", true));
+        List<Etiqueta> etiqueta = (List<Etiqueta>) criteria.list();
+ 		return etiqueta;
 	}
 
 }
