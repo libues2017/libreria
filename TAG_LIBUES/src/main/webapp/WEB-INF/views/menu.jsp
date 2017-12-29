@@ -120,6 +120,8 @@
             					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DIRECTOR') or hasRole ('DBA')">
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="facturas-emitidas" />">Facturas Emitidas</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="facturas-creditos" />">Créditos</a></li>
               					</sec:authorize>
            					</ul>
         				</li>

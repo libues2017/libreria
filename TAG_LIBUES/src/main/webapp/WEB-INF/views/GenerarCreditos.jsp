@@ -54,22 +54,21 @@
 				<label class="control-label col-sm-4" for="estado">Especificar:</label>
 				<div class="col-sm-3">
 					<SELECT name="especificar" id="especificar" class="form-control input-sm" onchange="sesion();" title="Seleccione">
-						<OPTION VALUE="empleados">Empleados UES</OPTION>
-						<OPTION VALUE="institucional">Institucional</OPTION>
-						<OPTION VALUE="todos">Todos</OPTION>
+						<OPTION VALUE="EMPLEADOS UES">Empleados UES</OPTION>
+						<OPTION VALUE="INSTITUCIONAL">Institucional</OPTION>						
 					</SELECT>
 				</div>
 			</div>
             
             <div class="form-group">
                 <label class="control-label col-sm-4" for="email">Fecha desde:</label>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio"  value="99/99/9999" required>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-sm-4" for="pwd">Fecha hasta:</label>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="99/99/9999" required>
                 </div>
             </div>
