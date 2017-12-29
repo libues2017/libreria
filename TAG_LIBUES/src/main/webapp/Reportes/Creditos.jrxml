@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Creditos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b94aa2f7-15fe-4bff-88ba-56d82a155beb">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Libues"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="tipocredito" class="java.lang.String"/>
@@ -53,6 +53,9 @@ WHERE
 		<property name="com.jaspersoft.studio.field.label" value="DIRECCION"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="factura"/>
 	</field>
+	<variable name="TOTAL1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{TOTAL}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -202,7 +205,7 @@ WHERE
 				<reportElement x="481" y="0" width="85" height="20" uuid="5366b152-e494-432b-b7ce-43107e97da7c">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c59c51a-2667-4259-84d0-7381d88299a9"/>
 				</reportElement>
-				<text><![CDATA[TOTAL]]></text>
+				<text><![CDATA[TOTAL $]]></text>
 			</staticText>
 			<line>
 				<reportElement x="-8" y="23" width="587" height="1" uuid="3a4f4d41-d7e0-4d34-b075-91aaa3c8cba5">
@@ -253,6 +256,19 @@ WHERE
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="16" width="30" height="30" uuid="b8a8d1b0-6839-407e-ac2c-af3eb5c55ff6"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="16" width="69" height="30" uuid="ba069008-7333-49ce-8574-8db7831d3f47"/>
+				<textFieldExpression><![CDATA[$V{TOTAL1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="382" y="16" width="48" height="30" uuid="a357657a-7842-468c-93de-bce7aa9faaec"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>

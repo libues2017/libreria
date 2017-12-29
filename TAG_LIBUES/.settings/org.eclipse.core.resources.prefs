@@ -4,6 +4,7 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/Reportes/Cotizaciones.jrxml=UTF-8
 encoding//src/main/webapp/Reportes/Creditos.jrxml=UTF-8
+encoding//src/main/webapp/Reportes/EntradasMensuales.jrxml=UTF-8
 encoding//src/main/webapp/Reportes/Existencias.jrxml=UTF-8
 encoding//src/main/webapp/Reportes/Factura.jrxml=UTF-8
 encoding//src/main/webapp/Reportes/FacturasEmitidas.jrxml=UTF-8

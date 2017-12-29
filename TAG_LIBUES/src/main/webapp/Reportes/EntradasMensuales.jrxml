@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EntradasMensuales" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4049cdd0-1401-4ce4-bd2f-561d6aa3929e">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bGlidWVzLnRyYW5zZmVyZW5jaWEgQVMgLDY2NCwxODksMjAxYTZjZTktMjAzNC00ZWZiLWFmN2Qt
+ZmRjYzgyYjgwYWFmO2xpYnVlcy5yZXRhY2VvIEFTICwyMDIsMzg1LDQzNTk2ZjBiLTE1ZjctNGVk
+YS05YTcwLTVmODU1N2EyYTdjZDtsaWJ1ZXMuZGV0YWxsZXJldGFjZW8gQVMgLDExNiw1OCw2ZDMz
+ZmVkNS1kMmZjLTQ4MzctYjE1MC01NjY5MWZjYTVjYWY7bGlidWVzLmRldGFsbGV0cmFuc2ZlcmVu
+Y2lhIEFTICw0MzAsODUsYjcyYTc1MGItMjkwNC00NjEyLWJkMTItYzY3ZGU5MTg4MmZlOw==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="343"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="645"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<parameter name="fechini" class="java.util.Date"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="fenili" class="java.util.Date"/>
+	<parameter name="fec" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT SUM(libues.detalletransferencia.`COSTOPRODUCTO`) as Transferencias,
+				 SUM(libues.detalleretaceo.`COSTOPRODUCTO`) as Retaceos,
+				 libues.transferencia.`FECHATRANSFERENCIA`,
+				 libues.retaceo.`FECHARETACEO`
+	FROM 
+			libues.detalleretaceo,
+			libues.detalletransferencia,
+			libues.transferencia,	 
+			libues.retaceo
+WHERE
+		 (libues.detalletransferencia.`CODTRANSFERENCIA` = libues.transferencia.`CODTRANSFERENCIA`) and
+		 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`) and 
+ 		 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili}) and
+ 		 (libues.transferencia.`FECHATRANSFERENCIA` between $P{fechini} and $P{fenili})]]>
+	</queryString>
+	<field name="COSTOPRODUCTO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="COSTOPRODUCTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalletransferencia"/>
+	</field>
+	<field name="FECHATRANSFERENCIA" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="FECHATRANSFERENCIA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transferencia"/>
+	</field>
+	<field name="CODTRANSFERENCIA" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CODTRANSFERENCIA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="transferencia"/>
+	</field>
+	<field name="COLUMN_4" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CODTRANSFERENCIA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalletransferencia"/>
+	</field>
+	<field name="COLUMN_5" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="COSTOPRODUCTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalleretaceo"/>
+	</field>
+	<field name="CODIGORETACEO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CODIGORETACEO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="retaceo"/>
+	</field>
+	<field name="FECHARETACEO" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.label" value="FECHARETACEO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="retaceo"/>
+	</field>
+	<field name="CODIGODETALLERETACEO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="CODIGODETALLERETACEO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="detalleretaceo"/>
+	</field>
+	<group name="FECHATRANSFERENCIA">
+		<groupExpression><![CDATA[$F{FECHATRANSFERENCIA}]]></groupExpression>
+	</group>
+	<group name="FECHARETACEO">
+		<groupExpression><![CDATA[$F{FECHARETACEO}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="113" width="556" height="1" uuid="b1e5c6c0-5d30-4a4c-8b28-2c039a245990">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<textField pattern="dd//MM/yyyy">
+				<reportElement positionType="Float" x="202" y="73" width="108" height="20" uuid="c20ed118-b86e-462d-b9de-dd29c6b879a8"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="12" width="115" height="25" uuid="ed238e6c-f735-445d-94ed-3ea468feb701">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Libreria Universitaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="25" width="304" height="15" uuid="cb5066cc-4af7-4c28-ac4c-6432f87ca57f"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="40" width="205" height="15" uuid="f706012a-0adf-4e37-a6cb-ef7733b33d64"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="407" y="10" width="73" height="30" uuid="3ab9b50b-84e5-40aa-8c3e-167b27509440"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="450" y="10" width="85" height="30" uuid="bd2325ea-1d66-499b-bbce-2e1f314dcea8"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="72" width="112" height="21" uuid="5b3e5302-288b-4a06-ae39-92e0d04f16fa"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha de Impresion]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-3" y="5" width="90" height="98" uuid="f640e583-3902-43d9-a7bb-28a358225542"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="95" y="89" width="50" height="18" uuid="5c66d9c1-f082-4c50-93f4-7e7fe5431996"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="90" width="50" height="18" uuid="d9037519-8259-4314-a0a9-1d556948a193"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="287" y="92" width="52" height="20" uuid="81df6fdb-7a45-42b4-907b-a0b6febb3c6e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="320" y="92" width="47" height="20" uuid="1132121b-f326-40d1-b349-1349e959832f"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="57" width="174" height="15" uuid="f6877334-df29-475a-b1a9-0d90818bb569"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte de Entrada Mensuales]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
