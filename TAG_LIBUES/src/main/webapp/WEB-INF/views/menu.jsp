@@ -149,6 +149,8 @@
 	           						<li><a href="<c:url value="transferencias" />">Reporte de Transferencias</a></li>
 	           						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="ventas" />">Reportes de Ventas</a></li>
+            						<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="entrada_mensual" />">Reportes de Entradas Mensuales</a></li>
 		          		</ul>			          			
 				        </li>
 					</sec:authorize>

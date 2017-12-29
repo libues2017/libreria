@@ -1994,6 +1994,19 @@ public class AppControllerLibues {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReporteVentas";
 }
+
+//Controles para generacion del reporte de Ventas
+@RequestMapping(value={"/entrada_mensual"}, method = RequestMethod.GET)
+	public String entradaMensual(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "GenerarReporteMensualEntradas";
+	}
+  
+@RequestMapping(value={"/repo_entrada_mensual"}, method = RequestMethod.GET)
+	public String repotEntradaMensual(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteMensualEntrada";
+}
  
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************
