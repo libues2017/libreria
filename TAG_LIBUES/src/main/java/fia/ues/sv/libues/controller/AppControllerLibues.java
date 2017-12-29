@@ -2022,6 +2022,19 @@ public class AppControllerLibues {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "ReporteMensualEntrada";
 }
+
+//Controles para generacion del reporte de Ventas por Especifico de Gastos
+@RequestMapping(value={"/venta_mensual_gastos"}, method = RequestMethod.GET)
+	public String ventaMensualGastos(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "GenerarReporteVentasMensualGastos";
+	}
+
+@RequestMapping(value={"/repo_ventas_mensual_gastos"}, method = RequestMethod.GET)
+	public String repotVentasMensualGastos(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteMensualVentasGastos";
+}
  
      //*************************************************************************
      // ***************** CONTROLES PARA LOCALIZACION **************************

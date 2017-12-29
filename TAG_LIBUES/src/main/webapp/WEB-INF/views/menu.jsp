@@ -153,6 +153,8 @@
             						<li><a href="<c:url value="ventas" />">Reportes de Ventas</a></li>
             						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="entrada_mensual" />">Reportes de Entradas Mensuales</a></li>
+            						<li role="separator" class="divider"></li>
+            						<li><a href="<c:url value="venta_mensual_gastos" />">Reportes de Ventas por Especifico de Gastos</a></li>
 		          		</ul>			          			
 				        </li>
 					</sec:authorize>
