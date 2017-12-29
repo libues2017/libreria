@@ -60,6 +60,14 @@
 	       			<form:options items="${tipoproductos}"  itemValue="codTipoProducto" itemLabel="tipoProducto"  />
 	       		</form:select>
        		</div>
+       		
+       		<div class="col-md-4">
+       			Nombre Producto: 
+	       		<form:select path="codTipoProducto"  multiple="false"  class="form-control input-sm" >
+	       			<form:option value="0"  label="Todos los Tipos de Producto"/>
+	       			<form:options items="${tipoproductos}"  itemValue="codTipoProducto" itemLabel="tipoProducto"  />
+	       		</form:select>
+       		</div>
 	       	
 	       	       	
        	</div>

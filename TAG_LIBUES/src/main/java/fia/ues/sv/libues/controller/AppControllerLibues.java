@@ -2938,7 +2938,12 @@ public class AppControllerLibues {
     	
         List<Producto> productos1=productoService.customSearch(area, editorial, proveedor, tipoproducto, autor, busqueda);
         
+        productos1.get(0).getCodigoProducto();
         
+       
+        
+        System.out.println("revisar:----------------------------------------------------------------------------" +  productos1.get(0).getCodigoProducto());
+    	
         //se obtiene el ultimo codigo retaceo       
         
 		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
@@ -2948,6 +2953,7 @@ public class AppControllerLibues {
         sesion1.setAttribute("codigo", codigo);    
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
+        model.addAttribute("producto1", productos1);
         model.addAttribute("autor", autor);
       
         return "GenerarTxt";

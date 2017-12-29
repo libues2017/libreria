@@ -265,7 +265,7 @@
                             var nombre = [];
                             var costo=[];
                         	
-              		<c:forEach items="${producto}" var="current">
+              		<c:forEach items="${producto1}" var="current">
               		
               		    if(${current.correlativo} == Id){
               		    	
@@ -541,42 +541,71 @@
                 <%--=session.getAttribute("mySessionAttribute")--%>
        </div>
 	</div>       
-               <table class="table table-striped ">
-				<thead>
-		    		<tr class="success">		   
-		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>			      			      			
-			      			<th>Cantidad</th>			      			
-			      			<th>Precio $</th>
-			      			<th>ELIMINAR</th>	
-		    		</tr>
-		    	</thead>
-		    	<tbody>
-		    	      <c:set var="contador" value="${0}" />
-				    	<c:forEach items="${retaceo2}" var="retaceos" >
-				    		<tr class="info">				    		
-				    	 <c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	           <c:if test = "${salary > 2000}">
-		    	                <c:set var="contador" value="${contador + 1}" />	
-		    	                <td>${contador}</td>
-				    			<td>${retaceos.codigoproducto}</td>				    		
-				    			<td>${retaceos.cantidadproducto}</td>
-				    		    <td>$ ${retaceos.costoproducto}</td>
-				    			<td>$ ${retaceos.precioproducto}</td>
-				    			<td>$ ${retaceos.subtotal}</td>	
-				    					    			
-				    		</c:if>
-				    				
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />" class="btn btn-danger custom-width">Eliminar</a></td>
+            
+        <div class="panel panel-default">
+              <!-- Default panel contents -->
+            <div class="panel-heading"><span class="lead">Resultados</span></div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Imagen</th>
+                        <th>Titulo</th>
+                        <th>Autores</th>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >
+                        	<th>Area</th>
                         </sec:authorize>
-                        </tr>
-				    	 </c:forEach>
-				    	 
-				    	
-		    	</tbody>
-	    </table>   
-      
+                        <th>Proveedor</th>
+                        <th>Editorial</th>
+                        <th>Precio</th>                       
+                        <th>RESERVAR</th>                        
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                            <th width="100">EDITAR</th>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ADMINISTRADOR')">
+                            <th width="100">ELIMINAR</th>
+                        </sec:authorize>	
+                         
+                    </tr>
+                </thead>
+                
+                <tbody>
+					<c:set var="contador" value="${0}" />
+                	<c:forEach items="${producto1}" var="producto">
+                    	<tr>
+                    	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+		    	        <c:if test = "${salary > 2000}">
+			    	        <c:set var="contador" value="${contador + 1}" />
+			    	        <td>${contador}</td>
+                        	<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
+                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
+                    		<td>
+                        	<c:forEach items="${producto.autores}" var="autor">
+                        		${autor.nombreautor}<br/> 
+                        	</c:forEach>
+                        	</td>	
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                        	<td>${producto.area.nombrearea}</td>
+                        </sec:authorize>
+                        <td>${producto.proveedor.nombreproveedor}</td>
+                        <td>${producto.editorial.nombre}</td>
+                        <td>$${producto.precio}</td>
+                        
+                        	<td><a href="<c:url value='/edit-reservas-${producto.codigoProducto }'/>"  class="btn btn-primary">Reservar</a></td>
+                        
+                        </c:if>
+                       <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                           	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
+                       </sec:authorize>
+                       <sec:authorize access="hasRole('ADMINISTRADOR')">
+                           	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                       </sec:authorize>   
+                    </tr>
+                </c:forEach>
+                
+                </tbody>
+            </table>
+        </div>
 		
 	    <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
