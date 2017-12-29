@@ -112,7 +112,13 @@ public class ProductoServiceImpl implements ProductoService{
 	@Override
 	public List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda) {
 		return dao.customSearch( area,  editorial,  proveedor, tipoproducto, autor, busqueda);
+	}
+	
+	@Override
+	public List<Producto> customSearchProducto(Producto producto1,Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda) {
+		return dao.customSearchProducto(producto1, area, editorial, proveedor, tipoproducto, autor, busqueda);
 	}	
+
 
 	@Override
 	public void updatePrecioProducto1(Integer codProducto, Double precio, Double costo, Integer existencia) {

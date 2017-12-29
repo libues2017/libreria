@@ -42,5 +42,8 @@ public interface ProductoService {
 
 	void updateReservaRestaurar(Integer cod, Integer sala);
 
+	List<Producto> customSearchProducto(Producto producto, Area area, Editorial editorial, Proveedor proveedor,
+			TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
+
 
 }

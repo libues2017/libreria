@@ -2935,9 +2935,8 @@ public class AppControllerLibues {
     	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
     	TipoProducto tipoproducto = tipoProductoService.findByCodTipoProducto(busqueda.getCodTipoProducto());
     	Autor autor = autorService.findById(busqueda.getCodigoautor());
-    	
-        List<Producto> productos1=productoService.customSearch(area, editorial, proveedor, tipoproducto, autor, busqueda);
-        
+    	Producto producto1=productoService.findByCodigoProducto(busqueda.getCodigoproducto());
+        List<Producto> productos1=productoService.customSearchProducto(producto1, area, editorial, proveedor, tipoproducto, autor, busqueda);
         productos1.get(0).getCodigoProducto();
         
        

@@ -2,6 +2,13 @@ package fia.ues.sv.libues.modelo;
 
 public class Busqueda {
 	
+	private int codigoproducto;
+	public int getCodigoproducto() {
+		return codigoproducto;
+	}
+	public void setCodigoproducto(int codigoproducto) {
+		this.codigoproducto = codigoproducto;
+	}
 	private int codigoeditorial;
 	private int codigoproveedor;
 	private int codigoarea;
