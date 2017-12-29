@@ -396,6 +396,7 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 		List<Producto> productos = null;
 		Criteria criteria = createEntityCriteria().addOrder(Order.asc("nombreProducto"));
 		
+		
 		if(busqueda.getCodigoautor()==0)
 		{
 			//no restricciones de proveedor
@@ -527,7 +528,8 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
 				 }//Fin "ELSE" tipo producto
 			  }//Fin "ELSE" Areas
 		   }//Fin "ELSE" editoriales 
-		}// Fin "IF" proveedores 
+		}// Fin "IF" proveedores
+		
 		else
 		{
 			criteria.createAlias("autores", "ListaAutores");
@@ -670,6 +672,8 @@ public class ProductoDaoImpl extends AbstractDao<Integer, Producto>  implements 
         	Hibernate.initialize(producto.getArea());
         	Hibernate.initialize(producto.getTipoProducto());
         	Hibernate.initialize(producto.getAutores());
+        	Hibernate.initialize(producto.getCodigoProducto());
+        	
       }
 		
 		System.out.println(productos);//busqueda funciona
