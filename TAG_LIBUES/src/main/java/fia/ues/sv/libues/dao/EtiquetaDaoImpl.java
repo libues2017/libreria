@@ -24,7 +24,7 @@ public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements E
 	}
 
 	@Override
-	public void saveArea(Etiqueta etiqueta) {
+	public void saveEtiqueta(Etiqueta etiqueta) {
 		
 		persist(etiqueta);
 		// TODO Auto-generated method stub
@@ -32,7 +32,7 @@ public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements E
 	}
 
 	@Override
-	public void deleteAreaById(int codigoetiqueta) {
+	public void deleteEtiquetaById(int codigoetiqueta) {
 		
 		
 		Criteria crit = createEntityCriteria();

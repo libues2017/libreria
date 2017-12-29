@@ -8,11 +8,14 @@ public interface EtiquetaDao {
 	
 	 Etiqueta findById(int codigoetiqueta);
 		
-	    void saveArea(Etiqueta etiqueta);	
-		
-		void deleteAreaById(int codigoarea);
+	   
 		
 		List<Etiqueta> findAllEtiquetas();
+
+		void saveEtiqueta(Etiqueta etiqueta);
+
+
+		void deleteEtiquetaById(int codigoetiqueta);
 
 
 }
