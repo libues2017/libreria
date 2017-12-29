@@ -2939,7 +2939,7 @@ public class AppControllerLibues {
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
       
-        return "detalleretaceo-reg";
+        return "GenerarTxt";
   }
     
     @RequestMapping(value = { "/etiqueta-agregar" }, method = RequestMethod.POST)   
@@ -2961,9 +2961,7 @@ public class AppControllerLibues {
         }
     	detalleretaceoService.savedetalleRetaceo(detalleretaceo);
 		
-    	/*Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
-    	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
-    	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));*/
+  
     	
     	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
     	//System.out.println("revisar:----------------------------------------------------------------------------");

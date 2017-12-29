@@ -589,8 +589,7 @@
 				    			<td>${retaceos.cantidadproducto}</td>
 				    		    <td>$ ${retaceos.costoproducto}</td>
 				    			<td>$ ${retaceos.precioproducto}</td>
-				    			<td>$ ${retaceos.subtotal}</td>	
-				    					    			
+				    				    			
 				    		</c:if>
 				    				
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
@@ -599,18 +598,7 @@
                         </tr>
 				    	 </c:forEach>
 				    	 
-				    	 <tr class="alert alert-success lead">
-						    	        
-						    			<td></td>
-						    			<td></td>
-						    		    <td></td>
-						    			<td></td>
-						    			<td>Total</td>
-						    	        <td >
-		                                   $ <fmt:formatNumber value = "${total}" /> 
-		                                </td>
-		                                <td></td>
-                         </tr>
+				    	 
 		    	</tbody>
 	    </table>   
       
