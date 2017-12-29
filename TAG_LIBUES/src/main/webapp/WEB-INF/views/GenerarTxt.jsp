@@ -269,6 +269,9 @@
               		
               		    if(${current.correlativo} == Id){
               		    	
+              		    	
+                      			
+              		    	
               		     nombre.push("${current.nombreProducto}");
               		     costo.push("${current.costounitario}");
               		     document.getElementById('nombreprod').value = nombre;
@@ -277,7 +280,7 @@
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
               		   //document.getElementById('existencia').value =sessionId;
               		   
-              		     
+              		
               		    }
               		</c:forEach>
               		
