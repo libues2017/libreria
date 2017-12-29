@@ -71,7 +71,7 @@
 		   <div class="form-group">			
 			<label class="control-label col-sm-4" for="nombr">Especifico de Gastos:</label>
 			<div class="col-sm-3">
-				<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm">
+				<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm" required>
 										<OPTION VALUE="">Seleccione el Especifíco de Gastos</OPTION>
 										<OPTION VALUE="54101">54101 Productos Alimenticios Para Personas</OPTION>
 										<OPTION VALUE="54102">54102 Productos Alimenticios Para Animales</OPTION>
@@ -95,12 +95,13 @@
 										<OPTION VALUE="54199">54199 Bienes de Uso y Consumo Diversos</OPTION>				
 								</SELECT>
 			</div>
+			</div>
 			
 			<div class="form-group">		
 				<label class="control-label col-sm-4" for="nombr">Consignacion:</label>
 				<div class="col-sm-3">
-				<SELECT name="consignacion" id="consignacion" class="form-control input-sm" onchange="sesion();" 
-				title="Seleccione Si Desea Consignacion">
+				<SELECT name="consignacion" id="consignacion" class="form-control input-sm" onchange="sesion();">
+				<OPTION VALUE="">Seleccione Consignación </OPTION>
 				<OPTION VALUE="si">Si</OPTION>
 				<OPTION VALUE="no">No</OPTION>
 				</SELECT>

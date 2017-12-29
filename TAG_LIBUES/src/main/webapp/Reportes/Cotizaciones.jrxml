@@ -128,7 +128,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<text><![CDATA[Tel:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="440" y="8" width="66" height="21" uuid="8846c166-f795-4b2c-84dd-29620e5228c5">
+					<reportElement x="424" y="8" width="66" height="21" uuid="8846c166-f795-4b2c-84dd-29620e5228c5">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6471dbbf-5efb-45dc-abdc-5955999c3440"/>
 					</reportElement>
 					<textElement>
@@ -155,7 +155,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement mode="Transparent" x="-17" y="6" width="601" height="46" uuid="6032c064-1227-42bc-a0eb-2dcff642d3d8"/>
+					<reportElement mode="Transparent" x="-17" y="6" width="601" height="46" uuid="69dcd065-07f5-42ac-971a-9aa0a87664ae"/>
 				</rectangle>
 			</band>
 		</groupHeader>
@@ -169,28 +169,28 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<text><![CDATA[Total de Productos:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="110" y="24" width="100" height="30" uuid="c6b51d21-725a-4bba-8a95-567eb198e62b"/>
+					<reportElement x="80" y="24" width="100" height="30" uuid="c6b51d21-725a-4bba-8a95-567eb198e62b"/>
 					<textElement>
 						<font fontName="Arial" size="12"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{Cantidad}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="383" y="24" width="118" height="18" uuid="5be2cb57-fd1f-4eff-9d66-413fb25c61bb"/>
+					<reportElement x="397" y="24" width="118" height="18" uuid="5be2cb57-fd1f-4eff-9d66-413fb25c61bb"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Total de Cotizacion:]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="498" y="24" width="22" height="19" uuid="45b77776-8b39-4e3d-a107-ddd1ef7546fc"/>
+					<reportElement x="506" y="25" width="22" height="19" uuid="45b77776-8b39-4e3d-a107-ddd1ef7546fc"/>
 					<textElement textAlignment="Center">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<text><![CDATA[$]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="522" y="24" width="57" height="19" uuid="63c3c4d2-ae9d-45aa-8f0f-c3bec761c60a"/>
+					<reportElement x="517" y="24" width="57" height="19" uuid="63c3c4d2-ae9d-45aa-8f0f-c3bec761c60a"/>
 					<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 				</textField>
 			</band>
@@ -209,7 +209,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="90" y="0" width="270" height="25" uuid="8aa737ac-026c-42c4-9347-86e030a7362f">
+				<reportElement x="90" y="13" width="270" height="25" uuid="8aa737ac-026c-42c4-9347-86e030a7362f">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -233,21 +233,21 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="392" y="45" width="100" height="30" uuid="fe52ec60-52f9-4b42-b9e8-e8d0632d8788"/>
+				<reportElement x="419" y="45" width="100" height="30" uuid="fe52ec60-52f9-4b42-b9e8-e8d0632d8788"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="489" y="45" width="100" height="30" uuid="bf6b8ca7-cc2f-4f4e-944e-c6c9b41eec6a"/>
+				<reportElement x="460" y="45" width="100" height="30" uuid="bf6b8ca7-cc2f-4f4e-944e-c6c9b41eec6a"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="M/d/yy h:mm a">
-				<reportElement positionType="Float" x="476" y="22" width="84" height="20" uuid="37d751d7-0b06-4e9a-a31b-d6198114d12a"/>
+				<reportElement positionType="Float" x="455" y="22" width="84" height="20" uuid="37d751d7-0b06-4e9a-a31b-d6198114d12a"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -262,7 +262,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="90" y="53" width="270" height="25" uuid="d4808306-c910-4e08-947f-54a3b0883f1c">
+				<reportElement x="90" y="54" width="180" height="22" uuid="d4808306-c910-4e08-947f-54a3b0883f1c">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -274,18 +274,18 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="33" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="-15" y="0" width="85" height="30" uuid="22fb0e34-9b66-4f1b-82f0-33b3ba15173d">
+				<reportElement x="-15" y="0" width="85" height="20" uuid="22fb0e34-9b66-4f1b-82f0-33b3ba15173d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff8582b9-6d44-488a-8efe-2258e615f62d"/>
 				</reportElement>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Codigo de Producto]]></text>
+				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="80" y="3" width="125" height="30" uuid="621756d7-5409-428f-a7ab-343d9c088407">
+				<reportElement x="80" y="2" width="190" height="18" uuid="621756d7-5409-428f-a7ab-343d9c088407">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03fb2e75-02cb-41d8-8994-4f99c1df99f0"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -294,7 +294,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[Nombre de Producto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="313" y="0" width="81" height="30" uuid="d055875f-c3b4-4aa2-8368-fdaced32c7a0">
+				<reportElement x="307" y="0" width="81" height="20" uuid="d055875f-c3b4-4aa2-8368-fdaced32c7a0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="51f72597-67b2-4385-8706-21fed93a1104"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -303,7 +303,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="402" y="0" width="100" height="30" uuid="b3d0351b-543c-423b-a78f-4b56e36ba0a2">
+				<reportElement x="400" y="0" width="100" height="20" uuid="b3d0351b-543c-423b-a78f-4b56e36ba0a2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb2a1e7f-ca31-4d99-899b-0eca2ef6f095"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -312,7 +312,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[Costo Unitario]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="505" y="0" width="74" height="30" uuid="5c1325c1-51e4-4f75-9f44-69180ec4b59f">
+				<reportElement x="505" y="0" width="74" height="20" uuid="5c1325c1-51e4-4f75-9f44-69180ec4b59f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="728095b3-c3ba-448b-acf7-13802334a961"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -352,7 +352,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<textFieldExpression><![CDATA[$F{VALORUNITARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="509" y="2" width="70" height="19" uuid="a6f01192-8310-49f0-9ba4-b4103105524a">
+				<reportElement x="510" y="4" width="70" height="19" uuid="a6f01192-8310-49f0-9ba4-b4103105524a">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="728095b3-c3ba-448b-acf7-13802334a961"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -383,7 +383,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="414" y="2" width="37" height="19" uuid="c224fb67-ad66-40d1-bef4-140cdcf31055"/>
+				<reportElement x="408" y="2" width="37" height="19" uuid="c224fb67-ad66-40d1-bef4-140cdcf31055"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>

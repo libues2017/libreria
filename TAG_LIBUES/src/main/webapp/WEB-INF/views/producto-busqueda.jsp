@@ -21,6 +21,7 @@
        	<form:form method="POST" modelAttribute="busqueda" class="form-horizontal">
        	<div class="row">
        		
+       	 <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >                       
        		<div class="col-md-4">
        			Proveedor: 
 	       		<form:select path="codigoproveedor"  multiple="false"  class="form-control input-sm" >
@@ -28,6 +29,7 @@
 	       			<form:options items="${proveedores}"  itemValue="codigoproveedor"  itemLabel="nombreproveedor" />
 	       		</form:select>
        		</div>
+       		</sec:authorize>
        		
        		<div class="col-md-4">
        			Editorial: 
@@ -98,10 +100,10 @@
                         <th>Imagen</th>
                         <th>Titulo</th>
                         <th>Autores</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >
-                        	<th>Area</th>
-                        </sec:authorize>
+                        <th>Area</th>
+                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >                       
                         <th>Proveedor</th>
+                         </sec:authorize>
                         <th>Editorial</th>
                         <th>Precio</th>                       
                         <th>RESERVAR</th>                        
@@ -130,10 +132,10 @@
                         		${autor.nombreautor}<br/> 
                         	</c:forEach>
                         	</td>	
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
                         	<td>${producto.area.nombrearea}</td>
+                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+                            <td>${producto.proveedor.nombreproveedor}</td>
                         </sec:authorize>
-                        <td>${producto.proveedor.nombreproveedor}</td>
                         <td>${producto.editorial.nombre}</td>
                         <td>$${producto.precio}</td>
                         
