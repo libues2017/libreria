@@ -25,4 +25,6 @@ public interface FacturaService {
 
 	void updateEstadoFacturaById(Integer idfactura);
 
+	void updateFacturaDatos3(Integer codigofact, String documento, String tipocredito);
+
 }

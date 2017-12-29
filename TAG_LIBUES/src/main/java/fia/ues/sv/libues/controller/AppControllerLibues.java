@@ -2404,14 +2404,17 @@ public class AppControllerLibues {
       	  	}
     	}  	
     	
-    	String tipo = "CONTADO";    	 
+    	String tipofact = "CONTADO";    	 
    	 	    	
     	 HttpSession sesion=request.getSession(true);    	
          Integer codigofact = (Integer) sesion.getAttribute("codigofact");          
          sesion.setAttribute("codigoultimo", codigofact);
          
-         facturaService.updateFacturaDatos2(codigofact, total, tipo);
-                          
+         facturaService.updateFacturaDatos2(codigofact, total, tipofact);
+         String documento = "";
+         String tipocredito = "";
+         facturaService.updateFacturaDatos3(codigofact, documento, tipocredito);
+         
          List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);         
          for(int i=0;i<facturaBuscar.size();i++){
         	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
@@ -2419,10 +2422,9 @@ public class AppControllerLibues {
 	       	 Integer existencia = facturaBuscar.get(i).getSala();
 	       	 Integer sala = existencia - cantidad;
 	       	 productoService.updateSalaVenta1(codigoproducto, sala);
-         }         
-        
-         Integer numerofac = facturaService.findById(codigofact).getNumerofactura();
+         }
          
+         Integer numerofac = facturaService.findById(codigofact).getNumerofactura();
          
          String fechafac =(String) sesion.getAttribute("mySessionAttribute");          
          Date fechafactura1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafac);          

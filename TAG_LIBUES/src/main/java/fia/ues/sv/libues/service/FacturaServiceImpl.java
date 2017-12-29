@@ -94,5 +94,15 @@ public class FacturaServiceImpl implements FacturaService{
 		
 	}
 
+	@Override
+	public void updateFacturaDatos3(Integer codigofact, String documento, String tipocredito) {
+		Factura entity=dao.findById(codigofact);		
+		if(entity!=null){
+			entity.setDocumento(documento);
+			entity.setTipocredito(tipocredito);
+			
+		}
+	}
+
 	
 }
