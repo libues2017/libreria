@@ -1,16 +1,15 @@
-package fia.ues.sv.libues.service;
+package fia.ues.sv.libues.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.stereotype.Repository;
 
+import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Etiqueta;
 
-@Service("etiquetaService")
-@Transactional
+@Repository("etiquetaDao")
 
-public class EtiquetaServiceImp implements EtiquetaService {
+public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements EtiquetaDao {
 
 	@Override
 	public Etiqueta findById(int codigoetiqueta) {
