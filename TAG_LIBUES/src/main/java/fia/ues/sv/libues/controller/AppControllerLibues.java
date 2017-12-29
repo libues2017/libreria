@@ -1895,7 +1895,18 @@ public class AppControllerLibues {
   		return "ReporteExistencias";
   	}
       
-    
+    //Controles para el Reporte de Creditos
+      @RequestMapping(value={"/facturas-creditos"}, method = RequestMethod.GET)
+    	public String facturascreditos(ModelMap model){
+    		model.addAttribute("loggedinuser", getPrincipal());
+    		return "GenerarCreditos";
+    	}
+        
+        @RequestMapping(value={"/repo_creditos"}, method = RequestMethod.GET)
+    	public String repofacturascreditos(ModelMap model){
+    		model.addAttribute("loggedinuser", getPrincipal());
+    		return "ReporteCreditos";
+    	}
 
       //Controles para el Reporte de Transferencias a Sucursales
    @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)
