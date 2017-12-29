@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Creditos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b94aa2f7-15fe-4bff-88ba-56d82a155beb">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
@@ -256,18 +256,22 @@ WHERE
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="46" splitType="Stretch">
+		<band height="47" splitType="Stretch">
 			<textField>
-				<reportElement x="434" y="16" width="30" height="30" uuid="b8a8d1b0-6839-407e-ac2c-af3eb5c55ff6"/>
+				<reportElement x="423" y="16" width="30" height="30" uuid="b8a8d1b0-6839-407e-ac2c-af3eb5c55ff6"/>
 				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="16" width="69" height="30" uuid="ba069008-7333-49ce-8574-8db7831d3f47"/>
+				<reportElement x="480" y="16" width="29" height="24" uuid="ba069008-7333-49ce-8574-8db7831d3f47"/>
 				<textFieldExpression><![CDATA[$V{TOTAL1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="382" y="16" width="48" height="30" uuid="a357657a-7842-468c-93de-bce7aa9faaec"/>
+				<reportElement x="374" y="16" width="48" height="30" uuid="a357657a-7842-468c-93de-bce7aa9faaec"/>
 				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="16" width="12" height="30" uuid="25b1423a-4af4-43d1-bbc5-6948aaab5ca9"/>
+				<text><![CDATA[$]]></text>
 			</staticText>
 		</band>
 	</summary>
