@@ -2629,21 +2629,7 @@ public class AppControllerLibues {
     /*************************************************************************************************************************************************************
      ********************************************** Cotizaciones de Productos ************************************************************************************
      *************************************************************************************************************************************************************/
-      @RequestMapping(value = { "/detallecotizacion-list" }, method = RequestMethod.GET)
-      public String listCotizaciones(ModelMap model) throws IOException {
-          List<DetalleCotizacion> detallecotizacion = detallecotizacionService.findAllCotizaciones();
-          model.addAttribute("detallecotizacion", detallecotizacion);
-          model.addAttribute("loggedinuser", getPrincipal());
-          return "detallecotizacion-list";
-      }
-      
-      @RequestMapping(value = { "/cotizacion-detalle-{codigoCotizacion}" }, method = RequestMethod.GET)
-      public String listDetalleCotizacion(@PathVariable Integer codigoCotizacion, ModelMap model) throws IOException {
-      	DetalleCotizacion cotiza = detallecotizacionService.findByCodigo(codigoCotizacion);
-      	model.addAttribute("cotizaciones", cotiza);
-      	model.addAttribute("loggedinuser", getPrincipal());
-      	return "cotizacion-detalle";
-      } 
+       
       
       @RequestMapping(value = { "/cotizacion-list" }, method = RequestMethod.GET)
       public String listCotizacion(ModelMap model) throws IOException { 
@@ -2674,6 +2660,11 @@ public class AppControllerLibues {
         	}
        		model.addAttribute("total", total); 
       		model.addAttribute("cotiza1", cotizacionBuscar);
+      		
+      	  
+    System.out.println("revisar:----------------------------------------------------------------------------" + cotizacionBuscar.size());
+      	
+      		
       	}
       	
       	List<Producto> productos = productoService.findAllProductos();       

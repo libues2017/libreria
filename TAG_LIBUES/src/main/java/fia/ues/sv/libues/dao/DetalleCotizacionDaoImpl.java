@@ -60,7 +60,7 @@ public class DetalleCotizacionDaoImpl extends AbstractDao<Integer, DetalleCotiza
 	@Override
 	public List<DetalleCotizacion> findCotizaciones(Integer codigo6) {
 		Criteria crite = createEntityCriteria().addOrder(Order.asc("codigoCotizacion"));
-		crite.add(Restrictions.eq("numeroDetalle", codigo6));
+		crite.add(Restrictions.eq("codigoCotizacion", codigo6));
 		List<DetalleCotizacion> detalleCotizacion = (List<DetalleCotizacion>) crite.list();
 		return detalleCotizacion;
 	}
