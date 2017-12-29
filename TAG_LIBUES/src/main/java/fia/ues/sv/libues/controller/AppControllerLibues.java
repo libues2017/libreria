@@ -2882,7 +2882,7 @@ public class AppControllerLibues {
     
     
     @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.GET)
-    public String newetiquetas( HttpServletRequest request,ModelMap model) {
+    public String newetiquetas( Busqueda busqueda,HttpServletRequest request,ModelMap model) {
         DetalleRetaceo detalleretaceo = new DetalleRetaceo();
         model.addAttribute("detalleretaceo", detalleretaceo);
         model.addAttribute("edit", false);
@@ -2928,7 +2928,16 @@ public class AppControllerLibues {
 		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
-        List<Autor> autor=autorService.findAllAutors();
+       // List<Autor> autor=autorService.findAllAutors();
+        
+        Editorial editorial = editorialService.findById(busqueda.getCodigoeditorial());
+    	Area area = areaService.findById(busqueda.getCodigoarea());
+    	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
+    	TipoProducto tipoproducto = tipoProductoService.findByCodTipoProducto(busqueda.getCodTipoProducto());
+    	Autor autor = autorService.findById(busqueda.getCodigoautor());
+    	
+        List<Producto> productos1=productoService.customSearch(area, editorial, proveedor, tipoproducto, autor, busqueda);
+        
         
         //se obtiene el ultimo codigo retaceo       
         
