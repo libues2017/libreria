@@ -136,10 +136,23 @@
 
 
 
- 
+  <!-- Modal confirm -->
+	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="confirmMessage">
+				</div>
+				<div class="modal-footer">
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		        </div>
+			</div>
+		</div>
+	</div>
 
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
+<div class="row"><%@include file="menu.jsp" %></div>
 <div class="row">
 <!--<h1>Areas</h1>-->
 	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
@@ -150,7 +163,7 @@
                	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>               
                 
                	|||              	
-                 <button type="button" class="btn btn-warning" id="devolver1"> Eliminar</button>
+                 <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
             </div>
    	</sec:authorize>
 <!--<div class="col-xs-8">-->

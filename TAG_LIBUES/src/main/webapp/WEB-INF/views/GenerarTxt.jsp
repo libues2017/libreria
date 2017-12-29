@@ -282,10 +282,10 @@
               		     document.getElementById('nombreprod').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
               		 // autor=autor.replace("[", " ");
-              		 autor.push=autor[0].replace("[", " ");
-              		 autor.push=autor[0].replace("]", " ");
+              		 autor=autor[0].replace("[", " ");
+              		 autor=autor[0].replace("]", " ");
               		
-              		 document.getElementById('autor').value = autor[0].replace("[", " ");
+              		 document.getElementById('autor').value = autor[0];
               		  /* sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
               		   //document.getElementById('existencia').value =sessionId;
