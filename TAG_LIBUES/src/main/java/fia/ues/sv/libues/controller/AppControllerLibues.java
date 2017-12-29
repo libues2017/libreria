@@ -2878,7 +2878,7 @@ public class AppControllerLibues {
     }
     
     
-    ///////////////////////
+    ///////////////////////NUEVAS ETIQUETAS/////////////////////
     
     
     @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.GET)
@@ -2928,6 +2928,7 @@ public class AppControllerLibues {
 		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
+        List<Autor> autor=autorService.findAllAutors();
         
         //se obtiene el ultimo codigo retaceo       
         
@@ -2938,6 +2939,7 @@ public class AppControllerLibues {
         sesion1.setAttribute("codigo", codigo);    
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
+        model.addAttribute("autor", autor);
       
         return "GenerarTxt";
   }

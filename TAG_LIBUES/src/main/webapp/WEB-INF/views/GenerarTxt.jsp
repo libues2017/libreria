@@ -354,6 +354,22 @@
 					                  
                   </script>                 
 					
+					
+					<script>
+								  $( function() {								  
+								    var miArray=new Array();
+								    var sessionId = [];								    
+								    <c:forEach items="${autor}" var="current">										
+									  sessionId.push("${current.codigoautor}");								
+									</c:forEach>	
+								    $( "#codigoautor" ).autocomplete({								  
+								    	source: sessionId
+								    });
+								  } );
+					  </script>
+					
+					
+					
 					  <script>
 								  $( function() {								  
 								    var miArray=new Array();
@@ -418,9 +434,6 @@
 					}
 					
 					
-					
-					
-					
 					</script>
 					
 					<script type="text/javascript">
@@ -445,47 +458,7 @@
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              
       <div class="panel-group">
-      	<div class="panel panel-default" style="background-color: #E3F5F1">
-			<div class="form-group row">		
-				<div class="panel-body">
-					<div class="col-xs-3">      
-					<label class="form-control" for="nombr">Documento #:</label>					
-					<form:input type="text" path="codigoretaceo" id="codigoretaceo" class="form-control input-sm" value='<%=session.getAttribute("codigo")%>'/>   
-					</div>
-					<div class="col-xs-3">				                  
-					<label class="form-control" for="nombr">Fecha Retaceo:</label>
-					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm" onchange="sesion();" />     
-					</div>
-					<div class="col-xs-3">
-					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
-                    </div>
-				</div>
-			</div>
-			<div class="form-group row">
-				<div class="panel-body">
-					<div class="col-xs-3">				             
-						<label class="form-control" for="nombr">Codigo Factura:</label>
-						
-						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" value='<%=session.getAttribute("codigofacturaproveedor")%>' />  
-					</div>
-					<div class="col-xs-3">
-						<label class="form-control" for="nombr">Fecha Factura:</label>					 
-						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();" />                     
-					</div>
-					<div class="col-xs-2">
-						<label class="form-control" for="tags">Cod Proveedor:</label>
-						
-						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='<%=session.getAttribute("codigoproveedor")%>' /> 
-						   
-					</div>
-					<div class="col-xs-4">
-						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
-						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm"  />					                     
-					</div>
-				</div>
-			</div>
-		</div>
+      	
 		<div class="panel panel-success">	
 			<div class="form-group row">
 				<div class="panel-body">
@@ -570,10 +543,8 @@
 		    		<tr class="success">		   
 		    		        <th>ITEM</th> 			
 			      			<th>Codigo Producto</th>			      			      			
-			      			<th>Cantidad</th>
-			      			<th>Costo $</th>
+			      			<th>Cantidad</th>			      			
 			      			<th>Precio $</th>
-			      			<th>Subtotal $</th>
 			      			<th>ELIMINAR</th>	
 		    		</tr>
 		    	</thead>
@@ -599,18 +570,7 @@
                         </tr>
 				    	 </c:forEach>
 				    	 
-				    	 <tr class="alert alert-success lead">
-						    	        
-						    			<td></td>
-						    			<td></td>
-						    		    <td></td>
-						    			<td></td>
-						    			<td>Total</td>
-						    	        <td >
-		                                   $ <fmt:formatNumber value = "${total}" /> 
-		                                </td>
-		                                <td></td>
-                         </tr>
+				    	
 		    	</tbody>
 	    </table>   
       
