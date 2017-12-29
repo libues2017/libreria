@@ -23,9 +23,11 @@
 		var i=0;
 			    
 		<c:forEach items="${requisiciones}"   var="current">
+		<c:if test = "${current.total > 0}">
 			dataSet[i] = [ "${current.codigorequisicion}", "${current.destino}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
 		         value = "${current.fecha}" />', "$ ${current.total}"] ;
 			i=i+1;
+		</c:if>
 		</c:forEach>
 						    
 		$(document).ready(function() {
@@ -53,8 +55,8 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "/TAG_LIBUES/edit-area-";
-			    	var res3 = "/TAG_LIBUES//delete-requisicion-";
+			    	var res = "/TAG_LIBUES/edit-requisicion-";
+			    	var res3 = "/TAG_LIBUES/delete-requisicion-";
 			    	         
 			    	var res1=dato;
 			    	var res2=res.concat(res1);//link editar			    	         
@@ -128,7 +130,7 @@
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
                 <br></br>
                 <p>OPCIONES</p>
-               	<!--  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> -->
+               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
                	<sec:authorize access="hasRole('ADMINISTRADOR')">
                	<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
                	</sec:authorize>

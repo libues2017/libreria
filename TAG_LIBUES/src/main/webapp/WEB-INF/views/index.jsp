@@ -15,10 +15,11 @@
 <body>
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
-<div class="row"><%@include file="carrusel.jsp" %></div>
 <sec:authorize access="hasRole('USUARIO') or hasRole('BODEGUERO') or  hasRole('VENDEDOR') or hasRole('ADMINISTRADOR') or hasRole('DIRECTOR') or hasRole ('DBA')"  >
 <div class="row"><%@include file="menu.jsp" %></div>
 </sec:authorize>
+
+<div class="row"><%@include file="carrusel.jsp" %></div>
 <div class="row">
 	<div class="row">
 		  <div class="col-sm-4 col-md-4">

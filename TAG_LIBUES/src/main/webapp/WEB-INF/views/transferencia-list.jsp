@@ -26,7 +26,7 @@
 		<c:set var="contador" value="${0}" />
 		<c:forEach items="${transferencias}"   var="current">
 		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
-            <c:if test = "${salary > 2000}">
+            <c:if test = "${current.total > 0}">
 	            <c:set var="contador" value="${contador + 1}" />
 	             
 			dataSet[i] = [ "${contador}", "${current.numeroTransferencia}", "${current.tipoTransferencia}", "${current.sucursal}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
