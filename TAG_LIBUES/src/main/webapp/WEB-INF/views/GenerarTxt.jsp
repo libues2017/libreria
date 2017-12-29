@@ -264,6 +264,7 @@
                             var sessionId = [];
                             var nombre = [];
                             var costo=[];
+                            var autor=[];
                         	
               		<c:forEach items="${producto1}" var="current">
               		
@@ -274,8 +275,10 @@
               		    	
               		     nombre.push("${current.nombreProducto}");
               		     costo.push("${current.costounitario}");
+              		   autor.push("${current.autores}");
               		     document.getElementById('nombreprod').value = nombre;
               		   document.getElementById('costoactual').value = costo;
+              		 document.getElementById('autor').value = autor;
               		   sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
               		   //document.getElementById('existencia').value =sessionId;
@@ -481,6 +484,11 @@
                     <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Costo Actual:</label>
 						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+                    </div>
+                    
+                     <div class="col-xs-2">
+						<label class="form-control" for="costoactual">Nombre autor:</label>
+						<input type="text"  id="autor" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
 				</div>
 			</div>
