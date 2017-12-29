@@ -2867,13 +2867,7 @@ public class AppControllerLibues {
          excell e=new excell();
          
          
-         
-       /*  HashMap<Integer, List<String>> map = new HashMap<>(); 
-         List<Producto> list = new ArrayList<Producto>();
-        /* list.add("Java");
-         list.add("Primefaces");
-         list.add("JSF");*/
-       //  map.put(1,listBooks);
+     
           
           return new ModelAndView("crearEtiquetas", "listBooks", listBooks);
     	
@@ -2944,7 +2938,80 @@ public class AppControllerLibues {
         return "detalleretaceo-reg";
   }
     
-    
+    @RequestMapping(value = { "/detalleretaceo-agregar" }, method = RequestMethod.POST)   
+    public String saveEtiqueta( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo,
+    		                  BindingResult result,
+                              ModelMap model,@RequestParam(required = false) String fecharetaceo,
+                              @RequestParam(required = false) String fechafacturaproveedor
+                              ,@RequestParam(required = false) String codigofacturaproveedor) 
+    		throws IOException, ParseException {
+         	/*
+                String idPagoAsignado = request.getParameter("idPagoAsignado");
+                String idReversoAsignado = request.getParameter("idReversoAsignado");    
+    	  */
+ 
+          HttpSession sesion2=request.getSession(true);
+  	
+    	if (result.hasErrors()) {
+            return "detalleretaceo-reg";
+        }
+    	detalleretaceoService.savedetalleRetaceo(detalleretaceo);
+		
+    	/*Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
+    	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
+    	Integer codigofacturaproveedor = Integer.parseInt(request.getParameter("codigofacturaproveedor"));*/
+    	
+    	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
+    	//System.out.println("revisar:----------------------------------------------------------------------------");
+    	
+    	
+    	
+    	Integer codigoproveedor = Integer.parseInt(request.getParameter("codigoproveedor"));
+    	
+    	Integer codigofacturaproveedor1 =Integer.parseInt(codigofacturaproveedor);
+    	Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
+    	Date fechafacturaproveedor1=new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");///formateo en String
+    	String fecha = sdf.format(fecharetaceo1);
+    	String fecha1 = sdf.format(fechafacturaproveedor1);
+    	String nombreproveedor = request.getParameter("nombreproveedor");
+    	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
+        String revisar=nombreproveedor;
+    	
+        
+        HttpSession sesion = request.getSession();
+       // Double total=(Double)sesion.getAttribute("total");
+        Double total=0.0;
+       // if(total==0.0){
+        	
+        	
+          Integer codigo=(Integer) sesion.getAttribute("codigo");
+       	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+       	 
+       	  for (int i = 0; i < retaceoBuscar.size(); i++){
+       		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
+       		  
+       	  } 
+       // }
+    	
+        System.out.println("total:----------------------------------------------------------------------------"+total);
+    	
+    	retaceoService.updateFechaRetaceo(fecharetaceo1,fechafacturaproveedor1,codigoproveedor,codigofacturaproveedor1, codigoretaceo,total);
+    	
+    	
+    	sesion2.setAttribute("codigofacturaproveedor", codigofacturaproveedor1);
+    	sesion2.setAttribute("codigoproveedor", codigoproveedor);//para utilizarlo en finalizar retaceo
+    	//sesion2.setAttribute("nombreproveedor", nombreproveedor);
+ 		sesion2.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
+ 		sesion2.setAttribute("fechafacturaproveedor", fecha1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
+ 		
+    	model.addAttribute("loggedinuser", getPrincipal());
+
+         return "redirect:/detalleretaceo-agregar";
+      //  return "detalleretaceo-reg";
+      
+       // return "retaceo-reg-succ";
+    }
     
     
     
@@ -2984,76 +3051,7 @@ public class AppControllerLibues {
          excell e=new excell();
          
          
-         
-       /*  HashMap<Integer, List<String>> map = new HashMap<>(); 
-         List<Producto> list = new ArrayList<Producto>();
-        /* list.add("Java");
-         list.add("Primefaces");
-         list.add("JSF");*/
-       //  map.put(1,listBooks);
-         
-         /*
-          * 
-          *  DetalleRetaceo detalleretaceo = new DetalleRetaceo();
-        model.addAttribute("detalleretaceo", detalleretaceo);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-    	HttpSession sesion=request.getSession(true);
-    	  // populate
-    	HttpSession session = request.getSession();
-    	HttpSession sesion2=request.getSession(true);
-    	
-    	Producto producto=new Producto();
-    	Double total=0.0;
-    	
-    	if(sesion.getAttribute("codigo")!=null)
-    	{
-    	  Integer codigo=(Integer) sesion.getAttribute("codigo");
-    	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
-    	 
-    	  for (int i = 0; i < retaceoBuscar.size(); i++){
-    		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
-    		  
-    	  }    	  
-    	 
-    	  
-    	  System.out.println("revisar:----------------------------------------------------------------------------" + retaceoBuscar.size());
-    	  model.addAttribute("total", total);
-    	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
-    	  model.addAttribute("retaceo2", retaceoBuscar);
-       }
-    	
-    	 if(sesion.getAttribute("codigofacturaproveedor")!=null){
-   		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
-   		  sesion2.setAttribute("codigoproveedor", sesion.getAttribute("codigoproveedor"));
-   		  sesion2.setAttribute("nombreproveedor", sesion.getAttribute("nombreproveedor"));
-   	  }
-   	  
-   	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
-		    	    sesion2.setAttribute("codigoproveedor", 0);
-				    sesion2.setAttribute("nombreproveedor", " ");  	  
-   	  
-   	     }
-   		     
-    	
-		     
-        List<Proveedor> proveedores = proveedorService.findAllProveedores();
-        List<Producto> productos = productoService.findAllProductos();
-        
-        //se obtiene el ultimo codigo retaceo       
-        
-		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
-		
-		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigo", codigo);    
-        model.addAttribute("proveedor", proveedores);
-        model.addAttribute("producto", productos);
-      
-          * 
-          * 
-          * */
-          
+       
           return new ModelAndView("generarTxt", "listBooks", listBooks);
     	
     }
