@@ -13,15 +13,13 @@
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
    	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
    	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
-	
-	<script type="text/javascript">
+<script type="text/javascript">
 		var dataSet = [];
 		var sessionId = [];
 		var sessionId1 = [];
 		var sessionId2 = [];
 		var sessionId3 = [];
 		var i=0;
-			    
 		<c:forEach items="${requisiciones}"   var="current">
 		<c:if test = "${current.total > 0}">
 			dataSet[i] = [ "${current.codigorequisicion}", "${current.destino}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
@@ -55,7 +53,7 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "/TAG_LIBUES/edit-requisicion-";
+			    	var res = "#";
 			    	var res3 = "/TAG_LIBUES/delete-requisicion-";
 			    	         
 			    	var res1=dato;
@@ -69,10 +67,8 @@
 			    	document.getElementById("devolver").innerHTML = result;//editar
 			    	document.getElementById("devolver1").innerHTML = result1;//eliminar
 			    }	  
-			} );
-			        
+			} );    
 		} );
-		
 		var idioma_espanol = {
 			    "sProcessing":     "Procesando...",
 			    "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -97,12 +93,9 @@
 			        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
 			    }
 			}
-	</script>		   
-	
+	</script>
 </head>
-
 <body>
-
     <!-- Modal confirm -->
 	<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
 		<div class="modal-dialog">
@@ -116,7 +109,6 @@
 			</div>
 		</div>
 	</div>
-
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">	
 	<div class="row">
@@ -126,34 +118,30 @@
       		<div class="panel-heading" ><h4>REQUISICIONES</h4></div>
       		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
       		<div class="panel-body">
-      			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> ||||||||
+      			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> 
                 <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-                <br></br>
-                <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
-               	<sec:authorize access="hasRole('ADMINISTRADOR')">
-               	<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               	</sec:authorize>
       		</div>
       		 </sec:authorize>
     		</div>
         </div>
-        
     </div>    	
 	<div class="row col-md-13">
     	<div class="panel panel-default">        
-        	<div class="panel-heading"><span class="lead">Requisiciones</span></div>			
+        	<div class="panel-heading" align="center"><span class="lead">LISTA DE REQUISICIONES</span></div>			
 			<table id="req" class="display" >					
 			</table><br/>
 		</div>
 	</div>
+	<div class="well lead" align="center">
+		<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
+	    <sec:authorize access="hasRole('ADMINISTRADOR')">
+	    <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+	    </sec:authorize>
+	</div>
 </div>
-
-
 <br/><br/>
-<div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
- 
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";

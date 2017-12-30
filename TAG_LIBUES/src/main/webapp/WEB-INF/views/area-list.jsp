@@ -10,20 +10,20 @@
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
-    
-    	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
-	
-	
-	<script type="text/javascript">
+   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+   	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+<script type="text/javascript">
 		var dataSet = [];
 		var sessionId = [];
 		var sessionId1 = [];
 		var sessionId2 = [];
 		var sessionId3 = [];
 		var i=0;
-			    
+		<c:set var="contador" value="${0}" />
 		<c:forEach items="${areas}"   var="current">
-			dataSet[i] = [ "${current.codigoarea}", "${current.nombrearea}"] ;
+		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+			<c:set var="contador" value="${contador + 1}" />
+			dataSet[i] = ["${contador}", "${current.codigoarea}", "${current.nombrearea}"];
 			i=i+1;
 		</c:forEach>
 						    
@@ -31,14 +31,12 @@
 			var tabla =  $('#areas').DataTable( {
 				data:  dataSet,
 			    columns: [
+			    	{ title: "ITEM" },
 			    	{ title: "CÓDIGO" },
 			        { title: "NOMBRE DEL ÁREA" }			              		               
 			    ],
 			    "language": idioma_espanol
 			} );
-			
-			
-			
 			$('#areas tbody').on( 'click', 'tr', function () {
 				if ( $(this).hasClass('selected') ) {
 			   		$(this).removeClass('selected');
@@ -105,45 +103,45 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Confirmar</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancelar</button>
 		        </div>
 			</div>
 		</div>
 	</div>
 
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-	<div class="row"><%@include file="menu.jsp" %></div>
 	<div class="row">
-		<!--<h1>Areas</h1>-->
+		<div class="panel-group">
+    		<div class="panel panel-default" align="center">
+      		<div class="panel-heading" ><h4>ÁREAS</h4></div>
 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-            <div   class="well" align="center">
-            	<a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Área</a> ||||||
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-                <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
-               	<sec:authorize access="hasRole('ADMINISTRADOR')">
-               	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               	</sec:authorize>                       			
+            <div class="panel-body">
+            	<a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Área</a> ---//////---
+                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>                
             </div>
        </sec:authorize>
-       
+       </div>
+       </div>
     </div>    	
 	<div class="row col-md-13">
     	<div class="panel panel-default">        
-        	<div class="panel-heading"><span class="lead">Áreas</span></div>			
+        	<div class="panel-heading" align="center"><span class="lead">LISTA DE ÁREAS</span></div>			
 			<table id="areas" class="display" >					
 			</table><br/>
 		</div>
 	</div>
+	<div class="well lead" align="center">
+		<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+    	<sec:authorize access="hasRole('ADMINISTRADOR')">
+      	---////---
+      	<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+      	</sec:authorize>
+	</div>
 </div>
-
-
-<br/><br/>
-<div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
- 
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
