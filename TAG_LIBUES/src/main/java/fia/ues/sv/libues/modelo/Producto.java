@@ -121,6 +121,32 @@ public class Producto implements Serializable{
 				joinColumns={@JoinColumn(name="CODIGOPRODUCTO")},
 				inverseJoinColumns={@JoinColumn(name="CODIGOAUTOR")})
 	private Set<Autor> autores = new HashSet<Autor>();
+	
+	
+	@Column(name="MARCADO")
+	private Integer marcado;
+	
+	
+	@Column(name="CANTIDADETIQUETAR")
+	private Integer cantdadetiquetar ;
+	
+	
+
+	public Integer getMarcado() {
+		return marcado;
+	}
+
+	public void setMarcado(Integer marcado) {
+		this.marcado = marcado;
+	}
+
+	public Integer getCantdadetiquetar() {
+		return cantdadetiquetar;
+	}
+
+	public void setCantdadetiquetar(Integer cantdadetiquetar) {
+		this.cantdadetiquetar = cantdadetiquetar;
+	}
 
 	public Integer getCodigoProducto() {
 		return codigoProducto;

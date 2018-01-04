@@ -2921,7 +2921,7 @@ public class AppControllerLibues {
         
        
         
-        System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
+       // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
       
 		//List<detalleretaceo> retaceo = retaceoService.findAllRetaceos();
