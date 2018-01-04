@@ -7,7 +7,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Lista de Cotizaciones</title>
-	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+	<link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
+	<!-- <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link> -->
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
@@ -60,14 +61,14 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "/TAG_LIBUES/edit-cotizacion-";
-			    	var res3 = "/TAG_LIBUES//delete-cotizacion-";
+			    	var res = "#";
+			    	var res3 = "/TAG_LIBUES/delete-cotizacion-";
 			    	         
 			    	var res1=dato;
 			    	var res2=res.concat(res1);//link editar			    	         
 			    	var res4=res3.concat(res1);//link eliminar			    	       
 			    	var str = "Editar";
-			    	var str1 = "Aceptar";
+			    	var str1 = "Sí";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
 			    	     
@@ -112,8 +113,8 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Si</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancelar</button>
 		        </div>
 			</div>
 		</div>
@@ -131,7 +132,7 @@
 				        <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
 				        <br></br>
 				        <p>OPCIONES</p>
-				        <!--  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> -->
+				        <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
 				        <sec:authorize access="hasRole('ADMINISTRADOR')">
 				        <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
 				        </sec:authorize>
@@ -143,76 +144,37 @@
 		
 		<div class="row col-md-13">
 		    	<div class="panel panel-default">        
-		        	<div class="panel-heading"><span class="lead">Cotizaciones</span></div>			
+		        	<div class="panel-heading" align="center"><span class="lead">Listado de Cotizaciones</span></div>			
 					<table id="cotiza" class="display" >					
 					</table><br/>
 				</div>
 			</div>
 	</div>
 	
-	<!-- 
-	<div class="container">
-		<div class="panel-group">
-    		<div class="panel panel-default" align="center">
-      			<div class="panel-heading" ><h4>COTIZACIONES</h4></div>
-      			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')">
-      				<div class="panel-body">
-	      				<a href="<c:url value='/detallecotizacion-agregar' />" class="btn btn-primary">Realizar Cotización</a> ||||||||
-	                	<a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-      				</div>
-      			</sec:authorize>
-    		</div>
-        </div>
-	
-	
-	<div class="panel panel-default">
-    	
-        <div class="panel-heading"><span class="lead">Lista de Cotizaciones</span></div>
-        <table class="table table-hover">
-        	<thead>
-            	<tr>
-                	<th>Ítem</th>                        
-                    <th>Cotización. #</th>                        
-                    <th>Nombre del Cliente</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Fecha</th>
-                    <th>Total</th>
-                    <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('USUARIO')">
-                    	<th width="100">ELIMINAR</th>
-                    </sec:authorize>     
-                </tr>
-            </thead>
-                
-            <tbody>
-            	<c:set var="contador" value="${0}" /> 
-               	<c:forEach items="${cotizaciones}" var="cotizacion">
-                <tr>
-                	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	    <c:if test = "${salary > 2000}">
-	    	        	<c:set var="contador" value="${contador + 1}" />    	                 
-	    	            	<td>${contador}</td>
-                    		<td><a  href="<c:url value='/cotizacion-detalle-${cotizacion.codigoCotizacion}' />">${cotizacion.codigoCotizacion}</a></td>
-                    		<td>${cotizacion.nombreCliente}</td>	
-                        	<td>${cotizacion.telefono}</td>
-                        	<td>${cotizacion.correo}</td>
-                        	<td>${cotizacion.fechaCotizacion}</td>
-                        	<td>$${cotizacion.total}</td>
-                    </c:if>	
-                    <sec:authorize access="hasRole('ADMINISTRADOR')  or hasRole('BODEGUERO')">                     
-                    	<td><a href="<c:url value='/delete-cotizacion-${cotizacion.codigoCotizacion}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
-                    </sec:authorize>
-                </tr>
-               	</c:forEach>
-            </tbody>
-       	</table>
-	</div>
-	</div>
-	-->
 	
 	<div class="row"><%@include file="foot.jsp" %></div>
 	<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
- 	<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
- 	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
+	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ 	<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>-->   
 </body>
+<script>
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
+$('#btnDelete').on('click', function(e){
+		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+			//alert();//My code to delete
+		});
+	});
+
+  function confirmDialog(message, onConfirm){
+	    var fClose = function(){
+			modal.modal("hide");
+	    };
+	    var modal = $("#confirmModal");
+	    modal.modal("show");
+	    $("#confirmMessage").empty().append(message);
+	    $("#confirmOk").one('click', onConfirm);
+	    $("#confirmOk").one('click', fClose);
+	    $("#confirmCancel").one("click", fClose);
+  }
+  </script>
 </html>

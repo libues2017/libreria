@@ -103,8 +103,8 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Si</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancelar</button>
 		        </div>
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 <script>
-var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
 			//alert();//My code to delete
