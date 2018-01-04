@@ -137,124 +137,7 @@
         				}
 				  }
 				  
-				  			  
-				  
-							function addIt(campo) {
-							
-								/*
-								Aquí se detallan las siglas de las variables utilizadas en el cálculo: 
- 
-										Cantidad de Productos en existencia = PEX 
-										Cantidad de Productos de entrada = PE 
-										Costo Productos en Existencia = CPEX
-										Costo Productos de entrada = CPE
-										Costo Promedio Unitario = CPU
-										Precio de Venta = PV 
-										Total de Costo = TC
-										Total de Artículos = TA  
-										precio de venta anterior=PVA										
-										La fórmula para el cálculo del costo promedio es la siguiente: 										 
-										TC = (PEX*CPEX) +(PE*CPE) 
-										TA = PEX+PE 
-                                        CPU=TC/TA 
-										PV=CPU+(CPU*0.20). 
-																		
-								*/
-								
-								 numero=document.getElementById(campo).value;
-								 // campo="costoproducto";
-								  
-								    if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
-								     //alert("El valor " + campo + " no es un número");
-								    
-								    	    $("#glypcn"+campo).remove();
-						                    $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
-						                    $('#'+campo).parent().children('span').text("no es un numero").show();
-						                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-				                            return false;
-								    }  
-				                    
-				                    
-				                    else{
-					        				$("#glypcn"+campo).remove();
-					        				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-					        				$('#'+campo).parent().children('span').hide();
-					        				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-					        				
-				        				
-								    
-								
-								var existencia = 0;
-	                            var costoexistencia = 0.0;
-	                            var precioventa = 0.0;
-								var Id=document.getElementById("codigoproducto").value;
-								var PEX; 
-								var CPEX;		
-								var CPU;
-							    var PV;
-							    var TC;
-							    var TA;
-							    var PE;
-							    var CPE;
-							    var PVA;
-								
-							 <c:forEach items="${producto}" var="current">	
-	 			              		    if(${current.correlativo}==Id)	
-	 			   	 			        {
-						                    existencia=${current.existencia};//2
-						              		costoexistencia=${current.costounitario};//2
-						              		precioventa=${current.precio};
-						              		PVA=parseFloat(precioventa);//2.4
-						              		PEX=parseInt(existencia);//2
-						              		//PEX=existencia;
-						              		CPEX=parseFloat(costoexistencia);//2
-						              		//PVA=parseFloat(precio);			              		
-				              		    }
-		              		   </c:forEach>
-		              		   
-		              		  // alert(PEX);
-		              	        var cantidad=document.getElementById('cantidadproducto').value;//2
-							    PE=parseInt(cantidad);
-							    var costo=document.getElementById('costoproducto').value;//2
-							    CPE=parseFloat(costo);
-		              		
-		              		   if(PEX==0){
-		              			  // alert();
-		              			   CPEX=CPE;   
-		              			 //PEX=1;
-		              			}
-		              		
-		              		   
-		              			 TC = (PEX*CPEX) +(PE*CPE) ;//(2*2) + (2*2)=8
-								 TA = PEX+PE ;//2+2=4	
-								 
-                                 CPU=TC/TA; //8/4                             
-                                 
-           					  var utilidad=document.getElementById("utilidad").value;
-           					  var utilidad1=0.0;
-           					      utilidad1= parseInt(utilidad)/100;
-           					  
-           					 // alert(PVA);
-								 PV=parseFloat(CPU)+(parseFloat(CPU)*utilidad1);  //
-		              			   
-								  var costoproducto = document.getElementById('costoproducto').value;
-								  var cantidad=document.getElementById('cantidadproducto').value;								
-								  var cla2 = document.getElementById('precioproducto').value=PV;								
-								  var cla3 = document.getElementById('subtotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
-								  var cla4 = document.getElementById('existenciaanterior').value=PEX;
-								  var cla5 = document.getElementById('costounitarioanterior').value=CPEX;
-								  var cla6 = document.getElementById('precioanterior').value=PVA;
-								  //alert(PV);
-								  
-								 /* return true;
-								  alert();	*/								  
-								  
-								  return true;
-							  
-			              	}//fin else	
-								    
-							}	    
-	
+				  		
                 </script>
                 
                  <script type="text/javascript">
@@ -273,8 +156,6 @@
               		
               		    if(${current.correlativo} == Id){
               		    	
-              		    	
-                      			
               		    	
               		     nombre.push("${current.nombreProducto}");
               		     costo.push("${current.costounitario}");
@@ -305,28 +186,7 @@
                     
                  </script>
                  
-                  <script>
-                               $( function() {					  
-									   var p;
-									   var p1;
-									  
-										for(var i=0;i<sessionStorage.length;i++){
-						                var producto=sessionStorage.key("f");
-						                p=sessionStorage.getItem('f');
-						                p1=sessionStorage.getItem('f1');
-						                p3=sessionStorage.getItem('cfp');	
-						                p4=sessionStorage.getItem('uti');
-										}
-									  // document.getElementById("fecharetaceo").value=p;
-									   //document.getElementById("fechafacturaproveedor").value=p1;
-									 //  document.getElementById("codigofacturaproveedor").value=p3;
-									 //  document.getElementById("utilidad").value=p4;
-					    
-					           } );
-					                  
-                  </script>                 
-					
-					  
+                 
 					  				  
 				<script>
 					 		
@@ -381,14 +241,6 @@
 					
 					</script>
 					
-					<script type="text/javascript">
-					
-					
-					
-					
-					
-					</script>
-
 </head>
 
 <body >
@@ -490,17 +342,18 @@
                 
                 <tbody>
 					<c:set var="contador" value="${0}" />
-                	<c:forEach items="${etiquetas}" var="producto">
+                	<c:forEach items="${etiquetas}" var="etiquetas">
                     	<tr>
                     	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	        <c:if test = "${salary > 2000}">
 			    	        <c:set var="contador" value="${contador + 1}" />
 			    	        <td>${contador}</td>
+			    	        <td>${etiquetas.codigoproducto}</td>
                        
                         </c:if>
                        
                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                           	<td><a href="<c:url value='/delete-etiqueta-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                           	<td><a href="<c:url value='/delete-etiqueta-${etiquetas.codigoetiqueta}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                        </sec:authorize>   
                     </tr>
                 </c:forEach>

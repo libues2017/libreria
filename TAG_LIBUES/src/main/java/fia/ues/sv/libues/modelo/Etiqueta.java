@@ -17,14 +17,14 @@ public class Etiqueta implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigoetiqueta;
 	
-	@Column(name="CORRELATIVO")
+	@Column(name="CODIGOPRODUCTO")
 	private Integer codigoproducto;
 	
 	@NotEmpty
 	@Column(name="NOMBREPRODUCTO", nullable=false)
 	private String nombreProducto;	
 	
-	@Column(name="PRECIO")
+	@Column(name="PRECIOPRODUCTO")
 	private Double precioproducto;
 	
 	@NotEmpty

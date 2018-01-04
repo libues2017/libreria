@@ -2921,7 +2921,7 @@ public class AppControllerLibues {
         
        
         
-        System.out.println("revisar:----------------------------------------------------------------------------" +  productos1.get(0).getCodigoProducto());
+        System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
         //se obtiene el ultimo codigo retaceo       
         
@@ -2955,7 +2955,6 @@ public class AppControllerLibues {
     	String idPagoAsignado = request.getParameter("idPagoAsignado");
     	
          
-  	
     	if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
