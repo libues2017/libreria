@@ -12,8 +12,10 @@ public interface EtiquetaService {
 	
     void saveArea(Etiqueta etiqueta);	
 	
-	void deleteAreaById(int codigoarea);
+	
 	
 	List<Etiqueta> findAllEtiquetas();
+
+	void deleteEtiquetaById(int codigoetiqueta);
 
 }

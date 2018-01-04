@@ -280,7 +280,7 @@
               		     costo.push("${current.costounitario}");
               		   autor.push("${current.autores}");
               		 precio.push("${current.precio}");
-              		     document.getElementById('nombreprod').value = nombre;
+              		     document.getElementById('nombreProducto').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
               		 // autor=autor.replace("[", " ");
               		 autor[0]=autor[0].replace("[", " ");
@@ -414,7 +414,8 @@
                     </div>
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
-						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm" />
+	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="DIGITE"  class="form-control input-sm"/>   
+	                                          
 					</div>
 				
                     
@@ -441,11 +442,7 @@
 			<div class="form-group row">
 				<div class="panel-body">
 					
-                   
-				
-					
-                  			
-					
+                 					
             	    <c:choose>
                         <c:when test="${edit}">
                         <div class="col-xs-2">
@@ -493,7 +490,7 @@
                 
                 <tbody>
 					<c:set var="contador" value="${0}" />
-                	<c:forEach items="${producto1}" var="producto">
+                	<c:forEach items="${etiquetas}" var="producto">
                     	<tr>
                     	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
 		    	        <c:if test = "${salary > 2000}">
@@ -503,7 +500,7 @@
                         </c:if>
                        
                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                           	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
+                           	<td><a href="<c:url value='/delete-etiqueta-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                        </sec:authorize>   
                     </tr>
                 </c:forEach>
@@ -513,7 +510,7 @@
         </div>
 		
 	    <div class="well lead" align="center">	
-			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
+			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Generar Etiquetas</a>
 		</div>
 	   
 	

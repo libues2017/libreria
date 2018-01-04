@@ -32,7 +32,7 @@ public class EtiquetaServiceImp implements EtiquetaService {
 	}
 
 	@Override
-	public void deleteAreaById(int codigoetiqueta) {
+	public void deleteEtiquetaById(int codigoetiqueta) {
        dao.deleteEtiquetaById(codigoetiqueta);		
 		// TODO Auto-generated method stub
 		
