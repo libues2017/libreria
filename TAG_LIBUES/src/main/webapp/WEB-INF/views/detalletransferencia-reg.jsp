@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Agregar Transferencia</title>
+	<title>Realizar Transferencia</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
@@ -18,6 +18,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+
+<style>
+		p.normal {
+    		font-weight: normal;
+		}
+
+		p.light {
+    		font-weight: lighter;
+		}
+
+		p.thick {
+    		font-weight: bold;
+		}
+
+		p.thicker {
+    		font-weight: 900;
+		}
+	</style>
+	
+	<Style>
+		.control-label {
+			text-align: left;
+		}
+		
+		invalid {
+			border: 2px solid #ff0000;
+		}
+	</Style>
+
 <%
 	// Quiero la fecha actual para ponerla por defecto 
 	String fecha="";
@@ -367,7 +396,7 @@ function cambiar3(){
 <body>
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">Realizar Transferencia</div>
+		<div class="well lead" align="center">NUEVA TRANSFERENCIA</div>
 			<form:form method="POST" name="trans" modelAttribute="detalletransferencia"	class="form-horizontal">
 			<form:input type="hidden" path="codDetalleTransferencia" id="codDetalleTransferencia" />
 		
@@ -390,8 +419,8 @@ function cambiar3(){
 							<label class="form-control" for="nombr">De:</label>
 							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();" 
 							title="Seleccione el Tipo de Transferencia">
-								<OPTION VALUE="Salidas">Salidas</OPTION>
-								<OPTION VALUE="Ingresos">Ingresos</OPTION>
+								<OPTION VALUE="Salidas">Salida de sede Central</OPTION>
+								<OPTION VALUE="Ingresos">Ingreso hacia sede Central</OPTION>
 							</SELECT>
 						</div>
 						
@@ -490,6 +519,7 @@ function cambiar3(){
 			</div>
 		</div>								
 	
+		<p class="thick" align="center">DETALLE DE LOS PRODUCTOS A TRANSFERIR</p>
 				<table class="table table-striped ">
 					<thead>
 						<tr class="success">
