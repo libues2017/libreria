@@ -349,7 +349,7 @@
 			    	        <c:set var="contador" value="${contador + 1}" />
 			    	        <td>${contador}</td>
 			    	        <td>${etiquetas.codigoproducto}</td>
-                       
+                             <td>${etiquetas.nombreProducto}</td>
                         </c:if>
                        
                        <sec:authorize access="hasRole('ADMINISTRADOR')">
