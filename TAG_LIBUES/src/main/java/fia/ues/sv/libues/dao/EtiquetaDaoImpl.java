@@ -43,6 +43,7 @@ public class EtiquetaDaoImpl extends AbstractDao<Integer, Etiqueta> implements E
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Etiqueta> findAllEtiquetas() {
 		// TODO Auto-generated method stub
