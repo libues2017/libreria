@@ -46,6 +46,7 @@
 <%@ page import="java.util.Locale"%>
 <%@ page import="java.io.*" %> 
 <%@ page import="fia.ues.sv.libues.modelo.Producto" %>
+<%@ page import="fia.ues.sv.libues.modelo.Etiqueta" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -398,7 +399,7 @@
 
 
 	  <div class="well lead" align="center">Realizar Retaceo</div>
-        <form:form method="POST" name="retaceo" modelAttribute="etiqueta"  class="form-horizontal"  >
+        <form:form method="POST" name="etiqueta" modelAttribute="etiqueta"  class="form-horizontal"  >
             <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>             
              
       <div class="panel-group">
@@ -428,7 +429,10 @@
                     
                      <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
-	                    <form:input type="number" min="1" path="cantidadproducto" id="cantidadproducto" placeholder="DIGITE" class="form-control input-sm" onchange=" cambiar5();"/>
+	                   	                    
+	                    <input type="number" min="1" path="cantidadproducto" 
+	                    id="cantidadproducto" placeholder="DIGITE" class="form-control 
+	                    input-sm" onchange=" cambiar5();"  /> 
                     </div>
                     
                     
@@ -475,19 +479,11 @@
                 <thead>
                     <tr>
                         <th>Item</th>
-                        <th>Imagen</th>
-                        <th>Titulo</th>
+                        <th>Codigo Producto</th>
+                        <th>Nombre Producto</th>
                         <th>Autores</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >
-                        	<th>Area</th>
-                        </sec:authorize>
-                        <th>Proveedor</th>
-                        <th>Editorial</th>
-                        <th>Precio</th>                       
-                        <th>RESERVAR</th>                        
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                            <th width="100">EDITAR</th>
-                        </sec:authorize>
+                        <th>Cantidad</th>
+                       
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <th width="100">ELIMINAR</th>
                         </sec:authorize>	
@@ -503,26 +499,9 @@
 		    	        <c:if test = "${salary > 2000}">
 			    	        <c:set var="contador" value="${contador + 1}" />
 			    	        <td>${contador}</td>
-                        	<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />"><img  src="data:image/jpeg;base64,${producto.img}" height="100" width="75" /></a></td>
-                    		<td><a  href="<c:url value='/producto-detalle-${producto.codigoProducto }' />">${producto.nombreProducto}</a></td>
-                    		<td>
-                        	<c:forEach items="${producto.autores}" var="autor">
-                        		${autor.nombreautor}<br/> 
-                        	</c:forEach>
-                        	</td>	
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                        	<td>${producto.area.nombrearea}</td>
-                        </sec:authorize>
-                        <td>${producto.proveedor.nombreproveedor}</td>
-                        <td>${producto.editorial.nombre}</td>
-                        <td>$${producto.precio}</td>
-                        
-                        	<td><a href="<c:url value='/edit-reservas-${producto.codigoProducto }'/>"  class="btn btn-primary">Reservar</a></td>
-                        
+                       
                         </c:if>
-                       <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-                           	<td><a href="<c:url value='/edit-producto-${producto.codigoProducto }'/>"  class="btn btn-success custom-width">Editar</a></td>
-                       </sec:authorize>
+                       
                        <sec:authorize access="hasRole('ADMINISTRADOR')">
                            	<td><a href="<c:url value='/delete-producto-${producto.codigoProducto}'/>"  class="btn btn-danger custom-width">Eliminar</a></td>
                        </sec:authorize>   

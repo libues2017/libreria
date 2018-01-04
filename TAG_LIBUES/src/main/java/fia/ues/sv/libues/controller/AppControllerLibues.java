@@ -253,6 +253,11 @@ public class AppControllerLibues {
     public List<Reservas> initializeReservas(){
     	return reservasService.findAllReservas();
     }
+    
+    @ModelAttribute("etiquetas")
+    public List<Etiqueta> initializeEtiquetas(){
+    	return etiquetaService.findAllEtiquetas();
+    }
    /* @ModelAttribute("retaceos")
     public List<Retaceo> initializeRetaceos() {
         return retaceoService.findAllRetaceos();

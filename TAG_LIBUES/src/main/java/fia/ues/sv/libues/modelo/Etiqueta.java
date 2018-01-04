@@ -39,13 +39,7 @@ public class Etiqueta implements Serializable {
 		this.codigoetiqueta = codigoetiqueta;
 	}
 
-	public Integer getCorrelativo() {
-		return getCorrelativo();
-	}
-
-	public void setCorrelativo(Integer correlativo) {
-		this.codigoproducto = correlativo;
-	}
+	
 
 	public String getNombreProducto() {
 		return nombreProducto;
@@ -55,12 +49,21 @@ public class Etiqueta implements Serializable {
 		this.nombreProducto = nombreProducto;
 	}
 
-	public Double getPrecio() {
-		return getPrecio();
+	
+	public Integer getCodigoproducto() {
+		return codigoproducto;
 	}
 
-	public void setPrecio(Double precio) {
-		this.precioproducto = precio;
+	public void setCodigoproducto(Integer codigoproducto) {
+		this.codigoproducto = codigoproducto;
+	}
+
+	public Double getPrecioproducto() {
+		return precioproducto;
+	}
+
+	public void setPrecioproducto(Double precioproducto) {
+		this.precioproducto = precioproducto;
 	}
 
 	public String getAutor_marca() {
