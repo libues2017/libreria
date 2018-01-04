@@ -168,7 +168,7 @@
               		 autor[0]=autor[0].replace("]", " ");
               		
               		// document.getElementById('autor').value = autor[0];
-              		 document.getElementById('autor').value = autor[0];
+              		 document.getElementById('autor_marca').value = autor[0];
               		 
               		  /* sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
@@ -177,6 +177,15 @@
               		
               		    }
               		</c:forEach>
+              		
+
+              		<c:forEach items="${retaceo}" var="retaceo">
+              		
+              		
+              		
+              		
+              		</c:forEach>
+              		
               		
                       return true;
 					  alert();			  
@@ -266,14 +275,16 @@
                     </div>
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
-	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="DIGITE"  class="form-control input-sm"/>   
+	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
 	                                          
 					</div>
 				
                     
                      <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Nombre autor:</label>
-						<input type="text"  id="autor" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
+	                        
+						   
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
@@ -282,10 +293,11 @@
                     
                      <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
-	                   	                    
-	                    <input type="number" min="1" path="cantidadproducto" 
-	                    id="cantidadproducto" placeholder="DIGITE" class="form-control 
-	                    input-sm" onchange=" cambiar5();"  /> 
+	                   	 
+	                   	 <form:input type="number" min="1" path="cantidad" 
+	                    id="cantidad" placeholder="AUTOMATICO" class="form-control 
+	                    input-sm" onchange=" cambiar5();"   />
+	                    
                     </div>
                     
                     
@@ -350,6 +362,9 @@
 			    	        <td>${contador}</td>
 			    	        <td>${etiquetas.codigoproducto}</td>
                              <td>${etiquetas.nombreProducto}</td>
+                             <td>${etiquetas.precioproducto}</td>
+                             <td>${etiquetas.autor_marca}</td>
+                             <td>${etiquetas.cantidad}</td>
                         </c:if>
                        
                        <sec:authorize access="hasRole('ADMINISTRADOR')">

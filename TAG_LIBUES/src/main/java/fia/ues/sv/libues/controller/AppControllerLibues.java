@@ -2923,13 +2923,14 @@ public class AppControllerLibues {
         
         System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
-        //se obtiene el ultimo codigo retaceo       
-        
-		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+      
+		//List<detalleretaceo> retaceo = retaceoService.findAllRetaceos();
 		
-		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigo", codigo);    
+		//Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
+       // HttpSession sesion1=request.getSession(true);
+       // sesion1.setAttribute("codigo", codigo);  
+		
+		
         model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
@@ -2964,17 +2965,7 @@ public class AppControllerLibues {
     	//System.out.println("revisar:----------------------------------------------------------------------------");
     	
     	 String nombreproveedor = request.getParameter("nombreproveedor");
-    	//Integer utilidad = Integer.parseInt(request.getParameter("utilidad"));
-       // String revisar=nombreproveedor;
-    	
-        
-        HttpSession sesion = request.getSession();
-       // Double total=(Double)sesion.getAttribute("total");
-        Double total=0.0;
-      
-    	
-      
-    	
+     
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect://nuevas-etiquetas";
