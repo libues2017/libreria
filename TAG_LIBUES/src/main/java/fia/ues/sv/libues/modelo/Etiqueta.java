@@ -18,14 +18,14 @@ public class Etiqueta implements Serializable {
 	private Integer codigoetiqueta;
 	
 	@Column(name="CORRELATIVO")
-	private Integer correlativo;
+	private Integer codigoproducto;
 	
 	@NotEmpty
 	@Column(name="NOMBREPRODUCTO", nullable=false)
 	private String nombreProducto;	
 	
 	@Column(name="PRECIO")
-	private Double precio;
+	private Double precioproducto;
 	
 	@NotEmpty
 	@Column(name="AUTOR_MARCA")
@@ -40,11 +40,11 @@ public class Etiqueta implements Serializable {
 	}
 
 	public Integer getCorrelativo() {
-		return correlativo;
+		return getCorrelativo();
 	}
 
 	public void setCorrelativo(Integer correlativo) {
-		this.correlativo = correlativo;
+		this.codigoproducto = correlativo;
 	}
 
 	public String getNombreProducto() {
@@ -56,11 +56,11 @@ public class Etiqueta implements Serializable {
 	}
 
 	public Double getPrecio() {
-		return precio;
+		return getPrecio();
 	}
 
 	public void setPrecio(Double precio) {
-		this.precio = precio;
+		this.precioproducto = precio;
 	}
 
 	public String getAutor_marca() {

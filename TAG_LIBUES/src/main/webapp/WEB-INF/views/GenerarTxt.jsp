@@ -282,10 +282,12 @@
               		     document.getElementById('nombreprod').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
               		 // autor=autor.replace("[", " ");
-              		 autor=autor[0].replace("[", " ");
-              		 autor=autor[0].replace("]", " ");
+              		 autor[0]=autor[0].replace("[", " ");
+              		 autor[0]=autor[0].replace("]", " ");
               		
+              		// document.getElementById('autor').value = autor[0];
               		 document.getElementById('autor').value = autor[0];
+              		 
               		  /* sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
               		   //document.getElementById('existencia').value =sessionId;
@@ -323,18 +325,7 @@
 					                  
                   </script>                 
 					
-					  <script>
-								  $( function() {								  
-								    var miArray=new Array();
-								    var sessionId = [];								    
-								    <c:forEach items="${proveedor}" var="current">										
-									  sessionId.push("${current.codigoproveedor}");								
-									</c:forEach>	
-								    $( "#codigoproveedor" ).autocomplete({								  
-								    	source: sessionId
-								    });
-								  } );
-					  </script>
+					  
 					  				  
 				<script>
 					 		
@@ -407,8 +398,8 @@
 
 
 	  <div class="well lead" align="center">Realizar Retaceo</div>
-        <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
-            <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
+        <form:form method="POST" name="retaceo" modelAttribute="etiqueta"  class="form-horizontal"  >
+            <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>             
              
       <div class="panel-group">
       	

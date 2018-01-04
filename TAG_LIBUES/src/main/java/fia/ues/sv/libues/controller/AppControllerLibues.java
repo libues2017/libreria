@@ -48,6 +48,7 @@ import fia.ues.sv.libues.modelo.Book;
 import fia.ues.sv.libues.modelo.DetalleRetaceo;
 import fia.ues.sv.libues.modelo.DetalleTransferencia;
 import fia.ues.sv.libues.modelo.Editorial;
+import fia.ues.sv.libues.modelo.Etiqueta;
 import fia.ues.sv.libues.modelo.Factura;
 import fia.ues.sv.libues.modelo.FacturaDetalle;
 import fia.ues.sv.libues.modelo.Proveedor;
@@ -2889,8 +2890,16 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.GET)
     public String newetiquetas( Busqueda busqueda,HttpServletRequest request,ModelMap model) {
-        DetalleRetaceo detalleretaceo = new DetalleRetaceo();
-        model.addAttribute("detalleretaceo", detalleretaceo);
+       // DetalleRetaceo detalleretaceo = new DetalleRetaceo();
+        //model.addAttribute("detalleretaceo", detalleretaceo);
+    	
+    	 //DetalleRetaceo busqued = new DetalleRetaceo();
+        //model.addAttribute("detalleretaceo", detalleretaceo);
+    	
+    	
+    	Etiqueta etiqueta=new Etiqueta();
+    	model.addAttribute("etiqueta", etiqueta);
+    	
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
@@ -2956,15 +2965,16 @@ public class AppControllerLibues {
 		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
         HttpSession sesion1=request.getSession(true);
         sesion1.setAttribute("codigo", codigo);    
+        model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
-        model.addAttribute("producto1", productos1);
+        model.addAttribute("producto1", productos1);///la lista a desplegar 
         model.addAttribute("autor", autor);
       
         return "GenerarTxt";
   }
     
-    @RequestMapping(value = { "/etiqueta-agregar" }, method = RequestMethod.POST)   
+    @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.POST)   
     public String saveEtiqueta( HttpServletRequest request,@Valid DetalleRetaceo detalleretaceo,
     		                  BindingResult result,
                               ModelMap model,@RequestParam(required = false) String fecharetaceo,
@@ -2975,6 +2985,10 @@ public class AppControllerLibues {
                 String idPagoAsignado = request.getParameter("idPagoAsignado");
                 String idReversoAsignado = request.getParameter("idReversoAsignado");    
     	  */
+    	
+    	
+    	String idPagoAsignado = request.getParameter("idPagoAsignado");
+    	
  
           HttpSession sesion2=request.getSession(true);
   	
@@ -3031,7 +3045,7 @@ public class AppControllerLibues {
  		
     	model.addAttribute("loggedinuser", getPrincipal());
 
-         return "redirect:/detalleretaceo-agregar";
+         return "redirect://nuevas-etiquetas";
       //  return "detalleretaceo-reg";
       
        // return "retaceo-reg-succ";
