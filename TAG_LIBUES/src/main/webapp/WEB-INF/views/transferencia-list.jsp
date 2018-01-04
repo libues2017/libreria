@@ -39,7 +39,7 @@
 			var tabla =  $('#transf').DataTable( {
 				data:  dataSet,
 			    columns: [
-			    	{ title: "Item" },
+			    	{ title: "Ítem" },
 			    	{ title: "# Transferencia" },
 			        { title: "Tipo" },
 			    	{ title: "Sucursal" },
@@ -62,7 +62,7 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "/TAG_LIBUES/edit-area-";
+			    	var res = "/TAG_LIBUES/edit-transferencia-";
 			    	var res3 = "/TAG_LIBUES//delete-transferencia-";
 			    	         
 			    	var res1=dato;
