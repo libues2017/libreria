@@ -7,7 +7,8 @@
 <head>
  	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Lista de Transferencias</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
+    <!-- <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link> -->
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
@@ -62,7 +63,7 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "/TAG_LIBUES/edit-transferencia-";
+			    	var res = "#";
 			    	var res3 = "/TAG_LIBUES//delete-transferencia-";
 			    	         
 			    	var res1=dato;
@@ -113,7 +114,7 @@
 				<div class="modal-body" id="confirmMessage">
 				</div>
 				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Sí</button>
 		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
 		        </div>
 			</div>
@@ -132,7 +133,7 @@
 				                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
 				                <br></br>
 				                <p>OPCIONES</p>
-				               	<!--  <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> -->
+				               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
 				               	<sec:authorize access="hasRole('ADMINISTRADOR')">
 				               	<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
 				               	</sec:authorize>
@@ -144,75 +145,37 @@
     		    	
 			<div class="row col-md-13">
 		    	<div class="panel panel-default">        
-		        	<div class="panel-heading"><span class="lead">Transferencias</span></div>			
+		        	<div class="panel-heading" align="center"><span class="lead">LISTA DE TRANSFERENCIAS</span></div>			
 					<table id="transf" class="display" >					
 					</table><br/>
 				</div>
 			</div>
 		</div>
-	
-	<!-- 
-	<div class="container">
-		<div class="panel-group">
-    		<div class="panel panel-default" align="center">
-      		<div class="panel-heading" ><h4>TRANSFERENCIAS</h4></div>
-      		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
-      		<div class="panel-body">
-      			<a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Realizar Transferencia</a> ||||||||
-                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-      		</div>
-      		 </sec:authorize>
-    		</div>
-        </div>
-        
-        <div class="panel panel-default">
-        
-              <!-- Default panel contents -->
-              <!-- 
-            <div class="panel-heading"><span class="lead">Listado de Transferencia</span></div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>                        
-                        <th>Item</th>
-                        <th># Transferencia</th>                        
-                        <th>Tipo</th>
-                        <th>Sucursal</th>                        
-                        <th>Fecha</th>
-                        <th>Total</th>
-                        <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">                                                  
-                            <th width="100"></th>
-                        </sec:authorize>
-                         
-                    </tr>
-                </thead>
-                
-                <tbody>
-                	<c:set var="contador" value="${0}" />
-                	<c:forEach items="${transferencias}" var="transferencia">
-                    	<tr>
-                    		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
-		    	            <c:if test = "${salary > 2000}">
-			    	            <c:set var="contador" value="${contador + 1}" />
-			    	            <td>${contador}</td>  
-	                    		<td><a  href="<c:url value='/transferencia-detalle-${transferencia.numeroTransferencia}' />">${transferencia.numeroTransferencia}</a></td>
-	                    		<td>${transferencia.tipoTransferencia}</td>	
-	                        	<td>${transferencia.sucursal}</td>	
-	                        	<td>${transferencia.fechaTransferencia}</td>
-	                        	<td>$${transferencia.total}</td>
-                        	</c:if>
-                        	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO')">
-                        		<td><a href="<c:url value='/delete-transferencia-${transferencia.codTransferencia}'/>" class="btn btn-danger custom-width">Eliminar</a></td>
-                        	</sec:authorize>
-                    	</tr>
-                	</c:forEach>
-                </tbody>
-            </table>
-        	</div>
-        </div>
--->
+
   <div class="row"><%@include file="foot.jsp" %></div>
   <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
- <!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
- <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
+  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+ <!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>-->  
+ 
 </body>
+<script>
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
+$('#btnDelete').on('click', function(e){
+		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
+			//alert();//My code to delete
+		});
+	});
+
+  function confirmDialog(message, onConfirm){
+	    var fClose = function(){
+			modal.modal("hide");
+	    };
+	    var modal = $("#confirmModal");
+	    modal.modal("show");
+	    $("#confirmMessage").empty().append(message);
+	    $("#confirmOk").one('click', onConfirm);
+	    $("#confirmOk").one('click', fClose);
+	    $("#confirmCancel").one("click", fClose);
+  }
+  </script>
 </html>
