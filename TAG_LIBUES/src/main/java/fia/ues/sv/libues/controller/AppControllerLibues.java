@@ -1349,8 +1349,10 @@ public class AppControllerLibues {
             	 
            	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
     	     	
-    	     	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
-    	    	
+           	 Integer marcado=1;
+         	  
+       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
+       	 
     		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
    		   
    	  } 
@@ -1404,12 +1406,12 @@ public class AppControllerLibues {
         	  
         	  costo=costo/existencia;
         	  
-        	 Producto producto= productoService.findByCorrelativo(codigoproducto);
-        	  
-        	 
+        	  Producto producto= productoService.findByCorrelativo(codigoproducto);
+        	          	 
         	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
-        	  
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
+        	  Integer marcado=1;
+        	          	  
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
         	 
           }
           
@@ -1499,7 +1501,10 @@ public class AppControllerLibues {
          	 
         	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
         	  
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);        	 
+        	  Integer marcado=1;
+          	  
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
+        	 
           }
           
          	
@@ -1587,7 +1592,10 @@ public class AppControllerLibues {
    	 
   	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
           
-       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
+  	 Integer marcado=0;
+ 	  
+	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
+	 
        	  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
        	  
        	  
