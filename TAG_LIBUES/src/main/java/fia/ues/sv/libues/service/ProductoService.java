@@ -26,7 +26,7 @@ public interface ProductoService {
 	
 	List<Producto> customSearch(Area area, Editorial editorial, Proveedor proveedor, TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
 
-	void updateprecioProducto(Integer codigoproducto, Double precio, Double costo, Integer existencia);
+	void updateprecioProducto(Integer codigoproducto, Double precio, Double costo, Integer existencia,Integer cantidadetiquetar);
 	
 	void updateExistencia(Integer codigoproducto, Integer existencia, Integer sala);	
 
@@ -44,6 +44,8 @@ public interface ProductoService {
 
 	List<Producto> customSearchProducto(Producto producto, Area area, Editorial editorial, Proveedor proveedor,
 			TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
+
+	
 
 
 }

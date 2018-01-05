@@ -79,13 +79,15 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public void updateprecioProducto(Integer codigoproducto,Double precio,Double costo,Integer existencia) {
+	public void updateprecioProducto(Integer codigoproducto,Double precio,Double costo,Integer existencia,Integer cantidadetiquetar) {
 		//Producto producto = new Producto();
 		Producto entity = dao.findByCorrelativo(codigoproducto);
 		if(entity !=null){			
 			entity.setCostounitario(costo);
 			entity.setPrecio(precio);
 			entity.setExistencia(existencia);	
+			
+			
 		}		
 	}
 	

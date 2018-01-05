@@ -60,6 +60,8 @@ public class DetalleRetaceoServiceImpl implements DetalleRetaceoService{
 			entity.setCostounitarioanterior(detalleRetaceo.getCostounitarioanterior());
 			entity.setSubtotal(detalleRetaceo.getSubtotal());
 			
+			
+			
 		}
 		
 		

@@ -1180,11 +1180,7 @@ public class AppControllerLibues {
 			    	  List<Proveedor> proveedores = proveedorService.findAllProveedores();				    	  
 				      List<Producto> productos = productoService.findAllProductos();
 				      
-				      
-				      
-				    	  
-				    	  
-				      
+				      				      
 				      Retaceo retaceo= retaceoService.findById(codigoretaceo);				    	 
 				      Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
 				      Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
@@ -1292,10 +1288,7 @@ public class AppControllerLibues {
     	
     	
     	
-    	int codigodetalleretaceo=0;
-    	
-   	    
-    	
+    	int codigodetalleretaceo=0; 
     	detalleretaceoService.deleteRetaceoById(codigoretaceo);
     	
     
@@ -1313,14 +1306,8 @@ public class AppControllerLibues {
     	
     	int codigodetalleretaceo=0;
 
-    	int codigoproducto=0;
-    	
-      
-      
-    	
-    	
-    	
-    	
+    	int codigoproducto=0;    	
+         	
     	 List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo); 
     	 
     	 retaceoBuscar.size();
@@ -1356,14 +1343,14 @@ public class AppControllerLibues {
     	     	if(existencia>0){
     	     	  costo=costo/existencia;
     	     	}
-    	     	  
-    	     	  
-    	        
-    	     	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+    	     	
+    	     	 Producto producto= productoService.findByCorrelativo(codigoproducto);
+           	  
+            	 
+           	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+    	     	
+    	     	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
     	    	
-    	    	   		  
-    		  
-    		  
     		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
    		   
    	  } 
@@ -1416,7 +1403,13 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existencia;
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+        	  
+        	 Producto producto= productoService.findByCorrelativo(codigoproducto);
+        	  
+        	 
+        	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+        	  
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
         	 
           }
           
@@ -1501,7 +1494,12 @@ public class AppControllerLibues {
         	  
         	  costo=costo/existencia;
         	  
-        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);        	 
+        	  Producto producto= productoService.findByCorrelativo(codigoproducto);
+        	  
+         	 
+        	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+        	  
+        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);        	 
           }
           
          	
@@ -1584,9 +1582,12 @@ public class AppControllerLibues {
        	}
        //	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
        	  
-       	  
+        Producto producto= productoService.findByCorrelativo(codigoproducto);
+  	  
+   	 
+  	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
           
-       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia);
+       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar);
        	  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
        	  
        	  
