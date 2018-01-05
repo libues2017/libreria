@@ -250,9 +250,6 @@
 		  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 
-<div class="container">
-</div>
-
 
 <div class="container">
 
@@ -261,7 +258,19 @@
         <form:form method="POST" name="etiqueta" modelAttribute="etiqueta"  class="form-horizontal"  >
             <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>   
             
-                      
+           <div class="panel-group">
+           
+	           <div class="panel panel-success">	
+				<div class="form-group row">
+					<div class="panel-body">
+						<div class="col-xs-3">
+	           
+	                    </div>  
+	                </div>               
+	             </div>  
+	            </div>  
+           </div>  
+           
              
       <div class="panel-group">
       	
@@ -277,20 +286,17 @@
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
 	                                          
-					</div>
-				
+					</div>		
                     
                      <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Nombre autor:</label>
 						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
-	                        
-						   
+	                       					   
                     </div>
                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
 	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
-                    </div>
-                    
+                    </div>                    
                      <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
 	                   	 
