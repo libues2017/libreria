@@ -24,7 +24,7 @@ public class EtiquetaServiceImp implements EtiquetaService {
 	}
 
 	@Override
-	public void saveArea(Etiqueta etiqueta) {
+	public void saveEtiqueta(Etiqueta etiqueta) {
 		// TODO Auto-generated method stub
 		
 		dao.saveEtiqueta(etiqueta);

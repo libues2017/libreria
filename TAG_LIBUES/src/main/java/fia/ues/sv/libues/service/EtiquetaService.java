@@ -10,7 +10,7 @@ public interface EtiquetaService {
 	
     Etiqueta findById(int codigoetiqueta);
 	
-    void saveArea(Etiqueta etiqueta);	
+    void saveEtiqueta(Etiqueta etiqueta);	
 	
 	
 	

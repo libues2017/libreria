@@ -264,8 +264,16 @@
 				<div class="form-group row">
 					<div class="panel-body">
 						<div class="col-xs-3">
-	           
+						
+							<div class="col-xs-2">
+	                            <input type="button" value="CARGAR" id="cargar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()" onclick="etiqueta.submit()"  />
+	                       	</div>
+	                       	
+	                    
 	                    </div>  
+	                    <div class="col-xs-4">
+		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Cargar 1</a>
+		                    </div>
 	                </div>               
 	             </div>  
 	            </div>  

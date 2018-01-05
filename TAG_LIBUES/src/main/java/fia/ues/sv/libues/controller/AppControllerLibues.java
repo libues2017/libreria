@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
+import java.util.Set;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -2983,10 +2983,80 @@ public class AppControllerLibues {
        // return "retaceo-reg-succ";
     }
     
+    @RequestMapping(value = { "/cargar-etiquetas" }, method = RequestMethod.GET)
+    public String cargartiquetas( Busqueda busqueda,HttpServletRequest request,ModelMap model) {
+      
+    	Etiqueta etiqueta=new Etiqueta();
+    	//model.addAttribute("etiqueta", etiqueta);
+    	
+     //   model.addAttribute("edit", false);
+     //   model.addAttribute("loggedinuser", getPrincipal());
+    	
+   	     
+        List<Proveedor> proveedores = proveedorService.findAllProveedores();
+        List<Producto> productos = productoService.findAllProductos();
+        List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
+        
+        
+       // List<Autor> autor=autorService.findAllAutors();
+        
+        Editorial editorial = editorialService.findById(busqueda.getCodigoeditorial());
+    	Area area = areaService.findById(busqueda.getCodigoarea());
+    	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
+    	TipoProducto tipoproducto = tipoProductoService.findByCodTipoProducto(busqueda.getCodTipoProducto());
+    	Autor autor = autorService.findById(busqueda.getCodigoautor());
+    	Producto producto1=productoService.findByCodigoProducto(busqueda.getCodigoproducto());
+        List<Producto> productos1=productoService.customSearchProducto(producto1, area, editorial, proveedor, tipoproducto, autor, busqueda);
+        productos1.get(0).getCodigoProducto();
+        
+       
+        
+        for(int i=0;i<productos.size();i++){
+    	   
+    	   
+        	Etiqueta etiqueta1=new Etiqueta();
+     
+       	  
+    	String autor1=productos.get(i).getAutores().toString();
+    	etiqueta1.setCodigoproducto(productos.get(i).getCodigoProducto());
+    	etiqueta1.setNombreProducto(productos.get(i).getNombreProducto());
+    	etiqueta1.setCantidad(productos.get(i).getCantdadetiquetar());
+    	etiqueta1.setPrecioproducto(productos.get(i).getPrecio());
+    	etiqueta1.setAutor_marca(autor1);
+    	
+    	etiquetaService.saveEtiqueta(etiqueta1);
+    	
+    	 System.out.println("autor:----------------------------------------------------------------------------"+productos.get(i).getNombreProducto());
+        	
+    	// etiqueta1.setAutor_marca() ;
+    	   
+       }
+        
+        
+        
+        
+        
+       // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
+    	
+      
+		
+		
+        
+        
+       /* model.addAttribute("proveedor", busqueda);
+        model.addAttribute("proveedor", proveedores);
+        model.addAttribute("producto", productos);
+        model.addAttribute("etiquetas", etiqueta1);///la lista a desplegar 
+        model.addAttribute("autor", autor);*/
+        return "redirect:/nuevas-etiquetas";
+       // return "GenerarTxt";
+  }
+    
+    
     @RequestMapping(value = { "/delete-etiqueta-{codigoetiqueta}" }, method = RequestMethod.GET)
     public String deleteEtiqueta(@PathVariable Integer codigoetiqueta) {
   	  etiquetaService.deleteEtiquetaById(codigoetiqueta);     	    	
-        return "redirect:/cotizacion-list";
+        return "redirect:/nuevas-etiquetas";
     }
     
     
