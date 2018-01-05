@@ -2952,8 +2952,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.POST)   
     public String saveEtiqueta( HttpServletRequest request,@Valid Etiqueta etiqueta,
     		                  BindingResult result,
-                              ModelMap model,@RequestParam(required = false) String fecharetaceo,
-                              @PathVariable Integer codigoetiqueta
+                              ModelMap model
                              ) 
     		throws IOException, ParseException {
          	/*
@@ -2962,19 +2961,14 @@ public class AppControllerLibues {
     	  */
     	
     	
-    	String idPagoAsignado = request.getParameter("idPagoAsignado");
-    	
+    	etiquetaService.saveEtiqueta(etiqueta);
          
     	if (result.hasErrors()) {
             return "detalleretaceo-reg";
         }
     	//detalleretaceoService.savedetalleRetaceo(detalleretaceo);
 		
-    	Integer codigoretaceo = Integer.parseInt(request.getParameter("codigoretaceo"));
-    	//System.out.println("revisar:----------------------------------------------------------------------------");
     	
-    	 String nombreproveedor = request.getParameter("nombreproveedor");
-     
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect://nuevas-etiquetas";
@@ -3022,7 +3016,7 @@ public class AppControllerLibues {
     	//.replace("[", " ");
     	autor1=autor1.replace("[", " ");
     	autor1=autor1.replace("]", " ");
-    	etiqueta1.setCodigoproducto(productos.get(i).getCodigoProducto());
+    	etiqueta1.setCodigoproducto(productos.get(i).getCorrelativo());
     	etiqueta1.setNombreProducto(productos.get(i).getNombreProducto());
     	etiqueta1.setCantidad(productos.get(i).getCantidadetiquetar());
     	etiqueta1.setPrecioproducto(productos.get(i).getPrecio());
