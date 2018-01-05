@@ -128,7 +128,7 @@ public class Producto implements Serializable{
 	
 	
 	@Column(name="CANTIDADETIQUETAR")
-	private Integer cantdadetiquetar ;
+	private Integer cantidadetiquetar ;
 	
 	
 
@@ -140,12 +140,14 @@ public class Producto implements Serializable{
 		this.marcado = marcado;
 	}
 
-	public Integer getCantdadetiquetar() {
-		return cantdadetiquetar;
+	
+
+	public Integer getCantidadetiquetar() {
+		return cantidadetiquetar;
 	}
 
-	public void setCantdadetiquetar(Integer cantdadetiquetar) {
-		this.cantdadetiquetar = cantdadetiquetar;
+	public void setCantidadetiquetar(Integer cantidadetiquetar) {
+		this.cantidadetiquetar = cantidadetiquetar;
 	}
 
 	public Integer getCodigoProducto() {

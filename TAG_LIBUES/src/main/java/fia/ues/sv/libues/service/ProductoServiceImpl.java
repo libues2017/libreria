@@ -86,7 +86,7 @@ public class ProductoServiceImpl implements ProductoService{
 			entity.setCostounitario(costo);
 			entity.setPrecio(precio);
 			entity.setExistencia(existencia);	
-			entity.setCantdadetiquetar(cantidadetiquetar);
+			entity.setCantidadetiquetar(cantidadetiquetar);
 			entity.setMarcado(marcado);
 			
 		}		

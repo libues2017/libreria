@@ -150,6 +150,7 @@
                             var costo=[];
                             var autor=[];
                             var precio=[];
+                            var cantidad=[];
                         	
                         	
               		<c:forEach items="${producto}" var="current">
@@ -161,6 +162,7 @@
               		     costo.push("${current.costounitario}");
               		   autor.push("${current.autores}");
               		 precio.push("${current.precio}");
+              		 cantidad.push("${current.cantidadetiquetar}");
               		     document.getElementById('nombreProducto').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
               		 // autor=autor.replace("[", " ");
@@ -169,6 +171,7 @@
               		
               		// document.getElementById('autor').value = autor[0];
               		 document.getElementById('autor_marca').value = autor[0];
+              		 document.getElementById('cantidad').value = cantidad;
               		 
               		  /* sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
@@ -263,17 +266,10 @@
 	           <div class="panel panel-success">	
 				<div class="form-group row">
 					<div class="panel-body">
-						<div class="col-xs-3">
-						
-							<div class="col-xs-2">
-	                            <input type="button" value="CARGAR" id="cargar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()" onclick="etiqueta.submit()"  />
-	                       	</div>
-	                       	
-	                    
-	                    </div>  
+						 
 	                    <div class="col-xs-4">
-		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Cargar 1</a>
-		                    </div>
+		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Cargar</a>
+		                </div>
 	                </div>               
 	             </div>  
 	            </div>  
@@ -333,7 +329,7 @@
                         
                         <c:otherwise>
                         <div class="col-xs-2">
-                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
+                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()" onclick="etiqueta.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
@@ -358,6 +354,7 @@
                         <th>Nombre Producto</th>
                         <th>Autores</th>
                         <th>Cantidad</th>
+                         <th>Precio</th>
                        
                         <sec:authorize access="hasRole('ADMINISTRADOR')">
                             <th width="100">ELIMINAR</th>
@@ -375,10 +372,10 @@
 			    	        <c:set var="contador" value="${contador + 1}" />
 			    	        <td>${contador}</td>
 			    	        <td>${etiquetas.codigoproducto}</td>
-                             <td>${etiquetas.nombreProducto}</td>
-                             <td>${etiquetas.precioproducto}</td>
+                             <td>${etiquetas.nombreProducto}</td>                             
                              <td>${etiquetas.autor_marca}</td>
                              <td>${etiquetas.cantidad}</td>
+                             <td>${etiquetas.precioproducto}</td>
                         </c:if>
                        
                        <sec:authorize access="hasRole('ADMINISTRADOR')">

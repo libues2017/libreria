@@ -1347,7 +1347,7 @@ public class AppControllerLibues {
     	     	 Producto producto= productoService.findByCorrelativo(codigoproducto);
            	  
             	 
-           	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+           	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
     	     	
            	 Integer marcado=1;
          	  
@@ -1408,7 +1408,7 @@ public class AppControllerLibues {
         	  
         	  Producto producto= productoService.findByCorrelativo(codigoproducto);
         	          	 
-        	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+        	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
         	  Integer marcado=1;
         	          	  
         	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
@@ -1499,7 +1499,7 @@ public class AppControllerLibues {
         	  Producto producto= productoService.findByCorrelativo(codigoproducto);
         	  
          	 
-        	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+        	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
         	  
         	  Integer marcado=1;
           	  
@@ -1590,7 +1590,7 @@ public class AppControllerLibues {
         Producto producto= productoService.findByCorrelativo(codigoproducto);
   	  
    	 
-  	  Integer cantidadetiquetar=producto.getCantdadetiquetar();
+  	  Integer cantidadetiquetar=producto.getCantidadetiquetar();
           
   	 Integer marcado=0;
  	  
@@ -2929,7 +2929,7 @@ public class AppControllerLibues {
         productos1.get(0).getCodigoProducto();
         
        
-        
+       // productos.get(0).get
        // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
       
@@ -3015,12 +3015,16 @@ public class AppControllerLibues {
     	   
     	   
         	Etiqueta etiqueta1=new Etiqueta();
-     
-       	  
+        	
+        	if(productos.get(i).getMarcado()==1){
+        	
     	String autor1=productos.get(i).getAutores().toString();
+    	//.replace("[", " ");
+    	autor1=autor1.replace("[", " ");
+    	autor1=autor1.replace("]", " ");
     	etiqueta1.setCodigoproducto(productos.get(i).getCodigoProducto());
     	etiqueta1.setNombreProducto(productos.get(i).getNombreProducto());
-    	etiqueta1.setCantidad(productos.get(i).getCantdadetiquetar());
+    	etiqueta1.setCantidad(productos.get(i).getCantidadetiquetar());
     	etiqueta1.setPrecioproducto(productos.get(i).getPrecio());
     	etiqueta1.setAutor_marca(autor1);
     	
@@ -3029,6 +3033,7 @@ public class AppControllerLibues {
     	 System.out.println("autor:----------------------------------------------------------------------------"+productos.get(i).getNombreProducto());
         	
     	// etiqueta1.setAutor_marca() ;
+       }
     	   
        }
         
