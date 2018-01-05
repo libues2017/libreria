@@ -179,14 +179,7 @@
               		</c:forEach>
               		
 
-              		<c:forEach items="${retaceo}" var="retaceo">
-              		
-              		
-              		
-              		
-              		</c:forEach>
-              		
-              		
+              		              		
                       return true;
 					  alert();			  
                         	
@@ -256,12 +249,19 @@
 
 		  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
+
+<div class="container">
+</div>
+
+
 <div class="container">
 
 
-	  <div class="well lead" align="center">Realizar Retaceo</div>
+	  <div class="well lead" align="center">Generacion Etiquetas</div>
         <form:form method="POST" name="etiqueta" modelAttribute="etiqueta"  class="form-horizontal"  >
-            <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>             
+            <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>   
+            
+                      
              
       <div class="panel-group">
       	

@@ -1590,7 +1590,7 @@ public class AppControllerLibues {
         Producto producto= productoService.findByCorrelativo(codigoproducto);
   	  
    	 
-  	  Integer cantidadetiquetar=cantidad+producto.getCantdadetiquetar();
+  	  Integer cantidadetiquetar=producto.getCantdadetiquetar();
           
   	 Integer marcado=0;
  	  
