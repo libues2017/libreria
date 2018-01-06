@@ -57,20 +57,26 @@
 			    	$(this).addClass('selected');
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
-			    	var h2 = document.createElement("hola");			    	            
+			    	var h2 = document.createElement("hola");
+			    	var h3 = document.createElement("hola");
 			    	var res = "/TAG_LIBUES/edit-numero-factura-";
 			    	var res3 = "/TAG_LIBUES/cambio-estado-factura-";
+			    	var res5 = "/TAG_LIBUES/factura-detalle-";
 			    	         
 			    	var res1=dato;
-			    	var res2=res.concat(res1);//link editar			    	         
-			    	var res4=res3.concat(res1);//link eliminar			    	       
+			    	var res2=res.concat(res1); //link editar			    	         
+			    	var res4=res3.concat(res1);//link eliminar
+			    	var res6=res5.concat(res1);//link ver
 			    	var str = "Editar";
 			    	var str1 = "Aceptar";
+			    	var str2 = "Ver";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
+			    	var result2 = str2.link(res6);
 			    	     
 			    	document.getElementById("devolver").innerHTML = result;//editar
 			    	document.getElementById("devolver1").innerHTML = result1;//eliminar
+			    	document.getElementById("devolver2").innerHTML = result2;//eliminar
 			    }	  
 			} );
 			        
@@ -123,12 +129,11 @@
 		<!--<h1>Areas</h1>-->
 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div   class="well" align="center">
-            	<a href="<c:url value='/index'/>" class="btn btn-primary"> Regresar</a>
-                <p>OPCIONES</p>
-               	<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+            	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>
                	<sec:authorize access="hasRole('ADMINISTRADOR')">
                	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-               	</sec:authorize>                       			
+               	</sec:authorize>
+               	|||<button type="button" id="devolver2" class="btn btn-success" > Ver</button>                       			
             </div>
        </sec:authorize>
        
@@ -139,6 +144,9 @@
 			<table id="facturas" class="display" >					
 			</table><br/>
 		</div>
+	</div>
+	<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
 	</div>
 </div>
 
