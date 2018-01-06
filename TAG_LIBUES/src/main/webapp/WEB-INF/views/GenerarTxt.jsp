@@ -267,9 +267,22 @@
 				<div class="form-group row">
 					<div class="panel-body">
 						 
-	                    <div class="col-xs-4">
+	                    <div class="col-xs-2">
 		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Cargar</a>
 		                </div>
+		                <div class="col-xs-2">
+		               <input type="text"  name="numero" id="numero" class="form-control input-sm" value='${marcado}' />     
+				  </div>
+				
+				      <div class="col-xs-4">
+				
+				          <label class="form-control" for="nombr">Registros marcados en el maestro</label>		                
+		                </div>
+		                
+		                <div class="col-xs-2">
+		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Desmarcar</a>
+		                </div>
+		                
 	                </div>               
 	             </div>  
 	            </div>  

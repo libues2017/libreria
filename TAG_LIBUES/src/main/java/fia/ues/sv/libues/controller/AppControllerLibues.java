@@ -2917,6 +2917,22 @@ public class AppControllerLibues {
         List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
         
         
+        HttpSession sesion=request.getSession(true);    	
+        //Integer codigoCotizacion = (Integer) sesion.getAttribute("codigo6");          
+      //  sesion.setAttribute("codigoultimo", codigoCotizacion);         
+        int marcado=0;
+        
+        for(int j=0;j<productos.size();j++){
+        	
+        	//Integer marcado=1;
+        	if(productos.get(j).getMarcado()==1){
+        		
+        	   marcado=marcado+1;
+        	}
+        	
+        	
+        }
+        
        // List<Autor> autor=autorService.findAllAutors();
         
         Editorial editorial = editorialService.findById(busqueda.getCodigoeditorial());
@@ -2939,7 +2955,7 @@ public class AppControllerLibues {
        // HttpSession sesion1=request.getSession(true);
        // sesion1.setAttribute("codigo", codigo);  
 		
-		
+        model.addAttribute("marcado", marcado);
         model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
