@@ -41,7 +41,7 @@
             <div class="container col-xs-1 col-sm-1 col-md-1"></div>
 
             <div class="container col-xs-10 col-sm-10 col-md-10 ">
-                <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: </br><script type="text/javascript">getDate()</script></h4></div>
+                <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: <br><script type="text/javascript">getDate()</script></h4></div>
 
                 
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
@@ -50,8 +50,8 @@
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Factura de Venta</h3></div>
 
-        </br>
-        </br>
+        <br>
+        <br>
         <form class="form-horizontal" role="form" action="<c:url value="/repo_factura" />" target="_blank">
 
             <div class="form-group">

@@ -141,10 +141,8 @@
 	</div>
 </div>
 
-<br/><br/>
-<div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
- 
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script> 
 </body>
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quieres eliminar este dato?";

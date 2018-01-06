@@ -232,7 +232,8 @@ function vuelto(){
 		<td><input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" value="<%=sAhora %>" /></td>	
 		
 		<td><label class="col-md-6 control-lable" for="factura" >Factura:</label></td>
-		<td><input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" /></td>		
+		<td><input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" disabled="disabled" /></td>		
+				
 	</tr>	
 	</table>										    			
 		<div class="panel-group">
@@ -255,7 +256,7 @@ function vuelto(){
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
-						<OPTION VALUE="- -" >- -</OPTION>
+						<OPTION VALUE=" "> </OPTION>
 						<OPTION VALUE="EMPLEADOS UES" >Empleado UES</OPTION>
 						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
 					</SELECT>
@@ -341,23 +342,24 @@ function vuelto(){
 	    
 	    <div class="row" align="right">
         	<div class="form-group col-md-12">
-            	<label class="col-md-8 control-lable" for="total">TOTAL:</label>
+            	<label class="col-md-10 control-lable" for="total">TOTAL:</label>
            		<div class="col-md-2">
-               	<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" value="$ ${total}" />                           
+               	<input type="text" id="total" class="form-control input-sm" title="Se llena automaticamente" value="$ ${total}" disabled="disabled" />                           
             	</div>
         	</div>
        	</div>	
 	    
 	<table>	
 	<tr>
-		<td><label class="col-md-1 control-lable" for="total">Total $:</label></td>			
-		<td><input type="text" id="total2"  class="form-control input-sm" value="${total}" /></td>		
+		<td><label for="total">Total $:</label></td>					
+		<td><input type="text" id="total2"  class="form-control input-sm" value="${total}" disabled="disabled" /></td>		
 		
-		<td><label class="col-md-1 control-lable" for="fecha">Recibe $:</label></td>			
+		<td><label for="fecha">Recibe $:</label></td>			
 		<td><input type="text" id="recibe"  class="form-control input-sm"  onkeypress="vuelto();"/></td>	
 		
-		<td><label class="col-md-1 control-lable" for="factura">Devolver $:</label></td>
-		<td><input type="text" id="devolver"  class="form-control input-sm" /></td>
+		<td><label for="factura">Devolver $:</label></td>
+		<td><input type="text" id="devolver"  class="form-control input-sm" disabled="disabled"/></td>
+		
 	</tr>	
 	</table>
 	     
