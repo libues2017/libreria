@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b67289f-d73d-4c2e-83b3-d5b42a8018c4">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLmZhY3R1cmFfZGV0YWxsZSBBUyAsNDk0LDE3MSxjZTVkYjUxOS03NmMyLTQ5MGMtYWI3
@@ -78,33 +78,41 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 		<band splitType="Stretch"/>
 	</background>
 	<columnHeader>
-		<band height="106" splitType="Stretch">
+		<band height="102" splitType="Stretch">
 			<textField>
-				<reportElement x="20" y="10" width="100" height="30" uuid="0c6d60d5-120d-406d-8841-da3cc550214a"/>
+				<reportElement x="0" y="0" width="100" height="30" uuid="0c6d60d5-120d-406d-8841-da3cc550214a"/>
 				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="250" y="10" width="100" height="30" uuid="17c53100-3616-4530-b3ad-9a7094718016"/>
+				<reportElement x="470" y="0" width="100" height="30" uuid="17c53100-3616-4530-b3ad-9a7094718016"/>
 				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="280" height="20" uuid="f3bb4470-3f58-47b9-951f-013cf04b588e"/>
+				<textFieldExpression><![CDATA[$F{CLIENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="280" height="20" uuid="4c8ee1b8-357b-4b20-832c-888a682bd887"/>
+				<textFieldExpression><![CDATA[$F{DIRECCION}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="34" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="30" uuid="25485816-81a4-4173-8a24-6a01011b9f5e">
+				<reportElement x="0" y="0" width="50" height="30" uuid="25485816-81a4-4173-8a24-6a01011b9f5e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="25e4d89c-1bc2-449b-9481-8d8f9daa91c4"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="110" y="0" width="100" height="30" uuid="e3cd22dd-c426-4de5-a3fc-9286abde3805">
+				<reportElement x="50" y="2" width="210" height="30" uuid="e3cd22dd-c426-4de5-a3fc-9286abde3805">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3be83bdb-041d-4b77-8400-dcf868a8baa8"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="260" y="0" width="100" height="30" uuid="3f40288b-0fd9-417d-816f-4360bd3277de">
+				<reportElement x="260" y="0" width="120" height="30" uuid="3f40288b-0fd9-417d-816f-4360bd3277de">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3766c29e-3afd-492e-9cde-a585ea9fc95b"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
@@ -116,7 +124,7 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="490" y="0" width="100" height="30" uuid="fb480ded-2469-46e0-a6f4-a62c3af06b13">
+				<reportElement x="480" y="0" width="90" height="30" uuid="fb480ded-2469-46e0-a6f4-a62c3af06b13">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68e55ea4-c907-4059-8bb4-945d40f36b26"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{SUBTOTALFACTURA}]]></textFieldExpression>
@@ -124,14 +132,14 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="45" splitType="Stretch">
 			<textField>
-				<reportElement x="480" y="12" width="100" height="30" uuid="9eef8b04-d5bf-47e2-8666-53ddd3bfccbd"/>
+				<reportElement x="480" y="5" width="100" height="30" uuid="9eef8b04-d5bf-47e2-8666-53ddd3bfccbd"/>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="38" splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>

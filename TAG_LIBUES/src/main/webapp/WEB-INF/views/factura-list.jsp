@@ -24,7 +24,7 @@
 			    
 		<c:forEach items="${facturas}"   var="current">
 		<c:if test = "${current.total > 0}">
-			dataSet[i] = [ "${current.numerofactura}", "${current.cliente}", "${current.tipofactura}",
+			dataSet[i] = ["${current.idfactura}", "${current.numerofactura}", "${current.cliente}", "${current.tipofactura}",
 				"$ ${current.total}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
 		         value ="${current.fechafactura}" />' ] ;
 			i=i+1;
@@ -36,6 +36,7 @@
 				data:  dataSet,
 			    columns: [
 			    	{ title: "CÓDIGO" },
+			    	{ title: "FACTURA" },
 			        { title: "CLIENTE" },
 			    	{ title: "TIPO" },
 			    	{ title: "TOTAL" },
@@ -58,7 +59,7 @@
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
 			    	var res = "/TAG_LIBUES/edit-numero-factura-";
-			    	var res3 = "/TAG_LIBUES/factura-detalle-";
+			    	var res3 = "/TAG_LIBUES/cambio-estado-factura-";
 			    	         
 			    	var res1=dato;
 			    	var res2=res.concat(res1);//link editar			    	         
