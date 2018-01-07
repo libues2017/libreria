@@ -2348,7 +2348,107 @@ public class AppControllerLibues {
     	
 		return "GenerarReporteRequisicion";
 
-    }// ******************************** Finaliza REQUISICIONES
+    }
+    
+    
+    @RequestMapping(value = { "/edit-requisiciones-{codigorequisicion}" }, method = RequestMethod.GET)
+    public String editRequisiciones(@PathVariable Integer codigorequisicion, ModelMap model, HttpServletRequest request) throws IOException, ParseException{
+
+    	DetalleRequisicion detallereq = new DetalleRequisicion();
+    	model.addAttribute("detallerequisicion", detallereq);
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("codigoreq", codigorequisicion); 
+  	  	Producto producto=new Producto();		
+  	  	Double total=0.0;
+	
+  	  	if(!detallerequisicionService.findRequisiciones(codigorequisicion).isEmpty())
+  	  		{
+	  	  	 	List<DetalleRequisicion> reqBuscar = detallerequisicionService.findRequisiciones(codigorequisicion); 
+	  	  	 	List<Producto> productos = productoService.findAllProductos();
+			   
+	  	  	 	Requisicion req = requisicionService.findById(codigorequisicion);				    	 
+	  	  	 	Date fechareq = req.getFecha();
+	  	  	 	String destino = req.getDestino();
+	  	  	 	Integer codigodetalle = reqBuscar.get(0).getCodigodetalle();
+	    	   
+	  	  	 	DetalleRequisicion detallereq1 = detallerequisicionService.findById(codigodetalle);
+				
+	  	  	 	sesion.setAttribute("punto", reqBuscar.size()-1);//ALAMACENA DESDE DONDE TIENE QUE EMPEZAR DE NUEVO
+			    	 
+	  	  	 	Integer d = reqBuscar.get(reqBuscar.size()-1).getCodigodetalle();
+	  	  	 		for (int i = 0; i < reqBuscar.size(); i++){
+	  	  	 			total=total+reqBuscar.get(i).getSubtotal(); //aqui se calcula el total
+	  	  	 		}    	  
+			    	 	
+			        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
+			    	String fecha = sdf.format(fechareq);
+			    	
+			    	model.addAttribute("detallerequisicion", detallereq);	
+			    	model.addAttribute("codigorequisicion",codigorequisicion );
+			    	model.addAttribute("fechareq",fecha );
+			    	model.addAttribute("total", total);
+			    	model.addAttribute("destino", destino);
+			    	//model.addAttribute("codigoproducto",codigoproducto );
+			    	//model.addAttribute("nombreproducto", nombreproducto);
+			        //model.addAttribute("existencia", existencia);
+			    	//model.addAttribute("costo", costo);
+			    			    	
+			    	model.addAttribute("producto", productos);
+				    model.addAttribute("total", total);
+			    	model.addAttribute("requisicion2", reqBuscar);	
+			        model.addAttribute("edit", true);
+			        model.addAttribute("loggedinuser", getPrincipal());				        		        
+			        
+			    	sesion.setAttribute("codigoreq", codigorequisicion);
+			 		sesion.setAttribute("fechareq", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
+			 		sesion.setAttribute("total", total);
+			        
+			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
+			        return "detallerequisicion-modificar";
+  	  		}
+				      return "redirect:/detalleretaceo-list";
+		      
+    }
+    
+     
+    @RequestMapping(value = { "/edit-requisiciones-{codigorequisicion}" }, method = RequestMethod.POST)
+    public String updateRequisiciones(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
+            ModelMap model, @PathVariable Integer codigoretaceo,HttpServletRequest request)
+            		throws IOException, ParseException {
+ 
+        if (result.hasErrors()) {
+            return "detalleretaceo-reg";
+        }
+        
+        
+        HttpSession sesion = request.getSession();
+        Integer punto=(Integer)sesion.getAttribute("punto");
+              
+      //  System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
+        
+        detalleretaceoService.savedetalleRetaceo(detalleRetaceo);
+        
+       // detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
+       // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
+        model.addAttribute("loggedinuser", getPrincipal());
+        
+       // return "redirect:/detalleretaceo-list";
+       // return "detalleretaceo-modificar";
+        return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // ******************************** Finaliza REQUISICIONES
     
        
     //*************************************************************************
