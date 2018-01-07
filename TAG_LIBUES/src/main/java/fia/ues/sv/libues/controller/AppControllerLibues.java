@@ -1636,22 +1636,6 @@ public class AppControllerLibues {
     /********************************************************************************************************************************
      *********************************** CONTROLES PARA TRANSFERENCIAS***************************************************************
      *******************************************************************************************************************************/
-    @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
-    public String listTransferencias(ModelMap model) throws IOException {
-        List<DetalleTransferencia> detalletransferencia = detalletransferenciaService.findAllTransferencias();
-        model.addAttribute("detalletransferencia", detalletransferencia);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "detalletransferencia-list";
-    }
-    
-    @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
-    public String listDetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
-        DetalleTransferencia transferencia = detalletransferenciaService.findByCodigo(codTransferencia);
-        model.addAttribute("transferencias", transferencia);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "transferencia-detalle";
-    } 
-    
     @RequestMapping(value = { "/transferencia-list" }, method = RequestMethod.GET)
     public String listTransferencia(ModelMap model) throws IOException {
         List<Transferencia> transferencias = transferenciaService.findAllTransferencias(); 
@@ -1669,9 +1653,9 @@ public class AppControllerLibues {
         HttpSession sesion = request.getSession(true);
         
         //HttpSession session = request.getSession();
-    	HttpSession sesion2=request.getSession(true);
+    	//HttpSession sesion2=request.getSession(true);
                 
-        Double total = 0.0;
+    	Double total = 0.0;
         if(sesion.getAttribute("codigo1") != null)
         {
           Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
@@ -1684,12 +1668,14 @@ public class AppControllerLibues {
           model.addAttribute("transferencia2", transferenciaBuscar); 
        }
       
+        /*
         if(sesion.getAttribute("numeroTransferencia")!=null){
         	sesion2.setAttribute("numeroTransferencia", sesion.getAttribute("numeroTransferencia"));
         }
         else{
         	sesion2.setAttribute("numeroTransferencia", 0);
         }
+        */
         
         List<Producto> productos = productoService.findAllProductos();
 
@@ -1704,7 +1690,7 @@ public class AppControllerLibues {
         //Integer numeroTransferencia = transferenciaService.findById(transferencia6).getNumeroTransferencia();
         //sesion1.setAttribute("numeroTransferencia", numeroTransferencia);
         return "detalletransferencia-reg";
-  }
+    }
     
     @RequestMapping(value = { "/detalletransferencia-agregar" }, method = RequestMethod.POST)   
     public String saveTransferencia( HttpServletRequest request,@Valid DetalleTransferencia detalletransferencia, BindingResult result, 
@@ -1727,12 +1713,43 @@ public class AppControllerLibues {
         sesion2.setAttribute("numeroTransferencia", numeroTransferencia1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
+        
+        /*nuevo codigo*/
+        HttpSession sesion = request.getSession();
+        Double total = 0.0;
+        
+        Integer codigo1 = (Integer) sesion.getAttribute("codigo1");
+        List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);
+        for(int i = 0; i < transferenciaBuscar.size(); i++){
+        	total = total + transferenciaBuscar.get(i).getSubTotal();
+        }
+        /*Terina nuevo codigo*/
+        
         sesion2.setAttribute("mySessionAttribute", fecha);
         model.addAttribute("loggedinuser", getPrincipal());
 
         return "redirect:/detalletransferencia-agregar";
       
     }
+    
+    
+    @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
+    public String listTransferencias(ModelMap model) throws IOException {
+        List<DetalleTransferencia> detalletransferencia = detalletransferenciaService.findAllTransferencias();
+        model.addAttribute("detalletransferencia", detalletransferencia);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "detalletransferencia-list";
+    }
+    
+    @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
+    public String listDetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
+        DetalleTransferencia transferencia = detalletransferenciaService.findByCodigo(codTransferencia);
+        model.addAttribute("transferencias", transferencia);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "transferencia-detalle";
+    } 
+    
+    
     
     @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String editdetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model, HttpServletRequest request) throws IOException, ParseException{
