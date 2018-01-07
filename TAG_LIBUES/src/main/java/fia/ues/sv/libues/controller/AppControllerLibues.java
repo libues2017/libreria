@@ -1709,7 +1709,7 @@ public class AppControllerLibues {
         
         HttpSession sesion2 = request.getSession(true);
         Date fechaTransferencia1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechaTransferencia);
-        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia1, tipoTransferencia, sucursal, estado);
+        //transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia1, tipoTransferencia, sucursal, estado);
         sesion2.setAttribute("numeroTransferencia", numeroTransferencia1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String fecha = sdf.format(fechaTransferencia1);
@@ -1723,7 +1723,9 @@ public class AppControllerLibues {
         for(int i = 0; i < transferenciaBuscar.size(); i++){
         	total = total + transferenciaBuscar.get(i).getSubTotal();
         }
-        /*Terina nuevo codigo*/
+        
+        transferenciaService.updateFechaTransferencia(fechaTransferencia1, codTransferencia, numeroTransferencia1, tipoTransferencia, sucursal, estado);
+        /*Termina nuevo codigo*/
         
         sesion2.setAttribute("mySessionAttribute", fecha);
         model.addAttribute("loggedinuser", getPrincipal());
@@ -1732,14 +1734,80 @@ public class AppControllerLibues {
       
     }
     
+    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
+    public String editdetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model, HttpServletRequest request) throws IOException, ParseException{
+    	
+    	DetalleTransferencia detalletransferencia = new DetalleTransferencia();
+    	model.addAttribute("detalletransferencia", detalletransferencia);
+    	HttpSession sesion = request.getSession();
+    	sesion.setAttribute("codigo1", codTransferencia);
+    	Producto producto = new Producto();
+    	Double total = 0.0;
+    	
+    	if(!detalletransferenciaService.findTransferencias(codTransferencia).isEmpty()){
+    		List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
+    		List<Producto> productos = productoService.findAllProductos();
+    		
+    		Transferencia transferencia = transferenciaService.findById(codTransferencia);
+    		Integer numeroTransferencia = transferencia.getNumeroTransferencia();
+    		String tipoTransferencia = transferencia.getTipoTransferencia();
+    		String sucursal = transferencia.getSucursal();
+    		Date fechaTransferencia = transferencia.getFechaTransferencia();
+    		Double utilidad = transferenciaBuscar.get(0).getUtilidad();
+    		Integer codDetalleTransferencia = transferenciaBuscar.get(0).getCodDetalleTransferencia();
+    		
+    		DetalleTransferencia detalleTransferencia1 = detalletransferenciaService.findById(codDetalleTransferencia);
+    		
+    		sesion.setAttribute("punto1", transferenciaBuscar.size()-1);
+    		
+    		Integer dato = transferenciaBuscar.get(transferenciaBuscar.size()-1).getCodDetalleTransferencia();
+    		
+    		for(int i = 0; i < transferenciaBuscar.size(); i++){
+    			total = total + transferenciaBuscar.get(i).getSubTotal();
+    		}
+    		
+    		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    		String fecha1 = sdf.format(fechaTransferencia);
+    		
+    		model.addAttribute("detalletransferencia", detalletransferencia);
+    		model.addAttribute("codTransferencia", codTransferencia);
+    		model.addAttribute("fechaTransferencia", fecha1);
+    		model.addAttribute("utilidad", utilidad);
+    		model.addAttribute("numeroTransferencia", numeroTransferencia);
+    		model.addAttribute("tipoTransferencia", tipoTransferencia);
+    		model.addAttribute("sucursal", sucursal);
+    		model.addAttribute("producto", productos);
+    		model.addAttribute("total", total);
+    		model.addAttribute("edit", true);
+    		model.addAttribute("loggedinuser", getPrincipal());
+    		
+    		//para ser usado en finalizar
+    		sesion.setAttribute("codigo1", codTransferencia);
+    		sesion.setAttribute("numeroTransferencia", numeroTransferencia);
+    		sesion.setAttribute("tipoTransferencia", tipoTransferencia);
+    		sesion.setAttribute("sucursal", sucursal);
+    		sesion.setAttribute("fechaTransferencia", fecha1);
+    		sesion.setAttribute("total", total);
+    		
+    		return "detalletransferencia-modificar";	
+    	}
+    	
+    	return "redirect:/detalletransferencia-list";
+    	
+    }
     
-    @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
+    /*
+     @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
     public String listTransferencias(ModelMap model) throws IOException {
         List<DetalleTransferencia> detalletransferencia = detalletransferenciaService.findAllTransferencias();
         model.addAttribute("detalletransferencia", detalletransferencia);
         model.addAttribute("loggedinuser", getPrincipal());
         return "detalletransferencia-list";
     }
+     */
+    
+    
+   
     
     @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
     public String listDetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
@@ -1751,51 +1819,7 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
-    public String editdetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model, HttpServletRequest request) throws IOException, ParseException{
-
-        //detalleTransferenciaService
-        //DetalleTransferencia detalleTransferencia = detalletransferenciaService.findById(codTransferencia);//detalleretaceoService.findById(codTransferencia);
-        
-        //model.addAttribute("detalletransferencia", detalleTransferencia);
-        //model.addAttribute("edit", true);
-        //model.addAttribute("loggedinuser", getPrincipal());
-    	
-    	DetalleTransferencia detalletransferencia = new DetalleTransferencia();
-    	model.addAttribute("detalletransferencia", detalletransferencia);
-    	model.addAttribute("edit", false);
-    	model.addAttribute("loggedinuser", getPrincipal());
-    	
-    	HttpSession session1 = request.getSession(true);
-    	
-    	session1.setAttribute("codigo1", codTransferencia);
-    	Double total = 0.0;
-    	
-    	List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
-    	List<DetalleTransferencia> detalle = detalletransferenciaService.findTransferencias(codTransferencia);
-    	Double utilidad = detalle.get(0).getUtilidad();
-    	
-    	for(int i = 0; i < transferenciaBuscar.size(); i++){
-    		total = total + transferenciaBuscar.get(i).getSubTotal();
-    	}
-    	
-    	model.addAttribute("total", total);
-    	model.addAttribute("transferencia2", transferenciaBuscar);
-    	
-    	Transferencia transferencia = transferenciaService.findById(codTransferencia);
-    	Date fechatransferencia = transferencia.getFechaTransferencia();
-    	
-    	List<Producto> productos = productoService.findAllProductos();
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    	String fecha = sdf.format(fechatransferencia);
-    	model.addAttribute("fechatransferencia", fechatransferencia);
-    	model.addAttribute("utilidad", utilidad);
-    	model.addAttribute("edit", true);
-    	model.addAttribute("producto", productos);
-        
-    	return "detalletransferencia-modificar";
-    	//return "detalletransferencia-reg";
-    }
+    
     
     /*
    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.POST)

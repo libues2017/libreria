@@ -63,7 +63,7 @@
 			    	dato = $(this).find("td:eq(0)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
-			    	var res = "#";
+			    	var res = "/TAG_LIBUES/edit-detalleTransferencia-";
 			    	var res3 = "/TAG_LIBUES//delete-transferencia-";
 			    	         
 			    	var res1=dato;
