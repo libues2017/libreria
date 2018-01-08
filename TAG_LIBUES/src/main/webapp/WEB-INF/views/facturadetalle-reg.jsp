@@ -315,8 +315,8 @@ function vuelto(){
 			      			<th>Codigo</th>
 			      			<th>Titulo</th>	      			
 			      			<th>Cantidad</th>
-			      			<th>Precio</th>
-			      			<th>Subtotal</th>
+			      			<th>Precio $</th>
+			      			<th>Subtotal $</th>
 			      			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR')">
 			      			<th>Eliminar</th>
 			      			</sec:authorize>	

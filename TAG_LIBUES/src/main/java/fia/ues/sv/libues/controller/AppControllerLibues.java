@@ -2395,7 +2395,7 @@ public class AppControllerLibues {
 			    			    	
 			    	model.addAttribute("producto", productos);
 				    model.addAttribute("total", total);
-			    	model.addAttribute("requisicion2", reqBuscar);	
+			    	model.addAttribute("req1", reqBuscar);	
 			        model.addAttribute("edit", true);
 			        model.addAttribute("loggedinuser", getPrincipal());				        		        
 			        

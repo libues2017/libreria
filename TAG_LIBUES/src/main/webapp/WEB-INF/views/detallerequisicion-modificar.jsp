@@ -184,15 +184,19 @@ function validar1(){
 					<div class="panel-body">
 						<div class="col-xs-3" style="display:none">
 						<label class="form-control" for="nombr">Documento #:</label>
-						<form:input type="text" path="codigorequisicion" id="codigorequisicion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' />
+						<form:input type="text" path="codigorequisicion" id="codigorequisicion" maxlength="11" class="form-control input-sm" value='<%=session.getAttribute("codigoreq")%>' />
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Documento #:</label>
-						<input type="text" class="form-control input-sm" value='<%=session.getAttribute("codigo2")%>' disabled="disabled" />
+						<input type="text" class="form-control input-sm" value='<%=session.getAttribute("codigoreq")%>' disabled="disabled" />
+						</div>
+						<div class="col-xs-3" style="display:none">
+						<label class="form-control" for="nombr">Mover productos a:</label>
+						<input type="text" name="destino" id="destino" class="form-control input-sm"  onfocus="focusF()" onblur="blurF()" value ='${destino}'>
 						</div>
 						<div class="col-xs-3">
 						<label class="form-control" for="nombr">Mover productos a:</label>
-						<input type="text" name="destino" id="destino" class="form-control input-sm"  onfocus="focusF()" onblur="blurF()" value ='${destino}'>
+						<input type="text" name="destino" id="destino" class="form-control input-sm"  onfocus="focusF()" onblur="blurF()" value ='${destino}' disabled="disabled">
 						</div>
 						<div class="col-xs-3" style="display:none">			
 						<label class="form-control" for="nombr">Fecha:</label>
@@ -264,7 +268,7 @@ function validar1(){
 		    				<th>ITEM</th>		    			
 			      			<th>Código</th>
 			      			<th>Título</th>	      			
-			      			<th>Cantidad</th>
+			      			<th>Cant.</th>
 			      			<th>Costo</th>
 			      			<th>Precio</th>
 			      			<th>Subtotal</th>			      			
@@ -299,10 +303,10 @@ function validar1(){
 				
 			<div class="row" align="right">
                 <div class="form-group col-md-12">
-                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <label class="col-md-10 control-lable" for="total">TOTAL:</label>
                     <div class="col-md-2">
                     <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value='$ ${total}'/>                           
+                    		value='$ ${total}' disabled="disabled"/>                           
                     </div>
                 </div>
             </div>	
