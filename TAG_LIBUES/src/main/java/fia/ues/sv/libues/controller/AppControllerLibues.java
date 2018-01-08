@@ -1744,7 +1744,8 @@ public class AppControllerLibues {
     	Producto producto = new Producto();
     	Double total = 0.0;
     	
-    	if(!detalletransferenciaService.findTransferencias(codTransferencia).isEmpty()){
+    	if(!detalletransferenciaService.findTransferencias(codTransferencia).isEmpty())
+    	{
     		List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codTransferencia);
     		List<Producto> productos = productoService.findAllProductos();
     		
@@ -1758,7 +1759,7 @@ public class AppControllerLibues {
     		
     		DetalleTransferencia detalleTransferencia1 = detalletransferenciaService.findById(codDetalleTransferencia);
     		
-    		sesion.setAttribute("punto1", transferenciaBuscar.size()-1);
+    		sesion.setAttribute("punto", transferenciaBuscar.size()-1);
     		
     		Integer dato = transferenciaBuscar.get(transferenciaBuscar.size()-1).getCodDetalleTransferencia();
     		
@@ -1767,17 +1768,19 @@ public class AppControllerLibues {
     		}
     		
     		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    		String fecha1 = sdf.format(fechaTransferencia);
+    		String fecha = sdf.format(fechaTransferencia);
     		
     		model.addAttribute("detalletransferencia", detalletransferencia);
     		model.addAttribute("codTransferencia", codTransferencia);
-    		model.addAttribute("fechaTransferencia", fecha1);
+    		model.addAttribute("fechaTransferencia", fecha);
     		model.addAttribute("utilidad", utilidad);
     		model.addAttribute("numeroTransferencia", numeroTransferencia);
     		model.addAttribute("tipoTransferencia", tipoTransferencia);
     		model.addAttribute("sucursal", sucursal);
     		model.addAttribute("producto", productos);
     		model.addAttribute("total", total);
+    		
+    		model.addAttribute("transferencia2", transferenciaBuscar);
     		model.addAttribute("edit", true);
     		model.addAttribute("loggedinuser", getPrincipal());
     		
@@ -1786,7 +1789,7 @@ public class AppControllerLibues {
     		sesion.setAttribute("numeroTransferencia", numeroTransferencia);
     		sesion.setAttribute("tipoTransferencia", tipoTransferencia);
     		sesion.setAttribute("sucursal", sucursal);
-    		sesion.setAttribute("fechaTransferencia", fecha1);
+    		sesion.setAttribute("fechaTransferencia", fecha);
     		sesion.setAttribute("total", total);
     		
     		return "detalletransferencia-modificar";	
