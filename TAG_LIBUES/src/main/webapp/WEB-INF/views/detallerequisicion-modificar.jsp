@@ -169,7 +169,7 @@ function validar1(){
 
 	<div class="row"><%@include file="page_head_2.jsp"%></div>
 	<div class="container">
-		<div class="well lead" align="center">NUEVA REQUISICIÓN</div>
+		<div class="well lead" align="center">MODIFICAR REQUISICIÓN</div>
 		<form:form method="POST" name="req" modelAttribute="detallerequisicion" class="form-horizontal">
 		<form:input type="hidden" path="codigodetalle" id="codigodetalle" />
 

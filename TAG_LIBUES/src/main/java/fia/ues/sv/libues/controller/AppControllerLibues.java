@@ -2388,10 +2388,6 @@ public class AppControllerLibues {
 			    	model.addAttribute("fechareq",fecha );
 			    	model.addAttribute("total", total);
 			    	model.addAttribute("destino", destino);
-			    	//model.addAttribute("codigoproducto",codigoproducto );
-			    	//model.addAttribute("nombreproducto", nombreproducto);
-			        //model.addAttribute("existencia", existencia);
-			    	//model.addAttribute("costo", costo);
 			    			    	
 			    	model.addAttribute("producto", productos);
 				    model.addAttribute("total", total);
@@ -2402,49 +2398,27 @@ public class AppControllerLibues {
 			    	sesion.setAttribute("codigoreq", codigorequisicion);
 			 		sesion.setAttribute("fechareq", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
 			 		sesion.setAttribute("total", total);
-			        
-			        //System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
-			        return "detallerequisicion-modificar";
+		        return "detallerequisicion-modificar";
   	  		}
-				      return "redirect:/detalleretaceo-list";
-		      
+  	  	return "redirect:/detalleretaceo-list";		      
     }
-    
-     
+         
     @RequestMapping(value = { "/edit-requisiciones-{codigorequisicion}" }, method = RequestMethod.POST)
-    public String updateRequisiciones(@Valid DetalleRetaceo detalleRetaceo, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoretaceo,HttpServletRequest request)
+    public String updateRequisiciones(@Valid DetalleRequisicion detallerequisicion, BindingResult result,
+            ModelMap model, @PathVariable Integer codigorequisicion,HttpServletRequest request)
             		throws IOException, ParseException {
  
         if (result.hasErrors()) {
-            return "detalleretaceo-reg";
+            return "detallerequisicion-modificar";
         }
-        
         
         HttpSession sesion = request.getSession();
         Integer punto=(Integer)sesion.getAttribute("punto");
-              
-      //  System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
-        
-        detalleretaceoService.savedetalleRetaceo(detalleRetaceo);
-        
-       // detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
-       // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
+        detallerequisicionService.saveDetalleRequisicion(detallerequisicion);
         model.addAttribute("loggedinuser", getPrincipal());
-        
-       // return "redirect:/detalleretaceo-list";
-       // return "detalleretaceo-modificar";
-        return "redirect:/edit-detalleRetaceo-{codigoretaceo}";
+        return "redirect:/edit-requisiciones-{codigorequisicion}";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
