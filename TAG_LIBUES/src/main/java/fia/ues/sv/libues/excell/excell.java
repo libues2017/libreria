@@ -47,7 +47,7 @@ public class excell {
     
     
     
-    public void Escribirtxt(String nombre,List producto){
+    public void Escribirtxt(String nombre,List producto,List etiqueta){
     	
     File f;
     FileWriter w;
@@ -57,7 +57,8 @@ public class excell {
    // List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
     
     Iterator<Producto> productoIter = producto.iterator();
-	 
+    Iterator<Etiqueta> etiquetaIter = etiqueta.iterator();
+	  
 	 int correlativo=0;
 	 int i=0;
 	 String nombreProducto="";

@@ -58,6 +58,7 @@
     <% 
     excell e=new excell();
     List producto = (List)request.getAttribute("productos");
+    List etiqueta = (List)request.getAttribute("etiquetas");
     List addressessala = producto;
     //e.crearEtiquetas(producto);
     
@@ -65,9 +66,8 @@
     String nombre="Etiquetas.txt";
     
 
-    e.Escribirtxt(nombre,producto);
+    e.Escribirtxt(nombre,producto,etiqueta);
     
-
 %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -93,9 +93,8 @@
         </div>
          
         <span class="well floatRight">
-            <a href="<c:url value='/area-list' />" class="btn btn-success custom-width">Lista de Areas</a>
-            <a href="<c:url value='/area-agregar' />" class="btn btn-success custom-width">Agregar Otra Area</a>
-        </span>
+          <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>     
+          </span>
     </div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>   

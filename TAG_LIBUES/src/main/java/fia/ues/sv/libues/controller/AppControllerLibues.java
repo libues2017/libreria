@@ -3227,6 +3227,26 @@ public class AppControllerLibues {
     	
     }
     
+    
+    
+    
+    
+    @RequestMapping(value = { "/finalizar-etiqueta" }, method = RequestMethod.GET)
+    public String finetiquetas( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
+    	
+		    	/*
+				 									
+				*/
+
+    	 List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
+         
+    	  model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
+          
+    	 // return new ModelAndView("GenerarEtiqueta-Reg");
+    	return "GenerarEtiqueta-Reg";////no tocar
+
+    } 
+    
   /*************************************************************************************
    ********************************Funciones auxiliares para las imagenes***************
    *************************************************************************************/

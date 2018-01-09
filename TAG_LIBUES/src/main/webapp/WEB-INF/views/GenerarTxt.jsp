@@ -431,6 +431,7 @@
 <% 
     excell e=new excell();
     List producto = (List)request.getAttribute("productos");
+    List etiqueta = (List)request.getAttribute("etiquetas");
     List addressessala = producto;
     //e.crearEtiquetas(producto);
     
@@ -438,7 +439,7 @@
     String nombre="Etiquetas.txt";
     
 
-    e.Escribirtxt(nombre,producto);
+    e.Escribirtxt(nombre,producto,etiqueta);
     
 
 %>
