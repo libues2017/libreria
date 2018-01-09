@@ -34,6 +34,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import fia.ues.sv.libues.modelo.Etiqueta;
 import fia.ues.sv.libues.modelo.Producto;
 
 
@@ -53,6 +54,8 @@ public class excell {
     BufferedWriter bw;	
     PrintWriter wr;
     
+   // List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
+    
     Iterator<Producto> productoIter = producto.iterator();
 	 
 	 int correlativo=0;
@@ -60,6 +63,7 @@ public class excell {
 	 String nombreProducto="";
 	 Double precioproducto=0.0;
 	 String convertprecio="";
+	 String autor="";
     
     
     try{
@@ -78,11 +82,12 @@ public class excell {
  		       correlativo=product.getCorrelativo(); // datos de la base
  		       nombreProducto=product.getNombreProducto();
  		       precioproducto=product.getPrecio();
+ 		       autor=product.getAutores().toString();
  		       
  		       //*3673003*,TAZA TERMICA,3.90,,3.90,3673003
  		       //*-      *,,0.00,,0.00,-
  		       
- 		       convertprecio="*"+correlativo+"*"+","+nombreProducto+","+precioproducto+",,"+precioproducto+","+correlativo;
+ 		       convertprecio="*"+correlativo+"*"+","+nombreProducto+","+precioproducto+","+autor+","+precioproducto+","+correlativo;
  		      
  		       for(int j=0;j<4;j++){
  		    	  wr.write(convertprecio);

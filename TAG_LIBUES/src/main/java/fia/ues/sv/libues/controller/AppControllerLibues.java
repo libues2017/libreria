@@ -3076,7 +3076,7 @@ public class AppControllerLibues {
         model.addAttribute("marcado", marcado);
         model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
-        model.addAttribute("producto", productos);
+        model.addAttribute("producto", productos);// atributo para generar etiquetas
         model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
         model.addAttribute("autor", autor);
       
@@ -3165,16 +3165,9 @@ public class AppControllerLibues {
     	   
        }
         
-        
-        
-        
-        
+      
        // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
-      
-		
-		
-        
         
        /* model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
