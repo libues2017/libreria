@@ -402,7 +402,7 @@
         </div>
 		
 	    <div class="well lead" align="center">	
-			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Generar Etiquetas</a>
+			<a href="<c:url value='/finalizar-etiqueta' />" class="btn btn-primary btn-sm">Generar Etiquetas</a>
 		</div>
 	   
 	

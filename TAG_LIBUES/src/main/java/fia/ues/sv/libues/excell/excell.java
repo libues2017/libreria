@@ -77,7 +77,7 @@ public class excell {
     	wr=new PrintWriter(bw);
     	
     	
- while(productoIter.hasNext()) {
+ /*while(productoIter.hasNext()) {
        		 
        		 Producto product =  productoIter.next();
  		       correlativo=product.getCorrelativo(); // datos de la base
@@ -109,7 +109,43 @@ public class excell {
        		 
        	 }
     	
+    	*/
     	
+    	
+    	
+    	while(etiquetaIter.hasNext()) {
+      		 
+      		 Etiqueta etiquet =  etiquetaIter.next();
+		       correlativo=etiquet.getCodigoproducto(); // datos de la base
+		       nombreProducto=etiquet.getNombreProducto();
+		       precioproducto=etiquet.getPrecioproducto();
+		       autor=etiquet.getAutor_marca();
+		       
+		       //*3673003*,TAZA TERMICA,3.90,,3.90,3673003
+		       //*-      *,,0.00,,0.00,-
+		       
+		       convertprecio="*"+correlativo+"*"+","+nombreProducto+","+precioproducto+","+autor+","+precioproducto+","+correlativo;
+		      
+		       for(int j=0;j<etiquet.getCantidad();j++){
+		    	  wr.write(convertprecio);
+	 		    	bw.newLine();
+		    	   
+		       }
+		       
+		       
+		      for(int j=0;j<2;j++){
+		    	  wr.write("*-      *,,0.00,,0.00,-");
+	 		    	bw.newLine();
+		    	   
+		       }
+		      
+		    	//wr.append("\nes la segunda linea");
+		    
+		  i=i+1;
+      		 
+      	 }
+   	
+   	
     	
     	
     	/*wr.write("Esta es la primera linea");
