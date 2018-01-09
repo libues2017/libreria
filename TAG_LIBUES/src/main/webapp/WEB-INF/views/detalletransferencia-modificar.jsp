@@ -412,32 +412,37 @@ function cambiar3(){
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
 							<input type="number" min="0" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion(); cambiar();"  
-							  title="Digite el número de Transferencia"  value='<%=session.getAttribute("numeroTransferencia")%>'/>
+							  title="Digite el número de Transferencia"  value='${numeroTransferencia}'/>
+						</div>
+						
+						<div class="col-xs-2" style="display:none">			
+							<label class="form-control" for="nombr">De:</label>
+							<input type="text" name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" value ='${tipoTransferencia}'>
 						</div>
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">De:</label>
-							<SELECT name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" onchange="sesion();" 
-							title="Seleccione el Tipo de Transferencia">
-								<OPTION VALUE="Salidas">Salida de sede Central</OPTION>
-								<OPTION VALUE="Ingresos">Ingreso hacia sede Central</OPTION>
-							</SELECT>
+							<input type="text" name="tipoTransferencia" id="tipoTransferencia" class="form-control input-sm" value ='${tipoTransferencia}' disabled="disabled">
+						</div>
+						
+						<div class="col-xs-3" style="display:none">			
+							<label class="form-control" for="nombr">Fecha:</label>
+							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" value ='${fechaTransferencia}' />
 						</div>
 						
 						<div class="col-xs-3">			
 							<label class="form-control" for="nombr">Fecha:</label>
-							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" 
-							title="Seleccione la fecha de Transferencia"  value="<%=sAhora %>" />
+							<input type="date" id="fechaTransferencia" name="fechaTransferencia" class="form-control input-sm" value='${fechaTransferencia}' disabled="disabled"/>
+						</div>
+						
+						<div class="col-xs-2" style="display:none">			
+							<label class="form-control" for="nombr">Sucursal:</label>
+							<input type="text" name="sucursal" id="sucursal" class="form-control input-sm" value ='${sucursal}'>
 						</div>
 						
 						<div class="col-xs-2">			
 							<label class="form-control" for="nombr">Sucursal:</label>
-							<SELECT name="sucursal" id="sucursal" class="form-control input-sm" onchange="sesion();" onkeyup="cambiar1();" 
-							title="Seleccione sucursal segun Tipo de Transferencia">
-								<OPTION VALUE="Santa Ana">Santa Ana</OPTION>
-								<OPTION VALUE="San Miguel">San Miguel</OPTION>
-								<OPTION VALUE="San Vicente">San Vicente</OPTION>
-							</SELECT>
+							<input type="text" name="sucursal" id="sucursal" class="form-control input-sm" value ='${sucursal}' disabled="disabled">
 						</div>
 						
 						<div class="col-xs-2">
