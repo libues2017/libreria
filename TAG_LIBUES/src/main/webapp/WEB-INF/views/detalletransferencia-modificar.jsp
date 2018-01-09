@@ -406,13 +406,17 @@ function cambiar3(){
 					<div class="panel-body">
 						<div class="col-xs-3" style="display:none ">
 							<label class="form-control" for="nombr">ID</label>
-							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=session.getAttribute("codigo1")%>' />
+							<form:input type="text" path="codTransferencia" id="codTransferencia" class="form-control input-sm" value='<%=request.getAttribute("codTransferencia").toString()%>' />
+						</div>
+						
+						<div class="col-xs-3" style="display:none">
+							<label class="form-control" for="nombr">Transferencia #:</label>
+							<input type="text" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" value='${numeroTransferencia}'/>
 						</div>
 						
 						<div class="col-xs-3">
 							<label class="form-control" for="nombr">Transferencia #:</label>
-							<input type="number" min="0" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" onchange="sesion(); cambiar();"  
-							  title="Digite el número de Transferencia"  value='${numeroTransferencia}'/>
+							<input type="text" name="numeroTransferencia" id="numeroTransferencia" class="form-control input-sm" value='${numeroTransferencia}' disabled="disabled"/>
 						</div>
 						
 						<div class="col-xs-2" style="display:none">			
@@ -445,10 +449,14 @@ function cambiar3(){
 							<input type="text" name="sucursal" id="sucursal" class="form-control input-sm" value ='${sucursal}' disabled="disabled">
 						</div>
 						
+						<div class="col-xs-2" style="display:none">
+							<label class="form-control" for="nombr">Utilidad:</label>
+							<form:input type="text" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='${utilidad}'/>
+						</div>
+						
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Utilidad:</label>
-							<form:input type="number" min="0" path="utilidad" id="utilidad" class="form-control input-sm" onchange="sesion();" placeholder="Digitar"
-							title="Debe ser un valor entero, si es salida la Utilidad es 0"/>
+							<form:input type="text" min="0" path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='${utilidad}' disabled="disabled"/>
 						</div>
 					</div>
 				</div>

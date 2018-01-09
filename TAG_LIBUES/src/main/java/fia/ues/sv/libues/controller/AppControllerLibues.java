@@ -1740,7 +1740,7 @@ public class AppControllerLibues {
     	DetalleTransferencia detalletransferencia = new DetalleTransferencia();
     	model.addAttribute("detalletransferencia", detalletransferencia);
     	HttpSession sesion = request.getSession();
-    	sesion.setAttribute("codigo1", codTransferencia);
+    	sesion.setAttribute("codTransferencia", codTransferencia);
     	Producto producto = new Producto();
     	Double total = 0.0;
     	
