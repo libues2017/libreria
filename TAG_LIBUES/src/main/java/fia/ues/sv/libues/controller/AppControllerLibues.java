@@ -2981,7 +2981,7 @@ public class AppControllerLibues {
          list.add("JSF");*/
        //  map.put(1,listBooks);
           
-          return new ModelAndView("Excell", "listBooks", listBooks);
+          return new ModelAndView("Comparacion", "listBooks", listBooks);
     	
     }
     

@@ -424,10 +424,6 @@
 
 
 
-
-
-
-
 <% 
    /* excell e=new excell();
     List producto = (List)request.getAttribute("productos");

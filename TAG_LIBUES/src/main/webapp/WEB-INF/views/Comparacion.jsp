@@ -54,6 +54,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Comparacion de Inventario</title>
+     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>    
+	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 </head>
 <body>
 </body>
@@ -172,7 +175,7 @@
 <div class="row"><%@include file="page_head.jsp" %></div>
 <div class="container">
 
-<div class="row"><%@include file="menu.jsp" %></div>
+
  <div class="panel-heading"><span class="lead">Productos que no concuerda con el Inventario Fisico</span></div>
 
 <div class="row">
