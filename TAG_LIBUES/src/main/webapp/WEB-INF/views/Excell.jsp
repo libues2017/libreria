@@ -231,7 +231,8 @@
 		    		<tr >		    			
 			      			<th>Codigo Producto</th>
 			      			<th>Nombre del Producto</th>	      			
-			      			<th>Cantidad Producto</th>
+			      			<th>Cantidad Producto en Inventario Teorico</th>
+			      			<th>Cantidad Producto en Inventario Fisico</th>
 			      			<th>Estante</th>
 			      			<th>Nivel</th>
 			      			<th>Ubicacion</th>	
