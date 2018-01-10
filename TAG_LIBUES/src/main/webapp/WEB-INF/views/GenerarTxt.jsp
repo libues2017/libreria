@@ -280,7 +280,7 @@
 		                </div>
 		                
 		                <div class="col-xs-2">
-		                      <a href="<c:url value='/cargar-etiquetas' />" class="btn btn-primary btn-sm">Desmarcar</a>
+		                      <a href="<c:url value='/desmarcar-etiqueta' />" class="btn btn-primary btn-sm">Desmarcar</a>
 		                </div>
 		                
 	                </div>               
