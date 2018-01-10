@@ -2445,6 +2445,14 @@ public class AppControllerLibues {
     	model.addAttribute("factura", factura);
     	HttpSession sesion=request.getSession(true);
     	sesion.setAttribute("codigoultimo", idfactura);
+    	
+    	if(sesion.getAttribute("codigoultimo")!=null)
+    	{
+    		Integer codigofact = (Integer) sesion.getAttribute("codigoultimo");
+    		List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(codigofact);
+    		model.addAttribute("facturas", facturaBuscar);
+    	}
+    	
         return "factura-detalle";
     } 
     
