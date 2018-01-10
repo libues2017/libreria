@@ -3210,7 +3210,7 @@ public class AppControllerLibues {
     	  model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
           
     	 // return new ModelAndView("GenerarEtiqueta-Reg");
-    	return "GenerarEtiqueta-Reg";////no tocar
+    	return "GenerarEtiquetaSucc";////no tocar
 
     } 
     
