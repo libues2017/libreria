@@ -152,7 +152,8 @@
                             var precio=[];
                             var cantidad=[];
                         	
-                        	
+                        	//validar();
+                   
               		<c:forEach items="${producto}" var="current">
               		
               		    if(${current.correlativo} == Id){
@@ -163,6 +164,9 @@
               		   autor.push("${current.autores}");
               		 precio.push("${current.precio}");
               		 cantidad.push("${current.cantidadetiquetar}");
+              		 
+              		  if(validar()==1){
+                  		
               		     document.getElementById('nombreProducto').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
               		 // autor=autor.replace("[", " ");
@@ -176,21 +180,43 @@
               		  /* sessionId.push("${current.existencia}");
               		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
               		   //document.getElementById('existencia').value =sessionId;
-              		   
+              		  }
               		
               		    }
               		</c:forEach>
                       return true;
 					  alert();			  
                         	
-				     }
-                       
+				     
+                        }
                     
                  </script>
                  
                  <script>
-                 
-                 
+                    function validar(){
+                    	
+                    	
+                    	var Id=document.getElementById("codigoproducto").value;
+                    	var bandera=1;
+                    	
+					<c:forEach items="${etiquetas}" var="current">
+					                  		
+					              		    if(${current.codigoproducto} == Id){
+					              		    	 document.getElementById('codigoproducto').value = " ";
+					              		    	 document.getElementById('nombreProducto').value = " ";
+					                     		  document.getElementById('precioproducto').value = " ";
+					                     		 document.getElementById('autor_marca').value = " ";
+					                     		 document.getElementById('cantidad').value = " ";
+					              		    	alert("Ya existe el registro en el detalle");
+					              		    	 bandera=0;
+					              		    }
+					              		    
+					              		 
+					              		    
+					              		  </c:forEach>
+					              		
+					    return bandera;                	
+					 }
                  </script>
 					  				  
 				<script>
@@ -342,7 +368,7 @@
                         
                         <c:otherwise>
                         <div class="col-xs-2">
-                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()" onclick="etiqueta.submit()"  />
+                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()"   onclick="etiqueta.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
                             <a href="<c:url value='/index' />" class="btn btn-primary btn-sm">CANCELAR</a>
