@@ -2977,45 +2977,7 @@ public class AppControllerLibues {
     	
     }
     
-    ////Generar etiquetas
-    
-    @RequestMapping(value = "/generarEtiquetas", method = RequestMethod.GET)
-    public ModelAndView Etiquetastxt(ModelMap model) {
-    	  List<Book> listBooks = new ArrayList<Book>();
-          listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
-                  "May 28, 2008", 38.11F));
-          listBooks.add(new Book("Head First Java", "Kathy Sierra & Bert Bates",
-                  "0596009208", "February 9, 2005", 30.80F));
-          listBooks.add(new Book("Java Generics and Collections",
-                  "Philip Wadler", "0596527756", "Oct 24, 2006", 29.52F));
-          listBooks.add(new Book("Thinking in Java", "Bruce Eckel", "0596527756",
-                  "February 20, 2006", 43.97F));
-          listBooks.add(new Book("Spring in Action", "Craig Walls", "1935182358",
-                  "June 29, 2011", 31.98F));
    
-          // return a view which will be resolved by an excel view resolver
-          
-         // model.addAttribute("listBooks", listBooks);
-          
-         // return "Excell";
-         // return new ModelAndView(home, "model", model);
-          List<Producto> productos = productoService.findAllProductos();
-
-          //incrementar retaceo
-   
-         model.addAttribute("producto", productos);
-         model.addAttribute("loggedinuser", getPrincipal());    
-          //model.addAttribute("producto", "productos");
-         
-         excell e=new excell();
-         
-         
-     
-          
-          return new ModelAndView("crearEtiquetas", "listBooks", listBooks);
-    	
-    }
-    
     
     ///////////////////////NUEVAS ETIQUETAS/////////////////////
     
@@ -3067,13 +3029,7 @@ public class AppControllerLibues {
        // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
     	
       
-		//List<detalleretaceo> retaceo = retaceoService.findAllRetaceos();
-		
-		//Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-       // HttpSession sesion1=request.getSession(true);
-       // sesion1.setAttribute("codigo", codigo);  
-		
-        model.addAttribute("marcado", marcado);
+		model.addAttribute("marcado", marcado);
         model.addAttribute("proveedor", busqueda);
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);// atributo para generar etiquetas
@@ -3165,16 +3121,7 @@ public class AppControllerLibues {
     	   
        }
         
-      
-       // System.out.println("revisar:----------------------------------------------------------------------------" + etiquetas.size());
-    	
-        
-       /* model.addAttribute("proveedor", busqueda);
-        model.addAttribute("proveedor", proveedores);
-        model.addAttribute("producto", productos);
-        model.addAttribute("etiquetas", etiqueta1);///la lista a desplegar 
-        model.addAttribute("autor", autor);*/
-        return "redirect:/nuevas-etiquetas";
+       return "redirect:/nuevas-etiquetas";
        // return "GenerarTxt";
   }
     
@@ -3185,52 +3132,7 @@ public class AppControllerLibues {
         return "redirect:/nuevas-etiquetas";
     }
     
-    
-    
-    
-    
-    //////////////////////////////
-    
-    @RequestMapping(value = "/generarEtiquetastxt", method = RequestMethod.GET)
-    public ModelAndView Etiquetas(ModelMap model) {
-    	  List<Book> listBooks = new ArrayList<Book>();
-          listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
-                  "May 28, 2008", 38.11F));
-          listBooks.add(new Book("Head First Java", "Kathy Sierra & Bert Bates",
-                  "0596009208", "February 9, 2005", 30.80F));
-          listBooks.add(new Book("Java Generics and Collections",
-                  "Philip Wadler", "0596527756", "Oct 24, 2006", 29.52F));
-          listBooks.add(new Book("Thinking in Java", "Bruce Eckel", "0596527756",
-                  "February 20, 2006", 43.97F));
-          listBooks.add(new Book("Spring in Action", "Craig Walls", "1935182358",
-                  "June 29, 2011", 31.98F));
-   
-          // return a view which will be resolved by an excel view resolver
-          
-         // model.addAttribute("listBooks", listBooks);
-          
-         // return "Excell";
-         // return new ModelAndView(home, "model", model);
-          List<Producto> productos = productoService.findAllProductos();
-
-          //incrementar retaceo
-   
-         model.addAttribute("producto", productos);
-         model.addAttribute("loggedinuser", getPrincipal());    
-          //model.addAttribute("producto", "productos");
-         
-         excell e=new excell();
-         
-         
-       
-          return new ModelAndView("generarTxt", "listBooks", listBooks);
-    	
-    }
-    
-    
-    
-    
-    
+  
     @RequestMapping(value = { "/finalizar-etiqueta" }, method = RequestMethod.GET)
     public String finetiquetas( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
