@@ -3239,7 +3239,7 @@ public class AppControllerLibues {
 				*/
 
     	 List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
-         
+    	 model.addAttribute("success", "Las etiquetas <strong>"+"</strong> se generaron con exito ");
     	  model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
           
     	 // return new ModelAndView("GenerarEtiqueta-Reg");

@@ -63,10 +63,12 @@
     //e.crearEtiquetas(producto);
     
     
-    String nombre="Etiquetas.txt";
+    String nombre="LIBROS.txt";
     
-
+    
     e.Escribirtxt(nombre,producto,etiqueta);
+    
+    
     
 %>
     
