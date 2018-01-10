@@ -345,7 +345,7 @@
                             <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="etiqueta.submit()" onclick="etiqueta.submit()"  />
                        	</div>
                        	<div class="col-xs-2">
-                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                            <a href="<c:url value='/index' />" class="btn btn-primary btn-sm">CANCELAR</a>
                     	</div>                    	
                         </c:otherwise>
                     </c:choose>
