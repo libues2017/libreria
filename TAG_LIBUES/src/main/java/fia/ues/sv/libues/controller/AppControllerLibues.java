@@ -3044,7 +3044,7 @@ public class AppControllerLibues {
         model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
         model.addAttribute("autor", autor);
       
-        return "GenerarTxt";
+        return "GenerarEtiquetaReg";
   }
     
     @RequestMapping(value = { "/nuevas-etiquetas" }, method = RequestMethod.POST)   
