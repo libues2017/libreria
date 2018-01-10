@@ -2,62 +2,118 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Detalle Transferencia</title>
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Transferencia Detalle</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 </head>
 <body>
-<div class="row"><%@include file="page_head.jsp" %></div>
-	<div class="container">
-	<div class="row"><%@include file="menu.jsp" %></div>
-      <div class="row col-md-12">
-      
-      <sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
-                <a href="<c:url value='/detalletransferencia-agregar' />" class="btn btn-primary">Agregar Transferencia</a>  
-                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> |||
-                <a href="<c:url value='/transferencia-list' />" class="btn btn-primary" >Lista de Transferencias</a> 
+	<div class="row"><%@include file="page_head_2.jsp" %></div>	
+	<div class="container">        
+	<div class="row">		
+	<div class="panel panel-default">
+  				<!-- Default panel contents -->
+  				<div class="panel-heading"><h3>TRANSFERENCIA: ${transferencia.codTransferencia}</h3></div>
+  				<div class="panel-body">
+					<div class="col-md-1"></div>
+					<div class="col-md-7">
+						<table class="table table-striped">
+							<tbody>
+								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+									<tr>
+	       								<th scope="row">Transferencia Numero:</th>
+	       								<td>${transferencia.numeroTransferencia}</td>
+	      							</tr>
+      							</sec:authorize>
+								<tr>
+       								<th scope="row">Tipo:</th>
+       								<td>${transferencia.tipoTransferencia}</td>
+      							</tr>
+      							<tr>
+       								<th scope="row">Sucursal:</th>
+       								<td>${transferencia.sucursal}</td>
+      							</tr>
+      							<tr>
+       								<th scope="row">Fecha:</th>
+       								<td>${transferencia.fechaTransferencia}</td>
+      							</tr>
+      							<tr>
+       								<th scope="row">Total:</th>
+       								<td>$${transferencia.total}</td>
+      							</tr>
+      						</tbody>
+      					</table>
+    
+  					</div>
+  					<table class="table table-striped ">
+					<thead>
+						<tr class="success">
+							<th>Codigo</th>
+							<th>Titulo</th>
+							<th>Cantidad</th>
+							<th>Costo</th>
+							<th>Precio</th>
+							<th>SubTotal</th>
+							
+						</tr >
+					</thead>
+					
+					<tbody>						
+						<c:forEach items="${transferencia2}" var="transferencias">
+						<tr class="info">							
+									<td>${transferencias.codProducto}</td>
+									<td>${transferencias.nomProducto}</td>
+									<td>${transferencias.cantidadProducto}</td>
+									<td>$${transferencias.costoProducto}</td>
+									<td>$${transferencias.precioProducto}</td>
+									<td>$${transferencias.subTotal}</td>
+						</tr>
+						</c:forEach>
+						
+						
+					</tbody>
+				</table>
+  					
+  				</div>
+
+			</div>
+	<form class="form-horizontal" role="form" action="<c:url value="/repo_UltimaTransferencia" />" target="_blank">
+
+            <div class="form-group">
+
             </div>
-        </sec:authorize>
-        
-        <div class="panel panel-default">      
-              <!-- Default panel contents -->
-            <div class="panel-heading"><h3>Transferencia: ${transferencia.codTransferencia}</h3> </div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>                    	                 
-                        <!--<th>Codigo Detalle</th>-->                        
-                        <th>Codigo Producto</th>
-                        <th>Titulo</th>
-                        <th>Cantidad</th>
-                        <th>Costo</th>
-                        <th>Precio</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                	<c:forEach items="${detalletransferencias}" var="detalletransferencia">
-                    	<tr>                    	
-                    	<!-- <td>${detallerequisicion.codigodetalle}</td>-->
-                    	<td>${detalletransferencia.codProducto}</td>	
-                        <td>${detalletransferencia.nomProducto}</td>
-                        <td>${detalletransferencia.cantidadProducto}</td>
-                        <td>$${detalletransferencia.costoProducto}</td>
-                        <td>$${detalletransferencia.precioProducto}</td>
-                        <td>$${detalletransferencia.subTotal}</td>
-                    	</tr>
-                	</c:forEach>
-                </tbody>
-            </table>
-        	</div>
-        </div>
-    </div>
-  <div class="row"><%@include file="foot.jsp" %></div>
- <!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
- <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>-->
+            <div class="form-group">
+                <div class="col-sm-offset-6 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Imprimir Transferencia</button>
+                    <a class="btn btn-danger" href="<c:url value="/transferencia-list" />" role="button">Listar Transferencias</a>
+                </div>
+
+				<input type="hidden" value="${loggedinuser}" name="usuario"/>
+				<input type="hidden" value="TransferenciasUltima.jasper" name="nombre"/>
+            </div>
+	</form>		
+	</div>
+	
+	
+	
+	<!-- 
+	<div class="form-group">
+	    <div class="col-sm-offset-6 col-sm-10">
+	    	<button type="submit" class="btn btn-primary">Imprimir Transferencia</button>
+			<a href="<c:url value='/transferencia-list' />" class="btn btn-primary"> Regresar</a>
+			<input type="hidden" value="${loggedinuser}" name="usuario"/>
+			<input type="hidden" value="Factura.jasper" name="nombre"/>
+		</div>
+	</div>
+	-->
+</div>	
+<div class="row"><%@include file="foot.jsp" %></div>	
 </body>
 </html>

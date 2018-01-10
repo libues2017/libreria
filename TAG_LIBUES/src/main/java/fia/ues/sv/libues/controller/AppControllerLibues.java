@@ -1799,6 +1799,23 @@ public class AppControllerLibues {
     	
     }
     
+    @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
+    public String listDetalleTransferencia(HttpServletRequest request,@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
+        Transferencia transferencia = transferenciaService.findById(codTransferencia);
+        model.addAttribute("transferencia", transferencia);
+        HttpSession sesion=request.getSession(true);
+        sesion.setAttribute("codigoultimo", codTransferencia);
+        
+        if(sesion.getAttribute("codigoultimo") != null)
+        {
+          Integer codigo1 = (Integer) sesion.getAttribute("codigoultimo");
+          List<DetalleTransferencia> transferenciaBuscar = detalletransferenciaService.findTransferencias(codigo1);          
+          model.addAttribute("transferencia2", transferenciaBuscar); 
+        }
+        
+        return "transferencia-detalle";
+    } 
+    
     /*
      @RequestMapping(value = { "/detalletransferencia-list" }, method = RequestMethod.GET)
     public String listTransferencias(ModelMap model) throws IOException {

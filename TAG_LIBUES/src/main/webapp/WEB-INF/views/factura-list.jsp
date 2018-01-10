@@ -76,7 +76,7 @@
 			    	     
 			    	document.getElementById("devolver").innerHTML = result;//editar
 			    	document.getElementById("devolver1").innerHTML = result1;//eliminar
-			    	document.getElementById("devolver2").innerHTML = result2;//eliminar
+			    	document.getElementById("devolver2").innerHTML = result2;//ver
 			    }	  
 			} );
 			        
