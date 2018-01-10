@@ -1827,17 +1827,8 @@ public class AppControllerLibues {
      */
     
     
-   
-    
-    @RequestMapping(value = { "/transferencia-detalle-{codTransferencia}" }, method = RequestMethod.GET)
-    public String listDetalleTransferencia(@PathVariable Integer codTransferencia, ModelMap model) throws IOException {
-        DetalleTransferencia transferencia = detalletransferenciaService.findByCodigo(codTransferencia);
-        model.addAttribute("transferencias", transferencia);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "transferencia-detalle";
-    } 
-    
-    
+  
+ 
     
     
     
