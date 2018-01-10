@@ -3079,19 +3079,11 @@ public class AppControllerLibues {
     public String cargartiquetas( Busqueda busqueda,HttpServletRequest request,ModelMap model) {
       
     	Etiqueta etiqueta=new Etiqueta();
-    	//model.addAttribute("etiqueta", etiqueta);
     	
-     //   model.addAttribute("edit", false);
-     //   model.addAttribute("loggedinuser", getPrincipal());
-    	
-   	     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
         List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
-        
-        
-       // List<Autor> autor=autorService.findAllAutors();
-        
+          
         Editorial editorial = editorialService.findById(busqueda.getCodigoeditorial());
     	Area area = areaService.findById(busqueda.getCodigoarea());
     	Proveedor proveedor = proveedorService.findById(busqueda.getCodigoproveedor());
@@ -3099,10 +3091,8 @@ public class AppControllerLibues {
     	Autor autor = autorService.findById(busqueda.getCodigoautor());
     	Producto producto1=productoService.findByCodigoProducto(busqueda.getCodigoproducto());
         List<Producto> productos1=productoService.customSearchProducto(producto1, area, editorial, proveedor, tipoproducto, autor, busqueda);
-        productos1.get(0).getCodigoProducto();
-        
-       
-        
+        productos1.get(0).getCodigoProducto();       
+               
         for(int i=0;i<productos.size();i++){
     	   
     	   
@@ -3201,11 +3191,7 @@ public class AppControllerLibues {
     @RequestMapping(value = { "/finalizar-etiqueta" }, method = RequestMethod.GET)
     public String finetiquetas( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
     	
-		    	/*
-				 									
-				*/
-
-    	 List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
+	 	 List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
     	 model.addAttribute("success", "Las etiquetas <strong>"+"</strong> se generaron con exito ");
     	  model.addAttribute("etiquetas", etiquetas);///la lista a desplegar 
           
