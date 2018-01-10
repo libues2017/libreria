@@ -249,6 +249,7 @@
 				    	  		<td>${i[3]}</td>
 				    	  		<td>${i[4]}</td>	
 				    	  		<td>${i[5]}</td>
+				    	  		<td>${i[6]}</td>
 				    	
                         </tr>
 				    	 </c:forEach>

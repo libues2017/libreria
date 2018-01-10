@@ -241,7 +241,7 @@ public class excell {
 		 List sheetDatamostrar = new ArrayList();		 
 		 List<Producto> sheetDatamostrar1 = new ArrayList();		
 		 List<List> listaEmpresa = new ArrayList<List>();		 
-		 for(int i =0; i<= 5; i++){
+		 for(int i =0; i<= 6; i++){
 	            listaEmpresa.add(new ArrayList());//crea 5 sublistas	          
 	        }		 
 		 
@@ -299,7 +299,8 @@ public class excell {
 	             			
 	             		 sheetDataextraer.add(g);//codigo
 	             		 sheetDataextraer.add(nombre); //nombre
-	             		 sheetDataextraer.add(cantidadbase);//cantidad
+	             		 sheetDataextraer.add(cantidadbase);//cantidad teorica
+	             		sheetDataextraer.add(cantidad);//cantidad fisica             		 
 	             		 sheetDataextraer.add(estante);//estante
 	             		 sheetDataextraer.add(nivel);//nivel
 	             		 sheetDataextraer.add(sala);//ubicacion
@@ -315,7 +316,8 @@ public class excell {
 	             		 
 	             		listaEmpresa.get(contador).add(g);//codigo
 	             		listaEmpresa.get(contador).add(nombre);//nombre
-	             		listaEmpresa.get(contador).add(cantidadbase);//nombre
+	             		listaEmpresa.get(contador).add(cantidadbase);//cantidad teorica
+	             		listaEmpresa.get(contador).add(cantidad);//cantidad fisica
 	             		listaEmpresa.get(contador).add(estante);//estante
 	             		listaEmpresa.get(contador).add(nivel);//nivel
 	             		listaEmpresa.get(contador).add(sala);//ubicacion
@@ -378,7 +380,8 @@ public class excell {
 	               			
 		               		 sheetDataextraer.add(d);//codigo
 		               		 sheetDataextraer.add(nombre); //nombre
-		               		 sheetDataextraer.add(cantidadbase);//cantidad
+		               		 sheetDataextraer.add(cantidadbase);//cantidad teorica
+		               		sheetDataextraer.add(cantidad);//cantidad fisica
 		               		 sheetDataextraer.add(estante);//estante
 		               		 sheetDataextraer.add(nivel);//nivel
 		               		 sheetDataextraer.add(bodega);//ubicacion
@@ -386,7 +389,8 @@ public class excell {
 		               		 
 		               		    listaEmpresa.get(contador).add(g);//codigo
 			             		listaEmpresa.get(contador).add(nombre);//nombre
-			             		listaEmpresa.get(contador).add(cantidadbase);//nombre
+			             		listaEmpresa.get(contador).add(cantidadbase);//cantidad teorica
+			            		listaEmpresa.get(contador).add(cantidad);//cantidad fisica
 			             		listaEmpresa.get(contador).add(estante);//estante
 			             		listaEmpresa.get(contador).add(nivel);//nivel			             		
 		             		    listaEmpresa.get(contador).add(bodega);//ubicacion
