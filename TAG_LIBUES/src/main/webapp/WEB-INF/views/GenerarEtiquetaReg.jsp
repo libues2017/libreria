@@ -180,9 +180,6 @@
               		
               		    }
               		</c:forEach>
-              		
-
-              		              		
                       return true;
 					  alert();			  
                         	
