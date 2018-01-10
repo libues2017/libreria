@@ -3182,12 +3182,13 @@ public class AppControllerLibues {
     		
     		if(productos.get(i).getMarcado()==1){
     			
-    			Integer codigoproducto=productos.get(i).getCodigoProducto();
+    			Integer codigoproducto=productos.get(i).getCorrelativo();
     			Integer cantidadetiquetar=0;
     			Integer marcado=0;
     			
     			productoService.updatedesmarcarProducto(codigoproducto, cantidadetiquetar, marcado);
-    			
+    			System.out.println("re:----------------------------------------------------------------------------" + codigoproducto);
+    	     	
     		}
     		
     	}
