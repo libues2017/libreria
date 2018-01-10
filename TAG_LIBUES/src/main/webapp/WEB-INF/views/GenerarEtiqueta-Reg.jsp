@@ -95,7 +95,11 @@
         </div>
          
         <span class="well floatRight">
-          <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>     
+          <a href="<c:url value='/delete-all-etiquetas-${1}'/>" class="btn btn-primary"> Regresar al menu principal</a>     
+          </span>
+          
+           <span class="well floatRight">
+          <a href="<c:url value='/delete-all-etiquetas-${2}' />" class="btn btn-primary"> Generar Etiquetas</a>     
           </span>
     </div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   

@@ -3132,6 +3132,40 @@ public class AppControllerLibues {
         return "redirect:/nuevas-etiquetas";
     }
     
+    
+    @RequestMapping(value = { "/delete-all-etiquetas-{vista}" }, method = RequestMethod.GET)
+    public String deleteEtiquetaall(@PathVariable Integer vista) {
+    	
+    	
+    	String redireccionar="";
+    	 List<Etiqueta> etiquetas = etiquetaService.findAllEtiquetas();
+    	 
+    	 for(int i=0;i<etiquetas.size();i++){
+    		 
+    		 Integer codigoetiqueta=etiquetas.get(i).getCodigoetiqueta();
+    		 
+    		 etiquetaService.deleteEtiquetaById(codigoetiqueta);    
+    		 
+    		 
+    	 }
+    	 
+    	 System.out.println("re:----------------------------------------------------------------------------" + vista);
+     	
+  	   	 if(vista==1){
+  	   		 
+  	   		redireccionar= "redirect:/index";
+  	   	 } 
+  	   	 
+  	   	 else{
+  	   		 
+  	   	redireccionar= "redirect:/nuevas-etiquetas";
+  	   		 
+  	   	 }
+    	 
+    	 
+        return redireccionar;
+    }
+    
   
     @RequestMapping(value = { "/finalizar-etiqueta" }, method = RequestMethod.GET)
     public String finetiquetas( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
