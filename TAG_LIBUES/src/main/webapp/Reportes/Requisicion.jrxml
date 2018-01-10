@@ -74,14 +74,14 @@ WHERE
 					<text><![CDATA[Total de Requisicion]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="84" y="21" width="36" height="21" uuid="dcdd6b2c-d9f7-48ff-8ba6-16745c9e73b1"/>
+					<reportElement x="88" y="21" width="36" height="21" uuid="dcdd6b2c-d9f7-48ff-8ba6-16745c9e73b1"/>
 					<textElement textAlignment="Left">
 						<font fontName="Arial" size="10"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="-9" y="21" width="120" height="21" uuid="06cc7bb4-c738-4a28-b0d4-2f25b2341076"/>
+					<reportElement x="-1" y="21" width="120" height="21" uuid="06cc7bb4-c738-4a28-b0d4-2f25b2341076"/>
 					<textElement>
 						<font fontName="Arial" size="10" isBold="true"/>
 					</textElement>
@@ -95,10 +95,10 @@ WHERE
 					<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 				</textField>
 				<rectangle>
-					<reportElement mode="Transparent" x="-11" y="21" width="135" height="26" uuid="5283cbc7-81e2-47df-b761-654622c59873"/>
+					<reportElement mode="Transparent" x="373" y="21" width="192" height="26" uuid="82375d19-2b59-49e2-9a8d-bb8e8548ce6b"/>
 				</rectangle>
 				<rectangle>
-					<reportElement mode="Transparent" x="373" y="21" width="192" height="26" uuid="82375d19-2b59-49e2-9a8d-bb8e8548ce6b"/>
+					<reportElement mode="Transparent" x="-5" y="18" width="124" height="22" uuid="5283cbc7-81e2-47df-b761-654622c59873"/>
 				</rectangle>
 			</band>
 		</groupFooter>
@@ -151,21 +151,21 @@ WHERE
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="469" y="40" width="100" height="30" uuid="fb9cbef1-b714-4ff9-9b72-97e0f7c525d9"/>
+				<reportElement x="467" y="40" width="100" height="30" uuid="fb9cbef1-b714-4ff9-9b72-97e0f7c525d9"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="M/d/yy h:mm a">
-				<reportElement positionType="Float" x="465" y="23" width="84" height="20" uuid="c8a6a758-1902-41af-b9b2-b5fe2c42706d"/>
+				<reportElement positionType="Float" x="462" y="22" width="43" height="20" uuid="c8a6a758-1902-41af-b9b2-b5fe2c42706d"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="424" y="22" width="50" height="20" uuid="fba0d7aa-3a0a-4c17-9147-cce76f81f2ae"/>
+				<reportElement x="426" y="22" width="50" height="20" uuid="fba0d7aa-3a0a-4c17-9147-cce76f81f2ae"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
@@ -173,21 +173,21 @@ WHERE
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="95" y="76" width="65" height="19" uuid="a55c7539-1284-495e-82c4-37de41270b20"/>
+				<reportElement x="95" y="76" width="55" height="19" uuid="a55c7539-1284-495e-82c4-37de41270b20"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[DESTINO:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="152" y="76" width="100" height="20" uuid="248634d1-0665-48cb-941b-3aa1fd363c86"/>
+				<reportElement x="149" y="76" width="162" height="20" uuid="248634d1-0665-48cb-941b-3aa1fd363c86"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESTINOREQUISICION}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="179" y="60" width="46" height="17" uuid="89f0443d-2f25-49e0-a550-49757432265b"/>
+				<reportElement x="168" y="56" width="46" height="17" uuid="89f0443d-2f25-49e0-a550-49757432265b"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -201,7 +201,7 @@ WHERE
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="340" y="62" width="41" height="13" uuid="42edf846-1c0e-43cf-a593-670610d2c765"/>
+				<reportElement x="316" y="62" width="41" height="13" uuid="42edf846-1c0e-43cf-a593-670610d2c765"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -268,14 +268,14 @@ WHERE
 	<detail>
 		<band height="37" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="1" width="65" height="19" uuid="81c0d9d2-d973-4f97-a8d9-87eb25450afa"/>
+				<reportElement x="-2" y="1" width="52" height="19" uuid="81c0d9d2-d973-4f97-a8d9-87eb25450afa"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="63" y="1" width="189" height="18" uuid="83002018-efea-4f96-9298-179cc9c21e96"/>
+				<reportElement x="54" y="1" width="198" height="18" uuid="83002018-efea-4f96-9298-179cc9c21e96"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -316,7 +316,7 @@ WHERE
 				</reportElement>
 			</line>
 			<textField>
-				<reportElement x="260" y="1" width="113" height="18" uuid="76ce9882-9dc3-44d0-b235-f7a59ac3f629"/>
+				<reportElement x="264" y="1" width="113" height="18" uuid="76ce9882-9dc3-44d0-b235-f7a59ac3f629"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>

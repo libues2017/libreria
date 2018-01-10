@@ -232,7 +232,7 @@ function vuelto(){
 		<td><input type="date" id="fechafactura" name="fechafactura" class="form-control input-sm" value="<%=sAhora %>" /></td>	
 		
 		<td><label class="col-md-6 control-lable" for="factura" >Factura:</label></td>
-		<td><input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" disabled="disabled" /></td>		
+		<td><input type="text" maxlength="10" id="numerofactura" name="numerofactura" class="form-control input-sm" value="${numero}" /></td>		
 				
 	</tr>	
 	</table>										    			

@@ -2016,8 +2016,8 @@ public class AppControllerLibues {
   		model.addAttribute("loggedinuser", getPrincipal());
   		return "ReporteFactura";
   	}
-   
- //Controles para el Reporte de Facturas Emitidas
+   //----------------------------******************************* 
+   //Controles para el Reporte de Facturas Emitidas
    @RequestMapping(value={"/facturas-emitidas"}, method = RequestMethod.GET)
  	public String facturasemitidas(ModelMap model){
  		model.addAttribute("loggedinuser", getPrincipal());
@@ -2408,15 +2408,14 @@ public class AppControllerLibues {
          
     @RequestMapping(value = { "/edit-requisiciones-{codigorequisicion}" }, method = RequestMethod.POST)
     public String updateRequisiciones(@Valid DetalleRequisicion detallerequisicion, BindingResult result,
-            ModelMap model, @PathVariable Integer codigorequisicion,HttpServletRequest request)
-            		throws IOException, ParseException {
+            ModelMap model, @PathVariable Integer codigorequisicion,HttpServletRequest request)	throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detallerequisicion-modificar";
         }
         
         HttpSession sesion = request.getSession();
-        Integer punto=(Integer)sesion.getAttribute("punto");
+        Integer punto = (Integer)sesion.getAttribute("punto");
         detallerequisicionService.saveDetalleRequisicion(detallerequisicion);
         model.addAttribute("loggedinuser", getPrincipal());
         return "redirect:/edit-requisiciones-{codigorequisicion}";
@@ -2441,10 +2440,11 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/factura-detalle-{idfactura}" }, method = RequestMethod.GET)
-    public String detalleFactura(@PathVariable Integer idfactura, ModelMap model) throws IOException {
+    public String detalleFactura(HttpServletRequest request,@PathVariable Integer idfactura, ModelMap model) throws IOException {
     	Factura factura = facturaService.findById(idfactura);
     	model.addAttribute("factura", factura);
-    	
+    	HttpSession sesion=request.getSession(true);
+    	sesion.setAttribute("codigoultimo", idfactura);
         return "factura-detalle";
     } 
     

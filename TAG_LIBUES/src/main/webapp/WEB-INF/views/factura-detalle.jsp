@@ -46,19 +46,24 @@
        								<td>${factura.cliente}</td>
       							</tr>   	
       							
-      							<tr>   
-                    	    		<td colspan="2" align="center">
-                        				<sec:authorize access="hasRole('ADMINISTRADOR')">
-                            				<a href="<c:url value='/cambio-estado-factura-${factura.idfactura}' />" 
-                            								class="btn btn-danger custom-width" onclick="alert('Se borró la Factura')">Eliminar</a>
-                        				</sec:authorize>                        				
-                            				<a href="<c:url value='/factura-list' />" class="btn btn-primary"> Regresar</a>
-                        			</td>
-                        			
-                    </tr>
-                    
       						</tbody>
       					</table>
+    <form class="form-horizontal" role="form" action="<c:url value="/repo_factura" />" target="_blank">
+	    <div class="form-group" align="center">
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-6 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Imprimir Factura</button>
+                    <sec:authorize access="hasRole('ADMINISTRADOR')">
+                    <a href="<c:url value='/cambio-estado-factura-${factura.idfactura}' />" 
+                    	class="btn btn-danger custom-width" onclick="alert('Se borró la Factura')">Eliminar</a>
+                    </sec:authorize>                        				
+                    <a href="<c:url value='/factura-list' />" class="btn btn-primary"> Regresar</a>
+                </div>
+				<input type="hidden" value="${loggedinuser}" name="usuario"/>
+				<input type="hidden" value="Factura.jasper" name="nombre"/>
+            </div>
+	</form>
   					</div>
   				</div>
 			</div>
