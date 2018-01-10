@@ -3152,8 +3152,7 @@ public class AppControllerLibues {
     		 
     		 Integer codigoetiqueta=etiquetas.get(i).getCodigoetiqueta();
     		 
-    		 etiquetaService.deleteEtiquetaById(codigoetiqueta);    
-    		 
+    		 etiquetaService.deleteEtiquetaById(codigoetiqueta);     		 
     		 
     	 }
     	 
@@ -3168,8 +3167,7 @@ public class AppControllerLibues {
   	   		 
   	   	redireccionar= "redirect:/nuevas-etiquetas";
   	   		 
-  	   	 }
-    	 
+  	   	 }  	 
     	 
         return redireccionar;
     }
