@@ -92,6 +92,21 @@ public class ProductoServiceImpl implements ProductoService{
 		}		
 	}
 	
+	
+	@Override
+	public void updatedesmarcarProducto(Integer codigoproducto,Integer cantidadetiquetar,Integer marcado) {
+		//Producto producto = new Producto();
+		Producto entity = dao.findByCorrelativo(codigoproducto);
+		if(entity !=null){			
+				
+			entity.setCantidadetiquetar(cantidadetiquetar);
+			entity.setMarcado(marcado);
+			
+		}		
+	}
+	
+	
+	
 	@Override
 	public void updateExistencia(Integer codigoproducto, Integer existencia, Integer sala) {		
 		Producto entity = dao.findByCorrelativo(codigoproducto);

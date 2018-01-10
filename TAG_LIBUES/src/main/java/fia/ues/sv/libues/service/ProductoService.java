@@ -45,6 +45,8 @@ public interface ProductoService {
 	List<Producto> customSearchProducto(Producto producto, Area area, Editorial editorial, Proveedor proveedor,
 			TipoProducto tipoproducto, Autor autor, Busqueda busqueda);
 
+	void updatedesmarcarProducto(Integer codigoproducto,Integer cantidadetiquetar, Integer marcado);
+
 	
 
 

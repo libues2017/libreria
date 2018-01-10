@@ -3172,6 +3172,30 @@ public class AppControllerLibues {
         return redireccionar;
     }
     
+    
+    @RequestMapping(value = { "/desmarcar-etiqueta" }, method = RequestMethod.GET)
+    public String desmarcarEtiqueta() {
+  	 // etiquetaService.deleteEtiquetaById(codigoetiqueta);    
+    	List<Producto> productos = productoService.findAllProductos();
+    	
+    	for(int i=0;i<productos.size();i++){
+    		
+    		if(productos.get(i).getMarcado()==1){
+    			
+    			Integer codigoproducto=productos.get(i).getCodigoProducto();
+    			Integer cantidadetiquetar=0;
+    			Integer marcado=0;
+    			
+    			productoService.updatedesmarcarProducto(codigoproducto, cantidadetiquetar, marcado);
+    			
+    		}
+    		
+    	}
+    	
+    	
+        return "redirect:/nuevas-etiquetas";
+    }
+    
   
     @RequestMapping(value = { "/finalizar-etiqueta" }, method = RequestMethod.GET)
     public String finetiquetas( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
