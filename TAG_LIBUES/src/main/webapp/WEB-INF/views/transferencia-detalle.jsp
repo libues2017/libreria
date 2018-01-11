@@ -13,18 +13,48 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+
+<style>
+		p.normal {
+    		font-weight: normal;
+		}
+
+		p.light {
+    		font-weight: lighter;
+		}
+
+		p.thick {
+    		font-weight: bold;
+		}
+
+		p.thicker {
+    		font-weight: 900;
+		}
+	</style>
+	
+	<Style>
+		.control-label {
+			text-align: left;
+		}
+		
+		invalid {
+			border: 2px solid #ff0000;
+		}
+	</Style>
+
 </head>
 <body>
 	<div class="row"><%@include file="page_head_2.jsp" %></div>	
 	<div class="container">        
 	<div class="row">		
 	<div class="panel panel-default">
-  				<!-- Default panel contents -->
-  				<div class="panel-heading"><h3>TRANSFERENCIA: ${transferencia.codTransferencia}</h3></div>
+  				<!-- Default panel contents 
+  				<div class="panel-heading"><h3>TRANSFERENCIA: ${transferencia.codTransferencia}</h3></div>-->
+  				<p></p>
   				<div class="panel-body">
-					<div class="col-md-1"></div>
-					<div class="col-md-7">
-						<table class="table table-striped">
+					<div class="col-md-3"></div>
+					<div class="col-md-7" align="center">
+						<table class="table table-striped" >
 							<tbody>
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<tr>
@@ -52,6 +82,10 @@
       					</table>
     
   					</div>
+  					
+  					
+  				</div>
+  				<p class="thick" align="center">DETALLE DE LOS PRODUCTOS TRANSFERIDOS</p>
   					<table class="table table-striped ">
 					<thead>
 						<tr class="success">
@@ -80,8 +114,6 @@
 						
 					</tbody>
 				</table>
-  					
-  				</div>
 
 			</div>
 	<form class="form-horizontal" role="form" action="<c:url value="/repo_UltimaTransferencia" />" target="_blank">
