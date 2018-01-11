@@ -123,8 +123,12 @@
       		<div class="panel-heading" ><h4>REQUISICIONES</h4></div>
       		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
       		<div class="panel-body">
-      			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Realizar Requisicion</a> 
-                <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
+      			<a href="<c:url value='/detallerequisicion-agregar' />" class="btn btn-primary">Nueva Requisición</a> --- 
+      			<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
+			    <sec:authorize access="hasRole('ADMINISTRADOR')">
+			    --- <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button> 
+			    </sec:authorize>
+			    --- <button type="button" id="devolver2" class="btn btn-success" > Ver Requisición</button>
       		</div>
       		 </sec:authorize>
     		</div>
@@ -137,12 +141,8 @@
 			</table><br/>
 		</div>
 	</div>
-	<div class="well lead" align="center">
-		<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> 
-	    <sec:authorize access="hasRole('ADMINISTRADOR')">
-	    <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-	    </sec:authorize>
-	    <button type="button" id="devolver2" class="btn btn-success" > Ver</button>
+	<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
 	</div>
 </div>
 <br/><br/>

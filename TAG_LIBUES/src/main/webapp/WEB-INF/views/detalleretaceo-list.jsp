@@ -147,22 +147,28 @@
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 <div class="row">
-	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-			    <div class="well" align="center">
-                <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>---//--//--//--//---
-                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>             
+<div class="panel-group">
+    <div class="panel panel-default" align="center"> 
+    	<div class="panel-heading" ><h4>RETACEOS</h4></div>
+		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+			    <div class="panel-body">
+                <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo Retaceo</a> --- 
+                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> ---              
                 <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
             </div>
-   	</sec:authorize>
-</div>
-	 <div class="panel panel-default">
-			        <div class="panel panel-default">
-			              <!-- Default panel contents -->
-			            <div class="panel-heading" align="center"><span class="lead">LISTA DE RETACEOS</span></div>
-			<table id="example" class="display" >
-			</table>
+   		</sec:authorize>
 	</div>
+</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel panel-default">
+    <div class="panel-heading" align="center"><span class="lead">LISTA DE RETACEOS</span></div>
+	<table id="example" class="display" >
+	</table>
+	</div>
+</div>
+<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
 </div>
 </div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>

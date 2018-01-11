@@ -125,22 +125,25 @@
 
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-	<div class="row">
-		<!--<h1>Areas</h1>-->
+<div class="row">
+<div class="panel-group">
+    <div class="panel panel-default" align="center"> 
+    	<div class="panel-heading" ><h4>MANTENIMIENTO FACTURAS</h4></div>
 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-            <div   class="well" align="center">
-            	<button  id="devolver" type="button" class="btn btn-success" >Editar</button>
+            <div class="panel-body">
+            	<button  id="devolver" type="button" class="btn btn-success" >Editar Número</button> 
                	<sec:authorize access="hasRole('ADMINISTRADOR')">
-               	|||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+               	--- <button type="button" class="btn btn-warning" id="btnDelete">Eliminar</button> 
                	</sec:authorize>
-               	|||<button type="button" id="devolver2" class="btn btn-success" > Ver</button>                       			
+               	--- <button type="button" id="devolver2" class="btn btn-success" >Ver Factura</button>                       			
             </div>
        </sec:authorize>
-       
-    </div>    	
+	</div>
+</div>       
+</div>    	
 	<div class="row col-md-13">
     	<div class="panel panel-default" >        
-        	<div class="panel-heading" align="center"><span class="lead" >MANTENIMIENTO FACTURAS</span></div>			
+        	<div class="panel-heading" align="center"><span class="lead" >LISTA DE FACTURAS</span></div>			
 			<table id="facturas" class="display" >					
 			</table><br/>
 		</div>
