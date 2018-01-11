@@ -12,6 +12,8 @@
     <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
     <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+    
 	
 		<script type="text/javascript">
 			    var dataSet = [];
@@ -119,41 +121,38 @@
 		</div>
 	</div>
 
-
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-
-<div class="row"><%@include file="menu.jsp" %></div>
 <div class="row">
-	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-            <div class="well" align="center">
-                <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Agregar Proveedor</a> ||||||
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-                <p>OPCIONES</p>
-                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
-                 <sec:authorize access="hasRole('ADMINISTRADOR')"> 
-                 ||| <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-                 </sec:authorize>
+<div class="panel-group">
+    <div class="panel panel-default" align="center"> 
+    	<div class="panel-heading" ><h4>PROVEEDORES</h4></div>
+		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+            <div class="panel-body">
+                <a href="<c:url value='/proveedor-agregar' />" class="btn btn-primary">Nuevo Proveedor</a> --- 
+                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
+                <sec:authorize access="hasRole('ADMINISTRADOR')"> 
+                --- <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                </sec:authorize>
             </div>
-    </sec:authorize>
+    	</sec:authorize>
+</div>
+</div>
  <div class="panel panel-default">
     <div class="panel panel-default">
-              <!-- Default panel contents -->
-            <div class="panel-heading"><span class="lead">Proveedores</span></div>
-<!--<div class="col-xs-8">-->
-	<table id="proveedores" class="table table-striped ">
+        <div class="panel-heading" align="center"><span class="lead">LISTA DE PROVEEDORES</span></div>
+		<table id="proveedores" class="table table-striped ">
 	</table><br/>
 	</div>
+	</div>
+	<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
 	</div>
 </div>
 </div>
 <br/><br/>
-<div class="row"><%@include file="foot.jsp" %></div>
-<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
-<script src="<c:url value='/static/js/bootstrap.min.css' />"></script>
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
--->
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
 </body>
 
 <script>

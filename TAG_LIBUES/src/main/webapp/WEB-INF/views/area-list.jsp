@@ -114,15 +114,18 @@
 <div class="container">
 	<div class="row">
 		<div class="panel-group">
-    		<div class="panel panel-default" align="center">
+    		<div class="panel panel-default" align="center"> 
       		<div class="panel-heading" ><h4>ÁREAS</h4></div>
-		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-            <div class="panel-body">
-            	<a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Área</a> ---//////---
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>                
-            </div>
-       </sec:authorize>
-       </div>
+			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+	            <div class="panel-body">
+	            	<a href="<c:url value='/area-agregar' />" class="btn btn-primary">Nueva Área</a> --- 
+	                <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>  
+			    	<sec:authorize access="hasRole('ADMINISTRADOR')">      	
+			      	--- <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+			      	</sec:authorize>                
+	            </div>
+	       </sec:authorize>
+	       </div>
        </div>
     </div>    	
 	<div class="row col-md-13">
@@ -132,12 +135,8 @@
 			</table><br/>
 		</div>
 	</div>
-	<div class="well lead" align="center">
-		<button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
-    	<sec:authorize access="hasRole('ADMINISTRADOR')">
-      	---////---
-      	<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
-      	</sec:authorize>
+	<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
 	</div>
 </div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>

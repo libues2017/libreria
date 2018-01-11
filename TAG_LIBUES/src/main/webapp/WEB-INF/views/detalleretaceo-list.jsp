@@ -147,7 +147,6 @@
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 <div class="row">
-<!--<h1>Areas</h1>-->
 	<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 			    <div class="well" align="center">
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo retaceo</a>

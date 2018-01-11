@@ -11,8 +11,8 @@
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/jquery.dataTables.min.css' />" rel="stylesheet"></link> 
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
-    
     <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
+    <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
 	
 	<!--
@@ -143,36 +143,40 @@
 	</div>
 </div>
 
-
-<div class="row"><%@include file="page_head.jsp" %></div>
+<div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
-<div class="row"><%@include file="menu.jsp" %></div>
-<div class="row">
-
-<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
-            <div class="well" align="center">
-                <a href="<c:url value='/autor-agregar' />" class="btn btn-primary">Agregar Autor</a> ||||||
-                <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
-                <p>OPCIONES</p>
+<div class="row">		
+		<div class="panel-group">
+    		<div class="panel panel-default" align="center"> 
+      		<div class="panel-heading" ><h4>AUTORES</h4></div>
+            <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
+            <div class="panel-body">
+                <a href="<c:url value='/autor-agregar' />" class="btn btn-primary">Nuevo Autor</a> ---                  
                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
                 <sec:authorize access="hasRole('ADMINISTRADOR')"> 
-                |||<button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                --- <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
                 </sec:authorize>
             </div>
-        </sec:authorize>
+            </sec:authorize>
+        </div>
+        </div>        
+		
  <div class="panel panel-default">
     <div class="panel panel-default">
               <!-- Default panel contents -->
-            <div class="panel-heading"><span class="lead">Autores</span></div>
+            <div class="panel-heading" align="center"><span class="lead">LISTA DE AUTORES</span></div>
 	<table id="autores" class="table table-striped ">
 	</table><br/>
 	</div>
 	</div>
+	<div class="well" align="center">
+	<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
+	</div>
 </div>
 </div>
-<div class="row"><%@include file="foot.jsp" %></div>
 <script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
-</body>
+<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+</body> 
 
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Quiere eliminar este dato?";
