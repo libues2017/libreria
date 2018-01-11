@@ -22,8 +22,8 @@
   				<!-- Default panel contents -->
   				<div class="panel-heading"><h3>FACTURA: ${factura.numerofactura}</h3></div>
   				<div class="panel-body">
-					<div class="col-md-1"></div>
-					<div class="col-md-7">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
 						<table class="table table-striped">
 							<tbody>
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
@@ -34,7 +34,7 @@
       							</sec:authorize>
 								<tr>
        								<th scope="row">Fecha:</th>
-       								<td>${factura.fechafactura}</td>
+       								<td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${factura.fechafactura}"/></td>
       							</tr>
       							<tr>
        								<th scope="row">Forma de pago:</th>
@@ -44,7 +44,12 @@
       							<tr>
        								<th scope="row">Cliente:</th>
        								<td>${factura.cliente}</td>
-      							</tr>   	
+      							</tr>  
+      							
+      							<tr>
+       								<th scope="row">Total:</th>
+       								<td>$ ${factura.total}</td>
+      							</tr>  	
       						
       						</tbody>
       					</table>

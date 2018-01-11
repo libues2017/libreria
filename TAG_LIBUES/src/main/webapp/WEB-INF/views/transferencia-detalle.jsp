@@ -72,7 +72,7 @@
       							</tr>
       							<tr>
        								<th scope="row">Fecha:</th>
-       								<td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${transferencia.fechaTransferencia}" /></td>
+       								<td><fmt:formatDate pattern = "dd-MM-yyyy" value = "${transferencia.fechaTransferencia}"/></td>
       							</tr>
       							<tr>
        								<th scope="row">Total:</th>
