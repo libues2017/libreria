@@ -2227,12 +2227,29 @@ public class AppControllerLibues {
     }
     
     @RequestMapping(value = { "/requisicion-detalle-{codigorequisicion}" }, method = RequestMethod.GET)
+    public String listDetalleRequisicion(HttpServletRequest request,@PathVariable Integer codigorequisicion, ModelMap model) throws IOException {
+        Requisicion requisicion = requisicionService.findById(codigorequisicion);
+    	model.addAttribute("requisicion", requisicion);
+        HttpSession sesion=request.getSession(true);
+        sesion.setAttribute("codigoultimo", codigorequisicion);
+        
+        if(sesion.getAttribute("codigoultimo") != null)
+        {
+          Integer codigo1 = (Integer) sesion.getAttribute("codigoultimo");
+          List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo1);          
+          model.addAttribute("req1", requisicionBuscar); 
+        }
+        
+        return "requisicion-detalle";
+    } 
+    
+    /*@RequestMapping(value = { "/requisicion-detalle-{codigorequisicion}" }, method = RequestMethod.GET)
     public String listDetalleReq(@PathVariable Integer codigorequisicion, ModelMap model) throws IOException {
     	DetalleRequisicion req = detallerequisicionService.findByCodigo(codigorequisicion);
     	model.addAttribute("requisiciones", req);
     	model.addAttribute("loggedinuser", getPrincipal());
         return "requisicion-detalle";
-    }   
+    }*/   
     
     @RequestMapping(value = { "/requisicion-list" }, method = RequestMethod.GET)
     public String listReq(ModelMap model) throws IOException {

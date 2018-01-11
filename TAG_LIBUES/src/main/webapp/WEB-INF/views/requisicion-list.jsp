@@ -55,17 +55,22 @@
 			    	var h2 = document.createElement("hola");			    	            
 			    	var res = "/TAG_LIBUES/edit-requisiciones-";
 			    	var res3 = "/TAG_LIBUES/delete-requisicion-";
+			    	var res5 = "/TAG_LIBUES/requisicion-detalle-";
 			    	         
 			    	var res1=dato;
 			    	var res2=res.concat(res1);//link editar			    	         
-			    	var res4=res3.concat(res1);//link eliminar			    	       
+			    	var res4=res3.concat(res1);//link eliminar
+			    	var res6=res5.concat(res1);//link ver
 			    	var str = "Editar";
 			    	var str1 = "Aceptar";
+			    	var str2 = "Ver";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
+			    	var result2 = str2.link(res6);
 			    	     
 			    	document.getElementById("devolver").innerHTML = result;//editar
 			    	document.getElementById("devolver1").innerHTML = result1;//eliminar
+			    	document.getElementById("devolver2").innerHTML = result2;//ver
 			    }	  
 			} );    
 		} );
@@ -137,6 +142,7 @@
 	    <sec:authorize access="hasRole('ADMINISTRADOR')">
 	    <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
 	    </sec:authorize>
+	    <button type="button" id="devolver2" class="btn btn-success" > Ver</button>
 	</div>
 </div>
 <br/><br/>
