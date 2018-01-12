@@ -164,12 +164,20 @@
 	                     		 //document.getElementById('autor_marca').value = "";
 	                     		 //document.getElementById('cantidad').value = "";
 	              		    	//alert("Ya existe el registro en el detalle");
-	              		    	 $("#glypcn"+Id).remove();
-		                    $('#'+Id).parent().parent().attr("class", "form-group has-error has-feedback");
-		                    $('#'+Id).parent().children('span').text("no es un numero").show();
-		                    $('#'+Id).parent().append("<span id='glypcn"+Id+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-                           
+	              		    	 
 	              		    	 bandera=0;
+	              		    	 function confirmDialog(message, onConfirm){
+	              		   	    var fClose = function(){
+	              		   			modal.modal("hide");
+	              		   	    };
+	              		   	    var modal = $("#confirmModal");
+	              		   	    modal.modal("show");
+	              		   	    $("#confirmMessage").empty().append(message);
+	              		   	    $("#confirmOk").one('click', onConfirm);
+	              		   	    $("#confirmOk").one('click', fClose);
+	              		   	    $("#confirmCancel").one("click", fClose);
+	              		     }
+	              		    	//location.href=location.href
 	              		    }
 	              		    
 	              		 
@@ -216,32 +224,7 @@
                     
                  </script>
                  
-                 <script>
-                    function validar(){
-                    	
-                    	
-                    	var Id=document.getElementById("codigoproducto").value;
-                    	var bandera=1;
-                    	
-					<c:forEach items="${etiquetas}" var="current">
-					                  		
-					              		    if(${current.codigoproducto} == Id){
-					              		    	 document.getElementById('codigoproducto').value = " ";
-					              		    	 document.getElementById('nombreProducto').value = " ";
-					                     		  document.getElementById('precioproducto').value = " ";
-					                     		 document.getElementById('autor_marca').value = " ";
-					                     		 document.getElementById('cantidad').value = " ";
-					              		    	alert("Ya existe el registro en el detalle");
-					              		    	 bandera=0;
-					              		    }
-					              		    
-					              		 
-					              		    
-					              		  </c:forEach>
-					              		
-					    return bandera;                	
-					 }
-                 </script>
+                
 					  				  
 				<script>
 					 		
@@ -299,6 +282,19 @@
 </head>
 
 <body >
+
+<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body" id="confirmMessage">
+				</div>
+				<div class="modal-footer">
+					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
+		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
+		        </div>
+			</div>
+		</div>
+	</div>
 
 		  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
