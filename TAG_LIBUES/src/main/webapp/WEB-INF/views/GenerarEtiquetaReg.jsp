@@ -158,11 +158,11 @@
                             <c:forEach items="${etiquetas}" var="current">
 	                  		
 	              		    if(${current.codigoproducto} == Id){
-	              		    	 document.getElementById('codigoproducto').value = " ";
-	              		    	 document.getElementById('nombreProducto').value = " ";
-	                     		  document.getElementById('precioproducto').value = " ";
-	                     		 document.getElementById('autor_marca').value = " ";
-	                     		 document.getElementById('cantidad').value = " ";
+	              		    	// document.getElementById('codigoproducto').value =;
+	              		    	// document.getElementById('nombreProducto').value = "";
+	                     		 // document.getElementById('precioproducto').value = "";
+	                     		 //document.getElementById('autor_marca').value = "";
+	                     		 //document.getElementById('cantidad').value = "";
 	              		    	//alert("Ya existe el registro en el detalle");
 	              		    	 $("#glypcn"+Id).remove();
 		                    $('#'+Id).parent().parent().attr("class", "form-group has-error has-feedback");
@@ -347,8 +347,9 @@
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
-	                      
+	                   
                     </div>
+                    
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
