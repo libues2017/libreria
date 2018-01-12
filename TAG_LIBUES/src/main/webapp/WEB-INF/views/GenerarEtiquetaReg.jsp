@@ -175,7 +175,8 @@
 	              		    	
 	              		    	
 	              		    	document.getElementById('validar').innerHTML = 'Datos ya se encuentran en el detalle';
-
+	              		    	var boton1 = document.getElementById("agregar");
+	              		    	boton1.disabled = true;
 	              		    	 
 	              		    } //fin if
 	              		  </c:forEach>
@@ -200,6 +201,13 @@
               		 autor[0]=autor[0].replace("]", " ");             		
               		 document.getElementById('autor_marca').value = autor[0];
               		 document.getElementById('cantidad').value = cantidad;
+              		 
+              		 
+
+       		    	document.getElementById('validar').innerHTML = '';
+       		    	var boton1 = document.getElementById("agregar");
+      		    	boton1.disabled = false;
+       		    	 
               		 
               		  }
               		
