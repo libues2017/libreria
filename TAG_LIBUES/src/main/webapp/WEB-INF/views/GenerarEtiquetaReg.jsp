@@ -151,8 +151,32 @@
                             var autor=[];
                             var precio=[];
                             var cantidad=[];
+                            var bandera=1;
                         	
                         	//validar();
+                        	
+                            <c:forEach items="${etiquetas}" var="current">
+	                  		
+	              		    if(${current.codigoproducto} == Id){
+	              		    	 document.getElementById('codigoproducto').value = " ";
+	              		    	 document.getElementById('nombreProducto').value = " ";
+	                     		  document.getElementById('precioproducto').value = " ";
+	                     		 document.getElementById('autor_marca').value = " ";
+	                     		 document.getElementById('cantidad').value = " ";
+	              		    	//alert("Ya existe el registro en el detalle");
+	              		    	 $("#glypcn"+Id).remove();
+		                    $('#'+Id).parent().parent().attr("class", "form-group has-error has-feedback");
+		                    $('#'+Id).parent().children('span').text("no es un numero").show();
+		                    $('#'+Id).parent().append("<span id='glypcn"+Id+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+                           
+	              		    	 bandera=0;
+	              		    }
+	              		    
+	              		 
+	              		    
+	              		  </c:forEach>
+                        	
+                        	
                    
               		<c:forEach items="${producto}" var="current">
               		
@@ -165,7 +189,7 @@
               		 precio.push("${current.precio}");
               		 cantidad.push("${current.cantidadetiquetar}");
               		 
-              		  if(validar()==1){
+              		  if(bandera==1){
                   		
               		     document.getElementById('nombreProducto').value = nombre;
               		  document.getElementById('precioproducto').value = precio;
