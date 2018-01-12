@@ -169,7 +169,13 @@
 	              		    	
 	              		    	 bandera=0;
 	              		    	
-	              		    	alert("Ya existe el registro en el detalle");
+	              		    	//alert("Ya existe el registro en el detalle");
+	              		    	
+	              		    	// document.write('Ya existe el registro en el detalle"');
+	              		    	
+	              		    	
+	              		    	document.getElementById('pepe').innerHTML = 'Hola, soy yo';
+
 	              		    	 
 	              		    } //fin if
 	              		  </c:forEach>
@@ -262,6 +268,8 @@
 
 <body >
 
+
+
   
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 
@@ -299,7 +307,7 @@
 	             </div>  
 	            </div>  
            </div>  
-           
+          
              
       <div class="panel-group">
       	
@@ -310,20 +318,19 @@
 				        <label class="form-control" for="tags">Codigo Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
 	                   
-                    </div>
-                    
+                    </div>                   
+                                       
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
 	                                          
-					</div>		
-                    
+					</div>	                    
                      <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Nombre autor:</label>
 						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
 	                       					   
                     </div>
-                    <div class="col-xs-3">
+                     <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
 	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
                     </div>                    
@@ -334,15 +341,18 @@
 	                    id="cantidad" placeholder="AUTOMATICO" class="form-control 
 	                    input-sm" onchange=" cambiar5();"   />
 	                    
-                    </div>
-                    
-                    
-				</div>
+                  </div>
+              </div>  
+		  </div>
+				
+				
+				
 			</div>
+			
+			    
 			<div class="form-group row">
 				<div class="panel-body">
-					
-                 					
+				
             	    <c:choose>
                         <c:when test="${edit}">
                         <div class="col-xs-2">
