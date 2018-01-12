@@ -24,9 +24,13 @@
 			    
 		<c:forEach items="${facturas}"   var="current">
 		<c:if test = "${current.total > 0}">
-			dataSet[i] = ["${current.idfactura}", "${current.numerofactura}", "${current.cliente}", "${current.tipofactura}",
-				"$ ${current.total}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
-		         value ="${current.fechafactura}" />' ] ;
+			dataSet[i] = ["${current.idfactura}",
+				"${current.numerofactura}",
+				"${current.cliente}",
+				"${current.tipofactura}",
+				"$ ${current.total}",
+				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />',
+		         "${current.estado}" ] ;
 			i=i+1;
 		</c:if>
 		</c:forEach>
@@ -40,7 +44,9 @@
 			        { title: "CLIENTE" },
 			    	{ title: "TIPO" },
 			    	{ title: "TOTAL" },
-			    	{ title: "FECHA" }
+			    	{ title: "FECHA" },
+			    	{ title: "ESTADO" }
+			    	
 			    ],
 			    "language": idioma_espanol
 			} );
@@ -67,9 +73,9 @@
 			    	var res2=res.concat(res1); //link editar			    	         
 			    	var res4=res3.concat(res1);//link eliminar
 			    	var res6=res5.concat(res1);//link ver
-			    	var str = "Editar";
+			    	var str = "Editar Número";
 			    	var str1 = "Aceptar";
-			    	var str2 = "Ver";
+			    	var str2 = "Ver Factura";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
 			    	var result2 = str2.link(res6);
@@ -128,7 +134,7 @@
 <div class="row">
 <div class="panel-group">
     <div class="panel panel-default" align="center"> 
-    	<div class="panel-heading" ><h4>MANTENIMIENTO FACTURAS</h4></div>
+    	<div class="panel-heading" ><h4>MANTENIMIENTO DE VENTAS</h4></div>
 		<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
             <div class="panel-body">
             	<button  id="devolver" type="button" class="btn btn-success" >Editar Número</button> 

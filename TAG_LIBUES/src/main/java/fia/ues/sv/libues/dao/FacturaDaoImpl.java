@@ -36,7 +36,6 @@ public class FacturaDaoImpl extends AbstractDao<Integer, Factura> implements Fac
 	public List<Factura> findAllFacturas() {
 		Criteria criteria = createEntityCriteria();		 
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
-        criteria.add(Restrictions.eq("estado", true));
         List<Factura> factura = (List<Factura>) criteria.list();
 		return factura;	
 	}
