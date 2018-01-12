@@ -129,9 +129,6 @@
 				<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('BODEGUERO') or hasRole('DBA')" >
 					<div class="panel-body">
 				    	<a href="<c:url value='/detallecotizacion-agregar' />" class="btn btn-primary">Realizar Cotización</a> ||||||||
-				        <a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a>
-				        <br></br>
-				        <p>OPCIONES</p>
 				        <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button>
 				        <sec:authorize access="hasRole('ADMINISTRADOR')">
 				        <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
@@ -148,14 +145,14 @@
 					<table id="cotiza" class="display" >					
 					</table><br/>
 				</div>
-			</div>
+		</div>
+		<div class="well" align="center">
+			<a href="<c:url value='/index'/>" class="btn btn-primary"> REGRESAR</a>
+		</div>
 	</div>
-	
-	
-	<div class="row"><%@include file="foot.jsp" %></div>
+
 	<script src="<c:url value='/static/js/jquery.dataTables.min.js' />"></script>
 	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
- 	<!--<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>-->   
 </body>
 <script>
 var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
