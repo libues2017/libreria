@@ -166,14 +166,16 @@
 	                     		 // document.getElementById('precioproducto').value = "";
 	                     		 //document.getElementById('autor_marca').value = "";
 	                     		 //document.getElementById('cantidad').value = "";
+	              		    	
+	              		    	 bandera=0;
+	              		    	
 	              		    	alert("Ya existe el registro en el detalle");
 	              		    	 
-	              		    	 bandera=0;
-	              		    	// var modal = $("#confirmModal");
-	              		       
+	              		    } //fin if
 	              		  </c:forEach>
-                        	
-                        
+	              		
+	              		  
+	              		  
               		<c:forEach items="${producto}" var="current">
               		
               		    if(${current.correlativo} == Id){              		    	
