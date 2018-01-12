@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ventas" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e263c386-9594-4ad4-be5b-a5e54874c652">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLmZhY3R1cmEgQVMgLDE2OCwxMTYsYjhkZmI4YWMtZjYwNS00NTI3LWI3MDMtNGNkNDlm
@@ -141,7 +141,7 @@ WHERE
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="471" y="10" width="85" height="30" uuid="2abab1bd-74fc-4770-a1b6-544ac5522ff9"/>
+				<reportElement x="468" y="10" width="85" height="30" uuid="2abab1bd-74fc-4770-a1b6-544ac5522ff9"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -155,7 +155,7 @@ WHERE
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="393" y="96" width="57" height="20" uuid="262c1868-471f-4c7d-9000-e8d91f4012f9"/>
+				<reportElement x="393" y="96" width="44" height="20" uuid="262c1868-471f-4c7d-9000-e8d91f4012f9"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
@@ -246,7 +246,7 @@ WHERE
 				<text><![CDATA[Fecha de Factura]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="-14" y="0" width="601" height="32" uuid="29641192-b6bf-402a-bdb2-8bda1a9730e4"/>
+				<reportElement mode="Transparent" x="-14" y="-2" width="601" height="32" uuid="29641192-b6bf-402a-bdb2-8bda1a9730e4"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
@@ -254,9 +254,9 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="42" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField>
-				<reportElement x="146" y="1" width="81" height="30" uuid="221d245d-fe1a-4ec4-85f8-c9e9d160f9f5">
+				<reportElement x="146" y="1" width="81" height="19" uuid="221d245d-fe1a-4ec4-85f8-c9e9d160f9f5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="332ac018-4f8e-48ee-979c-7bfc2b28c3da"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -265,7 +265,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="77" y="0" width="65" height="30" uuid="f907073f-f355-487c-8bfb-9dab741f2fb3">
+				<reportElement x="77" y="0" width="65" height="20" uuid="f907073f-f355-487c-8bfb-9dab741f2fb3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="039d4549-58da-40eb-b872-abe9195b1cfe"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -274,7 +274,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{IDFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="240" y="1" width="116" height="30" uuid="1e704230-a20d-482e-a9b1-344fcd89266f">
+				<reportElement x="240" y="1" width="116" height="20" uuid="1e704230-a20d-482e-a9b1-344fcd89266f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="97c91b3c-5845-449e-9931-46cb7070369c"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -283,7 +283,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CLIENTE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="346" y="2" width="87" height="30" uuid="b6ab7dd9-fe09-4764-b588-2e4749125445">
+				<reportElement x="346" y="2" width="87" height="19" uuid="b6ab7dd9-fe09-4764-b588-2e4749125445">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a4e94bc3-fad4-449d-9337-cf992a05d7d7"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -292,7 +292,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{DOCUMENTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="437" y="2" width="81" height="30" uuid="c8d6bbaf-5122-45fa-b88f-f8649afb4028">
+				<reportElement x="437" y="2" width="81" height="19" uuid="c8d6bbaf-5122-45fa-b88f-f8649afb4028">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85292e86-f04f-4635-8a8e-282735586902"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -301,7 +301,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{TIPOCREDITO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="524" y="2" width="66" height="30" uuid="9c1577dc-c953-4db9-93f6-fe544f58c5f2">
+				<reportElement x="524" y="2" width="66" height="19" uuid="9c1577dc-c953-4db9-93f6-fe544f58c5f2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="03539ba5-31c7-41c6-a9e1-d461176f1f64"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -310,7 +310,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-12" y="33" width="597" height="1" uuid="82be73ae-dc96-4dcc-b601-b8bdfd1529e4"/>
+				<reportElement positionType="FixRelativeToBottom" x="-12" y="23" width="597" height="1" uuid="82be73ae-dc96-4dcc-b601-b8bdfd1529e4"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
