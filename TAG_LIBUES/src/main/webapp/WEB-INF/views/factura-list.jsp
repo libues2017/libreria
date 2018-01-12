@@ -30,7 +30,7 @@
 				"${current.tipofactura}",
 				"$ ${current.total}",
 				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />',
-		         "${current.estado}" ] ;
+		        "${current.estado}" ] ;
 			i=i+1;
 		</c:if>
 		</c:forEach>

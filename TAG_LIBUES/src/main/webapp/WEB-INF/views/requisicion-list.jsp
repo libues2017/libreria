@@ -63,7 +63,7 @@
 			    	var res6=res5.concat(res1);//link ver
 			    	var str = "Editar";
 			    	var str1 = "Aceptar";
-			    	var str2 = "Ver";
+			    	var str2 = "Ver Requisición";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
 			    	var result2 = str2.link(res6);
