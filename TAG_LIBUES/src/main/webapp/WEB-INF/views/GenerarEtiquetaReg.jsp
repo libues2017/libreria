@@ -95,6 +95,9 @@
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
 
 
+
+
+
     <link href="<c:url value='/static/js/jquery-3.1.1.min.js' />" rel="stylesheet"></link>
 	   	<script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>
 	   	
@@ -166,30 +169,17 @@
 	              		    	//alert("Ya existe el registro en el detalle");
 	              		    	 
 	              		    	 bandera=0;
-	              		    	 function confirmDialog(message, onConfirm){
-	              		   	    var fClose = function(){
-	              		   			modal.modal("hide");
-	              		   	    };
-	              		   	    var modal = $("#confirmModal");
-	              		   	    modal.modal("show");
-	              		   	    $("#confirmMessage").empty().append(message);
-	              		   	    $("#confirmOk").one('click', onConfirm);
-	              		   	    $("#confirmOk").one('click', fClose);
-	              		   	    $("#confirmCancel").one("click", fClose);
-	              		     }
-	              		    	//location.href=location.href
+	              		    	 $('#myModalExito').modal('show');
+ 
+	              		    	location.href=location.href
 	              		    }
-	              		    
-	              		 
 	              		    
 	              		  </c:forEach>
                         	
-                        	
-                   
+                        
               		<c:forEach items="${producto}" var="current">
               		
-              		    if(${current.correlativo} == Id){
-              		    	
+              		    if(${current.correlativo} == Id){              		    	
               		    	
               		     nombre.push("${current.nombreProducto}");
               		     costo.push("${current.costounitario}");
@@ -200,31 +190,21 @@
               		  if(bandera==1){
                   		
               		     document.getElementById('nombreProducto').value = nombre;
-              		  document.getElementById('precioproducto').value = precio;
-              		 // autor=autor.replace("[", " ");
+              		  document.getElementById('precioproducto').value = precio;              		
               		 autor[0]=autor[0].replace("[", " ");
-              		 autor[0]=autor[0].replace("]", " ");
-              		
-              		// document.getElementById('autor').value = autor[0];
+              		 autor[0]=autor[0].replace("]", " ");             		
               		 document.getElementById('autor_marca').value = autor[0];
               		 document.getElementById('cantidad').value = cantidad;
               		 
-              		  /* sessionId.push("${current.existencia}");
-              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};*/
-              		   //document.getElementById('existencia').value =sessionId;
               		  }
               		
               		    }
               		</c:forEach>
                       return true;
-					  alert();			  
-                        	
-				     
+					  alert();	
                         }
                     
-                 </script>
-                 
-                
+                 </script>      
 					  				  
 				<script>
 					 		
@@ -275,28 +255,12 @@
 					        	$("#agregar").focus();
 					        }
 					}
-					
-					
 					</script>
 					
 </head>
 
 <body >
-
-<div class="modal" id="confirmModal" style="display: none; z-index: 1050;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body" id="confirmMessage">
-				</div>
-				<div class="modal-footer">
-					<button  id="devolver1" type="button" class="btn btn-default" id="confirmOk">Ok</button>
-		        	<button type="button" class="btn btn-default" id="confirmCancel">Cancel</button>
-		        </div>
-			</div>
-		</div>
-	</div>
-
-		  
+  
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 
 
@@ -307,7 +271,7 @@
         <form:form method="POST" name="etiqueta" modelAttribute="etiqueta"  class="form-horizontal"  >
             <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>   
             
-           <div class="panel-group">
+           <div  id="principal" class="panel-group">
            
 	           <div class="panel panel-success">	
 				<div class="form-group row">
@@ -451,8 +415,7 @@
 	    <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar-etiqueta' />" class="btn btn-primary btn-sm">Generar Etiquetas</a>
 		</div>
-	   
-	
+	   	
 	</form:form>
         
 </div>
@@ -460,47 +423,9 @@
  <script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-      
-      
- 
-            
+       
 </body>
-		  
-
 </html>
-
-
-
-<% 
-   /* excell e=new excell();
-    List producto = (List)request.getAttribute("productos");
-    List etiqueta = (List)request.getAttribute("etiquetas");
-    List addressessala = producto;
-    //e.crearEtiquetas(producto);
-    
-    
-    String nombre="Etiquetas.txt";
-    
-
-    e.Escribirtxt(nombre,producto,etiqueta);
-    
-  */
-%>
 
   
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 
-</body>
-</html>
-
-<%
-
-
-
-%>
