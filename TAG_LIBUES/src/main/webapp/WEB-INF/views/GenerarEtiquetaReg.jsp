@@ -174,7 +174,7 @@
 	              		    	// document.write('Ya existe el registro en el detalle"');
 	              		    	
 	              		    	
-	              		    	document.getElementById('pepe').innerHTML = 'Hola, soy yo';
+	              		    	document.getElementById('validar').innerHTML = 'Datos ya se encuentran en el detalle';
 
 	              		    	 
 	              		    } //fin if
@@ -317,9 +317,10 @@
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
+	                     <label id="validar" for="tags"></label>
 	                   
-                    </div>                   
-                                       
+                    </div> 
+                  <div ></div>                    
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
@@ -330,6 +331,21 @@
 						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
 	                       					   
                     </div>
+                    
+                    
+             
+                  
+                  
+                  
+              </div>  
+		  </div>
+		  
+		  
+		  
+		  
+		    <div class="form-group row">
+				<div class="panel-body">
+                    
                      <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
 	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
@@ -342,15 +358,15 @@
 	                    input-sm" onchange=" cambiar5();"   />
 	                    
                   </div>
-              </div>  
-		  </div>
-				
-				
-				
-			</div>
-			
-			    
-			<div class="form-group row">
+               </div>
+             </div>
+                     
+		  
+		  
+		  
+		  
+		  
+		  <div class="form-group row">
 				<div class="panel-body">
 				
             	    <c:choose>
@@ -375,10 +391,12 @@
                     
        			</div>
        		</div>
-                <%--=session.getAttribute("mySessionAttribute")--%>
+		  
+				
+		</div>
+			                <%--=session.getAttribute("mySessionAttribute")--%>
        </div>
-	</div>       
-            
+       
         <div class="panel panel-default">
               <!-- Default panel contents -->
             <div class="panel-heading"><span class="lead">Resultados</span></div>
@@ -423,10 +441,14 @@
                 </tbody>
             </table>
         </div>
-		
-	    <div class="well lead" align="center">	
+       
+        <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar-etiqueta' />" class="btn btn-primary btn-sm">Generar Etiquetas</a>
 		</div>
+       
+       
+	</div>  
+	   
 	   	
 	</form:form>
         
