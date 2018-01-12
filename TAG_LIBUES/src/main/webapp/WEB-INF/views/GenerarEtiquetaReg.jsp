@@ -166,14 +166,11 @@
 	                     		 // document.getElementById('precioproducto').value = "";
 	                     		 //document.getElementById('autor_marca').value = "";
 	                     		 //document.getElementById('cantidad').value = "";
-	              		    	//alert("Ya existe el registro en el detalle");
+	              		    	alert("Ya existe el registro en el detalle");
 	              		    	 
 	              		    	 bandera=0;
-	              		    	 $('#myModalExito').modal('show');
- 
-	              		    	location.href=location.href
-	              		    }
-	              		    
+	              		    	// var modal = $("#confirmModal");
+	              		       
 	              		  </c:forEach>
                         	
                         
@@ -257,9 +254,12 @@
 					}
 					</script>
 					
+					
+					
 </head>
 
 <body >
+
   
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 
