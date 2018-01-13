@@ -206,12 +206,13 @@ function cambiar(){
 }
 
 function validar1(){
-	var cod = document.getElementById("codigoproducto").value;	
+	var cod = document.getElementById("destino").value;	
 	
 		if(cod == '')
         {
-			alert('Digite un código de producto para realizar la requisicion');
-       	}		
+			alert('Digite un destino para realizar la requisicion');
+       	}
+		
 }
 </script>
 </head>
@@ -267,7 +268,7 @@ function validar1(){
 						<div class="col-xs-2">
 						<label class="form-control" for="tags">Código:</label>
 						<form:input type="number" path="codigoproducto" id="codigoproducto"  maxlength="11" placeholder="DIGITAR (9999)" class="form-control input-sm" onfocus="focusF1()"
-									onchange='producto(); cambiar();' onkeypress='producto();' title="Digitar codigo del producto, solo números"  onblur="blurF1()" />
+									onchange='producto(); cambiar(); validar1();' onkeypress='producto();' title="Digitar codigo del producto, solo números"  onblur="blurF1()" />
 						</div>
 						<div class="col-xs-6">
 						<label class="form-control" for="nombr">Título:</label>
@@ -305,8 +306,7 @@ function validar1(){
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">			 		
-			 <!--		<button type="button" class="btn btn-primary btn-sm" data-toggle="collapse"  onclick="validar1();" data-target="#agrega">COMPROBAR</button>	 -->		 		
-				 	<input type="button" value="AGREGAR" id="agrega" class="btn btn-primary btn-sm" onclick="req.submit();"  /> 							
+			 	 	<input type="button" value="AGREGAR" id="agrega" class="btn btn-primary btn-sm" onclick="req.submit();"  /> 							
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>
@@ -315,14 +315,14 @@ function validar1(){
  		<table class="table table-striped ">
 				<thead>
 		    		<tr class="success">
-		    				<th>ITEM</th>		    			
+		    				<th>Ítem</th>		    			
 			      			<th>Código</th>
 			      			<th>Título</th>	      			
-			      			<th>Cantidad</th>
-			      			<th>Costo</th>
-			      			<th>Precio</th>
-			      			<th>Subtotal</th>			      			
-			      			<th>ELIMINAR</th>	
+			      			<th>Cant.</th>
+			      			<th>Costo $</th>
+			      			<th>Precio $</th>
+			      			<th>Subtotal $</th>			      			
+			      			<th>Opción</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
@@ -351,12 +351,12 @@ function validar1(){
 		    	</tbody>
 	    </table>
 				
-			<div class="row" align="right">
+			<div class="row" align="right"> 
                 <div class="form-group col-md-12">
-                    <label class="col-md-9 control-lable" for="total">TOTAL:</label>
+                    <label class="col-md-10 control-lable" for="total">TOTAL:</label>
                     <div class="col-md-2">
                     <input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value='$ ${total}'/>                           
+                    		value='$ ${total}' disabled="disabled"/>                           
                     </div>
                 </div>
             </div>	
