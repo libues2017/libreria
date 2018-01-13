@@ -22,4 +22,6 @@ public interface RequisicionService {
 
 	void updateEstadoRequisicionById(Integer codigoreq);
 
+	void updateDatosReq(Integer codigorequisicion, Date fecharequisicion1, String destino);
+
 }

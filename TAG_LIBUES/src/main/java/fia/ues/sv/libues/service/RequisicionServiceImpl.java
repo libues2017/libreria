@@ -75,6 +75,17 @@ public class RequisicionServiceImpl implements RequisicionService{
 		}
 		
 	}
+
+	@Override
+	public void updateDatosReq(Integer codigorequisicion, Date fecharequisicion1, String destino) {
+		Requisicion entity = dao.findById(codigorequisicion);
+		if(entity!=null){
+			entity.setFecha(fecharequisicion1); 
+			entity.setDestino(destino);
+			
+		}
+		
+	}
 	
 
 }

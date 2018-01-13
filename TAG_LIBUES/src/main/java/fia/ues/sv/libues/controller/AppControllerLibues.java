@@ -2379,6 +2379,70 @@ public class AppControllerLibues {
     }
     
     
+    
+    @RequestMapping(value = { "/guardar-update" }, method = RequestMethod.GET)
+    public String saveDetalleRequisicionUpdate( HttpServletRequest request,ModelMap model)throws IOException, ParseException {
+    	
+          HttpSession sesion=request.getSession(true);    	
+          
+          Integer punto=(Integer) sesion.getAttribute("punto");
+          Integer codigorequisicion = (Integer) sesion.getAttribute("codigo2");          
+          sesion.setAttribute("codigoultimo", codigorequisicion);         
+         // Se lee el valor a comparar. SALA o BODEGA 
+          String destino = requisicionService.findById(codigorequisicion).getDestino();
+      	
+	      Double total = 0.0;
+	      if(sesion.getAttribute("codigo2")!=null)
+	      {
+	      	Integer codigo2=(Integer) sesion.getAttribute("codigo2");
+	      	List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
+	      		
+	      	for (int i = 0; i < requisicionBuscar.size(); i++){
+	       		   total=total+requisicionBuscar.get(i).getSubtotal(); //aqui se calcula el total     		  
+	       	} 
+	      }       
+	      requisicionService.updateTotal(codigorequisicion, total);
+      	  
+          List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigorequisicion);
+          for(int i=punto;i<requisicionBuscar.size();i++){
+        	  
+        	  Integer codigoproducto = requisicionBuscar.get(i).getCodigoproducto();
+        	  Integer bodega1 = requisicionBuscar.get(i).getBodega();        	  
+        	  Integer sala1 = requisicionBuscar.get(i).getSala();
+        	  Integer cantidad = requisicionBuscar.get(i).getCantidad();
+        	  
+        	  if (destino.equals("BODEGA")){
+	        	  Integer existencia = bodega1 + cantidad;
+	        	  Integer sala = sala1 - cantidad;
+	        	  productoService.updateExistencia(codigoproducto, existencia, sala);
+        	  }
+        	  else {
+        		  Integer existencia = bodega1 - cantidad;
+            	  Integer sala = sala1 + cantidad;
+            	  productoService.updateExistencia(codigoproducto, existencia, sala);
+        	  }        	  
+          }          
+       
+          String fecha =(String) sesion.getAttribute("mySessionAttribute");          
+          Date fecharequisicion1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecha);
+          //Double total=(Double) sesion.getAttribute("total");
+          Requisicion requisicion = new Requisicion();
+          //Valores por defecto para inicializar la nueva requisiscion
+          requisicion.setDestino("SALA");
+          requisicion.setFecha(fecharequisicion1);
+          requisicion.setTotal(0.0);
+          requisicion.setEstado(true);
+  		  //requisicionService.saveRequisicion(requisicion);
+          requisicionService.updateDatosReq(codigorequisicion, fecharequisicion1, destino);
+          
+          Integer codigo2 = 0;
+		  sesion.setAttribute("codigo2", codigo2);
+    	
+		return "GenerarReporteRequisicion";
+
+    }
+    
+    
     @RequestMapping(value = { "/edit-requisiciones-{codigorequisicion}" }, method = RequestMethod.GET)
     public String editRequisiciones(@PathVariable Integer codigorequisicion, ModelMap model, HttpServletRequest request) throws IOException, ParseException{
 

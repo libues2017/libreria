@@ -266,9 +266,9 @@ WHERE
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="37" splitType="Stretch">
+		<band height="19" splitType="Stretch">
 			<textField>
-				<reportElement x="-2" y="1" width="52" height="19" uuid="81c0d9d2-d973-4f97-a8d9-87eb25450afa"/>
+				<reportElement x="-2" y="1" width="52" height="16" uuid="81c0d9d2-d973-4f97-a8d9-87eb25450afa"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
@@ -310,7 +310,7 @@ WHERE
 				<textFieldExpression><![CDATA[$F{CANTIDADMOV}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-5" y="17" width="570" height="1" uuid="9f232058-7a1b-4593-b74f-4ca7b659d704">
+				<reportElement x="-5" y="18" width="570" height="1" uuid="9f232058-7a1b-4593-b74f-4ca7b659d704">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>

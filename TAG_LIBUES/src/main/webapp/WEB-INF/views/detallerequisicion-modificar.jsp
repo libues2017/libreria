@@ -312,7 +312,7 @@ function validar1(){
             </div>	
 		        
 		<div class="well lead" align="center">
-			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
+			<a href="<c:url value='/guardar-update' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
 		</div>
 	</form:form>
 </div>
