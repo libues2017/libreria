@@ -255,6 +255,15 @@
 		                    	</div>
 		                    	-->
 		                	</div>
+		                	
+		                	<div class="col-xs-4" style="display:none ">
+		            			<label class="form-control" for="precio">MARCADO</label>		                		
+		                		<form:input type="text"  path="marcado" id="marcado" class="form-control input-sm" value='1' />		                    	
+		                	</div>
+		                	<div class="col-xs-4" style="display:none ">
+		            			<label class="form-control" for="precio">CANTIDAD ETIQUETAS</label>		                		
+		                		<form:input type="text"  path="cantidadetiquetar" id="cantidadetiquetar" class="form-control input-sm" value='0' />		                    	
+		                	</div>
 		                			                	
 		        			<div class="col-xs-4">
 		            			<label class="form-control" for="costounitario">Costo Unitario: $</label>
