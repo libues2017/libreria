@@ -1638,6 +1638,8 @@ public class AppControllerLibues {
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           model.addAttribute("detalleretaceo", retaceoBuscar); 
         
+          HttpSession sesion=request.getSession(true);
+          sesion.setAttribute("codigoultimo", codigoretaceo);
         
     	
     	/*Requisicion requisicion = requisicionService.findById(codigorequisicion);
@@ -1652,7 +1654,7 @@ public class AppControllerLibues {
           model.addAttribute("req1", requisicionBuscar); 
         }*/
         
-        return "requisicion-detalle";
+        return "retaceo-detalle";
     } 
     
     

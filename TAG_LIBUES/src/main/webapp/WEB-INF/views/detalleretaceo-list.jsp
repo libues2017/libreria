@@ -75,7 +75,8 @@
 		    	            var h2 = document.createElement("hola");			    	            
 		    	          var res = "/TAG_LIBUES/edit-detalleRetaceo-";    
 		    	          var res3 = "/TAG_LIBUES/delete-detalleRetaceoTotal-";
-		    	          
+		    	          var res5 = "/TAG_LIBUES/retaceo-detalle-";
+					    	 
 		    	         
 		    	         var res1=dato;
 		    	         var res12="-";	
@@ -83,19 +84,24 @@
 		    	         var res2=res.concat(res1);//link editar
 		    	         
 		    	         var res4=res3.concat(res1);//link eliminar	
+		    	         var res6=res5.concat(res1);//link ver
+		    	        
 		    	        // var res2=res2.concat(res12);  
 		    	         //var res2=res2.concat(res123);
 		    	         
 		    	         var str = "Editar";
 		    	         var str1 = "Eliminar";
-		    	      
+		    	         var str2 = "Ver Retaceo";
+		    	         
 		    	        var result = str.link(res2);	
 		    	        var result1 = str1.link(res4);
+		    	        var result2 = str2.link(res6);
 		    	        
 		    	        //alert(result1);
 		    	     
 		    	          document.getElementById("devolver").innerHTML = result;
 		    	          document.getElementById("devolver1").innerHTML = result1;//eliminar
+		    	          document.getElementById("devolver2").innerHTML = result2;//ver
 		    	        	    	          
 		    	      }	  
 		    	    } );    
@@ -155,6 +161,7 @@
                 <a href="<c:url value='/detalleretaceo-agregar' />" class="btn btn-primary">Nuevo Retaceo</a> --- 
                 <button  id="devolver" type="button" class="btn btn-success" id="confirmOk">Editar</button> ---              
                 <button type="button" class="btn btn-warning" id="btnDelete"> Eliminar</button>
+                 --- <button type="button" id="devolver2" class="btn btn-success" > Ver Retaceo</button>
             </div>
    		</sec:authorize>
 	</div>
