@@ -124,7 +124,7 @@
 						    			<td></td>
 						    			<td>Total</td>
 						    	        <td >
-		                                   $ <fmt:formatNumber value = "${total}" /> 
+		                                   $ <fmt:formatNumber value = "${retaceo.total}" /> 
 		                                </td>
 		                                <td></td>
                          </tr>
@@ -151,7 +151,7 @@
                 </div>
 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
-				<input type="hidden" value="Retaceo.jasper" name="nombre"/>
+				<input type="hidden" value="Retaceo_filtrado.jasper" name="nombre"/>
             </div>
 	</form>		
 	</div>
