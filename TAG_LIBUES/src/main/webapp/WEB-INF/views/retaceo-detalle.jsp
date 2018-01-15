@@ -151,7 +151,7 @@
                 </div>
 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
-				<input type="hidden" value="Requisicion.jasper" name="nombre"/>
+				<input type="hidden" value="Retaceo.jasper" name="nombre"/>
             </div>
 	</form>		
 	</div>
