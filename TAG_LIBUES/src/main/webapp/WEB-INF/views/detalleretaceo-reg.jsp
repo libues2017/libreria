@@ -363,7 +363,7 @@ function cambiar5(){
 <div class="container">
 
 
-	  <div class="well lead" align="center">NUEVO RETACEO</div>
+	  <div class="well lead" align="center">CREAR RETACEO</div>
         <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
              

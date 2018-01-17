@@ -131,13 +131,7 @@
 		    	</tbody>
 	    </table>   
       
-		
-			
-			
-			
-			
-			
-			
+					
 			</div>
 	<form class="form-horizontal" role="form" action="<c:url value="/repo_requisiciones" />" target="_blank">
 
