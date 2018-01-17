@@ -92,12 +92,12 @@
 								 numero=document.getElementById(campo).value;
 								 // campo="costoproducto";
 								  
-								    if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
+								   if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
 								     //alert("El valor " + campo + " no es un número");
 								    
 								    	    $("#glypcn"+campo).remove();
-						                    $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
-						                    $('#'+campo).parent().children('span').text("no es un numero").show();
+						                   // $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
+						                   // $('#'+campo).parent().children('span').text("no es un numero").show();
 						                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
 				                            return false;
 								    }  
@@ -105,11 +105,11 @@
 				                    
 				                    else{
 					        				$("#glypcn"+campo).remove();
-					        				$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
+					        				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
 					        				$('#'+campo).parent().children('span').hide();
 					        				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
 					        				
-				        				
+				        			
 								    
 								
 								var existencia = 0;
@@ -167,11 +167,30 @@
 		              			   
 								  var costoproducto = document.getElementById('costoproducto').value;
 								  var cantidad=document.getElementById('cantidadproducto').value;								
-								  var cla2 = document.getElementById('precioproducto').value=PV;								
+								  var cla2 = document.getElementById('precioproducto').value=PV;
+								  
 								  var cla3 = document.getElementById('subtotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
 								  var cla4 = document.getElementById('existenciaanterior').value=PEX;
 								  var cla5 = document.getElementById('costounitarioanterior').value=CPEX;
 								  var cla6 = document.getElementById('precioanterior').value=PVA;
+								  
+								  var boton1 = document.getElementById("agregar");
+								  
+								  if(PV>0.0){
+									  
+									 
+			              		    	boton1.disabled = false;
+								  }
+								  
+								  else{
+									  
+									  boton1.disabled = true;
+									  
+								  }
+								  
+								  
+								  
+								  
 								  //alert(CPEX);
 								  
 								 /* return true;
@@ -245,7 +264,7 @@
                 function sesion(){
     				
 					var codigoproveedor=document.getElementById("codigoproveedor").value;
-					var nombreproveedor=document.getElementById("nombreproveedor").value;
+					//var nombreproveedor=document.getElementById("nombreproveedor").value;
 					//alert(codigofacturaproveedor);
 					var fecharetaceo=document.getElementById("fecharetaceo").value;
 					var fechafacturaproveedor=document.getElementById("fechafacturaproveedor").value;
@@ -255,11 +274,11 @@
 					var fecha1="f1";
 					var cfp="cfp";
 					var uti1="uti";
-					var nombre="nombre";
+					//var nombre="nombre";
 					
 					sessionStorage[fecha]=fecharetaceo;
 					sessionStorage[fecha1]=fechafacturaproveedor;
-					sessionStorage[cp]=codigoproveedor;
+					//sessionStorage[cp]=codigoproveedor;
 					sessionStorage[uti1]=utilidad;
 					sessionStorage[nombre]=nombreproveedor;
 				     }
@@ -278,12 +297,12 @@
 						                p1=sessionStorage.getItem('f1');
 						                p3=sessionStorage.getItem('cp');	
 						                p4=sessionStorage.getItem('uti');
-						                p5=sessionStorage.getItem('nombre');
+						               // p5=sessionStorage.getItem('nombre');
 										}
 									   document.getElementById("fecharetaceo").value=p;
 									   document.getElementById("fechafacturaproveedor").value=p1;
 									   //document.getElementById("codigoproveedor").value=p3;
-									   document.getElementById("utilidad").value=p4;
+									   document.getElementById("utilidad")value=p4;
 									  // document.getElementById("nombreproveedor").value=p5;
 					    
 					           } );
@@ -304,6 +323,8 @@
 					  </script>
 					  				  
 				<script>
+				
+				
 					 		
 					  $( function() {						  
 						   
@@ -319,10 +340,13 @@
 						  } );
 					  
 					  </script>
+					  
+					  
 
 <script>
 function cambiar1(){
 	var codigo1 = document.getElementById("codigofacturaproveedor").value;	
+	  
 		if(codigo1 != null){
         	$("#codigoproveedor").focus();
 		}
@@ -353,6 +377,13 @@ function cambiar5(){
         }
 }
 </script>
+
+									 
+									  
+									  
+									  
+
+
 </head>
 
 	
@@ -377,7 +408,7 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
-					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm" onchange="sesion();" />     
+					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  />     
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
