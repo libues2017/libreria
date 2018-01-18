@@ -11,6 +11,17 @@
 	<script src="/static/js/jquery-3.1.1.min.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+<style>
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -40,7 +51,8 @@
 			            	<li><a href="<c:url value="area-list" />">Lista de Áreas</a></li>
 			            		<li role="separator" class="divider"></li>
 		            		<li><a href="<c:url value="area-agregar" />">Agregar Área</a></li>         	
-			          		</ul>			          		
+			          		</ul>
+			          		</li>			          		
 			          		<li role="separator" class="divider"></li>	
 				        	
 				        	<li class="dropdown-submenu">
@@ -50,7 +62,8 @@
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="proveedor-agregar" />">Agregar Proveedor</a></li>			            			
 			                 	
-			          		</ul>  		
+			          		</ul>
+			          		</li>  		
 				        	<li role="separator" class="divider"></li>
 				        	
 				        	<li class="dropdown-submenu">
@@ -69,6 +82,7 @@
 					            <li role="separator" class="divider"></li>
 					            <li><a href="<c:url value="autor-agregar" />">Agregar Autor</a></li>			                 	
 			          		</ul>
+			          		</li>
 			          		<li role="separator" class="divider"></li>
 			          			<li><a href="<c:url value="producto-list" />">Catálago de Productos</a></li>
 			          			
@@ -177,6 +191,7 @@
 					</sec:authorize>
 				</ul>
 		    </div><!-- /.navbar-collapse -->
+		    
 	 	</div><!-- /.container -->
 	</nav><!-- /.navbar -->
 
