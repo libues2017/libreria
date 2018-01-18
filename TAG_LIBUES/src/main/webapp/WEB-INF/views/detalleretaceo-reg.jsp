@@ -408,7 +408,7 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
-					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  />     
+					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  onchange="sesion();" />     
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
