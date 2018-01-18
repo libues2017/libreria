@@ -39,9 +39,7 @@
 			          		<ul class="dropdown-menu">
 			            	<li><a href="<c:url value="area-list" />">Lista de 햞eas</a></li>
 			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="area-agregar" />">Agregar 햞ea</a></li>
-			            		<li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="area-list-deleted" />">Restaurar 햞eas</a></li>			                 	
+		            		<li><a href="<c:url value="area-agregar" />">Agregar 햞ea</a></li>         	
 			          		</ul>			          		
 			          		<li role="separator" class="divider"></li>	
 				        	
