@@ -1087,25 +1087,14 @@ public class AppControllerLibues {
 	    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
        }
     	
-    	 if(sesion.getAttribute("codigofacturaproveedor")!=null){
-   		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
-   		  sesion2.setAttribute("codigoproveedor", sesion.getAttribute("codigoproveedor"));
-   		  sesion2.setAttribute("nombreproveedor", sesion.getAttribute("nombreproveedor"));
-   		  
-   		  
-   		  
-   		
-   	  }
-   	  
-   	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
-		    	    sesion2.setAttribute("codigoproveedor", 0);
-				    sesion2.setAttribute("nombreproveedor", " ");  
+    	 
+   	  else{   	
 				    
 				    Date fechafacturaproveedor= new Date();
 				      Integer codigofacturaproveedor=0;
 				      Date fecharetaceo=new Date();	
 				      Integer codigoproveedor=0;			
-			    	  Double utilidad=0.0;
+			    	  Double utilidad=20.0;
 				    
 				    
 			    	  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
@@ -1118,6 +1107,7 @@ public class AppControllerLibues {
 					    	model.addAttribute("codigoproveedor", 0);			    	
 					    	model.addAttribute("nombreproveedor", " ");
 					    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
+					    	 model.addAttribute("total", 0.0);
    	  
    	     }
    		     

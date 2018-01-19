@@ -322,10 +322,10 @@
 						                p4=sessionStorage.getItem('uti');
 						               // p5=sessionStorage.getItem('nombre');
 										}
-									   document.getElementById("fecharetaceo").value=p;
-									   document.getElementById("fechafacturaproveedor").value=p1;
+									  // document.getElementById("fecharetaceo").value=p;
+									//   document.getElementById("fechafacturaproveedor").value=p1;
 									   //document.getElementById("codigoproveedor").value=p3;
-									   document.getElementById("utilidad")value=p4;
+									//   document.getElementById("utilidad")value=p4;
 									  // document.getElementById("nombreproveedor").value=p5;
 					    
 					           } );
