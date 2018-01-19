@@ -435,7 +435,7 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=request.getAttribute("utilidad").toString()%>'/>
+                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='${utilidad}'  />
                     </div>
 				</div>
 			</div>
@@ -453,12 +453,12 @@ function cambiar5(){
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						
-						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='<%=request.getAttribute("codigoproveedor").toString()%>' /> 
+						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='${codigoproveedor}' /> 
 						   
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
-						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm" value='<%=request.getAttribute("nombreproveedor").toString()%>' />					                     
+						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm"   value='${nombreproveedor}' />					                     
 					</div>
 				</div>
 			</div>

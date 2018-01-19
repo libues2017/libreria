@@ -1115,7 +1115,7 @@ public class AppControllerLibues {
 				    	  model.addAttribute("fecharetaceo",fecha );
 					    	model.addAttribute("fechafacturaproveedor",fechafac );
 					    	model.addAttribute("utilidad", utilidad);			    	
-					    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
+					    	model.addAttribute("codigoproveedor", 0);			    	
 					    	model.addAttribute("nombreproveedor", " ");
 					    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
    	  
