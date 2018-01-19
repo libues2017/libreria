@@ -1037,10 +1037,26 @@ public class AppControllerLibues {
     	Producto producto=new Producto();
     	Double total=0.0;
     	
-    	if(sesion.getAttribute("codigo")!=null)
+    	  //se obtiene el ultimo codigo retaceo       
+        
+    			List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
+    			
+    	Integer codigoretaceo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigo", codigoretaceo);   
+    	//!detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()
+    //	if(sesion.getAttribute("codigo")!=null)
+    		if(!detalleretaceoService.findRetaceos(codigoretaceo).isEmpty())	
     	{
     	  Integer codigo=(Integer) sesion.getAttribute("codigo");
     	  List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigo);  
+    	  Retaceo retaceo= retaceoService.findById(codigo);				    	 
+	      Date fechafacturaproveedor=retaceo.getFechafacturaproveedor();
+	      Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
+	      Date fecharetaceo=retaceo.getFecharetaceo();	
+	      Integer codigoproveedor=retaceo.getCodigoproveedor();			
+    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
+    	  Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
     	 
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
     		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
@@ -1052,17 +1068,56 @@ public class AppControllerLibues {
     	  model.addAttribute("total", total);
     	  sesion2.setAttribute("total", total);// Se utilizara para almacenarlo en tabla retaceo
     	  model.addAttribute("retaceo2", retaceoBuscar);
+    	  
+    	  
+    	   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
+	    	String fecha = sdf.format(fecharetaceo);
+	    	String fechafac = sdf.format(fechafacturaproveedor);
+	    	
+	    	 Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
+	    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
+	    		
+	    		
+    	  
+    	  model.addAttribute("fecharetaceo",fecha );
+	    	model.addAttribute("fechafacturaproveedor",fechafac );
+	    	model.addAttribute("utilidad", utilidad);			    	
+	    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
+	    	model.addAttribute("nombreproveedor", nombreproveedor);
+	    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
        }
     	
     	 if(sesion.getAttribute("codigofacturaproveedor")!=null){
    		  sesion2.setAttribute("codigofacturaproveedor", sesion.getAttribute("codigofacturaproveedor"));
    		  sesion2.setAttribute("codigoproveedor", sesion.getAttribute("codigoproveedor"));
    		  sesion2.setAttribute("nombreproveedor", sesion.getAttribute("nombreproveedor"));
+   		  
+   		  
+   		  
+   		
    	  }
    	  
    	  else{   	sesion2.setAttribute("codigofacturaproveedor", 0);  
 		    	    sesion2.setAttribute("codigoproveedor", 0);
-				    sesion2.setAttribute("nombreproveedor", " ");  	  
+				    sesion2.setAttribute("nombreproveedor", " ");  
+				    
+				    Date fechafacturaproveedor= new Date();
+				      Integer codigofacturaproveedor=0;
+				      Date fecharetaceo=new Date();	
+				      Integer codigoproveedor=0;			
+			    	  Double utilidad=0.0;
+				    
+				    
+			    	  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
+				    	String fecha = sdf.format(fecharetaceo);
+				    	String fechafac = sdf.format(fechafacturaproveedor);
+			    	  
+				    	  model.addAttribute("fecharetaceo",fecha );
+					    	model.addAttribute("fechafacturaproveedor",fechafac );
+					    	model.addAttribute("utilidad", utilidad);			    	
+					    	model.addAttribute("codigoproveedor", codigoproveedor);			    	
+					    	model.addAttribute("nombreproveedor", " ");
+					    	model.addAttribute("codigofacturaproveedor", codigofacturaproveedor);
    	  
    	     }
    		     
@@ -1071,13 +1126,8 @@ public class AppControllerLibues {
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
         List<Producto> productos = productoService.findAllProductos();
         
-        //se obtiene el ultimo codigo retaceo       
-        
-		List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
-		
-		Integer codigo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigo", codigo);    
+      
+		 
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
       

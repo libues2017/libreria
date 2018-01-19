@@ -8,7 +8,30 @@
 <%@ page import="java.util.*,java.io.*" %>
 <%@ page import="javax.servlet.http.HttpServletRequest" %>
 
-
+<%
+					// Quiero la fecha actual para ponerla por defecto 
+					String fecha="";
+                    String sAhora = "";                   
+					
+						if(request.getAttribute("fecharetaceo")!=null){
+					           //  fecha=session.getAttribute("fecharetaceo").toString();							
+							fecha=request.getAttribute("fecharetaceo").toString();
+						}						
+						//System.out.println("fecha:" + fecha+" "+session.getAttribute("utilidad"));                                 
+                     if(fecha==""){
+                    	  
+                    	Calendar ahora = Calendar.getInstance();
+     					int anyo = ahora.get(Calendar.YEAR);
+     					int mes = ahora.get(Calendar.MONTH) +1; 
+     					int dia = ahora.get(Calendar.DAY_OF_MONTH);     					
+     					if (mes < 10) {
+     					sAhora = anyo + "-0" + mes;
+     					} else {	sAhora = anyo + "-" + mes; }
+     					if (dia < 10) { sAhora += "-0" + dia; } 
+     					else {sAhora += "-"+dia;}                     	 
+                     }                     
+                     else{sAhora=fecha;}
+%>
  
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
@@ -408,11 +431,11 @@ function cambiar5(){
 					</div>
 					<div class="col-xs-3">				                  
 					<label class="form-control" for="nombr">Fecha Retaceo:</label>
-					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  onchange="sesion();" />     
+					<input type="date"  name="fecharetaceo" id="fecharetaceo" class="form-control input-sm"  value="<%=sAhora %>" />     
 					</div>
 					<div class="col-xs-3">
 					<label class="form-control" for="utilidad" >Utilidad: </label>
-                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" onchange="sesion();"/>
+                    <form:input type="text"  path="utilidad" id="utilidad" name="utilidad" class="form-control input-sm" value='<%=request.getAttribute("utilidad").toString()%>'/>
                     </div>
 				</div>
 			</div>
@@ -421,21 +444,21 @@ function cambiar5(){
 					<div class="col-xs-3">				             
 						<label class="form-control" for="nombr">Codigo Factura:</label>
 						
-						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" value='<%=session.getAttribute("codigofacturaproveedor")%>' />  
+						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" value='${codigofacturaproveedor}' />  
 					</div>
 					<div class="col-xs-3">
 						<label class="form-control" for="nombr">Fecha Factura:</label>					 
-						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" onchange="sesion();" />                     
+						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" value='${fechafacturaproveedor}' />                     
 					</div>
 					<div class="col-xs-2">
 						<label class="form-control" for="tags">Cod Proveedor:</label>
 						
-						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='<%=session.getAttribute("codigoproveedor")%>' /> 
+						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='<%=request.getAttribute("codigoproveedor").toString()%>' /> 
 						   
 					</div>
 					<div class="col-xs-4">
 						<label class="form-control" for="proveedor">Nombre Proveedor:</label>
-						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm"  />					                     
+						<input type="text" id="nombreproveedor" placeholder="AUTOMATICO" class="form-control input-sm" value='<%=request.getAttribute("nombreproveedor").toString()%>' />					                     
 					</div>
 				</div>
 			</div>

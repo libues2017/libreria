@@ -91,7 +91,7 @@
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>
 			      			<th>Subtotal $</th>
-			      			<th>ELIMINAR</th>	
+			      			
 		    		</tr>
 		    	</thead>
 		    	<tbody>
@@ -110,9 +110,7 @@
 				    					    			
 				    		</c:if>
 				    				
-                        <sec:authorize access="hasRole('ADMINISTRADOR')">
-                            <td><a href="<c:url value='/delete-detalleRetaceo-${retaceos.codigodetalleretaceo}' />" class="btn btn-danger custom-width">Eliminar</a></td>
-                        </sec:authorize>
+                        
                         </tr>
 				    	 </c:forEach>
 				    	 
