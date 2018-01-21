@@ -1629,8 +1629,8 @@ public class AppControllerLibues {
        	  
         Producto producto= productoService.findByCorrelativo(codigoproducto);
   	  
-   	 
-  	  Integer cantidadetiquetar=producto.getCantidadetiquetar();
+   	 precio=costo+(costo*utilidad);
+  	  Integer cantidadetiquetar=producto.getCantidadetiquetar()-cantidad;
           
   	 Integer marcado=0;
  	  
@@ -1639,15 +1639,6 @@ public class AppControllerLibues {
        	  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);
        	  
        	  
-       	  
-           
-	  	//detalleretaceoService.deleteRetaceoById(codigoretaceo);
-	  //	return "redirect:/detalleretaceo-agregar";
-       	  
-	// List<DetalleRetaceo> retaceoBuscar1 = detalleretaceoService.findRetaceos(codigodetalleretaceo); 
-       	 
-    	 
-    	 
     	
     	 if( detalleretaceoService.findRetaceos(codigoretaceo).isEmpty()){
     		 
