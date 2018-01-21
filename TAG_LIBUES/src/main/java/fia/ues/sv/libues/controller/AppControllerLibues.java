@@ -1609,7 +1609,7 @@ public class AppControllerLibues {
        	  Double costoanterior =detalle.getCostounitarioanterior(); // 
        	  Integer cantidad =detalle.getCantidadproducto();//producto de entrada   
        	
-       	  Integer existencia =productoBuscar.getExistencia()-cantidad;
+       	  Integer existencia =existenciaanterior;
        	  // restaremos para disminuir la cantidad en existencia se necesita actualizar la existencia
        	  
        	// System.out.println("revisar--------------------------------------codigoproducto:"+ codigoproducto+"    "+existencia);	
@@ -1618,7 +1618,7 @@ public class AppControllerLibues {
        	  utilidad=utilidad/100;
        	  Double precio=detalle.getPrecioproducto() ;
        	  Double costo=detalle.getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
-       	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
+       	  costo=costoanterior;	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
        	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
        	
        	
@@ -1638,6 +1638,18 @@ public class AppControllerLibues {
   		  
   		  
   		  marcado=1;
+  	  }
+  	  else{
+  		  cantidadetiquetar=0;
+  		  
+  	  }
+  	  
+  	  if(existencia==0){
+  		  cantidadetiquetar=0;
+  		  costo=0.0;
+  		  precio=0.0;
+  		  
+  		  
   	  }
           
   	 
