@@ -1078,7 +1078,7 @@ public class AppControllerLibues {
 	    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
 	    		
 	    		
-    	  
+	    	  model.addAttribute("codigoretaceo",codigoretaceo );
     	  model.addAttribute("fecharetaceo",fecha );
 	    	model.addAttribute("fechafacturaproveedor",fechafac );
 	    	model.addAttribute("utilidad", utilidad);			    	
@@ -1100,7 +1100,9 @@ public class AppControllerLibues {
 			    	  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 				    	String fecha = sdf.format(fecharetaceo);
 				    	String fechafac = sdf.format(fechafacturaproveedor);
-			    	  
+				    	
+				    	
+				    	 model.addAttribute("codigoretaceo",codigoretaceo );
 				    	  model.addAttribute("fecharetaceo",fecha );
 					    	model.addAttribute("fechafacturaproveedor",fechafac );
 					    	model.addAttribute("utilidad", utilidad);			    	
@@ -1111,13 +1113,8 @@ public class AppControllerLibues {
    	  
    	     }
    		     
-    	
-		     
         List<Proveedor> proveedores = proveedorService.findAllProveedores();
-        List<Producto> productos = productoService.findAllProductos();
-        
-      
-		 
+        List<Producto> productos = productoService.findAllProductos();     
         model.addAttribute("proveedor", proveedores);
         model.addAttribute("producto", productos);
       
@@ -1430,7 +1427,7 @@ public class AppControllerLibues {
 
           HttpSession sesion=request.getSession(true);
           Integer codigoretaceo=(Integer) sesion.getAttribute("codigo");
-          sesion.setAttribute("codigoultimo", codigoretaceo);
+          sesion.setAttribute("codigoultimo", codigoretaceo);//para los reportes
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
@@ -1625,6 +1622,7 @@ public class AppControllerLibues {
        	if(existencia>0){
        	  costo=costo/existencia;
        	}
+       	
        //	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
        	  
         Producto producto= productoService.findByCorrelativo(codigoproducto);
@@ -1641,7 +1639,9 @@ public class AppControllerLibues {
   		  cantidadetiquetar=0;  		  
   	  }
   	  
-  	  if(existencia==0){
+  	 Integer prueba=existencia-cantidad;
+  	  
+  	  if(prueba==0){
   		  cantidadetiquetar=0;
   		  costo=0.0;
   		  precio=0.0;
