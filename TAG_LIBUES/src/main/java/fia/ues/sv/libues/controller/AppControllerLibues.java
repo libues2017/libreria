@@ -1635,21 +1635,16 @@ public class AppControllerLibues {
   	Integer marcado=0;
   	  
   	  if(cantidadetiquetar>0){
-  		  
-  		  
   		  marcado=1;
   	  }
   	  else{
-  		  cantidadetiquetar=0;
-  		  
+  		  cantidadetiquetar=0;  		  
   	  }
   	  
   	  if(existencia==0){
   		  cantidadetiquetar=0;
   		  costo=0.0;
   		  precio=0.0;
-  		  
-  		  
   	  }
           
   	 

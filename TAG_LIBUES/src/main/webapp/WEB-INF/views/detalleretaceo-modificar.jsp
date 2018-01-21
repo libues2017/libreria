@@ -74,8 +74,8 @@
 				     //alert("El valor " + campo + " no es un número");
 				    
 				    	    $("#glypcn"+campo).remove();
-		                    $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
-		                    $('#'+campo).parent().children('span').text("no es un numero").show();
+		                   // $('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
+		                   // $('#'+campo).parent().children('span').text("no es un numero").show();
 		                    $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
                             return false;
 				    }                     
