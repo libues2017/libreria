@@ -1642,14 +1642,12 @@ public class AppControllerLibues {
   		  cantidadetiquetar=0;  		  
   	  }
   	  
-  	  
-  	  
 		Integer sala=producto.getSala();
 		  	
 		  	if(sala>0){///existencia en sala
 		  		
 		  		existencia=existencia-sala;//existencia solo en bodega
-		  		costo=detalle.getCostounitarioanterior();
+		  		costo=detalle.getCostounitarioanterior();//costo de existencia en sala
 		  		precio=detalle.getPrecioanterior();
 		  		
 		  	}
