@@ -1618,10 +1618,7 @@ public class AppControllerLibues {
        	  costo=costoanterior;	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
        	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
        	
-       	
-       	if(existencia>0){
-       	  costo=costo/existencia;
-       	}
+       
        	
        //	System.out.println("revisar--------------------------------------costo:"+ costo+"    "+existencia);	
        	  
@@ -1631,6 +1628,18 @@ public class AppControllerLibues {
   	  Integer cantidadetiquetar=producto.getCantidadetiquetar()-cantidad;
   	  
   	Integer marcado=0;
+  	
+  	 Integer prueba=existencia-cantidad;
+    	if(prueba>0){
+    	  costo=costo/existencia;
+    	}
+    	
+     else{
+ 		  cantidadetiquetar=0;
+ 		  costo=0.0;
+ 		  precio=0.0;
+ 	  }
+         
   	  
   	  if(cantidadetiquetar>0){
   		  marcado=1;
@@ -1639,14 +1648,9 @@ public class AppControllerLibues {
   		  cantidadetiquetar=0;  		  
   	  }
   	  
-  	 Integer prueba=existencia-cantidad;
+  	
   	  
-  	  if(prueba==0){
-  		  cantidadetiquetar=0;
-  		  costo=0.0;
-  		  precio=0.0;
-  	  }
-          
+  	
   	 
  	  
 	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
