@@ -1631,8 +1631,16 @@ public class AppControllerLibues {
   	  
    	 precio=costo+(costo*utilidad);
   	  Integer cantidadetiquetar=producto.getCantidadetiquetar()-cantidad;
+  	  
+  	Integer marcado=0;
+  	  
+  	  if(cantidadetiquetar>0){
+  		  
+  		  
+  		  marcado=1;
+  	  }
           
-  	 Integer marcado=0;
+  	 
  	  
 	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
 	 
