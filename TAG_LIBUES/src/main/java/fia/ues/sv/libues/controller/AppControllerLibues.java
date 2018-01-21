@@ -1621,7 +1621,9 @@ public class AppControllerLibues {
   	  
   	Integer marcado=0;
   	
-  	 Integer prueba=producto.getExistencia()-cantidad;///existencia total -cantidad a eliminar
+  	
+  	
+  	 Integer prueba=producto.getExistencia()-cantidad;///existencia bodega -cantidad a eliminar
     	if(prueba>0){
     	  costo=detalle.getCostounitarioanterior();
     	}
@@ -1640,6 +1642,17 @@ public class AppControllerLibues {
   		  cantidadetiquetar=0;  		  
   	  }
   	  
+  	  
+  	  
+		Integer sala=producto.getSala();
+		  	
+		  	if(sala>0){///existencia en sala
+		  		
+		  		existencia=existencia-sala;//existencia solo en bodega
+		  		costo=detalle.getCostounitarioanterior();
+		  		precio=detalle.getPrecioanterior();
+		  		
+		  	}
   	
 	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
 	 
