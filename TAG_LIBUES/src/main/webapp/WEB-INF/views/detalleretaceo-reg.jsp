@@ -152,7 +152,7 @@
 							 <c:forEach items="${producto}" var="current">	
 	 			              		    if(${current.correlativo}==Id)	
 	 			   	 			        {
-						                    existencia=${current.existencia};//2
+						                    existencia=${current.existencia} +  ${current.sala};//2
 						              		costoexistencia=${current.costounitario};//2
 						              		precioventa=${current.precio};
 						              		PVA=parseFloat(precioventa);//2.4
@@ -247,7 +247,9 @@
               		   document.getElementById('nombreprod').value = nombre;
               		   document.getElementById('costoactual').value = costo;
               		   sessionId.push("${current.existencia}");
-              		   document.getElementById('existencia').value =${current.existencia}+${current.sala};
+              		   document.getElementById('existencia').value =${current.existencia};
+              		 document.getElementById('sala').value =${current.sala};
+              		   
               		   //document.getElementById('existencia').value =sessionId;
               		   
               		   
@@ -475,14 +477,19 @@ function cambiar5(){
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
 						<input type="text" id="nombreprod" placeholder="AUTOMATICO" class="form-control input-sm" />
 					</div>
-					<div class="col-xs-2">
-						<label class="form-control" for="existencia">Existencia:</label>
-						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
-                    </div>
-                    <div class="col-xs-2">
+					 <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Costo Actual:</label>
 						<input type="text"  id="costoactual" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
+					<div class="col-xs-3">
+						<label class="form-control" for="existencia">Existencia Bodega:</label>
+						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+                    </div>
+                    <div class="col-xs-3">
+						<label class="form-control" for="existencia">Existencia Sala:</label>
+						<input type="number"  id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+                    </div>
+                   
 				</div>
 			</div>
 			<div class="form-group row">

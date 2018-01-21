@@ -1394,17 +1394,12 @@ public class AppControllerLibues {
     	  }
     	  else{
     		  cantidadetiquetar=0;  		  
-    	  }
-    	  
+    	  }    	  
     	  System.out.println("codigoproducto:-----------------------------------------------------------" + codigoproducto);			        
-	      
-         	  
-       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
-       	 
-    		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);//borra retaceo hija
-   		   
-   	  } 
-    	
+	              	  
+       	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);       	 
+    		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);//borra retaceo hija   		   
+   	  }   	
     	
     	  retaceoService.deleteRetaceoById(codigoretaceo);//borra retaceo padre
     	  
@@ -1442,20 +1437,23 @@ public class AppControllerLibues {
           List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
           for(int i=0;i<retaceoBuscar.size();i++){
         	  Integer codigoproducto =retaceoBuscar.get(i).getCodigoproducto();
+        	  Producto producto= productoService.findByCorrelativo(codigoproducto);
+   	          Integer sala=producto.getSala();
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
         	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
         	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
-        	  Integer existencia =existenciaanterior+cantidad;// 12+2
+        	  Integer existencia =existenciaanterior+cantidad;// calculo existencia completa
+        	  Integer existenciatotal =existencia;
+        	  existencia=existencia-sala;//para actualizar sala
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
         	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
         	  Double costo=retaceoBuscar.get(i).getCostoproducto();	///  costo  de producto entrada tabla retaceo   3
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
-        	  costo=costo/existencia;
+        	  costo=costo/existenciatotal;
         	  
-        	  Producto producto= productoService.findByCorrelativo(codigoproducto);
-        	          	 
+        	    	 
         	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
         	  Integer marcado=1;
         	          	  
