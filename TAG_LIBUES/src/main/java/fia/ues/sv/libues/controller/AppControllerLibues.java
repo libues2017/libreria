@@ -1350,8 +1350,7 @@ public class AppControllerLibues {
     	 retaceoBuscar.size();
     	// codigoretaceototal= retaceoBuscar.get(0).getCodigodetalleretaceo();
     	 
-    	  for (int i = 0; i < retaceoBuscar.size(); i++){
-   		
+    	  for (int i = 0; i < retaceoBuscar.size(); i++){   		
     		  
     		  codigodetalleretaceo= retaceoBuscar.get(i).getCodigodetalleretaceo(); 
     		  codigoproducto=retaceoBuscar.get(i).getCodigoproducto();
@@ -1397,7 +1396,7 @@ public class AppControllerLibues {
     		  cantidadetiquetar=0;  		  
     	  }
     	  
-    	  System.out.println("codigodetalleretaceo:-----------------------------------------------------------" + codigodetalleretaceo);			        
+    	  System.out.println("codigoproducto:-----------------------------------------------------------" + codigoproducto);			        
 	      
          	  
        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
