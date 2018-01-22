@@ -1396,7 +1396,18 @@ public class AppControllerLibues {
     		  cantidadetiquetar=0;  		  
     	  }    	  
     	  System.out.println("codigoproducto:-----------------------------------------------------------" + codigoproducto);			        
-	              	  
+	       
+    	  
+    	  Integer sala=producto.getSala();
+		  	
+		  	if(sala>0){///existencia en sala
+		  		
+		  		existencia=existencia-sala;//existencia solo en bodega
+		  		costo=detalle.getCostounitarioanterior();//costo de existencia en sala
+		  		precio=detalle.getPrecioanterior();
+			}
+	
+    	  
        	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);       	 
     		  detalleretaceoService.deleteRetaceoById(codigodetalleretaceo);//borra retaceo hija   		   
    	  }   	
@@ -1600,9 +1611,7 @@ public class AppControllerLibues {
 		 
            DetalleRetaceo detalle=detalleretaceoService.findById(codigodetalleretaceo);           
            
-          
-          
-            Integer existenciaanterior =detalle.getExistenciaanterior();  // 
+          Integer existenciaanterior =detalle.getExistenciaanterior();  // 
        	  Double costoanterior =detalle.getCostounitarioanterior(); // 
        	  Integer cantidad =detalle.getCantidadproducto();//producto de entrada   
        	
@@ -1619,8 +1628,7 @@ public class AppControllerLibues {
    	 precio=costo+(costo*utilidad);
   	  Integer cantidadetiquetar=producto.getCantidadetiquetar()-cantidad;
   	  
-  	Integer marcado=0;
-  	
+  	  Integer marcado=0;
   	
   	
   	 Integer prueba=producto.getExistencia()-cantidad;///existencia bodega -cantidad a eliminar
@@ -1649,8 +1657,7 @@ public class AppControllerLibues {
 		  		existencia=existencia-sala;//existencia solo en bodega
 		  		costo=detalle.getCostounitarioanterior();//costo de existencia en sala
 		  		precio=detalle.getPrecioanterior();
-		  		
-		  	}
+			}
   	
 	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
 	 
