@@ -127,11 +127,11 @@
                     <c:choose>
                         <c:when test="${edit}">
                             <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> 
-                            ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
+                            ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
                             <input type="submit" value="Registrar" class="btn btn-primary btn-sm" onclick="validar();"/> 
-                            ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
+                            ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise> 
                     </c:choose>
                 </div>
