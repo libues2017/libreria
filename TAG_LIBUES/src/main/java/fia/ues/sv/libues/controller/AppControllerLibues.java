@@ -3204,15 +3204,17 @@ public class AppControllerLibues {
         return "ajuste-reg";
     }
  
-    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.POST)
-    public String updateComparacion(@Valid Autor autor, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoautor) throws IOException {
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
+    public String updateComparacion(@Valid Producto producto, BindingResult result,
+            ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
         if (result.hasErrors()) {
             return "autor-reg";
         }
  
-        autorService.updateAutor(autor);
+       productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+       
+       
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "autor-reg-succ";

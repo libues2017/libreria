@@ -47,6 +47,8 @@ public interface ProductoService {
 
 	void updatedesmarcarProducto(Integer codigoproducto,Integer cantidadetiquetar, Integer marcado);
 
+	void updateSala(Integer codProducto, Integer existencia);
+
 	
 
 

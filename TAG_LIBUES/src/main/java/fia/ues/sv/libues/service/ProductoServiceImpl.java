@@ -116,6 +116,11 @@ public class ProductoServiceImpl implements ProductoService{
 		}		
 	}
 	
+	
+	
+	
+	
+	
 	@Override
 	public void deleteByCodigoProducto(int codigoProducto) {
 		dao.deleteByCodigoProducto(codigoProducto);
@@ -157,6 +162,18 @@ public class ProductoServiceImpl implements ProductoService{
 		}	
 		
 	}
+	
+	
+	@Override
+	public void updateSala(Integer codProducto, Integer sala) {
+		Producto entity = dao.findByCorrelativo(codProducto);
+		if(entity !=null){
+			entity.setExistencia(sala);	
+		}	
+		
+	}
+	
+	
 	
 	@Override
 	public void updateSalaVenta1(Integer codigoproducto, Integer sala) {
