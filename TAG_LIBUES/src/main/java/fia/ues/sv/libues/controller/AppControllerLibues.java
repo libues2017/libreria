@@ -3171,8 +3171,8 @@ public class AppControllerLibues {
     
    
     
-    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}" }, method = RequestMethod.GET)
-    public String editComparacion(@PathVariable Integer codigoproducto,@PathVariable String ubicacion, ModelMap model) {
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
+    public String editComparacion(@PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico, ModelMap model) {
     	
     	
     	//Ajuste ajuste = ajusteService.findById(codigoproducto);

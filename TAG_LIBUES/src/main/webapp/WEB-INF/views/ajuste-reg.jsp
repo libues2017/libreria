@@ -78,7 +78,7 @@
            
 		        <div class="row">
 		        	<div class="form-group col-md-12" >
-                    	<label class="col-md-3 control-lable" for="estado">Cantidad a ajustar:</label>
+                    	<label class="col-md-3 control-lable" for="estado">Cantidad Inventario Teorico:</label>
                     	<div class="col-md-7">
                     	 <c:if test = "${ubicacion = 'bodega'}">
                     	
@@ -91,6 +91,15 @@
                     	</div>
                		</div>
             	</div>
+            	
+            	<div class="form-group col-md-12" >
+                    	<label class="col-md-3 control-lable" for="estado">Cantidad Inventario Fisico:</label>
+                    	<div class="col-md-7">
+                    	 <input type="text"  id="ubicacion" placeholder="AUTOMATICO" class="form-control input-sm" value="${ubicacion}" />      
+                       
+                    
+                    	</div>
+               		</div>
             	
             	
             	<div class="row">
