@@ -3209,16 +3209,18 @@ public class AppControllerLibues {
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
         if (result.hasErrors()) {
-            return "autor-reg";
+            return "ajuste-reg";
         }
  
-       productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+     //  productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+       System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico);
+     	
        
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "autor-reg-succ";
-        return "redirect:/autor-list";
+        return "redirect:/comparacion";
     }
     
     
