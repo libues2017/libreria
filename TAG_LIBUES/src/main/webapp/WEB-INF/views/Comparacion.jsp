@@ -255,7 +255,7 @@
 				    	  		<td>${i[4]}</td>	
 				    	  		<td>${i[5]}</td>
 				    	  		<td>${i[6]}</td>
-				    	  		 <td><a href="<c:url value='/edit-compararacion-${i[0]-${i[6]}' />" class="btn btn-danger custom-width">Ajuste</a></td>
+				    	  		 <td><a href="<c:url value='/edit-comparacion-${i[0]}-${i[6]}' />" class="btn btn-danger custom-width">Ajuste</a></td>
                       
 				    	
                         </tr>

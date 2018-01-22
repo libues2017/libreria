@@ -52,7 +52,7 @@
 <div class="col-xs-8">
 	<c:choose>
 	<c:when test="${edit}">
-		<div class="well lead" align="center">ACTUALIZAR ÁREA</div>
+		<div class="well lead" align="center">AJUSTE</div>
 	</c:when>
     <c:otherwise>
     	<div class="well lead" align="center">NUEVA ÁREA</div>
@@ -67,7 +67,7 @@
 	                    <div class="col-md-7">
 	                        <form:input type="text" path="nombreProducto" id="nombreProducto"  maxlength="50"  class="form-control input-sm"/>
 	                        <div class="has-error">
-	                            <form:errors path="nombrerea" class="help-inline"/>
+	                            <form:errors path="nombreProducto" class="help-inline"/>
 	                        </div>
 	                    </div>
 	                </div>
@@ -76,7 +76,7 @@
 	                    
            
 		        <div class="row">
-		        	<div class="form-group col-md-12" style="display: none">
+		        	<div class="form-group col-md-12" >
                     	<label class="col-md-3 control-lable" for="estado">Cantidad a ajustar:</label>
                     	<div class="col-md-7">
                     	 <c:if test = "${ubicacion = 'existencia'}">
@@ -92,8 +92,34 @@
             	</div>
             	
             	
+            	<div class="row">
+		        	<div class="form-group col-md-12" >
+                    	<label class="col-md-3 control-lable" for="estado">Ubicacion:</label>
+                    	<div class="col-md-7">
+                    	
+                    	
+                        	<input type="text"  id="ubicacion" placeholder="AUTOMATICO" class="form-control input-sm" value="${ubicacion}" />      
+                       
+                        
+                    
+                    	</div>
+               		</div>
+            	</div>
             	
             	
+            	
+            	<div class="row">
+		        	<div class="form-group col-md-12" >
+                    	<label class="col-md-3 control-lable" for="estado">Justificacion:</label>
+                    	<div class="col-md-7">
+                    	
+                        	<input type="text"  id="concepto" placeholder="Digite concepto ajuste" class="form-control input-sm"  />      
+                      
+                       
+                       
+                    	</div>
+               		</div>
+            	</div>
             	
      
             <div class="row">
