@@ -237,12 +237,15 @@
 			      			<th>Cantidad Producto en Inventario Fisico</th>
 			      			<th>Estante</th>
 			      			<th>Nivel</th>
-			      			<th>Ubicacion</th>	
+			      			<th>Ubicacion</th>
+			      			<th>Ajuste de Inventario</th>	
 		    		</tr>
 		    	</thead>
 		    	<tbody>
 		    	      
 				    	<c:forEach items="<%=addresses1%>" var="i"  >
+				    	 <c:if test = "${i[0] > 0}">
+			    
 				    		<tr >				    		
 				    	
 				    			<td>${i[0]}</td>
@@ -252,8 +255,13 @@
 				    	  		<td>${i[4]}</td>	
 				    	  		<td>${i[5]}</td>
 				    	  		<td>${i[6]}</td>
+				    	  		 <td><a href="<c:url value='/edit-compararacion-${i[0]}' />" class="btn btn-danger custom-width">Ajuste</a></td>
+                      
 				    	
                         </tr>
+                        
+                         </c:if>
+                        
 				    	 </c:forEach>
 				    	 
 				    	 

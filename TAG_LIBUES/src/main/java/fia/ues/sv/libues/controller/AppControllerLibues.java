@@ -3164,6 +3164,34 @@ public class AppControllerLibues {
     
    
     
+   /* @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.GET)
+    public String editComparacion(@PathVariable Integer codigoautor, ModelMap model) {
+    	
+    	
+    	
+    	Autor autor = autorService.findById(codigoautor);
+    	model.addAttribute("autor", autor);
+        model.addAttribute("edit", true);
+        model.addAttribute("loggedinuser", getPrincipal());
+        return "autor-reg";
+    }
+ 
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.POST)
+    public String updateComparacion(@Valid Autor autor, BindingResult result,
+            ModelMap model, @PathVariable Integer codigoautor) throws IOException {
+ 
+        if (result.hasErrors()) {
+            return "autor-reg";
+        }
+ 
+        autorService.updateAutor(autor);
+        //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
+        model.addAttribute("loggedinuser", getPrincipal());
+        //return "autor-reg-succ";
+        return "redirect:/autor-list";
+    }
+    */
+    
     ///////////////////////NUEVAS ETIQUETAS/////////////////////
     
     
