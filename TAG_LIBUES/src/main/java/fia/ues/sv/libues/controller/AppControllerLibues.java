@@ -3219,14 +3219,14 @@ public class AppControllerLibues {
     	
     	
     	
-    	Ajuste ajuste=new Ajuste();
+    	/*Ajuste ajuste=new Ajuste();
     	
     	ajuste.setCantidad(cantidadfisico);
     	ajuste.setCodigoproducto(codigoproducto);
     	ajuste.setConcepto("Ajuste");
     	
     	ajusteService.saveAjuste(ajuste);
-    	
+    	*/
       productoService.updateExistencia1(codigoproducto, cantidadfisico); 
        
        
