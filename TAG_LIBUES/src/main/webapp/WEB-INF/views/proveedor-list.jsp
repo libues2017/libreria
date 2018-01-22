@@ -24,12 +24,12 @@
 			    var sessionId4 = [];
 			    var i=0;
 			   
+			    <c:set var="contador" value="${0}" />
 			    <c:forEach items="${proveedores}"   var="current">
-			    
-			     dataSet[i] = [ "${current.codigoproveedor}", "${current.nombreproveedor}", "${current.telefonoproveedor}", "${current.contactoproveedor1}" ] ;
-			     
-			     i=i+1;
-			    
+			    	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+			    	<c:set var="contador" value="${contador + 1}" />
+			     	dataSet[i] = [ "${contador}", "${current.codigoproveedor}", "${current.nombreproveedor}", "${current.telefonoproveedor}", "${current.contactoproveedor1}" ] ;
+			     	i=i+1;
 			    </c:forEach>
 			    
 			 //   dataSet =  [ "Tiger Nixon" ];
@@ -38,6 +38,7 @@
 			       var tabla = $('#proveedores').DataTable( {
 			            data:  dataSet,
 			            columns: [
+			            	{ title: "ÍTEM" },
 			               { title: "CODIGO PROVEEDOR" },
 			               { title: "NOMBRE PROVEEDOR" },
 			               { title: "TELEFONO" },
@@ -56,7 +57,7 @@
 		    	        else {
 		    	            tabla.$('tr.selected').removeClass('selected');
 		    	            $(this).addClass('selected');
-		    	            dato = $(this).find("td:eq(0)").text();		
+		    	            dato = $(this).find("td:eq(1)").text();		
 		    	            var h1 = document.createElement("hola");
 		    	            var h2 = document.createElement("hola");	
 		    	            var res = "/TAG_LIBUES/edit-proveedor-";

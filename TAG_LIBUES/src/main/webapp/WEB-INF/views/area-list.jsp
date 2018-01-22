@@ -20,8 +20,11 @@
 		var sessionId3 = [];
 		var i=0;
 		
+		<c:set var="contador" value="${0}" />
 		<c:forEach items="${areas}"   var="current">
-			dataSet[i] = ["${current.codigoarea}", "${current.nombrearea}"];
+			<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+			<c:set var="contador" value="${contador + 1}" />
+			dataSet[i] = ["${contador}", "${current.codigoarea}", "${current.nombrearea}"];
 			i=i+1;
 		</c:forEach>
 						    
@@ -29,6 +32,7 @@
 			var tabla =  $('#areas').DataTable( {
 				data:  dataSet,
 			    columns: [
+			    	{ title: "ÍTEM" },
 			    	{ title: "CÓDIGO" },
 			        { title: "NOMBRE DEL ÁREA" }			              		               
 			    ],
@@ -42,7 +46,7 @@
 			   	else {
 			   		tabla.$('tr.selected').removeClass('selected');
 			    	$(this).addClass('selected');
-			    	dato = $(this).find("td:eq(0)").text();		
+			    	dato = $(this).find("td:eq(1)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");			    	            
 			    	var res = "/TAG_LIBUES/edit-area-";
