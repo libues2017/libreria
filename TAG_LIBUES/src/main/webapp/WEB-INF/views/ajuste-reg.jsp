@@ -71,13 +71,22 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            </div>           
+	            </div>   
+	            
+	                    
            
 		        <div class="row">
 		        	<div class="form-group col-md-12" style="display: none">
                     	<label class="col-md-3 control-lable" for="estado">Cantidad a ajustar:</label>
                     	<div class="col-md-7">
+                    	 <c:if test = "${ubicacion = 'existencia'}">
+                    	
                         	<form:input type="text" path="existencia" id="existencia" class="form-control input-sm" value="1"/>
+                       </c:if>
+                        
+                        <form:input type="text" path="sala" id="sala" class="form-control input-sm" value="1"/>
+                  
+                    
                     	</div>
                		</div>
             	</div>

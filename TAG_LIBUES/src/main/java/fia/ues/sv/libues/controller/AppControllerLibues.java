@@ -3184,14 +3184,14 @@ public class AppControllerLibues {
     	}
     	
     	else{
-    		model.addAttribute("ubicacion","bodega");
+    		model.addAttribute("ubicacion","existencia");
     		
     	}
     	
     	model.addAttribute("producto",producto);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
-        return "autor-reg";
+        return "ajuste-reg";
     }
  
     @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.POST)
