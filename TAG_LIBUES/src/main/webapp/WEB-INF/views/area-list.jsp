@@ -19,11 +19,9 @@
 		var sessionId2 = [];
 		var sessionId3 = [];
 		var i=0;
-		<c:set var="contador" value="${0}" />
+		
 		<c:forEach items="${areas}"   var="current">
-		<c:set var = "salary" scope = "session" value = "${2000*2}"/>
-			<c:set var="contador" value="${contador + 1}" />
-			dataSet[i] = ["${contador}", "${current.codigoarea}", "${current.nombrearea}"];
+			dataSet[i] = ["${current.codigoarea}", "${current.nombrearea}"];
 			i=i+1;
 		</c:forEach>
 						    
@@ -31,7 +29,6 @@
 			var tabla =  $('#areas').DataTable( {
 				data:  dataSet,
 			    columns: [
-			    	{ title: "ITEM" },
 			    	{ title: "CÓDIGO" },
 			        { title: "NOMBRE DEL ÁREA" }			              		               
 			    ],
