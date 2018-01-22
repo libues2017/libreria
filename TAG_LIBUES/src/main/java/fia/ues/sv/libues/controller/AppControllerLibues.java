@@ -3208,13 +3208,16 @@ public class AppControllerLibues {
     public String updateComparacion(@Valid Producto producto, BindingResult result,
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
-        if (result.hasErrors()) {
+        
+    	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico);
+     	
+    	
+    	if (result.hasErrors()) {
             return "ajuste-reg";
         }
  
      //  productoService.updateExistencia1(codigoproducto, cantidadfisico); 
-       System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico);
-     	
+       
        
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
