@@ -59,6 +59,7 @@ import fia.ues.sv.libues.modelo.TipoProducto;
 import fia.ues.sv.libues.modelo.Transferencia;
 import fia.ues.sv.libues.modelo.Producto;
 import fia.ues.sv.libues.modelo.User;
+import fia.ues.sv.libues.modelo.Ajuste;
 import fia.ues.sv.libues.modelo.Area;
 import fia.ues.sv.libues.modelo.Busqueda;
 import fia.ues.sv.libues.modelo.Cotizacion;
@@ -3170,13 +3171,14 @@ public class AppControllerLibues {
     
    
     
-   /* @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.GET)
-    public String editComparacion(@PathVariable Integer codigoautor, ModelMap model) {
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.GET)
+    public String editComparacion(@PathVariable Integer codigoproducto, ModelMap model) {
     	
     	
+    	//Ajuste ajuste = ajusteService.findById(codigoproducto);
+    	Producto producto=productoService.findByCorrelativo(codigoproducto);
     	
-    	Autor autor = autorService.findById(codigoautor);
-    	model.addAttribute("autor", autor);
+    	model.addAttribute("producto",producto);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         return "autor-reg";
@@ -3196,7 +3198,7 @@ public class AppControllerLibues {
         //return "autor-reg-succ";
         return "redirect:/autor-list";
     }
-    */
+    
     
     ///////////////////////NUEVAS ETIQUETAS/////////////////////
     
