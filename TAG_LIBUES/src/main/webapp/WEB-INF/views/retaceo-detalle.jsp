@@ -131,7 +131,7 @@
       
 					
 			</div>
-	<form class="form-horizontal" role="form" action="<c:url value="/repo_requisiciones" />" target="_blank">
+	<form class="form-horizontal" role="form" action="<c:url value="/retaceo" />" target="_blank">
 
             <div class="form-group">
 
