@@ -95,7 +95,7 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 	<columnHeader>
 		<band height="102" splitType="Stretch">
 			<textField>
-				<reportElement x="19" y="22" width="60" height="20" uuid="0c6d60d5-120d-406d-8841-da3cc550214a"/>
+				<reportElement x="19" y="21" width="60" height="20" uuid="0c6d60d5-120d-406d-8841-da3cc550214a"/>
 				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -115,7 +115,7 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 	<detail>
 		<band height="46" splitType="Stretch">
 			<textField>
-				<reportElement x="18" y="11" width="22" height="30" uuid="25485816-81a4-4173-8a24-6a01011b9f5e">
+				<reportElement x="5" y="11" width="22" height="30" uuid="25485816-81a4-4173-8a24-6a01011b9f5e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="25e4d89c-1bc2-449b-9481-8d8f9daa91c4"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
@@ -152,7 +152,7 @@ WHERE (libues.factura.`IDFACTURA` = $P{codigo})]]>
 	<pageFooter>
 		<band height="38" splitType="Stretch">
 			<textField>
-				<reportElement x="510" y="-10" width="58" height="30" uuid="9eef8b04-d5bf-47e2-8666-53ddd3bfccbd"/>
+				<reportElement x="312" y="-20" width="58" height="30" uuid="9eef8b04-d5bf-47e2-8666-53ddd3bfccbd"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
