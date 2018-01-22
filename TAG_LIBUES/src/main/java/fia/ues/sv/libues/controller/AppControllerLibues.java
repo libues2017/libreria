@@ -3171,12 +3171,22 @@ public class AppControllerLibues {
     
    
     
-    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}" }, method = RequestMethod.GET)
-    public String editComparacion(@PathVariable Integer codigoproducto, ModelMap model) {
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}" }, method = RequestMethod.GET)
+    public String editComparacion(@PathVariable Integer codigoproducto,@PathVariable String ubicacion, ModelMap model) {
     	
     	
     	//Ajuste ajuste = ajusteService.findById(codigoproducto);
-    	Producto producto=productoService.findByCorrelativo(codigoproducto);
+    	Producto producto=productoService.findByCorrelativo(codigoproducto);    	
+    	
+    	if(ubicacion=="sala"){
+    		model.addAttribute("ubicacion",ubicacion);
+    		
+    	}
+    	
+    	else{
+    		model.addAttribute("ubicacion","bodega");
+    		
+    	}
     	
     	model.addAttribute("producto",producto);
         model.addAttribute("edit", true);
