@@ -3212,11 +3212,11 @@ public class AppControllerLibues {
     	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
     	
-    	if (result.hasErrors()) {
+    	/*if (result.hasErrors()) {
             return "ajuste-reg";
-        }
+        }*/
  
-     //  productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+      productoService.updateExistencia1(codigoproducto, cantidadfisico); 
        
        
        
