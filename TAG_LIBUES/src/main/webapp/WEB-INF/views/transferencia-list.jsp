@@ -30,7 +30,7 @@
             <c:if test = "${current.total > 0}">
 	            <c:set var="contador" value="${contador + 1}" />
 	             
-			dataSet[i] = [ "${contador}", "${current.numeroTransferencia}", "${current.tipoTransferencia}", "${current.sucursal}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
+			dataSet[i] = [ "${contador}", "${current.codTransferencia}", "${current.numeroTransferencia}", "${current.tipoTransferencia}", "${current.sucursal}", '<fmt:formatDate pattern = "dd-MM-yyyy" 
 		         value = "${current.fechaTransferencia}" />', "$ ${current.total}"] ;
 			i=i+1;
 			</c:if>
@@ -41,6 +41,7 @@
 				data:  dataSet,
 			    columns: [
 			    	{ title: "Ítem" },
+			    	{ title: "Código" },
 			    	{ title: "# Transferencia" },
 			        { title: "Tipo" },
 			    	{ title: "Sucursal" },
@@ -60,7 +61,7 @@
 			   	else {
 			   		tabla.$('tr.selected').removeClass('selected');
 			    	$(this).addClass('selected');
-			    	dato = $(this).find("td:eq(0)").text();		
+			    	dato = $(this).find("td:eq(1)").text();		
 			    	var h1 = document.createElement("hola");
 			    	var h2 = document.createElement("hola");
 			    	var h3 = document.createElement("hola");
