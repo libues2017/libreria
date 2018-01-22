@@ -3209,7 +3209,7 @@ public class AppControllerLibues {
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
         
-    	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico);
+    	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
     	
     	if (result.hasErrors()) {
