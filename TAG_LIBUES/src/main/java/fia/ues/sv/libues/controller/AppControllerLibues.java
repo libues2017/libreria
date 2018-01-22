@@ -3177,17 +3177,27 @@ public class AppControllerLibues {
     	
     	//Ajuste ajuste = ajusteService.findById(codigoproducto);
     	Producto producto=productoService.findByCorrelativo(codigoproducto);    	
+    	Integer cantidad=0;
+    	
     	
     	if(ubicacion=="sala"){
+    		
+    	
+    	  cantidad=producto.getSala();
+    		
     		model.addAttribute("ubicacion",ubicacion);
     		
     	}
     	
     	else{
-    		model.addAttribute("ubicacion","existencia");
+    		
+    		  cantidad=producto.getExistencia();
+    		model.addAttribute("ubicacion","bodega");
     		
     	}
     	
+    	
+    	model.addAttribute("cantidad",cantidad);
     	model.addAttribute("producto",producto);
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());

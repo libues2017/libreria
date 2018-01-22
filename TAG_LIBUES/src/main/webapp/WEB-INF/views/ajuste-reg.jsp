@@ -31,7 +31,8 @@
     <script>
       function editarvalidar()
       {
-    	  var nomarea = document.getElementById('nombrearea').value;
+    	  var nomarea = document.getElementById('existencia').value;
+    	  
     	  if (nomarea != '')
     	  {
     		  alert('El área se actualizo con éxito') ;  
@@ -79,12 +80,12 @@
 		        	<div class="form-group col-md-12" >
                     	<label class="col-md-3 control-lable" for="estado">Cantidad a ajustar:</label>
                     	<div class="col-md-7">
-                    	 <c:if test = "${ubicacion = 'existencia'}">
+                    	 <c:if test = "${ubicacion = 'bodega'}">
                     	
-                        	<form:input type="text" path="existencia" id="existencia" class="form-control input-sm" value="1"/>
+                        	<form:input type="text" path="existencia" id="existencia" class="form-control input-sm" value='${cantidad}'/>
                        </c:if>
                         
-                        <form:input type="text" path="sala" id="sala" class="form-control input-sm" value="1"/>
+                        <form:input type="text" path="sala" id="sala" class="form-control input-sm" value='${cantidad}'/>
                   
                     
                     	</div>
@@ -126,7 +127,7 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> 
+                            <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" /> 
                             ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
