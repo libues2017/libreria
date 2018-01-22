@@ -3196,7 +3196,7 @@ public class AppControllerLibues {
     		
     	}
     	
-    	
+    	model.addAttribute("cantidadfisico",cantidadfisico);
     	model.addAttribute("cantidad",cantidad);
     	model.addAttribute("producto",producto);
         model.addAttribute("edit", true);
