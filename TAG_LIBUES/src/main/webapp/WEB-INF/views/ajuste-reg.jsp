@@ -126,7 +126,7 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> 
+                            <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> 
                             ó <a href="<c:url value='/area-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>

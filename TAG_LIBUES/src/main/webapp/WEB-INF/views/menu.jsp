@@ -104,7 +104,7 @@
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>			            		
 			            		 <li role="separator" class="divider"></li>
-			            		<li><a href="<c:url value="downloadExcel" />">Comparación de Inventario</a></li>
+			            		<li><a href="<c:url value="comparacion" />">Comparación de Inventario</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="nuevas-etiquetas" />">Generar etiquetas</a></li>				                 	
 			          			

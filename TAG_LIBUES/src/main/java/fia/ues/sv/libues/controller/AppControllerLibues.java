@@ -3130,7 +3130,7 @@ public class AppControllerLibues {
     // ***************** CONTROLES PARA COMPARACION INVENTARIO ****************
     //*************************************************************************
     
-    @RequestMapping(value = "/downloadExcel", method = RequestMethod.GET)
+    @RequestMapping(value = "/comparacion", method = RequestMethod.GET)
     public ModelAndView downloadExcel(ModelMap model) {
     	  List<Book> listBooks = new ArrayList<Book>();
           listBooks.add(new Book("Effective Java", "Joshua Bloch", "0321356683",
