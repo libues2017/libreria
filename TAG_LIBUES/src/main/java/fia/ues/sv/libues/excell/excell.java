@@ -69,8 +69,7 @@ public class excell {
     
     try{
     	
-    	
-    	
+    	   	
     	f=new File(nombre);
     	w=new FileWriter(f);
     	bw=new BufferedWriter(w);
@@ -127,17 +126,30 @@ public class excell {
 		       convertprecio="*"+correlativo+"*"+","+nombreProducto+","+precioproducto+","+autor+","+precioproducto+","+correlativo;
 		      
 		       for(int j=0;j<etiquet.getCantidad();j++){
-		    	  wr.write(convertprecio);
-	 		    	bw.newLine();
+		    	   
+		    	   for(int k=0;k<4;k++){
+		 		    	  wr.write(convertprecio);
+		 	 		    	bw.newLine();
+		 		    	   
+		 		       }
+		 		       
+		    	   for(int t=0;t<2;t++){
+				    	  wr.write("*-      *,,0.00,,0.00,-");
+			 		    	bw.newLine();
+				    	   
+				       }
+		    	   
+		    	 // wr.write(convertprecio);
+	 		    //	bw.newLine();
 		    	   
 		       }
 		       
 		       
-		      for(int j=0;j<2;j++){
+		      /*for(int j=0;j<2;j++){
 		    	  wr.write("*-      *,,0.00,,0.00,-");
 	 		    	bw.newLine();
 		    	   
-		       }
+		       }*/
 		      
 		    	//wr.append("\nes la segunda linea");
 		    
