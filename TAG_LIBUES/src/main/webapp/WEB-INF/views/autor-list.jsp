@@ -43,12 +43,12 @@
 			    var sessionId4 = [];
 			    var i=0;
 			    
+			    <c:set var="contador" value="${0}" />
 			    <c:forEach items="${autores}"   var="current">
-			    
-			     dataSet[i] = [ "${current.codigoautor}", "${current.nombreautor}" ] ;
-			     
-			     i=i+1;
-			    
+			    	<c:set var = "salary" scope = "session" value = "${2000*2}"/>
+					<c:set var="contador" value="${contador + 1}" />
+			     	dataSet[i] = ["${contador}", "${current.codigoautor}", "${current.nombreautor}" ] ;
+			     	i=i+1;
 			    </c:forEach>
 			    
 			 //   dataSet =  [ "Tiger Nixon" ];
@@ -57,6 +57,7 @@
 			    	var tabla =  $('#autores').DataTable( {
 			            data:  dataSet,
 			            columns: [
+			            	{ title: "ÍTEM" },
 			               { title: "CODIGO DE AUTOR" },
 			               { title: "NOMBRE DE AUTOR" },
 			            ],
@@ -77,7 +78,7 @@
 			    	        else {
 			    	            tabla.$('tr.selected').removeClass('selected');
 			    	            $(this).addClass('selected');
-			    	            dato = $(this).find("td:eq(0)").text();		
+			    	            dato = $(this).find("td:eq(1)").text();		
 			    	            var h1 = document.createElement("hola");
 			    	            var h2 = document.createElement("hola");			    	            
 			    	          var res = "/TAG_LIBUES/edit-autor-";
@@ -179,7 +180,7 @@
 </body> 
 
 <script>
-var YOUR_MESSAGE_STRING_CONST = "¿Quiere eliminar este dato?";
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
 			//alert();//My code to delete

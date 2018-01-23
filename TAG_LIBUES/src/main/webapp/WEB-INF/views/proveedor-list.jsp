@@ -157,7 +157,7 @@
 </body>
 
 <script>
-var YOUR_MESSAGE_STRING_CONST = "¿Quieres eliminar este dato?";
+var YOUR_MESSAGE_STRING_CONST = "¿Esta seguro que quiere Eliminar este Registro?";
 $('#btnDelete').on('click', function(e){
 		confirmDialog(YOUR_MESSAGE_STRING_CONST, function(){
 			//alert();//My code to delete
