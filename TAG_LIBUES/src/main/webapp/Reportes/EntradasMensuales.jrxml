@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EntradasMensuales" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4049cdd0-1401-4ce4-bd2f-561d6aa3929e">
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EntradasMensuales" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4049cdd0-1401-4ce4-bd2f-561d6aa3929e">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLnRyYW5zZmVyZW5jaWEgQVMgLDY2NCwxODksMjAxYTZjZTktMjAzNC00ZWZiLWFmN2Qt
 ZmRjYzgyYjgwYWFmO2xpYnVlcy5yZXRhY2VvIEFTICwyMDIsMzg1LDQzNTk2ZjBiLTE1ZjctNGVk
@@ -11,25 +11,29 @@ Y2lhIEFTICw0MzAsODUsYjcyYTc1MGItMjkwNC00NjEyLWJkMTItYzY3ZGU5MTg4MmZlOw==]]>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="343"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="645"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="user" class="java.lang.String"/>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="fec" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT SUM(libues.detalletransferencia.`COSTOPRODUCTO`) as Transferencias,
-				 SUM(libues.detalleretaceo.`COSTOPRODUCTO`) as Retaceos,
-				 libues.transferencia.`FECHATRANSFERENCIA`,
-				 libues.retaceo.`FECHARETACEO`
+		<![CDATA[SELECT SUM(libues.transferencia.`TOTAL`) as TRANSFERENCIAS,
+				 SUM(libues.retaceo.`TOTAL`) as RETACEO
 	FROM 
-			libues.detalleretaceo,
-			libues.detalletransferencia,
 			libues.transferencia,	 
 			libues.retaceo
 WHERE
 		 (libues.detalletransferencia.`CODTRANSFERENCIA` = libues.transferencia.`CODTRANSFERENCIA`) and
-		 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`) and 
- 		 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili}) and
- 		 (libues.transferencia.`FECHATRANSFERENCIA` between $P{fechini} and $P{fenili})]]>
+		 (libues.transferencia.`TIPOtRANSFERENCIA` = 'ingresos') and
+		 (libues.retaceo.`CODIGORETACEO`= libues.detalleretaceo.`CODIGORETACEO`)]]>
 	</queryString>
 	<field name="COSTOPRODUCTO" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="COSTOPRODUCTO"/>
@@ -173,22 +177,32 @@ WHERE
 			</staticText>
 		</band>
 	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="61" splitType="Stretch"/>
-	</columnHeader>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="294" splitType="Stretch">
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="60" y="30" width="495" height="240" uuid="08a75365-5f55-4310-9c78-5d8b70cf572c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{COLUMN_4}]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[0]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+		</band>
 	</summary>
 </jasperReport>

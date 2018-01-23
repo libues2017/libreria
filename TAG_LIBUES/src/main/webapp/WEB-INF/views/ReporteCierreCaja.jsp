@@ -32,12 +32,11 @@ Date fecha2=null;
 Date fecha3=null;
 fecha1 = formatoDeFecha.parse(fechaCierre);
 
-String fecha = formateador.format(fecha2);
+String fecha = formateador.format(fecha1);
 Map parameters = new HashMap();
 parameters.put("fechCierre", fecha1); 
 parameters.put("fec", fecha);
-parameters.put("start", inicio);
-parameters.put("end", fin);
+
 
 /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/ 
 byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath (),parameters, conexion); 

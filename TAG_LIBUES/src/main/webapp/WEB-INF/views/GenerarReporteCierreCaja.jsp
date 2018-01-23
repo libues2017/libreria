@@ -71,7 +71,7 @@
                 </div>
 
 <input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="CierreCaja.jasper" name="nombre"/>
+<input type="hidden" value="Cierre_Caja.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
