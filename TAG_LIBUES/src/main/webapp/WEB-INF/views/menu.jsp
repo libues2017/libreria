@@ -127,7 +127,7 @@
           						<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('VENDEDOR') or hasRole ('DBA')">
             					<li><a href="<c:url value="detallefacturacion-agregar" />">Facturar</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="#" />">Cierre de Caja</a></li>
+            					<li><a href="<c:url value="cierre_caja" />">Cierre de Caja</a></li>
             					</sec:authorize>
             					<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DIRECTOR') or hasRole ('DBA')">
             					<li role="separator" class="divider"></li>

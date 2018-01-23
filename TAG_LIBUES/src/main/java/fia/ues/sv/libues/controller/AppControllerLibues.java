@@ -2198,74 +2198,19 @@ public class AppControllerLibues {
 		return "ReporteMensualVentasGastos";
 }
  
-     //*************************************************************************
-     // ***************** CONTROLES PARA LOCALIZACION **************************
-     //*************************************************************************
-/*    @RequestMapping(value = { "/localizacion-list" }, method = RequestMethod.GET)
-    public String listLocalizaciones(ModelMap model) throws IOException {
- 
-        List<Localizacion> localizaciones = localizacionService.findAllLocalizaciones();
-                
-        model.addAttribute("localizaciones", localizaciones);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "localizacion-list";
-    }    
-       
-    
-    @RequestMapping(value = { "/localizacion-agregar" }, method = RequestMethod.GET)
-    public String newLocalizacion(ModelMap model) {
-        
-        Localizacion localizacion = new Localizacion();
-        model.addAttribute("localizacion", localizacion);
-        model.addAttribute("edit", false);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "localizacion-reg";
-    }
-    
-    @RequestMapping(value = { "/localizacion-agregar" }, method = RequestMethod.POST)
-    public String saveLocalizacion(@Valid Localizacion localizacion, BindingResult result,
-            ModelMap model) throws IOException {
- 
-    	if (result.hasErrors()) {
-            return "localizacion-reg";
-        }
-             	
-    	localizacionService.saveLocalizacion(localizacion);
-    	
-        model.addAttribute("success", "Lugar: <strong>" + localizacion.getNombreprod()+"</strong> Registrado");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "success";
-        return "localizacion-reg-succ";
-    }
-    
-    @RequestMapping(value = { "/edit-localizacion-{id}" }, method = RequestMethod.GET)
-    public String editLocalizacion(@PathVariable Integer id, ModelMap model) {
-    	
-    	
-    	Localizacion localizacion = localizacionService.findById(id);
-    	
-    	model.addAttribute("localizacion", localizacion);
-        model.addAttribute("edit", true);
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "localizacion-reg";
-    }
- 
-    @RequestMapping(value = { "/edit-localizacion-{id}" }, method = RequestMethod.POST)
-    public String updateLocalizacion(@Valid Localizacion localizacion, BindingResult result,
-            ModelMap model, @PathVariable Integer id) throws IOException {
- 
-        if (result.hasErrors()) {
-            return "localizacion-reg";
-        }
- 
-        localizacionService.updateLocalizacion(localizacion);
-            
- 
-        model.addAttribute("success", "Ubicacion de: <strong>" + localizacion.getNombreprod()+"</strong> Se ha Actualizado ");
-        model.addAttribute("loggedinuser", getPrincipal());
-        return "localizacion-reg-succ";
-    }  
-   */ 
+//Controles para generacion del reporte de cierre de caja
+@RequestMapping(value={"/cierre_caja"}, method = RequestMethod.GET)
+	public String cierreCaja(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "GenerarReporteCierreCaja";
+	}
+
+@RequestMapping(value={"/repo_cierre_caja"}, method = RequestMethod.GET)
+	public String repotCierreCaja(ModelMap model){
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "ReporteCierreCaja";
+}
+
 
   //**************************************************************************
     // *****************CONTROLES PARA LAS BUSQUEDAS **************************
