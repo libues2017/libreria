@@ -400,6 +400,8 @@ function cambiar5(){
 		if(cantidad != null) {
         	$("#agregar").focus();
         }
+		
+		document.getElementById('guarda').style.display ='inherit';
 }
 </script>
 
@@ -538,7 +540,7 @@ function cambiar5(){
                         <div class="col-xs-2">
                             <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
                        	</div>
-                       	<div class="col-xs-2">
+                       	<div id="guarda" style="display:none" class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
                     	</div>                    	
                         </c:otherwise>
