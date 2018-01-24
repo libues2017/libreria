@@ -1194,6 +1194,9 @@ public class AppControllerLibues {
  		sesion2.setAttribute("fecharetaceo", fecha);//se almacena la fecha para utilizarlo en finalizar retaceo
  		sesion2.setAttribute("fechafacturaproveedor", fecha1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
  		
+ 		
+ 		 model.addAttribute("guarde", 1);
+
     	model.addAttribute("loggedinuser", getPrincipal());
 
          return "redirect:/detalleretaceo-agregar";

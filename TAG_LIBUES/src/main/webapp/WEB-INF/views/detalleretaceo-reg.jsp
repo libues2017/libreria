@@ -604,11 +604,11 @@ function cambiar5(){
 		    	</tbody>
 	    </table>   
       
-		
+		 <c:if test = "${guarde >0}">
 	    <div class="well lead" align="center">	
 			<a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Guardar Retaceo</a>
 		</div>
-	   
+	   </c:if>
 	
 	</form:form>
         
