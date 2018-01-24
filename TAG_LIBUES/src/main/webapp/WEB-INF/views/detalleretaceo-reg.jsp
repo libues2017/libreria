@@ -212,6 +212,8 @@
 								  }
 								  
 								  
+								  document.getElementById("agregar").style.display ='block';
+								  
 								  
 								  
 								  //alert(CPEX);
@@ -256,6 +258,8 @@
               		                		   
               		// alert(${current.existencia}+${current.sala});	
               		     
+              		
+              		
               		    }
               		</c:forEach>
               		
@@ -401,7 +405,7 @@ function cambiar5(){
         	$("#agregar").focus();
         }
 		
-		document.getElementById('guarda').style.display ='inherit';
+		
 }
 </script>
 
@@ -538,9 +542,9 @@ function cambiar5(){
                         
                         <c:otherwise>
                         <div class="col-xs-2">
-                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
+                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" style="display:none" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
                        	</div>
-                       	<div id="guarda" style="display:none" class="col-xs-2">
+                       	<div class="col-xs-2">
                             <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
                     	</div>                    	
                         </c:otherwise>
