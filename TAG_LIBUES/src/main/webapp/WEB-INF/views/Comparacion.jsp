@@ -196,7 +196,9 @@
         List addressessala = addresses;
  
         List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,addressessala,salahoja,bodegahoja);
- 
+        
+        //out.println(addresses1.size());        
+         
              //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);			
 			
 		// Iterator<Producto> addressIter = addresses.iterator();
@@ -235,6 +237,7 @@
 			      			<th>Nombre del Producto</th>	      			
 			      			<th>Cantidad Producto en Inventario Teorico</th>
 			      			<th>Cantidad Producto en Inventario Fisico</th>
+			      			<th>Diferencias Productos </th>
 			      			<th>Estante</th>
 			      			<th>Nivel</th>
 			      			<th>Ubicacion</th>
@@ -242,16 +245,17 @@
 		    		</tr>
 		    	</thead>
 		    	<tbody>
-		    	      
+		    	       <c:set var="contador" value="${0}" />
 				    	<c:forEach items="<%=addresses1%>" var="i"  >
 				    	 <c:if test = "${i[0] > 0}">
-			    
+			                <c:set var="contador" value="${contador + 1}" />	
 				    		<tr >				    		
 				    	
 				    			<td>${i[0]}</td>
 				    			<td>${i[1]}</td>
 				    	  		<td>${i[2]}</td>
 				    	  		<td>${i[3]}</td>
+				    	  		<td>${i[3]-i[2]}</td>
 				    	  		<td>${i[4]}</td>	
 				    	  		<td>${i[5]}</td>
 				    	  		<td>${i[6]}</td>
@@ -263,10 +267,9 @@
                          </c:if>
                         
 				    	 </c:forEach>
-				    	 
-				    	 
-			    
-				    	 
+				    	  <div>Cantidad de Productos que difiere el inventario fisico y teorico</div>
+				    	 <div>${contador}</div>
+				  	 
 		    	</tbody>
 	    </table>       
  
