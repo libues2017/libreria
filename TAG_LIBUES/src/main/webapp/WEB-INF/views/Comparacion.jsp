@@ -197,6 +197,9 @@
  
         List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,addressessala,salahoja,bodegahoja);
         
+        Comparator<Integer> comparador = Collections.reverseOrder();
+        Collections.sort(addresses1, comparador);
+       // Collections.sort(addresses1);
         //out.println(addresses1.size());        
          
              //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);			
