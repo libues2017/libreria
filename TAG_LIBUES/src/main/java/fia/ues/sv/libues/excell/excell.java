@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -398,6 +399,8 @@ public class excell {
 		               		 sheetDataextraer.add(nivel);//nivel
 		               		 sheetDataextraer.add(bodega);//ubicacion
 		               		 
+		               		 
+		               		
 		               		 
 		               		    listaEmpresa.get(contador).add(g);//codigo
 			             		listaEmpresa.get(contador).add(nombre);//nombre

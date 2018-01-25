@@ -197,11 +197,15 @@
  
         List addresses1 = e.compararretorna(sheetData,sheetData1, addresses,addressessala,salahoja,bodegahoja);
         
-        Comparator<Integer> comparador = Collections.reverseOrder();
-        Collections.sort(addresses1, comparador);
+        
        // Collections.sort(addresses1);
-        //out.println(addresses1.size());        
-         
+       
+        List sheetDataextraer = new ArrayList();
+           
+        sheetDataextraer.add(addresses1.get(0));
+      //  out.println(sheetDataextraer);
+       
+        
              //e.comparar(sheetData,sheetData1, addresses,salahoja,bodegahoja);			
 			
 		// Iterator<Producto> addressIter = addresses.iterator();
@@ -270,8 +274,8 @@
                          </c:if>
                         
 				    	 </c:forEach>
-				    	  <div>Cantidad de Productos que difiere el inventario fisico y teorico</div>
-				    	 <div>${contador}</div>
+				    	  <div><span class="lead">Productos Encontrados   ${contador}</span>  </div>
+				    	 
 				  	 
 		    	</tbody>
 	    </table>       
