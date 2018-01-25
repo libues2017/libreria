@@ -23,12 +23,12 @@
                         <form action="${loginUrl}" method="post" class="form-horizontal">
                             <c:if test="${param.error != null}">
                                 <div class="alert alert-danger col-xs-10">
-                                    <p>Usuario o Password Incorrectos.</p>
+                                    <p>Usuario o Contraseña Incorrectos.</p>
                                 </div>
                             </c:if>
                             <c:if test="${param.logout != null}">
                                 <div class="alert alert-success col-xs-10">
-                                    <p>Ha salido del sistema corretamente.</p>
+                                    <p>Ha salido del sistema.</p>
                                 </div>
                             </c:if>
                             <div class="input-group input-sm col-xs-10">

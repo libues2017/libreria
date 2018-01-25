@@ -209,14 +209,26 @@
 		            	</div>
 		            	
 		            	<div class="panel-body">
+		            	<c:choose>
+							<c:when test="${edit}">		            	
 		            		<div class="col-xs-4">
+		            			<label class="form-control" for="existencia">Existencias:</label>
+		                		<form:input type="text" min="0" path="existencia" id="existencia" maxlength="11" placeholder="Digite la Cantidad de Producto" class="form-control input-sm"/>
+		                    	<div class="has-error">
+		                    		<form:errors path="existencia" class="help-inline"/>
+		                    	</div>
+		            		</div>
+		            		</c:when>
+	    					<c:otherwise>
+	    					<div class="col-xs-4">
 		            			<label class="form-control" for="existencia">Existencias:</label>
 		                		<form:input type="text" min="0" path="existencia" id="existencia" maxlength="11" placeholder="Digite la Cantidad de Producto" class="form-control input-sm" value="0"/>
 		                    	<div class="has-error">
 		                    		<form:errors path="existencia" class="help-inline"/>
 		                    	</div>
 		            		</div>
-		            		
+	    					</c:otherwise>
+	    				</c:choose>
 		            		<div class="col-xs-4">
 		            			<label class="form-control" for="existencia">Unidad Minima:</label>
 		                		<form:input type="number" min="0" path="unidadMinima" id="unidadMinima" placeholder="Digite la Cantidad de Minima del Producto" 
@@ -245,16 +257,22 @@
                     				<form:errors path="fechaCreacion" class="help-inline"/>
                     			</div>
                 			</div>
-                			              			
+                			
+                			<c:choose>
+							<c:when test="${edit}">                			              			
 		        			<div class="col-xs-4">
 		            			<label class="form-control" for="precio">Precio: $</label>		                		
-		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" />
-		                    	<!-- 
-		                    	<div class="has-error">
-		                    		<form:errors path="precio" class="help-inline"/>
-		                    	</div>
-		                    	-->
-		                	</div>
+		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" placeholder="Digite Costo (##)"/>
+		                    </div>
+		                    </c:when>
+	    					<c:otherwise>
+	    					<div class="col-xs-4">
+		            			<label class="form-control" for="precio">Precio: $</label>		                		
+		                		<form:input type="text" min="0" path="precio" id="precio" class="form-control input-sm" value="0"/>
+		                    </div>
+	    					</c:otherwise>
+	    					</c:choose>
+	    					
 		                	
 		                	<div class="col-xs-4" style="display:none ">
 		            			<label class="form-control" for="precio">MARCADO</label>		                		
@@ -264,16 +282,20 @@
 		            			<label class="form-control" for="precio">CANTIDAD ETIQUETAS</label>		                		
 		                		<form:input type="text"  path="cantidadetiquetar" id="cantidadetiquetar" class="form-control input-sm" value='0' />		                    	
 		                	</div>
-		                			                	
+		                	<c:choose>
+							<c:when test="${edit}"> 		                	
 		        			<div class="col-xs-4">
 		            			<label class="form-control" for="costounitario">Costo Unitario: $</label>
-		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" placeholder="Digite Costo"/>
-		                    	<!--
-		                    	<div class="has-error">
-		                    		<form:errors path="precio" class="help-inline"/>
-		                    	</div>
-		                    	-->
-		            		</div>		            	
+		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" placeholder="Digite Costo (##)"/>
+		                    </div>
+		                     </c:when>
+	    					<c:otherwise>
+	    					<div class="col-xs-4">
+		            			<label class="form-control" for="costounitario">Costo Unitario: $</label>
+		                		<form:input type="text" min="0" path="costounitario" id="costounitario" class="form-control input-sm" value='0'/>
+		                    </div>
+	    					</c:otherwise>
+	    					</c:choose>            	
 		            	</div>
 		            	
 		            	<div class="panel-body">		            			
