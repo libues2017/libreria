@@ -1084,7 +1084,7 @@ public class AppControllerLibues {
 	    	 Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
 	    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
 	    		
-	    		
+	    	  model.addAttribute("guarde", 1);
 	    	  model.addAttribute("codigoretaceo",codigoretaceo );
     	  model.addAttribute("fecharetaceo",fecha );
 	    	model.addAttribute("fechafacturaproveedor",fechafac );
@@ -1195,7 +1195,7 @@ public class AppControllerLibues {
  		sesion2.setAttribute("fechafacturaproveedor", fecha1);//se almacena la fecha de factura para utilizarlo en finalizar retaceo		
  		
  		
- 		 model.addAttribute("guarde", 1);
+ 		 
 
     	model.addAttribute("loggedinuser", getPrincipal());
 
