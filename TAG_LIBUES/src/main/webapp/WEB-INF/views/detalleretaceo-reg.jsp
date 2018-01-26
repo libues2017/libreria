@@ -190,7 +190,7 @@
 		              			   
 								  var costoproducto = document.getElementById('costoproducto').value;
 								  var cantidad=document.getElementById('cantidadproducto').value;								
-								  var cla2 = document.getElementById('precioproducto').value=PV;
+								  var cla2 = document.getElementById('precioproducto').value=PV.toFixed(2);
 								  
 								  var cla3 = document.getElementById('subtotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
 								  var cla4 = document.getElementById('existenciaanterior').value=PEX;
@@ -203,7 +203,7 @@
 								  
 								  var boton1 = document.getElementById("agregar");
 								  
-								  if(PV > 0.0 && proveedor > 0  && codigofacturaproveedor>0){
+								  if(cantidad>0 && PV > 0.0 && proveedor > 0  && codigofacturaproveedor>0){
 									  
 									 
 			              		    	//boton1.disabled = false;
@@ -215,10 +215,10 @@
 								  else{
 									  
 									  //boton1.disabled = true;
-									 // alert("Revise que todos los campos esten llenos");
+									
 									 
 									  document.getElementById("validar").style.display ='block';
-									  document.getElementById('validar').innerHTML = 'llenar todos los datos que se le piden en el formulario'
+									  document.getElementById('validar').innerHTML = 'llenar todos los campos que se le piden en el formulario'
 									  
 								  }
 								  
@@ -489,7 +489,7 @@ function cambiar5(){
 				<div class="panel-body">
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
-	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();addIt("1");' />   
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
 	                      
                     </div>
                     <div class="col-xs-5"> 
@@ -515,7 +515,7 @@ function cambiar5(){
 				<div class="panel-body">
 					<div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Costo Producto: $</label>
-	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="addIt('costoproducto'); cambiar4();" placeholder="DIGITE"/>
+	                    <form:input type="text" path="costoproducto" id="costoproducto" class="form-control input-sm" onchange="cambiar4();" placeholder="DIGITE"/>
                     </div>
                     <div class="col-xs-2">
 	                    <label class="form-control" for="nombr">Cantidad:</label>
