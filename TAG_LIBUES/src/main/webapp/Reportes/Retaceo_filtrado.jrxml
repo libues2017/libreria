@@ -122,7 +122,7 @@
 		<variableExpression><![CDATA[$F{SUBTOTAL}]]></variableExpression>
 	</variable>
 	<variable name="Utilidad" class="java.lang.Double">
-		<variableExpression><![CDATA[($F{PRECIOPRODUCTO}.doubleValue() * $F{CANTIDADPRODUCTO}.intValue()) - ($F{COSTOPRODUCTO}.doubleValue() * $F{CANTIDADPRODUCTO}.intValue())]]></variableExpression>
+		<variableExpression><![CDATA[$F{PRECIOPRODUCTO}.doubleValue()  - $F{COSTOUNITARIO}.doubleValue()]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<group name="Group1">
