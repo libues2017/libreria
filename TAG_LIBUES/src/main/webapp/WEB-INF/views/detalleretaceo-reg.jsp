@@ -197,9 +197,12 @@
 								  var cla5 = document.getElementById('costounitarioanterior').value=CPEX;
 								  var cla6 = document.getElementById('precioanterior').value=PVA;
 								  
+								  
+								  var proveedor = document.getElementById('codigoproveedor').value;
+								  
 								  var boton1 = document.getElementById("agregar");
 								  
-								  if(PV>0.0){
+								  if(PV>0.0 && proveedor > 0){
 									  
 									 
 			              		    	boton1.disabled = false;
