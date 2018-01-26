@@ -492,7 +492,7 @@ function cambiar5(){
                     </div>
 					<div class="col-xs-3">
 						<label class="form-control" for="existencia">Existencia Bodega:</label>
-						<input type="number"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
+						<input type="number" min="0"  id="existencia" placeholder="AUTOMATICO" class="form-control input-sm"  />      
                     </div>
                     <div class="col-xs-3">
 						<label class="form-control" for="existencia">Existencia Sala:</label>

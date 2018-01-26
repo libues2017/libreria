@@ -1463,9 +1463,17 @@ public class AppControllerLibues {
         	  Integer existenciaanterior =retaceoBuscar.get(i).getExistenciaanterior();  //  12
         	  Double costoanterior =retaceoBuscar.get(i).getCostounitarioanterior(); // 2.4
         	  Integer cantidad =retaceoBuscar.get(i).getCantidadproducto();//producto de entrada   // 2
+        	  
+        	  
         	  Integer existencia =existenciaanterior+cantidad;// calculo existencia completa
         	  Integer existenciatotal =existencia;
         	  existencia=existencia-sala;//para actualizar sala
+        	  if(existencia<0){
+        		  
+        		  
+        		  existencia=existencia*-1;
+        	  }
+        	  
         	  Double utilidad=retaceoBuscar.get(i).getUtilidad();
         	  utilidad=utilidad/100;
         	  Double precio=retaceoBuscar.get(i).getPrecioproducto() ;
@@ -1477,6 +1485,8 @@ public class AppControllerLibues {
         	    	 
         	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
         	  Integer marcado=1;
+        	  
+        	  
         	          	  
         	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
         	 
