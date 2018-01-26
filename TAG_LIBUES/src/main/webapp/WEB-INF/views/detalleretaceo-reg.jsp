@@ -199,23 +199,31 @@
 								  
 								  
 								  var proveedor = document.getElementById('codigoproveedor').value;
+								  var codigofacturaproveedor = document.getElementById('codigofacturaproveedor').value;
 								  
 								  var boton1 = document.getElementById("agregar");
 								  
-								  if(PV>0.0 && proveedor > 0){
+								  if(PV > 0.0 && proveedor > 0  && codigofacturaproveedor>0){
 									  
 									 
-			              		    	boton1.disabled = false;
+			              		    	//boton1.disabled = false;
+									  document.getElementById("agregar").style.display ='block';
+									  document.getElementById("validar").style.display ='none';
+			              		    	
 								  }
 								  
 								  else{
 									  
-									  boton1.disabled = true;
+									  //boton1.disabled = true;
+									 // alert("Revise que todos los campos esten llenos");
+									 
+									  document.getElementById("validar").style.display ='block';
+									  document.getElementById('validar').innerHTML = 'llenar todos los datos que se le piden en el formulario'
 									  
 								  }
 								  
 								  
-								  document.getElementById("agregar").style.display ='block';
+								 
 								  
 								  
 								  
@@ -428,6 +436,8 @@ function cambiar5(){
 <div class="container">
 
 
+ 
+
 	  <div class="well lead" align="center">CREAR RETACEO</div>
         <form:form method="POST" name="retaceo" modelAttribute="detalleretaceo"  class="form-horizontal"  >
             <form:input type="hidden" path="codigodetalleretaceo" id="codigodetalleretaceo"/>             
@@ -532,6 +542,8 @@ function cambiar5(){
                     <label class="col-md-3 control-lable" for="nombr" >subtotal</label>
                     <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
                     </div>				
+										
+				   			
 					
             	    <c:choose>
                         <c:when test="${edit}">
@@ -557,6 +569,14 @@ function cambiar5(){
        		</div>
                 <%--=session.getAttribute("mySessionAttribute")--%>
        </div>
+       
+       
+        <div id="validar" style="display:none" class="alert alert-danger">
+					  <strong>Advertencia!</strong> <label  for="tags"></label>
+					</div>	
+					
+					
+					
 	</div>       
                <table class="table table-striped ">
 				<thead>
