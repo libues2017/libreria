@@ -1081,8 +1081,8 @@ public class AppControllerLibues {
 	    	String fecha = sdf.format(fecharetaceo);
 	    	String fechafac = sdf.format(fechafacturaproveedor);
 	    	
-	    	 Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//revisar
-	    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//revisar
+	    	 Proveedor proveedoresBuscar = proveedorService.findById(codigoproveedor);//Revisar
+	    	  String nombreproveedor=proveedoresBuscar.getNombreproveedor();//Revisar
 	    		
 	    	  model.addAttribute("guarde", 1);
 	    	  model.addAttribute("codigoretaceo",codigoretaceo );
@@ -2309,9 +2309,14 @@ public class AppControllerLibues {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
     	HttpSession sesion=request.getSession(true);
-    	
-    	Double total = 0.0;
-    	if(sesion.getAttribute("codigo2")!=null)
+    	    	
+    	List<Requisicion> req5 = requisicionService.findAllRequisiciones();
+		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
+        HttpSession sesion1=request.getSession(true);
+        sesion1.setAttribute("codigo2", req6);
+        
+        Double total = 0.0;
+        if(sesion.getAttribute("codigo2")!=null)
     	{
     		Integer codigo2=(Integer) sesion.getAttribute("codigo2");
     		List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo2);
@@ -2322,12 +2327,13 @@ public class AppControllerLibues {
       		model.addAttribute("total", total);
     		model.addAttribute("req1", requisicionBuscar);
     	}
+    	// Controla la visualizacion del Boton Guardar Requisicion 
+        if(!detallerequisicionService.findRequisiciones(req6).isEmpty())	
+    	{	
+	    	model.addAttribute("control", 1);
+    	}
     	
-        List<Producto> productos = productoService.findAllProductos();       
-		List<Requisicion> req5 = requisicionService.findAllRequisiciones();
-		Integer req6 = req5.get(req5.size()-1).getCodigorequisicion();
-        HttpSession sesion1=request.getSession(true);
-        sesion1.setAttribute("codigo2", req6);        
+        List<Producto> productos = productoService.findAllProductos();
         model.addAttribute("producto", productos);
         return "detallerequisicion-reg";
   }

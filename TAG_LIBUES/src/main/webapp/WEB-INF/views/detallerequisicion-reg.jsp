@@ -306,7 +306,7 @@ function validar1(){
 			 		</div>
 			 	</div>
 			 	<div class="form-group row" align="center">			 		
-			 	 	<input type="button" value="AGREGAR" id="agrega" class="btn btn-primary btn-sm" onclick="req.submit();"  /> 							
+			 	 	<input type="button" value="AGREGAR" id="agrega"  class="btn btn-primary btn-sm" onclick="req.submit();"  /> 							
 					<a href="<c:url value='/requisicion-list' />"  class="btn btn-primary btn-sm" >CANCELAR</a>					
 				</div>
 			</div>
@@ -360,10 +360,11 @@ function validar1(){
                     </div>
                 </div>
             </div>	
-		        
+		<c:if test = "${control >0}">        
 		<div class="well lead" align="center">
 			<a href="<c:url value='/guardar' />" class="btn btn-primary btn-sm" >GUARDAR REQUISICIÓN</a>
 		</div>
+		</c:if>
 	</form:form>
 </div>
 
