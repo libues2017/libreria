@@ -135,9 +135,9 @@
 		</groupFooter>
 	</group>
 	<title>
-		<band height="124" splitType="Stretch">
+		<band height="135" splitType="Stretch">
 			<line>
-				<reportElement x="2" y="111" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+				<reportElement x="2" y="128" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -235,7 +235,7 @@
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="325" y="93" width="100" height="18" uuid="315fd8d2-eec2-4e19-862d-5cb893633950"/>
+				<reportElement x="325" y="93" width="125" height="35" uuid="315fd8d2-eec2-4e19-862d-5cb893633950"/>
 				<textElement>
 					<font fontName="Arial"/>
 				</textElement>
@@ -276,12 +276,12 @@
 	<columnHeader>
 		<band height="31" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Transparent" x="368" y="0" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<reportElement mode="Transparent" x="363" y="0" width="55" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Exist. Ant]]></text>
+				<text><![CDATA[Exist.Ant]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="-5" y="2" width="45" height="17" forecolor="#000000" backcolor="#FFFFFF" uuid="d5b68360-cdf2-47fc-aacc-ba3679214488"/>
@@ -355,11 +355,11 @@
 				<text><![CDATA[Uni]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="425" y="0" width="46" height="20" uuid="fb31265d-35f9-417c-8e40-968b1849d582"/>
+				<reportElement x="418" y="0" width="55" height="20" uuid="fb31265d-35f9-417c-8e40-968b1849d582"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Costo]]></text>
+				<text><![CDATA[CostoPro]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="465" y="1" width="48" height="18" uuid="ea10b252-b927-44eb-96a9-bf7e16041348"/>
@@ -371,9 +371,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="58" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="1" y="21" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="55" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -386,7 +386,7 @@
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="48" y="1" width="76" height="20" uuid="9de74ee7-339a-4350-ab57-2fdfedd257c7"/>
+				<reportElement x="48" y="1" width="76" height="49" uuid="9de74ee7-339a-4350-ab57-2fdfedd257c7"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
@@ -400,7 +400,7 @@
 				<textFieldExpression><![CDATA[$F{EXISTENCIAANTERIOR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="131" y="0" width="51" height="20" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
+				<reportElement x="131" y="0" width="51" height="50" uuid="1b76618f-c0a2-482c-98d1-b53aea3866fc"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
@@ -492,28 +492,28 @@
 	<summary>
 		<band height="231" splitType="Stretch">
 			<textField>
-				<reportElement x="100" y="8" width="39" height="20" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
+				<reportElement x="100" y="30" width="39" height="20" uuid="c614e7fe-a1ff-4ba1-85a5-5288f76e4646"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Variable_1}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="7" y="7" width="109" height="20" uuid="28925832-c407-4a87-a74e-34f512091d9b"/>
+				<reportElement x="7" y="30" width="109" height="20" uuid="28925832-c407-4a87-a74e-34f512091d9b"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Total  de Producto:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="235" y="6" width="37" height="20" uuid="2fa30206-7ff8-4702-aeba-01205a2fffc4"/>
+				<reportElement x="235" y="32" width="37" height="20" uuid="2fa30206-7ff8-4702-aeba-01205a2fffc4"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Total:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="271" y="6" width="57" height="20" uuid="74664efe-529a-4ad2-abef-67cf8b8d6b8b"/>
+				<reportElement x="271" y="32" width="57" height="20" uuid="74664efe-529a-4ad2-abef-67cf8b8d6b8b"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
@@ -570,17 +570,17 @@
 				</reportElement>
 			</line>
 			<rectangle>
-				<reportElement mode="Transparent" x="228" y="3" width="89" height="27" uuid="20748f61-ec6d-4377-aafc-255798581e78"/>
+				<reportElement mode="Transparent" x="228" y="25" width="89" height="27" uuid="20748f61-ec6d-4377-aafc-255798581e78"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="263" y="6" width="23" height="16" uuid="9bdb6e90-0855-418e-9594-db193da33143"/>
+				<reportElement x="263" y="32" width="23" height="16" uuid="9bdb6e90-0855-418e-9594-db193da33143"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="-4" y="4" width="154" height="27" uuid="2e3a3a6c-5a02-4451-bee5-145df6defe5f"/>
+				<reportElement mode="Transparent" x="-4" y="26" width="154" height="27" uuid="2e3a3a6c-5a02-4451-bee5-145df6defe5f"/>
 			</rectangle>
 		</band>
 	</summary>
