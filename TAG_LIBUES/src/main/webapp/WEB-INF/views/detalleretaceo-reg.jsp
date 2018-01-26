@@ -479,7 +479,7 @@ function cambiar5(){
 				<div class="panel-body">
 					<div class="col-xs-3">
 				        <label class="form-control" for="tags">Codigo Producto:</label>
-	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
+	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();addIt("1");' />   
 	                      
                     </div>
                     <div class="col-xs-5"> 
