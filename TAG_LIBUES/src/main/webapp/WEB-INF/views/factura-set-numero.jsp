@@ -48,21 +48,20 @@
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 <div class="col-xs-8">
-<c:choose>
-	<c:when test="${edit}">
-		<div class="well lead" align="center">ACTUALIZAR DATOS FACTURA</div>
-	</c:when>
-    <c:otherwise>
-    	<div class="well lead" align="center">NÚMERO FACTURA</div>
-    </c:otherwise>
-    </c:choose>
+   	<div class="well lead" align="center">NÚMERO FACTURA</div>
 	<form:form method="POST" modelAttribute="factura" class="form-horizontal">
 	<form:input type="hidden" path="idfactura" id="idfactura" />
 		<div class="well lead">	
 			<div class="form-group col-md-12" align="center">
-				<label class="col-md-6 control-lable" for="factura">Número de Factura:</label>
+				<label class="col-md-6 control-lable" for="factura">Factura Actual:</label>
 				<div class="col-md-4">						
-				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" value="${numero }"/>
+				<input type="text" maxlength="10" class="form-control input-sm" value="${numfactura}" disabled="disabled"/>
+			</div>
+			</div>
+			<div class="form-group col-md-12" align="center">
+				<label class="col-md-6 control-lable" for="factura">Nueva Factura:</label>
+				<div class="col-md-4">						
+				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="999999"  class="form-control input-sm" />
 			</div>
 			</div>
 			<div class="form-group col-md-12" style="display:none">	
@@ -78,20 +77,18 @@
 				</div>
 			</div>
 			<div class="form-actions floatRight" align="center">					
-                    <c:choose>
-                        <c:when test="${edit}">
-                            <input type="submit" value="ACTUALIZAR" class="btn btn-primary btn-sm"/> 
-                            ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
-                        </c:when>
-                        <c:otherwise>
-                            <input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm"/> 
-                            ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
-                        </c:otherwise>
-                    </c:choose>
-                    </div>			
+            	<input type="submit" value="ESTABLECER" onclick="alert('¡¡¡ÉXITO!!!')" class="btn btn-primary btn-sm"/> 
+                ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+           	</div>
+           				
 		</div>
 	</form:form>
+	<div class="well lead">
+	<p>Se establece un nuevo inicio para la facturación
+	</p>
+	</div>
 </div>
+
 </div>
 <script src="<c:url value='/static/js/jquery-3.1.1.min.js.css' />"></script>   
 <script src="<c:url value='/static/js/bootstrap.min.css' />"></script>

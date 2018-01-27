@@ -2801,6 +2801,11 @@ public class AppControllerLibues {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
         
+        List<Factura> fact = facturaService.findAllFacturas();
+		Integer fact2 = fact.get(fact.size()-2).getIdfactura();
+		Integer numero = facturaService.findById(fact2).getNumerofactura();
+        model.addAttribute("numfactura", numero);
+        
     	return "factura-set-numero"; 
     }
     
@@ -2810,9 +2815,13 @@ public class AppControllerLibues {
     	if (result.hasErrors()) {
             return "factura-set-numero";
         }
+    	List<Factura> fact = facturaService.findAllFacturas();
+		Integer fact1 = fact.get(fact.size()-1).getIdfactura();
+		facturaService.deleteFacturaById(fact1);
+		factura.setTotal(0.0);
     	facturaService.saveFactura(factura);
     	model.addAttribute("loggedinuser", getPrincipal());    	
-    	return "redirect:/numero-factura";      
+    	return "redirect:/factura-list";      
     }
     
     // -------------------------------------------------------------------------------------------------
@@ -2827,14 +2836,14 @@ public class AppControllerLibues {
         model.addAttribute("edit", true);
         model.addAttribute("loggedinuser", getPrincipal());
         model.addAttribute("numero", numero);       
-    	return "factura-set-numero"; 
+    	return "facturacion-edit"; 
     }
     
     @RequestMapping(value = { "/edit-numero-factura-{idfactura}" }, method = RequestMethod.POST)   
     public String updateNumeroFactura(HttpServletRequest request,@Valid Factura factura, BindingResult result, 
     		ModelMap model, @PathVariable Integer idfactura) throws IOException {         	 	
     	if (result.hasErrors()) {
-            return "factura-set-numero";
+            return "facturacion-edit";
         }
     	Integer numero2 = Integer.parseInt(request.getParameter("numerofactura"));
     	//Integer numero = facturaService.findById(idfactura).getNumerofactura();
