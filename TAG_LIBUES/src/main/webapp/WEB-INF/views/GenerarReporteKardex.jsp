@@ -66,8 +66,7 @@
                 </div>
             </div>
             
-            <%-- 
-            <div class="form-group">			
+          <div class="form-group">			
 			<label class="control-label col-sm-4" for="nombr">Desde:</label>
 			<div class="col-sm-1">
 			<SELECT name="desde" id="desde" class="form-control input-sm" onchange="sesion();" 
@@ -136,7 +135,7 @@
 				<OPTION VALUE="Z">Z</OPTION>
 			</SELECT>
 			</div>
-			--%>
+			
 					
 			<div class="form-group">
 
