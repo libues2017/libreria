@@ -209,16 +209,28 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="form-group col-md-12" >
-                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
-                    <div class="col-md-2">
-                        <form:input type="number" min="1" max="5" path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
-                    </div>
-                </div>
-            </div>
-            
+            <c:choose>
+	            <c:when test="${tipo='Libro'}">
+	            <div class="row">
+	                <div class="form-group col-md-12" >
+	                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
+	                    <div class="col-md-2">
+	                        <form:input type="number"  path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
+	                    </div>
+	                </div>
+	            </div>
+	            </c:when>
+	           	<c:otherwise>
+	            <div class="row">
+	                <div class="form-group col-md-12" >
+	                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
+	                    <div class="col-md-2">
+	                        <form:input type="number" min="1" max="5" path="cantidad" id="cantidad"  class="form-control input-sm" />                        
+	                    </div>
+	                </div>
+	            </div>
+	            </c:otherwise>
+           	</c:choose>
             <div class="row">
                 <div class="form-group col-md-12" style="display:none">
                     <label class="col-md-4 control-lable" for="precio">Precio:</label>

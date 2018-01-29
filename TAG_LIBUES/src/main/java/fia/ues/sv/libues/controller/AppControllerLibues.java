@@ -2900,13 +2900,19 @@ public class AppControllerLibues {
         model.addAttribute("reserv", reserv);
         model.addAttribute("reservas", reservas);
         model.addAttribute("edit", true);
-        model.addAttribute("libro", true);
+        if(codtipo.equals("Libro")){
+        	model.addAttribute("libro", true);
+        	model.addAttribute("tipo", codtipo);
+        }
+        else {
+	        model.addAttribute("libro", false);
+	        model.addAttribute("tipo", codtipo);
+        }
         model.addAttribute("loggedinuser", getPrincipal());
-        
         model.addAttribute("codigo", codigo);
         model.addAttribute("nombre", nombre);
         model.addAttribute("prec", prec);
-        model.addAttribute("tipo", codtipo);
+        
         
         return "reservas-reg";
     }
