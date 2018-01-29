@@ -29,8 +29,7 @@
 				"${current.cliente}",
 				"${current.tipofactura}",
 				"$ ${current.total}",
-				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />',
-		        "${current.estado}" ] ;
+				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />' ] ;
 			i=i+1;
 		</c:if>
 		</c:forEach>
@@ -44,9 +43,7 @@
 			        { title: "CLIENTE" },
 			    	{ title: "TIPO" },
 			    	{ title: "TOTAL" },
-			    	{ title: "FECHA" },
-			    	{ title: "ESTADO" }
-			    	
+			    	{ title: "FECHA" }
 			    ],
 			    "language": idioma_espanol
 			} );

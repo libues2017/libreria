@@ -43,12 +43,27 @@
             sAhora=fecha;
 		}
 %>
+<script type="text/javascript">
+
+function comprobar(){
+	
+	var Id = document.getElementById("numerofactura").value;
+	
+	<c:forEach items="${facturas}" var="current" >
+	  if( ${current.numerofactura} == Id) {		    	 		  
+	      alert('Este numero ya existe. Se recomienda usar otro.')
+	    }	  
+	</c:forEach>              		
+  return true;	
+ }
+</script>
+
 </head>
 <body >
 <div class="row"><%@include file="page_head_2.jsp" %></div>
 <div class="container">
 <div class="col-xs-8">
-   	<div class="well lead" align="center">NÚMERO FACTURA</div>
+   	<div class="well lead" align="center">CAMBIO NÚMERO DE FACTURA</div>
 	<form:form method="POST" modelAttribute="factura" class="form-horizontal">
 	<form:input type="hidden" path="idfactura" id="idfactura" />
 		<div class="well lead">	
@@ -76,9 +91,10 @@
 				<form:input type="text" path="estado" id="estado" class="form-control input-sm" value="1" />
 				</div>
 			</div>
-			<div class="form-actions floatRight" align="center">					
-            	<input type="submit" value="ESTABLECER" onclick="alert('¡¡¡ÉXITO!!!')" class="btn btn-primary btn-sm"/> 
-                ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+			<div class="form-actions floatRight" align="center">
+				<input type="button" value="COMPROBAR" onclick="comprobar();" class="btn btn-primary btn-sm"/> -- 
+				<input type="submit" value="ESTABLECER" onclick="alert('¡¡¡ÉXITO!!!')" class="btn btn-primary btn-sm"/> -- 
+                <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
            	</div>
            				
 		</div>
