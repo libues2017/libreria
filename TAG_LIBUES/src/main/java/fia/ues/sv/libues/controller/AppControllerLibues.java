@@ -2894,16 +2894,19 @@ public class AppControllerLibues {
     	Integer codigo = productoService.findByCodigoProducto(codigoprod).getCorrelativo();
     	String nombre = productoService.findByCodigoProducto(codigoprod).getNombreProducto();
     	Double prec = productoService.findByCodigoProducto(codigoprod).getPrecio();
+    	TipoProducto codtipo = productoService.findByCodigoProducto(codigoprod).getTipoProducto();
     	List<Reservas> reservas = reservasService.findAllReservas(); 
     	Reservas reserv = new Reservas();
         model.addAttribute("reserv", reserv);
         model.addAttribute("reservas", reservas);
         model.addAttribute("edit", true);
+        model.addAttribute("libro", true);
         model.addAttribute("loggedinuser", getPrincipal());
         
         model.addAttribute("codigo", codigo);
         model.addAttribute("nombre", nombre);
         model.addAttribute("prec", prec);
+        model.addAttribute("tipo", codtipo);
         
         return "reservas-reg";
     }

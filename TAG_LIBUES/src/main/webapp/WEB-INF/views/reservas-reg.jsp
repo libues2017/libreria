@@ -117,7 +117,7 @@
              
             <div class="row">
                 <div class="form-group col-md-12" style="display:none">
-                    <label class="col-md-4 control-lable" for="nombr">Libro:</label>
+                    <label class="col-md-4 control-lable" for="nombr">Titulo:</label>
                     <div class="col-md-7">
                         <form:input type="text" path="nombreproducto" id="nombreproducto"  class="form-control input-sm" value="${nombre}" />
                         <div class="has-error">
@@ -128,7 +128,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-4 control-lable" for="nombr">Libro:</label>
+                    <label class="col-md-4 control-lable" for="nombr">Titulo:</label>
                     <div class="col-md-7">
                         <input type="text" id="nombreproducto"  class="form-control input-sm" value="${nombre}" disabled="disabled"/>
                         <div class="has-error">
@@ -211,18 +211,10 @@
             </div>
             
             <div class="row">
-                <div class="form-group col-md-12" style="display:none">
+                <div class="form-group col-md-12" >
                     <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
                     <div class="col-md-2">
-                        <form:input type="number" min="1" max="1" path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-4 control-lable" for="cantidad">Cantidad:</label>
-                    <div class="col-md-2">
-                        <input type="number" min="1" max="1"  id="cantidad"  class="form-control input-sm" value="1" disabled/>                        
+                        <form:input type="number" min="1" max="5" path="cantidad" id="cantidad"  class="form-control input-sm" value="1"/>                        
                     </div>
                 </div>
             </div>
@@ -240,6 +232,15 @@
                     <label class="col-md-4 control-lable" for="precio">Precio:</label>
                     <div class="col-md-2">
                         <input type="text" id="precio"  class="form-control input-sm" value="${prec}" disabled/>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="col-md-4 control-lable" for="tipo">Tipo:</label>
+                    <div class="col-md-3">
+                        <input type="text" id="tipo"  class="form-control input-sm" value="${tipo}" disabled/>                        
                     </div>
                 </div>
             </div>
