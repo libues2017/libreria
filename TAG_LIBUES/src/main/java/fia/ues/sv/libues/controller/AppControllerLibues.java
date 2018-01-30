@@ -741,9 +741,10 @@ public class AppControllerLibues {
         }
  
         proveedorService.updateProveedor(proveedor);
-        model.addAttribute("success", "Proveedor: <strong>" + proveedor.getNombreproveedor()+"</strong> Se ha Actualizado ");
+        //model.addAttribute("success", "Proveedor: <strong>" + proveedor.getNombreproveedor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "proveedor-reg-succ";
+        //return "proveedor-reg-succ";
+        return "proveedor-reg";
         }
 
     //METODO DE ELIMINAR PROVEEDORES

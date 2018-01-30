@@ -50,7 +50,7 @@
         	Calendar ahora = Calendar.getInstance();
      		int anyo = ahora.get(Calendar.YEAR);
      		int mes = ahora.get(Calendar.MONTH) +1; 
-     		int dia = ahora.get(Calendar.DAY_OF_MONTH) +2;
+     		int dia = ahora.get(Calendar.DAY_OF_MONTH) +1;
      		
      		if (mes < 10) {
      			sDespues = anyo + "-0" + mes;
@@ -194,21 +194,14 @@
             </div>
             
             <div class="row">
-                <div class="form-group col-md-12" style="display:none">
+                <div class="form-group col-md-12" >
                     <label class="col-md-4 control-lable" for="fecha">Finaliza:</label>
                     <div class="col-md-4">
                         <form:input type="date" path="fechafin" id="fechafin"  class="form-control input-sm" value="<%=sDespues%>"/>                        
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <label class="col-md-4 control-lable" for="fecha">Finaliza:</label>
-                    <div class="col-md-4">
-                        <input type="date" id="fechafin"  class="form-control input-sm" value="<%=sDespues%>" disabled/>                        
-                    </div>
-                </div>
-            </div>
+            
             <c:choose>
 	            <c:when test="${tipo='Libro'}">
 	            <div class="row">
@@ -275,8 +268,8 @@
         </form:form>
          <div class="well lead">
          <p>
-         Las reservaciones tienen una duración de 48 horas, dos dias maximo.<br>
-         Solo se puede reservar un producto por persona.
+         - Las reservaciones tienen una duración de 24 horas por defecto, aunque pueden ser modificada<br>
+         - Solo se puede reservar un producto por DUI.
          </p>
          </div>
 </div>
