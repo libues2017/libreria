@@ -1740,14 +1740,13 @@ public class AppControllerLibues {
     public String editParametroRetaceo( ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
-			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
+			    	
 				      Retaceo retaceo = new Retaceo();
 				    
-			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
-			    	 
+			    	
 			    	  
 			    	 
-				      return "redirect:/detalleretaceo-list";
+				      return "ParametrizarRetaceo";
 				           
 				      
               
