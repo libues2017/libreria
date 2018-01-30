@@ -11,6 +11,45 @@
     <link href="<c:url value='/static/css/bootstrap-formhelpers.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/bootstrap-formhelpers.min.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+    <script src="<c:url value='/static/js/jquery-3.1.1.min.js' />"></script>   
+	<script src="<c:url value='/static/js/bootstrap.min.js' />"></script>
+    <script>
+      function validar()
+      {
+    	  var nomprov = document.getElementById('nombreproveedor').value;
+    	  var direccion = document.getElementById('direccion').value;
+    	  var telefono = document.getElementById('telefonoproveedor').value;
+    	  
+    	  if (nomprov != '' && direccion != '' && telefono != '')
+    	  {
+    		  alert('El proveedor se creó con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Ingrese un nombre de proveedor, dirección o teléfono');
+    	  }
+      }
+    </script>
+    
+    <script>
+      function editarvalidar()
+      {
+    	  var nomarea = document.getElementById('nombreproveedor').value;
+    	  var direccion = document.getElementById('direccion').value;
+    	  var telefono = document.getElementById('telefonoproveedor').value;
+    	  
+    	  if (nomprov != '' && direccion != '' && telefono != '')
+    	  {
+    		  alert('El proveedor se actualizó con éxito') ;  
+    	  }
+    	  	
+    	  else
+    	  {
+    		  alert('Ingrese un nombre de proveedor, dirección o teléfono');
+    	  }
+      }
+    </script>
 </head>
 <body>
 
@@ -55,7 +94,7 @@
             
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="telefonoproveedor">Telefono:</label>
+                    <label class="col-md-3 control-lable" for="telefonoproveedor">Teléfono:</label>
                     <div class="col-md-7">
                         <form:input type="text" path="telefonoproveedor" id="telefonoproveedor" maxlength="8" placeholder="########" class="input-medium bfh-phone" data-country="SV" title="Número sin espacios"/>
                         <div class="has-error">
@@ -104,11 +143,11 @@
                 <div class="form-actions floatRight" align="center">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Actualizar Proveedor" class="btn btn-primary btn-sm"/> ||||| 
+                            <input type="submit" value="Actualizar Proveedor" class="btn btn-primary btn-sm" onclick="editarvalidar()"/> ||||| 
                             <a href="<c:url value='/proveedor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="Registrar Proveedor" class="btn btn-primary btn-sm"/> |||||
+                            <input type="submit" value="Registrar Proveedor" class="btn btn-primary btn-sm" onclick="validar();"/> |||||
                             <a href="<c:url value='/proveedor-list' />" class="btn btn-primary btn-sm">Cancelar</a>
                         </c:otherwise>
                     </c:choose>
