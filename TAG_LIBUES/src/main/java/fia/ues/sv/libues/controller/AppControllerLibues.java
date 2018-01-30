@@ -1733,6 +1733,59 @@ public class AppControllerLibues {
     
     
     
+    
+    
+    
+    @RequestMapping(value = { "/edit-Parametro-Retaceo" }, method = RequestMethod.GET)
+    public String editParametroRetaceo( ModelMap model,HttpServletRequest request) throws IOException, ParseException{
+
+    	
+			    	//DetalleRetaceo detalleretaceo = new DetalleRetaceo();	
+				      Retaceo retaceo = new Retaceo();
+				    
+			    	 // List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceosProducto(codigoretaceo, codigoproducto);//Obtener la lista	
+			    	 
+			    	  
+			    	 
+				      return "redirect:/detalleretaceo-list";
+				           
+				      
+              
+    }
+    
+     
+    @RequestMapping(value = { "/edit-Parametro-Retaceo" }, method = RequestMethod.POST)
+    public String updateParametroRetaceo(@Valid Retaceo detalleRetaceo, BindingResult result,
+            ModelMap model,HttpServletRequest request)
+            		throws IOException, ParseException {
+ 
+        if (result.hasErrors()) {
+            return "detalleretaceo-reg";
+        }
+        
+        
+        HttpSession sesion = request.getSession();
+        Integer punto=(Integer)sesion.getAttribute("punto");
+              
+      //  System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
+        
+     
+        
+       // detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
+       // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
+        model.addAttribute("loggedinuser", getPrincipal());
+        
+       // return "redirect:/detalleretaceo-list";
+       // return "detalleretaceo-modificar";
+        return "redirect:/edit-Parametro-Retaceo";
+    }
+    
+    
+    
+    
+    
+    
+    
     //////////////////Finaliza Proceso de  RETACEO
     
     

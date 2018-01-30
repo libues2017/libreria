@@ -59,9 +59,9 @@
 	<form:input type="hidden" path="idfactura" id="idfactura" />
 		<div class="well lead">	
 			<div class="form-group col-md-12" align="center">
-				<label class="col-md-6 control-lable" for="factura">Número de Factura:</label>
+				<label class="col-md-6 control-lable" for="factura">Porcentaje Retaceo:</label>
 				<div class="col-md-4">						
-				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="9999999999"  class="form-control input-sm" value="${numero}"/>
+				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="99"  class="form-control input-sm" value="${numero}"/>
 			</div>
 			</div>
 			
@@ -69,7 +69,7 @@
 			<div class="form-actions floatRight" align="center">					
                    
                             <input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm"/> 
-                            ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+                            ó  <a href="<c:url value='/index' />" class="btn btn-primary btn-sm">CANCELAR</a>
                    
              </div>			
 		</div>
