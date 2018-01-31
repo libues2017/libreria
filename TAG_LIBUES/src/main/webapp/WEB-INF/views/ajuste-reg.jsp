@@ -106,7 +106,7 @@
                     	<div class="col-md-7">
                     	
                     	
-                        	<input type="text"  id="ubicacion" placeholder="AUTOMATICO" class="form-control input-sm" value="${ubicacion}" />      
+                        	<input type="text"  id="ubicacion" placeholder="AUTOMATICO" class="form-control input-sm" value="${ubicacion1}" />      
                        
                         
                     

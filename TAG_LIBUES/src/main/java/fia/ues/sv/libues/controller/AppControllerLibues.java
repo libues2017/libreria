@@ -3228,23 +3228,28 @@ public class AppControllerLibues {
     	Producto producto=productoService.findByCorrelativo(codigoproducto);    	
     	Integer cantidad=0;
     	
+    	//System.out.println("sala---------------------------------" + ubicacion.compareTo("sala"));
+    	String sala="sala";
     	
-    	if(ubicacion=="sala"){
+    	if(ubicacion.equals(sala)){
     		
-    	
+    		System.out.println("sala---------------------------------" + ubicacion);
+        	
+        	
     	  cantidad=producto.getSala();
     		
-    		model.addAttribute("ubicacion",ubicacion);
+    		//
     		
     	}
     	
     	else{
     		
     		  cantidad=producto.getExistencia();
-    		model.addAttribute("ubicacion","bodega");
+    		//model.addAttribute("ubicacion","bodega");
     		
     	}
     	
+    	model.addAttribute("ubicacion1",ubicacion);
     	model.addAttribute("cantidadfisico",cantidadfisico);
     	model.addAttribute("cantidad",cantidad);
     	model.addAttribute("producto",producto);
