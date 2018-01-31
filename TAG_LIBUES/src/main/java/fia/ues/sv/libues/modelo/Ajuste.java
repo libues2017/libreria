@@ -28,7 +28,7 @@ public class Ajuste implements Serializable {
 	private Integer codigoproducto;
 	
 	@NotEmpty
-	@Column(name="CANTIDAD", nullable=false)
+	@Column(name="CANTIDADAJUSTE", nullable=false)
 	private Integer cantidad;
 			
 	@NotEmpty
@@ -38,6 +38,8 @@ public class Ajuste implements Serializable {
 	@NotEmpty
 	@Column(name="DESTINO", nullable=false)
 	private String destino;
+	
+	
 	
 	
 	
