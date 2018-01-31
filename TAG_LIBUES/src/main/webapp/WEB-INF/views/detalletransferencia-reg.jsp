@@ -2,6 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*,java.io.*" %> 
 <html>
 <head>
@@ -187,7 +188,7 @@
 	 // campo="costoproducto";
 	  
 	 if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
-		 	alert("El valor " + campo + " no es un número valido");
+		 	//alert("El valor " + campo + " no es un número valido");
 	   		//$("#glypcn"+campo).remove();
             //$('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
             //$('#'+campo).parent().children('span').text("no es un numero").show();
@@ -277,10 +278,11 @@
     	 	
     	 	else{
     	 		
-    	 		//$("#glypcn"+campo).remove();
+    	 		$("#glypcn"+campo).remove();
 				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-				//$('#'+campo).parent().children('span').hide();
-				//$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				$('#'+campo).parent().children('span').hide();
+				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				
 				var existencia = 0;
 	    		var costoexistencia = 0.0;
 	    		var precioventa = 0.0;
@@ -336,6 +338,17 @@
 		  		else{
 		  			var cla3 = document.getElementById('subTotal').value=parseFloat(costoproducto)*(parseInt(cantidad));
 		  			$("#agregar").focus();
+		  		}
+		  		
+		  		var boton2 = document.getElementById("agregar");
+		  		
+		  		if(cantidad > 0){
+		  			document.getElementById("agregar").style.display ='block';
+					document.getElementById("validar").style.display ='none';
+		  		}
+		  		else{
+		  			document.getElementById("validar").style.display ='block';
+					document.getElementById('validar').innerHTML = 'Por favor, llene y seleccione todos los campos que se le piden en el formulario'
 		  		}
 		 		
 		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
@@ -508,29 +521,56 @@ function cambiar3(){
 							<form:input type="text" path="precioAnterior" id="precioAnterior" class="form-control input-sm" />
 						</div>	
 						
+						<!-- 
+						<c:choose>
+	                        <c:when test="${edit}">
+		                        <div class="col-xs-2">
+		                            <input type="submit" value="ACTUALIZAR" class="btn btn-primary btn-sm"/>
+		                        </div>
+		                       	<div class="col-xs-2">
+		                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+		                        </div>
+	                        </c:when>
+                        
+	                        <c:otherwise>
+		                        <div class="col-xs-2">
+		                            <input type="button" value="AGREGAR" id="agregar" class="btn btn-primary btn-sm" style="display:none" onkeypress="retaceo.submit()" onclick="retaceo.submit()"  />
+		                       	</div>
+		                       	<div class="col-xs-2">
+		                            <a href="<c:url value='/detalleretaceo-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
+		                    	</div>                    	
+	                        </c:otherwise>
+                    	</c:choose>
+                    	 -->
+						 
 						<div class="col-xs-2">
-							<input type="button" value="Agregar"  id="agrega" class="btn btn-primary btn-sm" onclick="trans.submit()" title="Agrega Producto a La Transferencia"/>
+							<input type="button" value="AGREGAR"  id="agregar" class="btn btn-primary btn-sm" style="display:none" onclick="trans.submit()" title="Agrega Producto a La Transferencia"/>
 						</div>
 						<div class="col-xs-2">
-							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" title="Descartar Transferencia">Cancelar</a>
+							<a href="<c:url value='/transferencia-list' />"  class="btn btn-primary btn-sm" title="Descartar Transferencia">CANCELAR</a>
 						</div>
+						
 					</div>
 				</div>
 			</div>
+			
+			<div id="validar" style="display:none" class="alert alert-danger">
+				<strong>Advertencia!</strong> <label  for="tags"></label>
+			</div>	
 		</div>								
 	
 		<p class="thick" align="center">DETALLE DE LOS PRODUCTOS A TRANSFERIR</p>
 				<table class="table table-striped ">
 					<thead>
 						<tr class="success">
-							<th>Item</th>
-							<th>Codigo</th>
-							<th>Titulo</th>
+							<th>Ítem</th>
+							<th>Código</th>
+							<th>Título</th>
 							<th>Cantidad</th>
 							<th>Costo</th>
 							<th>Precio</th>
 							<th>SubTotal</th>
-							<th>ELIMINAR</th>
+							<th></th>
 						</tr >
 					</thead>
 					
@@ -565,24 +605,12 @@ function cambiar3(){
 						    		    <td></td>					    			
 						    			<td>TOTAL</td>
 						    	        <td >
-		                                   $${total} 
+		                                   $<fmt:formatNumber value = "${total}" /> 
 		                                </td>
 		                                <td></td>
                 		</tr>
 					</tbody>
 				</table>
-				
-				<!--
-				<div class="row" align="right">
-                	<div class="form-group col-md-12">
-                    	<label class="col-md-9 control-lable" for="total">TOTAL:</label>
-                    	<div class="col-md-2">
-                    		<input type="text" id="total" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente" 
-                    		value="$ ${total}" />                           
-                    	</div>
-                	</div>
-            	</div>
-            	-->
 				
 			<div class="well lead" align="center">	
 				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
