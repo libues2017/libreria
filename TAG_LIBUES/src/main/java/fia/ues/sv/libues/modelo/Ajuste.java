@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="area")
+@Table(name="ajuste")
 public class Ajuste implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -35,7 +35,20 @@ public class Ajuste implements Serializable {
 	@Column(name="CONCEPTO", nullable=false)
 	private String concepto;
 	
+	@NotEmpty
+	@Column(name="DESTINO", nullable=false)
+	private String destino;
 	
+	
+	
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+
 	public Integer getCodigoajuste() {
 		return codigoajuste;
 	}
