@@ -27,7 +27,7 @@ public interface RetaceoService {
 	
 	void saveRetaceo(Retaceo retaceo);
 	
-	void updateRetaceo (Retaceo retaceo);
+	void updateRetaceo (Retaceo retaceo, double utilidad);
 	
 	//void updateFechaRetaceo (String fecharetaceo, Integer codigoretaceo);
 	

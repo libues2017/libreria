@@ -1063,8 +1063,9 @@ public class AppControllerLibues {
 	      Integer codigofacturaproveedor=retaceo.getCodigofacturaproveedor();
 	      Date fecharetaceo=retaceo.getFecharetaceo();	
 	      Integer codigoproveedor=retaceo.getCodigoproveedor();			
-    	  Double utilidad=retaceoBuscar.get(0).getUtilidad();
-    	  Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
+    	  Double utilidad=retaceoBuscar.get(retaceoBuscar.size()-1).getUtilidad();
+	     // Double utilidad=retaceo5.get(retaceo5.size()-1).getUtilidad();
+	      Integer codigodetalleretaceo=retaceoBuscar.get(0).getCodigodetalleretaceo();
     	 
     	  for (int i = 0; i < retaceoBuscar.size(); i++){
     		   total=total+retaceoBuscar.get(i).getSubtotal(); //aqui se calcula el total
@@ -1102,8 +1103,8 @@ public class AppControllerLibues {
 				      Integer codigofacturaproveedor=0;
 				      Date fecharetaceo=new Date();	
 				      Integer codigoproveedor=0;			
-			    	  Double utilidad=20.0;
-				    
+			    	  //Double utilidad=20.0;
+			    	  Double utilidad=retaceo5.get(retaceo5.size()-1).getUtilidad();
 				    
 			    	  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//este es el formato que agarra el navegador
 				    	String fecha = sdf.format(fecharetaceo);
@@ -1506,14 +1507,16 @@ public class AppControllerLibues {
           
           Date fecharetaceo1 = new SimpleDateFormat("yyyy-MM-dd").parse(fecharetaceo);
           Date fechafacturaproveedor1 = new SimpleDateFormat("yyyy-MM-dd").parse(fechafacturaproveedor);
-                    
+             
+          double utilidad=retaceoService.findById(codigoretaceo).getUtilidad();
+          
           Retaceo retaceo=new Retaceo();
           retaceo.setCodigoproveedor(codigoproveedor);
           retaceo.setCodigofacturaproveedor(codigofacturaproveedor);
           retaceo.setFecharetaceo(fecharetaceo1);
           retaceo.setFechafacturaproveedor(fechafacturaproveedor1);
           retaceo.setTotal(0.0);//inicializamos el total
-          
+          retaceo.setUtilidad(utilidad);
           
   		retaceoService.saveRetaceo(retaceo);//aqui incrementa el retaceo
   		
@@ -1775,10 +1778,10 @@ public class AppControllerLibues {
         
         double utilidad=Double.parseDouble(request.getParameter("utilidad")) ;
     	
-    	
-    	retaceo.setUtilidad(utilidad);
+    	System.out.println("utilidad---------------------   "+utilidad);
+    	//retaceo.setUtilidad(utilidad);
         
-      retaceoService.updateRetaceo(retaceo);
+      retaceoService.updateRetaceo(retaceo,utilidad);
      
       
         

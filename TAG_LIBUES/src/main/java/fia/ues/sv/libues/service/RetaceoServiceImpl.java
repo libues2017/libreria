@@ -32,14 +32,14 @@ public class RetaceoServiceImpl implements RetaceoService{
 	}
 
 	@Override
-	public void updateRetaceo(Retaceo retaceo) {
+	public void updateRetaceo(Retaceo retaceo,double utilidad) {
 		// TODO Auto-generated method stub
 	
 		
 		Retaceo entity=dao.findById(retaceo.getCodigoretaceo());
-		double utilidad=entity.getUtilidad();
+		//double utilidad=entity.getUtilidad();
 		
-		System.out.println("-------------------utilidad  -------" +utilidad);
+		//System.out.println("-------------------utilidad  -------" +utilidad);
 		
 		if(entity!=null){
 			
