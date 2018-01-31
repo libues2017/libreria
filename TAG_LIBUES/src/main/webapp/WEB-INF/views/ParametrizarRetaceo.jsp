@@ -55,13 +55,13 @@
     
     	
    
-	<form:form method="POST" modelAttribute="factura" class="form-horizontal">
-	<form:input type="hidden" path="idfactura" id="idfactura" />
+	<form:form method="POST" modelAttribute="retaceo" class="form-horizontal">
+	<form:input type="hidden" path="codigoretaceo" id="codigoretaceo" />
 		<div class="well lead">	
 			<div class="form-group col-md-12" align="center">
 				<label class="col-md-6 control-lable" for="factura">Porcentaje Retaceo:</label>
 				<div class="col-md-4">						
-				<form:input type="text" path="numerofactura"  maxlength="10" id="numerofactura" placeholder="99"  class="form-control input-sm" value="${numero}"/>
+				<form:input type="number" path="utilidad"  maxlength="10" id="utilidad" placeholder="99"  class="form-control input-sm" value="${utilidad}"/>
 			</div>
 			</div>
 			

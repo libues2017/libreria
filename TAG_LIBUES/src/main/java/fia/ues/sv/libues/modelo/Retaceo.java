@@ -53,6 +53,22 @@ public class Retaceo implements Serializable{
 	@Column(name="TOTAL")
 	private Double total;
 	
+	
+
+	@NotNull
+	@Column(name="UTILIDAD")
+	private Double utilidad;
+	
+
+	public Double getUtilidad() {
+		return utilidad;
+	}
+
+
+	public void setUtilidad(Double utilidad) {
+		this.utilidad = utilidad;
+	}
+
 
 	public Double getTotal() {
 		return total;

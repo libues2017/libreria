@@ -1737,14 +1737,24 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/edit-Parametro-Retaceo" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/edit-Parametro-Retaceo-{utilidad}" }, method = RequestMethod.GET)
     public String editParametroRetaceo( ModelMap model,HttpServletRequest request) throws IOException, ParseException{
 
     	
 			    	
-				      Retaceo retaceo = new Retaceo();
+				     // Retaceo retaceo = new Retaceo();
+				      
+    	 List<Retaceo> retaceo=retaceoService.findAllRetaceos();
 				    
-			    	
+    	 Integer codigoretaceo=retaceo.get(retaceo.size()-1).getCodigoretaceo();
+				
+    	 Retaceo retaceo1=retaceoService.findById(codigoretaceo);
+    	 
+    	 Double utilidad = retaceo1.getUtilidad();
+				    
+    	 
+    	  model.addAttribute("utilidad", utilidad);
+				      model.addAttribute("retaceo", retaceo1);
 			    	  
 			    	 
 				      return "ParametrizarRetaceo";
@@ -1754,22 +1764,23 @@ public class AppControllerLibues {
     }
     
      
-    @RequestMapping(value = { "/edit-Parametro-Retaceo" }, method = RequestMethod.POST)
-    public String updateParametroRetaceo(@Valid Retaceo detalleRetaceo, BindingResult result,
+    @RequestMapping(value = { "/edit-Parametro-Retaceo-{utilidad}" }, method = RequestMethod.POST)
+    public String updateParametroRetaceo(@Valid Retaceo retaceo, BindingResult result,
             ModelMap model,HttpServletRequest request)
             		throws IOException, ParseException {
  
-        if (result.hasErrors()) {
+        /*if (result.hasErrors()) {
             return "detalleretaceo-reg";
-        }
+        }*/
         
+        double utilidad=Double.parseDouble(request.getParameter("utilidad")) ;
+    	
+    	
+    	retaceo.setUtilidad(utilidad);
         
-        HttpSession sesion = request.getSession();
-        Integer punto=(Integer)sesion.getAttribute("punto");
-              
-      //  System.out.println("codigo:-----------------------------------" + detalleRetaceo.getCodigodetalleretaceo());	
-        
+      retaceoService.updateRetaceo(retaceo);
      
+      
         
        // detalleretaceoService.updatedetalleRetaceo(detalleRetaceo);
        // model.addAttribute("success", "retaceo: <strong>" + detalleRetaceo.getCodigoretaceo()+"</strong> Se ha Actualizado ");
@@ -1777,7 +1788,7 @@ public class AppControllerLibues {
         
        // return "redirect:/detalleretaceo-list";
        // return "detalleretaceo-modificar";
-        return "redirect:/edit-Parametro-Retaceo";
+      return "redirect:/edit-Parametro-Retaceo-"+utilidad;
     }
     
     

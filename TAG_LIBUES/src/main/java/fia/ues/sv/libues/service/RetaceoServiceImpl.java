@@ -37,12 +37,15 @@ public class RetaceoServiceImpl implements RetaceoService{
 	
 		
 		Retaceo entity=dao.findById(retaceo.getCodigoretaceo());
+		double utilidad=entity.getUtilidad();
+		
+		System.out.println("-------------------utilidad  -------" +utilidad);
 		
 		if(entity!=null){
 			
 			
 			
-			//entity.setCodigoproducto(retaceo.);
+			entity.setUtilidad(utilidad);
 			
 			/*entity.setCodigoproducto(retaceo.getCodigoproducto());
 			entity.setCodigoproveedor(retaceo.getCodigoproveedor());		

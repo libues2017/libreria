@@ -185,7 +185,11 @@
             						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
 			            			<li role="separator" class="divider"></li>
+			            			<li role="separator" class="divider"></li>
+            							<li><a href="<c:url value="edit-Parametro-Retaceo-20.0" />">Establecer Uilidad</a></li>
+            						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="cierre-semestral" />">Cierre Semestral</a></li>
+            							
 			          		</ul>			          			
 				        </li>
 					</sec:authorize>
