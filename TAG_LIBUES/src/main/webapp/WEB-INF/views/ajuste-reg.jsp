@@ -82,10 +82,10 @@
                     	<div class="col-md-7">
                     	 <c:if test = "${ubicacion = 'bodega'}">
                     	
-                        	<form:input type="text" path="existencia" id="existencia" class="form-control input-sm" value='${cantidad}'/>
+                        	<form:input type="number" path="existencia" id="existencia" class="form-control input-sm" value='${cantidad}'/>
                        </c:if>
                         
-                        <form:input type="text" path="sala" id="sala" class="form-control input-sm" value='${cantidad}'/>
+                        <form:input type="number" path="sala" id="sala" class="form-control input-sm" value='${cantidad}'/>
                   
                     
                     	</div>
@@ -95,7 +95,7 @@
             	<div class="form-group col-md-12" >
                     	<label class="col-md-3 control-lable" for="estado">Cantidad Inventario Fisico:</label>
                     	<div class="col-md-7">
-                    	 <input type="text"  id="cantidadfisico"  class="form-control input-sm" value="${cantidadfisico}" />      
+                    	 <input type="number"  id="cantidadfisico"  class="form-control input-sm" value="${cantidadfisico}" />      
                     	</div>
                		</div>
             	
