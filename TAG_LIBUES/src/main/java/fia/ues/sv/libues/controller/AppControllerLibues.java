@@ -3258,7 +3258,7 @@ public class AppControllerLibues {
         return "ajuste-reg";
     }
  
-    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
+   /* @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
     public String updateComparacion(@Valid Producto producto, BindingResult result,
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
@@ -3266,21 +3266,19 @@ public class AppControllerLibues {
     	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
     	
-    	/*if (result.hasErrors()) {
-            return "ajuste-reg";
-        }*/
+    	
  
     	
     	
     	
     	Ajuste ajuste=new Ajuste();
     	
-    	/*ajuste.setCantidad(cantidadfisico);
-    	ajuste.setCodigoproducto(codigoproducto);
-    	ajuste.setConcepto("Ajuste");
-    	ajuste.setDestino(ubicacion);
+    	//ajuste.setCantidad(cantidadfisico);
+    	//ajuste.setCodigoproducto(codigoproducto);
+    //	ajuste.setConcepto("Ajuste");
+    //	ajuste.setDestino(ubicacion);
     	
-    	ajusteService.saveAjuste(ajuste);*/
+    //	ajusteService.saveAjuste(ajuste);
     	
       productoService.updateExistencia1(codigoproducto, cantidadfisico); 
        
@@ -3291,7 +3289,7 @@ public class AppControllerLibues {
         //return "autor-reg-succ";
         return "redirect:/comparacion";
     }
-    
+    */
     
     
     @RequestMapping(value = { "/edit-comparacion2-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
