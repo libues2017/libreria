@@ -3299,19 +3299,17 @@ public class AppControllerLibues {
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
         
-    	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
+    	System.out.println("revisar todos:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
-    	
-    	
     	
     	Ajuste ajuste=new Ajuste();
     	
-    	//ajuste.setCantidad(cantidadfisico);
-    	//ajuste.setCodigoproducto(codigoproducto);
-    	//ajuste.setConcepto("Ajuste");
-    	//ajuste.setDestino(ubicacion);
+    	ajuste.setCantidad(cantidadfisico);
+    	ajuste.setCodigoproducto(codigoproducto);
+    	ajuste.setConcepto("Ajuste");
+    	ajuste.setDestino(ubicacion);
     	
-    	//ajusteService.saveAjuste(ajuste);
+    	ajusteService.saveAjuste(ajuste);
     	
      // productoService.updateExistencia1(codigoproducto, cantidadfisico); 
              
