@@ -135,6 +135,7 @@
                     
                         
                             <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" /> 
+                            <a href="<c:url value='/finalizar' />" class="btn btn-primary btn-sm">Realizar Ajuste</a>
                             ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         
                         
