@@ -3220,7 +3220,7 @@ public class AppControllerLibues {
     
    
     
-    @RequestMapping(value = { "/edit-comparacion-final-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
     public String editComparacion(@PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico, ModelMap model) {
     	
     	
@@ -3294,7 +3294,7 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/edit-comparacion2-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-comparacion2-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
     public String updateComparacionfinal(@Valid Producto producto, BindingResult result,
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
@@ -3302,31 +3302,32 @@ public class AppControllerLibues {
     	System.out.println("revisar:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
     	
-    	/*if (result.hasErrors()) {
-            return "ajuste-reg";
-        }*/
- 
-    	
     	
     	
     	Ajuste ajuste=new Ajuste();
     	
-    	/*ajuste.setCantidad(cantidadfisico);
-    	ajuste.setCodigoproducto(codigoproducto);
-    	ajuste.setConcepto("Ajuste");
-    	ajuste.setDestino(ubicacion);
+    	//ajuste.setCantidad(cantidadfisico);
+    	//ajuste.setCodigoproducto(codigoproducto);
+    	//ajuste.setConcepto("Ajuste");
+    	//ajuste.setDestino(ubicacion);
     	
-    	ajusteService.saveAjuste(ajuste);*/
+    	//ajusteService.saveAjuste(ajuste);
     	
-      productoService.updateExistencia1(codigoproducto, cantidadfisico); 
-       
-       
+     // productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+             
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "autor-reg-succ";
         return "redirect:/comparacion";
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
