@@ -3294,7 +3294,7 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/edit-comparacion-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-comparacion2-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.POST)
     public String updateComparacionfinal(@Valid Producto producto, BindingResult result,
             ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
  
