@@ -1045,8 +1045,14 @@ public class AppControllerLibues {
     	Producto producto=new Producto();
     	Double total=0.0;
     	
-    	  //se obtiene el ultimo codigo retaceo       
-        
+    	  //se obtiene el ultimo codigo retaceo    
+    	
+    	/*if(retaceoService.findAllRetaceos().isEmpty()){
+    		
+    		Retaceo retaceo=new Retaceo();
+    		
+    	}
+        */
     			List<Retaceo> retaceo5 = retaceoService.findAllRetaceos();
     			
     	Integer codigoretaceo = retaceo5.get(retaceo5.size()-1).getCodigoretaceo();
@@ -1483,12 +1489,9 @@ public class AppControllerLibues {
         	  costo=(existenciaanterior*costoanterior)+(costo*cantidad);	/// calcula y actualiza total costo   (12*2.4) + (3*2) 
         	  
         	  costo=costo/existenciatotal;
-        	  
         	    	 
         	  Integer cantidadetiquetar=cantidad+producto.getCantidadetiquetar();
         	  Integer marcado=1;
-        	  
-        	  
         	          	  
         	  productoService.updateprecioProducto(codigoproducto, precio, costo,existencia,cantidadetiquetar,marcado);
         	 
