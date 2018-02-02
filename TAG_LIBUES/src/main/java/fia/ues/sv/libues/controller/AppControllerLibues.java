@@ -3295,20 +3295,19 @@ public class AppControllerLibues {
     */
     
     
-    @RequestMapping(value = { "/edit-comparacion2-{codigoproducto}-{ubicacion}-{cantidadfisico}" }, method = RequestMethod.GET)
-    public String updateComparacionfinal(@Valid Producto producto, BindingResult result,
-            ModelMap model, @PathVariable Integer codigoproducto,@PathVariable String ubicacion,@PathVariable Integer cantidadfisico) throws IOException {
+    @RequestMapping(value = { "/edit-comparacion2" }, method = RequestMethod.GET)
+    public String updateComparacionfinal(HttpServletRequest request,ModelMap model) throws IOException {
  
         
-    	System.out.println("revisar todos:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
+    //	System.out.println("revisar todos:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
      	
     	
     	Ajuste ajuste=new Ajuste();
     	
-    	ajuste.setCantidad(cantidadfisico);
-    	ajuste.setCodigoproducto(codigoproducto);
+    	ajuste.setCantidad(1);
+    	ajuste.setCodigoproducto(1);
     	ajuste.setConcepto("Ajuste");
-    	ajuste.setDestino(ubicacion);
+    	ajuste.setDestino("ubicacion");
     	
     	ajusteService.saveAjuste(ajuste);
     	

@@ -135,7 +135,7 @@
                     
                         
                             <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" /> 
-                            <a href="<c:url value='/edit-comparacion2-${codigoproducto}-${ubicacion1}-${cantidadfisico}' />" class="btn btn-primary btn-sm">Realizar Ajuste 1</a>
+                            <a href="<c:url value='/edit-comparacion2' />" class="btn btn-primary btn-sm">Realizar Ajuste 1</a>
                             ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         
                         

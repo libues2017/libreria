@@ -9,9 +9,7 @@ public interface AjusteService {
 	
 	
 	
-    Ajuste findById(int codigoajuste);
-	
-	//Ajuste findByNombre(String nombreautor);
+    Ajuste findById(int codigoajuste);	
 	
 	void saveAjuste(Ajuste ajuste);
 	
