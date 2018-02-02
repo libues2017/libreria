@@ -121,7 +121,7 @@
                     	<label class="col-md-3 control-lable" for="estado">Justificacion:</label>
                     	<div class="col-md-7">
                     	
-                        	<input type="text"  id="concepto" placeholder="Digite concepto ajuste" class="form-control input-sm"  />      
+                        	<input type="text"  id="concepto" name="concepto" placeholder="Digite concepto ajuste" class="form-control input-sm"  />      
                       
                        
                        
