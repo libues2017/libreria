@@ -121,9 +121,9 @@
                     	<label class="col-md-3 control-lable" for="estado">Justificacion:</label>
                     	<div class="col-md-7">
                     	
-                        	<input type="text"  id="concepto" name="concepto" placeholder="Digite concepto ajuste" class="form-control input-sm"  />      
-                      
-                       
+                        	
+                       <textarea name="concepto" id="concepto" rows="10" cols="50"  class="form-control input-sm">
+                       </textarea>
                        
                     	</div>
                		</div>
@@ -135,7 +135,7 @@
                     
                         
                             <input type="submit" value="Realizar Ajuste" class="btn btn-primary btn-sm" /> 
-                            <a href="<c:url value='/edit-comparacion2' />" class="btn btn-primary btn-sm">Realizar Ajuste 1</a>
+                            
                             ó <a href="<c:url value='/comparacion' />" class="btn btn-primary btn-sm">Cancelar</a>
                         
                         

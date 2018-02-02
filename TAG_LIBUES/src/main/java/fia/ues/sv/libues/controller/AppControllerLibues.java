@@ -3273,10 +3273,6 @@ public class AppControllerLibues {
      	
     	String concepto=request.getParameter("concepto");
     	
- 
-    	
-    	
-    	
     	Ajuste ajuste=new Ajuste();
     	
     	ajuste.setCantidad(cantidadfisico);
@@ -3286,7 +3282,7 @@ public class AppControllerLibues {
     	
     	ajusteService.saveAjuste(ajuste);
     	
-     // productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+      productoService.updateExistencia1(codigoproducto, cantidadfisico); 
        
        
        
@@ -3301,22 +3297,13 @@ public class AppControllerLibues {
    /* @RequestMapping(value = { "/edit-comparacion2" }, method = RequestMethod.GET)
     public String updateComparacionfinal(HttpServletRequest request,ModelMap model) throws IOException {
  
-        
-    //	System.out.println("revisar todos:----------------------------------------------------------------------------" + cantidadfisico + ubicacion +codigoproducto);
-     	
-    	
-    	Ajuste ajuste=new Ajuste();
-    	
+    	Ajuste ajuste=new Ajuste();    	
     	ajuste.setCodigoproducto(1);
     	ajuste.setCantidad(1);    	
     	ajuste.setConcepto("Ajuste");
-    	ajuste.setDestino("ubicacion");
-    	
-    	ajusteService.saveAjuste(ajuste);
-    	
+    	ajuste.setDestino("ubicacion");    	
+    	ajusteService.saveAjuste(ajuste);    	
      // productoService.updateExistencia1(codigoproducto, cantidadfisico); 
-             
-       
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         //return "autor-reg-succ";
