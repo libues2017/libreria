@@ -23,19 +23,19 @@ public class Ajuste implements Serializable {
 	private Integer codigoajuste;	
 	
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="CODIGOPRODUCTO", nullable=false)
 	private Integer codigoproducto;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="CANTIDADAJUSTE", nullable=false)
 	private Integer cantidad;
 			
-	@NotEmpty
+	@NotNull
 	@Column(name="CONCEPTO", nullable=false)
 	private String concepto;
 	
-	@NotEmpty
+	@NotNull
 	@Column(name="DESTINO", nullable=false)
 	private String destino;
 	
@@ -43,13 +43,7 @@ public class Ajuste implements Serializable {
 	
 	
 	
-	public String getDestino() {
-		return destino;
-	}
-
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
+	
 
 	public Integer getCodigoajuste() {
 		return codigoajuste;
@@ -81,6 +75,14 @@ public class Ajuste implements Serializable {
 
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
+	}
+	
+	public String getDestino() {
+		return destino;
+	}
+
+	public void setDestino(String destino) {
+		this.destino = destino;
 	}
 
 

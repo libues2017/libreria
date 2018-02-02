@@ -3304,8 +3304,8 @@ public class AppControllerLibues {
     	
     	Ajuste ajuste=new Ajuste();
     	
-    	ajuste.setCantidad(1);
     	ajuste.setCodigoproducto(1);
+    	ajuste.setCantidad(1);    	
     	ajuste.setConcepto("Ajuste");
     	ajuste.setDestino("ubicacion");
     	
