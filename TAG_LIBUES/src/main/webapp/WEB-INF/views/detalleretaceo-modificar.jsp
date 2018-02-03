@@ -423,7 +423,7 @@
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">				             
-						<label class="form-control" for="nombr">Codigo Factura:</label>
+						<label class="form-control" for="nombr">Código Factura:</label>
 						
 						<input type="text" id="codigofacturaproveedor" 
 						onchange='cambiar1();'  placeholder="DIGITE" class="form-control input-sm" value='${codigofacturaproveedor}' /> 
@@ -441,7 +441,7 @@
 						                        
 					</div>
 					<div class="col-xs-2">
-						<label class="form-control" for="tags">Cod Proveedor:</label>
+						<label class="form-control" for="tags">Cód Proveedor:</label>
 						  
 						  
 						<input type="number"  id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" 
@@ -457,7 +457,7 @@
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">
-				        <label class="form-control" for="tags">Codigo Producto:</label>
+				        <label class="form-control" for="tags">Código Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();'   />      
                     </div>
                     <div class="col-xs-5"> 
@@ -537,8 +537,8 @@
                <table class="table table-striped ">
 				<thead>
 		    		<tr class="success">		   
-		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>			      			      			
+		    		        <th>ÍTEM</th> 			
+			      			<th>Código Producto</th>			      			      			
 			      			<th>Cantidad</th>
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>

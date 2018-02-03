@@ -84,7 +84,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="telefonoproveedor">Dirección:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="direccion" id="direccion" maxlength="50" placeholder="Digite la Direccion del Proveedor" class="form-control input-sm"/>
+                        <form:input type="text" path="direccion" id="direccion" maxlength="50" placeholder="Digite la Dirección del Proveedor" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="telefonoproveedor" class="help-inline"/>
                         </div>
@@ -120,7 +120,7 @@
                 <div class="form-group col-md-12">
                     <label class="col-md-3 control-lable" for="contactoproveedor2">Correo:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="contactoproveedor2" id="contactoproveedor2"  maxlength="35" placeholder="Digite el Correo" class="form-control input-sm"/>
+                        <form:input type="text" path="contactoproveedor2" id="contactoproveedor2"  maxlength="35" placeholder="Digite el Correo Electrónico" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="contactoproveedor2" class="help-inline"/>
                         </div>

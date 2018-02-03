@@ -30,7 +30,7 @@
 	<table class="table table-striped ">
 		<thead>
     		<tr >
-    			<th>CODIGO</th>
+    			<th>CÓDIGO</th>
     			<th>TIPO DE PRODUCTO</th>
     			<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
     			<th>EDITAR</th>

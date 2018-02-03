@@ -94,13 +94,9 @@
 			      		<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventario<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">
-			          		<!-- 	<sec:authorize access="hasRole('ADMINISTRADOR') "  >			            		
-			            		<li><a href="<c:url value="localizacion-list" />">Ubicación de productos</a></li>
-			            		</sec:authorize>
-			            		<li role="separator" class="divider"></li>  -->
-			          			<li><a href="<c:url value="detalleretaceo-list" />">Retaceos</a></li>			                 	
+			            		 <li><a href="<c:url value="detalleretaceo-list" />">Retaceos</a></li>			                 	
 			          			<li role="separator" class="divider"></li>			            		
-			            		<li><a href="<c:url value="requisicion-list" />">Requisiciones</a></li>
+			            		<li><a href="<c:url value="requisicion-list" />">Requisición</a></li>
 			            		<li role="separator" class="divider"></li>
 			            		<li><a href="<c:url value="transferencia-list" />">Transferencias</a></li>			            		
 			            		 <li role="separator" class="divider"></li>
@@ -116,7 +112,7 @@
           				<ul class="dropdown-menu">
             				<li><a href="<c:url value="producto-list" />">Catálago</a></li>
             				<li role="separator" class="divider"></li>
-            				<li><a href="<c:url value="producto-busqueda" />">Busqueda de Productos</a></li>
+            				<li><a href="<c:url value="producto-busqueda" />">Búsqueda de Productos</a></li>
           				</ul>
         			</li>
         				
@@ -143,9 +139,9 @@
         				<li class="dropdown">
           					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cotizacion<span class="caret"></span></a>
           					<ul class="dropdown-menu">
-            					<li><a href="<c:url value="cotizacion-list" />">Cotizaciones</a></li>
+            					<li><a href="<c:url value="cotizacion-list" />">Cotización</a></li>
             					<li role="separator" class="divider"></li>
-            					<li><a href="<c:url value="detallecotizacion-agregar" />">Realizar Cotizacion</a></li>	
+            					<li><a href="<c:url value="detallecotizacion-agregar" />">Realizar Cotización</a></li>	
            					</ul>
         				</li>
         			</sec:authorize>
@@ -166,7 +162,7 @@
             						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="entrada_mensual" />">Reportes de Entradas Mensuales</a></li>
             						<li role="separator" class="divider"></li>
-            						<li><a href="<c:url value="venta_mensual_gastos" />">Reportes de Ventas por Especifico de Gastos</a></li>
+            						<li><a href="<c:url value="venta_mensual_gastos" />">Reportes de Ventas por Específico de Gastos</a></li>
 		          		</ul>			          			
 				        </li>
 					</sec:authorize>
@@ -175,11 +171,11 @@
         				<li class="dropdown">
 			          		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Matenimiento<span class="caret"></span></a>
 			          		<ul class="dropdown-menu">			          			
-			            				<li><a href="<c:url value="list" />">Gestion de Usuarios</a></li>
+			            				<li><a href="<c:url value="list" />">Gestión de Usuarios</a></li>
 			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
 			            			<li role="separator" class="divider"></li>
-			            				<li><a href="<c:url value="restaurar-base" />">Restauracion de Base de Datos</a></li>
+			            				<li><a href="<c:url value="restaurar-base" />">Restauración de Base de Datos</a></li>
 			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
 			            			<li role="separator" class="divider"></li>

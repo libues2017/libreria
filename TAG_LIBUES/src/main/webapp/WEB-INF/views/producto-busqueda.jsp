@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Busqueda Productos</title>  
+<title>Búsqueda Productos</title>  
 </head>
 <body>
 	
@@ -17,7 +17,7 @@
 		<div class="row"><%@include file="menu.jsp" %></div>
        	  
        	
-       	<h3>Busqueda de Productos</h3>
+       	<h3>Búsqueda de Productos</h3>
        	<form:form method="POST" modelAttribute="busqueda" class="form-horizontal">
        	<div class="row">
        		
@@ -40,7 +40,7 @@
        		</div>
        		
        		<div class="col-md-4">
-       			Autores: 
+       			Autor: 
 	       		<form:select path="codigoautor"  multiple="false"  class="form-control input-sm" >
 	       			<form:option value="0"  label="Todas los autores"/>
 	       			<form:options items="${autores}"  itemValue="codigoautor" itemLabel="nombreautor"  />
@@ -48,7 +48,7 @@
        		</div>
        		
        		<div class="col-md-4">
-       			Areas: 
+       			Área: 
 	       		<form:select path="codigoarea"  multiple="false"  class="form-control input-sm" >
 	       			<form:option value="0"  label="Todas las areas"/>
 	       			<form:options items="${areas}"  itemValue="codigoarea" itemLabel="nombrearea"  />
@@ -96,11 +96,11 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
+                        <th>Ítem</th>
                         <th>Imagen</th>
-                        <th>Titulo</th>
-                        <th>Autores</th>
-                        <th>Area</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Área</th>
                         <sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')" >                       
                         <th>Proveedor</th>
                          </sec:authorize>

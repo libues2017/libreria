@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Transferencia Detalle</title>
+<title>Requisición Detalle</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -49,7 +49,7 @@
 	<div class="row">		
 	<div class="panel panel-default">
   				<!-- Default panel contents-->
-  				<div class="panel-heading"><h3>REQUISICION: ${requisicion.codigorequisicion}</h3></div>
+  				<div class="panel-heading"><h3>REQUISICIÓN: ${requisicion.codigorequisicion}</h3></div>
   				<p></p>
   				<div class="panel-body">
 					<div class="col-md-3"></div>
@@ -58,7 +58,7 @@
 							<tbody>
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<tr>
-	       								<th scope="row">Requisicion Numero:</th>
+	       								<th scope="row">Requisición Número:</th>
 	       								<td>${requisicion.codigorequisicion}</td>
 	      							</tr>
       							</sec:authorize>
@@ -85,7 +85,7 @@
  				<table class="table table-striped ">
 					<thead>
 			    		<tr class="success">
-			    			<th>ITEM</th>		    			
+			    			<th>ÍTEM</th>		    			
 				      		<th>Código</th>
 				      		<th>Título</th>	      			
 				      		<th>Cantidad</th>
@@ -122,7 +122,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Imprimir Requisicion</button>
+                    <button type="submit" class="btn btn-primary">Imprimir Requisición</button>
                     <a class="btn btn-danger" href="<c:url value="/requisicion-list" />" role="button">Lista de Requisiciones</a>
                 </div>
 

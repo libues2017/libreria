@@ -8,10 +8,7 @@
 <head>
  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Librería UES</title>
-    <!--
-    <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-	-->
+   
 </head>
 <body>
 <div class="row"><%@include file="page_head_2.jsp" %></div>
@@ -33,10 +30,10 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
+                        <th>Ítem</th>
                         <th>Imagen</th>
                         <th>Nombre de Producto</th>
-                        <th>Codigo de Producto</th>
+                        <th>Código de Producto</th>
                         <th>Autor</th>
                         <th>Existencia</th>
                         <th>Precio</th>

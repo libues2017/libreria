@@ -58,7 +58,7 @@
 							<tbody>
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<tr>
-	       								<th scope="row">Transferencia Numero:</th>
+	       								<th scope="row">Transferencia Número:</th>
 	       								<td>${transferencia.numeroTransferencia}</td>
 	      							</tr>
       							</sec:authorize>
@@ -89,8 +89,8 @@
   					<table class="table table-striped ">
 					<thead>
 						<tr class="success">
-							<th>Codigo</th>
-							<th>Titulo</th>
+							<th>Código</th>
+							<th>Título</th>
 							<th>Cantidad</th>
 							<th>Costo</th>
 							<th>Precio</th>

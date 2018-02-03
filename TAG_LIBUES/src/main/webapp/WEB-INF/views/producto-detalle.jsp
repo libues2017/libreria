@@ -120,7 +120,7 @@
       							</tr>
       							<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 	      							<tr>
-	       								<th scope="row">Cosignación:</th>
+	       								<th scope="row">Consignación:</th>
 	       								<td>${producto.consignacion}</td>
 	      							</tr>
       							</sec:authorize>

@@ -95,7 +95,7 @@
         </div>
          
         <span class="well floatRight">
-          <a href="<c:url value='/delete-all-etiquetas-${1}'/>" class="btn btn-primary"> Regresar al menu principal</a>     
+          <a href="<c:url value='/delete-all-etiquetas-${1}'/>" class="btn btn-primary"> Regresar al menú principal</a>     
           </span>
           
            <span class="well floatRight">

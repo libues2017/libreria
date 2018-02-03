@@ -463,7 +463,7 @@ function cambiar5(){
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">				             
-						<label class="form-control" for="nombr">Codigo Factura:</label>
+						<label class="form-control" for="nombr">Código Factura:</label>
 						
 						<input type="text" name="codigofacturaproveedor" id="codigofacturaproveedor"  placeholder="DIGITE" class="form-control input-sm" value='${codigofacturaproveedor}' />  
 					</div>
@@ -472,7 +472,7 @@ function cambiar5(){
 						<input type="date"  id="fechafacturaproveedor" name="fechafacturaproveedor" class="form-control input-sm" value='${fechafacturaproveedor}' />                     
 					</div>
 					<div class="col-xs-2">
-						<label class="form-control" for="tags">Cod Proveedor:</label>
+						<label class="form-control" for="tags">Cód Proveedor:</label>
 						
 						<input type="number" min="0"   name="codigoproveedor" id="codigoproveedor" placeholder="DIGITE" class="form-control input-sm" onchange='label2(); cambiar2();' value='${codigoproveedor}' /> 
 						   
@@ -488,7 +488,7 @@ function cambiar5(){
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">
-				        <label class="form-control" for="tags">Codigo Producto:</label>
+				        <label class="form-control" for="tags">Código Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
 	                      
                     </div>
@@ -539,7 +539,7 @@ function cambiar5(){
                     <form:input type="text" path="precioanterior" id="precioanterior" class="form-control input-sm"   />
                     </div>
                     <div class="col-xs-3" style="display:none">
-                    <label class="col-md-3 control-lable" for="nombr" >subtotal</label>
+                    <label class="col-md-3 control-lable" for="nombr" >Subtotal</label>
                     <form:input type="text" path="subtotal" id="subtotal" class="form-control input-sm"  />
                     </div>				
 										
@@ -581,8 +581,8 @@ function cambiar5(){
                <table class="table table-striped ">
 				<thead>
 		    		<tr class="success">		   
-		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>			      			      			
+		    		        <th>ÍTEM</th> 			
+			      			<th>Código Producto</th>			      			      			
 			      			<th>Cantidad</th>
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>

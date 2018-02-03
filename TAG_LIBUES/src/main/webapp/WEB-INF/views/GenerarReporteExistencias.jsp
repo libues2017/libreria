@@ -47,7 +47,7 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+        <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Reporte de Existencias de Productos</h3></div>
 
         <br>
@@ -55,7 +55,7 @@
         <form class="form-horizontal" role="form" action="<c:url value="/repo_existencias" />" target="_blank">
      
              <div class="form-group">
-                <label class="control-label col-sm-4" for="email">Area:</label>
+                <label class="control-label col-sm-4" for="email">Área:</label>
                 <div class="col-sm-4">
                     <form:select type="text" path="areas" items="${areas}" class="form-control" name="codigoarea" id="codigoarea" />                    
                 </div>
@@ -84,7 +84,7 @@
             </div>
                        
            <div class="form-group">		
-				<label class="control-label col-sm-4" for="nombr">Consignacion:</label>
+				<label class="control-label col-sm-4" for="nombr">Consignación:</label>
 				<div class="col-sm-4">
 				<SELECT name="consignacion" id="consignacion" class="form-control input-sm" onchange="sesion();" 
 				title="Seleccione Si Desea Consignacion">

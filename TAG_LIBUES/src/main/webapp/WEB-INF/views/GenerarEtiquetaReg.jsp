@@ -285,7 +285,7 @@
 <div class="container">
 
 
-	  <div class="well lead" align="center">Generacion Etiquetas</div>
+	  <div class="well lead" align="center">Generación Etiquetas</div>
         <form:form method="POST" name="etiqueta" modelAttribute="etiqueta"  class="form-horizontal"  >
             <form:input type="hidden" path="codigoetiqueta" id="codigoetiqueta"/>   
             
@@ -323,7 +323,7 @@
 			<div class="form-group row">
 				<div class="panel-body">
 					<div class="col-xs-3">
-				        <label class="form-control" for="tags">Codigo Producto:</label>
+				        <label class="form-control" for="tags">Código Producto:</label>
 	                    <form:input type="text" path="codigoproducto" id="codigoproducto"  placeholder="DIGITE"  class="form-control input-sm" onchange='label(); cambiar3();' />   
 	                     <label id="validar" for="tags"></label>
 	                   
@@ -331,12 +331,12 @@
                   <div ></div>                    
                     <div class="col-xs-5"> 
 	                    <label class="form-control" for="nombr">Nombre Producto:</label>
-	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
+	                     <form:input type="text" path="nombreProducto" id="nombreProducto"  placeholder="AUTOMÁTICO"  class="form-control input-sm"/>   
 	                                          
 					</div>	                    
                      <div class="col-xs-2">
 						<label class="form-control" for="costoactual">Nombre autor:</label>
-						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMATICO"  class="form-control input-sm"/>   
+						 <form:input type="text" path="autor_marca" id="autor_marca"  placeholder="AUTOMÁTICO"  class="form-control input-sm"/>   
 	                       					   
                     </div>
                     
@@ -356,13 +356,13 @@
                     
                      <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Precio Producto: $</label>
-	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMATICO" class="form-control input-sm"  />
+	                    <form:input type="text" path="precioproducto" id="precioproducto" placeholder="AUTOMÁTICO" class="form-control input-sm"  />
                     </div>                    
                      <div class="col-xs-3">
 	                    <label class="form-control" for="nombr">Cantidad a Etiquetar:</label>
 	                   	 
 	                   	 <form:input type="number" min="1" path="cantidad" 
-	                    id="cantidad" placeholder="AUTOMATICO" class="form-control 
+	                    id="cantidad" placeholder="AUTOMÁTICO" class="form-control 
 	                    input-sm" onchange=" cambiar5();"   />
 	                    
                   </div>
@@ -411,8 +411,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Codigo Producto</th>
+                        <th>Ítem</th>
+                        <th>Código Producto</th>
                         <th>Nombre Producto</th>
                         <th>Autores</th>
                         <th>Cantidad</th>

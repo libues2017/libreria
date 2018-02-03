@@ -480,20 +480,20 @@ function cambiar3(){
 					<div class="panel-body">
 						
 						<div class="col-xs-2">			
-							<label class="form-control" for="tags">Codigo:</label>
+							<label class="form-control" for="tags">Código:</label>
 							<form:input type="text" path="codProducto" id="codProducto" class="form-control input-sm" onchange='producto1(); cambiar3();' placeholder="Digitar"
 							title="Digite el Código de Producto" />
 						</div>
 						
 						<div class="col-xs-8">
 							<label class="form-control" for="nombr">Titulo:</label>
-							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm" placeholder="Automatico"
+							<input type="text" name="nomProducto" id="nomProducto" class="form-control input-sm" placeholder="Automático"
 							title="Muestra el Titulo del Producto" />
 						</div>
 						
 						<div class="col-xs-2">		
 							<label class="form-control" for="existencia1" >Existencias:</label>
-							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm" placeholder="Automatico" 
+							<input type="text" name="existencia1" id="existencia1" class="form-control input-sm" placeholder="Automático" 
 							title="Indica la cantidad de productos existentes en bodega" />					                   
 						</div>
 					
@@ -509,16 +509,16 @@ function cambiar3(){
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">Costo:</label>
 							<form:input type="text" path="costoProducto" id="costoProducto" class="form-control input-sm" onchange="addIt('costoProducto');" value='0' 
-							title="Si la Transferencia es de Ingresos digite el costo, de lo contrario se llena automaticamente" />
+							title="Si la Transferencia es de Ingresos digite el costo, de lo contrario se llena Automáticamente" />
 						</div>
 						<div class="col-xs-2">		
 							<label class="form-control" for="nombr">Precio:</label>
-							<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" placeholder="Automatico"
+							<form:input type="text" path="precioProducto" id="precioProducto" class="form-control input-sm" placeholder="Automático"
 							title="Este campo es Calculado"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="nombr">SubTotal:</label>
-							<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" placeholder="Automatico"
+							<form:input type="text" path="subTotal" id="subTotal" class="form-control input-sm" placeholder="Automático"
 							title="Este Valor es Calculado"/>
 						</div>
 						

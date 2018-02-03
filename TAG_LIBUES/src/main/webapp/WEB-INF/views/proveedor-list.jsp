@@ -39,9 +39,9 @@
 			            data:  dataSet,
 			            columns: [
 			            	{ title: "ÍTEM" },
-			               { title: "CODIGO PROVEEDOR" },
+			               { title: "CÓDIGO PROVEEDOR" },
 			               { title: "NOMBRE PROVEEDOR" },
-			               { title: "TELEFONO" },
+			               { title: "TELÉFONO" },
 			               { title: "CONTACTO PROVEEDOR" }],
 			       "language": idioma_espanol
 			        

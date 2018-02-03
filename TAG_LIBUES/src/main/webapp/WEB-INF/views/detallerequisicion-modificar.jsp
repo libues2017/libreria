@@ -265,7 +265,7 @@ function validar1(){
  		<table class="table table-striped ">
 				<thead>
 		    		<tr class="success">
-		    				<th>ITEM</th>		    			
+		    				<th>ÍTEM</th>		    			
 			      			<th>Código</th>
 			      			<th>Título</th>	      			
 			      			<th>Cant.</th>

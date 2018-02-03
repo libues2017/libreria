@@ -29,9 +29,9 @@
             <div class="well lead"> 
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="nombr">Codigo:</label>
+                    <label class="col-md-3 control-lable" for="nombr">Código:</label>
                     <div class="col-md-7">
-                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" maxlength="4" placeholder="Digite el Codigo de la Editorial" class="form-control input-sm"/>
+                        <form:input type="text" path="codigoespecifico" id="codigoespecifico" maxlength="4" placeholder="Digite el Código de la Editorial" class="form-control input-sm"/>
                         <div class="has-error">
                             <form:errors path="nombre" class="help-inline"/>
                         </div>

@@ -47,7 +47,7 @@
 			            data:  dataSet,
 			            columns: [
 			            	
-			            	 { title: "Numero de Retaceo" },
+			            	 { title: "Número de Retaceo" },
 			               { title: "Proveedor" },			            
 			                { title: "Fecha" },
 			               { title: "Factura" },

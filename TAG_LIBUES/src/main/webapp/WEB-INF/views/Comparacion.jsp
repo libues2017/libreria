@@ -53,7 +53,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Comparacion de Inventario</title>
+<title>Comparación de Inventario</title>
      <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>    
 	<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
@@ -175,7 +175,7 @@
 <div class="container">
 
 
- <div class="panel-heading"><span class="lead">Productos que no concuerda con el Inventario Fisico</span></div>
+ <div class="panel-heading"><span class="lead">Productos que no concuerdan con el Inventario Fisico</span></div>
 
 <div class="row">
 <!--<h1>Areas</h1>-->
@@ -240,14 +240,14 @@
    <table class="table table-striped ">
 				<thead>
 		    		<tr >		    			
-			      			<th>Codigo Producto</th>
+			      			<th>Código Producto</th>
 			      			<th>Nombre del Producto</th>	      			
-			      			<th>Cantidad Producto en Inventario Teorico</th>
-			      			<th>Cantidad Producto en Inventario Fisico</th>
+			      			<th>Cantidad Producto en Inventario Teórico</th>
+			      			<th>Cantidad Producto en Inventario Físico</th>
 			      			<th>Diferencias Productos </th>
 			      			<th>Estante</th>
 			      			<th>Nivel</th>
-			      			<th>Ubicacion</th>
+			      			<th>Ubicación</th>
 			      			<th>Ajuste de Inventario</th>	
 		    		</tr>
 		    	</thead>

@@ -58,7 +58,7 @@
 							<tbody>
 								<sec:authorize access="hasRole('ADMINISTRADOR') or hasRole('DBA')">
 									<tr>
-	       								<th scope="row"> Numero Documento:</th>
+	       								<th scope="row"> Número Documento:</th>
 	       								<td>${retaceo.codigoretaceo}</td>
 	      							</tr>
       							</sec:authorize>
@@ -85,8 +85,8 @@
  	 <table class="table table-striped ">
 				<thead>
 		    		<tr class="success">		   
-		    		        <th>ITEM</th> 			
-			      			<th>Codigo Producto</th>			      			      			
+		    		        <th>Ítem</th> 			
+			      			<th>Código Producto</th>			      			      			
 			      			<th>Cantidad</th>
 			      			<th>Costo $</th>
 			      			<th>Precio $</th>
