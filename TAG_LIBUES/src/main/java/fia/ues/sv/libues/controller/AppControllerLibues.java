@@ -3572,5 +3572,11 @@ public class AppControllerLibues {
   		return "cierreSemestral";
   	}
  
+  //Control para la restuaracion de la Base
+    @RequestMapping(value={"/restaurar-base"}, method = RequestMethod.GET)
+  	public String RestaurarBackup(ModelMap model){
+  		model.addAttribute("loggedinuser", getPrincipal());
+  		return "restauracionBase";
+  	}
     
 }//Fin del Controlador

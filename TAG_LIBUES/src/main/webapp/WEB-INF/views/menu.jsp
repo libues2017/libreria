@@ -179,14 +179,15 @@
 			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="backup-crear" />">Respaldo Base de Datos</a></li>
 			            			<li role="separator" class="divider"></li>
+			            				<li><a href="<c:url value="restaurar-base" />">Restauracion de Base de Datos</a></li>
+			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
 			            			<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="numero-factura" />">Establecer Número Factura</a></li>
             						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
 			            			<li role="separator" class="divider"></li>
-			            			<li role="separator" class="divider"></li>
-            							<li><a href="<c:url value="edit-Parametro-Retaceo-20.0" />">Establecer Uilidad</a></li>
+			            			<li><a href="<c:url value="edit-Parametro-Retaceo-20.0" />">Establecer Uilidad</a></li>
             						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="cierre-semestral" />">Cierre Semestral</a></li>
             							
