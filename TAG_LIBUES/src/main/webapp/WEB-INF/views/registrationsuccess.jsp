@@ -19,7 +19,7 @@
         </div>
          
         <span class="well floatRight">
-            Ir <a href="<c:url value='/list' />">Lista de Usuario</a>
+            Ir <a href="<c:url value='/list' />">Lista de Usuarios</a>
         </span>
     </div>
 </body>

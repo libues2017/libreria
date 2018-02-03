@@ -58,8 +58,8 @@
   					<table class="table table-striped">
 				<thead>
 		    		<tr class="success">			
-			      			<th>Codigo</th>
-			      			<th>Titulo</th>	      			
+			      			<th>Código</th>
+			      			<th>Título</th>	      			
 			      			<th>Cantidad</th>
 			      			<th>Precio $</th>
 			      			<th>Subtotal $</th>

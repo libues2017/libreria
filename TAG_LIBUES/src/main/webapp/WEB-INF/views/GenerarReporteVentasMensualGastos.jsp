@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Ventas Mensuales por Especifico de Gastos</title>
+	<title>Ventas Mensuales por Específico de Gastos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -47,7 +47,7 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+        <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Reporte de Ventas por Especifico de Gastos</h3></div>
 
         </br>
@@ -69,7 +69,7 @@
            
                                			
 		   <div class="form-group">			
-			<label class="control-label col-sm-4" for="nombr">Especifico de Gastos:</label>
+			<label class="control-label col-sm-4" for="nombr">Específico de Gastos:</label>
 			<div class="col-sm-3">
 				<SELECT name="especificoGastos" id="especificoGastos" class="form-control input-sm" required>
 										<OPTION VALUE="">Seleccione el Especifíco de Gastos</OPTION>
@@ -98,7 +98,7 @@
 			</div>
 			
 			<div class="form-group">		
-				<label class="control-label col-sm-4" for="nombr">Consignacion:</label>
+				<label class="control-label col-sm-4" for="nombr">Consignación:</label>
 				<div class="col-sm-3">
 				<SELECT name="consignacion" id="consignacion" class="form-control input-sm" onchange="sesion();">
 				<OPTION VALUE="">Seleccione Consignación </OPTION>

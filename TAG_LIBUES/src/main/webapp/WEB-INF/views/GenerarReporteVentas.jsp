@@ -47,7 +47,7 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+        <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Reporte de Ventas</h3></div>
 
         </br>
@@ -68,12 +68,12 @@
             </div>
             
             <div class="form-group">			
-			<label class="control-label col-sm-4" for="nombr">Tipo Venta:</label>
+			<label class="control-label col-sm-4" for="nombr">Tipo de Venta:</label>
 			<div class="col-sm-4">
 			<SELECT name="tipofactura" id="tipofactura" class="form-control input-sm" onchange="sesion();" 
 			title="Seleccione Tipo de Factura">
 				<OPTION VALUE="CONTADO">Contado</OPTION>
-				<OPTION VALUE="CREDITO">Credito</OPTION>
+				<OPTION VALUE="CREDITO">Crédito</OPTION>
 			</SELECT>
 			</div>
 						

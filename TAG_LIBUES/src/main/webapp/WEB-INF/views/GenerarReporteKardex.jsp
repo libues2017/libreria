@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Kardex de Productos</title>
+	<title>Kárdex de Productos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">Reporte de kardex</h3></div>
+        <div class="row"><h3 class="text-center">Reporte de kárdex</h3></div>
 
         </br>
         </br>

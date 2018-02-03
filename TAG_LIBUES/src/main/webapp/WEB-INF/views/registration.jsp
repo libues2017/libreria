@@ -181,7 +181,7 @@
              
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="firstName">Nombres</label>
+                    <label class="col-md-3 control-lable" for="firstName">Nombres del Usuario</label>
                     <div class="col-md-7">
                      	<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                         <form:input type="text" path="firstName" id="firstName" placeholder="Digite sus Nombres" class="form-control input-sm"   onkeyup="validacion('firstName');"/>
@@ -195,7 +195,7 @@
      
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="lastName">Apellidos:</label>
+                    <label class="col-md-3 control-lable" for="lastName">Apellidos del Usuario:</label>
                     <div class="col-md-7">
                         <form:input type="text" path="lastName" id="lastName" placeholder="Digite sus Apellidos" class="form-control input-sm"  onkeyup="validacion('lastName');"/>
                         <div class="has-error">
@@ -208,7 +208,7 @@
      
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="ssoId">Usuario:</label>
+                    <label class="col-md-3 control-lable" for="ssoId">Nombre del Usuario en el Sistema:</label>
                     <div class="col-md-7">
                         <c:choose>
                             <c:when test="${edit}">
@@ -255,7 +255,7 @@
                 
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="email">Correo:</label>
+                    <label class="col-md-3 control-lable" for="email">Correo Electrónico:</label>
                     <div class="col-md-7">
                         <form:input type="email" path="email" id="email" placeholder="correo@ejemplo.com" class="form-control input-sm" onkeyup="validacion('email');" />
                         <div class="has-error">
@@ -268,7 +268,7 @@
      
             <div class="row">
                 <div class="form-group col-md-12">
-                    <label class="col-md-3 control-lable" for="userProfiles">Roles:</label>
+                    <label class="col-md-3 control-lable" for="userProfiles">Rol:</label>
                     <div class="col-md-7">
                         <form:select path="userProfiles" items="${roles}" multiple="false" itemValue="id" itemLabel="type" class="form-control input-sm" />
                         <div class="has-error">
@@ -282,7 +282,7 @@
                 <div class="form-actions floatRight">
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="Update" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el usuario')"/> 
+                            <input type="submit" value="Actualizar" class="btn btn-primary btn-sm" onclick="alert('Se actualizo el usuario')"/> 
                             ó <a href="<c:url value='/list' />">Cancelar</a>
                         </c:when>
                         <c:otherwise>

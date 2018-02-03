@@ -48,7 +48,7 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+        <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
         <div class="row"><h3 class="text-center">Reporte de Transferencia</h3></div>
 
         </br>

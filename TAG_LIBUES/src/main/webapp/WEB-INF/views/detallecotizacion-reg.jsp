@@ -259,26 +259,26 @@
                     		</div>
                     		<div class="col-xs-7"> 
 	                    		<label class="form-control" for="nombr">Nombre de Producto:</label>
-								<form:input type="text" path="nombreProducto" id="nombreProducto" maxlength="50" placeholder="AUTOMATICO" class="form-control input-sm" />
+								<form:input type="text" path="nombreProducto" id="nombreProducto" maxlength="50" placeholder="AUTOMÁTICO" class="form-control input-sm" />
 							</div>
 							
 						</div>
 						<div class="panel-body">
 							<div class="col-xs-3">
 								<label class="form-control" for="precio">Precio $:</label>
-								<form:input type="text" path="valorUnitario" id="valorUnitario" placeholder="AUTOMATICO" class="form-control input-sm" title="Se llena automaticamente"/>							
+								<form:input type="text" path="valorUnitario" id="valorUnitario" placeholder="AUTOMÁTICO" class="form-control input-sm" title="Se llena automaticamente"/>							
 							</div>
 							<div class="col-xs-2">
 	                    		<label class="form-control" for="nombr">Cantidad:</label>
-	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantizad de producto a cotizar" onchange="cotizacion2();
+	                    		<form:input type="number" min="1" path="cantidad" id="cantidad" maxlength="11" placeholder="DIGITE" class="form-control input-sm" title="Digite la Cantidad de producto a cotizar" onchange="cotizacion2();
 	                    		saltar4();"/>
                     		</div>
                     		<div class="col-xs-3">
 	                    		<label class="form-control" for="nombr">Total $:</label>
-	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMATICO" class="form-control input-sm" title="Este Valor es Calculado"/>
+	                    		<form:input type="text" path="valorTotal" id="valorTotal" placeholder="AUTOMÁTICO" class="form-control input-sm" title="Este Valor es Calculado"/>
                     		</div>
                     		<div class="col-xs-2">
-								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="cotiza.submit()" title="Agrega Producto a La Cotizacion"/>
+								<input type="button" value="Agregar"  id="agrega" class="btn btn-primary" onclick="cotiza.submit()" title="Agrega Producto a La Cotización"/>
 							</div>
 							<div class="col-xs-2">
 								<a href="<c:url value='/cotizacion-list' />"  class="btn btn-primary" title="Descartar Cotización">Salir</a>
@@ -293,7 +293,7 @@
 			<table class="table table-striped ">
 				<thead>
 					<tr class="success">		   
-			    		        <th>ITEM</th> 			
+			    		        <th>ÍTEM</th> 			
 				      			<th>Código Producto</th>
 				      			<th>Nombre Producto</th>			      			      			
 				      			<th>Cantidad</th>

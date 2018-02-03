@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Cotizacion</title>
+	<title>Cotización</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 	function getDate(){
@@ -46,8 +46,8 @@
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
-        <div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">Comprobante de Cotizacion</h3></div>
+        <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
+        <div class="row"><h3 class="text-center">Comprobante de Cotización</h3></div>
 
         </br>
         </br>

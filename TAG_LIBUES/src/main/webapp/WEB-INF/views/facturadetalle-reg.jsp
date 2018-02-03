@@ -238,7 +238,7 @@ function vuelto(){
 	</table>										    			
 		<div class="panel-group">
 			<div class="panel panel-success">			
-			<div class="panel-heading">Información del Cliente. En CREDITO, llenar todos los campos.</div>			
+			<div class="panel-heading">Información del Cliente. En CRÉDITO, llenar todos los campos.</div>			
 			<div class="panel-body">
 			<div class="form-group row">			
 				<div class="col-xs-3">
@@ -246,7 +246,7 @@ function vuelto(){
 					<input type="text" id="cliente"  maxlength="50" name="cliente"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
-					<label class="form-control" for="direccion">Direccion:</label>	
+					<label class="form-control" for="direccion">Dirección:</label>	
 					<input type="text" id="direccion" maxlength="80" name="direccion"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
@@ -254,7 +254,7 @@ function vuelto(){
 					<input type="text" id="documento"  maxlength="15" name="documento"  class="form-control input-sm" onchange="sesion();"/>
 				</div>
 				<div class="col-xs-3">
-					<label class="form-control" for="tipocredito">Tipo de Credito:</label>
+					<label class="form-control" for="tipocredito">Tipo de Crédito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
 						<OPTION VALUE=" "> </OPTION>
 						<OPTION VALUE="EMPLEADOS UES" >Empleado UES</OPTION>
@@ -265,28 +265,28 @@ function vuelto(){
 			</div>
 			</div>					
 			<div class="panel panel-success">
-			<div class="panel-heading">Productos. (Solo es necesario digitar el codigo y la cantidad)</div>
+			<div class="panel-heading">Productos. (Solo es necesario digitar el código y la cantidad)</div>
 				<div class="panel-body">	
 					<div class="form-group row">
 						<div class="col-xs-2">
-							<label class="form-control" for="codigo">Codigo:</label>
+							<label class="form-control" for="codigo">Código:</label>
 							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR(####)" class="form-control input-sm" 
 										onchange='producto(); cambiar();' />
 						</div>	
 						<div class="col-xs-8" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
-							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMATICO" class="form-control input-sm" onchange="nombreprod()"/>
+							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMÁTICO" class="form-control input-sm" onchange="nombreprod()"/>
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="sala">Existencia:</label>
-							<form:input type="number" min="0" path="sala" id="sala" placeholder="AUTOMATICO" class="form-control input-sm"  />
+							<form:input type="number" min="0" path="sala" id="sala" placeholder="AUTOMÁTICO" class="form-control input-sm"  />
 						</div>
 					
 					</div>
 					<div class="form-group row" >					
 						<div class="col-xs-2" >	
 							<label class="form-control" for="precio">Precio $:</label>
-							<form:input type="text" path="precio" id="precio" placeholder="AUTOMATICO" class="form-control input-sm" />
+							<form:input type="text" path="precio" id="precio" placeholder="AUTOMÁTICO" class="form-control input-sm" />
 						</div>							
 						<div class="col-xs-2">
 							<label class="form-control" for="cantidad">Cantidad:</label>
@@ -294,7 +294,7 @@ function vuelto(){
 						</div>
 						<div class="col-xs-2">	
 							<label class="form-control" for="subtotal">Subtotal $:</label>
-							<form:input type="text" path="subtotalfactura" id="subtotalfactura" placeholder="AUTOMATICO" class="form-control input-sm" />
+							<form:input type="text" path="subtotalfactura" id="subtotalfactura" placeholder="AUTOMÁTICO" class="form-control input-sm" />
 						</div>
 						
 						<div class="col-xs-2">
@@ -312,8 +312,8 @@ function vuelto(){
 			<table class="table table-striped">
 				<thead>
 		    		<tr class="success">			
-			      			<th>Codigo</th>
-			      			<th>Titulo</th>	      			
+			      			<th>Código</th>
+			      			<th>Título</th>	      			
 			      			<th>Cantidad</th>
 			      			<th>Precio $</th>
 			      			<th>Subtotal $</th>

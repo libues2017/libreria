@@ -6,7 +6,7 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Librería UES - Reservaciones de Libros</title>
+    <title>Reservación de Libros</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 
@@ -31,8 +31,8 @@
 	<table class="table table-striped ">
 		<thead>
     		<tr >
-    			<th>CODIGO</th>
-    			<th>TITULO</th>
+    			<th>CÓDIGO</th>
+    			<th>TÍTULO</th>
     			<th>PRECIO</th>
     			<th>NOMBRE CLIENTE</th>
     			<th>DUI</th>

@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Creditos Otorgados</title>
+	<title>Créditos</title>
 	<link href="<c:url value='/static/css/bootstrap.min.css' />"  rel="stylesheet"></link>
 	<script type="text/javascript">
 		function getDate(){
@@ -45,7 +45,7 @@
 	        </div>
 	</div>
 		
-	<div class="row"><h2 class="text-center"><small>Libreria Universitaria</small></h2></div>
+	<div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
     <div class="row"><h3 class="text-center">Reporte de Créditos</h3></div>
     
     <form class="form-horizontal" role="form" action="<c:url value="/repo_creditos" />" target="_blank">

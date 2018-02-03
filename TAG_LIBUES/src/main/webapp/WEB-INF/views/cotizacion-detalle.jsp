@@ -19,7 +19,7 @@
       		<sec:authorize access="hasRole('ADMINISTRADOR')">
             	<div class="well" align="center">
                 	<a href="<c:url value='/detallecotizacion-agregar' />" class="btn btn-primary">Realizar Cotización</a> ||||||
-                	<a href="<c:url value='/index' />" class="btn btn-primary" > Menu principal</a> ||||||
+                	<a href="<c:url value='/index' />" class="btn btn-primary" > Menú principal</a> ||||||
                 	<a href="<c:url value='/cotizacion-list' />" class="btn btn-primary" >Cotizaciones</a> 
             	</div>
         	</sec:authorize>     
@@ -33,8 +33,8 @@
             	<table class="table table-hover">
 	                <thead>
 	                    <tr>                    	                 
-	                        <th>Codigo Cotizacion</th>                        
-	                        <th>Codigo Producto</th>
+	                        <th>Código Cotización</th>                        
+	                        <th>Código Producto</th>
 	                        <th>Nombre</th>
 	                        <!--<th>Bodega</th>
 	                        <th>Sala</th>
