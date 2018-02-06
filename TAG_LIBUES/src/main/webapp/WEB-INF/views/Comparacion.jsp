@@ -255,6 +255,7 @@
 		    	       <c:set var="contador" value="${0}" />
 				    	<c:forEach items="<%=addresses1%>" var="i"  >
 				    	 <c:if test = "${i[0] > 0}">
+				    	  <c:if test = "${i[3]!=i[2]}">
 			                <c:set var="contador" value="${contador + 1}" />	
 				    		<tr >				    		
 				    	
@@ -270,7 +271,7 @@
                       
 				    	
                         </tr>
-                        
+                             </c:if>
                          </c:if>
                         
 				    	 </c:forEach>
