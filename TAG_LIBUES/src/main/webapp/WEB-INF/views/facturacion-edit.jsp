@@ -43,6 +43,19 @@
             sAhora=fecha;
 		}
 %>
+<script>
+function validar(){
+	var numero = document.getElementById("numerofactura").value;	
+	
+		if(numero == '')
+        {
+			alert('Digite un número de factura');
+       	}
+		else
+			alert('¡Se Actualizó!');
+		
+}
+</script>
 </head>
 <body >
 <div class="row"><%@include file="page_head_2.jsp" %></div>
@@ -80,11 +93,11 @@
 			<div class="form-actions floatRight" align="center">					
                     <c:choose>
                         <c:when test="${edit}">
-                            <input type="submit" value="ACTUALIZAR" onclick="alert('¡Se Actualizo!')" class="btn btn-primary btn-sm"/> 
+                            <input type="submit" value="ACTUALIZAR" onclick="validar()" class="btn btn-primary btn-sm"/> 
                             ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
                         </c:when>
                         <c:otherwise>
-                            <input type="submit" value="ESTABLECER" class="btn btn-primary btn-sm"/> 
+                            <input type="submit" value="ACTUALIZAR" onclick="alert('¡Se Actualizó!')" class="btn btn-primary btn-sm"/> 
                             ó <a href="<c:url value='/factura-list' />" class="btn btn-primary btn-sm">CANCELAR</a>
                         </c:otherwise>
                     </c:choose>

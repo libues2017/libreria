@@ -2702,8 +2702,15 @@ public class AppControllerLibues {
         HttpSession sesion1=request.getSession(true);
         sesion1.setAttribute("codigofact", fact1);        
         model.addAttribute("producto", productos);
-        // Numero de factura
+    
+	    	String tipo = facturaService.findById(fact1).getTipocredito();
+	    	if(tipo.equals("EMPLEADOS UES") || tipo.equals("INSTITUCIONAL") ){
+	    		model.addAttribute("control", 2);
+	    	}
+	    	else
+	    		model.addAttribute("control", 3);
         
+        // Numero de factura
         Integer numero = facturaService.findById(fact1).getNumerofactura();
         sesion1.setAttribute("numero", numero); 
         

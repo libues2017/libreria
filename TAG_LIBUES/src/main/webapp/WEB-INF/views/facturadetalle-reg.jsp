@@ -18,6 +18,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+<style>
+p.normal {
+    font-weight: normal;
+}
+
+p.light {
+    font-weight: lighter;
+}
+
+p.thick {
+    font-weight: bold;
+}
+
+p.thicker {
+    font-weight: 900;
+}
+</style>
 <%
 	// Quiero la fecha actual para ponerla por defecto 
 	String fecha="";
@@ -271,7 +288,7 @@ function vuelto(){
 						<div class="col-xs-2">
 							<label class="form-control" for="codigo">Código:</label>
 							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR(####)" class="form-control input-sm" 
-										onchange='producto(); cambiar();' />
+										onchange='producto(); cambiar(); '/>
 						</div>	
 						<div class="col-xs-8" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
@@ -306,9 +323,12 @@ function vuelto(){
 						
 					</div>
 				</div>							
+			</div>
+			<div id="validar" style="display:none" class="alert alert-danger">
+				<strong>Advertencia!</strong> <label  for="tags"></label>
 			</div>			
 		</div>			
-				
+			<p class="thick" align="center">DETALLE DE LOS PRODUCTOS</p>	
 			<table class="table table-striped">
 				<thead>
 		    		<tr class="success">			
@@ -362,22 +382,17 @@ function vuelto(){
 		
 	</tr>	
 	</table>
-	     
-	    <div class="well lead" align="center">
-		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#contado">Contado</button> |||||||||
-		    <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#credito">Crédito</button>
-		</div>
-		<div id="contado" class="collapse">	
-				<div align="center">
-				<a href="<c:url value='/facturar-contado' />" class="btn btn-primary btn-sm" >Facturar Contado</a>
-				</div>
-  		</div>
+	<br><br>
+	
+	<div class="row" align="center">
+		<c:if test = "${control == 3}">	
+		<a href="<c:url value='/facturar-contado' />"  class="btn btn-primary btn-sm" >Facturar Contado</a>
+		</c:if>
+		<c:if test = "${control == 2}">				
+		<a href="<c:url value='/facturar-credito' />"  class="btn btn-primary btn-sm" >Facturar Crédito</a>
+		</c:if>
+	</div>		
   		
-  		<div id="credito" class="collapse">	
-				<div align="center">
-				<a href="<c:url value='/facturar-credito' />" class="btn btn-primary btn-sm" >Facturar Crédito</a>
-				</div>
-  		</div>  	
 	</form:form>
 
 </div>
