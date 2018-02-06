@@ -179,7 +179,7 @@
 			            			<li role="separator" class="divider"></li>
 			            				<li><a href="<c:url value="reservaciones-list" />">Listado de Reservas de Libros</a></li>
 			            			<li role="separator" class="divider"></li>
-            							<li><a href="<c:url value="numero-factura" />">Establecer Número Factura</a></li>
+            							<li><a href="<c:url value="numero-factura" />">Establecer Número Factura</a></li>            					
             						<li role="separator" class="divider"></li>
             							<li><a href="<c:url value="factura-list" />">Listar Facturas</a></li>
 			            			<li role="separator" class="divider"></li>

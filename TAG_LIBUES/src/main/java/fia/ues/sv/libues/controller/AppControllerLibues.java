@@ -2082,7 +2082,8 @@ public class AppControllerLibues {
               }
               else{
                   Integer existencia = existenciaAnterior - cantidad;
-                  productoService.updateExistencia1(codProducto, existencia);
+                  String Ubicacion="existencia";
+                  productoService.updateExistencia1(codProducto, existencia,Ubicacion);
               }
              
           }
@@ -3289,7 +3290,7 @@ public class AppControllerLibues {
     	
     	ajusteService.saveAjuste(ajuste);
     	
-      productoService.updateExistencia1(codigoproducto, cantidadfisico); 
+      productoService.updateExistencia1(codigoproducto, cantidadfisico,ubicacion); 
        
        
        

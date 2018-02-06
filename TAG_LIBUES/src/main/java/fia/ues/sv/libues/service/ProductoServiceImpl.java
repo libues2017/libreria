@@ -155,11 +155,19 @@ public class ProductoServiceImpl implements ProductoService{
 	}
 
 	@Override
-	public void updateExistencia1(Integer codProducto, Integer existencia) {
+	public void updateExistencia1(Integer codProducto, Integer existencia,String ubicacion) {
 		Producto entity = dao.findByCorrelativo(codProducto);
 		if(entity !=null){
-			entity.setExistencia(existencia);	
-		}	
+			String sala="sala";
+			if(ubicacion.equals(sala)){
+			
+			entity.setSala(existencia);//si ubicacion es sala
+		}
+			else{
+				
+				entity.setExistencia(existencia);
+			}
+		}
 		
 	}
 	
