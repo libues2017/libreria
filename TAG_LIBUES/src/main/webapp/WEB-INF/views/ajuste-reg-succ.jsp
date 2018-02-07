@@ -1,4 +1,4 @@
-%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -17,7 +17,7 @@
         </div>
          
         <span class="well floatRight">
-            <a href="<c:url value='/comprobacion' />" class="btn btn-success custom-width">Volver a comprobacion</a>
+            <a href="<c:url value='/comparacion' />" class="btn btn-success custom-width">Volver a comprobacion</a>
             <a href="<c:url value='/index' />" class="btn btn-success custom-width">Menu Principal</a>
         </span>
     </div>
