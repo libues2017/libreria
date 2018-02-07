@@ -253,10 +253,15 @@
 		    	</thead>
 		    	<tbody>
 		    	       <c:set var="contador" value="${0}" />
+		    	       <c:set var="contadorsala" value="${0}" />
+		    	        <c:set var="destino" value="sala" />
+		    	         <c:set var="destino1" value="bodega" />	
 				    	<c:forEach items="<%=addresses1%>" var="i"  >
 				    	 <c:if test = "${i[0] > 0}">
 				    	  <c:if test = "${i[3]!=i[2]}">
-			                <c:set var="contador" value="${contador + 1}" />	
+			               
+			             	
+			                
 				    		<tr >				    		
 				    	
 				    			<td>${i[0]}</td>
@@ -274,6 +279,15 @@
 				    	  		<td>${i[4]}</td>	
 				    	  		<td>${i[5]}</td>
 				    	  		<td>${i[6]}</td>
+				    	  		  <c:if test = "${i[6]==destino}">
+				    	  		     <c:set var="contadorsala" value="${contadorsala + 1}" />
+				    	  		  
+				    	  		 </c:if>
+				    	  		   <c:if test = "${i[6]==destino1}">
+				    	  		     <c:set var="contador" value="${contador + 1}" />
+				    	  		  
+				    	  		 </c:if>
+				    	  		
 				    	  		 <td><a href="<c:url value='/edit-comparacion-${i[0]}-${i[6]}-${i[3]}' />" class="btn btn-danger custom-width">Ajuste</a></td>
                       
 				    	
@@ -282,8 +296,8 @@
                          </c:if>
                         
 				    	 </c:forEach>
-				    	  <div><span class="lead">Productos Encontrados   ${contador}</span>  </div>
-				    	 
+				    	  <div><span class="lead">Total Productos Encontrados en sala  ${contadorsala}</span>  </div>
+				    	  <div><span class="lead">Total Productos Encontrados en bodega  ${contador}</span>  </div>
 				  	 
 		    	</tbody>
 	    </table>       
