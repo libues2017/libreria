@@ -3283,6 +3283,8 @@ public class AppControllerLibues {
     	
     	Ajuste ajuste=new Ajuste();
     	
+      Date fechaajuste=new Date();
+    	
     	ajuste.setCantidad(cantidadfisico);
     	ajuste.setCodigoproducto(codigoproducto);
     	ajuste.setConcepto(concepto);

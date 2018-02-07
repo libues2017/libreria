@@ -1,6 +1,7 @@
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,7 +40,9 @@ public class Ajuste implements Serializable {
 	@Column(name="DESTINO", nullable=false)
 	private String destino;
 	
-	
+	@NotNull
+	@Column(name="FECHAAJUSTE", nullable=false)
+	private Date fechaajuste;
 	
 	
 	
