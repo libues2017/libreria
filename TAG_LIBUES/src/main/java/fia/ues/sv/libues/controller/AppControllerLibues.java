@@ -3281,14 +3281,21 @@ public class AppControllerLibues {
      	
     	String concepto=request.getParameter("concepto");
     	
+    	Integer cantidadinicial=0;
+    	
+    	
+    	 cantidadinicial=cantidadinicial.parseInt(request.getParameter("existencia"));
+    	
     	Ajuste ajuste=new Ajuste();
     	
       Date fechaajuste=new Date();
     	
     	ajuste.setCantidad(cantidadfisico);
+    	ajuste.setCantidadinicial(cantidadinicial);
     	ajuste.setCodigoproducto(codigoproducto);
     	ajuste.setConcepto(concepto);
     	ajuste.setDestino(ubicacion);
+    	ajuste.setFechaajuste(fechaajuste);
     	
     	ajusteService.saveAjuste(ajuste);
     	

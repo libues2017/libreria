@@ -129,6 +129,11 @@
                		</div>
             	</div>
             	
+            	 <div class="col-xs-3" style="display:none">
+                    <label class="col-md-3 control-lable" for="nombr" >Subtotal</label>
+                    <form:input type="number" path="existencia" id="existencia" class="form-control input-sm" value='${cantidad}' />
+                    </div>		
+            	
      
             <div class="row">
                 <div class="form-actions floatRight" align="center">

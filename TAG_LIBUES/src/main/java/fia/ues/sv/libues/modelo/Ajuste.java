@@ -1,7 +1,7 @@
 package fia.ues.sv.libues.modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="ajuste")
@@ -31,7 +30,19 @@ public class Ajuste implements Serializable {
 	@NotNull
 	@Column(name="CANTIDADAJUSTE", nullable=false)
 	private Integer cantidad;
+	
+	@NotNull
+	@Column(name="CANTIDADINICIAL", nullable=false)
+	private Integer cantidadinicial;
 			
+	public Integer getCantidadinicial() {
+		return cantidadinicial;
+	}
+
+	public void setCantidadinicial(Integer cantidadinicial) {
+		this.cantidadinicial = cantidadinicial;
+	}
+
 	@NotNull
 	@Column(name="CONCEPTO", nullable=false)
 	private String concepto;
@@ -47,6 +58,14 @@ public class Ajuste implements Serializable {
 	
 	
 	
+
+	public Date getFechaajuste() {
+		return fechaajuste;
+	}
+
+	public void setFechaajuste(Date fechaajuste) {
+		this.fechaajuste = fechaajuste;
+	}
 
 	public Integer getCodigoajuste() {
 		return codigoajuste;
