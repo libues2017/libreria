@@ -3291,13 +3291,13 @@ public class AppControllerLibues {
     	ajusteService.saveAjuste(ajuste);
     	
       productoService.updateExistencia1(codigoproducto, cantidadfisico,ubicacion); 
-       
+      model.addAttribute("success", "Se ajusto la existencia del producto: <strong>" + producto.getNombreProducto()+"</strong> Se ha Actualizado ");
        
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        //return "autor-reg-succ";
-        return "redirect:/comparacion";
+        return "ajuste-reg-succ";
+       // return "redirect:/comparacion";
     }
     
     
