@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.0.final using JasperReports Library version 6.5.0  -->
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VentasMensualGastos" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b11478d-b469-4db5-9779-67a804c584f1">
 	<property name="com.jaspersoft.studio.data.sql.tables">
 		<![CDATA[bGlidWVzLmF1dG9yIEFTICw4OTQsNDkyLDU2OWM5MjRkLTRkZTEtNDRkZi1iZDNjLTAxYzUyODYy
@@ -14,7 +14,6 @@ LDY3NSw0NjEsNWViZGNhNTEtNzQ0MC00NTFmLWIyYzUtZjZiOTllMTJlZDhjOw==]]>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="fenili" class="java.util.Date"/>
-	<parameter name="especTipo" class="java.lang.String"/>
 	<parameter name="consg" class="java.lang.String"/>
 	<parameter name="fec" class="java.lang.String"/>
 	<queryString language="SQL">
@@ -44,8 +43,7 @@ FROM
 	 	 (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) and
 	 	  (libues.producto.`CORRELATIVO` = libues.factura_detalle.`CODIGOPRODUCTO`) and
 	 	 (libues.factura.`FECHAFACTURA` between $P{fechini} and $P{fenili}) and
-		 (libues.producto.`ESPECIFICOGASTOS` = $P{especTipo}) and
-		 (libues.producto.`CONSIGNACION` = $P{consg})]]>
+		  (libues.producto.`CONSIGNACION` = $P{consg})]]>
 	</queryString>
 	<field name="NUMEROFACTURA" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="NUMEROFACTURA"/>

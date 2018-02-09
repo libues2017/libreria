@@ -16,6 +16,7 @@
 	libues.detalletransferencia.`SUBTOTAL`,
 	libues.detalletransferencia.`CODTRANSFERENCIA`,
 	libues.transferencia.`SUCURSAL`,
+	libues.transferencia.`NUMEROTRANSFERENCIA`
 	libues.transferencia.`TIPOTRANSFERENCIA`,
 	libues.transferencia.`FECHATRANSFERENCIA`,
 	libues.transferencia.`TOTAL`,
@@ -43,6 +44,7 @@ WHERE
 	<field name="SUBTOTAL" class="java.lang.Double"/>
 	<field name="TOTAL" class="java.lang.Double"/>
 	<field name="CODTRANSFERENCIA" class="java.lang.Integer"/>
+	<field name="NUMEROTRANSFERENCIA" class="java.lang.Integer"/>
 	<field name="SUCURSAL" class="java.lang.String"/>
 	<field name="TIPOTRANSFERENCIA" class="java.lang.String"/>
 	<field name="FECHATRANSFERENCIA" class="java.sql.Date"/>
@@ -64,7 +66,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="119" splitType="Stretch">
+		<band height="147" splitType="Stretch">
 			<image>
 				<reportElement x="-4" y="-6" width="81" height="86" uuid="272165f5-1421-46a5-8289-abc4d69c3c60"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
@@ -158,14 +160,14 @@ WHERE
 				<textFieldExpression><![CDATA[$F{FECHATRANSFERENCIA}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="242" y="96" width="41" height="13" uuid="341f69a9-dd8e-4ab6-bf6f-ca2ad0af69e6"/>
+				<reportElement x="188" y="96" width="41" height="13" uuid="341f69a9-dd8e-4ab6-bf6f-ca2ad0af69e6"/>
 				<textElement>
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tipo:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="272" y="96" width="35" height="13" uuid="bbbcd904-8937-4441-983f-2139b619105a"/>
+				<reportElement x="211" y="97" width="35" height="13" uuid="bbbcd904-8937-4441-983f-2139b619105a"/>
 				<textElement>
 					<font fontName="Arial" size="11"/>
 				</textElement>
@@ -201,6 +203,20 @@ WHERE
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
+			<textField>
+				<reportElement x="302" y="95" width="42" height="21" uuid="fc11b946-661d-4d68-8b54-98fb4851f01a"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMEROTRANSFERENCIA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="254" y="95" width="61" height="18" uuid="c52b6a40-0056-433e-93bb-2954bbad8507"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero Transferencia]]></text>
+			</staticText>
 		</band>
 	</title>
 	<columnHeader>
@@ -389,21 +405,7 @@ WHERE
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[ELABORADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="248" y="140" width="64" height="16" uuid="730bf85d-2a50-43c7-90db-d46f0c40657d"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[REVISADO]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="413" y="143" width="100" height="16" uuid="4fd0f3cd-10ac-4f57-abd7-f23e4c1f67fa"/>
-				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12" isBold="false"/>
-				</textElement>
-				<text><![CDATA[AUTORIZADO]]></text>
+				<text><![CDATA[LIBRERIA CENTRAL]]></text>
 			</staticText>
 			<textField pattern="dd//MM/yyyy">
 				<reportElement positionType="Float" x="436" y="173" width="72" height="20" uuid="ac722cac-ae1d-48eb-be46-09152911da40"/>
@@ -425,11 +427,6 @@ WHERE
 				</reportElement>
 			</line>
 			<line>
-				<reportElement x="215" y="134" width="131" height="1" uuid="7b13af89-645c-442b-9e77-2bacded9e62b">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-			</line>
-			<line>
 				<reportElement x="393" y="134" width="131" height="1" uuid="d6f0244c-1dee-49f4-8b1b-9ec7fa1effcf">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
@@ -440,6 +437,33 @@ WHERE
 			<rectangle>
 				<reportElement mode="Transparent" x="-4" y="10" width="109" height="21" uuid="c471bf49-c008-4375-8bc1-35fe10c79780"/>
 			</rectangle>
+			<textField>
+				<reportElement x="410" y="138" width="100" height="20" uuid="6b5ee3d7-e4fd-42c9-83ef-8c18f6fd2c31">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df560dd9-a175-4502-9938-4d2734d45e5e"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUCURSAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="140" width="64" height="20" uuid="f8a0fa41-46e3-4b5e-9f1a-b6d3adc2f294">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df560dd9-a175-4502-9938-4d2734d45e5e"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ENTREGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="138" width="64" height="20" uuid="536d4963-f9f5-47c6-a0a8-36bc39885f5f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="df560dd9-a175-4502-9938-4d2734d45e5e"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBIO:]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
