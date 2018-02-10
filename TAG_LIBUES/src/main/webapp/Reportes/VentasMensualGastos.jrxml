@@ -14,6 +14,7 @@ LDY3NSw0NjEsNWViZGNhNTEtNzQ0MC00NTFmLWIyYzUtZjZiOTllMTJlZDhjOw==]]>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
 	<parameter name="fechini" class="java.util.Date"/>
 	<parameter name="fenili" class="java.util.Date"/>
+	<parameter name="especTipo" class="java.lang.String"/>
 	<parameter name="consg" class="java.lang.String"/>
 	<parameter name="fec" class="java.lang.String"/>
 	<queryString language="SQL">
@@ -43,7 +44,8 @@ FROM
 	 	 (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) and
 	 	  (libues.producto.`CORRELATIVO` = libues.factura_detalle.`CODIGOPRODUCTO`) and
 	 	 (libues.factura.`FECHAFACTURA` between $P{fechini} and $P{fenili}) and
-		  (libues.producto.`CONSIGNACION` = $P{consg})]]>
+		 (libues.producto.`ESPECIFICOGASTOS` = $P{especTipo}) and
+		 (libues.producto.`CONSIGNACION` = $P{consg})]]>
 	</queryString>
 	<field name="NUMEROFACTURA" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="NUMEROFACTURA"/>
