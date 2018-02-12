@@ -42,8 +42,7 @@
 
             <div class="container col-xs-10 col-sm-10 col-md-10 ">
                 <div class="col-sm-2"><h4 class="text-left">Fecha de emisión: <br><script type="text/javascript">getDate()</script></h4></div>
-
-                
+				
                 <div class="container col-xs-1 col-sm-1 col-md-1"></div>
             </div>
         </div>
@@ -59,10 +58,12 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Imprimir Factura</button>
-                    <a class="btn btn-danger" href="<c:url value="/detallefacturacion-agregar" />" role="button">Realizar otra venta</a>
+                    <button type="submit" class="btn btn-primary">Imprimir Factura</button> -- 
+                    <a class="btn btn-danger" href="<c:url value="/detallefacturacion-agregar" />" role="button">Realizar otra venta</a> -- 
+                    <a href="<c:url value='/cancelar-factura-${codigoultimo}' />" class="btn btn-danger custom-width">Cancelar Facturación</a>
                 </div>
 
+				
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
 				<input type="hidden" value="Factura.jasper" name="nombre"/>
             </div>

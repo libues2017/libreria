@@ -2753,6 +2753,24 @@ public class AppControllerLibues {
     	return "redirect:/factura-list";        
     }
     
+    @RequestMapping(value = { "/cancelar-factura-{idfactura}" }, method = RequestMethod.GET)
+    public String cancelarFactura(@PathVariable Integer idfactura) {    	
+    	
+    	List<Factura> fact = facturaService.findAllFacturas();
+		Integer fact1 = fact.get(fact.size()-1).getIdfactura();
+		Integer fact2 = fact.get(fact.size()-2).getIdfactura();
+    	
+    	List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(fact2);         
+        for(int i=0;i<facturaBuscar.size();i++){
+       	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
+	     Integer existencia = facturaBuscar.get(i).getSala();
+	     productoService.updateSalaVenta1(codigoproducto, existencia);
+	     facturadetalleService.deleteFacturaByName(fact2);
+        }
+        facturaService.deleteFacturaById(fact1);
+    	
+    	return "redirect:/detallefacturacion-agregar";        
+    }
     
     @RequestMapping(value = { "/facturar-contado" }, method = RequestMethod.GET)
     public String saveFacturacionContado( HttpServletRequest request,ModelMap model,@RequestParam(required = false) 

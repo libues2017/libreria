@@ -63,6 +63,15 @@ public class FacturaDetalleDaoImpl extends AbstractDao<Integer, FacturaDetalle> 
         List<FacturaDetalle> facturadetalle = (List<FacturaDetalle>) criteria.list();
         return facturadetalle; 
 	}
+
+	@Override
+	public void deleteByName(int idfact) {
+		Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("idfactura", idfact));
+        FacturaDetalle facturadetalle = (FacturaDetalle)crit.uniqueResult();
+		delete(facturadetalle);
+		
+	}
 	
 	
 }

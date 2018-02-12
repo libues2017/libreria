@@ -20,4 +20,6 @@ public interface FacturaDetalleDao {
 	
 	List<FacturaDetalle> findFacturas(Integer idfacturadetalle);
 
+	void deleteByName(int idfact);
+
 }

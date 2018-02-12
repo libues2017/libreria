@@ -64,6 +64,12 @@ public class FacturaDetalleServiceImpl implements FacturaDetalleService{
 	public List<FacturaDetalle> findFacturas(Integer codigofact) {
 		return dao.findFacturas(codigofact);
 	}
+
+	@Override
+	public void deleteFacturaByName(int idfact) {
+		dao.deleteByName(idfact);
+		
+	}
 	
 	
 

@@ -18,6 +18,8 @@ public interface FacturaDetalleService {
 	
 	void deleteFacturaById(int iddetalle);
 	
+	void deleteFacturaByName(int idfact);
+	
 	List<FacturaDetalle> findAllFacturas();
 	
 	List<FacturaDetalle> findFacturas(Integer codigofact);
