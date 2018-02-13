@@ -29,7 +29,8 @@
 				"${current.cliente}",
 				"${current.tipofactura}",
 				"$ ${current.total}",
-				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />' ] ;
+				'<fmt:formatDate pattern = "dd-MM-yyyy" value ="${current.fechafactura}" />',
+				"${current.estado}" ] ;
 			i=i+1;
 		</c:if>
 		</c:forEach>
@@ -43,7 +44,8 @@
 			        { title: "CLIENTE" },
 			    	{ title: "TIPO" },
 			    	{ title: "TOTAL" },
-			    	{ title: "FECHA" }
+			    	{ title: "FECHA" },
+			    	{ title: "ESTADO" }
 			    ],
 			    "language": idioma_espanol
 			} );
@@ -71,7 +73,7 @@
 			    	var res4=res3.concat(res1);//link eliminar
 			    	var res6=res5.concat(res1);//link ver
 			    	var str = "Editar Número";
-			    	var str1 = "Aceptar";
+			    	var str1 = "Anular Factura";
 			    	var str2 = "Ver Factura";
 			    	var result = str.link(res2);
 			    	var result1 = str1.link(res4);
@@ -136,7 +138,7 @@
             <div class="panel-body">
             	<button  id="devolver" type="button" class="btn btn-success" >Editar Número</button> 
                	<sec:authorize access="hasRole('ADMINISTRADOR')">
-               	--- <button type="button" class="btn btn-warning" id="btnDelete">Eliminar</button> 
+               	--- <button type="button" class="btn btn-warning" id="btnDelete">Anular Factura</button> 
                	</sec:authorize>
                	--- <button type="button" id="devolver2" class="btn btn-success" >Ver Factura</button>                       			
             </div>

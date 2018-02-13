@@ -2749,7 +2749,19 @@ public class AppControllerLibues {
     
     @RequestMapping(value = { "/cambio-estado-factura-{idfactura}" }, method = RequestMethod.GET)
     public String updateEstadoFactura(@PathVariable Integer idfactura) {    	
-    	facturaService.updateEstadoFacturaById(idfactura);
+    	
+		Integer fact = facturaService.findById(idfactura).getIdfactura();
+    	
+    	List<FacturaDetalle> facturaBuscar = facturadetalleService.findFacturas(fact);         
+        for(int i=0;i<facturaBuscar.size();i++){
+       	 Integer codigoproducto = facturaBuscar.get(i).getCodigoproducto();
+       	 Integer sala = productoService.findByCorrelativo(codigoproducto).getSala();
+       	 Integer cantidad = facturaBuscar.get(i).getCantidad();
+       	 Integer existencia = sala + cantidad;
+	     productoService.updateSalaVenta1(codigoproducto, existencia);
+	    }
+    	facturaService.updateEstadoFacturaById(fact);
+    	
     	return "redirect:/factura-list";        
     }
     

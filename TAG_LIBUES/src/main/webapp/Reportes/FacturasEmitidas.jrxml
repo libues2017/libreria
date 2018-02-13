@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacturasEmitidas" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f9cdf4d-d660-4a61-9d84-a6acf4e62da7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="226"/>
@@ -219,7 +219,7 @@ FROM libues.factura,
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="-17" y="-1" width="59" height="20" uuid="1cabfcd2-3f65-4fe8-b9d6-228148497fcc">
+				<reportElement x="-11" y="1" width="59" height="20" uuid="1cabfcd2-3f65-4fe8-b9d6-228148497fcc">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69d96660-2baa-4c60-be92-bc24489fd98a"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -228,7 +228,7 @@ FROM libues.factura,
 				<text><![CDATA[Factura]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="101" y="-1" width="70" height="20" uuid="3f4faa45-4522-4f01-ba12-d9395c227a19">
+				<reportElement x="101" y="1" width="70" height="20" uuid="3f4faa45-4522-4f01-ba12-d9395c227a19">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9aa7b06b-ad3e-4e28-9099-242e2ef6f4aa"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -237,7 +237,7 @@ FROM libues.factura,
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="174" y="-2" width="100" height="21" uuid="6f33236e-aabe-4af7-b699-d642818322ff">
+				<reportElement x="174" y="1" width="100" height="21" uuid="6f33236e-aabe-4af7-b699-d642818322ff">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6649c5aa-946c-4ec8-ba72-1702270b0488"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -246,7 +246,7 @@ FROM libues.factura,
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="-1" width="62" height="20" uuid="a4fe2609-6a63-4444-9e2f-de117d45a5b9">
+				<reportElement x="401" y="1" width="62" height="20" uuid="a4fe2609-6a63-4444-9e2f-de117d45a5b9">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -255,7 +255,7 @@ FROM libues.factura,
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="500" y="-1" width="60" height="20" uuid="adf43de0-f416-466e-b209-d5a0178a2663">
+				<reportElement x="500" y="1" width="60" height="20" uuid="adf43de0-f416-466e-b209-d5a0178a2663">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -264,7 +264,7 @@ FROM libues.factura,
 				<text><![CDATA[Costo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="35" y="-1" width="66" height="20" uuid="0a285902-89c7-4cb9-b1f8-cf75d946b167">
+				<reportElement x="42" y="1" width="59" height="20" uuid="0a285902-89c7-4cb9-b1f8-cf75d946b167">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e17396-7561-4f20-b322-ed6caa590143"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -273,7 +273,7 @@ FROM libues.factura,
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="279" y="-1" width="64" height="20" uuid="e12f4e35-7563-44e5-9fe4-c4c22fadcaaf">
+				<reportElement x="279" y="1" width="64" height="20" uuid="e12f4e35-7563-44e5-9fe4-c4c22fadcaaf">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0d49fc7-ac4a-4bd8-945b-2511b33bb073"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -282,7 +282,7 @@ FROM libues.factura,
 				<text><![CDATA[Autor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="346" y="-2" width="59" height="21" uuid="eb4a6c97-a41a-4788-8881-389c30c5b394">
+				<reportElement x="346" y="1" width="59" height="21" uuid="eb4a6c97-a41a-4788-8881-389c30c5b394">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3387b77c-2e88-47fd-9fc2-6d2646c11bed"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -291,7 +291,7 @@ FROM libues.factura,
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="550" y="-2" width="40" height="21" uuid="a205edbb-47ec-4f95-a2c3-96ad9ffe3d2d">
+				<reportElement x="550" y="1" width="40" height="21" uuid="a205edbb-47ec-4f95-a2c3-96ad9ffe3d2d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -300,7 +300,7 @@ FROM libues.factura,
 				<text><![CDATA[C.Total]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="444" y="-1" width="62" height="20" uuid="4ce6fd99-6866-48df-b257-6ef941b857d7">
+				<reportElement x="444" y="1" width="62" height="20" uuid="4ce6fd99-6866-48df-b257-6ef941b857d7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -309,14 +309,14 @@ FROM libues.factura,
 				<text><![CDATA[P.Total]]></text>
 			</staticText>
 			<rectangle>
-				<reportElement mode="Transparent" x="-19" y="-3" width="605" height="22" uuid="3628a5c7-b3f0-41e8-b04e-39e4bf461313"/>
+				<reportElement mode="Transparent" x="-19" y="-2" width="605" height="22" uuid="3628a5c7-b3f0-41e8-b04e-39e4bf461313"/>
 			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="47" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<textField>
-				<reportElement x="-15" y="0" width="59" height="27" uuid="a12a4308-9d34-480b-bee4-33f242c49aaf">
+				<reportElement x="-11" y="1" width="59" height="19" uuid="a12a4308-9d34-480b-bee4-33f242c49aaf">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69d96660-2baa-4c60-be92-bc24489fd98a"/>
 				</reportElement>
 				<textElement>
@@ -325,7 +325,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="99" y="-1" width="60" height="28" uuid="5e1c3454-e9af-486a-8862-0f1f3f7d9c95">
+				<reportElement x="99" y="1" width="60" height="21" uuid="5e1c3454-e9af-486a-8862-0f1f3f7d9c95">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9aa7b06b-ad3e-4e28-9099-242e2ef6f4aa"/>
 				</reportElement>
 				<textElement>
@@ -334,7 +334,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="160" y="0" width="116" height="27" uuid="52a19fa4-98f7-4610-bd96-f10f62fe6569">
+				<reportElement x="160" y="1" width="116" height="21" uuid="52a19fa4-98f7-4610-bd96-f10f62fe6569">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6649c5aa-946c-4ec8-ba72-1702270b0488"/>
 				</reportElement>
 				<textElement>
@@ -343,7 +343,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="406" y="0" width="45" height="27" uuid="eb05b3d9-fa24-46f6-90f2-b3909043565e">
+				<reportElement x="406" y="1" width="45" height="19" uuid="eb05b3d9-fa24-46f6-90f2-b3909043565e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -352,7 +352,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="507" y="0" width="50" height="27" uuid="17cc9d38-1a89-488e-8333-f279afd18494">
+				<reportElement x="507" y="1" width="50" height="19" uuid="17cc9d38-1a89-488e-8333-f279afd18494">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -361,7 +361,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{COSTOUNITARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="32" y="1" width="54" height="19" uuid="91776194-f826-4873-a390-03e95847fbe5">
+				<reportElement x="42" y="1" width="48" height="19" uuid="91776194-f826-4873-a390-03e95847fbe5">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e17396-7561-4f20-b322-ed6caa590143"/>
 				</reportElement>
 				<textElement>
@@ -370,7 +370,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="270" y="0" width="83" height="27" uuid="54f70577-1838-4c3b-ad00-8c9dd14cb31d">
+				<reportElement x="276" y="1" width="77" height="20" uuid="54f70577-1838-4c3b-ad00-8c9dd14cb31d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0d49fc7-ac4a-4bd8-945b-2511b33bb073"/>
 				</reportElement>
 				<textElement>
@@ -379,7 +379,7 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="359" y="0" width="39" height="27" uuid="9ab05215-69aa-43a2-888c-921250a161b3">
+				<reportElement x="359" y="1" width="39" height="20" uuid="9ab05215-69aa-43a2-888c-921250a161b3">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3387b77c-2e88-47fd-9fc2-6d2646c11bed"/>
 				</reportElement>
 				<textElement textAlignment="Center">
@@ -388,11 +388,11 @@ FROM libues.factura,
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="461" y="2" width="44" height="23" uuid="c425c91f-9645-4457-9bea-c3e1be648b25"/>
+				<reportElement x="461" y="1" width="44" height="19" uuid="c425c91f-9645-4457-9bea-c3e1be648b25"/>
 				<textFieldExpression><![CDATA[$V{P.Total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="550" y="2" width="36" height="22" uuid="e02fc2bf-9ae0-4eed-ad1d-bda9ef12f9ba"/>
+				<reportElement x="550" y="1" width="36" height="19" uuid="e02fc2bf-9ae0-4eed-ad1d-bda9ef12f9ba"/>
 				<textFieldExpression><![CDATA[$V{C.Total}]]></textFieldExpression>
 			</textField>
 		</band>
