@@ -198,7 +198,7 @@
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="76" y="68" width="69" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="fc01dcf7-d055-4be5-a305-37fe85456c53"/>
+				<reportElement mode="Transparent" x="70" y="68" width="69" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="fc01dcf7-d055-4be5-a305-37fe85456c53"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -214,7 +214,7 @@
 				<text><![CDATA[Existencia Inicial]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="149" y="67" width="90" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
+				<reportElement mode="Transparent" x="141" y="67" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -260,7 +260,7 @@
 				<text><![CDATA[Salen]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="376" y="68" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="cea6acb9-a765-450d-a21a-530e4d07b20b"/>
+				<reportElement mode="Transparent" x="380" y="68" width="39" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="cea6acb9-a765-450d-a21a-530e4d07b20b"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
 					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
@@ -284,16 +284,32 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="58" splitType="Stretch">
+		<band height="77" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="1" y="57" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="76" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="-3" y="21" width="138" height="30" uuid="1c9ad97a-b9d1-4c89-aa94-cbd6e34f5cc2"/>
+				<reportElement x="-3" y="21" width="53" height="49" uuid="1c9ad97a-b9d1-4c89-aa94-cbd6e34f5cc2"/>
 				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="24" width="69" height="46" uuid="481aaddb-5b34-4748-b12d-0458977e3d7c"/>
+				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="27" width="63" height="43" uuid="bb76eea7-ddaa-437f-84fd-d5ef50680ddf"/>
+				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="32" width="52" height="30" uuid="f3a3ad2c-9b8a-4a85-a0b6-7b6df8ee5169"/>
+				<textFieldExpression><![CDATA[$F{COSTOUNITARIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="30" width="50" height="30" uuid="ecae97f7-9060-43da-8022-45dee75f9b21"/>
+				<textFieldExpression><![CDATA[$F{CANTIDADINICIAL}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
