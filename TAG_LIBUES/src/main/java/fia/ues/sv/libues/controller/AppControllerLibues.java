@@ -905,12 +905,12 @@ public class AppControllerLibues {
         }
              	
     	System.out.println(producto.getEditorial());    	
-    	byte[] file = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocation());
-    	System.out.println("/home/gestor/mytemp/"  +producto.getLocation());
+    	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
+    	System.out.println("C:/mytemp/"  +producto.getLocation());
     	producto.setImagen(file);
     	
-    	byte[] filec = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocationc());
-    	System.out.println("/home/gestor/mytemp/" + producto.getLocationc());
+    	byte[] filec = readBytesFromFile("C:/mytemp/" + producto.getLocationc());
+    	System.out.println("C:/mytemp/" + producto.getLocationc());
     	producto.setImagenc(filec);
     	
     	productoService.saveProducto(producto);
@@ -939,14 +939,14 @@ public class AppControllerLibues {
         }
         
         if(producto.getLocation()!=""){
-        	byte[] file = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocation());
-        	System.out.println("/home/gestor/mytemp/" + producto.getLocation());
+        	byte[] file = readBytesFromFile("C:/mytemp/" + producto.getLocation());
+        	System.out.println("C:/mytemp/" + producto.getLocation());
         	producto.setImagen(file);
         }
         
         if(producto.getLocationc()!=""){
-        	byte[] filec = readBytesFromFile("/home/gestor/mytemp/" + producto.getLocationc());
-        	System.out.println("/home/gestor/mytemp/" + producto.getLocationc());
+        	byte[] filec = readBytesFromFile("C:/mytemp/" + producto.getLocationc());
+        	System.out.println("C:/mytemp/" + producto.getLocationc());
         	producto.setImagenc(filec);
         }
         
