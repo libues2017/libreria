@@ -61,6 +61,7 @@
 	<queryString>
 		<![CDATA[SELECT 
 		   libues.producto.`CODIGOPRODUCTO`,
+		    libues.producto.`CORRELATIVO`,
 	       libues.producto.`NOMBREPRODUCTO`,	    
 	       libues.autor.`NOMBREAUTOR`,
            libues.producto.`COSTOUNITARIO`,
@@ -82,54 +83,12 @@
              AND
              (libues.ajuste.`CODIGOPRODUCTO`= libues.producto.`correlativo`)]]>
 	</queryString>
-	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>
+	<field name="CORRELATIVO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
 	<field name="CANTIDADINICIAL" class="java.lang.Integer"/>
 	<field name="COSTOUNITARIO" class="java.math.BigDecimal"/>
 	<field name="FECHAAJUSTE" class="java.util.Date"/>
-	<group name="Group3">
-		<groupExpression><![CDATA[$F{CODIGOPRODUCTO}]]></groupExpression>
-		<groupHeader>
-			<band height="35">
-				<textField>
-					<reportElement x="1" y="-80" width="59" height="15" uuid="78561361-ca0d-43f1-8ade-c487d0cc3f7f"/>
-					<textElement>
-						<font fontName="Arial" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA["Destino"]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="153" y="-80" width="86" height="15" uuid="ca8aff45-036b-4caa-8b76-9a83c248580a"/>
-					<textElement>
-						<font fontName="Arial" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA["Justificacion"]]></textFieldExpression>
-				</textField>
-				<rectangle>
-					<reportElement mode="Transparent" x="-4" y="-98" width="555" height="30" uuid="29950b81-4c8d-4726-8285-9fe08be0a42a"/>
-				</rectangle>
-			</band>
-		</groupHeader>
-		<groupFooter>
-			<band height="30">
-				<staticText>
-					<reportElement x="412" y="10" width="72" height="18" uuid="afeaad2f-95d6-4f9e-9e3c-f44f73000cd6"/>
-					<textElement>
-						<font fontName="Arial" size="9"/>
-					</textElement>
-					<text><![CDATA[Subtotal:]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="-7" y="10" width="120" height="18" uuid="46143fa5-2bee-4b72-8d6f-613a537db35c"/>
-					<textElement>
-						<font fontName="Arial" size="9" isBold="true"/>
-					</textElement>
-					<text><![CDATA[Total de Productos:]]></text>
-				</staticText>
-			</band>
-		</groupFooter>
-	</group>
 	<title>
 		<band height="213" splitType="Stretch">
 			<textField pattern="dd//MM/yyyy">
@@ -196,7 +155,7 @@
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="130" y="90" width="50" height="18" uuid="be8a7971-ad1d-4c1b-8eee-224f9fbf1813"/>
+				<reportElement x="148" y="90" width="50" height="18" uuid="be8a7971-ad1d-4c1b-8eee-224f9fbf1813"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -210,7 +169,7 @@
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="320" y="92" width="47" height="20" uuid="b768def1-8641-4342-8d4d-bb508dad72f7"/>
+				<reportElement x="351" y="92" width="47" height="20" uuid="b768def1-8641-4342-8d4d-bb508dad72f7"/>
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
@@ -325,13 +284,17 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="61" splitType="Stretch">
+		<band height="58" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="1" y="30" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="57" width="574" height="1" uuid="b5d1b728-eba7-4070-89b0-4ab0b30aca5c"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
+			<textField>
+				<reportElement x="-3" y="21" width="138" height="30" uuid="1c9ad97a-b9d1-4c89-aa94-cbd6e34f5cc2"/>
+				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>
@@ -353,6 +316,13 @@
 			<rectangle>
 				<reportElement mode="Transparent" x="353" y="16" width="179" height="22" uuid="03d1070b-daa3-4747-8ace-f1184a15872a"/>
 			</rectangle>
+			<staticText>
+				<reportElement x="1" y="11" width="120" height="18" uuid="46143fa5-2bee-4b72-8d6f-613a537db35c"/>
+				<textElement>
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Productos:]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>
