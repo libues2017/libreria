@@ -38,8 +38,8 @@ catch(Exception e){
 		 %>   <script> 
 	      function respaldoNoRealizado() {
 	          alert("No Se han Encontrado Resultados");
-	          close();
-	      } 
+	         close();
+	     } 
 	      respaldoNoRealizado(); 
 	  </script> 
 	  <%  } 

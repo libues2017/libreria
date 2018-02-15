@@ -16,7 +16,7 @@
 	libues.detalletransferencia.`SUBTOTAL`,
 	libues.detalletransferencia.`CODTRANSFERENCIA`,
 	libues.transferencia.`SUCURSAL`,
-	libues.transferencia.`NUMEROTRANSFERENCIA`
+	libues.transferencia.`NUMEROTRANSFERENCIA`,
 	libues.transferencia.`TIPOTRANSFERENCIA`,
 	libues.transferencia.`FECHATRANSFERENCIA`,
 	libues.transferencia.`TOTAL`,
