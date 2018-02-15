@@ -3330,18 +3330,19 @@ public class AppControllerLibues {
     	ajusteService.saveAjuste(ajuste);
     	
     	
-    	
+    	Integer codigoajuste=ajuste.getCodigoajuste();
     	
       productoService.updateExistencia1(codigoproducto, cantidadfisico,ubicacion); 
       model.addAttribute("success", "Se ajusto la existencia del producto: <strong>"+codigoproducto+"  "+ producto.getNombreProducto()+"</strong> Se ha Actualizado ");
      
       HttpSession sesion=request.getSession(true);    	
       //Integer codigoCotizacion = (Integer) sesion.getAttribute("codigo6");          
-    //  sesion.setAttribute("codigoultimo", codigoCotizacion);   
+      sesion.setAttribute("codigoultimo", codigoajuste);   
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "ajuste-reg-succ";
+        //return "ajuste-reg-succ";
+        return "GenerarReporteAjuste";
        // return "redirect:/comparacion";
     }
     

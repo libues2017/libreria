@@ -52,7 +52,7 @@
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/reporte-ajuste" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/retaceo" />" target="_blank">
 
            
 
