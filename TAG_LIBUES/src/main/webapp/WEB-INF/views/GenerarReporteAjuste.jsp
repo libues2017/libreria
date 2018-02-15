@@ -62,7 +62,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte</button>
-                    <a class="btn btn-danger" href="<c:url value="/detalleretaceo-list" />" role="button">Listado Retaceos</a>
+                    <a class="btn btn-danger" href="<c:url value="/comparacion" />" role="button">Regresar a comparacion</a>
                 </div>
 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
