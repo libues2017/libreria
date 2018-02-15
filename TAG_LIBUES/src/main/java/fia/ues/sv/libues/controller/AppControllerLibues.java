@@ -3329,9 +3329,15 @@ public class AppControllerLibues {
     	
     	ajusteService.saveAjuste(ajuste);
     	
+    	
+    	
+    	
       productoService.updateExistencia1(codigoproducto, cantidadfisico,ubicacion); 
       model.addAttribute("success", "Se ajusto la existencia del producto: <strong>"+codigoproducto+"  "+ producto.getNombreProducto()+"</strong> Se ha Actualizado ");
-       
+     
+      HttpSession sesion=request.getSession(true);    	
+      //Integer codigoCotizacion = (Integer) sesion.getAttribute("codigo6");          
+    //  sesion.setAttribute("codigoultimo", codigoCotizacion);   
        
         //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
@@ -3341,23 +3347,7 @@ public class AppControllerLibues {
     
     
     
-   /* @RequestMapping(value = { "/edit-comparacion2" }, method = RequestMethod.GET)
-    public String updateComparacionfinal(HttpServletRequest request,ModelMap model) throws IOException {
- 
-    	Ajuste ajuste=new Ajuste();    	
-    	ajuste.setCodigoproducto(1);
-    	ajuste.setCantidad(1);    	
-    	ajuste.setConcepto("Ajuste");
-    	ajuste.setDestino("ubicacion");    	
-    	ajusteService.saveAjuste(ajuste);    	
-     // productoService.updateExistencia1(codigoproducto, cantidadfisico); 
-        //model.addAttribute("success", "Autor: <strong>" + autor.getNombreautor()+"</strong> Se ha Actualizado ");
-        model.addAttribute("loggedinuser", getPrincipal());
-        //return "autor-reg-succ";
-        return "redirect:/comparacion";
-    }*/
-    
-    
+  
     
     
     
