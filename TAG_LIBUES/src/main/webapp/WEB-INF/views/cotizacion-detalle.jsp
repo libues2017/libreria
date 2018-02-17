@@ -51,6 +51,7 @@
 		<div class="panel-heading"><h3>COTIZACIÓN: ${cotizacion.codigoCotizacion}</h3></div>
   		<p></p>
   		<div class="panel-body">
+  			<div class="col-md-3"></div>
   			<div class="col-md-6" align="center">
   			<table class="table table-striped">
   				<tbody>
@@ -123,7 +124,7 @@
              </div>
 
 				<input type="hidden" value="${loggedinuser}" name="usuario"/>
-				<input type="hidden" value="Cotizacion.jasper" name="nombre"/>
+				<input type="hidden" value="Cotizaciones.jasper" name="nombre"/>
             </div>
 	</form>	  	  	
     </div>
