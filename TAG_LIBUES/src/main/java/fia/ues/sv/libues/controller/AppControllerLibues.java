@@ -3068,6 +3068,23 @@ public class AppControllerLibues {
           model.addAttribute("loggedinuser", getPrincipal());
           return "cotizaciones-list";
       }
+      
+      @RequestMapping(value = { "/cotizacion-detalle-{codigoCotizacion}" }, method = RequestMethod.GET)
+      public String listDetalleCotizacion(HttpServletRequest request,@PathVariable Integer codigoCotizacion, ModelMap model) throws IOException {
+      Cotizacion cotizacion = cotizacionService.findById(codigoCotizacion);
+      model.addAttribute("cotizacion", cotizacion);
+      HttpSession sesion=request.getSession(true);
+      sesion.setAttribute("codigoultimo", codigoCotizacion);
+          
+      if(sesion.getAttribute("codigoultimo") != null)
+      {
+    	  Integer codigo6 = (Integer) sesion.getAttribute("codigoultimo");
+          List<DetalleCotizacion> cotizacionBuscar = detallecotizacionService.findCotizaciones(codigo6);          
+            model.addAttribute("cotiza1", cotizacionBuscar); 
+          }
+          
+          return "cotizacion-detalle";
+      }
         
       @RequestMapping(value = { "/detallecotizacion-agregar" }, method = RequestMethod.GET)
       public String newdetalleCotizacion( HttpServletRequest request,ModelMap model) {
