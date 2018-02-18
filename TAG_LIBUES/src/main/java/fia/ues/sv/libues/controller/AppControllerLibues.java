@@ -2005,33 +2005,30 @@ public class AppControllerLibues {
      */
     
     
-  
- 
-    
-    
-    
-    /*
    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.POST)
     public String updateTransferencia(@Valid DetalleTransferencia detalleTransferencia, BindingResult result,
-            ModelMap model, @PathVariable Integer codTransferencia) throws IOException, ParseException {
+        ModelMap model, @PathVariable Integer codTransferencia, HttpServletRequest request) throws IOException, ParseException {
  
         if (result.hasErrors()) {
             return "detalletransferencia-reg";
         }
+        
+        HttpSession sesion = request.getSession();
+        Integer punto = (Integer)sesion.getAttribute("punto");
  
-        detalletransferenciaService.updateTransferencia(detalleTransferencia);
-        model.addAttribute("success", "transferencia: <strong>" + detalleTransferencia.getCodTransferencia()+"</strong> Se ha Actualizado ");
+        detalletransferenciaService.savedetalleTransferencia(detalleTransferencia);
+        //model.addAttribute("success", "transferencia: <strong>" + detalleTransferencia.getCodTransferencia()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
-        return "detalletransferencia-reg-succ";
+        return "redirect:/edit-detalleTransferencia-{codTransferencia}";
     }
-    */
+    
     @RequestMapping(value = { "/delete-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.GET)
     public String deleteTransferencia(@PathVariable Integer codTransferencia) {
         detalletransferenciaService.deleteTransferenciaById(codTransferencia);
         return "redirect:/detalletransferencia-agregar";
     }
     
-    @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una requisici�n de la tabla padre con sus hijas
+    @RequestMapping(value = { "/delete-transferencia-{codTransferencia}" }, method = RequestMethod.GET) // Eliminar una Transferencia de la tabla padre con sus hijas
     public String deleteTransferenciaMaestra(@PathVariable Integer codTransferencia) {    	
     	transferenciaService.updateEstadoTransferenciaById(codTransferencia);  	
         return "redirect:/transferencia-list";
