@@ -81,7 +81,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 	</variable>
 	<group name="Group1">
 		<groupHeader>
-			<band height="57">
+			<band height="66">
 				<textField>
 					<reportElement x="52" y="9" width="50" height="20" uuid="87f069d3-44bc-4f99-b615-80f4370a57cf">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d9d3269f-cfc4-4704-9c1d-b42fbfff17aa"/>
@@ -137,7 +137,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="160" y="31" width="50" height="20" uuid="e9af38dc-0ab9-458a-9f2d-dc11bd1b54e4">
+					<reportElement x="26" y="31" width="50" height="20" uuid="e9af38dc-0ab9-458a-9f2d-dc11bd1b54e4">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d49ff742-1043-483f-8de8-21d0b0e12cca"/>
 					</reportElement>
 					<textElement>
@@ -146,7 +146,7 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					<text><![CDATA[E-Mail:]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="205" y="30" width="235" height="22" uuid="a2b3eb1c-6696-4e0f-b9ec-4a44524ca4bd">
+					<reportElement x="63" y="31" width="235" height="22" uuid="a2b3eb1c-6696-4e0f-b9ec-4a44524ca4bd">
 						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d49ff742-1043-483f-8de8-21d0b0e12cca"/>
 					</reportElement>
 					<textElement>
@@ -154,13 +154,27 @@ WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
 				</textField>
+				<textField>
+					<reportElement x="411" y="35" width="56" height="16" uuid="204b5f41-c0a0-4b93-a2f7-d7360cfbd300"/>
+					<textElement>
+						<font fontName="Arial" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FECHACOTIZACION}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="307" y="34" width="129" height="19" uuid="fd83c619-e3d5-4d48-a412-f952dcdc1911"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha de Cotizacion:]]></text>
+				</staticText>
 				<rectangle>
-					<reportElement mode="Transparent" x="-17" y="6" width="601" height="46" uuid="69dcd065-07f5-42ac-971a-9aa0a87664ae"/>
+					<reportElement mode="Transparent" x="-17" y="2" width="598" height="60" uuid="5fa954e9-d276-4b2d-b3d5-2457380053ed"/>
 				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="62">
+			<band height="54">
 				<staticText>
 					<reportElement x="-10" y="24" width="120" height="30" uuid="d536161d-a32e-41a2-8a2d-24f90a10efbf"/>
 					<textElement>
