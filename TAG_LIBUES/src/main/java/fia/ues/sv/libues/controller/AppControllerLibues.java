@@ -3345,6 +3345,12 @@ public class AppControllerLibues {
     	
     	
     	 cantidadinicial=cantidadinicial.parseInt(request.getParameter("existencia"));
+    	 
+    	 if(cantidadfisico>cantidadinicial){
+    		 
+    		 cantidadfisico=cantidadfisico-cantidadinicial;
+    	 }
+    	 
     	
     	Ajuste ajuste=new Ajuste();
     	
