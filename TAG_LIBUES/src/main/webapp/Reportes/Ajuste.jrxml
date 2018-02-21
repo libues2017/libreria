@@ -86,6 +86,7 @@
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
 	<field name="CANTIDADINICIAL" class="java.lang.Integer"/>
+	<field name="CANTIDADAJUSTE" class="java.lang.Integer"/>
 	<field name="COSTOUNITARIO" class="java.math.BigDecimal"/>
 	<field name="FECHAAJUSTE" class="java.util.Date"/>
 	<title>
@@ -281,6 +282,10 @@
 			<textField>
 				<reportElement x="270" y="30" width="50" height="30" uuid="ecae97f7-9060-43da-8022-45dee75f9b21"/>
 				<textFieldExpression><![CDATA[$F{CANTIDADINICIAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="331" y="29" width="59" height="30" uuid="93f23f08-19e0-4d27-88f4-50eb094edf20"/>
+				<textFieldExpression><![CDATA[$F{CANTIDADAJUSTE}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
