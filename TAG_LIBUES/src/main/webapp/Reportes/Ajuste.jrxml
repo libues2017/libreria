@@ -58,6 +58,7 @@
 	<parameter name="user" class="java.lang.String"/>
 	<parameter name="fenili" class="java.util.Date"/>
 	<parameter name="fec" class="java.lang.String"/>
+	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT 
 		   libues.producto.`CODIGOPRODUCTO`,
@@ -81,7 +82,9 @@
 			 AND 
 			 (libues.autor.`CODIGOAUTOR` = libues.autor_libro.`CODIGOAUTOR`)
              AND
-             (libues.ajuste.`CODIGOPRODUCTO`= libues.producto.`correlativo`)]]>
+             (libues.ajuste.`CODIGOPRODUCTO`= libues.producto.`correlativo`)
+             AND
+			 (libues.ajuste.`CODIGOAJUSTE`= $P{codigo})]]>
 	</queryString>
 	<field name="CORRELATIVO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>
