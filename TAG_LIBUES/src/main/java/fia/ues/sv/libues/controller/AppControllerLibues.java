@@ -2154,6 +2154,22 @@ public class AppControllerLibues {
     		model.addAttribute("loggedinuser", getPrincipal());
     		return "ReporteCreditos";
     	}
+        
+     
+      //Controles para el Reporte de Creditos Generales
+        @RequestMapping(value={"/facturas-creditos-todos"}, method = RequestMethod.GET)
+      	public String facturascreditostodos(ModelMap model){
+      		model.addAttribute("loggedinuser", getPrincipal());
+      		return "GenerarCreditosTodos";
+      	}
+          
+          @RequestMapping(value={"/repo_creditos_todos"}, method = RequestMethod.GET)
+      	public String repofacturascreditostodos(ModelMap model){
+      		model.addAttribute("loggedinuser", getPrincipal());
+      		return "ReporteCreditosTodos";
+      	}
+        
+        
 
       //Controles para el Reporte de Transferencias a Sucursales
    @RequestMapping(value={"/transferencias"}, method = RequestMethod.GET)

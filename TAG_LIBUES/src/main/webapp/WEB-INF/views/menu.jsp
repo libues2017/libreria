@@ -130,6 +130,8 @@
             					<li><a href="<c:url value="facturas-emitidas" />">Facturas Emitidas</a></li>
             					<li role="separator" class="divider"></li>
             					<li><a href="<c:url value="facturas-creditos" />">Créditos</a></li>
+            					<li role="separator" class="divider"></li>
+            					<li><a href="<c:url value="facturas-creditos-todos" />">Créditos Generales</a></li>
               					</sec:authorize>
            					</ul>
         				</li>
