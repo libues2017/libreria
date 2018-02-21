@@ -54,10 +54,6 @@
 			<style backcolor="#D8D8D8"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="fechini" class="java.util.Date"/>
-	<parameter name="user" class="java.lang.String"/>
-	<parameter name="fenili" class="java.util.Date"/>
-	<parameter name="fec" class="java.lang.String"/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT 
@@ -95,14 +91,14 @@
 	<title>
 		<band height="213" splitType="Stretch">
 			<textField pattern="dd//MM/yyyy">
-				<reportElement positionType="Float" x="187" y="73" width="108" height="20" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
+				<reportElement positionType="Float" x="208" y="73" width="108" height="20" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="96" y="12" width="115" height="25" uuid="625f9511-0555-4b3d-903e-2bd3a17a039d">
+				<reportElement x="96" y="4" width="115" height="25" uuid="625f9511-0555-4b3d-903e-2bd3a17a039d">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -126,14 +122,14 @@
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="407" y="10" width="73" height="30" uuid="60cabe99-7684-4efe-b4b4-f69043398088"/>
+				<reportElement x="403" y="10" width="73" height="30" uuid="60cabe99-7684-4efe-b4b4-f69043398088"/>
 				<textElement textAlignment="Right">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="450" y="10" width="85" height="30" uuid="58f23694-9d21-498c-9f33-b06647d11ede"/>
+				<reportElement x="478" y="10" width="85" height="30" uuid="58f23694-9d21-498c-9f33-b06647d11ede"/>
 				<textElement textAlignment="Left">
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -150,34 +146,6 @@
 				<reportElement x="-3" y="5" width="90" height="98" uuid="5ce4df58-cb9c-4446-9a87-a26ce01d0c42"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
-			<staticText>
-				<reportElement x="95" y="89" width="50" height="18" uuid="8fc96ed6-93fb-4666-99ef-b618daac8835"/>
-				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Desde:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="148" y="90" width="50" height="18" uuid="be8a7971-ad1d-4c1b-8eee-224f9fbf1813"/>
-				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="287" y="92" width="52" height="20" uuid="fecc0369-3761-4339-974f-256f274d6f55"/>
-				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Hasta:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="351" y="92" width="47" height="20" uuid="b768def1-8641-4342-8d4d-bb508dad72f7"/>
-				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="96" y="57" width="124" height="15" uuid="139393cc-709b-46cc-a5e6-71878753487c"/>
 				<textElement>
@@ -323,7 +291,7 @@
 				<textElement>
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<text><![CDATA[Total  de Retaceo:]]></text>
+				<text><![CDATA[Total:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="446" y="20" width="33" height="19" uuid="8861b2ee-6a15-457a-807d-30eb10683488"/>
@@ -332,9 +300,6 @@
 				</textElement>
 				<text><![CDATA[$]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement mode="Transparent" x="353" y="16" width="179" height="22" uuid="03d1070b-daa3-4747-8ace-f1184a15872a"/>
-			</rectangle>
 			<staticText>
 				<reportElement x="1" y="11" width="120" height="18" uuid="46143fa5-2bee-4b72-8d6f-613a537db35c"/>
 				<textElement>
@@ -342,6 +307,9 @@
 				</textElement>
 				<text><![CDATA[Total de Productos:]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="350" y="13" width="179" height="22" uuid="03d1070b-daa3-4747-8ace-f1184a15872a"/>
+			</rectangle>
 		</band>
 	</summary>
 </jasperReport>
