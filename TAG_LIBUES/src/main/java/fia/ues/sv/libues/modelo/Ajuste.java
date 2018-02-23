@@ -28,20 +28,19 @@ public class Ajuste implements Serializable {
 	private Integer codigoproducto;
 	
 	@NotNull
-	@Column(name="CANTIDADAJUSTE", nullable=false)
+	@Column(name="CANTIDADSALIDA", nullable=false)
 	private Integer cantidad;
+	
+	
+	@NotNull
+	@Column(name="CANTIDADENTRADA", nullable=false)
+	private Integer cantidadentrada;
 	
 	@NotNull
 	@Column(name="CANTIDADINICIAL", nullable=false)
 	private Integer cantidadinicial;
 			
-	public Integer getCantidadinicial() {
-		return cantidadinicial;
-	}
-
-	public void setCantidadinicial(Integer cantidadinicial) {
-		this.cantidadinicial = cantidadinicial;
-	}
+	
 
 	@NotNull
 	@Column(name="CONCEPTO", nullable=false)
@@ -56,7 +55,21 @@ public class Ajuste implements Serializable {
 	private Date fechaajuste;
 	
 	
-	
+	public Integer getCantidadentrada() {
+		return cantidadentrada;
+	}
+
+	public void setCantidadentrada(Integer cantidadentrada) {
+		this.cantidadentrada = cantidadentrada;
+	}
+
+	public Integer getCantidadinicial() {
+		return cantidadinicial;
+	}
+
+	public void setCantidadinicial(Integer cantidadinicial) {
+		this.cantidadinicial = cantidadinicial;
+	}
 	
 
 	public Date getFechaajuste() {
