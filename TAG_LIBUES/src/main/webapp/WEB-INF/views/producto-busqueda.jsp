@@ -8,13 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="<c:url value='/static/css/estilo2.css' />" rel="stylesheet"></link>
+ <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
+ <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+ <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
 <title>Búsqueda Productos</title>  
 </head>
 <body>
 	
-<div class="row"><%@include file="page_head_2.jsp" %></div>
-<div class="container">
-		<div class="row"><%@include file="menu.jsp" %></div>
+<div class="container"><%@include file="page_head_2.jsp" %></div>
+	<div class="container">
        	  
        	
        	<h3>Búsqueda de Productos</h3>
