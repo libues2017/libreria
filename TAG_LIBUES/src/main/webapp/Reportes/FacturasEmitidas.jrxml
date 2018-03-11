@@ -36,7 +36,8 @@ FROM libues.factura,
  (libues.factura_detalle.`IDFACTURA` = libues.factura.`IDFACTURA`) and
  (libues.producto.`CORRELATIVO` = libues.factura_detalle.`CODIGOPRODUCTO`) and
  (libues.factura.`FECHAFACTURA` between $P{fechini} and $P{fenili}) and
- (libues.factura.`ESTADO` = $P{tipoFactura})]]>
+ (libues.factura.`ESTADO` = $P{tipoFactura})
+ Group by libues.factura_detalle.`CODIGOPRODUCTO`]]>
 	</queryString>
 	<field name="NOMBREAUTOR" class="java.lang.String"/>
 	<field name="IDFACTURA" class="java.lang.Integer">

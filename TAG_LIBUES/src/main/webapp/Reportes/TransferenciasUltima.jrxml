@@ -33,6 +33,7 @@ WHERE
     (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) AND
 	(libues.transferencia.`CODTRANSFERENCIA`= libues.detalletransferencia.`CODTRANSFERENCIA`) and
    	(libues.transferencia.`CODTRANSFERENCIA`= $P{codigo})
+   	Group by libues.detalletransferencia.`CODPRODUCTO`
 	Order by libues.detalletransferencia.`CODTRANSFERENCIA`]]>
 	</queryString>
 	<field name="CODPRODUCTO" class="java.lang.Integer"/>
@@ -192,13 +193,13 @@ WHERE
 				<textFieldExpression><![CDATA[$F{SUCURSAL}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="-2" y="90" width="556" height="1" uuid="3471dd81-98b9-4422-b87b-1643a5c9a0c1">
+				<reportElement x="-3" y="92" width="556" height="1" uuid="3471dd81-98b9-4422-b87b-1643a5c9a0c1">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<line>
-				<reportElement x="-3" y="113" width="556" height="1" uuid="c31e888c-6308-4e94-8b4a-b433060768e5">
+				<reportElement x="-3" y="116" width="556" height="1" uuid="c31e888c-6308-4e94-8b4a-b433060768e5">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -220,7 +221,7 @@ WHERE
 		</band>
 	</title>
 	<columnHeader>
-		<band height="36" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<staticText>
 				<reportElement x="-9" y="10" width="61" height="19" uuid="5a65169e-b4a4-4df8-ad97-e3c429f32ff3"/>
 				<textElement textAlignment="Center">
@@ -277,10 +278,13 @@ WHERE
 				</textElement>
 				<text><![CDATA[Monto]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="-16" y="8" width="605" height="27" uuid="8f135754-c327-4480-b6d5-f93c33a40942"/>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="34" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField>
 				<reportElement x="-11" y="0" width="71" height="22" uuid="e39d38ce-fb89-4947-a98b-6caf2c93336e"/>
 				<textElement textAlignment="Left">
@@ -465,9 +469,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[RECIBIO:]]></text>
 			</staticText>
-			<rectangle>
-				<reportElement mode="Transparent" x="-13" y="-117" width="592" height="27" uuid="8f135754-c327-4480-b6d5-f93c33a40942"/>
-			</rectangle>
 		</band>
 	</summary>
 </jasperReport>

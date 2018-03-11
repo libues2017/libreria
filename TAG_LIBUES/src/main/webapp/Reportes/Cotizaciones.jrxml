@@ -26,7 +26,8 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 FROM libues.detallecotizacion
 	INNER JOIN libues.cotizacion ON 
 	 libues.detallecotizacion.`CODIGOCOTIZACION` = libues.cotizacion.`CODIGOCOTIZACION`
-WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})]]>
+WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})
+Group by libues.detallecotizacion.`CODIGOPRODUCTO`]]>
 	</queryString>
 	<field name="CODIGOCOTIZACION" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGOCOTIZACION"/>

@@ -80,7 +80,8 @@
              AND
              (libues.ajuste.`CODIGOPRODUCTO`= libues.producto.`correlativo`)
              AND
-			 (libues.ajuste.`CODIGOAJUSTE`= $P{codigo})]]>
+			 (libues.ajuste.`CODIGOAJUSTE`= $P{codigo})
+			 Group by libues.producto.`CODIGOPRODUCTO`]]>
 	</queryString>
 	<field name="CORRELATIVO" class="java.lang.Integer"/>
 	<field name="NOMBREPRODUCTO" class="java.lang.String"/>

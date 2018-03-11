@@ -94,8 +94,9 @@
 			 AND
 			 (libues.retaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)	
 			  AND
-			 (libues.retaceo.`CODIGORETACEO`= $P{codigo})					
-			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
+			 (libues.retaceo.`CODIGORETACEO`= $P{codigo})
+			 GROUP BY libues.detalleretaceo.`CODIGOPRODUCTO`					
+			 ORDER BY libues.detalleretaceo.`CODIGORETACEO`]]>
 	</queryString>
 	<field name="CODIGORETACEO" class="java.lang.Integer"/>
 	<field name="CODIGOPRODUCTO" class="java.lang.Integer"/>

@@ -38,6 +38,7 @@ WHERE
     (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) AND
 	(libues.detalle_requisicion_producto.`CODIGOREQUISICION` = libues.requisicion.`CODIGOREQUISICION`) AND
 	(libues.detalle_requisicion_producto.`CODIGOREQUISICION`= $P{codigo})
+	Group by libues.detalle_requisicion_producto.`CODIGOPRODUCTO`
 	Order by libues.detalle_requisicion_producto.`CODIGOREQUISICION`]]>
 	</queryString>
 	<field name="CODIGOREQUISICION" class="java.lang.Integer"/>

@@ -97,6 +97,7 @@
 			 (libues.retaceo.`CODIGOPROVEEDOR`= libues.proveedor.`CODIGOPROVEEDOR`)
 			 AND
 			 (libues.retaceo.`FECHARETACEO` between $P{fechini} and $P{fenili})
+			 Group by libues.detalleretaceo.`CODIGOPRODUCTO`
 			 order by libues.detalleretaceo.`CODIGORETACEO`]]>
 	</queryString>
 	<field name="CODIGORETACEO" class="java.lang.Integer"/>
