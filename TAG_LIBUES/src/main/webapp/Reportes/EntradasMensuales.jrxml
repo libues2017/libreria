@@ -24,7 +24,8 @@ FROM libues.bitacora
 WHERE
 (libues.bitacora.`FECHABITACORA` between $P{fechini} and $P{fenili}) and
 (libues.bitacora.`DESCRIPCION` = 'INGRESOS') OR
-(libues.bitacora.`DESCRIPCION` = 'Retaceo')]]>
+(libues.bitacora.`DESCRIPCION` = 'Retaceo')
+GROUP BY  libues.bitacora.`FECHABITACORA]]>
 	</queryString>
 	<field name="CODIGOPRODUCTO" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGOPRODUCTO"/>
@@ -76,52 +77,38 @@ WHERE
 			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="9511cb02-d381-42d8-8dfb-72bfbf934b79"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="96" y="70" width="125" height="21" uuid="e230af54-2cb8-4a73-9511-41875d2084d7"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Fecha de Impresion]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="96" y="55" width="244" height="15" uuid="e54f5e35-e18e-45f3-97c3-a3cfa1f351c6"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Reporte de Entradas Mensuales]]></text>
 			</staticText>
-			<textField evaluationTime="Report">
-				<reportElement x="449" y="10" width="85" height="30" uuid="7a1c365a-fbbd-4456-b737-fc3c44026bfe"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="95" y="7" width="126" height="18" uuid="1f98b18f-f55f-4bf1-ac8c-0484fe54b6dd">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="13" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="407" y="10" width="73" height="30" uuid="5056650b-0c58-4547-8e59-05b2e59ad3fc"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="95" y="25" width="305" height="15" uuid="4aaa58cf-5742-4b2c-972c-654c50cbcebf"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
@@ -135,28 +122,28 @@ WHERE
 			<staticText>
 				<reportElement x="97" y="90" width="50" height="18" uuid="2402178e-e71b-4460-88b7-e60c7701e394"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="280" y="90" width="52" height="20" uuid="df23c456-84e8-4e6d-a0d2-08aeea7233ea"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="311" y="90" width="52" height="20" uuid="4cc3f7fe-31b6-4cef-b926-1381de1773ca"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="134" y="90" width="50" height="18" uuid="a3cffe1d-d75b-4ed9-b956-85a964dcf3b3"/>
 				<textElement textAlignment="Left">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
 			</textField>
@@ -172,7 +159,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b1df6d7-ee9e-4945-8c73-68700f709845"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
@@ -181,7 +168,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2d5719b-c1a8-4d52-865c-f4d818ff4fe5"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Operacion]]></text>
 			</staticText>
@@ -190,7 +177,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fe1f5c4-ca53-47c5-8745-e3fc1f89e4ae"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
@@ -199,7 +186,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9740ef0e-cb63-4adf-a5bb-b6bfc106d115"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
@@ -208,7 +195,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6384e055-2c73-41ab-ac0b-8e9b12fea729"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
@@ -224,7 +211,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b1df6d7-ee9e-4945-8c73-68700f709845"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 			</textField>
@@ -233,7 +220,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f2d5719b-c1a8-4d52-865c-f4d818ff4fe5"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{ACCION}]]></textFieldExpression>
 			</textField>
@@ -242,7 +229,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6fe1f5c4-ca53-47c5-8745-e3fc1f89e4ae"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESCRIPCION}]]></textFieldExpression>
 			</textField>
@@ -251,7 +238,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9740ef0e-cb63-4adf-a5bb-b6bfc106d115"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHABITACORA}]]></textFieldExpression>
 			</textField>
@@ -260,7 +247,7 @@ WHERE
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6384e055-2c73-41ab-ac0b-8e9b12fea729"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
 			</textField>
@@ -273,32 +260,50 @@ WHERE
 			<staticText>
 				<reportElement x="431" y="0" width="37" height="19" uuid="7dfe6c4a-2b50-4da1-abc0-f6092eb17197"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[$]]></text>
 			</staticText>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="53">
+			<textField>
+				<reportElement x="453" y="23" width="100" height="30" uuid="db943b4f-9a03-4a02-baaa-3a96befaea22"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="23" width="100" height="30" uuid="5f6dd159-c070-47e9-8a10-8a7e065188dd"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" / " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch">
 			<textField>
 				<reportElement x="446" y="0" width="100" height="30" uuid="81e17773-f173-4ceb-ac43-ac191a602800"/>
 				<textElement>
-					<font fontName="Arial"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{TOTAL1}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="438" y="0" width="37" height="19" uuid="1d3198f6-3429-4287-a78c-cf03e65b1e9b"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="9"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="351" y="0" width="100" height="30" uuid="4b316c6a-6a42-4fce-abfe-d767f4bb062c"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total de Entradas:]]></text>
 			</staticText>

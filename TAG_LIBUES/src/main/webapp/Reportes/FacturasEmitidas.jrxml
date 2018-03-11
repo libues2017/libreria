@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacturasEmitidas" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f9cdf4d-d660-4a61-9d84-a6acf4e62da7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="226"/>
@@ -116,56 +116,49 @@ FROM libues.factura,
 			<staticText>
 				<reportElement x="329" y="91" width="52" height="20" uuid="107f782e-805c-442f-b7a2-d881ce5d7d97"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hasta:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="364" y="91" width="47" height="20" uuid="147767f6-8ad5-4613-8b89-94d54b2e05ad"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{fenili}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="131" y="90" width="50" height="18" uuid="8519a59b-41ab-48b0-bbef-915917964d22"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="25" width="305" height="15" uuid="2a7c0936-18c4-40cc-a842-9a39702c9b3b"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="168" y="90" width="50" height="18" uuid="b5d75bdd-3a3e-4772-a27a-774603df1580"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="429" y="10" width="73" height="30" uuid="04aea96a-3b96-46cb-88cc-937bc2fcebc4"/>
-				<textElement textAlignment="Right">
 					<font fontName="Arial" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{fechini}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="a0f6cfce-5a88-41c3-89c6-a9a03e03650e"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="98" y="55" width="172" height="15" uuid="a412c98f-1062-4ef1-91cf-c5bafce9ae7f"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Reporte de Facturas ]]></text>
 			</staticText>
@@ -175,7 +168,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="15" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
@@ -183,13 +176,6 @@ FROM libues.factura,
 				<reportElement x="2" y="1" width="83" height="90" uuid="37a6b9eb-f09d-43da-a0cc-150c6b452003"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
 			</image>
-			<textField evaluationTime="Report">
-				<reportElement x="475" y="10" width="85" height="30" uuid="1f804bfe-34ef-4150-84c3-6d37c87a5ad0"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField pattern="dd//MM/yyyy">
 				<reportElement positionType="Float" x="194" y="71" width="166" height="20" uuid="e8070eee-3969-406f-814d-bbfa5fae4667"/>
 				<textElement>
@@ -200,7 +186,7 @@ FROM libues.factura,
 			<staticText>
 				<reportElement x="97" y="71" width="125" height="21" uuid="e6ad0323-e94e-4df9-bd71-2c45eb9ec5d8"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Fecha de Impresion:]]></text>
 			</staticText>
@@ -223,7 +209,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69d96660-2baa-4c60-be92-bc24489fd98a"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Factura]]></text>
 			</staticText>
@@ -232,7 +218,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9aa7b06b-ad3e-4e28-9099-242e2ef6f4aa"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Codigo]]></text>
 			</staticText>
@@ -241,7 +227,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6649c5aa-946c-4ec8-ba72-1702270b0488"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
@@ -250,7 +236,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
@@ -259,7 +245,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Costo]]></text>
 			</staticText>
@@ -268,7 +254,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e17396-7561-4f20-b322-ed6caa590143"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha]]></text>
 			</staticText>
@@ -277,7 +263,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0d49fc7-ac4a-4bd8-945b-2511b33bb073"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Autor]]></text>
 			</staticText>
@@ -286,7 +272,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3387b77c-2e88-47fd-9fc2-6d2646c11bed"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
@@ -295,7 +281,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[C.Total]]></text>
 			</staticText>
@@ -304,7 +290,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[P.Total]]></text>
 			</staticText>
@@ -320,7 +306,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="69d96660-2baa-4c60-be92-bc24489fd98a"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NUMEROFACTURA}]]></textFieldExpression>
 			</textField>
@@ -329,7 +315,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9aa7b06b-ad3e-4e28-9099-242e2ef6f4aa"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CODIGOPRODUCTO}]]></textFieldExpression>
 			</textField>
@@ -338,7 +324,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6649c5aa-946c-4ec8-ba72-1702270b0488"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
@@ -347,7 +333,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f86f4ffa-7b9e-4aed-a687-7bb50ee08b06"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{PRECIO}]]></textFieldExpression>
 			</textField>
@@ -356,7 +342,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e17b3444-d766-4f49-889b-8ff01e6281eb"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{COSTOUNITARIO}]]></textFieldExpression>
 			</textField>
@@ -365,7 +351,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e17396-7561-4f20-b322-ed6caa590143"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHAFACTURA}]]></textFieldExpression>
 			</textField>
@@ -374,7 +360,7 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0d49fc7-ac4a-4bd8-945b-2511b33bb073"/>
 				</reportElement>
 				<textElement>
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
@@ -383,16 +369,22 @@ FROM libues.factura,
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3387b77c-2e88-47fd-9fc2-6d2646c11bed"/>
 				</reportElement>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="8" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="461" y="1" width="44" height="19" uuid="c425c91f-9645-4457-9bea-c3e1be648b25"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{P.Total}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="550" y="1" width="36" height="19" uuid="e02fc2bf-9ae0-4eed-ad1d-bda9ef12f9ba"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$V{C.Total}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -401,14 +393,29 @@ FROM libues.factura,
 		<band height="47" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="67" splitType="Stretch"/>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="453" y="23" width="100" height="30" uuid="89bc721a-e3c5-432c-a096-5ee1d3f4370e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="23" width="100" height="30" uuid="0d424151-9349-4b81-bee7-a6a4bba34809"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" / " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="114" splitType="Stretch">
 			<staticText>
 				<reportElement x="30" y="91" width="94" height="16" uuid="354858d3-99be-4baf-abba-2cf7d4a646f5"/>
 				<textElement textAlignment="Center">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[COLECTOR]]></text>
 			</staticText>

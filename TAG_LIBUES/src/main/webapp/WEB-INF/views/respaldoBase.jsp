@@ -14,8 +14,8 @@ try{
     if(copia_seguridad==0){ //Devuelve 0 si todo ha salido bien
 %>      <script> 
             function respaldoRealizado() {
-                alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco duro del servidor \n/home/gestor/Respaldo/");
-                //alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
+               // alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco duro del servidor \n/home/gestor/Respaldo/");
+                alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
                 location.href="/TAG_LIBUES/index"; 
             } 
             respaldoRealizado(); 

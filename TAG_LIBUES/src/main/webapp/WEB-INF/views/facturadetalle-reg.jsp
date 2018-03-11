@@ -295,7 +295,7 @@ function vuelto(){
 							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMÁTICO" class="form-control input-sm" onchange="nombreprod()"/>
 						</div>
 						<div class="col-xs-2">
-							<label class="form-control" for="sala">Existencia:</label>
+							<label class="form-control" for="sala">Sala:</label>
 							<form:input type="number" min="0" path="sala" id="sala" placeholder="AUTOMÁTICO" class="form-control input-sm"  />
 						</div>
 					

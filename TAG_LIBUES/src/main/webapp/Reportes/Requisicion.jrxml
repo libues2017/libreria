@@ -107,7 +107,7 @@ WHERE
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="120" splitType="Stretch">
+		<band height="99" splitType="Stretch">
 			<image>
 				<reportElement x="-4" y="-6" width="81" height="86" uuid="ebc8e2ab-2c24-4ec3-81e2-2b8a8ae3b0bb"/>
 				<imageExpression><![CDATA["logo.png"]]></imageExpression>
@@ -115,7 +115,7 @@ WHERE
 			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="344ce0aa-3356-4b15-98d3-74b5ec147442"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Telefonos: 2511-2017, 2225-9367]]></text>
 			</staticText>
@@ -125,42 +125,28 @@ WHERE
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Bottom">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="25" width="306" height="15" uuid="318987d1-e979-438c-aa80-ea3a49fdcaf7"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="57" width="84" height="23" uuid="76d0ef7a-4b7e-4f04-ae67-33cd7f4f57fa"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Requisicion N°. ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="426" y="40" width="100" height="30" uuid="ab5c4b36-86db-4765-87b3-5d27dfadb9dc"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="467" y="40" width="100" height="30" uuid="fb9cbef1-b714-4ff9-9b72-97e0f7c525d9"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<textField pattern="M/d/yy h:mm a">
 				<reportElement positionType="Float" x="462" y="22" width="43" height="20" uuid="c8a6a758-1902-41af-b9b2-b5fe2c42706d"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -168,21 +154,21 @@ WHERE
 				<reportElement x="426" y="22" width="50" height="20" uuid="fba0d7aa-3a0a-4c17-9147-cce76f81f2ae"/>
 				<box rightPadding="4"/>
 				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="76" width="55" height="19" uuid="a55c7539-1284-495e-82c4-37de41270b20"/>
 				<textElement textAlignment="Left" verticalAlignment="Top">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[DESTINO:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="149" y="76" width="162" height="20" uuid="248634d1-0665-48cb-941b-3aa1fd363c86"/>
 				<textElement>
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DESTINOREQUISICION}]]></textFieldExpression>
 			</textField>
@@ -309,12 +295,6 @@ WHERE
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDADMOV}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="-5" y="18" width="570" height="1" uuid="9f232058-7a1b-4593-b74f-4ca7b659d704">
-					<property name="local_mesure_unitheight" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-			</line>
 			<textField>
 				<reportElement x="264" y="1" width="113" height="18" uuid="76ce9882-9dc3-44d0-b235-f7a59ac3f629"/>
 				<textElement textAlignment="Center">
@@ -327,6 +307,24 @@ WHERE
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
+	<pageFooter>
+		<band height="53">
+			<textField>
+				<reportElement x="453" y="23" width="100" height="30" uuid="9a297e2e-a210-4314-b6b6-fe3423958b61"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="23" width="100" height="30" uuid="62217c7b-3176-4e94-8658-14727712efda"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" / " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<lastPageFooter>
 		<band height="80">
 			<line>
@@ -353,20 +351,6 @@ WHERE
 				</textElement>
 				<text><![CDATA[JEFE DE SALA]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="374" y="60" width="58" height="20" uuid="0dd137d1-14e4-4d06-b598-cc81c839c101"/>
-				<textElement>
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<text><![CDATA[Impreso :]]></text>
-			</staticText>
-			<textField pattern="dd//MM/yyyy">
-				<reportElement positionType="Float" x="434" y="60" width="72" height="20" uuid="dcba4136-30d1-4c20-bf77-afba1ce45697"/>
-				<textElement>
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 		</band>
 	</lastPageFooter>
 </jasperReport>

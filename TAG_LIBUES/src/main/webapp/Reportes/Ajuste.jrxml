@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Retaceo" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="template.engine" value="tabular_template"/>
 	<property name="com.jaspersoft.studio.data.sql.tables"/>
@@ -90,11 +90,11 @@
 	<field name="COSTOUNITARIO" class="java.math.BigDecimal"/>
 	<field name="FECHAAJUSTE" class="java.util.Date"/>
 	<title>
-		<band height="213" splitType="Stretch">
+		<band height="107" splitType="Stretch">
 			<textField pattern="dd//MM/yyyy">
 				<reportElement positionType="Float" x="208" y="73" width="108" height="20" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -104,42 +104,28 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12" isBold="false"/>
+					<font fontName="Arial" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Libreria Universitaria]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="25" width="304" height="15" uuid="df893963-9ea8-420d-8890-b8499434340d"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Final Avenida Heroes y Martires 30 Julio, San Salvador.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="95" y="40" width="205" height="15" uuid="bc649cd2-af15-4560-ba49-ca51950334ba"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Telefonos: 2511-3077, 2225-9367]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="403" y="10" width="73" height="30" uuid="60cabe99-7684-4efe-b4b4-f69043398088"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="478" y="10" width="85" height="30" uuid="58f23694-9d21-498c-9f33-b06647d11ede"/>
-				<textElement textAlignment="Left">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="95" y="72" width="112" height="21" uuid="cf21f2eb-bd2c-4197-9d77-7c592706c4cb"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Fecha de Impresion]]></text>
 			</staticText>
@@ -150,7 +136,7 @@
 			<staticText>
 				<reportElement x="96" y="57" width="124" height="15" uuid="139393cc-709b-46cc-a5e6-71878753487c"/>
 				<textElement>
-					<font fontName="Arial" size="12"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Reporte de Retaceo]]></text>
 			</staticText>
@@ -164,7 +150,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="-4" y="69" width="70" height="18" forecolor="#000000" backcolor="#FFFFFF" uuid="d5b68360-cdf2-47fc-aacc-ba3679214488"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Codigo]]></text>
@@ -172,7 +158,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="70" y="68" width="69" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="fc01dcf7-d055-4be5-a305-37fe85456c53"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Titulo]]></text>
@@ -180,7 +166,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="272" y="62" width="61" height="36" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Existencia Inicial]]></text>
@@ -188,7 +174,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="141" y="67" width="70" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Autor]]></text>
@@ -196,7 +182,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="226" y="68" width="38" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Costo]]></text>
@@ -204,7 +190,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="491" y="66" width="74" height="33" forecolor="#000000" backcolor="#FFFFFF" uuid="06fba36b-b74b-4433-91c2-76fd89ea091e"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Existencia Final]]></text>
@@ -218,7 +204,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="337" y="67" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="8daa936b-8280-4b87-b891-8502dc5e6fab"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Entran]]></text>
@@ -226,7 +212,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="418" y="67" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="53f3f56b-bed9-44cf-888f-85aa6f41f0ad"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Salen]]></text>
@@ -234,7 +220,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="380" y="68" width="39" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="cea6acb9-a765-450d-a21a-530e4d07b20b"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Valor]]></text>
@@ -242,7 +228,7 @@
 			<staticText>
 				<reportElement mode="Transparent" x="453" y="67" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="4e0f907d-1594-4c5d-b872-5e24b4a082c0"/>
 				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
-					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
 				<text><![CDATA[Valor]]></text>
@@ -265,30 +251,66 @@
 			</line>
 			<textField>
 				<reportElement x="-3" y="21" width="53" height="49" uuid="1c9ad97a-b9d1-4c89-aa94-cbd6e34f5cc2"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CORRELATIVO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="70" y="24" width="69" height="46" uuid="481aaddb-5b34-4748-b12d-0458977e3d7c"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREPRODUCTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="144" y="27" width="63" height="43" uuid="bb76eea7-ddaa-437f-84fd-d5ef50680ddf"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{NOMBREAUTOR}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="212" y="32" width="52" height="30" uuid="f3a3ad2c-9b8a-4a85-a0b6-7b6df8ee5169"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{COSTOUNITARIO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="270" y="30" width="50" height="30" uuid="ecae97f7-9060-43da-8022-45dee75f9b21"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDADINICIAL}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="331" y="29" width="59" height="30" uuid="93f23f08-19e0-4d27-88f4-50eb094edf20"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDADAJUSTE}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
+	<pageFooter>
+		<band height="53">
+			<textField>
+				<reportElement x="453" y="23" width="100" height="30" uuid="1507bfa7-ca95-439b-a12e-5760339a4916"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="23" width="100" height="30" uuid="e6418649-1330-4df3-bfb4-351f4a84adbc"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" / " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
 	<summary>
 		<band height="40" splitType="Stretch">
 			<staticText>
@@ -308,7 +330,7 @@
 			<staticText>
 				<reportElement x="1" y="11" width="120" height="18" uuid="46143fa5-2bee-4b72-8d6f-613a537db35c"/>
 				<textElement>
-					<font fontName="Arial" size="9" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total de Productos:]]></text>
 			</staticText>
