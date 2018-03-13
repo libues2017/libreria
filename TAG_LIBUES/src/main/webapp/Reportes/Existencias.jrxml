@@ -14,10 +14,10 @@ YXV0b3IgQVMgLDcwLDIzLDk1YzllMDVkLWVkYmItNGU5My04ZGRkLWFlMTc2YWY2MTViYzs=]]>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="208"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="785"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
-	<parameter name="par_area" class="java.lang.Integer"/>
-	<parameter name="par_tipoprod" class="java.lang.Integer"/>
-	<parameter name="par_provee" class="java.lang.Integer"/>
-	<parameter name="par_editorial" class="java.lang.Integer"/>
+	<parameter name="par_area" class="java.lang.String"/>
+	<parameter name="par_tipoprod" class="java.lang.String"/>
+	<parameter name="par_provee" class="java.lang.String"/>
+	<parameter name="par_editorial" class="java.lang.String"/>
 	<parameter name="par_consig" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT DISTINCT libues.proveedor.`NOMBREPROVEEDOR`,
@@ -49,13 +49,13 @@ WHERE
 	 (libues.producto.`CODIGOPROVEEDOR` = libues.proveedor.`CODIGOPROVEEDOR`) AND	
 	 (libues.producto.`CODTIPOPRODUCTO` = libues.tipoproducto.`CODTIPOPRODUCTO`) AND	
 	 (libues.producto.`CODIGOEDITORIAL` = libues.editorial.`CODIGOEDITORIAL`)AND 
-	(libues.area.`NOMBREAREA`= $P{par_area} ) AND
-	(libues.editorial.`NOMBREEDITORIAL`= $P{par_editorial} ) AND
-	(libues.tipoproducto.`TIPOPRODUCTO` = $P{par_tipoprod}  ) AND
-	(libues.proveedor.`NOMBREPROVEEDOR`= $P{par_provee} ) AND
-	(libues.producto.`CONSIGNACION`= $P{par_consig} )
-	GROUP BY libues.producto.`CODIGOPRODUCTO`
-	ORDER by libues.producto.`NOMBREPRODUCTO`]]>
+	 (libues.area.`NOMBREAREA`= $P{par_area} ) AND
+	 (libues.editorial.`NOMBREEDITORIAL`= $P{par_editorial} ) AND
+	 (libues.tipoproducto.`TIPOPRODUCTO` = $P{par_tipoprod}  ) AND
+	 (libues.proveedor.`NOMBREPROVEEDOR`= $P{par_provee} ) AND
+	 (libues.producto.`CONSIGNACION`= $P{par_consig} )
+GROUP BY libues.producto.`CODIGOPRODUCTO`
+ORDER by libues.producto.`NOMBREPRODUCTO`]]>
 	</queryString>
 	<field name="CORRELATIVO" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="CORRELATIVO"/>
