@@ -1830,8 +1830,10 @@ public class AppControllerLibues {
         model.addAttribute("loggedinuser", getPrincipal());
         HttpSession sesion = request.getSession(true);
         
-        //HttpSession session = request.getSession();
-    	//HttpSession sesion2=request.getSession(true);
+        List<Transferencia> transferencia5 = transferenciaService.findAllTransferencias();
+        Integer transferencia6 = transferencia5.get(transferencia5.size()-1).getCodTransferencia();
+        HttpSession sesion1 = request.getSession(true);
+        sesion1.setAttribute("codigo1", transferencia6);
                 
     	Double total = 0.0;
         if(sesion.getAttribute("codigo1") != null)
@@ -1844,29 +1846,16 @@ public class AppControllerLibues {
           }
           model.addAttribute("total",total);
           model.addAttribute("transferencia2", transferenciaBuscar); 
-       }
-      
-        /*
-        if(sesion.getAttribute("numeroTransferencia")!=null){
-        	sesion2.setAttribute("numeroTransferencia", sesion.getAttribute("numeroTransferencia"));
         }
-        else{
-        	sesion2.setAttribute("numeroTransferencia", 0);
-        }
-        */
+        
+        // Controla la visualizacion del Boton Guardar Requisicion 
+        if(!detalletransferenciaService.findTransferencias(transferencia6).isEmpty())	
+    	{	
+        	model.addAttribute("control6", 1);
+    	}
         
         List<Producto> productos = productoService.findAllProductos();
-
-        //Incrementar Transferencia
-       
-        List<Transferencia> transferencia5 = transferenciaService.findAllTransferencias();
-        Integer transferencia6 = transferencia5.get(transferencia5.size()-1).getCodTransferencia();
-        HttpSession sesion1 = request.getSession(true);
-        sesion1.setAttribute("codigo1", transferencia6);
         model.addAttribute("producto", productos);
-        //numero de transferencia
-        //Integer numeroTransferencia = transferenciaService.findById(transferencia6).getNumeroTransferencia();
-        //sesion1.setAttribute("numeroTransferencia", numeroTransferencia);
         return "detalletransferencia-reg";
     }
     
