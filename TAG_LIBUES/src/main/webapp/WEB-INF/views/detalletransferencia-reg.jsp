@@ -626,10 +626,11 @@ function cambiar3(){
 					</tbody>
 				</table>
 				
-			
-			<div class="well lead" align="center">	
-				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
-			</div>			
+			<c:if test = "${control6 >0}">
+				<div class="well lead" align="center">	
+					<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
+				</div>
+			</c:if>			
 		</form:form>
 </div>
 
