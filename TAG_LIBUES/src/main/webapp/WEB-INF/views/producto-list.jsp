@@ -20,7 +20,7 @@
 		<div class="row">
 		
 		<sec:authorize access="hasRole('ADMINISTRADOR')">
-            <div class="well">
+            <div class="well" align="center">
                 <a href="<c:url value='/producto-agregar' />" class="btn btn-primary">Nuevo Producto</a> |||
                 <a href="<c:url value='/existencias' />" class="btn btn-primary">Reporte</a> |||
                 <a href="<c:url value='/index' />" class="btn btn-primary"> Regresar</a>
