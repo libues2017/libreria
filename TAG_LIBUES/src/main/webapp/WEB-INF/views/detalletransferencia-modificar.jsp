@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Realizar Transferencia</title>
+	<title>Modificar Transferencia</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
@@ -47,6 +47,8 @@
 		}
 	</Style>
 
+
+<%-- 
 <%
 	// Quiero la fecha actual para ponerla por defecto 
 	String fecha="";
@@ -80,6 +82,7 @@
             sAhora=fecha;
 		}
 %>
+--%>
 
 <script type="text/javascript">
 	function producto1(){
@@ -598,7 +601,7 @@ function cambiar3(){
             	-->
 				
 			<div class="well lead" align="center">	
-				<a href="<c:url value='/finalizar1' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
+				<a href="<c:url value='/finalizar-update' />" class="btn btn-primary btn-sm">Guardar Transferencia</a>
 			</div>			
 		</form:form>
 </div>
