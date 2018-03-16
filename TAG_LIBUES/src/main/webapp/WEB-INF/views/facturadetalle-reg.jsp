@@ -71,7 +71,8 @@ p.thicker {
 <script type="text/javascript">
 	function producto(){
 	
-		var nombre = [];		
+		var nombre = [];
+		var bodega = [];
 		var sala = [];
 		var precio = [];  
 		
@@ -85,7 +86,10 @@ p.thicker {
 		      nombre.push("${current.nombreProducto}");
 		      document.getElementById('nombreproducto').value = nombre;
 		      
-   		      sala.push("${current.sala}");
+		      bodega.push("${current.existencia}");
+		      document.getElementById('bodega').value = bodega;
+		      
+		      sala.push("${current.sala}");
 		      document.getElementById('sala').value = sala;
 		      
 		      precio.push("${current.precio}");
@@ -203,12 +207,22 @@ function cambiar(){
         	}
 }
 function validar() {	
-	var sala = parseInt(document.getElementById("sala").value);	
+	var sala = parseInt(document.getElementById("sala").value);
+	var bodega = parseInt(document.getElementById("bodega").value);
+	var existencia = sala + bodega
 	var cantidad = parseInt(document.getElementById("cantidad").value);	
 	var precio=document.getElementById('precio').value;
 	
 		if(sala < cantidad){
-			alert('NO HAY SUFICIENTE PRODUCTO');
+			alert('No hay suficiente producto en SALA. Se tomara de BODEGA');
+			
+			if(existencia < cantidad){
+				alert('No hay suficiente producto para realizar la venta.');
+			}
+			else {
+				var subtotal = document.getElementById('subtotalfactura').value=parseFloat(precio)*(parseInt(cantidad));
+				$("#agregar").focus();
+			}
 		}
 		else {
 			var subtotal = document.getElementById('subtotalfactura').value=parseFloat(precio)*(parseInt(cantidad));
@@ -290,9 +304,13 @@ function vuelto(){
 							<form:input type="number" path="codigoproducto" id="codigoproducto" placeholder="DIGITAR(####)" class="form-control input-sm" 
 										onchange='producto(); cambiar(); '/>
 						</div>	
-						<div class="col-xs-8" align="center">
+						<div class="col-xs-6" align="center">
 							<label class="form-control" for="nombr">Titulo:</label>
 							<form:input type="text" path="nombreproducto" id="nombreproducto" placeholder="AUTOMÁTICO" class="form-control input-sm" onchange="nombreprod()"/>
+						</div>
+						<div class="col-xs-2">
+							<label class="form-control" for="sala">Bodega:</label>
+							<input type="number" min="0" id="bodega" placeholder="AUTOMÁTICO" class="form-control input-sm"  />
 						</div>
 						<div class="col-xs-2">
 							<label class="form-control" for="sala">Sala:</label>
