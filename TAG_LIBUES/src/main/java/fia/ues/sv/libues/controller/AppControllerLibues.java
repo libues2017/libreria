@@ -1995,18 +1995,17 @@ public class AppControllerLibues {
     
     
    @RequestMapping(value = { "/edit-detalleTransferencia-{codTransferencia}" }, method = RequestMethod.POST)
-    public String updateTransferencia(@Valid DetalleTransferencia detalleTransferencia, BindingResult result,
+    public String updateTransferencias(@Valid DetalleTransferencia detalleTransferencia, BindingResult result,
         ModelMap model, @PathVariable Integer codTransferencia, HttpServletRequest request) throws IOException, ParseException {
  
         if (result.hasErrors()) {
-            return "detalletransferencia-reg";
+            return "detalletransferencia-modificar";
         }
         
         HttpSession sesion = request.getSession();
         Integer punto = (Integer)sesion.getAttribute("punto");
  
         detalletransferenciaService.savedetalleTransferencia(detalleTransferencia);
-        //model.addAttribute("success", "transferencia: <strong>" + detalleTransferencia.getCodTransferencia()+"</strong> Se ha Actualizado ");
         model.addAttribute("loggedinuser", getPrincipal());
         return "redirect:/edit-detalleTransferencia-{codTransferencia}";
     }

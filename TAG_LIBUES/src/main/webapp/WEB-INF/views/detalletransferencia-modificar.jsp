@@ -190,21 +190,22 @@
 	 // campo="costoproducto";
 	  
 	 if (!/^([0-9])*[.]?[0-9]*$/.test(numero) ){
-		 	alert("El valor " + campo + " no es un número valido");
-	   		//$("#glypcn"+campo).remove();
+		 	//alert("El valor " + campo + " no es un número valido");
+	   		$("#glypcn"+campo).remove();
             //$('#'+campo).parent().parent().attr("class", "form-group has-error has-feedback");
             //$('#'+campo).parent().children('span').text("no es un numero").show();
-            //$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+            $('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-remove form-control-feedback'></span>");
             return false;
 	 }  
         
      else{
     	 	var comparar = document.getElementById("tipoTransferencia").value;
     	 	if(comparar == "Ingresos"){
-	    	 	//$("#glypcn"+campo).remove();
+	    	 	$("#glypcn"+campo).remove();
 				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-				//$('#'+campo).parent().children('span').hide();
-				//$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				$('#'+campo).parent().children('span').hide();
+				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				
 				var existencia = 0;
 	    		var costoexistencia = 0.0;
 	    		var precioventa = 0.0;
@@ -271,6 +272,18 @@
 		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
 		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
 		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
+		  		
+		  		var boton3 = document.getElementById("agregar");
+		  		if(cantidad > 0 && costoproducto > 0){
+		  			document.getElementById("agregar").style.display ='block';
+					document.getElementById("validar").style.display ='none';
+		  		}
+		  		
+		  		else{
+		  			document.getElementById("validar").style.display ='block';
+					document.getElementById('validar').innerHTML = 'Por favor, llenar y seleccionar todos los campos que se le piden en el formulario'
+		  		}
+		  		
 		  		//alert(CPEX);
 		  
 		 		/* return true;
@@ -280,10 +293,11 @@
     	 	
     	 	else{
     	 		
-    	 		//$("#glypcn"+campo).remove();
+    	 		$("#glypcn"+campo).remove();
 				//$('#'+campo).parent().parent().attr("class", "form-group has-success has-feedback");
-				//$('#'+campo).parent().children('span').hide();
-				//$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				$('#'+campo).parent().children('span').hide();
+				$('#'+campo).parent().append("<span id='glypcn"+campo+"' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+				
 				var existencia = 0;
 	    		var costoexistencia = 0.0;
 	    		var precioventa = 0.0;
@@ -341,6 +355,17 @@
 		  			$("#agregar").focus();
 		  		}
 		 		
+				var boton2 = document.getElementById("agregar");
+		  		
+		  		if(cantidad > 0){
+		  			document.getElementById("agregar").style.display ='block';
+					document.getElementById("validar").style.display ='none';
+		  		}
+		  		else{
+		  			document.getElementById("validar").style.display ='block';
+					document.getElementById('validar').innerHTML = 'Por favor, llene y seleccione todos los campos que se le piden en el formulario'
+		  		}
+		  		
 		  		var cla4 = document.getElementById('existenciaAnterior').value=PEX;
 		  		var cla5 = document.getElementById('costoAnterior').value=CPEX;
 		  		var cla6 = document.getElementById('precioAnterior').value=PVA;
