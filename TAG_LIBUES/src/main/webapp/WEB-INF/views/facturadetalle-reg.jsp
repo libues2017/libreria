@@ -287,7 +287,7 @@ function vuelto(){
 				<div class="col-xs-3">
 					<label class="form-control" for="tipocredito">Tipo de Crédito:</label>
 					<SELECT id="tipocredito" name="tipocredito" class="form-control input-sm" onchange="sesion();">
-						<OPTION VALUE=" "> </OPTION>
+						<OPTION VALUE=" ">NO CREDITO (Contado)</OPTION>
 						<OPTION VALUE="EMPLEADOS UES" >Empleado UES</OPTION>
 						<OPTION VALUE="INSTITUCIONAL" >Institucional</OPTION>
 					</SELECT>
