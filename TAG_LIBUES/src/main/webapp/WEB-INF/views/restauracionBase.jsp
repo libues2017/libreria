@@ -1,39 +1,26 @@
 <%@page import="java.sql.*" %>
-<%@page import ="java.util.Calendar" %>
-<%--
-
-try{
-    Calendar fecha = Calendar.getInstance();
-    String fechaHoy = fecha.get(Calendar.DATE)+"_"+fecha.get(Calendar.MONTH)+"_"+fecha.get(Calendar.YEAR);
-    String nombre = "Respaldo_Sistema_"+fechaHoy+".sql";
-    int copia_seguridad;
-
-   Process runtimeProcess = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
-   //Process runtimeProcess = Runtime.getRuntime().exec("/opt/lampp/bin/mysqldump --opt  --password=root --user=root --databases libues -r C:/Respaldo/"+nombre);
-    copia_seguridad = runtimeProcess.waitFor(); 
-
-    if(copia_seguridad==0){ //Devuelve 0 si todo ha salido bien
---%>      <script> 
-            //function respaldoRealizado() {
-              //  alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco duro del servidor \n/home/gestor/Respaldo/");
-                //alert("El respaldo ha sido creado con exito.\n\nCompruebe la ubicacion del archivo en el disco local \nC:/Respaldo/");
-               // location.href="/TAG_LIBUES/index"; 
-            //} 
-            //respaldoRealizado(); 
-        </script> 
-<%--       
-    } else {
---%>      <script> 
-            //function respaldoNoRealizado() {
-              //  alert("El respaldo no se pudo generar");
-               // location.href="/TAG_LIBUES/index"; 
-            } 
-            //respaldoNoRealizado(); 
-        </script> 
-<%--  
-    }
-
-} catch(Exception e){
-    out.println(e);
-    } 
---%>
+<%@page import ="java.io.*" %>
+<%
+    try {
+        //Process p = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe -u root -p nbuser database basedatos1");
+        Process p = Runtime.getRuntime().exec("/opt/lampp/bin/mysql -u root -p root database prueba");
+        
+        OutputStream os = p.getOutputStream();
+        FileInputStream fis = new FileInputStream("/home/vladimir/mytemp/Respaldo.sql");
+        byte[] buffer = new byte[1000];
+ 
+        int leido = fis.read(buffer);
+        while (leido > 0) {
+            os.write(buffer, 0, leido);
+            leido = fis.read(buffer);     
+        }
+       
+        os.flush();
+        os.close();
+        fis.close();
+ 
+    } catch (Exception e) {
+        e.printStackTrace();
+      
+   }
+%>
