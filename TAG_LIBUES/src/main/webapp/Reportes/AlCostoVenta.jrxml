@@ -11,23 +11,24 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="codigo" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT libues.cotizacion.`CODIGOCOTIZACION`,
-	libues.cotizacion.`TELEFONO`,
-	libues.cotizacion.`NOMBRECLIENTE`,
-	libues.cotizacion.`CORREO`,
-	libues.cotizacion.`FECHACOTIZACION`,
-	libues.cotizacion.`TOTAL`,
-	libues.detallecotizacion.`NUMERODETALLE`,
-	libues.detallecotizacion.`CODIGOPRODUCTO`,
-	libues.detallecotizacion.`NOMBREPRODUCTO`,
-	libues.detallecotizacion.`CANTIDAD`,
-	libues.detallecotizacion.`VALORUNITARIO`,
-	libues.detallecotizacion.`VALORTOTAL`
-FROM libues.detallecotizacion
-	INNER JOIN libues.cotizacion ON 
-	 libues.detallecotizacion.`CODIGOCOTIZACION` = libues.cotizacion.`CODIGOCOTIZACION`
-WHERE (libues.cotizacion.`CODIGOCOTIZACION`= $P{codigo})
-Group by libues.detallecotizacion.`CODIGOPRODUCTO`]]>
+		<![CDATA[select 
+					     `IDFACTURA`,fechafactura,
+					     sum(CASE 
+					     WHEN TIPOFACTURA = "CONTADO" THEN F.Total
+					     ELSE '0' 
+					     end) AS "Contado",
+					     sum(CASE 
+					     WHEN TIPOCREDITO = "EMPLEADOS UES" THEN F.Total
+					     ELSE '0' 
+					     end) AS "Credito Empleados",
+					     sum(CASE 
+					     WHEN (TIPOFACTURA = "CREDITO" and TIPOCREDITO = "") THEN F.Total
+					     ELSE '0' 
+					     end) AS "Credito Institucional",
+					     T.TOTAL AS "Transferencias"     
+					FROM FACTURA F LEFT JOIN transferencia T
+					on  F.FECHAFACTURA=T.FECHATRANSFERENCIA
+					Group by (FECHAFACTURA)]]>
 	</queryString>
 	<field name="CODIGOCOTIZACION" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGOCOTIZACION"/>
