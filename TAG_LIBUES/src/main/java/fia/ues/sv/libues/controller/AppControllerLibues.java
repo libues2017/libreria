@@ -1723,23 +1723,30 @@ public class AppControllerLibues {
           sesion.setAttribute("codigoultimo", codigoretaceo);
         
     	
-    	/*Requisicion requisicion = requisicionService.findById(codigorequisicion);
-    	model.addAttribute("requisicion", requisicion);
-        HttpSession sesion=request.getSession(true);
-        sesion.setAttribute("codigoultimo", codigorequisicion);
-        
-        if(sesion.getAttribute("codigoultimo") != null)
-        {
-          Integer codigo1 = (Integer) sesion.getAttribute("codigoultimo");
-          List<DetalleRequisicion> requisicionBuscar = detallerequisicionService.findRequisiciones(codigo1);          
-          model.addAttribute("req1", requisicionBuscar); 
-        }*/
+    	
         
         return "retaceo-detalle";
     } 
     
     
     
+    @RequestMapping(value = { "/alcostoventa" }, method = RequestMethod.GET)
+    public String AlCostoVenta(HttpServletRequest request,@PathVariable Integer codigoretaceo, ModelMap model) throws IOException {
+       
+    	Retaceo retaceo=retaceoService.findById(codigoretaceo);
+    	model.addAttribute("retaceo", retaceo);
+    	
+    	  
+                // Integer codigo1 = (Integer) sesion.getAttribute("codigoultimo");
+          
+          List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
+          model.addAttribute("detalleretaceo", retaceoBuscar); 
+        
+          HttpSession sesion=request.getSession(true);
+          sesion.setAttribute("codigoultimo", codigoretaceo);
+        
+        return "al-costo-venta";
+    } 
     
     
     
