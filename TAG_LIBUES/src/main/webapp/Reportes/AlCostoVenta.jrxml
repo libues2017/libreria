@@ -8,7 +8,7 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="227"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="766"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<queryString language="SQL">
 		<![CDATA[select 
 					    sum(CASE 
@@ -143,6 +143,10 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 			<textField>
 				<reportElement x="3" y="19" width="100" height="13" uuid="f871033c-85d5-41ec-9c17-6e5a963962a6"/>
 				<textFieldExpression><![CDATA[$F{Contado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="522" y="14" width="38" height="30" uuid="40afc3f4-706c-4a3d-b57c-2630831999a9"/>
+				<textFieldExpression><![CDATA[SUM($F{Contado},$F{CreditoEmpleados},$F{CreditoInstitucional},$F{Transferencias})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
