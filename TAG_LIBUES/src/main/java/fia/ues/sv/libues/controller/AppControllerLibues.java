@@ -1743,7 +1743,7 @@ public class AppControllerLibues {
           model.addAttribute("detalleretaceo", retaceoBuscar); 
         
           HttpSession sesion=request.getSession(true);
-          sesion.setAttribute("codigoultimo", codigoretaceo);
+          sesion.setAttribute("codigoultimo", 1);
         
         return "al-costo-venta";
     } 
