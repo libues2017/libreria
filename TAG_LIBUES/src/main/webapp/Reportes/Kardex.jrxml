@@ -40,7 +40,8 @@ WHERE
 	(libues.autor.`CODIGOAUTOR` = libues.autor_libro.`CODIGOAUTOR`)	 AND
 	(libues.producto.`CORRELATIVO` = libues.bitacora.`CODIGOPRODUCTO`) AND
     (libues.producto.`CODIGOPRODUCTO` = libues.autor_libro.`CODIGOPRODUCTO`) AND
-	(libues.bitacora.`FECHABITACORA` between $P{fechini} and $P{fenili})]]>
+	(libues.bitacora.`FECHABITACORA` between $P{fechini} and $P{fenili})
+	Group by libues.bitacora.'CODIGOPRODUCTO']]>
 	</queryString>
 	<field name="CODIGOBITACORA" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="CODIGOBITACORA"/>

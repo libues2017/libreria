@@ -2,12 +2,12 @@
 <%@page import ="java.io.*" %>
 <%
     try {
-        //Process p = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysqldump.exe -u root -p nbuser database basedatos1");
-        Process p = Runtime.getRuntime().exec("/opt/lampp/bin/mysql -u root -p root database prueba");
+        Process p = Runtime.getRuntime().exec("C:/xampp/mysql/bin/mysql -u root -p root database base1");
+       // Process p = Runtime.getRuntime().exec("/opt/lampp/bin/mysql -u root -p root database prueba");
         
         OutputStream os = p.getOutputStream();
-        FileInputStream fis = new FileInputStream("/home/vladimir/mytemp/Respaldo.sql");
-        byte[] buffer = new byte[1000];
+        FileInputStream fis = new FileInputStream("c:/mytemp/Respaldo.sql");
+        byte[] buffer = new byte[10];
  
         int leido = fis.read(buffer);
         while (leido > 0) {
@@ -20,7 +20,7 @@
         fis.close();
  
     } catch (Exception e) {
-        e.printStackTrace();
+       e.printStackTrace();
       
    }
 %>
