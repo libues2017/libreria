@@ -165,7 +165,7 @@
             						<li><a href="<c:url value="entrada_mensual" />">Reportes de Entradas Mensuales</a></li>
             						<li role="separator" class="divider"></li>
             						<li><a href="<c:url value="venta_mensual_gastos" />">Reportes de Ventas por Específico de Gastos</a></li>
-            						<li><a href="<c:url value="alcostoventa" />">Reportes al costo de venta</a></li>
+            						<li><a href="<c:url value="/reporte-alcostoventa" />">Reportes al costo de venta</a></li>
 		          		</ul>			          			
 				        </li>
 					</sec:authorize>

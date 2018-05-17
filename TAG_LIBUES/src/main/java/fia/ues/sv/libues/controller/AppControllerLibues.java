@@ -1730,24 +1730,7 @@ public class AppControllerLibues {
     
     
     
-    @RequestMapping(value = { "/alcostoventa" }, method = RequestMethod.GET)
-    public String AlCostoVenta(HttpServletRequest request,@PathVariable Integer codigoretaceo, ModelMap model) throws IOException {
-       
-    	Retaceo retaceo=retaceoService.findById(codigoretaceo);
-    	model.addAttribute("retaceo", retaceo);
-    	
-    	  
-                // Integer codigo1 = (Integer) sesion.getAttribute("codigoultimo");
-          
-          List<DetalleRetaceo> retaceoBuscar = detalleretaceoService.findRetaceos(codigoretaceo);
-          model.addAttribute("detalleretaceo", retaceoBuscar); 
-        
-          HttpSession sesion=request.getSession(true);
-          sesion.setAttribute("codigoultimo", 1);
-        
-        return "al-costo-venta";
-    } 
-    
+   
     
     
     @RequestMapping(value = { "/edit-Parametro-Retaceo-{utilidad}" }, method = RequestMethod.GET)
@@ -2111,6 +2094,17 @@ public class AppControllerLibues {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "GenerarReporteRetaceo";
 	}
+    
+    
+    
+    @RequestMapping(value = { "/reporte-alcostoventa" }, method = RequestMethod.GET)
+    public String AlCostoVenta(HttpServletRequest request,@PathVariable Integer codigoretaceo, ModelMap model) throws IOException {
+       
+    	
+    		model.addAttribute("loggedinuser", getPrincipal());
+    		return "GenerarReporteRetaceo";
+    } 
+    
     
     @RequestMapping(value={"/tralados"}, method = RequestMethod.GET)
 	public String horashombre(ModelMap model){
