@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row"><h2 class="text-center"><small>Librería Universitaria</small></h2></div>
-        <div class="row"><h3 class="text-center">Reporte de Retaceo de Productos</h3></div>
+        <div class="row"><h3 class="text-center">Reporte al costo de venta</h3></div>
 
         </br>
         </br>
