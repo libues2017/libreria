@@ -52,7 +52,7 @@
 
         </br>
         </br>
-        <form class="form-horizontal" role="form" action="<c:url value="/tralados" />" target="_blank">
+        <form class="form-horizontal" role="form" action="<c:url value="/al-costo-venta" />" target="_blank">
 
             <div class="form-group">
                 <label class="control-label col-sm-4" for="email">Fecha desde:</label>
