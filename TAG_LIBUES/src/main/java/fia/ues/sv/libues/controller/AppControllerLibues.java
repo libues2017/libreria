@@ -2098,7 +2098,7 @@ public class AppControllerLibues {
     
     
     @RequestMapping(value = { "/reporte-alcostoventa" }, method = RequestMethod.GET)
-    public String AlCostoVenta(HttpServletRequest request,@PathVariable Integer codigoretaceo, ModelMap model) throws IOException {
+    public String AlCostoVenta(HttpServletRequest request, ModelMap model) throws IOException {
        
     	
     		model.addAttribute("loggedinuser", getPrincipal());
