@@ -2102,7 +2102,7 @@ public class AppControllerLibues {
        
     	
     		model.addAttribute("loggedinuser", getPrincipal());
-    		return "GenerarReporteRetaceo";
+    		return "al-costo-venta";
     } 
     
     

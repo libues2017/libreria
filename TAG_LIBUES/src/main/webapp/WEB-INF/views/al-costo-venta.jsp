@@ -73,11 +73,11 @@
             <div class="form-group">
                 <div class="col-sm-offset-6 col-sm-10">
                     <button type="submit" class="btn btn-primary">Generar Reporte costo de Venta</button>
-                      <a class="btn btn-danger" href="<c:url value="/detalleretaceo-list" />" role="button">Listado Retaceos</a>
+                     
                 </div>
 
 <input type="hidden" value="${loggedinuser}" name="usuario"/>
-<input type="hidden" value="Retaceo.jasper" name="nombre"/>
+<input type="hidden" value="AlCostoVenta.jasper" name="nombre"/>
             </div>
 	</form>
 	<script src="<c:url value="/static/js/jquery-1.12.4.min.js"/>"></script>
