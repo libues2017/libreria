@@ -12,18 +12,18 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	<queryString language="SQL">
 		<![CDATA[select 
 					    sum(CASE 
-					     WHEN TIPOFACTURA = "CONTADO" THEN F.Total
+					     WHEN TIPOFACTURA = 'CONTADO' THEN F.Total
 					     ELSE '0' 
-					     end) AS "Contado",
+					     end) AS 'Contado',
 					     sum(CASE 
-					     WHEN TIPOCREDITO = "EMPLEADOS UES" THEN F.Total
+					     WHEN TIPOCREDITO = 'EMPLEADOS UES' THEN F.Total
 					     ELSE '0' 
-					     end) AS "CreditoEmpleados",
+					     end) AS 'CreditoEmpleados',
 					     sum(CASE 
-					     WHEN (TIPOFACTURA = "CREDITO" and TIPOCREDITO = ""  ) THEN F.Total
+					     WHEN (TIPOFACTURA = 'CREDITO' and TIPOCREDITO = ""  ) THEN F.Total
 					     ELSE '0' 
-					     end) AS "CreditoInstitucional",
-					     T.TOTAL AS "Transferencias"     
+					     end) AS 'CreditoInstitucional',
+					     T.TOTAL AS 'Transferencias'     
 					FROM FACTURA F LEFT JOIN transferencia T
 					on  F.FECHAFACTURA=T.FECHATRANSFERENCIA
 					Group by (FECHAFACTURA)]]>
