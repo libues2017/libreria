@@ -8,7 +8,7 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	</property>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="227"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="766"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<queryString language="SQL">
 		<![CDATA[select 
 					    sum(CASE 
@@ -129,24 +129,24 @@ MWY0LTRlYjEtODI5Mi1kOGNhZjA0MmJjZDU7]]>
 	<detail>
 		<band height="44" splitType="Stretch">
 			<textField>
-				<reportElement x="130" y="18" width="114" height="17" uuid="f7d5e389-8946-4821-b9d8-4b9aeece18a2"/>
+				<reportElement x="130" y="19" width="114" height="17" uuid="f7d5e389-8946-4821-b9d8-4b9aeece18a2"/>
 				<textFieldExpression><![CDATA[$F{CreditoEmpleados}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="276" y="18" width="112" height="19" uuid="ef783204-9426-43d0-b9a3-52b2303bda99"/>
+				<reportElement x="276" y="19" width="112" height="19" uuid="ef783204-9426-43d0-b9a3-52b2303bda99"/>
 				<textFieldExpression><![CDATA[$F{CreditoInstitucional}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="402" y="18" width="96" height="16" uuid="a98f58bc-b4e0-4452-82ad-f25aafa22e79"/>
+				<reportElement x="402" y="19" width="96" height="16" uuid="a98f58bc-b4e0-4452-82ad-f25aafa22e79"/>
 				<textFieldExpression><![CDATA[$F{Transferencias}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="19" width="100" height="13" uuid="f871033c-85d5-41ec-9c17-6e5a963962a6"/>
+				<reportElement x="0" y="20" width="100" height="13" uuid="f871033c-85d5-41ec-9c17-6e5a963962a6"/>
 				<textFieldExpression><![CDATA[$F{Contado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="505" y="14" width="55" height="30" uuid="40afc3f4-706c-4a3d-b57c-2630831999a9"/>
-				<textFieldExpression><![CDATA[SUM($F{Contado},$F{CreditoEmpleados},$F{CreditoInstitucional},$F{Transferencias})]]></textFieldExpression>
+				<reportElement x="505" y="14" width="65" height="30" uuid="40afc3f4-706c-4a3d-b57c-2630831999a9"/>
+				<textFieldExpression><![CDATA[SUM($F{Contado},$F{CreditoEmpleados},$F{CreditoInstitucional})]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
